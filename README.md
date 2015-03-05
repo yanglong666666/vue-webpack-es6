@@ -7,7 +7,7 @@
 
 此后台开户系统将涵盖：网开、网厅甚至商城后台。
 
-##辅助工具
+## 辅助工具
 
 * html: [Jekyll](http://jekyllrb.com/)
 * 样式预编译器：[SASS](http://sass-lang.com/)

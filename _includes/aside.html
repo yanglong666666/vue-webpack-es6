@@ -1,0 +1,53 @@
+
+<ul class="expmenu">
+		<li>
+			<div class="header">
+				<span class="label">Messages</span>
+				<span class="arrow down"></span>
+			</div>
+			<ul class="menu" style="display: none;">
+				<li>Notification Settings</li>
+				<li class="selected">Email Alerts</li>
+				<li>Privacy Settings</li>
+			</ul>
+		</li>
+		<li>
+			<div class="header">
+				<span class="label">User Controls</span>
+				<span class="arrow down"></span>
+			</div>
+			<ul class="menu" style="display: none;">
+				<li>
+					<div class="slider">
+						<div class="progress"></div>
+						<a href="#" class="handle"></a>
+					</div>
+					<input type="text" data-orig-type="range" name="range" min="0" max="100" value="35" style="width:100%;" class="range">
+				</li>
+			</ul>
+			<link rel="stylesheet" href="css/aside.css" type="text/css">
+			<script type="text/javascript" src="js/aside.js"></script>
+			<script type="text/javascript">
+			$(document).ready(function(){
+									   
+				//滑动条
+				$(":range").rangeinput({progress: true});
+				
+			});
+			</script>
+		</li>
+		<li>
+			<div class="header">
+				<span class="label">Screen Settings</span>
+				<span class="arrow down"></span>
+			</div>
+			<ul class="menu">
+				<li>Your settings</li>
+			</ul>
+		</li>
+		<li>
+			<div class="header">
+				<span class="label">Search</span>
+			</div>
+		</li>
+	</ul>

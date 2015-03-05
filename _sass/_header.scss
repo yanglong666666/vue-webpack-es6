@@ -1,0 +1,75 @@
+.site-header {
+	position: relative;
+	height: 76px;
+	background: #46516f;
+	color: #fff;
+	.header-inner {
+		position: relative;
+		left: 0px;
+		top: 0px;
+		ul {
+			position: absolute;
+			top: 76px;
+			left: 0px;
+		}
+	}
+	.site-nav {
+		position: absolute;
+		left: 150px;
+		top: 0px;
+		ul {
+			@extend %clearfix;
+			li {
+				float: left;
+				a {
+					display: inline-block;
+					font-size: 16px;
+					color: #fff;
+					height: 72px;
+					line-height: 72px;
+					padding: 0px 35px;
+					margin-right: 15px;
+					&.xtgg {
+						border-bottom: 4px solid #e4788c;
+						&:hover {
+							background: #e4788c;
+						}
+					}
+					&.spyz {
+						border-bottom: 4px solid #b897f3;
+						&:hover {
+							background: #b897f3;
+						}
+					}
+					&.zsbf {
+						border-bottom: 4px solid #44c1de;
+						&:hover {
+							background: #44c1de;
+						}
+					}
+					&.khsh {
+						border-bottom: 4px solid #f3cd97;
+						&:hover {
+							background: #f3cd97;
+						}
+					}
+					&.khfh {
+						border-bottom: 4px solid #63a9ff;
+						&:hover {
+							background: #63a9ff;
+						}
+					}
+				}
+			
+
+			}
+		}
+	}
+	h1 {
+		position: absolute;
+		right: 25px;
+		top: 25px;
+		font-size: 16px;
+		color: #828e9e;
+	}
+}
