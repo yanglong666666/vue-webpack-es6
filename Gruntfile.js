@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    port: 4000,
+                    port: 4001,
                     middleware: function(connect) {
                         return [mountFolder(connect, '_site')];
                     }
