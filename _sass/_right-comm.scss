@@ -1,7 +1,7 @@
 .right-content {
   padding: 15px;
   .main-content {
-  	@extend %clearfix;
+  	position: relative;
   	padding: 20px;
   	background: #f0f4fb;
   	margin-left: 150px;
