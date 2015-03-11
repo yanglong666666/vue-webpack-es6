@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         },
         watch: {
             site: {
-                files: ['default/**', '_includes/**', '_layouts/**'], //监视jekyll站点文件
+                files: ['source/default/**', 'source/_includes/**', 'source/_layouts/**', 'source/_sass/**'], //监视jekyll站点文件
                 tasks: ['jekyll']
             },
             css: {
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-jekyll');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['sass', 'jekyll', 'connect', 'watch']);
+    grunt.registerTask('default', ['jekyll', 'connect', 'watch']);
    // grunt.registerTask('build', ['sass', 'jekyll', 'connect', 'watch']); //目前运行的插件及路径,注意顺序
     grunt.registerTask('release', ['uglify']); //目前运行的插件及路径,注意顺序
    
