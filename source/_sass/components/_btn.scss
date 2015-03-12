@@ -8,9 +8,22 @@
 	color: #3ecacb;
 	border-radius: 5px;
 	font-size: 14px;
-	&.big {
+	&.small {
+		height: 25px;
+		line-height: 25px;
+	}
+	&.w130 {
+		width: 130px;
+	}
+	&.middle {
 		height: 35px;
 		line-height: 35px;
+	}
+	&.big {
+		height: 45px;
+		line-height: 45px;
+		width: 230px;
+		font-size: 22px;
 	}
 	&.fill {
 		background: #3ecacb;
