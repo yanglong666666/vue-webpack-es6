@@ -2,9 +2,7 @@
 	position: relative;
 	float: left;
 	width: 150px;
-	background: #3a3d42;
 	padding-top: 10px;
-	min-height: 900px;
 	.leftul {
 		li {
 			text-align: center;
@@ -244,4 +242,13 @@
 			}
 		}
 	}
+}
+.leftShadow {
+	background: url('../images/back.png') right top repeat-y #3a3d42;
+	_background: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	width: 150px;
 }

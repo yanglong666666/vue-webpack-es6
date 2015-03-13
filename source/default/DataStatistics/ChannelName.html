@@ -1,0 +1,281 @@
+---
+title: 渠道名称
+layout: statistics
+---
+<div class="tab-content">
+	<div class="tab">
+		<a class="tab1 active" href="{{ site.baseurl }}/DataStatistics/ChannelName.html">渠道名称</a>
+		<a class="tab2" href="{{ site.baseurl }}/DataStatistics/ChannelProperties.html">渠道属性</a>
+	</div>
+</div>
+<div class="main-content">
+	<div class="search-content">
+		<a class="btn middle fill" href="#">今日</a>
+		<a class="btn middle" href="#">昨日</a>
+		<a class="btn middle" href="#">最近7日</a>
+		<a class="btn middle" href="#">最近30日</a>
+        <a class="btn middle" href="#">全部</a>
+		<label>
+			<input class="txt" type="text" placeholder="开始时间" id="beginTime">
+			<i></i>
+		</label>
+		<span class="pre">至</span>
+		<label>
+			<input class="txt" type="text" placeholder="截止时间" id="finishTime">
+			<i></i>
+		</label>
+	</div>
+	<div id="all_search_list">
+		<div class="alllistname active">
+            <h3>渠道名称</h3>
+            <div class="search-box" id="search_qdmc">
+                <label class="search-label" for="channel">
+                     <input type="text" name="" value="" class="search-input channel" id="input_channel">
+                </label>
+            </div>
+            <div class="content-name" id="attr_channel" style="display:none">
+                <div class="attr-panl">
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全部</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                    <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>渠道名称1</a>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="align-right">
+        <a class="btn small w130" href="#">输出报表</a>
+    </div>
+</div>
+<div class="main-content no-back">
+	<div id="open_account_bar" style="height:500px;"></div>
+	<table width="40%" cellpadding="0" cellspacing="0" class="simple-table">
+		<thead>
+			<tr>
+				<td width="35%"></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="title">状态</td>
+				<td>有效</td>
+			</tr>
+			<tr>
+				<td class="title">渠道名称</td>
+				<td>渠道名称1</td>
+			</tr>
+			<tr>
+				<td class="title">佣金模板</td>
+				<td>网上开户-上海南路营业部</td>
+			</tr>
+			<tr>
+				<td class="title">接入方式</td>
+				<td>财人汇手机</td>
+			</tr>
+			<tr>
+				<td class="title">合作机构</td>
+				<td>新浪网</td>
+			</tr>
+			<tr>
+				<td class="title">营销人</td>
+				<td>张三</td>
+			</tr>
+			<tr>
+				<td class="title">营业部</td>
+				<td>上海南路营业部</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="main-content">
+	<div id="open_account_line" style="height:600px"></div>
+</div>
+<script src="../../javascript/highcharts.js" type="text/javascript"></script>
+<script src="../../javascript/exporting.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+	//输入框输入内容时，模拟查询结果的效果
+	$('#input_channel').bind('input propertychange', function() {		
+		if($(this).val() != "") {
+			$('#attr_channel').show();
+		} else {
+			$('#attr_channel').hide();
+		}
+	}); 
+	$('.attr-panl').find('a').click(function() {//多选选中状态
+        if($(this).hasClass('current')) {
+            $(this).removeClass('current');
+        } else {
+            $(this).addClass('current');
+        }
+    });
+	//柱形图模拟
+	var colors = Highcharts.getOptions().colors,
+        categories = ['注册用户', '开户申请', '开户成功', '开户失败']
+        data = [{
+                y: 334455,
+                color: colors[0]
+            }, {
+                y: 233333,
+                color: colors[1],
+            }, {
+                y: 200000,
+                color: colors[2],
+                
+            }, {
+                y: 3000,
+                color: colors[3],
+                
+            }];
+
+    function setChart(name, categories, data, color) {
+	chart.xAxis[0].setCategories(categories, false);
+	chart.series[0].remove(false);
+	chart.addSeries({
+		name: name,
+		data: data,
+		color: color || 'white'
+	}, false);
+	chart.redraw();
+    }
+
+    var chart = $('#open_account_bar').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: null
+        },
+        legend: {
+            enabled: false
+        },
+        xAxis: {
+            categories: categories,
+            labels: {
+                style: {
+                	fontFamily: 'Microsoft YaHei',
+                    fontSize: 14,
+                    color: '#3a3d42'
+                }
+            }
+        },
+        yAxis: {
+            title: {
+                text: null
+            },
+            labels: {
+            	enabled: false
+            },
+            gridLineWidth: 0
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,
+                    color: '#a6a6a6',
+                    formatter: function() {
+                        return this.y;
+                    }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                var point = this.point,
+                    s = this.x +':<b>'+ this.y +'</b><br/>';
+                return s;
+            }
+        },
+        series: [{
+            name: name,
+            data: data,
+            color: 'white'
+        }],
+        exporting: {
+            enabled: false
+        }
+    })
+    .highcharts(); // return chart
+
+    //折线统计图模拟
+    $('#open_account_line').highcharts({
+    	chart: {
+            backgroundColor: '#f0f4fb',
+            type: 'line'
+        },
+        title: {
+            text: '数据走势', //center
+            style: {
+                fontFamily: 'Microsoft YaHei',
+                color: '#6f7b91',
+                fontSize:'20px',
+                fontWeight:'bold'
+            }
+        },
+        xAxis: {
+        	gridLineColor: '#dedede',
+        	gridLineWidth: 1,
+        	lineColor: '#3ecacb',
+            lineWidth: 2,
+            labels: {
+                rotation: -30,
+                style: {
+                    fontSize: 12,
+                    color: '#c0c5ce'
+                }
+            },
+            categories: ['2015/1/1', '2015/1/2', '2015/1/3', '2015/1/4', '2015/1/5', '2015/1/6','2015/1/7', '2015/1/8', '2015/1/9', '2015/1/10', '2015/1/11', '2015/1/12', '2015/1/13', '2015/1/14', '2015/1/15', '2015/1/16', '2015/1/17', '2015/1/18', '2015/1/19', '2015/1/20', '2015/1/21', '2015/1/22', '2015/1/23', '2015/1/24', '2015/1/25', '2015/1/26', '2015/1/27', '2015/1/28', '2015/1/29', '2015/1/30']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: null
+            },
+            gridLineColor: '#dedede',
+            gridLineWidth: 1,
+            lineColor: '#3ecacb',
+            lineWidth: 2,
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+        	headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y} 人</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        legend: {
+            verticalAlign: 'top',
+            y: 25
+        },
+        series: [{
+            name: '注册开户',
+            data: [1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300, 400, 400, 402, 405, 700, 100, 130, 103, 105, 200, 1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300]
+        }, {
+            name: '开户申请',
+            data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
+        }, {
+            name: '开户成功',
+            data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
+        }, {
+            name: '开户失败',
+            data: [1, 2, 0, 0, 0, 0, 8, 0, 0, 3, 4, 0, 2, 5, 0, 0, 0, 3, 1, 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 0]
+        }]
+    });
+});
+</script>

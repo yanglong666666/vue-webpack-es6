@@ -1,0 +1,14 @@
+.simple-table {
+	margin: 60px 0px 0px 20px;
+	tbody {
+		td {
+			padding: 10px 0px;
+			font-size: 14px;
+			color: #3a3d42;
+			&.title {
+				color: #6f7b91;
+			}
+		}
+	}
+	
+}

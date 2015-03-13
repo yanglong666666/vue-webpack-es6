@@ -127,6 +127,9 @@ textarea {
 .wrapper {
     @extend %clearfix;
     width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: relative;
 }
 
 
