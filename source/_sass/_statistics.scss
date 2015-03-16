@@ -66,3 +66,54 @@ tongji css
 #open_account {
 	margin-top: 30px;
 }
+#open_account_bar,
+#features_age,
+#features_sex,
+#features_occupation,
+#features_education {
+	float: left;
+}
+.most-partment {
+	width: 950px;
+	margin: 40px auto 0px auto;
+	@extend %clearfix;
+	height: 300px;
+	li {
+		float: left;
+		width: 215px;
+		margin-right: 100px;
+		h2 {
+			font-weight: bold;
+			color: #6f7b91;
+			font-size: 22px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		div {
+			width: 100%;
+			height: 215px;
+			border-radius: 50%;
+			color: #fff;
+			b {
+				font-size: 36px;
+				display: block;
+				text-align: center;
+				padding-top: 65px;
+			}
+			span {
+				display: block;
+				text-align: center;
+				font-size: 14px;
+			}
+			&.khcg-back {
+				background: #e4788c;
+			}
+			&.zccg-back {
+				background: #44c1de;
+			}
+			&.khsq-back {
+				background: #b897f3;
+			}
+		}
+	}
+}

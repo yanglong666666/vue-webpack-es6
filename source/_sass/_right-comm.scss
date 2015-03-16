@@ -1,16 +1,24 @@
 .right-content {
   padding: 15px;
+  margin-left: 150px;
   .main-content {
   	position: relative;
   	padding: 20px;
   	background: #f0f4fb;
-  	margin-left: 150px;
   	margin-bottom: 20px;
   	height: auto;
   	&.no-back {
   		background: #fff;
   		@extend %clearfix;
   	}
+  	&.no-margin-bottom {
+  		margin-bottom: 0px;
+  	}
+  }
+  .border-content {
+  	border: 1px solid #f0f4fb;
+  	padding: 15px;
+  	margin-bottom: 20px;
   }
 }
 .search-btn {
@@ -155,7 +163,6 @@
 	}
 }
 .tab-content {
-	margin-left: 150px;
 	.tab{
 		width: 100%;
 		height: 38px;
@@ -176,6 +183,68 @@
 		}
 	}
 }
-#open_account_bar {
-	float: left;
+
+.detail-btn {
+	color: #3ecacb;
+}
+.page {
+	margin: 0 auto;
+	width: 640px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	@extend %clearfix;
+	li {
+		margin-right: 6px;
+		float: left;
+		a {
+		display: inline-block;
+		background: #f0f4fb;
+		font-size: 14px;
+		color: #6f7b91;
+		width: 36px;
+		border-radius: 3px;
+		}
+		.page-go {
+			width: 60px;
+			border: 1px solid #f0f4fb;
+			border-radius: 5px;
+			height: 36px;
+			line-height: 36px;
+		}
+		&.thisPage {
+			a {
+				color: #fff;
+				background: #6a7491;
+			}
+		}
+	}
+	.page-up,
+	.page-down {
+		a {
+			width: 70px;
+		}
+	}
+}
+.sum-num {
+	position: absolute;
+	top: 36px;
+	right: 15px;
+	color: #a6a6a6;
+	font-size: 14px;
+}
+.select-mode {
+	width: 550px;
+	margin: 10px auto 20px auto;
+	label {
+		input {
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+	}
+}
+.p-right {
+	position: absolute;
+	top: 30px;
+	right: 15px;
 }
