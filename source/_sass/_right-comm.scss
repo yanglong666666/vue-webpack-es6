@@ -182,6 +182,9 @@
 			}
 		}
 	}
+	&.margin-tab {
+		margin-top: 15px;
+	}
 }
 
 .detail-btn {
@@ -247,4 +250,14 @@
 	position: absolute;
 	top: 30px;
 	right: 15px;
+}
+.search-dl {
+	display: inline-block;
+	margin-right: 30px;
+	dt {
+		font-size: 14px;
+		color: #6f7b91;
+		display: block;
+		line-height: 20px;
+	}
 }
