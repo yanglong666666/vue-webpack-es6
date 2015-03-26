@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    port: 4001,
+                    port: 4000,
                     middleware: function(connect) {
                         return [mountFolder(connect, '_site')];
                     }
@@ -68,5 +68,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jekyll', 'connect', 'watch']);
    // grunt.registerTask('build', ['sass', 'jekyll', 'connect', 'watch']); //目前运行的插件及路径,注意顺序
     grunt.registerTask('release', ['uglify']); //目前运行的插件及路径,注意顺序
-   
+
 };

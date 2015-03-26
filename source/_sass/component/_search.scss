@@ -1,0 +1,20 @@
+.ui-search {
+  .search-inner {
+    a {
+      margin-right: 3px;
+      display: inline-block;
+      height: 35px;
+      line-height: 35px;
+      width: 65px;
+      text-align: center;
+      border: 1px solid #3ecacb;
+      color: #3ecacb;
+      border-radius: 5px;
+      font-size: 14px;
+      &.active {
+        background: #3ecacb;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.ui-pagenav {
+  position: relative;
+  margin: 20px 0px;
+  .page {
+    margin: 0 auto;
+    width: 640px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    @extend %clearfix;
+    li {
+      margin-right: 6px;
+      float: left;
+      a {
+        display: inline-block;
+        background: #f0f4fb;
+        font-size: 14px;
+        color: #6f7b91;
+        width: 36px;
+        border-radius: 3px;
+      }
+      .page-go {
+        width: 60px;
+        border: 1px solid #f0f4fb;
+        border-radius: 5px;
+        height: 36px;
+        line-height: 36px;
+      }
+      &.thisPage {
+        a {
+          color: #fff;
+          background: #6a7491;
+        }
+      }
+    }
+    .page-up,
+    .page-down {
+      a {
+        width: 70px;
+      }
+    }
+  }
+  .sum-num {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    color: #a6a6a6;
+    font-size: 14px;
+  }
+}

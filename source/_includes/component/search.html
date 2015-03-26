@@ -1,0 +1,30 @@
+<div class="ui-search">
+  <span class="search-inner">
+    <a class="active" href="#">今日</a>
+    <a class="" href="#">昨日</a>
+    <a class="" href="#">最近7日</a>
+    <a class="" href="#">最近30日</a>
+    <a class="" href="#">全部</a>
+  </span>
+  <label>
+    <input class="txt begin-time" type="text" placeholder="开始时间">
+    <i></i>
+  </label>
+  <span class="pre">至</span>
+  <label>
+    <input class="txt end-time" type="text" placeholder="截止时间">
+    <i></i>
+  </label>
+</div>
+<script type="text/javascript">
+  $('.begin-time').datepicker({
+    onClose: function( selectedDate ) {
+      $('.end-time').datepicker( "option", "minDate", selectedDate );
+    }
+  });
+  $('.end-time').datepicker({
+    onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+  });
+</script>

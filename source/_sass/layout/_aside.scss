@@ -1,0 +1,254 @@
+.leftaside {
+	position: relative;
+	float: left;
+	width: 150px;
+	padding-top: 10px;
+	.leftul {
+		li {
+			text-align: center;
+			position: relative;
+			p {
+				position: relative;
+				line-height: 50px;
+				z-index: 10;
+				color: #b0b0b0;
+				cursor: pointer;
+			}
+			b {
+        position: absolute;
+        right: 20px;
+        top: 23px;
+        width: 9px;
+        height: 5px;
+        vertical-align: middle;
+        background: url('../images/icolist.png') -60px -50px no-repeat;
+        &.current {
+          background: url('../images/icolist.png') -60px -60px no-repeat;
+        }
+      }
+      small {
+        position: absolute;
+        right: 5px;
+        top: 17px;
+        display: inline-block;
+        color: #fff;
+        background: #ff5776;
+        font-size: 12px;
+        width: 32px;
+        height: 18px;
+        line-height: 18px;
+        border-radius: 8px;
+      }
+      span {
+        position: absolute;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      a {
+        display: block;
+        font-size: 14px;
+        color: #b0b0b0;
+        margin-left: 5px;
+        padding: 15px 0px;
+      }
+      &.active {
+        a {
+         background: #fff;
+         color: #12171d;
+         border-left: 5px solid #3ecacb;
+       }
+     }
+     .inner-ul {
+      display: none;
+      li {
+        text-align: left;
+        text-indent: 35px;
+        a {
+          font-size: 12px;
+          display: block;
+          padding: 4px 0px;
+          margin: 5px 0px 0px 20px;
+        }
+        &.active {
+          a {
+            background: #fff;
+            color: #12171d;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+  li.index {
+   span {
+    left: 25px;
+    top: 18px;
+    width: 17px;
+    height: 15px;
+    background: url('../images/aside-ico.png') 0 0 no-repeat;
+  }
+  &.active {
+    span {
+      background: url('../images/aside-ico.png') -33px 0 no-repeat;
+    }
+  }
+}
+li.announcement {
+ span {
+  left: 25px;
+  top: 18px;
+  width: 17px;
+  height: 15px;
+  background: url('../images/aside-ico.png') 0 -20px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -20px no-repeat;
+  }
+}
+}
+li.vedio-validate {
+ span {
+  left: 27px;
+  top: 18px;
+  width: 12px;
+  height: 15px;
+  background: url('../images/aside-ico.png') 0 -40px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -40px no-repeat;
+  }
+}
+}
+li.vedio-upload {
+ span {
+  left: 26px;
+  top: 19px;
+  width: 15px;
+  height: 13px;
+  background: url('../images/aside-ico.png') 0 -60px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -60px no-repeat;
+  }
+}
+}
+li.certificate {
+ span {
+  left: 26px;
+  top: 17px;
+  width: 15px;
+  height: 17px;
+  background: url('../images/aside-ico.png') 0 -75px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -75px no-repeat;
+  }
+}
+}
+li.open-verify {
+ span {
+  left: 25px;
+  top: 18px;
+  width: 17px;
+  height: 16px;
+  background: url('../images/aside-ico.png') 0 -95px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -95px no-repeat;
+  }
+}
+}
+li.open-recheck {
+ span {
+  left: 26px;
+  top: 19px;
+  width: 15px;
+  height: 12px;
+  background: url('../images/aside-ico.png') 0 -115px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -115px no-repeat;
+  }
+}
+}
+li.business-search {
+ span {
+  left: 27px;
+  top: 16px;
+  width: 18px;
+  height: 20px;
+  background: url('../images/aside-ico.png') 0 -130px no-repeat;
+}
+}
+li.marketing-channels {
+ span {
+  left: 23px;
+  top: 18px;
+  width: 15px;
+  height: 15px;
+  background: url('../images/aside-ico.png') 0 -155px no-repeat;
+}
+}
+li.inquiry-statistics {
+ span {
+  left: 24px;
+  top: 19px;
+  width: 21px;
+  height: 12px;
+  background: url('../images/aside-ico.png') 0 -175px no-repeat;
+}
+}
+li.para-sets {
+ span {
+  left: 23px;
+  top: 18px;
+  width: 16px;
+  height: 16px;
+  background: url('../images/aside-ico.png') 0 -190px no-repeat;
+}
+}
+li.sign-userlist {
+ span {
+  left: 25px;
+  top: 18px;
+  width: 16px;
+  height: 15px;
+  background: url('../images/aside-ico.png') 0 -210px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -210px no-repeat;
+  }
+}
+}
+li.forced-activation {
+ span {
+  left: 25px;
+  top: 14px;
+  width: 17px;
+  height: 25px;
+  background: url('../images/aside-ico.png') 0 -230px no-repeat;
+}
+&.active {
+  span {
+    background: url('../images/aside-ico.png') -33px -230px no-repeat;
+  }
+}
+}
+}
+}
+.leftShadow {
+	background: url('../images/back.png') right top repeat-y #3a3d42;
+	_background: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	width: 150px;
+}

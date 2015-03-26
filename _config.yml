@@ -3,7 +3,7 @@ encoding: UTF-8
 author: ld
 email: luodan@cairenhui.com
 baseurl: "/default"
-url: "http://yourdomain.com" 
+url: "http://yourdomain.com"
 source: source
 destination: _site
 

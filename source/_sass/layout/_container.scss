@@ -1,0 +1,36 @@
+/**
+ * Wrapper
+ */
+.container {
+    @extend %clearfix;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    .credit-inner {
+      background: #fff;
+    }
+    .ui-content {
+    padding: 15px;
+    margin-left: 150px;
+    .main-content {
+      position: relative;
+      padding: 20px;
+      background: #f0f4fb;
+      margin-bottom: 20px;
+      height: auto;
+      &.no-back {
+        background: #fff;
+        @extend %clearfix;
+      }
+      &.no-margin-bottom {
+        margin-bottom: 0px;
+      }
+    }
+    .border-content {
+      border: 1px solid #f0f4fb;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+  }
+}
