@@ -72,7 +72,7 @@ DiySelect.prototype = {
             active = list.filter(':visible').index(this);
         });
 
-        this.selectSpan.on('click', function (e) { 
+        this.selectSpan.on('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
 
@@ -172,8 +172,8 @@ DiySelect.prototype = {
 
             li.innerHTML = text;
 
-            if (value) { 
-                li.setAttribute('data-' + this.options.valueAttr, value); 
+            if (value) {
+                li.setAttribute('data-' + this.options.valueAttr, value);
             }
 
             fragment.appendChild(li);
@@ -193,9 +193,9 @@ DiySelect.prototype = {
         if (this.options.width) {
             this.selectSpan.width(this.options.width);
         }
-            
+
         var spanStyle = this.selectSpan.attr('style');
-        
+
         if (spanStyle) {
             spanStyle += ';' + this.options.style;
         }
@@ -230,7 +230,7 @@ DiySelect.prototype = {
         this.hideOption();
         this.selectSpan.html(text + this.arrowHtml);
         // this.option.attr('selected', false);
-        
+
         for (var i = 0; i < this.optionSize; i++) {
             if (text === this.option[i].text) {
                 // 原生 `select` 跟随选择
@@ -247,7 +247,7 @@ DiySelect.prototype = {
     showOption: function () {
         this.optionDiv.show();
 
-        this.optionDiv.height(Math.min(this.optionDiv.height(), 
+        this.optionDiv.height(Math.min(this.optionDiv.height(),
             this.optionDiv.find('li').height() * this.options.maxSize));
 
         this.optionDiv.css({
@@ -307,7 +307,7 @@ $.fn.diySelect.defaults = {
 
 $.fn.Constructor = DiySelect;
 // 定义 Overlay 类
-var Overlay = function (element, options) { 
+var Overlay = function (element, options) {
     options = $.extend({}, $.fn.overlay.defaults, options);
 
     this.options = options;
@@ -341,7 +341,7 @@ Overlay.prototype = {
         $(window).on('resize', $.proxy(this.setPosition, this));
     },
 
-    show: function () {     
+    show: function () {
         this.overlay.show();
     },
 
@@ -594,7 +594,7 @@ var TIP = {
             .html('<div class="tipcont">'+hasimg+
                 '<div class="innertext">' +
             opts.tipText + '</div></div>');
-        
+
         if ($(".masker").length === 1)
         {
             $(".masker").show()
@@ -838,7 +838,7 @@ var DIALOG = {
                     _y=e.pageY-parseInt($('#dragId').css('top'));
                 }
                 })
-            
+
             $(document).ready(function(){}).mousemove(function(e){
                 if(m){
                     var x=e.pageX-_x;
@@ -976,7 +976,7 @@ $.fn.overlay.ddd = Overlay;
                 $.noop();
             },
             outEvent: function(){
-                $.noop();    
+                $.noop();
             }
         };
         var sets = $.extend(defaults,options || {});
@@ -988,9 +988,9 @@ $.fn.overlay.ddd = Overlay;
             },function(){
                 clearTimeout(hoverTimer);
                 outTimer = setTimeout(function(){sets.outEvent.apply(that)}, sets.outDuring);
-            });    
+            });
         });
-    }      
+    }
 })(jQuery);
 
 //点击错误提示框叉叉
@@ -1001,7 +1001,7 @@ var ifWrong = function(){
                 {
                     $(this).parent().find(".typeST").fadeIn()
                 }
-                
+
             })
     $(".mainCont textarea").each(function(){
                 var txt = $(this).val()
@@ -1009,15 +1009,15 @@ var ifWrong = function(){
                 {
                     $(this).parent().find(".typeST").fadeIn()
                 }
-                
+
             })
-    
+
 }
 $(".wrongTips em").each(function(){
     var self = this
     $(this).click(function(){
         $(self).parent().parent().css({"display":"none"})
-        
+
     })
 })
 //模拟placeholder属性
@@ -1060,7 +1060,7 @@ $(".wrongTips em").each(function(){
       }
 
 
- //上传图片预览     
+ //上传图片预览
 jQuery.fn.extend({
     uploadPreview: function (opts) {
         var _self = this,
@@ -1283,7 +1283,7 @@ Dialog.prototype = {
                     btnCls = 'blue';
                 }
 
-                html += '<input type="button" data-role="' + this.options.btnRole[i] + '" class="dialog_btn btn-default-' + btnCls + '" value="'+ this.options.btnText[i] +'"/>' 
+                html += '<input type="button" data-role="' + this.options.btnRole[i] + '" class="dialog_btn btn-default-' + btnCls + '" value="'+ this.options.btnText[i] +'"/>'
             }
             html += '</div>'
         };

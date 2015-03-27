@@ -45,6 +45,13 @@
   border-color: #3ecacb;
 }
 
+.btn-fill {
+  @extend %btn;
+  background-color: $btn-fill-bg;
+  color: $btn-fill-color;
+  font-size: 22px;
+}
+
 .btn-deny {
   @extend %btn;
   background-color: $btn-deny-bg;
@@ -54,12 +61,12 @@
 
 // large button
 .btn-lg {
-  @include button-size(0, 30px, 20px, 44px, 5px);
+  @include button-size(0, 90px, 20px, 40px, 5px);
 }
 
 // larger button
 .btn-more-lg {
-  @include button-size(0, 60px, 20px, 44px, 5px);
+  @include button-size(0, 60px, 20px, 40px, 5px);
 }
 
 // lower button

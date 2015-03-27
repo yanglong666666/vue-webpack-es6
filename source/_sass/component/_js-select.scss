@@ -28,9 +28,11 @@ span.js-select {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: left;
-  background-color: #fff;
-  border: 1px solid #cecece;
+  background-color: #e1e6ef;
+  border: 1px solid #e1e6ef;
+  border-radius: 5px;
   zoom: 1;
+  margin-top: 2px;
   li {
     line-height: 35px;
     padding: 0 10px;
@@ -38,10 +40,12 @@ span.js-select {
     font-size: 12px;
     cursor: pointer;
     &.active {
-      background-color: #f6f6f6;
+      background-color: #9ba0a8;
+      color: #fff;
     }
     &.selected {
-      background-color: #f6f6f6;
+      background-color: #9ba0a8;
+      color: #fff;
     }
   }
 }

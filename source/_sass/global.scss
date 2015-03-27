@@ -35,14 +35,14 @@ figure {
  * Basic styling
  */
 body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
-    min-width: 1000px;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 300;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  min-width: 1000px;
 }
 
 table {
@@ -108,4 +108,6 @@ a img {
         clear: both;
     }
 }
-
+button {
+  font-family: $base-font-family;
+}
