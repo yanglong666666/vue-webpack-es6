@@ -2,7 +2,7 @@
  * Wrapper
  */
 .container {
-    @extend %clearfix;
+    @include clearfix;
     width: 100%;
     height: auto;
     min-height: 100%;
@@ -19,9 +19,9 @@
       background: #f0f4fb;
       margin-bottom: 20px;
       height: auto;
+      overflow: hidden;
       &.no-back {
         background: #fff;
-        @extend %clearfix;
       }
       &.no-margin-bottom {
         margin-bottom: 0px;
@@ -31,6 +31,7 @@
       border: 1px solid #f0f4fb;
       padding: 15px;
       margin-bottom: 20px;
+      overflow: hidden;
     }
   }
 }

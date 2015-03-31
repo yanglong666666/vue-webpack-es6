@@ -134,10 +134,10 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }]
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
     //模拟已选账户柱形图
     var colors = Highcharts.getOptions().colors,
     categories = ['OTC', '深圳开放式基金', '上海开放式基金', '深圳A股','上海A股']
@@ -233,9 +233,9 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }]
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
   });
 </script>

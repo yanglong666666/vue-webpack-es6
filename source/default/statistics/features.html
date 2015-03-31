@@ -63,7 +63,7 @@ class: statistics
 		</tbody>
 	</table>
 </div>
-<div class="border-content" style="min-height:350px;">
+<div class="border-content">
 	<div id="features_sex" style="height:350px;"></div>
 	<table width="40%" cellpadding="0" cellspacing="0" class="simple-table">
 		<thead>
@@ -141,7 +141,7 @@ class: statistics
 		</tbody>
 	</table>
 </div>
-<div class="border-content" style="min-height:450px;">
+<div class="border-content">
 	<div id="features_occupation" style="height:450px;"></div>
 	<table width="40%" cellpadding="0" cellspacing="0" class="simple-table">
 		<thead>
@@ -290,13 +290,13 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }],
 exporting: {
   enabled: false
 }
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
     //饼图 性别分布
     var chart;
 
@@ -310,11 +310,15 @@ exporting: {
           plotShadow: false
         },
         title: {
-          text: '性别分布',
+          text: '性别<br>分布',
+          align: 'center',
+          verticalAlign: 'middle',
+          y: 0,
+          x: 30,
           style: {
            fontFamily: 'Microsoft YaHei',
            color: '#5a5d63',
-           fontSize:'16px'
+           fontSize:'24px'
          }
        },
        tooltip: {
@@ -333,7 +337,12 @@ exporting: {
           allowPointSelect: true,
           cursor: 'pointer',
           dataLabels: {
-            enabled: false
+            enabled: true,
+            distance: -50,
+            style: {
+              fontWeight: 'bold',
+              color: 'white',
+            }
           },
           showInLegend: true
         }
@@ -341,6 +350,7 @@ exporting: {
       series: [{
         type: 'pie',
         name: '性别分布',
+        innerSize: '40%',
         data: [
         ['女',   45.0],
         ['男',   55.0]
@@ -450,13 +460,13 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }],
 exporting: {
   enabled: false
 }
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
 //用户职业特征
 //柱形图模拟
 var colors = Highcharts.getOptions().colors,
@@ -552,12 +562,12 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }],
 exporting: {
   enabled: false
 }
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
   });
 </script>

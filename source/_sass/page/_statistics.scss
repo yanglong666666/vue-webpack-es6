@@ -3,10 +3,8 @@ tongji css
 */
 .page-statistics {
 	.usernum-content {
-		height: 70px;
 		ul{
-			height: 70px;
-			@extend %clearfix;
+			@include clearfix;
 		}
 		li {
 			float: left;
@@ -69,64 +67,237 @@ tongji css
 	#features_occupation,
 	#features_education,
 	#device_kh,
-	#device_zc {
-		float: left;
-	}
-	.most-partment {
-		width: 950px;
-		margin: 40px auto 0px auto;
-		@extend %clearfix;
-		height: 300px;
-		li {
-			float: left;
-			width: 215px;
-			margin-right: 100px;
-			h2 {
-				font-weight: bold;
-				color: #6f7b91;
-				font-size: 22px;
-				text-align: center;
-				margin-bottom: 20px;
-			}
-			div {
-				width: 100%;
-				height: 215px;
-				border-radius: 50%;
-				color: #fff;
-				b {
-					font-size: 36px;
-					display: block;
-					text-align: center;
-					padding-top: 65px;
-				}
-				span {
-					display: block;
-					text-align: center;
-					font-size: 14px;
-				}
-				&.khcg-back {
-					background: #e4788c;
-				}
-				&.zccg-back {
-					background: #44c1de;
-				}
-				&.khsq-back {
-					background: #b897f3;
-				}
-			}
-		}
-	}
-  .lost-rate-attr {
-    h3 {
-      font-size: 12px;
-      margin: 20px 0px 30px 0px;
-      color: #a6a6a6;
-      span {
-        color: #6f7b91;
-        display: inline-block;
-        width: 130px;
-        font-size: 14px;
+	#device_zc,
+  #average_time {
+    float: left;
+    width: 55%;
+  }
+  .most-partment {
+    width: 950px;
+    margin: 40px auto 30px auto;
+    @include clearfix;
+    li {
+     float: left;
+     width: 215px;
+     margin-right: 100px;
+     h2 {
+      font-weight: bold;
+      color: #6f7b91;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    div {
+      width: 100%;
+      height: 215px;
+      border-radius: 50%;
+      color: #fff;
+      b {
+       font-size: 36px;
+       display: block;
+       text-align: center;
+       padding-top: 65px;
+     }
+     span {
+       display: block;
+       text-align: center;
+       font-size: 14px;
+     }
+     &.khcg-back {
+       background: #e4788c;
+     }
+     &.zccg-back {
+       background: #44c1de;
+     }
+     &.khsq-back {
+       background: #b897f3;
+     }
+   }
+ }
+}
+.lost-rate-attr {
+  h3 {
+    font-size: 12px;
+    margin: 20px 0px 30px 0px;
+    color: #a6a6a6;
+    span {
+      color: #6f7b91;
+      display: inline-block;
+      width: 130px;
+      font-size: 14px;
+    }
+  }
+}
+}
+.time-main,
+.video-main,
+.average-content {
+  overflow: hidden;
+  @include clearfix;
+}
+#time_bar,
+#video_bar {
+  float: right;
+  width: 83%;
+  height: 260px;
+}
+
+.time-content {
+  overflow: hidden;
+  margin: 20px 0px 0px 30px;
+  float: left;
+  dl {
+    @include clearfix;
+    margin-bottom: 25px;
+    dd {
+      float: left;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    dt {
+      display: inline-block;
+      p {
+        font-size: 12px;
+      }
+      .time {
+        font-size: 16px;
+        em {
+          font-size: 20px;
+        }
+      }
+    }
+    &.average {
+      .ico {
+        width: 38px;
+        height: 38px;
+        background: url(../images/time.png) 0 0 no-repeat;
+        margin: 9px 40px 0px 0px;
+      }
+      .time {
+        color: #e4788c;
+      }
+    }
+    &.fastest {
+      .ico {
+        width: 38px;
+        height: 65px;
+        background: url(../images/time.png) 0 -45px no-repeat;
+        margin-right: 40px;
+      }
+      .time {
+        color: #b897f3;
+      }
+    }
+    &.longest {
+      .ico {
+        width: 56px;
+        height: 39px;
+        background: url(../images/time.png) 0 -115px no-repeat;
+        margin-right: 22px;
+      }
+      .time {
+        color: #44c1de;
       }
     }
   }
 }
+
+.video-content {
+  overflow: hidden;
+  margin: 20px 0px 0px 30px;
+  float: left;
+  dl {
+    @include clearfix;
+    margin-bottom: 25px;
+    dd {
+      float: left;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    dt {
+      display: inline-block;
+      p {
+        font-size: 12px;
+      }
+      .video {
+        font-size: 16px;
+        em {
+          font-size: 20px;
+        }
+      }
+    }
+    &.average {
+      .ico {
+        width: 38px;
+        height: 38px;
+        background: url(../images/time.png) -45px 0 no-repeat;
+        margin: 9px 40px 0px 0px;
+      }
+      .video {
+        color: #e4788c;
+      }
+    }
+    &.fastest {
+      .ico {
+        width: 38px;
+        height: 65px;
+        background: url(../images/time.png) 0 -45px no-repeat;
+        margin-right: 40px;
+      }
+      .video {
+        color: #b897f3;
+      }
+    }
+    &.longest {
+      .ico {
+        width: 56px;
+        height: 39px;
+        background: url(../images/time.png) 0 -115px no-repeat;
+        margin-right: 22px;
+      }
+      .video {
+        color: #44c1de;
+      }
+    }
+  }
+}
+#video_people_line,
+#time_operation {
+  margin-bottom: 30px;
+}
+.people {
+  @include clearfix;
+  overflow: hidden;
+  margin-left: 30px;
+  dd {
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  dt {
+    display: inline-block;
+    p {
+      height: 38px;
+      line-height: 38px;
+      color: #3a3d42;
+      font-size: 12px;
+      em {
+        font-size: 20px;
+        color: #44c1de;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  .ico {
+    width: 38px;
+    height: 38px;
+    background: url(../images/time.png) -90px 0 no-repeat;
+    margin-right: 40px;
+  }
+  .video {
+    color: #e4788c;
+  }
+}
+
+

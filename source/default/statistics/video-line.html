@@ -1,0 +1,297 @@
+---
+title: 视频排队
+layout: default
+class: statistics
+---
+<div class="main-content no-margin-bottom">
+  {% include component/search.html %}
+  <div id="all_search_list">
+
+    <div class="alllistname">
+      <h3>接入方式</h3>
+      <div class="content-name" id="attr-list">
+        <div class="attr-panl">
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
+        </div>
+      </div>
+
+      <div class="alllistname" id="partment_content">
+        <h3>营业部</h3>
+        <div class="search-box" id="search_yyb" style="display:none;">
+          <label class="search-label" for="parment">
+            <input type="text" name="" value="北京营业部" class="search-input parment">
+          </label>
+        </div>
+        <div class="content-name" id="attr-parment">
+          <div class="attr-panl">
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          </div>
+        </div>
+        <div class="option-name">
+          <a id="more_partment" href="javascript:void(0)">更多
+            <span class=""></span>
+          </a>
+        </div>
+      </div>
+      <div class="button-content">
+        <button class="btn-fill btn-lg" href="#">查询</button>
+        <button class="btn-primary output" href="#">输出报表</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="border-content">
+  <div class="video-main">
+    <dl class="people">
+      <dd class="ico"></dd>
+      <dt>
+        <p>视频列队平均人数 <em>15</em></p>
+      </dt>
+    </dl>
+    <div class="video-content">
+      <dl class="average">
+        <dd class="ico"></dd>
+        <dt>
+          <p class="video"><em>15</em> 分钟</p>
+          <p>平均用时</p>
+        </dt>
+      </dl>
+      <dl class="fastest">
+        <dd class="ico"></dd>
+        <dt>
+          <p class="video"><em>15</em> 分钟</p>
+          <p>最快用时</p>
+        </dt>
+      </dl>
+      <dl class="longest">
+        <dd class="ico"></dd>
+        <dt>
+          <p class="video"><em>25</em> 分钟</p>
+          <p>最长用时</p>
+        </dt>
+      </dl>
+    </div>
+    <div id="video_bar"></div>
+  </div>
+  <div id="video_people_line" height="400"></div>
+  <div id="video_waite_line" height="400"></div>
+</div>
+<script src="../../javascript/highcharts.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+
+  //柱形图模拟 开户类型
+  var colors = Highcharts.getOptions().colors,
+  categories = ['平均用时', '最快用时', '最长用时']
+  data = [{
+    y: 15,
+    color: '#e4788c',
+
+  }, {
+    y: 15,
+    color: '#b897f3',
+
+  }, {
+    y: 25,
+    color: '#44c1de',
+
+  }];
+
+  function setChart(name, categories, data, color) {
+    chart.xAxis[0].setCategories(categories, false);
+    chart.series[0].remove(false);
+    chart.addSeries({
+      name: name,
+      data: data,
+      color: color || 'white'
+    }, false);
+    chart.redraw();
+  }
+
+  var chart = $('#video_bar').highcharts({
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: null
+    },
+    legend: {
+      enabled: false
+    },
+    xAxis: {
+      labels: {
+        enabled: false
+      },
+      lineWidth: 0,
+      tickWidth: 0
+    },
+    yAxis: {
+      title: {
+        text: null
+      },
+      labels: {
+       enabled: false
+     },
+     lineWidth: 0,
+     gridLineWidth: 0
+   },
+   plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: false
+      }
+    }
+  },
+  tooltip: {
+    enabled: false
+  },
+  series: [{
+    name: name,
+    data: data,
+    stacking: 'normal',
+    pointWidth: 25
+  }]
+}).highcharts(); // return chart
+//折线统计图模拟 视频列队人数
+$('#video_people_line').highcharts({
+ chart: {
+  backgroundColor: '#f0f4fb',
+  type: 'line'
+},
+title: {
+            text: '视频列队人数', //center
+            style: {
+              fontFamily: 'Microsoft YaHei',
+              color: '#6f7b91',
+              fontSize:'20px',
+              fontWeight:'bold'
+            }
+          },
+          xAxis: {
+           gridLineColor: '#dedede',
+           gridLineWidth: 1,
+           lineColor: '#3ecacb',
+           lineWidth: 2,
+           labels: {
+            rotation: -30,
+            style: {
+              fontSize: 12,
+              color: '#c0c5ce'
+            }
+          },
+          categories: ['2015/1/1', '2015/1/2', '2015/1/3', '2015/1/4', '2015/1/5', '2015/1/6','2015/1/7', '2015/1/8', '2015/1/9', '2015/1/10', '2015/1/11', '2015/1/12', '2015/1/13', '2015/1/14', '2015/1/15', '2015/1/16', '2015/1/17', '2015/1/18', '2015/1/19', '2015/1/20', '2015/1/21', '2015/1/22', '2015/1/23', '2015/1/24', '2015/1/25', '2015/1/26', '2015/1/27', '2015/1/28', '2015/1/29', '2015/1/30']
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: null
+          },
+          gridLineColor: '#dedede',
+          gridLineWidth: 1,
+          lineColor: '#3ecacb',
+          lineWidth: 2,
+          plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+          }]
+        },
+        tooltip: {
+          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+          '<td style="padding:0"><b>{point.y} 人</b></td></tr>',
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+        },
+        legend: {
+          enabled: false
+        },
+        series: [{
+          name: '视频列队人数',
+          data: [1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300, 400, 400, 402, 405, 700, 100, 130, 103, 105, 200, 1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300]
+        }]
+      });
+   //折线统计图模拟 平均等待时间
+   $('#video_waite_line').highcharts({
+     chart: {
+      backgroundColor: '#f0f4fb',
+      type: 'line'
+    },
+    title: {
+            text: '视频等待时间', //center
+            style: {
+              fontFamily: 'Microsoft YaHei',
+              color: '#6f7b91',
+              fontSize:'20px',
+              fontWeight:'bold'
+            }
+          },
+          xAxis: {
+           gridLineColor: '#dedede',
+           gridLineWidth: 1,
+           lineColor: '#3ecacb',
+           lineWidth: 2,
+           labels: {
+            rotation: -30,
+            style: {
+              fontSize: 12,
+              color: '#c0c5ce'
+            }
+          },
+          categories: ['2015/1/1', '2015/1/2', '2015/1/3', '2015/1/4', '2015/1/5', '2015/1/6','2015/1/7', '2015/1/8', '2015/1/9', '2015/1/10', '2015/1/11', '2015/1/12', '2015/1/13', '2015/1/14', '2015/1/15', '2015/1/16', '2015/1/17', '2015/1/18', '2015/1/19', '2015/1/20', '2015/1/21', '2015/1/22', '2015/1/23', '2015/1/24', '2015/1/25', '2015/1/26', '2015/1/27', '2015/1/28', '2015/1/29', '2015/1/30']
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: null
+          },
+          gridLineColor: '#dedede',
+          gridLineWidth: 1,
+          lineColor: '#3ecacb',
+          lineWidth: 2,
+          plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+          }]
+        },
+        tooltip: {
+          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+          '<td style="padding:0"><b>{point.y} 小时</b></td></tr>',
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+        },
+        legend: {
+          verticalAlign: 'top',
+          y: 25
+        },
+        series: [{
+          name: '财人汇手机',
+          data: [1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300, 400, 400, 402, 405, 700, 100, 130, 103, 105, 200, 1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300]
+        }, {
+          name: '万得手机',
+          data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
+        }]
+      });
+});
+</script>

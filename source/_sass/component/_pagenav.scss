@@ -7,7 +7,7 @@
     height: 36px;
     line-height: 36px;
     text-align: center;
-    @extend %clearfix;
+    @include clearfix;
     li {
       margin-right: 6px;
       float: left;
@@ -25,6 +25,7 @@
         border-radius: 5px;
         height: 36px;
         line-height: 36px;
+        text-align: center;
       }
       &.thisPage {
         a {

@@ -102,7 +102,7 @@
 		left: 150px;
 		top: 0px;
 		ul {
-			@extend %clearfix;
+			@include clearfix;
 			li:first-child {
 				margin-left: 35px;
 			}
