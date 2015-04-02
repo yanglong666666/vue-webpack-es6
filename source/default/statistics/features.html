@@ -352,8 +352,16 @@ exporting: {
         name: '性别分布',
         innerSize: '40%',
         data: [
-        ['女',   45.0],
-        ['男',   55.0]
+        {
+          name: '女',
+          y: 45.0,
+          color: '#b897f3'
+        },
+        {
+          name: '男',
+          y: 55.0,
+          color: '#f3cd97'
+        }
         ]
       }]
     });
