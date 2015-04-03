@@ -58,6 +58,18 @@ tongji css
 		}
 	}
 
+  .area-chart {
+    width: 100%;
+    @include clearfix;
+    overflow: hidden;
+    #area_map,
+    #area_pie {
+      width: 35%;
+      height: 500px;
+      float: left;
+    }
+  }
+
 	#open_account {
 		margin-top: 30px;
 	}

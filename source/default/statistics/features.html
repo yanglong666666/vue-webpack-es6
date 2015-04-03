@@ -339,9 +339,12 @@ exporting: {
           dataLabels: {
             enabled: true,
             distance: -50,
+            format: '<b>{point.name}</b><br/> {point.percentage:.1f} %',
             style: {
+              fontFamily: 'Microsoft YaHei',
               fontWeight: 'bold',
               color: 'white',
+              textShadow: 0
             }
           },
           showInLegend: true
