@@ -6,53 +6,10 @@ class: statistics
 <div class="main-content no-margin-bottom">
   {% include component/search.html %}
   <div id="all_search_list">
-
-    <div class="alllistname">
-      <h3>接入方式</h3>
-      <div class="content-name" id="attr-list">
-        <div class="attr-panl">
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-        </div>
-      </div>
-
-      <div class="alllistname" id="partment_content">
-        <h3>营业部</h3>
-        <div class="search-box" id="search_yyb" style="display:none;">
-          <label class="search-label" for="parment">
-            <input type="text" name="" value="北京营业部" class="search-input parment">
-          </label>
-        </div>
-        <div class="content-name" id="attr-parment">
-          <div class="attr-panl">
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-          </div>
-        </div>
-        <div class="option-name">
-          <a id="more_partment" href="javascript:void(0)">更多
-            <span class=""></span>
-          </a>
-        </div>
-      </div>
-      <div class="button-content">
-        <button class="btn-fill btn-lg" href="#">查询</button>
-        <button class="btn-primary output" href="#">输出报表</button>
-      </div>
+    {% include component/two-option.html %}
+    <div class="button-content">
+      <button class="btn-fill btn-lg" href="#">查询</button>
+      <button class="btn-primary output" href="#">输出报表</button>
     </div>
   </div>
 </div>

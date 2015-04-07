@@ -6,64 +6,10 @@ class: statistics
 <div class="main-content no-margin-bottom">
   {% include component/search.html %}
   <div id="all_search_list">
-    <div class="alllistname">
-      <h3>开户类型</h3>
-      <div class="content-name" id="attr-list">
-        <div class="attr-panl">
-          <a href="javascript:void(0)" class="current"><span class="param-checkbox"></span>开股东户</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>转户</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>港股东户</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>开理财户</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="alllistname">
-      <h3>接入方式</h3>
-      <div class="content-name" id="attr-list">
-        <div class="attr-panl">
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-        </div>
-      </div>
-
-      <div class="alllistname" id="partment_content">
-        <h3>营业部</h3>
-        <div class="search-box" id="search_yyb" style="display:none;">
-          <label class="search-label" for="parment">
-            <input type="text" name="" value="北京营业部" class="search-input parment">
-          </label>
-        </div>
-        <div class="content-name" id="attr-parment">
-          <div class="attr-panl">
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-          </div>
-        </div>
-        <div class="option-name">
-          <a id="more_partment" href="javascript:void(0)">更多
-            <span class=""></span>
-          </a>
-        </div>
-      </div>
-      <div class="button-content">
-        <button class="btn-fill btn-lg" href="#">查询</button>
-        <button class="btn-primary output" href="#">输出报表</button>
-      </div>
+    {% include component/three-option.html %}
+    <div class="button-content">
+      <button class="btn-fill btn-lg" href="#">查询</button>
+      <button class="btn-primary output" href="#">输出报表</button>
     </div>
   </div>
 </div>
@@ -96,7 +42,7 @@ class: statistics
   </div>
   <div id="time_operation" style="height:400px"></div>
   <div class="average-content">
-    <div id="average_time" style="height:500px"></div>
+    <div id="average_time" style="height:600px"></div>
     <table width="40%" cellpadding="0" cellspacing="0" class="simple-table">
       <thead>
         <tr>
@@ -144,7 +90,7 @@ class: statistics
           <td class="title">2分钟</td>
         </tr>
         <tr>
-          <td class="title">证书选择</td>
+          <td class="title">证书安装</td>
           <td class="title">2分钟</td>
           <td class="title">5%</td>
           <td class="title">2分钟</td>
@@ -152,6 +98,13 @@ class: statistics
         </tr>
         <tr>
           <td class="title">视频通话</td>
+          <td class="title">2分钟</td>
+          <td class="title">5%</td>
+          <td class="title">2分钟</td>
+          <td class="title">2分钟</td>
+        </tr>
+        <tr>
+          <td class="title">视频等待</td>
           <td class="title">2分钟</td>
           <td class="title">5%</td>
           <td class="title">2分钟</td>
@@ -239,8 +192,8 @@ $(function () {
   bar: {
     dataLabels: {
       enabled: false
-   }
- }
+    }
+  }
 },
 tooltip: {
   enabled: false
@@ -309,40 +262,44 @@ series: [{
 
 //操作节点平均用时柱形图模拟
   var colors = Highcharts.getOptions().colors,
-  categories = ['问卷回访', '风险测评', '三方存管', '密码设置', '账户选择', '证书选择', '视频通话', '基本资料提交', '证书上传']
+  categories = ['问卷回访', '风险测评', '三方存管', '密码设置', '账户选择', '证书安装', '视频通话', '视频等待', '基本资料提交', '证书上传']
   data = [{
     y: 5,
-    color: colors[0]
+    color: '#e4788c'
   }, {
     y: 10,
-    color: colors[1],
+    color: '#b897f3'
   }, {
     y: 5,
-    color: colors[2],
+    color: '#44c1de'
 
   }, {
     y: 10,
-    color: colors[3],
+    color: '#f3cd97'
 
   }, {
     y: 20,
-    color: colors[4],
+    color: '#63a9ff'
 
   }, {
     y: 30,
-    color: colors[5],
+    color: '#e4788c'
 
   }, {
     y: 10,
-    color: colors[6],
+    color: '#b897f3'
 
   }, {
     y: 10,
-    color: colors[7],
+    color: '#44c1de'
 
   }, {
     y: 10,
-    color: colors[8],
+    color: '#f3cd97'
+
+  }, {
+    y: 10,
+    color: '#63a9ff'
 
   }];
 
@@ -393,12 +350,20 @@ yAxis: {
 lineWidth: 1
 },
 plotOptions: {
-  column: {
+  bar: {
     dataLabels: {
       enabled: true,
-      color: '#a6a6a6',
+      style: {
+        fontFamily: 'Microsoft YaHei',
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
+      align: 'right',
+      x: -5,
       formatter: function() {
-        return this.y;
+        num = this.y +'%';
+        return num;
       }
     }
   }
@@ -414,11 +379,8 @@ series: [{
   name: name,
   data: data,
   color: 'white',
-  pointWidth: 20
-}],
-exporting: {
-  enabled: false
-}
+  pointWidth: 25
+}]
 }).highcharts(); // return chart
 });
 </script>

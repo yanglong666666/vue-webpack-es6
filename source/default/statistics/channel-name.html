@@ -11,7 +11,7 @@ class: statistics
 </div>
 <div class="main-content">
 	{% include component/search.html %}
-	<div id="all_search_list">
+	<div id="all_search_list" class="ui-option">
 		<div class="alllistname active">
       <h3>渠道名称</h3>
       <div class="search-box" id="search_qdmc">
@@ -110,17 +110,17 @@ $(function () {
   categories = ['注册用户', '开户申请', '开户成功', '开户失败']
   data = [{
     y: 334455,
-    color: colors[0]
+    color: '#63a9ff'
   }, {
     y: 233333,
-    color: colors[1],
+    color: '#b897f3'
   }, {
     y: 200000,
-    color: colors[2],
+    color: '#44c1de'
 
   }, {
-    y: 3000,
-    color: colors[3],
+    y: 93000,
+    color: '#e4788c'
 
   }];
 
@@ -168,7 +168,13 @@ plotOptions: {
   column: {
     dataLabels: {
       enabled: true,
-      color: '#a6a6a6',
+      style: {
+        fontFamily: 'Microsoft YaHei',
+        color: '#a6a6a6',
+        fontSize: 14,
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       formatter: function() {
         return this.y;
       }
@@ -186,7 +192,7 @@ series: [{
   name: name,
   data: data,
   color: 'white',
-  pointWidth: 50
+  pointWidth: 70
 }],
 exporting: {
   enabled: false
@@ -252,15 +258,19 @@ exporting: {
         },
         series: [{
           name: '注册开户',
+          color: '#b897f3',
           data: [1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300, 400, 400, 402, 405, 700, 100, 130, 103, 105, 200, 1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300]
         }, {
           name: '开户申请',
+          color: '#44c1de',
           data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
         }, {
           name: '开户成功',
+          color: '#e4788c',
           data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
         }, {
           name: '开户失败',
+          color: '#63a9ff',
           data: [1, 2, 0, 0, 0, 0, 8, 0, 0, 3, 4, 0, 2, 5, 0, 0, 0, 3, 1, 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 0]
         }]
       });

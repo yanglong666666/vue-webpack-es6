@@ -70,16 +70,16 @@ tongji css
     }
   }
 
-	#open_account {
-		margin-top: 30px;
-	}
-	#open_account_bar,
-	#features_age,
-	#features_sex,
-	#features_occupation,
-	#features_education,
-	#device_kh,
-	#device_zc,
+  #open_account {
+    margin-top: 30px;
+  }
+  #open_account_bar,
+  #features_age,
+  #features_sex,
+  #features_occupation,
+  #features_education,
+  #device_kh,
+  #device_zc,
   #average_time {
     float: left;
     width: 55%;
@@ -89,298 +89,309 @@ tongji css
     margin: 40px auto 30px auto;
     @include clearfix;
     li {
-     float: left;
-     width: 215px;
-     margin-right: 100px;
-     h2 {
-      font-weight: bold;
-      color: #6f7b91;
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    div {
-      width: 100%;
-      height: 215px;
-      border-radius: 50%;
-      color: #fff;
-      b {
-       font-size: 36px;
-       display: block;
-       text-align: center;
-       padding-top: 65px;
-     }
-     span {
-       display: block;
-       text-align: center;
-       font-size: 14px;
-     }
-     &.khcg-back {
-       background: #e4788c;
-     }
-     &.zccg-back {
-       background: #44c1de;
-     }
-     &.khsq-back {
-       background: #b897f3;
-     }
-   }
- }
-}
-.lost-rate-attr {
-  h3 {
-    font-size: 12px;
-    margin: 20px 0px 30px 0px;
-    color: #a6a6a6;
-    span {
-      color: #6f7b91;
-      display: inline-block;
-      width: 130px;
-      font-size: 14px;
-    }
-  }
-}
-}
-.time-main,
-.video-main,
-.average-content {
-  overflow: hidden;
-  @include clearfix;
-}
-#time_bar,
-#video_bar {
-  float: right;
-  width: 83%;
-  height: 260px;
-}
-
-.time-content {
-  overflow: hidden;
-  margin: 20px 0px 0px 30px;
-  float: left;
-  dl {
-    @include clearfix;
-    margin-bottom: 25px;
-    dd {
       float: left;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    dt {
-      display: inline-block;
-      p {
-        font-size: 12px;
-      }
-      .time {
-        font-size: 16px;
-        em {
-          font-size: 20px;
-        }
-      }
-    }
-    &.average {
-      .ico {
-        width: 38px;
-        height: 38px;
-        background: url(../images/time.png) 0 0 no-repeat;
-        margin: 9px 40px 0px 0px;
-      }
-      .time {
-        color: #e4788c;
-      }
-    }
-    &.fastest {
-      .ico {
-        width: 38px;
-        height: 65px;
-        background: url(../images/time.png) 0 -45px no-repeat;
-        margin-right: 40px;
-      }
-      .time {
-        color: #b897f3;
-      }
-    }
-    &.longest {
-      .ico {
-        width: 56px;
-        height: 39px;
-        background: url(../images/time.png) 0 -115px no-repeat;
-        margin-right: 22px;
-      }
-      .time {
-        color: #44c1de;
-      }
-    }
-  }
-}
-
-.video-content {
-  overflow: hidden;
-  margin: 20px 0px 0px 30px;
-  float: left;
-  dl {
-    @include clearfix;
-    margin-bottom: 25px;
-    dd {
-      float: left;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    dt {
-      display: inline-block;
-      p {
-        font-size: 12px;
-      }
-      .video {
-        font-size: 16px;
-        em {
-          font-size: 20px;
-        }
-      }
-    }
-    &.average {
-      .ico {
-        width: 38px;
-        height: 38px;
-        background: url(../images/time.png) -45px 0 no-repeat;
-        margin: 9px 40px 0px 0px;
-      }
-      .video {
-        color: #e4788c;
-      }
-    }
-    &.fastest {
-      .ico {
-        width: 38px;
-        height: 65px;
-        background: url(../images/time.png) 0 -45px no-repeat;
-        margin-right: 40px;
-      }
-      .video {
-        color: #b897f3;
-      }
-    }
-    &.longest {
-      .ico {
-        width: 56px;
-        height: 39px;
-        background: url(../images/time.png) 0 -115px no-repeat;
-        margin-right: 22px;
-      }
-      .video {
-        color: #44c1de;
-      }
-    }
-  }
-}
-#video_people_line,
-#time_operation {
-  margin-bottom: 30px;
-}
-.people {
-  @include clearfix;
-  overflow: hidden;
-  margin-left: 30px;
-  dd {
-    float: left;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  dt {
-    display: inline-block;
-    p {
-      height: 38px;
-      line-height: 38px;
-      color: #3a3d42;
-      font-size: 12px;
-      em {
-        font-size: 20px;
-        color: #44c1de;
-        padding-left: 15px;
-      }
-    }
-  }
-
-  .ico {
-    width: 38px;
-    height: 38px;
-    background: url(../images/time.png) -90px 0 no-repeat;
-    margin-right: 40px;
-  }
-  .video {
-    color: #e4788c;
-  }
-}
-.data-content {
-  width: 100%;
-  @include clearfix;
-  overflow: hidden;
-  dl {
-    float: left;
-    width: 33%;
-    @include clearfix;
-    dt {
-      float: left;
-      margin-left: 25px;
-      div {
-        background: #fff;
-        border-radius: 50%;
-        width: 130px;
-        height: 130px;
+      width: 215px;
+      margin-right: 100px;
+      h2 {
+        font-weight: bold;
+        color: #6f7b91;
+        font-size: 22px;
         text-align: center;
+        margin-bottom: 20px;
+      }
+      div {
+        width: 100%;
+        height: 215px;
+        border-radius: 50%;
+        color: #fff;
         b {
+          font-size: 36px;
           display: block;
-          margin-top: 35px;
-          font-size: 43px;
-          line-height: 43px;
-          font-weight: normal;
+          text-align: center;
+          padding-top: 65px;
+        }
+        span {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        }
+        &.khcg-back {
+          background: #e4788c;
+        }
+        &.zccg-back {
+          background: #44c1de;
+        }
+        &.khsq-back {
+          background: #b897f3;
+        }
+      }
+    }
+    .lost-rate-attr {
+      h3 {
+        font-size: 12px;
+        margin: 20px 0px 30px 0px;
+        color: #a6a6a6;
+        span {
+          color: #6f7b91;
+          display: inline-block;
+          width: 130px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .time-main,
+  .video-main,
+  .average-content {
+    overflow: hidden;
+    @include clearfix;
+  }
+  #time_bar,
+  #video_bar {
+    float: right;
+    width: 83%;
+    height: 260px;
+  }
+
+  .time-content {
+    overflow: hidden;
+    margin: 20px 0px 0px 30px;
+    float: left;
+    dl {
+      @include clearfix;
+      margin-bottom: 25px;
+      dd {
+        float: left;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      dt {
+        display: inline-block;
+        p {
+          font-size: 12px;
+        }
+        .time {
+          font-size: 16px;
+          em {
+            font-size: 20px;
+          }
+        }
+      }
+      &.average {
+        .ico {
+          width: 38px;
+          height: 38px;
+          background: url(../images/time.png) 0 0 no-repeat;
+          margin: 9px 40px 0px 0px;
+        }
+        .time {
+          color: #e4788c;
+        }
+      }
+      &.fastest {
+        .ico {
+          width: 38px;
+          height: 65px;
+          background: url(../images/time.png) 0 -45px no-repeat;
+          margin-right: 40px;
+        }
+        .time {
+          color: #b897f3;
+        }
+      }
+      &.longest {
+        .ico {
+          width: 56px;
+          height: 39px;
+          background: url(../images/time.png) 0 -115px no-repeat;
+          margin-right: 22px;
+        }
+        .time {
+          color: #44c1de;
+        }
+      }
+    }
+  }
+
+  .video-content {
+    overflow: hidden;
+    margin: 20px 0px 0px 30px;
+    float: left;
+    dl {
+      @include clearfix;
+      margin-bottom: 25px;
+      dd {
+        float: left;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      dt {
+        display: inline-block;
+        p {
+          font-size: 12px;
+        }
+        .video {
+          font-size: 16px;
+          em {
+            font-size: 20px;
+          }
+        }
+      }
+      &.average {
+        .ico {
+          width: 38px;
+          height: 38px;
+          background: url(../images/time.png) -45px 0 no-repeat;
+          margin: 9px 40px 0px 0px;
+        }
+        .video {
+          color: #e4788c;
+        }
+      }
+      &.fastest {
+        .ico {
+          width: 38px;
+          height: 65px;
+          background: url(../images/time.png) 0 -45px no-repeat;
+          margin-right: 40px;
+        }
+        .video {
+          color: #b897f3;
+        }
+      }
+      &.longest {
+        .ico {
+          width: 56px;
+          height: 39px;
+          background: url(../images/time.png) 0 -115px no-repeat;
+          margin-right: 22px;
+        }
+        .video {
+          color: #44c1de;
+        }
+      }
+    }
+  }
+  #video_people_line,
+  #time_operation {
+    margin-bottom: 30px;
+  }
+  .people {
+    @include clearfix;
+    overflow: hidden;
+    margin-left: 30px;
+    dd {
+      float: left;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    dt {
+      display: inline-block;
+      p {
+        height: 38px;
+        line-height: 38px;
+        color: #3a3d42;
+        font-size: 12px;
+        em {
+          font-size: 20px;
+          color: #44c1de;
+          padding-left: 15px;
+        }
+      }
+    }
+
+    .ico {
+      width: 38px;
+      height: 38px;
+      background: url(../images/time.png) -90px 0 no-repeat;
+      margin-right: 40px;
+    }
+    .video {
+      color: #e4788c;
+    }
+  }
+  .data-content {
+    width: 100%;
+    @include clearfix;
+    overflow: hidden;
+    dl {
+      float: left;
+      width: 33%;
+      @include clearfix;
+      dt {
+        float: left;
+        margin-left: 25px;
+        div {
+          background: #fff;
+          border-radius: 50%;
+          width: 130px;
+          height: 130px;
+          text-align: center;
+          b {
+            display: block;
+            margin-top: 35px;
+            font-size: 43px;
+            line-height: 43px;
+            font-weight: normal;
+          }
+          p {
+            color: #6f7b91;
+          }
+          &.security {
+            border: 4px solid #e4788c;
+            b {
+              color: #e4788c;
+            }
+          }
+          &.zhongdeng {
+            border: 4px solid #44c1de;
+            b {
+              color: #44c1de;
+            }
+          }
+          &.message {
+            border: 4px solid #b897f3;
+            b {
+              color: #b897f3;
+            }
+          }
+        }
+      }
+      .data-inner {
+        float: left;
+        margin-left: 30px;
+        h1 {
+          font-size: 22px;
+          font-weight: bold;
+          color: #6f7b91;
+          margin-bottom: 15px;
         }
         p {
           color: #6f7b91;
-        }
-        &.security {
-          border: 4px solid #e4788c;
-          b {
-            color: #e4788c;
-          }
-        }
-        &.zhongdeng {
-          border: 4px solid #44c1de;
-          b {
-            color: #44c1de;
-          }
-        }
-        &.message {
-          border: 4px solid #b897f3;
-          b {
-            color: #b897f3;
-          }
-        }
-      }
-    }
-    .data-inner {
-      float: left;
-      margin-left: 30px;
-      h1 {
-        font-size: 22px;
-        font-weight: bold;
-        color: #6f7b91;
-        margin-bottom: 15px;
-      }
-      p {
-        color: #6f7b91;
-        margin-bottom: 8px;
-        span {
-          display: inline-block;
-          margin-left: 25px;
-          color: #3a3d42;
-          &.sum {
-            font-size: 18px;
-            color: #e4788c;
+          margin-bottom: 8px;
+          span {
+            display: inline-block;
+            margin-left: 25px;
+            color: #3a3d42;
+            &.sum {
+              font-size: 18px;
+              color: #e4788c;
+            }
           }
         }
       }
     }
   }
+  .area-select {
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      width: 13px;
+      height: 8px;
+      margin-left: 8px;
+      background: url(../images/icolist.png) -80px -30px no-repeat;
+    }
+  }
 }
+
 
