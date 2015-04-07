@@ -48,19 +48,19 @@ var colors = Highcharts.getOptions().colors,
 categories = ['港股通开户', '开资金户', '转户', '开股东户']
 data = [{
   y: 35,
-  color: colors[0],
+  color: '#b897f3'
 
 }, {
   y: 10,
-  color: colors[1],
+  color: '#44c1de'
 
 }, {
   y: 45,
-  color: colors[2],
+  color: '#f3cd97'
 
 }, {
   y: 10,
-  color: colors[3],
+  color: '#63a9ff'
 
 }];
 
@@ -114,9 +114,14 @@ plotOptions: {
   bar: {
     dataLabels: {
       enabled: true,
-      color: '#fff',
       align: 'right',
       x: -5,
+      style: {
+        fontFamily: 'Microsoft YaHei',
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       formatter: function() {
        num = this.y +'%';
        return num;
@@ -134,32 +139,32 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }]
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
     //模拟已选账户柱形图
     var colors = Highcharts.getOptions().colors,
     categories = ['OTC', '深圳开放式基金', '上海开放式基金', '深圳A股','上海A股']
     data = [{
       y: 35,
-      color: colors[0],
-
-    }, {
-      y: 10,
-      color: colors[1],
+      color: '#e4788c'
 
     }, {
       y: 35,
-      color: colors[2],
+      color: '#b897f3'
 
     }, {
       y: 10,
-      color: colors[3],
+      color: '#44c1de'
+
+    }, {
+      y: 45,
+      color: '#f3cd97'
 
     }, {
       y: 10,
-      color: colors[3],
+      color: '#63a9ff'
 
     }];
 
@@ -213,7 +218,12 @@ series: [{
   bar: {
     dataLabels: {
       enabled: true,
-      color: '#fff',
+      style: {
+        fontFamily: 'Microsoft YaHei',
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       align: 'right',
       x: -5,
       formatter: function() {
@@ -233,9 +243,9 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }]
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
   });
 </script>

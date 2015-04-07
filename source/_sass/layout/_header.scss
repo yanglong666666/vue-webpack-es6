@@ -39,6 +39,7 @@
 			position: absolute;
 			top: 76px;
 			left: 0px;
+      z-index: 999;
 			width: 150px;
 			background: #636c86;
 			text-align: center;
@@ -102,7 +103,7 @@
 		left: 150px;
 		top: 0px;
 		ul {
-			@extend %clearfix;
+			@include clearfix;
 			li:first-child {
 				margin-left: 35px;
 			}

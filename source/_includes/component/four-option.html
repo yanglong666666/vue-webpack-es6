@@ -1,0 +1,70 @@
+<div class="ui-option">
+{% for item in site.data.four-option %}
+  <div class="alllistname" id="{{ item.id }}">
+    <h3>{{ item.name }}</h3>
+    <div class="search-box" style="display:none;">
+      <label class="search-label" for="">
+        <input type="text" name="" value="" class="search-input">
+      </label>
+    </div>
+    <div class="content-name" id="attr-list">
+      <div class="attr-panl">
+        {% for child in item.child %}
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>{{ child }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% if item.id == 'partment_content' or item.id == 'middleman_content' %}
+      <div class="option-name">
+        <a class="more" href="javascript:void(0)">更多
+          <span class=""></span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}
+  <div class="algin-center">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+  </div>
+</div>
+<script type="text/javascript">
+  var flag = true;//营业部
+  var tab = true;//经纪人
+  $('.attr-panl').find('a').click(function() {//多选选中状态
+    if($(this).hasClass('current')) {
+      $(this).removeClass('current');
+    } else {
+      $(this).addClass('current');
+    }
+  });
+  $('#partment_content').on('click', '.more', function(event) {//营业部多选更多和收起的切换
+    event.preventDefault();
+    /* Act on the event */
+    if(flag) {
+      $(this).html('收起 ').append('<span class="ico-arrow"></span>');
+      $('#partment_content').addClass('active');
+      $('#partment_content').find('.search-box').show();
+      flag = false;
+    } else {
+      $(this).html('更多 ').append('<span class=""></span>');
+      $('#partment_content').removeClass('active');
+      $('#partment_content').find('.search-box').hide();
+      flag = true;
+    }
+  });
+  $('#middleman_content').on('click', '.more', function(event) {//经纪人多选更多和收起的切换
+    event.preventDefault();
+    /* Act on the event */
+    if(tab) {
+      $(this).html('收起 ').append('<span class="ico-arrow"></span>');
+      $('#middleman_content').addClass('active');
+      $('#middleman_content').find('.search-box').show();
+      tab = false;
+    } else {
+      $(this).html('更多 ').append('<span class=""></span>');
+      $('#middleman_content').removeClass('active');
+      $('#middleman_content').find('.search-box').hide();
+      tab = true;
+    }
+  });
+</script>

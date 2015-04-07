@@ -6,64 +6,10 @@ class: statistics
 <div class="main-content no-margin-bottom">
   {% include component/search.html %}
   <div id="all_search_list">
-    <div class="alllistname">
-      <h3>开户类型</h3>
-      <div class="content-name" id="attr-list">
-        <div class="attr-panl">
-          <a href="javascript:void(0)" class="current"><span class="param-checkbox"></span>开股东户</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>转户</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>港股东户</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>开理财户</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="alllistname">
-      <h3>接入方式</h3>
-      <div class="content-name" id="attr-list">
-        <div class="attr-panl">
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>网厅开户PC端</a>
-        </div>
-      </div>
-
-      <div class="alllistname" id="partment_content">
-        <h3>营业部</h3>
-        <div class="search-box" id="search_yyb" style="display:none;">
-          <label class="search-label" for="parment">
-            <input type="text" name="" value="北京营业部" class="search-input parment">
-          </label>
-        </div>
-        <div class="content-name" id="attr-parment">
-          <div class="attr-panl">
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-            <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
-          </div>
-        </div>
-        <div class="option-name">
-          <a id="more_partment" href="javascript:void(0)">更多
-            <span class=""></span>
-          </a>
-        </div>
-      </div>
-      <div class="button-content">
-        <button class="btn-fill btn-lg" href="#">查询</button>
-        <button class="btn-primary output" href="#">输出报表</button>
-      </div>
+    {% include component/three-option.html %}
+    <div class="button-content">
+      <button class="btn-fill btn-lg" href="#">查询</button>
+      <button class="btn-primary output" href="#">输出报表</button>
     </div>
   </div>
 </div>
@@ -78,20 +24,6 @@ class: statistics
 <script src="../../javascript/exporting.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function () {
-  var flag = true;
-  $("#more_partment").click(function(){//营业部多选更多和收起的切换
-    if(flag) {
-      $(this).html('收起 ').append('<span class="ico-arrow"></span>');
-      $('#partment_content').addClass('active');
-      $('#search_yyb').show();
-      flag = false;
-    } else {
-      $(this).html('更多 ').append('<span class=""></span>');
-      $('#partment_content').removeClass('active');
-      $('#search_yyb').hide();
-      flag = true;
-    }
-  });
 
   $('#lost_rate').highcharts({
     chart: {
@@ -151,8 +83,8 @@ $(function () {
 
     }, {
       name: '万得手机',
-      data: [3.6, 8.8, 8.5, 3.4, 6.0, 4.5, 5.0, 4.3, 1.2, 3.5]
-
+      data: [3.6, 8.8, 8.5, 3.4, 6.0, 4.5, 5.0, 4.3, 1.2, 3.5],
+      color: '#e4788c'
     }]
   });
 });

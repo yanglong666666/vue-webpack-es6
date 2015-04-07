@@ -37,7 +37,7 @@ body {
 		background: url('../images/login-box.png') 0 0 no-repeat;
 		margin: -179px 0px 0px -281px;
     *margin-top: 0px;
-    @extend %clearfix;
+    @include clearfix;
     .logo-content {
       width: 236px;
       float: left;

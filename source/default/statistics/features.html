@@ -63,7 +63,7 @@ class: statistics
 		</tbody>
 	</table>
 </div>
-<div class="border-content" style="min-height:350px;">
+<div class="border-content">
 	<div id="features_sex" style="height:350px;"></div>
 	<table width="40%" cellpadding="0" cellspacing="0" class="simple-table">
 		<thead>
@@ -141,7 +141,7 @@ class: statistics
 		</tbody>
 	</table>
 </div>
-<div class="border-content" style="min-height:450px;">
+<div class="border-content">
 	<div id="features_occupation" style="height:450px;"></div>
 	<table width="40%" cellpadding="0" cellspacing="0" class="simple-table">
 		<thead>
@@ -193,33 +193,33 @@ $(function () {
   categories = ['56岁以上', '51-55', '46-50', '41-45', '36-40', '30-35', '26-21', '18-25']
   data = [{
     y: 5,
-    color: colors[0]
+    color: '#63a9ff'
   }, {
     y: 10,
-    color: colors[1],
+    color: '#b897f3'
   }, {
     y: 5,
-    color: colors[2],
+    color: '#e4788c'
 
   }, {
     y: 10,
-    color: colors[3],
+    color: '#f3cd97'
 
   }, {
     y: 20,
-    color: colors[4],
+    color: '#b897f3'
 
   }, {
     y: 30,
-    color: colors[5],
+    color: '#44c1de'
 
   }, {
     y: 10,
-    color: colors[6],
+    color: '#f3cd97'
 
   }, {
     y: 10,
-    color: colors[7],
+    color: '#63a9ff'
 
   }];
 
@@ -290,13 +290,13 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }],
 exporting: {
   enabled: false
 }
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
     //饼图 性别分布
     var chart;
 
@@ -310,11 +310,15 @@ exporting: {
           plotShadow: false
         },
         title: {
-          text: '性别分布',
+          text: '性别<br>分布',
+          align: 'center',
+          verticalAlign: 'middle',
+          y: 0,
+          x: 30,
           style: {
            fontFamily: 'Microsoft YaHei',
            color: '#5a5d63',
-           fontSize:'16px'
+           fontSize:'24px'
          }
        },
        tooltip: {
@@ -333,7 +337,15 @@ exporting: {
           allowPointSelect: true,
           cursor: 'pointer',
           dataLabels: {
-            enabled: false
+            enabled: true,
+            distance: -50,
+            format: '<b>{point.name}</b><br/> {point.percentage:.1f} %',
+            style: {
+              fontFamily: 'Microsoft YaHei',
+              fontWeight: 'bold',
+              color: 'white',
+              textShadow: 0
+            }
           },
           showInLegend: true
         }
@@ -341,47 +353,56 @@ exporting: {
       series: [{
         type: 'pie',
         name: '性别分布',
+        innerSize: '40%',
         data: [
-        ['女',   45.0],
-        ['男',   55.0]
+        {
+          name: '女',
+          y: 45.0,
+          color: '#b897f3'
+        },
+        {
+          name: '男',
+          y: 55.0,
+          color: '#f3cd97'
+        }
         ]
       }]
     });
     });
 //学历柱形图模拟
 var colors = Highcharts.getOptions().colors,
-categories = ['56岁以上', '51-55', '46-50', '41-45', '36-40', '30-35', '26-21', '18-25']
+categories = ['博士', '硕士', '本科', '大专', '高中', '初中', '小学', '从未上过学']
 data = [{
-  y: 5,
-  color: colors[0]
-}, {
-  y: 10,
-  color: colors[1],
-}, {
-  y: 5,
-  color: colors[2],
+    y: 5,
+    color: '#63a9ff'
+  }, {
+    y: 10,
+    color: '#b897f3'
+  }, {
+    y: 5,
+    color: '#e4788c'
 
-}, {
-  y: 10,
-  color: colors[3],
+  }, {
+    y: 10,
+    color: '#f3cd97'
 
-}, {
-  y: 20,
-  color: colors[4],
+  }, {
+    y: 20,
+    color: '#b897f3'
 
-}, {
-  y: 30,
-  color: colors[5],
+  }, {
+    y: 30,
+    color: '#44c1de'
 
-}, {
-  y: 10,
-  color: colors[6],
+  }, {
+    y: 10,
+    color: '#f3cd97'
 
-}, {
-  y: 10,
-  color: colors[7],
+  }, {
+    y: 10,
+    color: '#63a9ff'
 
-}];
+  }];
 
 function setChart(name, categories, data, color) {
 	chart.xAxis[0].setCategories(categories, false);
@@ -450,40 +471,42 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }],
 exporting: {
   enabled: false
 }
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
 //用户职业特征
 //柱形图模拟
 var colors = Highcharts.getOptions().colors,
 categories = ['包装', '餐饮', '货运物流', '金融', '建筑', 'IT行业']
 data = [{
-  y: 5,
-  color: colors[0]
-}, {
-  y: 10,
-  color: colors[1],
-}, {
-  y: 5,
-  color: colors[2],
+    y: 5,
+    color: '#e4788c'
 
-}, {
-  y: 10,
-  color: colors[3],
+  }, {
+    y: 10,
+    color: '#f3cd97'
 
-}, {
-  y: 20,
-  color: colors[4],
+  }, {
+    y: 20,
+    color: '#b897f3'
 
-}, {
-  y: 30,
-  color: colors[5],
+  }, {
+    y: 30,
+    color: '#44c1de'
 
-}];
+  }, {
+    y: 10,
+    color: '#f3cd97'
+
+  }, {
+    y: 10,
+    color: '#63a9ff'
+
+  }];
 
 function setChart(name, categories, data, color) {
 	chart.xAxis[0].setCategories(categories, false);
@@ -552,12 +575,12 @@ tooltip: {
 series: [{
   name: name,
   data: data,
-  color: 'white'
+  color: 'white',
+  pointWidth: 25
 }],
 exporting: {
   enabled: false
 }
-})
-    .highcharts(); // return chart
+}).highcharts(); // return chart
   });
 </script>

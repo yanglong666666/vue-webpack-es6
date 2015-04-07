@@ -59,33 +59,53 @@ $(function () {
   series: [{
     name: '财人汇手机',
     data: [2455, 1223, 1224, 7333],
+    color: '#b897f3',
     dataLabels: {
       enabled: true,
-      color: '#FFFFFF',
+      style: {
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       align: 'center'
     }
   }, {
     name: '万得手机',
     data: [1222, 1232, 1453, 1542],
+    color: '#44c1de',
     dataLabels: {
       enabled: true,
-      color: '#FFFFFF',
+      style: {
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       align: 'center'
     }
   }, {
     name: '同花顺手机',
     data: [1113, 1114, 1214, 1002],
+    color: '#e4788c',
     dataLabels: {
       enabled: true,
-      color: '#FFFFFF',
+      style: {
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       align: 'center'
     }
   }, {
     name: '财人汇PC',
     data: [453, 654, 324, 822],
+    color: '#63a9ff',
     dataLabels: {
       enabled: true,
-      color: '#FFFFFF',
+      style: {
+        color: '#fff',
+        fontWeight: 'normal',
+        textShadow: 0
+      },
       align: 'center'
     }
   }],
@@ -149,15 +169,19 @@ $(function () {
         },
         series: [{
           name: '财人汇手机',
+          color: '#b897f3',
           data: [1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300, 400, 400, 402, 405, 700, 100, 130, 103, 105, 200, 1000, 200, 3000, 3002, 2800, 600, 800, 900, 200, 300]
         }, {
           name: '万得手机',
+          color: '#44c1de',
           data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
         }, {
           name: '同花顺手机',
+          color: '#e4788c',
           data: [100, 200, 300, 302, 280, 600, 800, 900, 1200, 300, 400, 400, 402, 505, 600, 140, 130, 103, 105, 200, 1000, 200, 1000, 2002, 2100, 600, 800, 900, 200, 100]
         }, {
           name: '财人汇PC',
+          color: '#63a9ff',
           data: [1, 2, 0, 0, 0, 0, 8, 0, 0, 3, 4, 0, 2, 5, 0, 0, 0, 3, 1, 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 0]
         }]
       });

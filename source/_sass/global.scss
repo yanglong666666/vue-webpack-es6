@@ -100,14 +100,16 @@ a img {
 /**
  * Clearfix
  */
-%clearfix {
 
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
+// %clearfix {
+//   *zoom: 1;
+//   &:after {
+//     content: "";
+//     display: table;
+//     clear: both;
+//   }
+// }
+
 button {
   font-family: $base-font-family;
 }
