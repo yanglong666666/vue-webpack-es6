@@ -29,8 +29,11 @@
 //Component
 @import "component/search";
 @import "component/pagenav";
-@import "component/js-select";
 @import "component/option";
+@import "component/tipbox";
+@import "component/tipbar";
+@import "component/js-select";
+@import "component/js-dialog";
 
 //Page
 @import "page/statistics";
