@@ -1,0 +1,41 @@
+$tipbox-types:(
+  (info     #f4a653)
+  (error    #f4a653)
+  (success  #f4a653)
+  (notice   #d5d5d5)
+) !default;
+
+.ui-tipbox {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 40px;
+  zoom: 1;
+  .tipbox-icon {
+    position: absolute;
+    top: 55px;
+    left: 38px;
+    @include square(32px);
+    .icon {
+      display: block;
+    }
+  }
+  .tipbox-content {
+    padding: 55px 50px 55px 90px;
+    .title {
+      color: #676767;
+      font-size: 22px;
+    }
+    .explain {
+      color: #808080;
+    }
+  }
+}
+
+@each $tipbox-type in $tipbox-types {
+  $type:  nth($tipbox-type, 1);
+  $color: nth($tipbox-type, 2);
+
+  .tipbox-#{$type} {
+    @include tipbox($color);
+  }
+}

@@ -1,9 +1,9 @@
 <div class="site-header">
   <div class="header-inner">
-    <a class="xtgly" href="#">
+    <a class="xtgly" href="javascript:void(0)">
       <span></span>系统管理员<i></i>
     </a>
-    <ul style="display:none;">
+    <ul id="user-center" style="display:none;">
       <li><a class="xgmm" href="javascript:void(0)"><i></i>修改密码</a></li>
       <li><a class="tcdl" href="javascript:void(0)"><i></i>退出登录</a></li>
       <li><a class="rwtx" href="javascript:void(0)"><i></i>任务提醒</a></li>
@@ -20,3 +20,15 @@
 </div>
 <h1>中华证券网上开户业务管理系统</h1>
 </div>
+<script type="text/javascript">
+  $(function(){
+    $('.header-inner').mouseover(function(event) {
+      /* Act on the event */
+      $('#user-center').show();
+    });
+    $('.header-inner').mouseleave(function(event) {
+      /* Act on the event */
+      $('#user-center').hide();
+    });
+  });
+</script>
