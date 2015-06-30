@@ -1,0 +1,158 @@
+.page-video {
+  .v-title {
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    border: 1px solid #f0f5fb;
+    .name {
+      display: inline-block;
+      color: #6f7b91;
+    }
+  }
+  .info {
+    color: #3a3d42;
+    display: inline-block;
+    margin: 0 220px 0 100px;
+  }
+  .video-main {
+    @include clearfix;
+    overflow: hidden;
+    background: #f0f5fb;
+    padding: 15px;
+    .ui-photo {
+      float: left;
+      .photo-inner {
+        margin-bottom: 30px;
+        img {
+          border-radius: 10px;
+        }
+      }
+    }
+    .vedio-inner {
+      float: left;
+      margin: 0 20px;
+    }
+    .ui-video-table {
+      table {
+        border-collapse: separate;
+        border-collapse: collapsed;
+        width: 370px;
+        tbody {
+          tr {
+            &:nth-child(odd) {
+              border-radius: 5px;
+              background: #e2e6ef;
+            }
+            &:nth-child(even) {
+              background: #f0f5fb;
+            }
+            td {
+              padding: 7px 10px;
+              &.name {
+                color: #3a3d42;
+              }
+              &.title {
+                color: #6f7b91;
+              }
+              &.text-r {
+                text-align: right;
+              }
+              .edit-name {
+                display: inline-block;
+                vertical-align: middle;
+                content: "";
+                font-size: 0;
+                width: 15px;
+                height: 16px;
+                margin-left: 20px;
+                background: url(../images/video/video-list.png) 0 -95px no-repeat;
+              }
+              .show-result {
+                margin: 20px 0 15px 0;
+                @include clearfix;
+                overflow: hidden;
+                img {
+                  border-radius: 5px;
+                  float: left;
+                }
+                .result-inner {
+                  float: right;
+                  margin: 50px 10px 0 0;
+                  .error {
+                    text-align: center;
+                    margin-bottom: 10px;
+                    color: #ff5776;
+                  }
+                }
+              }
+              .idcard {
+                margin-top: 5px;
+                .title {
+                  color: #6f7b91;
+                  width: 110px;
+                  display: inline-block;
+                }
+                .name {
+                  color: #3a3d42;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .video-introduce {
+      overflow: hidden;
+      float: left;
+      width: 210px;
+      height: 900px;
+      background: #e2e6ef;
+      h2 {
+        background: #d3d7e0;
+        text-align: center;
+        color: #6f7b91;
+        height: 35px;
+        line-height: 35px;
+      }
+      .introduce-inner {
+        padding: 15px;
+        font-size: 12px;
+        color: #6f7b91;
+        line-height: 20px;
+      }
+    }
+  }
+  .log-title {
+    color: #6a7491;
+    font-size: 16px;
+    margin: 30px 0 15px 0;
+  }
+  .ui-video-tab {
+    .tab {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 20px;
+      a {
+        text-align: center;
+        border-top: 5px solid #babec7;
+        width: 50%;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        background: #d3d7e0;
+        color: #6f7b91;
+        &.current {
+          background: #e2e6ef;
+          border-top: 5px solid #3ecacb;
+        }
+      }
+    }
+    .video-inner {
+      @include clearfix;
+      overflow: hidden;
+      .video-photo {
+        float: left;
+        margin-right: 5px;
+      }
+    }
+  }
+}
