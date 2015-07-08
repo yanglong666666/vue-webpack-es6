@@ -395,6 +395,8 @@ $.fn.overlay.defaults = {
 };
 
 $.fn.overlay.Constructor = Overlay;
+
+
 /**
  * 名称: pin.js
  * 描述: 通过两个对象分别描述定位元素及其定位点，然后将其定位点重合
@@ -533,805 +535,586 @@ function getSize(object, coord, type) {
     return parseFloat(x, 10);
 }
 
-
-/*
- * TIP 提示窗口插件
- * @namespace TIP
- */
-var TIP = {
-    box:       {},
-    timerID:   null, // 计时器ID
-    needsInit: true,
-
-    //初始化
-    init: function () {
-        if (!this.needsInit) {return;}
-
-        this.box = $("<div/>")
-            .hide()
-            .addClass("tiplayer")
-            .css({"position": "absolute"})
-            .appendTo(document.body);
-
-        this.needsInit = false;
-    },
-
-    show: function (t, options, callback) {
-        // 默认设置
-        var opts = $.extend({
-            tipType:  "suc", // 提示类型 ，suc 成功, confirm 确认, warn 警告, err 出错
-            tipText:  "", // 填充文字
-            effect:   "", // 显示特效 ，默认为空直接显示 ，fade 渐变，slide 滑动
-            imgSrc:   "/images/transparent.gif", // icon 路径
-            hasBtn:   false,
-            conf: '',
-            canc: '',
-            btnText:  ["确定"],
-            btnCls: ["btn-medium-blue", "btn-medium-gray"],
-            zindex:   1000,
-            fixset:   3,
-            hasImg: true,
-            btnRole:["confirm"],
-            conf:function(){},                       // 相对定位的偏移量，默认为 3px
-            canc:function(){}                          // 相对定位的偏移量，默认为 3px
-        }, options || {});
-
-        if (t) {
-            offset = $(t).offset()
-        }
-
-        if (this.timerID) {
-            clearTimeout(this.timerID);
-        }
-
-        this.init();
-
-        // 填充内容
-            // 是否有图片
-        var hasimg = opts.hasImg?'<img class="tipicon '+opts.tipType + '" src='+opts.imgSrc+' />':''
-        this.box
-            .css({"z-index": opts.zindex,"boxShadow":"0 0 10px #969696"})
-            .html('<div class="tipcont">'+hasimg+
-                '<div class="innertext">' +
-            opts.tipText + '</div></div>');
-
-        if ($(".masker").length === 1)
-        {
-            $(".masker").show()
-        }
-        else{
-            this.overlayer = $("<div/>")
-               .addClass("masker")
-               .css({
-                 "position":   this.isIE6 ? "absolute" : "fixed",
-                 "z-index":    999,
-                 "background": "#000",
-                 "opacity":    0.15,
-                 "filter":     "alpha(opacity=15)",
-                 "display":    "block",
-                 "width":      this.isIE6 ? Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth) : "100%",
-                 "height":     this.isIE6 ? Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight) : "100%",
-                 "left":       0,
-                 "top":        0
-               })
-               .appendTo($(document.body)).show();
-            }
-
-        // 展现方式
-        switch (opts.effect) {
-            case "fade":
-                this.box.fadeIn();
-                break;
-            case "slide":
-                this.box.slideDown();
-                break;
-            default:
-                this.box.show();
-        }
-
-        if (opts.hasBtn) {
-            var btnDiv = $("<div/>").addClass("tipbtn").appendTo(this.box.find(".tipcont"));
-            // if(opts.btnText.length === 1)
-            // {
-            //     btnDiv.append("<a class=\"" + opts.btnCls[0] + " btn\" href=\"javascript:;\" onclick=\"" + opts.conf + "\"><em>" + opts.btnText[0] + "<\/em><\/a>");
-            // }
-            // else if (opts.btnText.length > 1)
-            // {
-            //     btnDiv.append("<a class=\"" + opts.btnCls[0] + " btn\" href=\"javascript:;\" onclick=\"" + opts.conf + "\"><em>" + opts.btnText[0] + "<\/em><\/a><a class=\"" + opts.btnCls[1] + " btn\" href=\"javascript:;\" onclick=\"" + opts.canc + "\"><em>" + opts.btnText[1] + "<\/em><\/a>");
-            // }
-            for (var i=0;i<opts.btnText.length;i++)
-            {
-             btnDiv.append('<a class="' + opts.btnCls[i] + ' btn" href="javascript:;" data-role='+opts.btnRole[i]+'><em>' + opts.btnText[i] + '<\/em><\/a>');
-            }
-        }
-        function shutTIP (para){
-            TIP.hide();
-            $(".masker").hide();
-            para()
-        }
-
-        // 绑定事件
-        $(".tipbtn").find("[data-role='confirm']").on("click",function(){
-            shutTIP(opts.conf);
-        })
-        $(".tipbtn").find("[data-role='cancel']").on("click",function(){
-            shutTIP(opts.canc);
-        })
-
-        // 定位
-        switch (opts.position) {
-            case "top":
-                this.box.css({
-                    "top":  offset.top - this.box.outerHeight() - opts.fixset,
-                    "left": offset.left + ($(t).outerWidth() - this.box.outerWidth()) / 2 + parseInt($(t).css("padding-left"))
-                });
-                break;
-
-            case "bottom":
-                this.box.css({
-                    "top":  offset.top + $(t).outerHeight() + opts.fixset,
-                    "left": offset.left + ($(t).outerWidth() - this.box.outerWidth()) / 2 + parseInt($(t).css("padding-left"))
-                });
-                break;
-
-            case "left":
-                this.box.css({
-                    "top":  offset.top + ($(t).outerHeight() - this.box.outerHeight()) / 2 + parseInt($(t).css("padding-top")),
-                    "left": offset.left - this.box.outerWidth() - opts.fixset
-                });
-                break;
-
-            case "right":
-                this.box.css({
-                    "top":  offset.top + ($(t).outerHeight() - this.box.outerHeight()) / 2 + parseInt($(t).css("padding-top")),
-                    "left": offset.left + $(t).outerWidth() + opts.fixset
-                });
-                break;
-
-            default:
-                this.box.css({
-                    "top":         $(window).height() / 2 + $(document).scrollTop(),
-                    "left":        "50%",
-                    "margin-top":  -this.box.height() / 2,
-                    "margin-left": -this.box.width() / 2
-                });
-        }
-
-        return this;
-
-    },
-
-    hide: function () {
-        this.box.hide();
-    },
-
-    remove: function () {
-        this.box.remove();
-        this.needsInit = true;
-    },
-
-    closeDelay: function (delayTime, isRemove, callback) {
-        var _this = this;
-        this.timerID = setTimeout(function () {
-            (isRemove) ? _this.remove() : _this.hide();
-            $(".masker").hide();
-            if (callback) {
-                callback();
-            }
-        }, delayTime);
-    }
-};
-
-/*
- * Dialog 弹出窗口插件
- * @namespace DIALOG
- */
-var DIALOG = {
-    timeID:    null,
-    needsInit: true, // 是否需要初始化
-    isIE6:     !window.XMLHttpRequest, // 是否 ie6
-    init:      function (options) {
-        if (!this.needsInit)
-            return;
-
-        // TODO 修正 ie6 下  position: fixed 无效
-        if (this.isIE6 && this.fixed) {
-            if (document.body.currentStyle.backgroundAttachment !== "fixed") {
-                if (document.body.currentStyle.backgroundImage === "none") {
-                    document.body.runtimeStyle.backgroundRepeat = "no-repeat";
-                    document.body.runtimeStyle.backgroundImage = "url(about:blank)";
-                }
-                document.body.runtimeStyle.backgroundAttachment = "fixed";
-            }
-            this.fixlayer = document.createElement("<div style=\"display:none;position:absolute;z-index:999;overflow:hidden;background:transparent;top:expression((document).documentElement.scrollTop);left:expression((document).documentElement.scrollLeft);width:expression((document).documentElement.clientWidth);height:expression((document).documentElement.clientHeight);\">");
-            document.body.insertBefore(this.fixlayer, document.body.childNodes[0]);
-        }
-
-        // 显示层
-        this.box = $("<div id='dragId'></div>")
-            .css({
-                "position": this.fixed ? (this.isIE6 ? "absolute" : "fixed") : "absolute",
-                "z-index":  999
-            })
-            .appendTo((this.isIE6 && this.fixed) ? $(this.fixlayer) : $(document.body));
-
-        this.overlayer = $("<div/>")
-          .addClass("masklayer")
-          .css({
-            "position":   this.isIE6 ? "absolute" : "fixed",
-            "z-index":    850,
-            "background": "#000",
-            "opacity":    0.15,
-            "filter":     "alpha(opacity=15)",
-            "display":    "block",
-            "width":      this.isIE6 ? Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth) : "100%",
-            "height":     this.isIE6 ? Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight) : "100%",
-            "left":       0,
-            "top":        0
-          })
-          .appendTo($(document.body)).hide();
-
-        this.needsInit = false;
-    },
-
-    show: function (options) {
-        var opts = $.extend({ // 默认
-            width:    400,
-            title:    "提示",
-            locked:   'dragarea',
-            html:     "",
-            mask:     true, // 是否显示遮罩
-            fixed:    false, // 是否固定位置
-            isTip:    false, // 是否为信息提示
-            imgSrc:   "/images/transparent.gif", // 图标路径
-            boxId:    "boxId",
-            dragable: false,
-            hasBtn:   false,
-            btnCls:   ["blueBtn edit-btn btn", "btn edit-btn"],
-            btnEvent: ["", "DIALOG.hide()"],
-            btnText:  ["确定", "取消"],
-            clsEvent: function (){}
-        }, options || {});
-        var st = document.body.scrollTop || document.documentElement.scrollTop,
-            sl = document.body.scrollLeft || document.documentElement.scrollLeft;
-
-        this.fixed = opts.fixed;
-
-        if (opts.isTip) {
-            opts.html = "<div class=\"tipbody\"><div class=\"tipwrap\"><img src=\"" + opts.imgSrc + "\" class=\"tipicon " + opts.tipType + "\" alt=\"\" \/><span class=\"tiptxt\">" + opts.tipText + "<\/span><\/div><\/div>"
-        }
-
-        if (this.timerID) {clearTimeout(this.timerID);}
-
-        this.init();
-
-        if (this.isIE6 && this.fixed) this.fixlayer.style.display = "block";
-
-        if (opts.mask) {this.overlayer.show();}
-
-        // 填充内容
-        this.box
-            .html("<table class=\"layerbox\"><tr><td class=\"popborder hborder\" colspan=\"3\"></td></tr><tr><td class=\"popborder vborder\"></td><td class=\"popcontent\"><div class=\"boxtitle\" id=\""+opts.locked+"\"><h2 onselectstart=\"return false;\">" +
-            opts.title +
-            "<\/h2><a class=\"close\" href=\"javascript:;\" title=\"点击关闭\" id=\"clos\">X<\/a><\/div><div class=\"boxcont\" id=\"" + opts.boxId + "\">" +
-            opts.html +
-            "<\/div><\/td><td class=\"popborder vborder\"><\/td><\/tr><td class=\"popborder hborder\" colspan=\"3\"><\/td><\/tr><iframe class=\"anyChatIframe\"></iframe><\/table>")
-            .css({
-                "width":       opts.width,
-                "display":     "block"
-            }).pinCenter();
-
-        if (opts.hasBtn) {
-            var btnDiv = $("<div/>").addClass("confirmC centre").appendTo(this.box.find(".boxcont"));
-            for (var i = 0; i < opts.btnText.length; i++) {
-                btnDiv.append("<a class=\"btn " + opts.btnCls[i] + "\" href=\"javascript:;\" onclick=\"" + opts.btnEvent[i] + "\"><em>" + opts.btnText[i] + "<\/em><\/a>");
-            }
-        }
-        if(opts.dragable)
-        {
-            $('#'+opts.locked).css({"cursor":"move"})
-        var m;
-         $('#'+opts.locked).mousedown(function(e){
-                if(e.which){
-                    m=true;
-                    _x=e.pageX-parseInt($('#dragId').css('left'));
-                    _y=e.pageY-parseInt($('#dragId').css('top'));
-                }
-                })
-
-            $(document).ready(function(){}).mousemove(function(e){
-                if(m){
-                    var x=e.pageX-_x;
-                    var y=e.pageY-_y;
-                    $('#dragId').css({left:x});
-                    $('#dragId').css({top:y});
-                }
-            }).mouseup(function(){
-                m=false;
-            });
-        }
-        $("#clos").click(function(){
-            DIALOG.hide()
-            opts.clsEvent()
-        })
-
-        this.box.height(); // TODO：解决 ie6 ie7 下首次触发定位不准的 bug
-
-        // ESC 动作
-        $(document.body).bind("keydown", function (e) {
-            if (e.keyCode === "27") {
-                DIALOG.hide();
-            }
-        });
-
-        return this;
-    },
-
-    hide: function () {
-        this.box.hide();
-        this.overlayer.hide();
-        if (this.isIE6 && this.fixed) {
-            this.fixlayer.style.display = "none";
-        }
-    },
-
-    remove: function () {
-        this.box.remove();
-        this.overlayer.remove();
-        if (this.isIE6 && this.fixed) {
-            this.fixlayer.parentNode.removeChild(this.fixlayer);
-        }
-        this.needsInit = true;
-    },
-
-    closeDelay: function (delayTime, isRemove, callback) {
-        var _this = this;
-        this.timerID = setTimeout(function () {
-            (isRemove) ? _this.remove() : _this.hide();
-            if (callback) callback();
-        }, delayTime);
-    }
-};
 /**
- *
- *  Plugin: Jquery.dragBox
- *  Developer: yk
- *  Version: 1.0 Beta
- *  Update: 2013.8.29
- *
-**/
-function DRAGBOX (options){
-    options = $.extend({},$.fn.dragBox.defaults,options);
-    this.init(options)
-}
-    DRAGBOX.prototype = {
-        constractor:DRAGBOX,
-        init:function(options){
-            var m;
-            var st;
-            st = document.body.scrollTop || document.documentElement.scrollTop;
-            if($('#'+options['parent']).length > 0)
-            {
-                return;
-            }
-            else{
-            $('body').append('<div id="'+options['parent']+'" class="dragBox" ><div id="'+options['inside']+'"  class="inside"><h1 id="'+options['locked']+'" onselectstart="return false;">'+(options['title']?options['title']:'照片大图')+'<a class="span" href="javascript:void(0);"></a></h1><img id="imgs" src="'+options['imgPath']+'"></div><iframe class="anyChatIframe"></iframe></div>');
-            $('#'+options['parent']).css({"visibility":"hidden"})
-            setTimeout(function () {
-                var w = $('#'+options['inside']).find("img").width()
-                var h = $('#'+options['inside']).find("img").height()
-                $('#'+options['parent']).css({"width":$('#'+options['inside']).find("img").width(),"marginLeft":-w/2+'px',"marginTop":-h/2+st+'px',"visibility":"visible"})
-            }, 300)
-            $('#'+options['locked']+' .span').click(function(){
-                $('#'+options['parent']).remove();
-            });
-             if(options['dragable'])
-            {
-                $('#'+options['locked']).mousedown(function(e){
-                    e.preventDefault();
-                    if(e.which){
-                        m=true;
-                        _x=e.pageX-parseInt($('#'+options['parent']).css('left'));
-                        _y=e.pageY-parseInt($('#'+options['parent']).css('top'));
-                    }
-                })
-                $('body').mousemove(function(e){
-                    if(m){
-                    var x=e.pageX-_x;
-                    var y=e.pageY-_y;
-                    $('#'+options['parent']).css({left:x});
-                    $('#'+options['parent']).css({top:y});
-                    }
-                }).mouseup(function(){
-                    m=false;
-                });
-            }
-        }
-       }
-    }
-     $.fn.dragBox = function(options){
-        return this.each(function () {
-        new DRAGBOX(options);
-    });
-}
- $.fn.dragBox.defaults = {
-     parent:'dragBox',
-     inside:'inside',
-     locked:'locked',
-     dragable:true
- }
-$.fn.overlay.ddd = Overlay;
-
-
-// ie6PNG
-(function($){var jspath=$('script').last().attr('src');var basepath='';if(jspath.indexOf('/')!=-1){basepath+=jspath.substr(0,jspath.lastIndexOf('/')+1);}$.fn.fixpng=function(options){function _fix_img_png(el,emptyGIF){var images=$('img[src*="png"]',el||document),png;images.each(function(){png=this.src;width=this.width;height=this.height;this.src=emptyGIF;this.width=width;this.height=height;this.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+png+"',sizingMethod='scale')";});}function _fix_bg_png(el){var bg=$(el).css('background-image');if(/url\([\'\"]?(.+\.png)[\'\"]?\)/.test(bg)){var src=RegExp.$1;$(el).css('background-image','none');$(el).css("filter","progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+src+"',sizingMethod='scale')");}}if($.browser.msie&&$.browser.version<7){return this.each(function(){var opts={scope:'',emptyGif:basepath+'blank.gif'};$.extend(opts,options);switch(opts.scope){case'img':_fix_img_png(this,opts.emptyGif);break;case'all':_fix_img_png(this,opts.emptyGif);_fix_bg_png(this);break;default:_fix_bg_png(this);break;}});}}})(jQuery);
-
-// hoverDelay
-(function($){
-    $.fn.hoverDelay = function(options){
-        var defaults = {
-            hoverDuring: 200,
-            outDuring: 200,
-            hoverEvent: function(){
-                $.noop();
-            },
-            outEvent: function(){
-                $.noop();
-            }
-        };
-        var sets = $.extend(defaults,options || {});
-        var hoverTimer, outTimer, that = this;
-        return $(this).each(function(){
-            $(this).hover(function(){
-                clearTimeout(outTimer);
-                hoverTimer = setTimeout(function(){sets.hoverEvent.apply(that)}, sets.hoverDuring);
-            },function(){
-                clearTimeout(hoverTimer);
-                outTimer = setTimeout(function(){sets.outEvent.apply(that)}, sets.outDuring);
-            });
-        });
-    }
-})(jQuery);
-
-//点击错误提示框叉叉
-var ifWrong = function(){
-    $(".mainCont input").each(function(){
-                var txt = $(this).val()
-                if(txt.replace(/(^\s*)|(\s*$)/g,"")=="")
-                {
-                    $(this).parent().find(".typeST").fadeIn()
-                }
-
-            })
-    $(".mainCont textarea").each(function(){
-                var txt = $(this).val()
-                if(txt.replace(/(^\s*)|(\s*$)/g,"")=="")
-                {
-                    $(this).parent().find(".typeST").fadeIn()
-                }
-
-            })
-
-}
-$(".wrongTips em").each(function(){
-    var self = this
-    $(this).click(function(){
-        $(self).parent().parent().css({"display":"none"})
-
-    })
-})
-//模拟placeholder属性
-      if (!("placeholder" in document.createElement("input"))) {
-        $("input[placeholder]").each(function () {
-            var that = this;
-            if($(this).val() == '')
-            {
-                $(this).val($(this).attr("placeholder"))
-            }
-            $(this).css({"color":"#b2b2b2"})
-            $(this).focus(function(){
-              if($(this)[0].value == $(this).attr("placeholder"))
-              {
-                $(this).val('')
-              }
-            })
-            $(this).bind("keyup", function (event) {
-            $(this).css({"color":"#4d4d4d"})
-                switch(event.keyCode) {
-                    case 8:
-                    if($(that)[0].value == "")
-                    {
-                        $(that).css({"color":"#b2b2b2"})
-                    }
-                    else{
-                        $(this).css({"color":"#4d4d4d"})
-                    }
-                    break;
-                }
-            })
-            $(this).blur(function(){
-                if($(that)[0].value == "" || $(that)[0].value == $(that).attr("placeholder"))
-                {
-                  $(that).val($(that).attr("placeholder"))
-                }
-                else{}
-          })
-        });
-      }
-
-
- //上传图片预览
-jQuery.fn.extend({
-    uploadPreview: function (opts) {
-        var _self = this,
-            _this = $(this);
-        opts = jQuery.extend({
-            Img: "imagesname1",
-            Width: 350,
-            Height: 120,
-            ImgType: ["gif", "jpeg", "jpg", "bmp", "png","PNG","JPG","JPEG"],
-            Callback: function () {}
-        }, opts || {});
-        _self.getObjectURL = function (file) {
-            var url = null;
-            if (window.createObjectURL != undefined) {
-                url = window.createObjectURL(file);
-            } else if (window.URL != undefined) {
-                url = window.URL.createObjectURL(file);
-            } else if (window.webkitURL != undefined) {
-                url = window.webkitURL.createObjectURL(file);
-            }
-            return url;
-        };
-        _this.change(function () {
-            $("#" + opts.Img).show();
-            if (this.value) {
-                if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
-                    alert("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
-                    this.value = "";
-                    return false;
-                }
-                if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
-                    try {
-                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
-                    } catch (e) {
-                        var src = "";
-                        var obj = $("#" + opts.Img);
-                        var div = obj.parent("div")[0];
-                        _self.select();
-                        if (top != self) {
-                            window.parent.document.body.focus();
-                        } else {
-                            _self.blur();
-                        }
-                        src = document.selection.createRange().text;
-                        document.selection.empty();
-                        obj.hide();
-                        obj.parent("div").css({
-                            'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
-                            'width': opts.Width + 'px',
-                            'height': opts.Height + 'px'
-                        });
-                        div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src;
-                    }
-                } else {
-                    $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]));
-                }
-                opts.Callback();
-            }
-        });
-    }
-});
-
-// 定义 Dialog 类
+ * Dialog 弹出层组件
+ * @param {jQuery} element
+ * @param {Object} options
+ * @class
+ */
 var Dialog = function (element, options) {
-    options = $.extend({}, $.fn.dialog.defaults, options);
+  options = $.extend({}, $.fn.dialog.defaults, options);
 
-    this.options = options;
-    this.hasInit = false;
+  this.options = options;
+  this.el = element;
+  this.hasInit = false;
 
-    this.setup(element);
-    this.element = element;
+  this.setup();
 };
 
 Dialog.prototype = {
 
-    constructor: Dialog,
+  constructor: Dialog,
 
-    init: function () {
-        // 创建弹出层
-        this.dialog = new Overlay(this.options.template, {
-            className: this.options.dialogClass,
-            width: this.options.width,
-            height: this.options.height,
-            zIndex: this.options.zIndex
+  init: function () {
+    // 创建弹出层
+    this.dialog = new Overlay(this.options.template, {
+      className: this.options.dialogClass,
+      width: this.options.width,
+      height: this.options.height,
+      zIndex: this.options.zIndex
+    });
+
+    if (this.options.hasMask) {
+      var $mask = $('.' + this.options.maskClass);
+
+      if ($mask.length === 0) {
+        // 创建遮罩
+        this.mask = new Overlay(document.createElement('div'), {
+          className: this.options.maskClass,
+          width: '100%',
+          height: '100%',
+          zIndex: this.options.zIndex - 1,
+          style: {
+            position: 'fixed',
+            top: 0,
+            left: 0
+          }
         });
-
-        if (this.options.hasMask) {
-            var $mask = $('.' + this.options.maskClass);
-
-            if ($mask.length === 0) {
-                // 创建遮罩
-                this.mask = new Overlay(document.createElement('div'), {
-                    className: this.options.maskClass,
-                    width: isIE6? $(document).outerWidth() : '100%',
-                    height: isIE6? $(document).outerHeight() : '100%',
-                    zIndex: this.options.zIndex - 1,
-                    position: 'fixed'
-                });
-            } else {
-                // 已有遮罩
-                this.mask = $mask;
-            }
-        }
-
-        // 内容填充
-        this.render();
-
-        // 先隐藏浮动层与遮罩
-        this.dialog.hide();
-        if (this.options.hasMask) {
-            this.mask.hide();
-        }
-
-        // 关闭按钮事件绑定
-        $(this.dialog.overlay).find('.js-close').on('click', $.proxy(this.hide, this));
-
-        // 其它按钮事件绑定
-        $(this.dialog.overlay).find('[data-role=confirm]').on('click', $.proxy(this.confirm, this));
-        $(this.dialog.overlay).find('[data-role=cancel]').on('click', $.proxy(this.hide, this));
-
-        // 初始化完成标志
-        this.hasInit = true;
-    },
-
-    setup: function (element) {
-        var that = this;
-
-        if (element) {
-            // 触发绑定
-            $(element).on('click', function (e) {
-                e.preventDefault();
-
-                that.trigger();
-            });
-        } else {
-            that.trigger();
-        }
-
-        // 用于一些初始化的操作
-        if (that.options.once) {
-            $(element).one('click', function (e) {
-                e.preventDefault();
-                that.options.once();
-            });
-        }
-    },
-
-    trigger: function () {
-        if (!this.hasInit) {
-            this.init();
-        }
-
-        this.show();
-    },
-
-    show: function () {
-        if (this.options.beforeShow) {
-            this.options.beforeShow.apply(this);
-        }
-
-        this.dialog.setPosition();
-        this.dialog.show();
-        if (this.options.hasMask) {
-            this.mask.show();
-        }
-
-        if (this.options.afterShow) {
-            this.options.afterShow.apply(this);
-        }
-    },
-
-    hide: function () {
-        if (this.options.beforeHide) {
-            this.options.beforeHide.apply(this);
-        }
-
-        this.dialog.hide();
-        if (this.options.hasMask) {
-            this.mask.hide();
-        }
-
-        if (this.options.afterHide) {
-            this.options.afterHide.apply(this);
-        }
-
-        if (this.options.needDestroy) {
-            this.destroy();
-        }
-    },
-
-    render: function () {
-        var $head = $(this.dialog.overlay).find('.hd');
-        var $body = $(this.dialog.overlay).find('.bd');
-        var $close = $(this.dialog.overlay).find('.close');
-        var html;
-
-        if (!this.options.hasTitle) {
-            $head.remove();
-        } else {
-            $head.find('h2').text(this.options.title);
-        }
-
-        if (this.options.noClose) {
-            $close.remove();
-        }
-
-        if (this.options.confirmType) {
-            html = '<p class="confirm-wrap"><i class="icon-sprite icon icon-' + this.options.confirmType + '-32"></i>' + this.options.message + '</p>'
-        } else {
-            html = this.options.content;
-        }
-
-        if (this.options.hasBtn) {
-            var btnCls;
-            html += '<div class="btn-wrap">';
-            for (var i = 0; i < this.options.btnText.length; i++) {
-                if (this.options.btnRole[i] === 'cancel') {
-                    btnCls = 'gray';
-                } else {
-                    btnCls = 'blue';
-                }
-
-                html += '<input type="button" data-role="' + this.options.btnRole[i] + '" class="dialog_btn btn-default-' + btnCls + '" value="'+ this.options.btnText[i] +'"/>'
-            }
-            html += '</div>'
-        };
-
-        $body.html(html).css('padding', this.options.padding);
-    },
-
-    closeDelay: function (time) {
-        setTimeout($.proxy(this.hide, this), time);
-    },
-
-    destroy: function () {
-        this.dialog.remove();
-        if (this.options.hasMask) {
-            this.mask.hide();
-        }
-        this.destroyed = true;
-    },
-
-    confirm: function () {
-        this.options.confirm.apply(this);
+      } else {
+        // 已有遮罩
+        this.mask = $mask;
+      }
     }
+
+    // 内容填充
+    this.render();
+
+    // 先隐藏浮动层与遮罩
+    this.dialog.hide();
+    this.options.hasMask && this.mask.hide();
+
+    var $dialog = $(this.dialog.overlay);
+    // 关闭按钮事件绑定
+    $dialog.on('click', '.js-dialog-close', $.proxy(this.hide, this));
+    // 其它按钮事件绑定
+    if (this.options.btnEvent) {
+      for (var i = 0; i < this.options.btnEvent.length; i++) {
+        (function (index, self) {
+
+          $dialog.on('click', '.btn-event:nth-child(' + (index + 1) + ')', function () {
+
+            self.options.btnEvent[index].call(this, self);
+
+          });
+        })(i, this);
+     }
+    } else {
+
+      $dialog.on('click', '[data-role=cancel]', $.proxy(this.hide, this));
+
+      if (this.options.confirm) {
+          $dialog.on('click', '[data-role=confirm]', (function (dialog) {
+              return function () {
+                  dialog.options.confirm.apply(dialog.el, [dialog, this]);
+              }
+          })(this));
+      }
+
+    }
+
+    // 初始化完成标志
+    this.hasInit = true;
+  },
+
+  setup: function (element) {
+    var self = this;
+
+    if (this.el) {
+      // 触发绑定
+      $(this.el).on('click.dialog', function (e) {
+        e.preventDefault();
+
+        self.trigger();
+      });
+
+            // 用于一些初始化的操作，只执行一次
+            if (this.options.once) {
+                $(this.el).one('click.dialog', function (e) {
+                    e.preventDefault();
+                    self.options.once();
+                });
+            }
+    } else {
+      this.trigger();
+    }
+  },
+
+  trigger: function () {
+    if (!this.hasInit) {
+      this.init();
+    }
+
+    this.show();
+  },
+
+  show: function () {
+    this.options.beforeShow && this.options.beforeShow.call(this);
+
+    this.dialog.setPosition();
+    this.dialog.show();
+    this.options.hasMask && this.mask.show();
+
+    this.options.afterShow && this.options.afterShow.call(this);
+  },
+
+  hide: function () {
+    this.options.beforeHide && this.options.beforeHide.call(this);
+
+    this.dialog.hide();
+    this.options.hasMask && this.mask.hide();
+
+    this.options.afterHide && this.options.afterHide.call(this);
+    if (this.options.needDestroy) {
+      this.destroy();
+    }
+  },
+
+  render: function () {
+    var $dialog = $(this.dialog.overlay),
+        $head = $dialog.find('.js-dialog-hd'),
+        $body = $dialog.find('.js-dialog-bd'),
+        $close = $dialog.find('.js-dialog-close'),
+        content;
+
+    if (!this.options.hasTitle) {
+      $head.remove();
+    } else {
+      $head.find('h2').text(this.options.title);
+    }
+
+    if (this.options.noClose) {
+      $close.remove();
+    }
+
+    if (this.options.tipType) {
+      content = '<p class="tip-wrap"><i class="icon icon-' + this.options.tipType + '-lg"></i>' + this.options.message + '</p>'
+    } else {
+      content = this.options.content;
+    }
+
+
+    if (this.options.scrollHeight) {
+      var sh = this.options.scrollHeight;
+
+      if (typeof sh === 'number') {
+        sh += 'px';
+      }
+
+      content = '<div class="js-scrollable" style="height: ' + sh + '">' + content + '</div>';
+    }
+
+    if (this.options.hasBtn) {
+      var btnCls;
+      content += '<div class="btn-wrap">';
+      for (var i = 0; i < this.options.btnText.length; i++) {
+        btnCls = this.options.btnCls[i];
+        content += '<button type="button" data-role="' + this.options.btnRole[i] + '" class="btn-event btn-dialog btn-' + btnCls + '">' + this.options.btnText[i] + '</button>'
+      }
+      content += '</div>';
+    };
+
+    $body.html(content).css('padding', this.options.padding);
+      var tipHeight = $('.js-dialog .js-dialog-bd .tip-wrap').height();
+      if (tipHeight < 30){
+        $('.js-dialog .js-dialog-bd .tip-wrap').attr("style","text-align:center");
+      }
+
+  },
+
+  closeDelay: function (millisecond) {
+    setTimeout($.proxy(this.hide, this), millisecond);
+  },
+
+  destroy: function () {
+    if (this.options.hasMask) {
+      var $dialog = $('.' + this.options.dialogClass);
+      if ($dialog.length > 1) {
+        this.mask.hide();
+      } else {
+        this.mask.remove();
+      }
+    }
+
+    this.dialog.remove();
+
+    if (this.el) {
+      $(this.el).off('click.dialog');
+    }
+  },
+
 }
 
 // 注册插件
 $.fn.dialog = function (options) {
-    return this.each(function () {
-        new Dialog(this, options);
-    });
+  return this.each(function () {
+    new Dialog(this, options);
+  });
 };
 
 // 默认设置
 $.fn.dialog.defaults = {
-    dialogClass: 'js-dialog',
-    maskClass: 'js-mask',
-    template: '<table> <tr> <td class="edge top-edge" colspan="3"></td> </tr> <tr> <td class="edge left-edge"></td> <td class="center"> <div class="content"> <div class="hd"> <h2>提示</h2> </div> <div class="bd"></div> <div class="close"> <a href="javascript:;" class="js-close">关闭</a> </div> </div> </td> <td class="edge right-edge"></td> </tr> <tr> <td class="edge bottom-edge" colspan="3"></td> </tr> </table>',
-    width: 450,
-    height: 'auto',
-    zIndex: 999,
-    hasMask: true,
-    hasTitle: true,
-    title: '提示',
-    cotent: '',
-    padding: '20px',
-    hasBtn: false,
-    btnText: ['确定', '取消'],
-    btnRole: ['confirm', 'cancel'],
-    message: ''
+  dialogClass: 'js-dialog',
+  maskClass: 'js-mask',
+  template: '<div>' +
+              '<div class="js-dialog-hd">' +
+                '<h2>提示</h2>' +
+              '</div>' +
+              '<div class="js-dialog-bd"> </div>' +
+              '<div class="js-dialog-close"></div>' +
+            '</div>',
+  width: 450,
+  height: 'auto',
+  zIndex: 999,
+  hasMask: true,
+  hasTitle: true,
+  title: '提示',
+  cotent: '',
+  padding: '30px',
+  hasBtn: false,
+  btnText: ['确定', '取消'],
+  btnRole: ['confirm', 'cancel'],
+  btnCls: ['confirm', 'cancel'],
+  message: ''
 };
 
 $.fn.dialog.Constructor = Dialog;
+
+// 定义 Validator 类
+var Validator = function (el, options) {
+  options = $.extend({}, $.fn.validator.defaults, options);
+
+    var items = [];
+    var cache = new Cache();
+
+    this.items = items;
+    this.cache = cache;
+  this.options = options;
+
+  this.setup();
+};
+
+Validator.prototype = {
+
+  constructor: Validator,
+
+  setup: function () {
+    var $btn = this.options.submit.btn;
+
+        if ($btn) {
+            $btn.data('clicking', false);
+            $btn.on('click.validate', (function (_this) {
+                return function (e) {
+                    e.preventDefault();
+                    setTimeout(function () {
+                        _this.submit.call(_this, $btn);
+                    }, 100);
+                }
+            })(this));
+        }
+
+        $.each(this.options.items, (function (_this) {
+            return function () {
+                _this.process(this);
+            }
+        })(this));
+  },
+
+  process: function (opts) {
+        var self = this,
+            $item = $(opts.selector),
+            eventType;
+
+    this.items.push($item);
+
+        $item.on('validate', function () {
+            self.validateItem.apply(self, [this, opts]);
+        });
+
+        if ($item.is('input') || $item.is('textarea')) {
+            eventType = 'blur';
+        } else if ($item.is('select')) {
+            eventType = 'change';
+        }
+
+        $item.on(eventType, function () {
+            $(this).trigger('validate');
+        });
+  },
+
+    validateItem: function (item, opts) {
+        var self = this,
+            client_ret = opts.validate(),
+            $loading, $parent;
+
+        if (client_ret !== 'success') {
+            self.handleTip(item, {type: 'error', info: client_ret});
+            return false;
+        }
+
+        if (opts.remote) {
+
+            // 请求数据在缓存内，则不发送请求
+            if (item.value in self.cache._storage) {
+                var _data = self.cache.load(item.value);
+
+                if (_data.errorNo !== 0) {
+                    self.handleTip(item, {type: 'error', info: _data.errorInfo});
+                } else {
+                    self.handleTip(item, {type: 'success', info: _data.successInfo});
+                }
+
+                if (opts.ajaxCallback) {
+                    opts.ajaxCallback.apply(_data);
+                }
+
+                return;
+            }
+
+            // $(this.tiper).hide();
+            $parent = $(item).parent();
+            $parent.find('.js-valid-tip').hide();
+            $loading = $('<img class="js-valid-loading" src="/images/icon/loading.gif">');
+            $parent.append($loading);
+
+            $.ajax({
+                type: 'POST',
+                url: opts.remote,
+                data: opts.params(),
+                dataType: 'json'
+            }).done((function (_this) {
+                return function (data) {
+                    var _data = data.resMap;
+
+                    if (_data.errorNo !== 0) {
+                        self.handleTip(_this, {type: 'error', info: _data.errorInfo});
+                    } else {
+                        self.handleTip(_this, {type: 'success', info: _data.successInfo});
+                    }
+
+                    if (opts.ajaxCallback) {
+                        opts.ajaxCallback.apply(_data);
+                    }
+
+                    // 将发送的数据加入缓存中
+                    self.cache.add(item.value, _data);
+                }
+            })(item))
+            .always(function () {
+                $loading.remove();
+            });
+        } else {
+            self.handleTip(item, {type: 'success'});
+        }
+    },
+
+    initTip: function (el) {
+        var tip, parent;
+
+        tip = document.createElement('div');
+        tip.setAttribute('class', 'js-valid-tip');
+        parent = el.parentNode;
+        parent.appendChild(tip);
+        $(el).data('tiped', true);
+
+        return tip;
+    },
+
+    handleTip: function (el, data) {
+        var itemData, tiper;
+
+        itemData = {
+            type: data.type || 'success',
+            info: data.info || ''
+        };
+
+        // this.tiper = $(el).data('tiped') ?
+        //     $(el.parentNode).find('.js-valid-tip')[0] :
+        //     this.initTip(el);
+
+        if ($(el).data('tiped')) {
+            tiper = $(el.parentNode).find('.js-valid-tip')[0];
+        } else {
+            tiper = this.initTip(el);
+        }
+
+        if (tiper && itemData.type !== 'success') {
+            tiper.innerHTML = '<i class="icon icon-' + itemData.type + '"></i>' + itemData.info;
+            $(tiper).show();
+        } else {
+            $(tiper).hide();
+        }
+
+        return $(el).data('item-data', itemData);
+    },
+
+    renderTip: function (tiper, data) {
+        // $(el).parent().find('.js-valid-tip').html('<i class="icon icon-' + data.type + '"></i>' + data.info);
+        if (tiper && data.type !== 'success') {
+            tiper.innerHTML = '<i class="icon icon-' + data.type + '"></i>' + data.info;
+        } else {
+            tiper.innerHTML = '';
+            $(tiper).hide();
+        }
+    },
+
+    submit: function ($btn) {
+        var self = this,
+            client_rets = [];
+
+        $.each(this.items, function () {
+            this.trigger('validate');
+            if (this.data('item-data').type === 'error') {
+                self.handleTip(this.get(0), this.data('item-data'));
+                client_rets.push(this);
+            }
+        });
+
+        if (this.options.debug) {
+          return !client_rets.length;
+        } else {
+          if (!client_rets.length) { // 本地验证通过
+
+              // submit 事件之前的事件
+              if (this.options.submit.beforeAjax) {
+                  $btn.data('go', this.options.submit.beforeAjax());
+                  if (!$btn.data('go')) return;
+              }
+
+              if (!this.options.submit.remote) {
+                  // 如果是 `form`，采用默认的表单提交
+                  if ($el.is('form')) {
+                      $el.trigger('submit');
+                  }
+                  return;
+              }
+
+              var $loading;
+
+              $loading = $btn.parent().find('.loading');
+              if ($loading) {
+                  $loading.css('visibility', 'visible');
+              }
+
+              // 防止重复点击多次请求
+              if ($btn.data('clicking')) return;
+              $btn.data('clicking', true);
+
+              $.ajax({
+                  type: 'POST',
+                  url: this.options.submit.remote,
+                  data: this.options.submit.params(),
+                  dataType: 'json'
+              }).done(function (data) {
+                  var _data = data.resMap;
+
+                  if (_data.errorNo !== 0) { // 失败处理
+                      if (_data.errorItem) {
+                          for (var i = 0, l = _data.errorItem.length; i < l; i++) {
+                              var errorItem = document.getElementById(_data.errorItem[i]);
+                              if (errorItem) {
+                                  self.handleTip(errorItem, {type: 'error', info: _data.errorInfo});
+                              }
+                          }
+                      } else {
+                          // TODO: 不固定位置提示
+                      }
+                  }
+
+                  if (self.options.submit.ajaxSubmitCallback) {
+                      self.options.submit.ajaxSubmitCallback(_data);
+                  };
+
+                  $btn.data('clicking', false);
+              }).always(function () {
+                  $loading.css('visibility', 'hidden');
+              });
+          }
+
+      }
+    }
+
+};
+
+// 注册插件
+$.fn.validator = function (options) {
+  return this.each(function () {
+    new Validator(this, options);
+  });
+};
+
+// 默认设置
+$.fn.validator.defaults = {
+    submit: {}
+};
+
+$.fn.Constructor = Validator;
+
+var Cache = function () {
+    this._storage = {};
+}
+
+Cache.prototype.add = function(q, v) {
+    if (!this._storage[q]) {
+        this._storage[q] = v;
+    }
+};
+
+Cache.prototype.load = function(q) {
+    if (this._storage[q]) {
+        return this._storage[q];
+    }
+};
+
+Cache.prototype.clear = function() {
+    this._storage = {};
+    this._storage.length = 0;
+};
+
+/**
+ * 判断浏览器及操作系统的版本
+ * @example  B.ie10
+ *           B.win7
+ */
+var B = (function(ua) {
+  var b = {
+    msie: /\b(?:msie |ie |trident)/.test(ua) && !/opera/.test(ua),
+    opera: /opera/.test(ua),
+    safari: /webkit/.test(ua) && !/chrome/.test(ua),
+    firefox: /firefox/.test(ua),
+    chrome: /chrome/.test(ua)
+  };
+  var vMark = "";
+  for (var i in b) {
+    if (b[i]) {
+      vMark = "safari" == i ? "version" : i;
+      break;
+    }
+  }
+  b.version = vMark && RegExp("(?:" + vMark + ")[\\/: ]([\\d.]+)").test(ua) ? RegExp.$1 : "0";
+
+  b.ie = b.msie;
+  b.ie6 = b.msie && parseInt(b.version, 10) == 6;
+  b.ie7 = b.msie && parseInt(b.version, 10) == 7;
+  b.ie8 = b.msie && parseInt(b.version, 10) == 8;
+  b.ie9 = b.msie && parseInt(b.version, 10) == 9;
+  b.ie10 = b.msie && parseInt(b.version, 10) == 10;
+
+  b.win2000 = ua.indexOf('windows nt 5.0') > 1 ? true : false;
+  b.winxp = ua.indexOf('windows nt 5.1') > 1 ? true : false;
+  b.win2003 = ua.indexOf('windows nt 5.2') > 1 ? true : false;
+  b.winvista = ua.indexOf('windows nt 6.0') > 1 ? true : false;
+  b.win7 = ua.indexOf('windows nt 6.1') > 1 ? true : false;
+  b.win8 = ua.indexOf('windows nt 6.2') > 1 ? true : false;
+
+  return b;
+})(window.navigator.userAgent.toLowerCase());

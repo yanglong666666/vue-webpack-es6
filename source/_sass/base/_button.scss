@@ -75,6 +75,11 @@
   @include button-size(0, 60px, 20px, 40px, 5px);
 }
 
+.btn-normal {
+  width: 180px;
+  @include button-size(0, 0px, 20px, 40px, 5px);
+}
+
 // lower button
 .btn-lw {
   width: 60px;
@@ -84,4 +89,18 @@
 .btn {
   width: 115px;
   @include button-size(0, 0px, 22px, 45px, 5px);
+}
+
+.btn-cancel {
+  @extend %btn;
+  @include button-size(0, 0px, 16px, 35px, 5px);
+  background-color: #fff;
+  color: $btn-primary-color;
+  border-color: #3ecacb;
+}
+.btn-confirm {
+  @extend %btn;
+  @include button-size(0, 0px, 16px, 35px, 5px);
+  background-color: $btn-fill-bg;
+  color: $btn-fill-color;
 }
