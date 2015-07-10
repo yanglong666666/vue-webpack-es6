@@ -34,10 +34,11 @@
 @import "component/tipbar";
 @import "component/js-select";
 @import "component/js-dialog";
+@import "component/dialog-content";
 
 //Page
 @import "page/statistics";
-
+@import "page/video";
 
 //Vendor
 @import "jquery-ui";

@@ -1,0 +1,68 @@
+.js-dialog {
+  .dialog-center {
+    text-align: center;
+  }
+  .dialog-content-input {
+    .txt {
+      width: 280px;
+      display: inline-block;
+      border: none;
+      background: #e1e6ef;
+      height: 37px;
+      line-height: 37px;
+      border-radius: 5px;
+      color: #3a3d42;
+      font-size: 14px;
+      padding: 0 10px;
+      outline: none;
+      margin-left: 5px;
+    }
+  }
+  .dialog-content-radio {
+    input[type="radio"] {
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+  .dialog-content-select {
+    .txt {
+      width: 100px;
+      display: inline-block;
+      border: none;
+      background: #e1e6ef;
+      height: 37px;
+      line-height: 37px;
+      border-radius: 5px;
+      color: #3a3d42;
+      font-size: 14px;
+      padding: 0 10px;
+      outline: none;
+      margin-left: 5px;
+    }
+  }
+  .dialog-content-through {
+    .reason {
+      width: 260px;
+      margin: 0 auto 15px auto;
+      a {
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        width: 260px;
+        border: 1px solid #ccd1da;
+        color: #ccd1da;
+        text-align: center;
+        font-size: 16px;
+        &.current {
+          border: 1px solid #3ecacb;
+          color: #3ecacb;
+        }
+        &:hover {
+          border: 1px solid #3ecacb;
+          color: #3ecacb;
+        }
+      }
+    }
+  }
+}

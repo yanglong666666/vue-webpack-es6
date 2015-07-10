@@ -7,7 +7,6 @@
   border: 1px solid transparent;
   @include button-size(0, 40px, 14px, 25px, 5px);
   white-space: nowrap;
-
   &,
   &:active,
   &.active {
@@ -58,10 +57,17 @@
   color: $btn-deny-color;
   border-color: #e6e6e6;
 }
+.btn-hollow {
+  @extend %btn;
+  background-color: transparent;
+  color: $btn-hollow-color;
+  border-color: #3ecacb;
+}
 
 // large button
 .btn-lg {
-  @include button-size(0, 90px, 20px, 40px, 5px);
+  width: 220px;
+  @include button-size(0, 0px, 20px, 40px, 5px);
 }
 
 // larger button
@@ -69,8 +75,32 @@
   @include button-size(0, 60px, 20px, 40px, 5px);
 }
 
-// lower button
-.btn-lw {
-   @include button-size(0, 10px, 16px, 30px, 5px);
+.btn-normal {
+  width: 180px;
+  @include button-size(0, 0px, 20px, 40px, 5px);
 }
 
+// lower button
+.btn-lw {
+  width: 60px;
+  @include button-size(0, 0px, 14px, 30px, 5px);
+}
+
+.btn {
+  width: 115px;
+  @include button-size(0, 0px, 22px, 45px, 5px);
+}
+
+.btn-cancel {
+  @extend %btn;
+  @include button-size(0, 0px, 16px, 35px, 5px);
+  background-color: #fff;
+  color: $btn-primary-color;
+  border-color: #3ecacb;
+}
+.btn-confirm {
+  @extend %btn;
+  @include button-size(0, 0px, 16px, 35px, 5px);
+  background-color: $btn-fill-bg;
+  color: $btn-fill-color;
+}

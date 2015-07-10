@@ -1,0 +1,414 @@
+.page-video {
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    font-size: 0;
+  }
+  // video-area css
+  .ui-video-area {
+    .photo-inner {
+      img {
+        border-radius: 10px;
+      }
+    }
+    .speed-content {
+      margin: 5px 0;
+      .top-line {
+        display: inline-block;
+        margin-right: 20px;
+      }
+    }
+  }
+  // opration css
+  .ui-video-opration {
+    position: relative;
+    width: 360px;
+    overflow: hidden;
+    .opration-inner {
+      @include clearfix;
+      overflow: hidden;
+      .video-photo {
+        float: left;
+        margin-right: 15px;
+      }
+      .video-btn-all {
+        @include clearfix;
+        overflow: hidden;
+        position: relative;
+        .audio-content {
+          a {
+            display: inline-block;
+            .icon-play {
+              width: 19px;
+              height: 19px;
+              background: url(../images/video/video-list.png) 0 -70px no-repeat;
+              margin-right: 5px;
+            }
+          }
+          .time {
+            font-size: 12px;
+            color: #ff5776;
+          }
+        }
+        .opration-btn {
+          position: absolute;
+          top: 0;
+          right: 5px;
+          .icon-set {
+            width: 18px;
+            height: 18px;
+            background: url(../images/video/video-list.png) 0 0px no-repeat;
+            margin-right: 5px;
+          }
+          .icon-rotate {
+            width: 16px;
+            height: 14px;
+            background: url(../images/video/video-list.png) 0 -25px no-repeat;
+            margin-right: 5px;
+          }
+          .icon-turn {
+            width: 18px;
+            height: 17px;
+            background: url(../images/video/video-list.png) 0 -45px no-repeat;
+          }
+        }
+      }
+      .btn-content {
+        margin-top: 15px;
+        a {
+          display: block;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+  // photo css
+  .ui-video-photo {
+    .tab {
+      @include clearfix;
+      overflow: hidden;
+      a {
+        text-align: center;
+        border-top: 5px solid #babec7;
+        width: 33.3333%;
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        background: #ebeff6;
+        color: #6f7b91;
+        &.current {
+          background: #e2e6ef;
+          border-top: 5px solid #3ecacb;
+        }
+      }
+    }
+    .photo-content {
+      position: relative;
+      width: 100%;
+      padding: 15px 0;
+      background: #e2e6ef;
+      .photo {
+        display: block;
+        margin: 0 auto;
+      }
+      a {
+        position: absolute;
+        bottom: 15px;
+        left: 109px;
+        display: block;
+        width: 102px;
+        height: 53px;
+        &.take-photo {
+          background: url(../images/video/take-photo.png) 0 0 no-repeat;
+        }
+        &.re-take {
+          background: url(../images/video/retake-photo.png) 0 0 no-repeat;
+        }
+      }
+    }
+  }
+  // verify css
+  .ui-video-verify {
+    margin-top: 15px;
+    width: 320px;
+    background: #e2e6ef;
+    overflow: hidden;
+    .show-result {
+      @include clearfix;
+      overflow: hidden;
+      padding: 15px;
+      img {
+        border-radius: 5px;
+        float: right;
+      }
+      .result-inner {
+        float: left;
+        margin: 37px 10px 0 0;
+        .error {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #ff5776;
+        }
+      }
+    }
+  }
+  .video-top {
+    @include clearfix;
+    overflow: hidden;
+  }
+  .video-left {
+    float: left;
+    width: 360px;
+    overflow: hidden;
+    margin-right: 15px;
+  }
+  .video-center {
+    float: left;
+    width: 320px;
+    overflow: hidden;
+    margin-right: 15px;
+  }
+  .video-right {
+    float: left;
+    width: 370px;
+    overflow: hidden;
+  }
+  .v-title {
+    @include clearfix;
+    overflow: hidden;
+    margin-bottom: 25px;
+    padding: 5px 10px;
+    border: 2px solid #3ecacb;
+    .method {
+      float: left;
+    }
+    .type {
+      float: right;
+    }
+    .name {
+      display: inline-block;
+      color: #6f7b91;
+      margin-right: 20px;
+    }
+    .info {
+      color: #3a3d42;
+      display: inline-block;
+    }
+  }
+  // table css
+  .ui-video-table {
+    h2 {
+      margin: 25px 0 15px 0;
+      color: #3a3d42;
+      font-size: 16px;
+    }
+    table {
+      border-collapse: separate;
+      border-collapse: collapsed;
+      width: 100%;
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            border-radius: 5px;
+            background: #e2e6ef;
+          }
+          &:nth-child(even) {
+            background: #f0f5fb;
+          }
+          td {
+            padding: 7px 10px;
+            &.name {
+              color: #3a3d42;
+            }
+            &.title {
+              color: #6f7b91;
+              width: 90px;
+            }
+            &.text-r {
+              text-align: right;
+            }
+            .save-btn {
+              button {
+                display: block;
+                margin: 10px auto;
+              }
+            }
+            .edit-name {
+              display: inline-block;
+              vertical-align: middle;
+              content: "";
+              font-size: 0;
+              width: 15px;
+              height: 16px;
+              margin-left: 10px;
+              background: url(../images/video/video-list.png) 0 -95px no-repeat;
+            }
+
+            .idcard {
+              margin-top: 5px;
+              .title {
+                color: #6f7b91;
+                width: 110px;
+                display: inline-block;
+              }
+              .name {
+                color: #3a3d42;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .video-main {
+    @include clearfix;
+    overflow: hidden;
+    background: #f0f5fb;
+    padding: 15px;
+    .video-inner {
+      float: left;
+      width: 710px;
+      overflow: hidden;
+    }
+  }
+
+  // video chat css
+  .ui-video-info {
+    width: 695px;
+    margin-top: 15px;
+    overflow: hidden;
+    .info-content {
+      padding: 10px 25px 10px 25px;
+      max-height: 253px;
+      height: 253px;
+      border: 1px solid #e2e6ef;
+      border-bottom: none;
+      overflow-y: auto;
+      .guest {
+        @include clearfix;
+        overflow: hidden;
+        margin-bottom: 25px;
+        .info-txt {
+          position: relative;
+          float: left;
+          background: #fff;
+          border-radius: 5px;
+          padding: 5px 20px;
+          font-size: 12px;
+          line-height: 24px;
+          max-width: 470px;
+          i {
+            position: absolute;
+            left: -7px;
+            top: 10px;
+            width: 7px;
+            height: 13px;
+            background: url(../images/video/arrows.png) 0 0 no-repeat;
+          }
+        }
+        .people {
+          float: left;
+          margin-right: 15px;
+          font-size: 12px;
+          color: #3a3d42;
+          line-height: 30px;
+        }
+      }
+      .me {
+        @include clearfix;
+        overflow: hidden;
+        margin-bottom: 25px;
+        .info-txt {
+          position: relative;
+          background: #3ecacb;
+          border-radius: 5px;
+          padding: 5px 20px;
+          font-size: 12px;
+          line-height: 24px;
+          color: #fff;
+          max-width: 470px;
+          float: right;
+          i {
+            position: absolute;
+            right: -7px;
+            top: 10px;
+            width: 7px;
+            height: 13px;
+            background: url(../images/video/arrows.png) 0 -20px no-repeat;
+          }
+        }
+        .people {
+          font-size: 12px;
+          line-height: 30px;
+          color: #3a3d42;
+          float: right;
+          margin-left: 15px;
+        }
+      }
+    }
+    .send-message {
+      position: relative;
+      @include clearfix;
+      overflow: hidden;
+      .message-content {
+        .message {
+          width: 565px;
+          padding-left: 15px;
+          padding-right: 35px;
+          height: 45px;
+          line-height: 45px;
+          background: #caced6;
+          border: none;
+          outline: none;
+        }
+      }
+      .sent-btn {
+        float: right;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        width: 80px;
+        text-align: center;
+        font-size: 22px;
+        color: #fff;
+        background: #3ecacb;
+      }
+      .more-message {
+        position: relative;
+        width: 615px;
+        height: 110px;
+        .more-main {
+          display: block;
+          &:hover {
+            background: #f00;
+          }
+        }
+        .more {
+          position: absolute;
+          top: -45px;
+          left: 590px;
+          width: 15px;
+          height: 45px;
+          background: url(../images/video/arrow-bottom.png) 0 0px no-repeat;
+        }
+        .common-info {
+          max-height: 110px;
+          overflow: auto;
+          li {
+            font-size: 12px;
+            padding: 5px 15px;
+            cursor: pointer;
+            line-height: 20px;
+            color: #6f7b91;
+            background: #e2e6ef;
+            &.active {
+              background: #9ba1a9;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
