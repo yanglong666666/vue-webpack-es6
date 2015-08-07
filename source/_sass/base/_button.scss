@@ -7,6 +7,7 @@
   border: 1px solid transparent;
   @include button-size(0, 40px, 14px, 25px, 5px);
   white-space: nowrap;
+  cursor: pointer;
   &,
   &:active,
   &.active {
@@ -40,6 +41,12 @@
 .btn-primary {
   @extend %btn;
   background-color: $btn-primary-bg;
+  color: $btn-primary-color;
+  border-color: #3ecacb;
+}
+.btn-primary-white {
+  @extend %btn;
+  background-color: #fff;
   color: $btn-primary-color;
   border-color: #3ecacb;
 }
@@ -83,7 +90,7 @@
 // lower button
 .btn-lw {
   width: 60px;
-  @include button-size(0, 0px, 14px, 30px, 5px);
+  @include button-size(0, 0px, 12px, 26px, 5px);
 }
 
 .btn {

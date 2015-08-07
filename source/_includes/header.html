@@ -4,8 +4,8 @@
       <span></span>系统管理员<i></i>
     </a>
     <ul id="user-center" style="display:none;">
-      <li><a class="xgmm" href="javascript:void(0)"><i></i>修改密码</a></li>
-      <li><a class="tcdl" href="javascript:void(0)"><i></i>退出登录</a></li>
+      <li><a class="xgmm" id="update_pwd" href="javascript:void(0)"><i></i>修改密码</a></li>
+      <li><a class="tcdl" id="exit_login" href="javascript:void(0)"><i></i>退出登录</a></li>
       <li><a class="rwtx" href="javascript:void(0)"><i></i>任务提醒</a></li>
     </ul>
   </div>
@@ -29,6 +29,58 @@
     $('.header-inner').mouseleave(function(event) {
       /* Act on the event */
       $('#user-center').hide();
+    });
+    $('.header-inner').on('click', '#update_pwd', function(event) {
+      //修改密码弹出层
+      event.preventDefault();
+      /* Act on the event */
+      var password_screen = new Dialog(null,{
+        title: '密码修改',
+        width: '450',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            password_screen.hide();
+          },
+          //正确为 success-ico 错误为 error-ico
+        content: '<div class="dialog-content-password">'+
+                  '<div class="item">'+
+                    '<span class="name">输入旧密码</span>'+
+                    '<input type="password" class="input" value="">'+
+                  '</div>'+
+                  '<div class="item">'+
+                    '<span class="name">输入新密码</span>'+
+                    '<input type="password" class="input">'+
+                  '</div>'+
+                  '<div class="item">'+
+                    '<span class="name">再次输入新密码</span>'+
+                    '<input type="password" class="input">'+
+                  '</div>'+
+                 '</div>'
+      });
+    });
+    $('.header-inner').on('click', '#exit_login', function(event) {
+      //修改密码弹出层
+      event.preventDefault();
+      /* Act on the event */
+      var login_screen = new Dialog(null,{
+        title: '',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            login_screen.hide();
+          },
+        content: '<h1 class="h-title">您确定退出当前账号？</h1>'
+      });
     });
   });
 </script>

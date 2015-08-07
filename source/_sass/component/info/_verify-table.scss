@@ -1,0 +1,69 @@
+.ui-verify-table {
+  @include clearfix;
+  overflow: hidden;
+  background: #f0f5fb;
+  padding: 15px;
+  .back,
+  .front,
+  .face,
+  .verify,
+  .contrast,
+  .video {
+    float: left;
+  }
+  .back,
+  .front,
+  .face {
+    margin-right: 60px;
+  }
+  .verify-inner,
+  .video-inner {
+    @include clearfix;
+    overflow: hidden;
+    img {
+      float: left;
+    }
+  }
+  .verify-txt,
+  .video-txt {
+    float: left;
+    margin-left: 10px;
+  }
+  .verify-txt {
+    .info {
+      margin: 15px 0 20px 0;
+    }
+    .through {
+      color: #3a3d42;
+      font-size: 16px;
+    }
+  }
+  .video-txt {
+    .info {
+      margin-top: 50px;
+    }
+    .verify-code {
+      color: #3a3d42;
+    }
+  }
+  .contrast {
+    margin: 110px 10px 0 10px;
+    .contrast-btn {
+      display: inline-block;
+      width: 68px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      color: #3ecacb;
+      border-radius: 5px;
+      border: 1px solid #3ecacb;
+      font-size: 12px;
+    }
+  }
+  img {
+    border-radius: 5px;
+  }
+  .v-title {
+    margin-bottom: 30px;
+  }
+}

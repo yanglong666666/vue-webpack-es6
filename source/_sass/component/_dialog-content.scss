@@ -2,6 +2,12 @@
   .dialog-center {
     text-align: center;
   }
+  .h-title {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0 20px 0px;
+    color: #3a3d42;
+  }
   .dialog-content-input {
     .txt {
       width: 280px;
@@ -41,6 +47,31 @@
       margin-left: 5px;
     }
   }
+  .dialog-content-password {
+    color: #ccd1da;
+    font-size: 14px;
+    .item {
+      margin-bottom: 20px;
+      .name {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+      }
+      .input {
+        width: 180px;
+        display: inline-block;
+        border: 1px solid #ccd1da;
+        background: #fff;
+        height: 30px;
+        line-height: 30px;
+        color: #ccd1da;
+        font-size: 14px;
+        padding: 0px 10px;
+        outline: none;
+        margin-left: 10px;
+      }
+    }
+  }
   .dialog-content-through {
     .reason {
       width: 260px;
@@ -63,6 +94,78 @@
           color: #3ecacb;
         }
       }
+    }
+  }
+  .dialog-content-risk {
+    max-height: 300px;
+    overflow-y: auto;
+    .item {
+      margin-bottom: 30px;
+      h3 {
+        font-size: 14px;
+        color: #6f7b91;
+        margin-bottom: 15px;
+      }
+      .options {
+        margin-left: 20px;
+        p {
+          font-size: 12px;
+          line-height: 20px;
+          padding-bottom: 5px;
+          color: #3a3d42;
+          &.current {
+            color: #50a0fc;
+          }
+        }
+      }
+    }
+  }
+  .dialog-content-review {
+    max-height: 300px;
+    overflow-y: auto;
+    .item {
+      margin-bottom: 30px;
+      h3 {
+        font-size: 14px;
+        color: #6f7b91;
+        margin-bottom: 15px;
+      }
+      .options {
+        margin-left: 20px;
+        span {
+          display: inline-block;
+          width: 70px;
+          text-align: center;
+          height: 24px;
+          line-height: 24px;
+          &.current {
+            color: #fff;
+            background: #7097ff;
+          }
+        }
+      }
+    }
+  }
+  .dialog-content-contrast {
+    .item {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 15px;
+      .left-img {
+        float: left;
+      }
+      .right-img {
+        float: right;
+      }
+    }
+  }
+  .dialog-content-protocol {
+    max-height: 300px;
+    overflow-y: auto;
+    .dialog-protocol {
+      padding: 10px;
+      line-height: 20px;
+      background: #e1e6ef;
     }
   }
 }
