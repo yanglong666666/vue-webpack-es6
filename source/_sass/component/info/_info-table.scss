@@ -1,0 +1,25 @@
+.ui-table-info {
+  .main-table {
+    .table-title {
+      font-size: 16px;
+      color: #44c1de;
+      margin: 20px 0 10px 0;
+    }
+    .info-table {
+      background: #f0f5fb;
+      tbody {
+        td {
+          padding: 10px;
+          &:nth-child(odd) {
+            color: #6f7b91;
+            width: 15%;
+          }
+          &:nth-child(even) {
+            color: #4c4f54;
+            width: 35%;
+          }
+        }
+      }
+    }
+  }
+}

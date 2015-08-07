@@ -5,6 +5,7 @@ tongji css
 	.usernum-content {
 		ul{
 			@include clearfix;
+      overflow: hidden;
 		}
 		li {
 			float: left;

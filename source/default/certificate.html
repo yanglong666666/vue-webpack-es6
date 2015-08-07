@@ -1,4 +1,99 @@
 ---
 title: 证书颁发
 layout: default
+class: certificate
 ---
+
+{% include component/info/user.html %}
+{% include component/info/verify.html %}
+<div class="opinion-content">
+  <div class="button-content">
+    <button class="btn-lg through-btn verify-btn" href="#">颁发证书</button>
+    <button class="btn-lg ml-30 nothrough-btn verify-btn" href="#">审核不通过</button>
+  </div>
+  <div class="no-through-content" style="display:none;">
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">身份证照片不合格</a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">公安认证信息不一致</a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+  </div>
+</div>
+<div class="button-content">
+  <button class="btn-lg btn-fill" href="#">提交</button>
+</div>
+<div class="main-table log-table">
+  <h2 class="table-title">客服操作流水</h2>
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="25%">操作人</td>
+        <td width="25%">操作</td>
+        <td width="25%">操作内容</td>
+        <td width="25%">操作时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.opinion-content').on('click', '.verify-btn', function(event) {
+      //通过不通过按钮交互
+      event.preventDefault();
+      /* Act on the event */
+      $('.opinion-content').find('.verify-btn').removeClass('current');
+      $(this).addClass('current');
+      if($(this).hasClass('nothrough-btn')) {
+        $('.no-through-content').show();
+      } else {
+        $('.no-through-content').hide();
+      }
+    });
+    $('.opinion-content').on('click', '.reason-btn', function(event) {
+      //不通过理由交互
+      event.preventDefault();
+      /* Act on the event */
+      if($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      } else {
+        $(this).addClass('active');
+      }
+
+    });
+  });
+</script>

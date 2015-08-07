@@ -1,0 +1,62 @@
+<div class="ui-verify-table">
+  <div class="back">
+    <p class="v-title">身份证反面</p>
+    <img src="../../images/video/temp3.png" width="120" height="80">
+  </div>
+  <div class="front">
+    <p class="v-title">身份证正面</p>
+    <img src="../../images/video/temp2.png" width="120" height="80">
+  </div>
+  <div class="face">
+    <p class="v-title">免冠照片</p>
+    <img src="../../images/video/temp5.png" width="120" height="80">
+  </div>
+  <div class="verify">
+    <p class="v-title">公安认证</p>
+    <div class="verify-inner">
+      <img src="../../images/video/temp6.png" width="74" height="80">
+      <div class="verify-txt">
+        <p class="info">姓名一致，身份证一致</p>
+        <p class="through">身份证验证通过</p>
+      </div>
+    </div>
+  </div>
+  <div class="contrast">
+    <a class="contrast-btn" href="#">大图对比</a>
+  </div>
+  <div class="video">
+    <p class="v-title">存档视频</p>
+    <div class="video-inner">
+      <img src="../../images/video/temp4.jpg">
+      <div class="video-txt">
+        <p class="info">验证码</p>
+        <p class="verify-code">123456</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.contrast').on('click', '.contrast-btn', function(event) {
+      //大图对比按钮交互
+      event.preventDefault();
+      /* Act on the event */
+      var contrast_screen = new Dialog(null,{
+        title: '',
+        width: '680',
+        needDestroy: true,
+        hasBtn: false,
+        content: '<div class="dialog-content-contrast">'+
+                  '<div class="item">'+
+                    '<img class="left-img" src="../images/video/temp2.png" alt="img" width="284" height="214">'+
+                    '<img class="right-img" src="../images/video/temp3.png" alt="img" width="284" height="214">'+
+                  '</div>'+
+                  '<div class="item">'+
+                    '<img class="left-img" src="../images/video/temp5.png" alt="img" width="250" height="200">'+
+                    '<img class="right-img" src="../images/video/temp6.png" alt="img" width="250" height="200">'+
+                  '</div>'+
+                 '</div>'
+      });
+    });
+  });
+</script>

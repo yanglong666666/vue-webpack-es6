@@ -1,0 +1,79 @@
+.page-verify {
+  .reason-content {
+    border: 1px solid #f0f5fb;
+    padding: 10px 0;
+    .name {
+      display: inline-block;
+      color: #6f7b91;
+      padding-left: 10px;
+      width: 200px;
+    }
+    .reason {
+      color: #3a3d42;
+    }
+  }
+  .opinion-content {
+    background: #f0f5fb;
+    padding: 15px;
+    margin-top: 10px;
+    .button-content {
+      margin: 30px 0;
+    }
+    .btn-lg {
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid #c9d2dc;
+      color: #c9d2dc;
+      &.current {
+        border: 1px solid #3ecacb;
+        color: #3ecacb;
+      }
+    }
+    .no-through-content {
+      .no-through-item {
+        @include clearfix;
+        overflow: hidden;
+        margin-bottom: 10px;
+        a {
+          float: left;
+          display: block;
+          width: 350px;
+          height: 35px;
+          line-height: 35px;
+          padding: 0 10px;
+          color: #6f7b91;
+          border: 1px solid #c9d2dc;
+          &.active {
+            color: #3ecacb;
+            border: 1px solid #3ecacb;
+          }
+        }
+        label {
+          float: right;
+          display: block;
+          width: 40%;
+          height: auto;
+          span {
+            display: inline-block;
+          }
+          .input {
+            background: none;
+            border: 1px solid #c9d2dc;
+            height: 35px;
+            line-height: 35px;
+            outline: none;
+            width: 350px;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
+  .main-table {
+    .table-title {
+      font-size: 16px;
+      color: #6a7491;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -35,11 +35,27 @@
 @import "component/js-select";
 @import "component/js-dialog";
 @import "component/dialog-content";
+@import "component/video/area";
+@import "component/video/data";
+@import "component/video/info";
+@import "component/video/operation";
+@import "component/video/photo";
+@import "component/video/verify";
+@import "component/info/info-table";
+@import "component/info/verify-table";
+@import "component/info/protocol";
+@import "component/info/data";
+@import "component/info/account";
+@import "component/info/stock";
 
 //Page
 @import "page/statistics";
 @import "page/video";
 @import "page/announcement";
+@import "page/upload";
+@import "page/certificate";
+@import "page/recheck";
+@import "page/verify";
 
 //Vendor
 @import "jquery-ui";

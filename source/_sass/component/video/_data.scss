@@ -1,0 +1,64 @@
+
+.ui-video-table {
+  h2 {
+    margin: 25px 0 15px 0;
+    color: #3a3d42;
+    font-size: 16px;
+  }
+  table {
+    border-collapse: separate;
+    border-collapse: collapsed;
+    width: 100%;
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          border-radius: 5px;
+          background: #e2e6ef;
+        }
+        &:nth-child(even) {
+          background: #f0f5fb;
+        }
+        td {
+          padding: 7px 10px;
+          &.name {
+            color: #3a3d42;
+          }
+          &.title {
+            color: #6f7b91;
+            width: 90px;
+          }
+          &.text-r {
+            text-align: right;
+          }
+          .save-btn {
+            button {
+              display: block;
+              margin: 10px auto;
+            }
+          }
+          .edit-name {
+            display: inline-block;
+            vertical-align: middle;
+            content: "";
+            font-size: 0;
+            width: 15px;
+            height: 16px;
+            margin-left: 10px;
+            background: url(../images/video/video-list.png) 0 -95px no-repeat;
+          }
+          .idcard {
+            margin-top: 5px;
+            .title {
+              color: #6f7b91;
+              width: 110px;
+              display: inline-block;
+            }
+            .name {
+              color: #3a3d42;
+            }
+          }
+        }
+      }
+    }
+  }
+}
