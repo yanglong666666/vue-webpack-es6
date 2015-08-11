@@ -35,6 +35,7 @@
 @import "component/js-select";
 @import "component/js-dialog";
 @import "component/dialog-content";
+@import "component/zTreeStyle";
 @import "component/video/area";
 @import "component/video/data";
 @import "component/video/info";
@@ -56,6 +57,12 @@
 @import "page/certificate";
 @import "page/recheck";
 @import "page/verify";
+@import "page/log";
+@import "page/user-detail";
+@import "page/marketing-manage";
+@import "page/role";
+@import "page/notice";
+@import "page/operator";
 
 //Vendor
 @import "jquery-ui";

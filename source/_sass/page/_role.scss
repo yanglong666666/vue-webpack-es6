@@ -1,0 +1,45 @@
+.page-role {
+  .role-top {
+    @include clearfix;
+    overflow: hidden;
+    margin: 20px 0 15px 0;
+    .output {
+      float: left;
+      background: #fff;
+    }
+    .add-role {
+      float: right;
+      font-size: 14px;
+    }
+  }
+  .main-table {
+    .data-table {
+      tbody {
+        td {
+          height: auto;
+          line-height: 18px;
+          white-space: normal;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+  .role-content {
+    background: #f0f4fb;
+    padding: 20px;
+    .query-item {
+      width: 400px;
+      margin: 0 auto 20px auto;
+      label {
+        margin-left: 10px;
+        .txt {
+          width: 350px;
+        }
+      }
+    }
+    .ztree {
+      width: 300px;
+      margin: 0 auto;
+    }
+  }
+}
