@@ -1,0 +1,190 @@
+---
+title: 操作员管理
+layout: default
+class: operator
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>员工号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>营业部</dt>
+      <dd>
+        <span>
+          <select name="" id="department_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>角色</dt>
+      <dd>
+        <span>
+          <select name="" id="role_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">角色1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>状态</dt>
+      <dd>
+        <span>
+          <select name="" id="status_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <button class="btn-primary output" id="">输出报表</button>
+  </div>
+</div>
+<div class="add-content">
+  <button class="btn-fill add-btn">添加</button>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">员工号</td>
+        <td width="10%">姓名</td>
+        <td width="10%">手机号</td>
+        <td width="20%">角色</td>
+        <td width="15%">营业部</td>
+        <td width="10%">状态</td>
+        <td width="25%" class="text-c">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>34234324</td>
+        <td>张三</td>
+        <td>186777777</td>
+        <td>系统管理员；审核柜员</td>
+        <td>部门销售大区分部</td>
+        <td>正常</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">查看</a>
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="#" class="btn-fill btn-lw freeze">冻结</a>
+          <a href="#" class="btn-fill btn-lw logout">注销</a>
+        </td>
+      </tr>
+      <tr>
+        <td>34234324</td>
+        <td>张三</td>
+        <td>186777777</td>
+        <td>系统管理员；审核柜员</td>
+        <td>部门销售大区分部</td>
+        <td>正常</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">查看</a>
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="#" class="btn-fill btn-lw freeze">冻结</a>
+          <a href="#" class="btn-fill btn-lw logout">注销</a>
+        </td>
+      </tr>
+      <tr>
+        <td>34234324</td>
+        <td>张三</td>
+        <td>186777777</td>
+        <td>系统管理员；审核柜员</td>
+        <td>部门销售大区分部</td>
+        <td>正常</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">查看</a>
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="#" class="btn-fill btn-lw freeze">冻结</a>
+          <a href="#" class="btn-fill btn-lw logout">注销</a>
+        </td>
+      </tr>
+      <tr>
+        <td>34234324</td>
+        <td>张三</td>
+        <td>186777777</td>
+        <td>系统管理员；审核柜员</td>
+        <td>部门销售大区分部</td>
+        <td>正常</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">查看</a>
+          <a href="{{ site.baseurl }}/system/operator-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="#" class="btn-fill btn-lw freeze">冻结</a>
+          <a href="#" class="btn-fill btn-lw logout">注销</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('#department_list').diySelect();
+    $('#role_list').diySelect();
+    $('#status_list').diySelect();
+    //注销客户
+    $('.data-table').on('click', '.logout', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var _this = $(this);
+      var logout_screen = new Dialog(null,{
+        title: '',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            logout_screen.hide();
+            _this.parent().find('.freeze').remove();
+            _this.remove();
+          },
+        content: '<h1 class="h-title">您确定注销当前用户？</h1>'
+      });
+    });
+    //冻结客户
+    $('.data-table').on('click', '.freeze', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var _this = $(this);
+      var freeze_screen = new Dialog(null,{
+        title: '',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            freeze_screen.hide();
+            _this.text('已冻结');
+          },
+        content: '<h1 class="h-title">您确定冻结当前用户？</h1>'
+      });
+    });
+  });
+</script>

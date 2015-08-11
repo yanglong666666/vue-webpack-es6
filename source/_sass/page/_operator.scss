@@ -1,0 +1,54 @@
+.page-operator {
+  .add-content {
+    margin: 40px 0 15px 0;
+    @include clearfix;
+    overflow: hidden;
+    .add-btn {
+      font-size: 14px;
+      float: right;
+      margin-right: 40px;
+    }
+  }
+  .operattor-table {
+    tbody {
+      td {
+        padding: 10px 0px;
+        font-size: 14px;
+        .js-select {
+          margin-right: 20px;
+        }
+        label.checkbox {
+          width: 200px;
+          input {
+            vertical-align: middle;
+          }
+        }
+      }
+      .name {
+        width: 10%;
+        span {
+          color: #ff5776;
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+      .info {
+        width: 40%;
+        label {
+          width: 100%;
+          .txt {
+            width: 80%;
+          }
+          &.radio {
+            width: 25%;
+            margin-right: 25px;
+            input {
+              vertical-align: middle;
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

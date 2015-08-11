@@ -1,0 +1,38 @@
+.page-log {
+  .data-table {
+    tbody {
+      td {
+        word-wrap: break-word;
+        white-space: normal;
+        overflow: initial;
+        &.text-c {
+          position: relative;
+          .remarks-link {
+            display: block;
+            i {
+              display: inline-block;
+              vertical-align: middle;
+              width: 27px;
+              height: 28px;
+              background: url(../images/remark.png) 0 0 no-repeat;
+            }
+          }
+          .remarks {
+            position: absolute;
+            top: 0;
+            right: 65%;
+            z-index: 9;
+            padding: 10px;
+            width: 300px;
+            height: auto;
+            line-height: 20px;
+            background: #d3f7f7;
+            border: 1px solid #a8f0f0;
+            color: #3a3d42;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
