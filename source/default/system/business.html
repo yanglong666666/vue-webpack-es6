@@ -1,0 +1,109 @@
+---
+title: 业务设置
+layout: default
+class: business
+---
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>业务名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>业务类型</dt>
+      <dd>
+        <span>
+          <select name="" id="business" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>证书类型</dt>
+      <dd>
+          <span>
+          <select name="" id="certificate" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>风险等级</dt>
+      <dd>
+        <span>
+          <select name="" id="degree" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output" href="#">输出报表</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="14%">序号</td>
+        <td width="14%">业务单元</td>
+        <td width="14%">业务名称</td>
+        <td width="14%">风险等级</td>
+        <td width="14%">证书类型</td>
+        <td width="14%">协议数量</td>
+        <td width="16%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>23</td>
+        <td>港股通</td>
+        <td>港股通</td>
+        <td>低</td>
+        <td>任意证书</td>
+        <td>3</td>
+        <td><div><a href="{{site.baseurl}}/system/business-after.html" class="btn-fill btn-lw">修改</a><a href="javascript:;" class="btn-fill btn-lw">删除</a></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="ui-pagenav">
+  <div class="page">
+    <ul>
+      <li class="page-up"><a href="">上一页</a></li>
+      <li><a href="">1</a></li>
+      <li class="thisPage"><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="">6</a></li>
+      <li>...</li>
+      <li><a href="">12</a></li>
+      <li class="page-down"><a href="">下一页</a></li>
+      <li>跳转到</li>
+      <li><input class="page-go" type="text"></li>
+      <li><a href="">GO</a></li>
+    </ul>
+  </div>
+  <div class="sum-num">
+    <span>共1666条记录</span>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function () {
+    $('#degree').diySelect();
+    $('#business').diySelect();
+    $('#certificate').diySelect();
+  });
+</script>

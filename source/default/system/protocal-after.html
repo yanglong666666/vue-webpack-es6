@@ -1,0 +1,100 @@
+---
+title: 协议维护
+layout: default
+class: protocal
+---
+<div class="main-content">
+	<div class="ui-table-info">
+		<div class="main-table">
+			<table width="100%" cellpadding="0" cellspacing="0" class="info-table">
+				<tbody>
+					<tr>
+						<td><span class="important">*</span>协议编号</td>
+						<td>
+							<label class="w-320">
+						          <input type="text" class="txt">
+						        </label>
+						</td>
+						<td><span class="important">*</span>显示序号</td>
+						<td>
+							<label class="w-320">
+						          <input type="text" class="txt">
+						        </label>
+						</td>
+					</tr>
+					<tr>
+						<td><span class="important">*</span>协议名称</td>
+							<td>
+							<label class="w-320">
+						          <input type="text" class="txt">
+						        </label>
+						</td>
+						<td>协议类型</td>
+						<td>
+							<span>
+								<select name="" id="type" class="diy-select" style="display: none;">
+									<option selected="" value="1">开户协议</option>
+									<option value="2">已接通</option>
+								</select>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>协议版本</td>
+						<td>
+							<label class="w-320">
+						          <input type="text" class="txt">
+						        </label>
+						</td>
+						<td>协议类型</td>
+						<td>
+							<span>
+								<select name="" id="protocal" class="diy-select" style="display: none;">
+									<option selected="" value="1">文本</option>
+									<option value="2">已接通</option>
+								</select>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>协议版本</td>
+						<td colspan="3">
+							<label class="w-320 w-75">
+						          <input type="text" class="txt">
+						      	</label>
+						      	<a href="javascrip:;" class="btn btn-fill">浏览</a>
+						</td>
+					</tr>
+					<tr>
+						<td>http://</td>
+						<td colspan="3">
+							<label class="w-320 w-75">
+						          <input type="text" class="txt">
+						       </label>
+							<span>例如：www.baidu.com</span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="3">
+							<label class="w-320 w-90">
+						         <textarea class="input txt" ></textarea>
+						       </label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="button-content">
+			<button class="btn-hollow btn-normal" href="#">取消</button>
+			<button class="btn-fill btn-normal" href="#">确定</button>
+	</div>
+</div>
+<script type="text/javascript">
+  $(function () {
+    $('#type').diySelect();
+    $('#storage').diySelect();
+    $('#protocal').diySelect();
+  });
+</script>
