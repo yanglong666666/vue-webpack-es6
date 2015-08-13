@@ -1,0 +1,40 @@
+<div class="ui-option protocal-wrap">
+{% for item in site.data.one-option %}
+  <div class="alllistname" id="{{ item.id }}">
+    <div class="search-box hide">
+      <label class="search-label" for="">
+        <input type="text" name="" value="" class="search-input">
+      </label>
+    </div>
+    <ul class="protocal-list">
+      {% for list in item.list %}
+      <li>
+        <a href="#"><span class="param-checkbox hide"></span>{{list}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+</div>
+<script type="text/javascript">
+$(function(){
+    $('.protocal-list>li').find('a').click(function(e){
+    var e = e || window.event;
+    e.preventDefault();
+    if($(this).find('span').hasClass('current')) {
+      $(this).find('span').removeClass('current');
+    } else {
+      $(this).find('span').addClass('current');
+    }
+  });
+  //点击出现
+  $('.edit').on('click',function(){
+    showEle('.protocal-list>li>a>span');
+    showEle('.search-box');
+    $(this).hide();
+  });
+  function showEle(el){
+    $(el).removeClass('hide')
+  }
+})
+</script>

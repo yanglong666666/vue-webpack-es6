@@ -65,3 +65,10 @@
   // background-color: lighten($color, 14%);
   background-color: #fff7ed;
 }
+
+@mixin border-radius($border){
+	border-radius:$border;
+	-webkit-border-radius:$border;
+	-moz-border-radius:$border;
+	-o-border-radius:$border;
+}

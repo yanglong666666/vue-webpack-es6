@@ -1,0 +1,109 @@
+---
+title: 存管银行
+layout: default
+class: depository
+---
+<div class="main-content">
+	<div class="content-wrap">
+		<div class="clearfix">
+			<div class="fl">
+				<div class="box-wrap">
+					<input id="init" type="checkbox"  class="checkbox" >
+					<div class="alternative"></div>
+				</div>
+	    			<label for="init">默认推荐</label>
+			</div>
+			<div class="fr">
+				<div class="box-wrap">
+					<input id="tongbu" type="checkbox"  class="checkbox" >
+					<div class="alternative"></div>
+				</div>
+	    			<label for="tongbu">同步至所有营业部</label>
+			</div>
+		</div>
+		<div class="ui-table-info">
+			<div class="main-table">
+				<table width="100%" cellpadding="0" cellspacing="0" class="info-table">
+					<tbody>
+						<tr>
+							<td><span class="important">*</span>银行编号</td>
+							<td>
+								<label class="w-320">
+							          <input type="text" class="txt">
+							        </label>
+							</td>
+							<td><span class="important">*</span>显示序号</td>
+							<td>
+								<label class="w-320">
+							          <input type="text" class="txt">
+							        </label>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="important">*</span>银行名称</td>
+							<td>
+								<label class="w-320">
+							          <input type="text" class="txt">
+							        </label>
+							</td>
+							<td>存管类型</td>
+							<td>
+								<span>
+									<select name="" id="type" class="diy-select" style="display: none;">
+										<option selected="" value="1">未接通</option>
+										<option value="2">已接通</option>
+									</select>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>存管方式</td>
+							<td>
+								<span>
+									<select name="" id="storage" class="diy-select" style="display: none;">
+										<option selected="" value="1">未接通</option>
+										<option value="2">已接通</option>
+									</select>
+								</span>
+							</td>
+							<td>存管协议</td>
+							<td>
+								<span>
+									<select name="" id="protocal" class="diy-select" style="display: none;">
+										<option selected="" value="1">未接通</option>
+										<option value="2">已接通</option>
+									</select>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="topset">帮助信息</td>
+							<td>
+								<label class="w-320">
+							          <textarea name="" class="txt input"></textarea>
+							        </label>
+							</td>
+							<td class="topset">成功短信内容</td>
+							<td>
+								<label class="w-320">
+							          <textarea name="" class="txt input"></textarea>
+							        </label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="button-content">
+			<button class="btn-hollow btn-normal" href="#">取消</button>
+			<button class="btn-fill btn-normal" href="#">确定</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+  $(function () {
+    $('#type').diySelect();
+    $('#storage').diySelect();
+    $('#protocal').diySelect();
+  });
+</script>
