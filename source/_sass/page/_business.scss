@@ -11,7 +11,7 @@
 					tr{
 						td{
 							.hide{
-								display:none
+								display:none!important;
 							}
 							.important{
 								color:#ee1116;
@@ -38,6 +38,9 @@
 									>li{
 										display:inline-block;
 										width:23%;
+										&#all{
+											display:none;
+										}
 										>a{
 											color:#4d4d4d;
 											font-size:14px;
@@ -134,6 +137,8 @@
 							>span{
 								.js-select{
 									width: calc(80% - 20px);
+									width: -webkit-calc(80% - 20px);
+									width:-moz-calc(80% - 20px);
 								}
 							}
 						}
@@ -165,7 +170,7 @@
 					}
 					a.btn-lw{
 						width:45%;
-						margin-right:5%;
+						margin-right:4%;
 						&:last-child{
 							margin-right:0;
 						}

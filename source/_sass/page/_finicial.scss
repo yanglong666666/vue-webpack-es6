@@ -14,7 +14,7 @@
 					tr{
 						td{
 							.hide{
-								display:none;
+								display:none!important;
 							}
 							.important{
 								color:#ee1116;
@@ -41,6 +41,9 @@
 									>li{
 										display:inline-block;
 										width:23%;
+										&#all{
+											display:none;
+										}
 										>a{
 											color:#4d4d4d;
 											font-size:14px;
