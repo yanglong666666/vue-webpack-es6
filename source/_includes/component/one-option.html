@@ -7,6 +7,9 @@
       </label>
     </div>
     <ul class="protocal-list">
+      <li id="all">
+        <a href="#"><span class="param-checkbox hide"></span>{{item.top}}</a>
+      </li>
       {% for list in item.list %}
       <li>
         <a href="#"><span class="param-checkbox hide"></span>{{list}}</a>
@@ -31,10 +34,19 @@ $(function(){
   $('.edit').on('click',function(){
     showEle('.protocal-list>li>a>span');
     showEle('.search-box');
+    $('#all').show();
     $(this).hide();
   });
   function showEle(el){
     $(el).removeClass('hide')
-  }
+  };
+  $('#all>a').click(function(){
+      if($(this).find('span').hasClass('current')){
+         $(this).parent('li').siblings('li').find('span').addClass('current');
+      }
+      else{
+        $(this).parent('li').siblings('li').find('span').removeClass('current');
+      }
+  })
 })
 </script>
