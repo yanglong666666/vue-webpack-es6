@@ -1,58 +1,5 @@
 .page-protocal{
 	.main-content{
-		.search-group{
-			.search-dl{
-				width:24%;
-				margin:20px 0 0 0;
-				dd{
-					.w-170{
-						width:80%;
-						.txt{
-							width:100%;
-						}
-					}
-					>span{
-						.js-select{
-							width:80%;
-						}
-					}
-				}
-			}
-		}
-	}
-	.main-table{
-		.data-table{
-			margin-bottom:0;
-			thead{
-				td:last-child{
-					padding-right:10px;
-					text-align:center
-				}
-			}
-			tbody{
-				td{
-					line-height:normal;
-					white-space:normal;
-					padding-right:10px;
-					&:last-child{
-						text-align:center;
-						>div{
-							width:200px;
-							margin:0 auto;
-						}
-					}
-					a.btn-lw{
-						width:30%;
-						margin-right:3%;
-						&:last-child{
-							margin-right:0;
-						}
-					}
-				}
-			}
-		}
-	}
-	.main-content{
 		padding-bottom:50px;
 		.button-content{
 			.btn-hollow{
@@ -115,7 +62,7 @@
 							}
 							>span{
 								.js-select{
-									width: calc(80% - 20px);
+									width: 75%;
 								}
 							}
 						}

@@ -12,95 +12,95 @@ class: business
 						<td><span class="important">*</span>业务单元</td>
 						<td>
 							<label class="w-320">
-						          <input type="text" class="txt" value="港股通">
-						        </label>
-						</td>
-						<td>风险等级</td>
-						<td>
-							<span>
-								<select name="" id="risk" class="diy-select" style="display: none;">
-									<option selected="" value="1">低</option>
-									<option value="2">高</option>
-								</select>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>业务名称</td>
-							<td>
-							<span>
-								<select name="" id="business" class="diy-select" style="display: none;">
-									<option selected="" value="1">港股通</option>
-									<option value="2">已接通</option>
-								</select>
-							</span>
-						</td>
-						<td>受理方式</td>
-						<td>
-							<span>
-								<select name="" id="pattern" class="diy-select" style="display: none;">
-									<option selected="" value="1">在线受理</option>
-									<option value="2">已接通</option>
-								</select>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>生效周期</td>
-						<td>
-							<span>
-								<select name="" id="period" class="diy-select" style="display: none;">
-									<option selected="" value="1">即使生效</option>
-									<option value="2">已接通</option>
-								</select>
-							</span>
-						</td>
-						<td>证书类型</td>
-						<td>
-							<span>
-								<select name="" id="certificate" class="diy-select" style="display: none;">
-									<option selected="" value="1">任意证书</option>
-									<option value="2">已接通</option>
-								</select>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td colspan="3">
-							<div id="all_search_list">
-								<div class="ui-option">
-									<div class="alllistname" id="access_content">
-										<div class="content-name" id="attr-list">
-											<div class="attr-panl">
-											<a href="javascript:void(0)" class=""><span class="param-checkbox"></span>是否审批</a>
-											<a href="javascript:void(0)" class=""><span class="param-checkbox"></span>是否复核</a>
-											<a href="javascript:void(0)" class=""><span class="param-checkbox"></span>审批、复核不同岗</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="topset"><span class="important">*</span>相关协议</td>
-						<td colspan="3">
-						{% include component/one-option.html %}
-							<div class="edit">
-								<i class="edit-name"></i>
-								<span>修改</span>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="button-content">
-			<button class="btn-hollow btn-normal" href="#">取消</button>
-			<button class="btn-fill btn-normal" href="#">确定</button>
-	</div>
+                <input type="text" class="txt" value="港股通">
+              </label>
+            </td>
+            <td>风险等级</td>
+            <td>
+              <span>
+                <select name="" id="risk" class="diy-select" style="display: none;">
+                  <option selected="" value="1">低</option>
+                  <option value="2">高</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>业务名称</td>
+            <td>
+              <span>
+                <select name="" id="business" class="diy-select" style="display: none;">
+                  <option selected="" value="1">港股通</option>
+                  <option value="2">已接通</option>
+                </select>
+              </span>
+            </td>
+            <td>受理方式</td>
+            <td>
+              <span>
+                <select name="" id="pattern" class="diy-select" style="display: none;">
+                  <option selected="" value="1">在线受理</option>
+                  <option value="2">已接通</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>生效周期</td>
+            <td>
+              <span>
+                <select name="" id="period" class="diy-select" style="display: none;">
+                  <option selected="" value="1">即使生效</option>
+                  <option value="2">已接通</option>
+                </select>
+              </span>
+            </td>
+            <td>证书类型</td>
+            <td>
+              <span>
+                <select name="" id="certificate" class="diy-select" style="display: none;">
+                  <option selected="" value="1">任意证书</option>
+                  <option value="2">已接通</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="3">
+              <div id="all_search_list">
+                <div class="ui-option">
+                  <div class="alllistname" id="access_content">
+                    <div class="content-name" id="attr-list">
+                      <div class="attr-panl">
+                        <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>是否审批</a>
+                        <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>是否复核</a>
+                        <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>审批、复核不同岗</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="topset"><span class="important">*</span>相关协议</td>
+            <td colspan="3">
+              {% include component/one-option.html %}
+              <div class="edit">
+                <i class="edit-name"></i>
+                <span>修改</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="button-content">
+    <a class="btn-hollow btn-normal" href="{{site.baseurl}}/system/business.html">取消</a>
+    <button class="btn-fill btn-normal">确定</button>
+  </div>
 </div>
 <script>
 $(function(){

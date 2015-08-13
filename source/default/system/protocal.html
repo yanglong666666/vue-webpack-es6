@@ -59,7 +59,7 @@ class: protocal
         <td width="10%">类别</td>
         <td width="10%">版本</td>
         <td width="12%">最后更新</td>
-        <td width="20%">操作</td>
+        <td width="20%" class="text-c">操作</td>
       </tr>
     </thead>
     <tbody>
@@ -70,36 +70,56 @@ class: protocal
         <td>文本</td>
         <td>1.0</td>
         <td>2015-1-20</td>
-        <td><div><a href="javascript:;" class="btn-hollow btn-lw">预览</a><a href="{{site.baseurl}}/system/protocal-after.html" class="btn-fill btn-lw">修改</a><a href="javascript:;" class="btn-fill btn-lw">删除</a></div></td>
+        <td class="text-c">
+          <a href="javascript:;" class="btn-hollow btn-lw detail-btn">预览</a>
+          <a href="{{site.baseurl}}/system/protocal-after.html" class="btn-fill btn-lw">修改</a>
+          <a href="javascript:;" class="btn-fill btn-lw detele-btn">删除</a>
+      </td>
       </tr>
     </tbody>
   </table>
 </div>
-<div class="ui-pagenav">
-  <div class="page">
-    <ul>
-      <li class="page-up"><a href="">上一页</a></li>
-      <li><a href="">1</a></li>
-      <li class="thisPage"><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li><a href="">4</a></li>
-      <li><a href="">5</a></li>
-      <li><a href="">6</a></li>
-      <li>...</li>
-      <li><a href="">12</a></li>
-      <li class="page-down"><a href="">下一页</a></li>
-      <li>跳转到</li>
-      <li><input class="page-go" type="text"></li>
-      <li><a href="">GO</a></li>
-    </ul>
-  </div>
-  <div class="sum-num">
-    <span>共1666条记录</span>
-  </div>
-</div>
+{% include component/pagenav.html %}
 <script type="text/javascript">
 	$(function(){
 		$('#protocal').diySelect();
 		$('#type').diySelect();
+    $('.data-table').on('click', '.detail-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var protocol_screen = new Dialog(null,{
+        title: '协议内容',
+        width: '680',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["确定"],
+        btnRole: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            protocol_screen.hide();
+          },
+        content: '<div class="dialog-content-protocol">'+
+                    '<div class="dialog-protocol">协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容</div>'+
+                 '</div>'
+      });
+    });
+    $('.data-table').on('click', '.detele-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var delete_screen = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+          },
+        content: '<h1 class="h-title">您确定删除此记录？</h1>'
+      });
+    });
 	})
 </script>
