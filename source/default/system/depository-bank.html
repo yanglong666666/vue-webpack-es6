@@ -1,0 +1,61 @@
+---
+title: 存管银行
+layout: default
+class: depository
+---
+<div class="btn-wrap clearfix">
+	<button class="btn-hollow btn-normal fl" href="javascript:void(0)">输出报表</button>
+	<button class="btn-fill btn-normal fr" href="javascript:void(0)" id="release">添加</button>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="8%">序号</td>
+        <td width="8%">存管类型</td>
+        <td width="8%">银行编号</td>
+        <td width="8%">银行名称</td>
+        <td width="15%">存管方式</td>
+        <td width="8%">存管状态</td>
+        <td width="8%">状态</td>
+        <td width="21%">存管协议</td>
+        <td width="16%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1000</td>
+        <td>普通存管</td>
+        <td>10049</td>
+        <td>民生银行</td>
+        <td>一步式，需要账号和密码</td>
+        <td>有效</td>
+        <td>显示</td>
+        <td>民生银行客户交易结算资金第三方存管三方协议电子协议</td>
+        <td><div><a href="{{site.baseurl}}/system/depository-bank-after.html" class="btn-fill btn-lw">修改</a><a href="javascript:;" class="btn-fill btn-lw">恢复</a></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="ui-pagenav">
+  <div class="page">
+    <ul>
+      <li class="page-up"><a href="">上一页</a></li>
+      <li><a href="">1</a></li>
+      <li class="thisPage"><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="">6</a></li>
+      <li>...</li>
+      <li><a href="">12</a></li>
+      <li class="page-down"><a href="">下一页</a></li>
+      <li>跳转到</li>
+      <li><input class="page-go" type="text"></li>
+      <li><a href="">GO</a></li>
+    </ul>
+  </div>
+  <div class="sum-num">
+    <span>共1666条记录</span>
+  </div>
+</div>
