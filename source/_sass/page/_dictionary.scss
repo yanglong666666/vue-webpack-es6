@@ -1,0 +1,50 @@
+.page-dictionary {
+  .button-inner {
+    @include clearfix;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .add-btn {
+      float: right;
+      font-size: 14px;
+      margin-right: 20px;
+    }
+  }
+  .dictionary-content {
+    padding: 50px;
+    background: #f0f4fb;
+    margin: 0 auto;
+    .item {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 15px;
+      .name {
+        display: inline-block;
+        line-height: 37px;
+        width: 100px;
+        text-align: right;
+        float: left;
+        margin-right: 20px;
+      }
+      .item-inner {
+        float: left;
+      }
+      label {
+        width: 370px;
+        .txt {
+          width: 100%;
+        }
+      }
+      textarea {
+        padding: 10px;
+        line-height: 20px;
+        height: 60px;
+        background: #e1e6ef;
+        border-radius: 5px;
+        outline: none;
+        resize: none;
+        border: none;
+        width: 350px;
+      }
+    }
+  }
+}

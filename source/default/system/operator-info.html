@@ -106,19 +106,19 @@ class: operator
         <td class="name">
           <span>*</span>所属营业部
         </td>
-        <td colspan="3">
+        <td>
           <select name="" id="company_list" class="diy-select" style="display: none;">
             <option selected="" value="1">全部</option>
             <option value="2">部门1</option>
           </select>
-          <select name="" id="area_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">全部</option>
-            <option value="2">销售大区1</option>
-          </select>
-          <select name="" id="department_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">全部</option>
-            <option value="2">分部1</option>
-          </select>
+        </td>
+        <td class="name">
+          职业资格证号
+        </td>
+        <td class="info">
+          <label>
+            <input type="text" class="txt">
+          </label>
         </td>
       </tr>
       <tr>
@@ -143,6 +143,40 @@ class: operator
           </label>
         </td>
       </tr>
+      <tr>
+        <td class="name">
+          <span>*</span>可操作营业部
+        </td>
+        <td colspan="3">
+          <div class="ui-option">
+            <div class="alllistname readonly" id="department_list">
+              <div class="search-box">
+                <label class="search-label" for="">
+                  <input type="text" name="" value="" class="search-input">
+                </label>
+              </div>
+              <div class="content-name" id="attr-list">
+                <div class="attr-panl">
+                  <a class="all-btn" href="javascript:void(0)"><span class="all-checkbox"></span>全选</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                  <a class="department" href="javascript:void(0)"><span class="param-checkbox"></span>11-织里营业部</a>
+                </div>
+                <div class="edit-content">
+                  <a class="edit-btn" href="javascript:void(0)"><i class="edit-name"></i>修改</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
     </tbody>
   </table>
   <div class="button-content">
@@ -152,11 +186,33 @@ class: operator
 </div>
 <script type="text/javascript">
   $(function(){
-    $('#company_list').diySelect({width: '25%'});
-    $('#area_list').diySelect({width: '25%'});
-    $('#department_list').diySelect({width: '25%'});
+    $('#company_list').diySelect({width: '75%'});
     $('#status_list').diySelect({
       width: '75%'
+    });
+    $('.edit-content').on('click', '.edit-btn', function(event) {
+      //修改按钮事件
+      event.preventDefault();
+      /* Act on the event */
+      $('#department_list').removeClass('readonly').addClass('edit');
+      $(this).parent().hide();
+    });
+    $('.attr-panl').find('.department').click(function() {//多选选中状态
+      if($(this).hasClass('current')) {
+        $(this).removeClass('current');
+        $('.attr-panl').find('.all-btn').removeClass('current');
+      } else {
+        $(this).addClass('current');
+      }
+    });
+    $('.attr-panl').find('.all-btn').click(function() {//全选
+      if($(this).hasClass('current')) {
+        $(this).removeClass('current');
+        $('.attr-panl').find('.department').removeClass('current');
+      } else {
+        $(this).addClass('current');
+        $('.attr-panl').find('.department').addClass('current');
+      }
     });
   });
 </script>
