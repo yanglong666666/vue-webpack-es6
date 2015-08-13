@@ -1,0 +1,143 @@
+---
+title: 公安认证
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>身份证号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>资金号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>协议类型</dt>
+      <dd>
+        <span>
+          <select name="" id="type_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">协议类型1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>协议名称</dt>
+      <dd>
+        <span>
+          <select name="" id="name_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">协议名称1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>日期</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output">输出报表</button>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">签署编号</td>
+        <td width="10%">姓名</td>
+        <td width="10%">身份证号码</td>
+        <td width="10%">资金号</td>
+        <td width="10%">协议类型</td>
+        <td width="10%">协议编号</td>
+        <td width="20%">协议名称</td>
+        <td width="8%">协议版本</td>
+        <td width="12%">签署时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>130112199009098899</td>
+        <td>18900001111</td>
+        <td>开户协议</td>
+        <td>12312321321</td>
+        <td>证券操作员风险揭示书</td>
+        <td>V1.1</td>
+        <td>2015-12-12 09:09</td>
+      </tr>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>130112199009098899</td>
+        <td>18900001111</td>
+        <td>开户协议</td>
+        <td>12312321321</td>
+        <td>证券操作员风险揭示书</td>
+        <td>V1.1</td>
+        <td>2015-12-12 09:09</td>
+      </tr>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>130112199009098899</td>
+        <td>18900001111</td>
+        <td>开户协议</td>
+        <td>12312321321</td>
+        <td>证券操作员风险揭示书</td>
+        <td>V1.1</td>
+        <td>2015-12-12 09:09</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+$(function () {
+    $('#type_list').diySelect();
+    $('#name_list').diySelect();
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+});
+</script>

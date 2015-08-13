@@ -199,7 +199,78 @@
       }
       .upload-content {
         position: relative;
+        .upload-btn {
+          display: block;
+          text-align: center;
+          width: 168px;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid #3ecacb;
+          color: #3ecacb;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+        .file {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 170px;
+          display: inline-block;
+          height: 32px;
+          line-height: 32px;
+          cursor: pointer;
+          opacity: 0;
+          filter:alpha(opacity=0);
+        }
       }
+      .down-load {
+        display: block;
+        text-align: center;
+        width: 170px;
+        height: 32px;
+        line-height: 32px;
+        color: #fff;
+        background: #3ecacb;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+    }
+  }
+  .dialog-content-channel {
+    @include clearfix;
+    overflow-y: auto;
+    background: #e1e6ef;
+    padding: 10px 40px;
+    max-height: 145px;
+    label {
+      width: 200px;
+      input {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
+  }
+  .dialog-content-certificate {
+    max-height: 300px;
+    overflow-y: auto;
+    .table {
+      tbody {
+        td {
+          padding: 10px;
+          &:nth-child(odd) {
+            color: #6f7b91;
+            width: 20%;
+          }
+          &:nth-child(even) {
+            color: #4c4f54;
+            width: 80%;
+          }
+        }
+      }
+    }
+    .content-inner {
+      max-height: 100px;
+      overflow-y: auto;
     }
   }
 }

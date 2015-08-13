@@ -1,0 +1,98 @@
+---
+title: 短信查询
+layout: default
+class: message
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>手机号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>短信类型</dt>
+      <dd>
+        <span>
+          <select name="" id="type_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">类型1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>发送时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output">输出报表</button>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">姓名</td>
+        <td width="10%">手机号</td>
+        <td width="10%">短信类型</td>
+        <td width="55%">短信内容</td>
+        <td width="15%">发送时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>张三</td>
+        <td>18900001111</td>
+        <td>登录</td>
+        <td>尊敬的客户，欢迎使用XX证券网上开户，您的短信验证码是2222，请确保您本人完成开户操作，如需帮助，请拨打客服热线232432432</td>
+        <td>2016-09-09 09:09</td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18900001111</td>
+        <td>登录</td>
+        <td>尊敬的客户，欢迎使用XX证券网上开户，您的短信验证码是2222，请确保您本人完成开户操作，如需帮助，请拨打客服热线232432432</td>
+        <td>2016-09-09 09:09</td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18900001111</td>
+        <td>登录</td>
+        <td>尊敬的客户，欢迎使用XX证券网上开户，您的短信验证码是2222，请确保您本人完成开户操作，如需帮助，请拨打客服热线232432432</td>
+        <td>2016-09-09 09:09</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+$(function () {
+  $('#type_list').diySelect();
+});
+</script>

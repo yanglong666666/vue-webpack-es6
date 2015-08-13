@@ -27,7 +27,7 @@ class: business
     <dl class="search-dl">
       <dt>证书类型</dt>
       <dd>
-          <span>
+        <span>
           <select name="" id="certificate" class="diy-select" style="display: none;">
             <option selected="" value="1">全部</option>
             <option value="2">营业部1</option>
@@ -73,37 +73,37 @@ class: business
         <td>低</td>
         <td>任意证书</td>
         <td>3</td>
-        <td><div><a href="{{site.baseurl}}/system/business-after.html" class="btn-fill btn-lw">修改</a><a href="javascript:;" class="btn-fill btn-lw">删除</a></div></td>
+        <td>
+          <a href="{{site.baseurl}}/system/business-after.html" class="btn-fill btn-lw">修改</a>
+          <a href="javascript:;" class="btn-fill btn-lw delete-btn">删除</a>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
-<div class="ui-pagenav">
-  <div class="page">
-    <ul>
-      <li class="page-up"><a href="">上一页</a></li>
-      <li><a href="">1</a></li>
-      <li class="thisPage"><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li><a href="">4</a></li>
-      <li><a href="">5</a></li>
-      <li><a href="">6</a></li>
-      <li>...</li>
-      <li><a href="">12</a></li>
-      <li class="page-down"><a href="">下一页</a></li>
-      <li>跳转到</li>
-      <li><input class="page-go" type="text"></li>
-      <li><a href="">GO</a></li>
-    </ul>
-  </div>
-  <div class="sum-num">
-    <span>共1666条记录</span>
-  </div>
-</div>
+{% include component/pagenav.html %}
 <script type="text/javascript">
-  $(function () {
-    $('#degree').diySelect();
-    $('#business').diySelect();
-    $('#certificate').diySelect();
-  });
+$(function () {
+  $('#degree').diySelect();
+  $('#business').diySelect();
+  $('#certificate').diySelect();
+  $('.data-table').on('click', '.detele-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var delete_screen = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+          },
+        content: '<h1 class="h-title">您确定删除此记录？</h1>'
+      });
+    });
+});
 </script>

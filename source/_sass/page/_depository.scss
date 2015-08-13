@@ -10,38 +10,7 @@
 		overflow:hidden;
 	}
 	.btn-wrap{
-		padding:26px 22px 12px
-	}
-	.main-table{
-		.data-table{
-			margin-bottom:0;
-			thead{
-				td:last-child{
-					padding-right:10px;
-					text-align:center
-				}
-			}
-			tbody{
-				td{
-					line-height:normal;
-					white-space:normal;
-					padding-right:10px;
-					&:last-child{
-						text-align:center;
-						>div{
-							width:170px;
-							margin:0 auto;
-						}
-					}
-					a.btn-lw{
-						width:40%;
-						&:first-child{
-							margin-right:5%;
-						}
-					}
-				}
-			}
-		}
+		padding:26px 22px 12px;
 	}
 	.main-content{
 		.content-wrap{
@@ -73,7 +42,7 @@
 							height:20px;
 							@include border-radius(5px);
 							background:#fff;
-							border:1px solid #ccc
+							border:1px solid #ccc;
 						}
 						.checkbox:checked + .alternative:after{
 							content:'';
@@ -88,7 +57,7 @@
 							transform:rotate(135deg);
 							-webkit-transform:rotate(135deg);
 							-moz-transform:rotate(135deg);
-							cursor:pointer
+							cursor:pointer;
 						}
 					}
 				}
@@ -128,14 +97,14 @@
 									}
 								}
 								&:nth-child(odd){
-									width:11%
+									width:11%;
 								}
 								&:nth-child(even){
-									width:39%
+									width:39%;
 								}
 								>span{
 									.js-select{
-										width: calc(80% - 20px);
+										width: 75%;
 									}
 								}
 							}
