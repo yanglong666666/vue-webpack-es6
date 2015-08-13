@@ -1,0 +1,9 @@
+.page-marketsers {
+  .button-inner {
+    @include clearfix;
+    overflow: hidden;
+    a {
+      float: right;
+    }
+  }
+}
