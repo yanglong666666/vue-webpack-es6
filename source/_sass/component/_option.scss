@@ -26,11 +26,6 @@
             margin-right: 5px;
             background: url(../images/icolist.png) -20px -80px no-repeat;
           }
-          &:hover {
-            .param-checkbox {
-              background: url(../images/icolist.png) 0px -80px no-repeat;
-            }
-          }
           &.current {
             .param-checkbox {
               background: url(../images/icolist.png) 0px -80px no-repeat;
