@@ -31,12 +31,18 @@ class: dot
       </dd>
     </dl>
     <dl class="search-dl">
-      <dt>所属营业部</dt>
+      <dt>所在地</dt>
       <dd>
         <span>
-          <select name="" id="department_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">全部</option>
-            <option value="2">营业部1</option>
+          <select name="" id="province_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">省</option>
+            <option value="2">浙江省</option>
+          </select>
+        </span>
+        <span>
+          <select name="" id="city_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">市</option>
+            <option value="2">杭州市</option>
           </select>
         </span>
       </dd>
@@ -49,7 +55,7 @@ class: dot
 </div>
 
 <div class="button-inner">
-  <a class="btn-fill ml-30" href="#">添加</a>
+  <a class="btn-fill ml-30" href="{{ site.baseurl }}/channel/dot-info.html">添加</a>
   <a class="btn-primary-white" href="#">手工同步</a>
 </div>
 
@@ -75,9 +81,9 @@ class: dot
         <td>1</td>
         <td>显示</td>
         <td class="text-c">
-          <a href="javascript:void(0)" class="btn-fill btn-lw">查看</a>
-          <a href="javascript:void(0)" class="btn-fill btn-lw">修改</a>
-          <a href="javascript:void(0)" class="btn-fill btn-lw">存管银行</a>
+          <a href="{{ site.baseurl }}/channel/dot-info.html" class="btn-fill btn-lw">查看</a>
+          <a href="{{ site.baseurl }}/channel/dot-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw bank-detail">存管银行</a>
         </td>
       </tr>
     </tbody>
@@ -86,6 +92,12 @@ class: dot
 {% include component/pagenav.html %}
 <script type="text/javascript">
 $(function () {
-  $('#department_list').diySelect();
+  $('#province_list').diySelect();
+  $('#city_list').diySelect();
+  $('.data-table').on('click', '.bank-detail', function(event) {
+    //存管银行
+    event.preventDefault();
+    /* Act on the event */
+  });
 });
 </script>
