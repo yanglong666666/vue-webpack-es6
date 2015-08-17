@@ -4,4 +4,17 @@
     top: 15px;
     left: 0px;
   }
+  .data-table {
+    span.js-select {
+      background-color: #fff;
+      background-image: url(../images/select-ico.png);
+    }
+    .js-option {
+      background-color: #f0f4fb;
+      border: 1px solid #f0f4fb;
+      border-radius: 0px;
+      max-height: 105px;
+      overflow-y: auto;
+    }
+  }
 }

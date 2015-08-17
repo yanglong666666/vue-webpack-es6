@@ -48,6 +48,8 @@
 @import "component/info/data";
 @import "component/info/account";
 @import "component/info/stock";
+@import "component/time";
+
 
 //Page
 @import "page/statistics";
@@ -75,6 +77,7 @@
 @import "page/finicial";
 @import "page/dictionary";
 @import "page/dot";
+@import "page/time";
 
 //Vendor
 @import "jquery-ui";

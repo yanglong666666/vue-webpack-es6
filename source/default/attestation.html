@@ -152,28 +152,7 @@ class: attestation
     </tbody>
   </table>
 </div>
-<div class="ui-pagenav">
-  <div class="page">
-    <ul>
-      <li class="page-up"><a href="">上一页</a></li>
-      <li><a href="">1</a></li>
-      <li class="thisPage"><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li><a href="">4</a></li>
-      <li><a href="">5</a></li>
-      <li><a href="">6</a></li>
-      <li>...</li>
-      <li><a href="">12</a></li>
-      <li class="page-down"><a href="">下一页</a></li>
-      <li>跳转到</li>
-      <li><input class="page-go" type="text"></li>
-      <li><a href="">GO</a></li>
-    </ul>
-  </div>
-  <div class="sum-num">
-    <span>共1666条记录</span>
-  </div>
-</div>
+{% include component/pagenav.html %}
 <script>
 $(function (){
 	$('#department').diySelect();

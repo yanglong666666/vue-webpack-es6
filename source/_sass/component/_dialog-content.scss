@@ -180,11 +180,11 @@
           padding: 10px;
           &:nth-child(odd) {
             color: #6f7b91;
-            width: 25%;
+            width: 30%;
           }
           &:nth-child(even) {
             color: #4c4f54;
-            width: 75%;
+            width: 70%;
           }
         }
       }
@@ -271,6 +271,27 @@
     .content-inner {
       max-height: 100px;
       overflow-y: auto;
+    }
+  }
+  .dialog-content-type {
+    .item {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 15px;
+      .name {
+        display: inline-block;
+        width: 100px;
+        float: left;
+        height: 37px;
+        line-height: 37px;
+      }
+      .item-inner {
+        float: left;
+        input[name="type"] {
+          vertical-align: middle;
+          margin-right: 5px;
+        }
+      }
     }
   }
 }

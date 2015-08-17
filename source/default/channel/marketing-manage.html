@@ -27,10 +27,9 @@ class: marketing-manage
     <thead>
       <tr>
         <td width="15%">渠道名称</td>
-        <td width="10%">渠道短链接</td>
-        <td width="15%">接入方式</td>
-        <td width="15%">营业部</td>
         <td width="15%">营业人</td>
+        <td width="20%">营业部</td>
+        <td width="20%">存管银行</td>
         <td width="10%">状态</td>
         <td width="20%" class="text-c">操作</td>
       </tr>
@@ -38,10 +37,19 @@ class: marketing-manage
     <tbody>
       <tr>
         <td>23123</td>
-        <td>123213213</td>
-        <td>网上开户PC端</td>
-        <td>北京营业部</td>
         <td>张三 19800001111</td>
+        <td>
+          <select name="" id="department1" class="diy-select department" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">杭州庆春路营业部1</option>
+          </select>
+        </td>
+        <td>
+          <select name="" id="bank1" class="diy-select bank" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">工商银行</option>
+          </select>
+        </td>
         <td>有效</td>
         <td class="text-c">
           <a href="javascript:void(0)" class="btn-fill btn-lw detail-btn">查看</a>
@@ -51,10 +59,21 @@ class: marketing-manage
       </tr>
       <tr>
         <td>23123</td>
-        <td>123213213</td>
-        <td>网上开户PC端</td>
-        <td>北京营业部</td>
         <td>张三 19800001111</td>
+        <td>
+          <select name="" id="department2" class="diy-select department" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">杭州庆春路营业部1</option>
+            <option value="3">杭州庆春路营业部2</option>
+            <option value="4">杭州庆春路营业部4</option>
+          </select>
+        </td>
+        <td>
+          <select name="" id="bank2" class="diy-select bank" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">工商银行</option>
+          </select>
+        </td>
         <td>有效</td>
         <td class="text-c">
           <a href="javascript:void(0)" class="btn-fill btn-lw detail-btn">查看</a>
@@ -68,6 +87,8 @@ class: marketing-manage
 {% include component/pagenav.html %}
 <script type="text/javascript">
   $(function(){
+    $('.department').diySelect();
+    $('.bank').diySelect();
     $('.data-table').on('click', '.detele-btn', function(event) {
       //删除按钮事件
       event.preventDefault();
@@ -104,20 +125,16 @@ class: marketing-manage
                     '<table cellpadding="0" cellspacing="0" class="dia-table">'+
                     '<tbody>'+
                       '<tr>'+
+                        '<td>所属营业部</td>'+
+                        '<td>北京营业部</td>'+
+                      '</tr>'+
+                      '<tr>'+
                         '<td>状态</td>'+
                         '<td>有效</td>'+
                       '</tr>'+
                       '<tr>'+
-                        '<td>佣金模板</td>'+
-                        '<td>网上开户模板-北京路营业部</td>'+
-                      '</tr>'+
-                      '<tr>'+
                         '<td>渠道编码</td>'+
                         '<td>9572</td>'+
-                      '</tr>'+
-                      '<tr>'+
-                        '<td>接入方式</td>'+
-                        '<td>网上开户PC端</td>'+
                       '</tr>'+
                       '<tr>'+
                         '<td>营业部</td>'+

@@ -18,6 +18,17 @@
           overflow: hidden;
           text-overflow: ellipsis;
           margin-bottom: 10px;
+          .delete {
+            display: inline-block;
+            margin-left: 5px;
+            width: 12px;
+            height: 12px;
+            vertical-align: middle;
+            background: url(../images/delete-ico.png) 0 0 no-repeat;
+            &.hide {
+              display: none;
+            }
+          }
           .param-checkbox {
             display: inline-block;
             vertical-align: middle;
@@ -45,7 +56,7 @@
       position: absolute;
       top: 5px;
       right: 25px;
-      a {
+      .more {
         font-size: 12px;
         color: #6f7b91;
         span {
@@ -59,7 +70,20 @@
             background: url(../images/icolist.png) -80px -65px no-repeat;
           }
         }
-
+      }
+      .add {
+        color: #3ecacb;
+      }
+      .reflash {
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        width: 60px;
+        color: #3ecacb;
+        border-radius: 5px;
+        border: 1px solid #3ecacb;
+        margin-right: 10px;
+        text-align: center;
       }
     }
     .search-box {
