@@ -1,0 +1,171 @@
+---
+title: 视频复核
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>手机号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>身份证号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>操作员姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>开户营业部</dt>
+      <dd>
+        <span>
+          <select name="" id="partment_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>状态</dt>
+      <dd>
+        <span>
+          <select name="" id="status_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">未接通</option>
+            <option value="2">已接通</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">姓名</td>
+        <td width="10%">手机号</td>
+        <td width="15%">任务类型</td>
+        <td width="15%">开户营业部</td>
+        <td width="15%">处理时间</td>
+        <td width="15%">状态</td>
+        <td width="10%">操作柜员姓名</td>
+        <td width="10%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">已接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">已接通</a></td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>2014-12-14 14:23</td>
+        <td>未接通</td>
+        <td>李四</td>
+        <td><a href="{{ site.baseurl }}/recheck.html" class="btn-fill btn-lw">已接通</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('#status_list').diySelect();
+    $('#partment_list').diySelect();
+  });
+</script>
