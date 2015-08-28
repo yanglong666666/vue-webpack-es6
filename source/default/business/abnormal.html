@@ -1,35 +1,20 @@
 ---
-title: 视频复核
+title: 异常处理
 layout: default
-class: recheck
+class: abnormal
 ---
 
 {% include component/info/marketing.html %}
 {% include component/info/user.html %}
 {% include component/info/verify.html %}
 {% include component/info/protocol.html %}
-{% include component/info/data.html %}
 {% include component/info/account.html %}
-{% include component/info/stock.html %}
-<div class="opinion-content">
-  <div class="button-content">
-    <button class="btn-lg through-btn verify-btn" href="#">复核通过</button>
-    <button class="btn-lg ml-30 nothrough-btn verify-btn" href="#">需要整改</button>
-    <button class="btn-lg ml-30 verify-btn" href="#">任务移交</button>
-  </div>
-  <div class="no-through-content" style="display:none;">
-    <div class="wrap">
-      <div class="no-through-item">
-        <p>整改意见</p>
-        <textarea></textarea>
-      </div>
-    </div>
-  </div>
-</div>
+{% include component/info/data.html %}
+
 <div class="button-content">
   <button class="btn-lg btn-fill" href="#">提交</button>
 </div>
-<div class="main-table log-table">
+<div class="main-table">
   <h2 class="table-title">客服操作流水</h2>
   <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
     <thead>
@@ -68,19 +53,4 @@ class: recheck
     </tbody>
   </table>
 </div>
-<script type="text/javascript">
-  $(function(){
-    $('.opinion-content').on('click', '.verify-btn', function(event) {
-      //通过不通过按钮交互
-      event.preventDefault();
-      /* Act on the event */
-      $('.opinion-content').find('.verify-btn').removeClass('current');
-      $(this).addClass('current');
-      if($(this).hasClass('nothrough-btn')) {
-        $('.no-through-content').show();
-      } else {
-        $('.no-through-content').hide();
-      }
-    });
-  });
-</script>
+

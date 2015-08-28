@@ -20,20 +20,23 @@
     .no-through-content {
       @include clearfix;
       overflow: hidden;
-      .no-through-item {
-        width: 48%;
-        float: right;
-        textarea {
-          margin-top: 15px;
-          border-radius: 5px;
-          outline: none;
-          width: 200px;
-          height: 100px;
-          border: none;
-          background: #e1e6ef;
-          line-height: 20px;
-          padding: 10px;
-          resize: none;
+      .wrap{
+        width:730px;
+        margin:0 auto;
+        .no-through-item {
+          width: 48%;
+          textarea {
+            margin-top: 15px;
+            border-radius: 5px;
+            outline: none;
+            width: 200px;
+            height: 100px;
+            border: none;
+            background: #e1e6ef;
+            line-height: 20px;
+            padding: 10px;
+            resize: none;
+          }
         }
       }
     }
