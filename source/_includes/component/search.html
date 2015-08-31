@@ -17,14 +17,22 @@
   </label>
 </div>
 <script type="text/javascript">
-  $('.begin-time').datepicker({
-    onClose: function( selectedDate ) {
-      $('.end-time').datepicker( "option", "minDate", selectedDate );
-    }
-  });
-  $('.end-time').datepicker({
-    onClose: function( selectedDate ) {
-        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+  $(function(){
+    $('.search-inner').on('click', 'a', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      $('.search-inner').find('a').removeClass('active');
+      $(this).addClass('active');
+    });
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
       }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
   });
 </script>
