@@ -59,8 +59,59 @@
   .main-table {
     .table-title {
       font-size: 16px;
-      color: #6a7491;
       margin-bottom: 10px;
     }
   }
+  .info-table{
+    tbody{
+      tr{
+        .modify{
+          .w-320{
+            width:80%;
+            .txt{
+              width:100%;
+            }
+          }
+          .time{
+            width:36%;
+            width:calc((80% - 22px)/2);
+            .txt{
+              width:100%;
+            }
+          }
+          >span{
+            .js-select{
+                width: 79%;
+                width: calc(80% - 20px);
+                width: -webkit-calc(80% - 20px);
+            }
+            .js-option{
+                min-width: 411px;
+              }
+            }
+          }
+        }
+      }
+    }
+  .table-title{
+    display:inline-block;
+    vertical-align:sub;
+    &+.edit{
+      margin-top:10px;
+      margin-left:10px;
+      display:inline-block;
+      cursor:pointer;
+      .edit-name{
+      display: inline-block;
+      vertical-align: middle;
+      content: "";
+      font-size: 0;
+      width: 15px;
+      height: 16px;
+      background: url(../images/video/video-list.png) 0 -95px no-repeat;
+      }
+    }
+  }
 }
+
+

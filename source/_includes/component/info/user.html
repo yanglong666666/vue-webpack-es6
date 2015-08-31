@@ -1,51 +1,122 @@
 <div class="ui-table-info">
   <div class="main-table">
-    <h2 class="table-title">用户基本信息</h2>
-    <table width="100%" cellpadding="0" cellspacing="0" class="info-table">
-      <tbody>
-        <tr>
-          <td>姓名</td>
-          <td>张三</td>
-          <td>国籍</td>
-          <td>中国</td>
-        </tr>
-        <tr>
-          <td>性别</td>
-          <td>男</td>
-          <td>年龄</td>
-          <td>30</td>
-        </tr>
-        <tr>
-          <td>身份证号</td>
-          <td>213232333322222</td>
-          <td>职业</td>
-          <td>党政干部</td>
-        </tr>
-        <tr>
-          <td>证件有效期</td>
-          <td>2010.01.11-2020.01.11</td>
-          <td>学历</td>
-          <td>硕士</td>
-        </tr>
-        <tr>
-          <td>发证机关</td>
-          <td>滨江西行公安局</td>
-          <td>邮编</td>
-          <td>232333</td>
-        </tr>
-        <tr>
-          <td>证件地址</td>
-          <td>杭州市滨江区江陵路112号</td>
-          <td>手机号码</td>
-          <td>18900001111</td>
-        </tr>
-        <tr>
-          <td>联系地址</td>
-          <td>滨江西行公安局</td>
-          <td>qq号</td>
-          <td>232333</td>
-        </tr>
-      </tbody>
-    </table>
+	<h2 class="table-title">用户基本信息</h2>
+	<div class="edit">
+	  <i class="edit-name"></i>
+	</div>
+	<table width="100%" cellpadding="0" cellspacing="0" class="info-table">
+	  <tbody>
+		<tr>
+		  <td>姓名</td>
+		  <td class="modify" data-role="normal">张三</td>
+		  <td>国籍</td>
+		  <td class="modify" data-role="list" data-type="country">中国</td>
+		</tr>
+		<tr>
+		  <td>性别</td>
+		  <td class="modify"  data-role="list" data-type="sex">男</td>
+		  <td>年龄</td>
+		  <td class="modify" data-role="normal">30</td>
+		</tr>
+		<tr>
+		  <td>身份证号</td>
+		  <td class="modify" data-role="normal">213232333322222</td>
+		  <td>职业</td>
+		  <td class="modify"  data-role="list" data-type="occupation">党政干部</td>
+		</tr>
+		<tr>
+		  <td>证件有效期</td>
+		  <td class="modify" data-role="list" data-type="time">2010.01.11-2020.01.11</td>
+		  <td>学历</td>
+		  <td class="modify"  data-role="list" data-type="education">硕士</td>
+		</tr>
+		<tr>
+		  <td>发证机关</td>
+		  <td class="modify" data-role="normal" data-type="issue">滨江西行公安局</td>
+		  <td>邮编</td>
+		  <td class="modify" data-role="normal">232333</td>
+		</tr>
+		<tr>
+		  <td>证件地址</td>
+		  <td class="modify" data-role="normal">杭州市滨江区江陵路112号</td>
+		  <td>手机号码</td>
+		  <td class="modify" data-role="normal">18900001111</td>
+		</tr>
+		<tr>
+		  <td>联系地址</td>
+		  <td class="modify" data-role="normal">滨江西行公安局</td>
+		  <td>qq号</td>
+		  <td class="modify" data-role="normal">232333</td>
+		</tr>
+	  </tbody>
+	</table>
   </div>
 </div>
+
+<script>
+$(function(){
+	var el = $('.modify');
+	var changeMode = el.attr("data-role");
+	var c = $('.edit');
+	c.click(function(){
+		var url ="{{site.baseurl}}/data.json" ;
+		$.ajax({
+			url:url,
+			dataType:"json",
+			type:"GET",
+			success:function(data){
+				d = data;
+				console.log(typeof d);
+				el.each(function(index){
+					var mode = el.eq(index).attr("data-role");
+					var _type = el.eq(index).attr("data-type");
+					var that=el.eq(index);
+					if(mode == "normal"){
+						setNormal(that);
+					}
+					else if(mode == "list"){
+						console.log(_type)
+						if(!(_type == undefined)){
+							setList(that,_type,d[_type])
+						}
+					}
+			  	})
+			}
+		})
+
+	})
+	//定义普通修改
+	function setNormal(el){
+		var value = $(el).text() || $(el).val();
+		var str = "<label class='w-320'><input type='text' class='txt' value="+value+"></label>";
+		return $(el).html(str);
+	}
+	//定义特殊修改项
+	function setList(el,type,data){
+		var options= "";
+		if(type == "time"){
+			var str="<label class='time'><input class='txt begin-time' type='text' placeholder='开始时间'><i></i></label><span class='pre'>至</span><label class='time'><input class='txt end-time' type='text' placeholder='截止时间'><i></i></label>";
+			$(el).html(str);
+			$('.begin-time').datepicker({
+			onClose: function( selectedDate ) {
+				$('.end-time').datepicker( "option", "minDate", selectedDate );
+				}
+			});
+			$('.end-time').datepicker({
+				onClose: function( selectedDate ) {
+					$('.begin-time').datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+		}
+		else{
+			for(var i = 0;i<data.length;i++){
+				options += "<option value="+(i+1)+">"+data[i].name+"</option>"
+			};
+			var str = "<span><select name='' id="+"'"+type+"'"+" class='diy-select' style='display: none'>"+options+"</select></span>";
+			$(el).html(str);
+			$('#'+type).diySelect();
+		}
+	}
+})
+
+</script>

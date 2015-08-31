@@ -8,7 +8,7 @@
         <a href="javascript:void(0)" title="播放">
           <i class="icon icon-play"></i>
         </a>
-        <span class="time">05:12</span>
+        <span class="time" id="time">05:12</span>
       </div>
       <div class="opration-btn">
         <a href="javascript:void(0)" title="设置"><i class="icon icon-set"></i></a>
@@ -23,3 +23,37 @@
 
   </div>
 </div>
+<script>
+  var play = $('.icon-play');
+  var t = $('#time');
+  var run = true;
+  var timer;
+  play.on('click',function(){
+     var i = 0;
+      if(!run){
+        clearInterval(timer);
+        run = true;
+      }
+      else{
+        run = false
+         timer = setInterval(function(){
+          i++;
+         var s = i%60;
+         var m = parseInt(i/60);
+          if(s<10){
+             t.html("0"+m+":"+"0"+s)
+          }
+          else if(s>=10&&m<10){
+            t.html("0"+m+":"+s)
+          }
+          else{
+            t.html(m+":"+s)
+          }
+         },1000)
+      }
+  })
+
+
+
+
+</script>
