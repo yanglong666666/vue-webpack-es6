@@ -20,20 +20,59 @@
     .no-through-content {
       @include clearfix;
       overflow: hidden;
+      .wrap{
+        width:730px;
+        margin:0 auto;
+        .no-through-item {
+          textarea {
+            margin-top: 15px;
+            border-radius: 5px;
+            outline: none;
+            width: 200px;
+            height: 100px;
+            border: none;
+            background: #e1e6ef;
+            line-height: 20px;
+            padding: 10px;
+            resize: none;
+          }
+        }
+      }
       .no-through-item {
-        width: 48%;
-        float: right;
-        textarea {
-          margin-top: 15px;
-          border-radius: 5px;
-          outline: none;
-          width: 200px;
-          height: 100px;
-          border: none;
-          background: #e1e6ef;
-          line-height: 20px;
-          padding: 10px;
-          resize: none;
+        @include clearfix;
+        overflow: hidden;
+        margin-bottom: 10px;
+        a {
+          float: left;
+          display: block;
+          width: 350px;
+          height: 35px;
+          line-height: 35px;
+          padding: 0 10px;
+          color: #6f7b91;
+          border: 1px solid #c9d2dc;
+          &.active {
+            color: #3ecacb;
+            border: 1px solid #3ecacb;
+          }
+        }
+        label {
+          float: right;
+          display: block;
+          width: 40%;
+          height: auto;
+          span {
+            display: inline-block;
+          }
+          .input {
+            background: none;
+            border: 1px solid #c9d2dc;
+            height: 35px;
+            line-height: 35px;
+            outline: none;
+            width: 350px;
+            padding: 0 10px;
+          }
         }
       }
     }

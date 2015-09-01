@@ -49,7 +49,7 @@ class: marketsers
 </div>
 
 <div class="button-inner">
-  <a class="btn-fill ml-30" href="#">添加</a>
+  <a class="btn-fill ml-30" href="{{ site.baseurl }}/channel/marketers-info.html">添加</a>
   <a class="btn-primary-white" href="#">手工同步</a>
 </div>
 
@@ -73,7 +73,7 @@ class: marketsers
         <td>18900001111</td>
         <td>杭州庆春路营业部</td>
         <td class="text-c">
-          <a href="javascript:void(0)" class="btn-fill btn-lw">修改</a>
+          <a href="{{ site.baseurl }}/channel/marketers-info.html" class="btn-fill btn-lw">修改</a>
           <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
         </td>
       </tr>
@@ -84,7 +84,7 @@ class: marketsers
         <td>18900001111</td>
         <td>杭州庆春路营业部</td>
         <td class="text-c">
-          <a href="javascript:void(0)" class="btn-fill btn-lw">修改</a>
+          <a href="{{ site.baseurl }}/channel/marketers-info.html" class="btn-fill btn-lw">修改</a>
           <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
         </td>
       </tr>
@@ -95,5 +95,24 @@ class: marketsers
 <script type="text/javascript">
 $(function () {
   $('#department_list').diySelect();
+  $('.data-table').on('click', '.delete-btn', function(event) {
+    //删除按钮事件
+    event.preventDefault();
+    /* Act on the event */
+    var delete_screen = new Dialog(null,{
+      title: '提示',
+      width: '360',
+      needDestroy: true,
+      hasBtn: true,
+      btnText: ["取消","确定"],
+      btnRole: ['cancel','confirm'],
+      btnCls: ['cancel','confirm'],
+      confirm: function() {
+        //确定按钮事件
+        delete_screen.hide();
+      },
+      content: '<h1 class="h-title">您确定删除此记录？</h1>'
+    });
+  });
 });
 </script>

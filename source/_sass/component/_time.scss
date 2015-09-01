@@ -1,0 +1,23 @@
+.time-top {
+  @include clearfix;
+  overflow: hidden;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e1e6ef;
+  .time-link {
+    float: left;
+    margin-top: 15px;
+    a {
+      display: inline-block;
+      margin-left: 30px;
+      font-size: 16px;
+      color: #d9d9d9;
+      &.current {
+        color: #3a3d42;
+      }
+    }
+  }
+  .add-content {
+    float: right;
+  }
+}
