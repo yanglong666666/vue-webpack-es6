@@ -557,6 +557,9 @@ Dialog.prototype = {
 
   init: function () {
     // 创建弹出层
+    if(this.options.needIframe){
+        this.options.template = '<div><iframe class="anyChatIframe"></iframe><div class="js-dialog-hd"><h2>提示</h2></div><div class="js-dialog-bd"></div><div class="js-dialog-close"></div></div>'
+    };
     this.dialog = new Overlay(this.options.template, {
       className: this.options.dialogClass,
       width: this.options.width,
@@ -779,12 +782,13 @@ $.fn.dialog.defaults = {
   hasTitle: true,
   title: '提示',
   cotent: '',
-  padding: '30px',
+  padding: '20px 30px 30px 30px',
   hasBtn: false,
   btnText: ['确定', '取消'],
   btnRole: ['confirm', 'cancel'],
   btnCls: ['confirm', 'cancel'],
-  message: ''
+  message: '',
+  needIframe: false
 };
 
 $.fn.dialog.Constructor = Dialog;
@@ -1118,3 +1122,173 @@ var B = (function(ua) {
 
   return b;
 })(window.navigator.userAgent.toLowerCase());
+/*
+ * Dialog 弹出窗口插件
+ * @namespace DIALOG
+ */
+var DIALOG = {
+    timeID:    null,
+    needsInit: true, // 是否需要初始化
+    isIE6:     !window.XMLHttpRequest, // 是否 ie6
+    init:      function (options) {
+        if (!this.needsInit)
+            return;
+
+        // TODO 修正 ie6 下  position: fixed 无效
+        if (this.isIE6 && this.fixed) {
+            if (document.body.currentStyle.backgroundAttachment !== "fixed") {
+                if (document.body.currentStyle.backgroundImage === "none") {
+                    document.body.runtimeStyle.backgroundRepeat = "no-repeat";
+                    document.body.runtimeStyle.backgroundImage = "url(about:blank)";
+                }
+                document.body.runtimeStyle.backgroundAttachment = "fixed";
+            }
+            this.fixlayer = document.createElement("<div style=\"display:none;position:absolute;z-index:999;overflow:hidden;background:transparent;top:expression((document).documentElement.scrollTop);left:expression((document).documentElement.scrollLeft);width:expression((document).documentElement.clientWidth);height:expression((document).documentElement.clientHeight);\">");
+            document.body.insertBefore(this.fixlayer, document.body.childNodes[0]);
+        }
+
+        // 显示层
+        this.box = $("<div id='dragId'></div>")
+            .css({
+                "position": this.fixed ? (this.isIE6 ? "absolute" : "fixed") : "absolute",
+                "z-index":  999
+            })
+            .appendTo((this.isIE6 && this.fixed) ? $(this.fixlayer) : $(document.body));
+
+        this.overlayer = $("<div/>")
+          .addClass("masklayer")
+          .css({
+            "position":   this.isIE6 ? "absolute" : "fixed",
+            "z-index":    850,
+            "background": "#000",
+            "opacity":    0.15,
+            "filter":     "alpha(opacity=15)",
+            "display":    "block",
+            "width":      this.isIE6 ? Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth) : "100%",
+            "height":     this.isIE6 ? Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight) : "100%",
+            "left":       0,
+            "top":        0
+          })
+          .appendTo($(document.body)).hide();
+
+        this.needsInit = false;
+    },
+
+    show: function (options) {
+        var opts = $.extend({ // 默认
+            width:    400,
+            title:    "提示",
+            locked:   'dragarea',
+            html:     "",
+            mask:     true, // 是否显示遮罩
+            fixed:    false, // 是否固定位置
+            isTip:    false, // 是否为信息提示
+            imgSrc:   "/images/transparent.gif", // 图标路径
+            boxId:    "boxId",
+            dragable: false,
+            hasBtn:   false,
+            btnCls:   ["blueBtn edit-btn btn", "btn edit-btn"],
+            btnEvent: ["", "DIALOG.hide()"],
+            btnText:  ["确定", "取消"],
+            clsEvent: function (){}
+        }, options || {});
+        var st = document.body.scrollTop || document.documentElement.scrollTop,
+            sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+        this.fixed = opts.fixed;
+
+        if (opts.isTip) {
+            opts.html = "<div class=\"tipbody\"><div class=\"tipwrap\"><img src=\"" + opts.imgSrc + "\" class=\"tipicon " + opts.tipType + "\" alt=\"\" \/><span class=\"tiptxt\">" + opts.tipText + "<\/span><\/div><\/div>"
+        }
+
+        if (this.timerID) {clearTimeout(this.timerID);}
+
+        this.init();
+
+        if (this.isIE6 && this.fixed) this.fixlayer.style.display = "block";
+
+        if (opts.mask) {this.overlayer.show();}
+
+        // 填充内容
+        this.box
+            .html("<table class=\"layerbox\"><tr><td class=\"popborder hborder\" colspan=\"3\"></td></tr><tr><td class=\"popborder vborder\"></td><td class=\"popcontent\"><div class=\"boxtitle\" id=\""+opts.locked+"\"><h2 onselectstart=\"return false;\">" +
+            opts.title +
+            "<\/h2><a class=\"close\" href=\"javascript:;\" title=\"点击关闭\" id=\"clos\">X<\/a><\/div><div class=\"boxcont\" id=\"" + opts.boxId + "\">" +
+            opts.html +
+            "<\/div><\/td><td class=\"popborder vborder\"><\/td><\/tr><td class=\"popborder hborder\" colspan=\"3\"><\/td><\/tr><iframe class=\"anyChatIframe\"></iframe><\/table>")
+            .css({
+                "width":       opts.width,
+                "display":     "block"
+            }).pinCenter();
+
+        if (opts.hasBtn) {
+            var btnDiv = $("<div/>").addClass("confirmC centre").appendTo(this.box.find(".boxcont"));
+            for (var i = 0; i < opts.btnText.length; i++) {
+                btnDiv.append("<a class=\"btn " + opts.btnCls[i] + "\" href=\"javascript:;\" onclick=\"" + opts.btnEvent[i] + "\"><em>" + opts.btnText[i] + "<\/em><\/a>");
+            }
+        }
+        if(opts.dragable)
+        {
+            $('#'+opts.locked).css({"cursor":"move"})
+        var m;
+         $('#'+opts.locked).mousedown(function(e){
+                if(e.which){
+                    m=true;
+                    _x=e.pageX-parseInt($('#dragId').css('left'));
+                    _y=e.pageY-parseInt($('#dragId').css('top'));
+                }
+                })
+
+            $(document).ready(function(){}).mousemove(function(e){
+                if(m){
+                    var x=e.pageX-_x;
+                    var y=e.pageY-_y;
+                    $('#dragId').css({left:x});
+                    $('#dragId').css({top:y});
+                }
+            }).mouseup(function(){
+                m=false;
+            });
+        }
+        $("#clos").click(function(){
+            DIALOG.hide()
+            opts.clsEvent()
+        })
+
+        this.box.height(); // TODO：解决 ie6 ie7 下首次触发定位不准的 bug
+
+        // ESC 动作
+        $(document.body).bind("keydown", function (e) {
+            if (e.keyCode === "27") {
+                DIALOG.hide();
+            }
+        });
+
+        return this;
+    },
+
+    hide: function () {
+        this.box.hide();
+        this.overlayer.hide();
+        if (this.isIE6 && this.fixed) {
+            this.fixlayer.style.display = "none";
+        }
+    },
+
+    remove: function () {
+        this.box.remove();
+        this.overlayer.remove();
+        if (this.isIE6 && this.fixed) {
+            this.fixlayer.parentNode.removeChild(this.fixlayer);
+        }
+        this.needsInit = true;
+    },
+
+    closeDelay: function (delayTime, isRemove, callback) {
+        var _this = this;
+        this.timerID = setTimeout(function () {
+            (isRemove) ? _this.remove() : _this.hide();
+            if (callback) callback();
+        }, delayTime);
+    }
+};

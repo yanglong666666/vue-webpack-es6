@@ -1,0 +1,91 @@
+.page-parameter {
+  .parameter-content {
+    padding: 50px;
+    background: #f0f4fb;
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #3ecacb;
+      text-decoration: underline;
+    }
+    .parameter-item {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 25px;
+      .w-300 {
+        width: 300px;
+        .txt {
+          width: 300px;
+        }
+      }
+      .name {
+        float: left;
+        display: inline-block;
+        width: 180px;
+        line-height: 37px;
+      }
+      .parameter-inner {
+        float: left;
+        .status {
+          position: relative;
+          display: inline-block;
+          height: 37px;
+          line-height: 37px;
+          width: 70px;
+          padding: 0 5px;
+          color: #3a3d42;
+          border-radius: 20px;
+          background: #e1e6ef;
+          i {
+            position: absolute;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+          &.close {
+            i {
+              top: 3px;
+              right: 5px;
+              background: #8c99b6;
+            }
+          }
+          &.open {
+            i {
+              top: 3px;
+              left: 5px;
+              background: #3ecacb;
+            }
+          }
+          span {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+          }
+        }
+        .info {
+          font-size: 12px;
+          line-height: 37px;
+          display: inline-block;
+          margin-left: 10px;
+        }
+        .js-select {
+          width: 280px;
+        }
+        textarea {
+          background: #e1e6ef;
+          width: 650px;
+          height: 60px;
+          overflow-y: auto;
+          padding: 10px;
+          border-radius: 10px;
+          line-height: 20px;
+          resize: none;
+          outline: none;
+          border: none;
+        }
+      }
+    }
+  }
+}
