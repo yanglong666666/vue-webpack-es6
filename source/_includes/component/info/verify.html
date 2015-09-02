@@ -1,20 +1,20 @@
 <div class="ui-verify-table">
   <div class="back">
     <p class="v-title">身份证反面</p>
-    <img src="/images/video/temp3.png" width="120" height="80">
+    <img class="big-img" src="/images/video/temp3.png" width="120" height="80">
   </div>
   <div class="front">
     <p class="v-title">身份证正面</p>
-    <img src="/images/video/temp2.png" width="120" height="80">
+    <img class="big-img" src="/images/video/temp2.png" width="120" height="80">
   </div>
   <div class="face">
     <p class="v-title">免冠照片</p>
-    <img src="/images/video/temp5.png" width="120" height="80">
+    <img class="big-img" src="/images/video/temp5.png" width="120" height="80">
   </div>
   <div class="verify">
     <p class="v-title">公安认证</p>
     <div class="verify-inner">
-      <img src="/images/video/temp6.png" width="74" height="80">
+      <img class="big-img" src="/images/video/temp6.png" width="74" height="80">
       <div class="verify-txt">
         <p class="info">姓名一致，身份证一致</p>
         <p class="through">身份证验证通过</p>
@@ -27,7 +27,7 @@
   <div class="video">
     <p class="v-title">存档视频</p>
     <div class="video-inner">
-      <img src="/images/video/temp4.jpg">
+      <img class="play" src="/images/video/temp4.jpg">
       <div class="video-txt">
         <p class="info">验证码</p>
         <p class="verify-code">123456</p>
@@ -37,52 +37,70 @@
 </div>
 <script type="text/javascript">
   $(function(){
-    var t = $('body').attr('class');
-    if(t == "page-certificate"){
-        $('.contrast').on('click', '.contrast-btn', function(event) {
-        //大图对比按钮交互
-        event.preventDefault();
-        /* Act on the event */
-        var contrast_screen = new Dialog(null,{
-          title: '',
-          width: '680',
-          needDestroy: true,
-          hasBtn: false,
-          content: "<div>"+
-                            "<div style='float:left;width:400px;height:400px;background-color:#191919'></div>"+
-                            "<div style='float:right;height:400px;width:220px;position:relative'>"+
-                                  "<div style='margin-top:125px;font-size:16px;'><i style='display:inline-block;background-image:url(/images/rotate.png);width:36px;height:47px;margin-right:10px;vertical-align:middle;margin-left:30px;cursor:pointer'></i>旋转</div>"+
-                                  "<div style='padding-left:30px;margin-top:25px;'><span><select name='' id='identity' class='diy-select' style='display: none;'><option  value='1'>身份证正面</option><option value='2'>身份证反面</option></select></span></div>"+
-                                  "<div class='button-content' style='position:absolute;bottom:0;left:30px;'><button class='btn-normal btn-fill' href='#'>保存</button></div>"+
-                            "</div>"+
-                            "<div style='clear:both'></div>"+
-                        "</div>"
-        });
-        $('#identity').diySelect();
+    $('.ui-verify-table').on('click', '.big-img', function(event) {
+      //点击图片出现大图交互
+      event.preventDefault();
+      var img_big_screen = new Dialog(null,{
+        title: '',
+        width: '680',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","保存"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+              //确定按钮事件
+              img_big_screen.hide();
+            },
+            content: '<div class="dialog-content-bigimg">'+
+            '<div class="big-img">'+
+            '<img alt="img" src="/images/video/temp5.png" width="350" height="350">'+
+            '</div>'+
+            '<div class="operate-img">'+
+            '<div class="turn-content">'+
+            '<a href="javascript:void(0)"><i></i>旋转</a>'+
+            '</div>'+
+            '<div>'+
+            '<select id="identity" class="diy-select">'+
+            '<option value="1">身份证正面</option>'+
+            '<option value="2">身份证反面</option>'+
+            '</select>'+
+            '</div>'+
+            '</div>'+
+            '</div>'
       });
-    }
-    else{
-        $('.contrast').on('click', '.contrast-btn', function(event) {
-        //大图对比按钮交互
-        event.preventDefault();
-        /* Act on the event */
-        var contrast_screen = new Dialog(null,{
-          title: '',
-          width: '680',
-          needDestroy: true,
-          hasBtn: false,
-          content: '<div class="dialog-content-contrast">'+
-                    '<div class="item">'+
-                      '<img class="left-img" src="/images/video/temp2.png" alt="img" width="284" height="214">'+
-                      '<img class="right-img" src="/images/video/temp3.png" alt="img" width="284" height="214">'+
-                    '</div>'+
-                    '<div class="item">'+
-                      '<img class="left-img" src="/images/video/temp5.png" alt="img" width="250" height="200">'+
-                      '<img class="right-img" src="/images/video/temp6.png" alt="img" width="250" height="200">'+
-                    '</div>'+
-                   '</div>'
-        });
+      $('#identity').diySelect();
+    });
+    $('.contrast').on('click', '.contrast-btn', function(event) {
+      //大图对比按钮交互
+      event.preventDefault();
+      var contrast_screen = new Dialog(null,{
+        title: '',
+        width: '680',
+        needDestroy: true,
+        hasBtn: false,
+        content: '<div class="dialog-content-contrast">'+
+        '<div class="item">'+
+        '<img class="left-img" src="/images/video/temp2.png" alt="img" width="284" height="214">'+
+        '<img class="right-img" src="/images/video/temp3.png" alt="img" width="284" height="214">'+
+        '</div>'+
+        '<div class="item">'+
+        '<img class="left-img" src="/images/video/temp5.png" alt="img" width="250" height="200">'+
+        '<img class="right-img" src="/images/video/temp6.png" alt="img" width="250" height="200">'+
+        '</div>'+
+        '</div>'
       });
-    }
+    });
+    $('.ui-verify-table').on('click', '.play', function(event) {
+      //视频播放
+      event.preventDefault();
+      /* Act on the event */
+      DIALOG.show({
+        dragable:true,
+        width:550,
+        title:'视频播放',
+        html: '<div>此处为后台人员所加的flash</div>'
+      });
+    });
   });
 </script>

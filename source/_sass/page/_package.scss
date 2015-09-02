@@ -1,0 +1,58 @@
+.page-package {
+  .package-content {
+    padding: 50px;
+    background: #f0f4fb;
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #3ecacb;
+      text-decoration: underline;
+    }
+    .package-item {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 25px;
+      .w-300 {
+        width: 300px;
+        .txt {
+          width: 300px;
+        }
+      }
+      .mr-30 {
+        margin-right: 30px;
+      }
+      .w-150 {
+        width: 150px;
+        .status {
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+      }
+      .name {
+        float: left;
+        display: inline-block;
+        width: 120px;
+        line-height: 37px;
+      }
+      .package-inner {
+        float: left;
+        .js-select {
+          width: 280px;
+        }
+        textarea {
+          background: #e1e6ef;
+          width: 650px;
+          height: 60px;
+          overflow-y: auto;
+          padding: 10px;
+          border-radius: 10px;
+          line-height: 20px;
+          resize: none;
+          outline: none;
+          border: none;
+        }
+      }
+    }
+  }
+}

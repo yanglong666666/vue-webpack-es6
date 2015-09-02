@@ -2,6 +2,9 @@
 tongji css
 */
 .page-statistics {
+  .main-content {
+    overflow: hidden;
+  }
 	.usernum-content {
 		ul{
 			@include clearfix;

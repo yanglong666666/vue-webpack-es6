@@ -1,0 +1,92 @@
+---
+title: 存管银行
+layout: default
+class: bank
+---
+
+<div class="bank-content">
+  <div class="bank-item-content">
+    <div class="bank-item">
+      <span class="number">显示序号</span>
+      <span class="name">银行名称</span>
+    </div>
+    <div class="bank-item">
+      <div class="bank-left">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+      <div class="bank-right">
+        <span class="bank-name">招行存管</span>
+        <a class="delete-btn" href="javascript:void(0)">删除</a>
+      </div>
+    </div>
+    <div class="bank-item">
+      <div class="bank-left">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+      <div class="bank-right">
+        <select name="" id="bank1" class="diy-select">
+          <option selected="" value="-1">请选择银行</option>
+          <option value="1">招商存管银行</option>
+          <option value="2">工商存管银行</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="bank-item">
+    <a href="javascript:void(0)" class="add-bank-btn"><i></i>添加</a>
+  </div>
+  <div class="button-content">
+    <a class="btn-primary btn-lg" href="{{ site.baseurl }}/channel/dot.html">取消</a>
+    <button class="btn-fill btn-lg ml-30">确定</button>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+    $('.bank-item').on('click', '.add-bank-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      $('.bank-item-content').append(
+        '<div class="bank-item">'+
+          '<div class="bank-left">'+
+            '<label>'+
+              '<input type="text" class="txt">'+
+            '</label>'+
+          '</div>'+
+          '<div class="bank-right">'+
+            '<select name="" id="bank2" class="diy-select">'+
+              '<option selected="" value="-1">请选择银行</option>'+
+              '<option value="1">招商存管银行</option>'+
+              '<option value="2">工商存管银行</option>'+
+            '</select>'+
+          '</div>'+
+        '</div>'
+      );
+      $('.diy-select').diySelect();
+    });
+    $('.bank-item').on('click', '.delete-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var _this = $(this);
+      var delete_screen = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+            _this.parents('.bank-item').remove();
+          },
+        content: '<h1 class="h-title">您确定删除此记录？</h1>'
+      });
+    });
+  });
+</script>
