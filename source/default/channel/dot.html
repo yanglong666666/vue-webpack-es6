@@ -7,7 +7,7 @@ class: dot
 <div class="main-content">
   <div class="search-group">
     <dl class="search-dl">
-      <dt>营销人编号</dt>
+      <dt>编号</dt>
       <dd>
         <label class="w-170">
           <input type="text" class="txt">
@@ -15,15 +15,7 @@ class: dot
       </dd>
     </dl>
     <dl class="search-dl">
-      <dt>姓名</dt>
-      <dd>
-        <label class="w-170">
-          <input type="text" class="txt">
-        </label>
-      </dd>
-    </dl>
-    <dl class="search-dl">
-      <dt>手机号</dt>
+      <dt>名称</dt>
       <dd>
         <label class="w-170">
           <input type="text" class="txt">
@@ -83,7 +75,7 @@ class: dot
         <td class="text-c">
           <a href="{{ site.baseurl }}/channel/dot-info.html" class="btn-fill btn-lw">查看</a>
           <a href="{{ site.baseurl }}/channel/dot-info.html" class="btn-fill btn-lw">修改</a>
-          <a href="javascript:void(0)" class="btn-fill btn-lw bank-detail">存管银行</a>
+          <a href="{{ site.baseurl }}/channel/bank.html" class="btn-fill btn-lw bank-detail">存管银行</a>
         </td>
       </tr>
     </tbody>
@@ -94,10 +86,5 @@ class: dot
 $(function () {
   $('#province_list').diySelect();
   $('#city_list').diySelect();
-  $('.data-table').on('click', '.bank-detail', function(event) {
-    //存管银行
-    event.preventDefault();
-    /* Act on the event */
-  });
 });
 </script>
