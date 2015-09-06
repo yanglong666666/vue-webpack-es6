@@ -9,11 +9,11 @@
         </tr>
         <tr>
           <td>银行</td>
-          <td class="modify">中国银行<div class="edit"><i class="edit-name"></i></div></td>
+          <td>中国银行</td>
         </tr>
         <tr>
           <td>银行卡号</td>
-          <td class="modify">1111 2222 3333 4444 12<div class="edit"><i class="edit-name"></i></div></td>
+          <td>1111 2222 3333 4444 12</td>
         </tr>
       </tbody>
     </table>
@@ -76,11 +76,6 @@
 </div>
 <script type="text/javascript">
   $(function(){
-    $('.modify').hover(function(){
-        $(this).find('.edit').css('display','inline-block');
-    },function(){
-        $(this).find('.edit').hide();
-    });
     $('.info-table').on('click', '.risk-detail', function(event) {
       //查看评测内容事件
       event.preventDefault();
