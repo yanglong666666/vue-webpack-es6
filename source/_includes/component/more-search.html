@@ -26,7 +26,7 @@
     $('.unit-content').on('click', 'a', function(event) {
       event.preventDefault();
       /* Act on the event */
-      $('.search-inner').find('a').removeClass('active');
+      $('.unit-content').find('a').removeClass('active');
       $(this).addClass('active');
     });
     $('.search-inner').on('click', 'a', function(event) {
