@@ -20,11 +20,22 @@
           margin-bottom: 10px;
           .delete {
             display: inline-block;
-            margin-left: 5px;
+            margin-left: 10px;
             width: 12px;
             height: 12px;
             vertical-align: middle;
             background: url(../images/delete-ico.png) 0 0 no-repeat;
+            &.hide {
+              display: none;
+            }
+          }
+          .edit {
+            display: inline-block;
+            margin-left: 5px;
+            width: 15px;
+            height: 16px;
+            vertical-align: middle;
+            background: url(../images/video/video-list.png) 0 -95px no-repeat;
             &.hide {
               display: none;
             }
@@ -51,6 +62,20 @@
       left: 0px;
       font-size: 14px;
       color: #6f7b91;
+      &.title-name {
+        cursor: pointer;
+      }
+      .delete-all {
+        display: inline-block;
+        margin-left: 10px;
+        width: 12px;
+        height: 12px;
+        vertical-align: middle;
+        background: url(../images/delete-ico.png) 0 0 no-repeat;
+        &.hide {
+          display: none;
+        }
+      }
     }
     .option-name {
       position: absolute;
