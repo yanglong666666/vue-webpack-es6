@@ -76,6 +76,17 @@
           display: none;
         }
       }
+      .edit-all {
+        display: inline-block;
+        margin-left: 5px;
+        width: 15px;
+        height: 16px;
+        vertical-align: middle;
+        background: url(../images/video/video-list.png) 0 -95px no-repeat;
+        &.hide {
+          display: none;
+        }
+      }
     }
     .option-name {
       position: absolute;

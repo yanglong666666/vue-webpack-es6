@@ -43,6 +43,21 @@
         .upload-img {
           float: right;
         }
+        .upload-file {
+          position: relative;
+          .file {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            width: 163px;
+            height: 23px;
+            line-height: 23px;
+            outline: none;
+            cursor: pointer;
+          }
+        }
         img {
           border-radius: 5px;
         }

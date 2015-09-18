@@ -1,7 +1,7 @@
 <div class="ui-option">
 {% for item in site.data.type-data %}
   <div class="alllistname" id="{{ item.id }}">
-    <h3 class="title-name">{{ item.name }}<i title="删除" class="delete-all hide"></i></h3>
+    <h3 class="title-name">{{ item.name }}<i title="修改" class="edit-all hide"></i><i title="删除" class="delete-all hide"></i></h3>
     <div class="search-box" style="display:none;">
       <label class="search-label" for="">
         <input type="text" name="" value="" class="search-input">
@@ -37,10 +37,12 @@
   var flag = true;//营业部
   var tab = true;//营销人
   $('.title-name').hover(function() {
-    //删除一整项图标出不出现
+    //删除、修改一整项图标出不出现
+    $(this).find('.edit-all').removeClass('hide');
     $(this).find('.delete-all').removeClass('hide');
   }, function() {
     $(this).find('.delete-all').addClass('hide');
+    $(this).find('.edit-all').addClass('hide');
   });
   $('.alllistname').on('click', '.delete-all', function(event) {
     //删除一整项操作
@@ -95,6 +97,25 @@
           content: '<div class="dialog-content-input dialog-center">'+
           '<span>合作机构：</span>'+
           '<input type="text" class="txt" value="">'+
+          '</div>'
+        });
+  });
+  $('.alllistname').on('click', '.edit-all', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var input_screen = new Dialog(null,{
+          title: '',
+          width: '360',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["确定"],
+          btnRole: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            input_screen.hide();
+          },
+          content: '<div class="dialog-content-input dialog-center">'+
+          '<input type="text" class="txt" value="合作机构">'+
           '</div>'
         });
   });
