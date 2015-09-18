@@ -279,6 +279,36 @@
       }
     }
   }
+  .dialog-content-workload {
+    max-height: 300px;
+    overflow-y: auto;
+    .sum-content {
+      background: #e1e6ef;
+      font-weight: bold;
+      .name {
+        padding: 10px;
+        display: inline-block;
+        width: 136px;
+      }
+    }
+    .detail-table {
+      background: #e1e6ef;
+      tbody {
+        td {
+          padding: 10px;
+          vertical-align: top;
+          &:nth-child(odd) {
+            color: #6f7b91;
+            width: 20%;
+          }
+          &:nth-child(even) {
+            color: #4c4f54;
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
   .dialog-content-certificate {
     max-height: 300px;
     overflow-y: auto;

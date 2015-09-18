@@ -9,6 +9,13 @@
       color: #3ecacb;
       text-decoration: underline;
     }
+    .title {
+      font-size: 20px;
+      padding: 15px 0;
+      color: #4d4d4d;
+      margin-bottom: 15px;
+      border-bottom: 1px dashed #ccc;
+    }
     .parameter-item {
       @include clearfix;
       overflow: hidden;

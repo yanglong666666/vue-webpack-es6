@@ -1,7 +1,7 @@
 <div class="ui-option">
 {% for item in site.data.type-data %}
   <div class="alllistname" id="{{ item.id }}">
-    <h3>{{ item.name }}</h3>
+    <h3 class="title-name">{{ item.name }}<i title="修改" class="edit-all hide"></i><i title="删除" class="delete-all hide"></i></h3>
     <div class="search-box" style="display:none;">
       <label class="search-label" for="">
         <input type="text" name="" value="" class="search-input">
@@ -10,7 +10,7 @@
     <div class="content-name" id="attr-list">
       <div class="attr-panl">
         {% for child in item.child %}
-          <a href="javascript:void(0)" class="">{{ child }}<span class="delete hide"></span></a>
+          <a href="javascript:void(0)" class=""><span class="name">{{ child }}</span><span title="修改" class="edit hide"></span><span class="delete hide" title="删除"></span></a>
         {% endfor %}
       </div>
     </div>
@@ -36,17 +36,88 @@
 <script type="text/javascript">
   var flag = true;//营业部
   var tab = true;//营销人
+  $('.title-name').hover(function() {
+    //删除、修改一整项图标出不出现
+    $(this).find('.edit-all').removeClass('hide');
+    $(this).find('.delete-all').removeClass('hide');
+  }, function() {
+    $(this).find('.delete-all').addClass('hide');
+    $(this).find('.edit-all').addClass('hide');
+  });
+  $('.alllistname').on('click', '.delete-all', function(event) {
+    //删除一整项操作
+    event.preventDefault();
+    /* Act on the event */
+    var _this = $(this);
+    var delete_screen = new Dialog(null,{
+      title: '提示',
+      width: '360',
+      needDestroy: true,
+      hasBtn: true,
+      btnText: ["取消","确定"],
+      btnRole: ['cancel','confirm'],
+      btnCls: ['cancel','confirm'],
+      confirm: function() {
+        //确定按钮事件
+        delete_screen.hide();
+        _this.parents('.alllistname').remove();
+      },
+      content: '<h1 class="h-title">您确定删除此项？</h1>'
+    });
+  });
   $('.attr-panl a').hover(function() {
-    //删除小图标出不出现
+    //删除修改小图标出不出现
     $(this).find('.delete').removeClass('hide');
+    $(this).find('.edit').removeClass('hide');
   }, function() {
     $(this).find('.delete').addClass('hide');
+    $(this).find('.edit').addClass('hide');
   });
   $('.attr-panl').on('click', '.delete', function(event) {
     //删除操作
     event.preventDefault();
     /* Act on the event */
     $(this).parent().remove();
+  });
+  $('.attr-panl').on('click', '.edit', function(event) {
+    //编辑操作
+    event.preventDefault();
+    /* Act on the event */
+    var input_screen = new Dialog(null,{
+          title: '',
+          width: '450',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["确定"],
+          btnRole: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            input_screen.hide();
+          },
+          content: '<div class="dialog-content-input dialog-center">'+
+          '<span>合作机构：</span>'+
+          '<input type="text" class="txt" value="">'+
+          '</div>'
+        });
+  });
+  $('.alllistname').on('click', '.edit-all', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var input_screen = new Dialog(null,{
+          title: '',
+          width: '360',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["确定"],
+          btnRole: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            input_screen.hide();
+          },
+          content: '<div class="dialog-content-input dialog-center">'+
+          '<input type="text" class="txt" value="合作机构">'+
+          '</div>'
+        });
   });
   $('#partment_content').on('click', '.more', function(event) {//营业部多选更多和收起的切换
     event.preventDefault();

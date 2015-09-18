@@ -18,6 +18,21 @@
 								display:inline-block;
 								vertical-align:text-top;
 							}
+              .upload-file {
+                position: relative;
+              }
+              .file {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 37px;
+                line-height: 37px;
+                width: 91%;
+                outline: none;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                cursor: pointer;
+              }
 							.w-320{
 								width:80%;
 								.txt{
