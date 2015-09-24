@@ -20,6 +20,12 @@
         margin-bottom: 30px;
         color: #ff5776;
       }
+      .identification {
+        &.default {
+          cursor: default;
+          background: #7d7d7d;
+        }
+      }
     }
   }
 }
