@@ -8,6 +8,40 @@
     padding: 10px 0 20px 0px;
     color: #3a3d42;
   }
+  .dialog-content-recheck {
+    padding: 0 10px;
+    max-height: 260px;
+    overflow: auto;
+    .result {
+      font-size: 22px;
+      color: #727272;
+      margin-bottom: 10px;
+      i {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        vertical-align: middle;
+        margin-right: 10px;
+        &.success {
+          background: url(../images/tip-ico.png) 0 0 no-repeat;
+        }
+        &.error {
+          background: url(../images/tip-ico.png) 0px -55px no-repeat;
+        }
+      }
+    }
+  }
+  .dialog-content-upload {
+    .progress-bar {
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      background: #30b4ff;
+      border-radius: 10px;
+      color: #fff;
+      margin: 20px 0;
+    }
+  }
   .dialog-content-bigimg {
     @include clearfix;
     overflow: hidden;
