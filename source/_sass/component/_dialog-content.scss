@@ -136,6 +136,8 @@
     }
   }
   .dialog-content-through {
+    max-height: 350px;
+    overflow: auto;
     .reason {
       width: 260px;
       margin: 0 auto 15px auto;
@@ -157,6 +159,17 @@
           color: #3ecacb;
         }
       }
+    }
+    textarea {
+      background: #e1e6ef;
+      line-height: 20px;
+      width: 240px;
+      height: 60px;
+      padding: 10px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      resize: none;
     }
   }
   .dialog-content-risk {

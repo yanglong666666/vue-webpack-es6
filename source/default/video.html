@@ -207,6 +207,8 @@ class: video
           '<p class="reason"><a href="javascript:void(0)">基本资料有误</a></p>'+
           '<p class="reason"><a href="javascript:void(0)">用户中断</a></p>'+
           '<p class="reason"><a href="javascript:void(0)">头像照采集失败</a></p>'+
+          '<p class="reason"><a class="other" href="javascript:void(0)">其他</a></p>'+
+          '<textarea style="display:none"></textarea>'+
           '</div>'
         });
       $('.reason').on('click', 'a', function(event) {
@@ -215,6 +217,9 @@ class: video
         /* Act on the event */
         $('.reason a').removeClass('current');
         $(this).addClass('current');
+        if ($(this).hasClass('other')) {
+          $('.dialog-content-through textarea').show();
+        }
       });
     });
   });
