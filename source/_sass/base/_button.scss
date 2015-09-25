@@ -111,3 +111,14 @@
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
 }
+.btn-gray {
+  cursor: default;
+  background-color: transparent;
+  color: #7d7d7d;
+  border: 1px solid #7d7d7d;
+}
+.btn-default {
+  cursor: default;
+  background-color: #7d7d7d;
+  color: #fff;
+}
