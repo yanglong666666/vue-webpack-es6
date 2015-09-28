@@ -2,12 +2,12 @@
   // position: relative;
   //border: 5px solid #d9d9d9;
   // @include opacity(.2);
+  border-radius: 10px;
+  background-color: #fff;
   .js-dialog-hd {
     height: 40px;
     line-height: 40px;
     padding-left: 18px;
-    background-color: #fff;
-    border-radius: 10px 10px 0 0;
     h2 {
       color: #12171d;
       font-size: 22px;
@@ -16,10 +16,10 @@
     }
   }
   .js-dialog-bd {
-    background-color: #fff;
+    //background-color: #fff;
     word-wrap: break-word;
     word-break: break-all;
-    border-radius: 0 0 10px 10px;
+    //border-radius: 0 0 10px 10px;
     .icon {
       margin-right: 5px;
     }
