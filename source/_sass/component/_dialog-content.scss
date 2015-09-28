@@ -8,6 +8,16 @@
     padding: 10px 0 20px 0px;
     color: #3a3d42;
   }
+  .dialog-content-wtlog {
+    p {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #3a3d42;
+      &.error {
+        color: #a6a6a6;
+      }
+    }
+  }
   .dialog-content-recheck {
     padding: 0 10px;
     max-height: 260px;
