@@ -8,6 +8,30 @@
     padding: 10px 0 20px 0px;
     color: #3a3d42;
   }
+  .dialog-content-activation {
+    max-height: 250px;
+    overflow: auto;
+    p {
+      margin: 10px 10px 10px 50px;
+      font-size: 16px;
+    }
+    i {
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      margin-right: 5px;
+      vertical-align: middle;
+      &.warn {
+        background: url(../images/tips.png) 0 0 no-repeat;
+      }
+      &.fail {
+        background: url(../images/tips.png) 0 -25px no-repeat;
+      }
+      &.success {
+        background: url(../images/tips.png) 0 -50px no-repeat;
+      }
+    }
+  }
   .dialog-content-wtlog {
     p {
       margin-bottom: 8px;

@@ -1,0 +1,27 @@
+.page-image-info {
+  .image-title {
+    font-size: 16px;
+    color: #44c1de;
+    margin: 20px 0 10px 0;
+  }
+  .verify {
+    margin-right: 50px;
+    .result {
+      margin-top: 35px;
+      color: #e4788c;
+    }
+  }
+  .video-txt {
+    .info {
+      margin-top: 35px;
+      .play {
+        display: inline-block;
+        margin: 0 10px 0 5px;
+        color: #6f7b91;
+      }
+      .down-load {
+        color: #44c1de;
+      }
+    }
+  }
+}
