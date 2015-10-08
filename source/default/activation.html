@@ -118,7 +118,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -129,7 +129,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -140,7 +140,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -151,7 +151,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -162,7 +162,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -173,7 +173,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -184,7 +184,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -195,7 +195,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
       <tr>
         <td>慕容飘雪</td>
@@ -206,7 +206,7 @@ class: activation
         <td>杭州庆春路营业部</td>
         <td>2014-20-11 15:20</td>
         <td>开户失败</td>
-        <td><div><a href="" class="btn-hollow btn-lw">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
+        <td><div><a href="javascript:void(0)" class="btn-hollow btn-lw detail-btn">查询</a><a href="javascript:;" class="btn-fill btn-lw active">激活</a></div></td>
       </tr>
     </tbody>
   </table>
@@ -228,6 +228,27 @@ $(function (){
 			$('.begin-time').datepicker( "option", "maxDate", selectedDate );
 		}
 	});
+  $('.data-table').on('click', '.detail-btn', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var risk_screen = new Dialog(null,{
+      title: '用户账户激活查询',
+      width: '400',
+      needDestroy: true,
+      hasBtn: true,
+      btnText: ["取消","确认"],
+      btnRole: ['cancel','confirm'],
+      btnCls: ['cancel','confirm'],
+      content:'<div class="dialog-content-activation">'+
+                  '<p><i class="warn"></i>工商银行 受理中</p>'+
+                  '<p><i class="success"></i>上海A股 受理成功</p>'+
+                  '<p><i class="fail"></i>上海A股 受理失败</p>'+
+                  '<p><i class="warn"></i>中国农业银行 受理中</p>'+
+                  '<p><i class="success"></i>上海A股 受理成功</p>'+
+                  '<p><i class="fail"></i>上海A股 受理失败</p>'+
+              '</div>'
+    });
+  });
 	//查询
 	$(function(){
 	   $('.active').each(function(){

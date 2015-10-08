@@ -93,6 +93,16 @@
 								background: url(../images/icolist.png) -39px -30px no-repeat;
 							}
 						}
+            &.closed {
+              i {
+                background: url(../images/bell.png) 0px 0px no-repeat;
+              }
+              &:hover {
+                i {
+                  background: url(../images/bell.png) 0px -15px no-repeat;
+                }
+              }
+            }
 					}
 				}
 			}

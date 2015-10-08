@@ -22,6 +22,16 @@
 </div>
 <script type="text/javascript">
   $(function(){
+    $('.header-inner').on('click', '.rwtx', function(event) {
+      //铃声关闭事件
+      event.preventDefault();
+      /* Act on the event */
+      if ($(this).hasClass('closed')) {
+        $(this).removeClass('closed');
+      } else {
+        $(this).addClass('closed');
+      }
+    });
     $('.header-inner').mouseover(function(event) {
       /* Act on the event */
       $('#user-center').show();
