@@ -28,20 +28,21 @@
     //视频上传按钮
     event.preventDefault();
     /* Act on the event */
-    var upload_screen = new Dialog(null,{
+    DIALOG.show({
+      dragable:true,
       title: '提示',
       width: '500',
-      needDestroy: true,
-      hasBtn: true,
-      btnText: ["取消上传"],
-      btnRole: ['confirm'],
-      confirm: function() {
-        //确定按钮事件
-        upload_screen.hide();
-      },
-      content: '<div class="dialog-content-upload">'+
+      html: '<div class="dialog-content-upload">'+
                 '<p class="progress-bar">90%</p>'+
+                '<div class="upload-button">'+
+                  '<button class="btn-fill upload">取消上传</button>'+
+                '</div>'+
                '</div>'
+    });
+    $('.dialog-content-upload').on('click', '.upload', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      $(this).html('完成');
     });
   });
   var play = $('.icon-play');

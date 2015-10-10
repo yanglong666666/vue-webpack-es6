@@ -65,17 +65,7 @@
       }
     }
   }
-  .dialog-content-upload {
-    .progress-bar {
-      height: 20px;
-      line-height: 20px;
-      text-align: center;
-      background: #30b4ff;
-      border-radius: 10px;
-      color: #fff;
-      margin: 20px 0;
-    }
-  }
+
   .dialog-content-bigimg {
     @include clearfix;
     overflow: hidden;
@@ -452,6 +442,25 @@
         display: inline-block;
         margin: 0 5px 0 15px;
       }
+    }
+  }
+}
+.dialog-content-upload {
+  .progress-bar {
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #30b4ff;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0;
+  }
+  .upload-button {
+    text-align: center;
+    padding: 15px 0;
+    .upload {
+      font-size: 14px;
+      padding: 5px 25px;
     }
   }
 }
