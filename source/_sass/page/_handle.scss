@@ -1,0 +1,78 @@
+.page-handle {
+  .handle-title {
+    margin: 20px;
+    font-size: 16px;
+    color: #3a3d42;
+  }
+  .handle-items {
+    margin: 20px 0;
+    .top-content {
+      background: #f0f4fb;
+      padding: 15px 20px;
+      .title {
+        color: #3a3d42;
+        display: inline-block;
+        width: 110px;
+      }
+      .info {
+        display: inline-block;
+        margin-left: 40px;
+        color: #fe6581;
+      }
+    }
+    .handle-inner {
+      @include clearfix;
+      overflow: hidden;
+      .handle-item {
+        float: left;
+        margin: 20px;
+        padding-right: 15px;
+        border-right: 1px solid #dee6f5;
+        height: 170px;
+        .number {
+          margin-top: 50px;
+          &.mt-15 {
+            margin-top: 15px;
+          }
+          .title {
+            font-size: 20px;
+            display: inline-block;
+            margin-right: 15px;
+          }
+          .sum {
+            font-size: 16px;
+            b {
+              font-weight: normal;
+              font-size: 22px;
+              padding-right: 5px;
+              &.login-num {
+                color: #3ecacb;
+              }
+              &.new-num {
+                color: #3ecacb;
+              }
+              &.underbarrel-num {
+                color: #f96841;
+              }
+              &.close-num {
+                color: #fe6581;
+              }
+            }
+          }
+        }
+        .rate {
+          text-align: right;
+          color: #a6a6a6;
+          margin-top: 10px;
+        }
+      }
+      #login_chart,
+      #security_chart,
+      #fund_chart {
+        float: left;
+        width: 800px;
+        height: 210px;
+      }
+    }
+  }
+}
