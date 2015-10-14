@@ -3,10 +3,10 @@
 	height: 76px;
 	background: #46516f;
 	color: #fff;
+  @include clearfix;
 	.header-inner {
 		position: relative;
-		left: 0px;
-		top: 0px;
+    float: left;
 		width: 150px;
 		.xtgly {
 			display: block;
@@ -109,9 +109,7 @@
 		}
 	}
 	.site-nav {
-		position: absolute;
-		left: 150px;
-		top: 0px;
+		float: left;
 		ul {
 			@include clearfix;
 			li:first-child {
@@ -158,19 +156,53 @@
 						}
 					}
 				}
-
-
 			}
 		}
 	}
-	h1 {
-		position: absolute;
-		right: 25px;
-		top: 25px;
-		font-size: 16px;
-		color: #828e9e;
-    p {
-      text-align: right;
+	.site-menu {
+    position: relative;
+    float: right;
+    width: 130px;
+    margin: 18px 15px 0 0;
+    padding-bottom: 5px;
+    .selected-menu {
+      display: block;
+      text-align: center;
+      font-size: 16px;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      background: #586790;
+      border-radius: 5px;
+      i {
+        display: inline-block;
+        width: 9px;
+        height: 5px;
+        background: url(../images/icolist.png) -30px 0 no-repeat;
+        vertical-align: middle;
+        margin-left: 8px;
+      }
     }
-	}
+    .menu-inner {
+      position: absolute;
+      top: 44px;
+      left: 0;
+      z-index: 999;
+      width: 130px;
+      background: #647092;
+      border-radius: 5px;
+      a {
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        font-size: 16px;
+        padding: 5px 0;
+        color: #fff;
+        &:hover {
+          background: #919cb9;
+        }
+      }
+    }
+  }
 }

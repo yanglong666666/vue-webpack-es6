@@ -20,12 +20,40 @@ class: flow
         <a class="" href="#">全部</a>
       </span>
       <label>
-        <input class="txt begin-time" type="text" placeholder="开始时间">
+        <input class="txt begin-time1" type="text" placeholder="开始时间">
         <i></i>
       </label>
       <span class="pre">至</span>
       <label>
-        <input class="txt end-time" type="text" placeholder="截止时间">
+        <input class="txt end-time1" type="text" placeholder="截止时间">
+        <i></i>
+      </label>
+      <span>
+        <select class="diy-select" id="method_list1" name="">
+          <option selected value="-1">请选择接入方式</option>
+          <option value="1">手机</option>
+          <option value="2">PC端</option>
+        </select>
+      </span>
+    </div>
+  </div>
+  <div class="output-content">
+    <button class="btn-fill output">导出</button>
+  </div>
+  <div class="flow-top">
+    <span class="name trend">流量趋势</span>
+    <div class="ui-search">
+      <span class="search-inner">
+        <a class="" href="#">最近7日</a>
+        <a class="" href="#">最近30日</a>
+      </span>
+      <label>
+        <input class="txt begin-time2" type="text" placeholder="开始时间">
+        <i></i>
+      </label>
+      <span class="pre">至</span>
+      <label>
+        <input class="txt end-time2" type="text" placeholder="截止时间">
         <i></i>
       </label>
       <span>
