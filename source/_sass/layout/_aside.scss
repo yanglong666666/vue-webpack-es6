@@ -186,22 +186,40 @@
         background: url('../images/aside-ico.png') 0 -130px no-repeat;
       }
     }
-    li.marketing-channels {
+    li.business-operation {
       span {
-        left: 23px;
+        left: 27px;
         top: 18px;
-        width: 15px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -155px no-repeat;
+        width: 17px;
+        height: 16px;
+        background: url('../images/aside-ico.png') 0 -210px no-repeat;
       }
     }
-    li.inquiry-statistics {
+    li.operation-analysis {
+      span {
+        left: 27px;
+        top: 18px;
+        width: 17px;
+        height: 15px;
+        background: url('../images/aside-ico.png') 0 -230px no-repeat;
+      }
+    }
+    li.marketing-channels {
       span {
         left: 24px;
         top: 19px;
         width: 21px;
         height: 12px;
         background: url('../images/aside-ico.png') 0 -175px no-repeat;
+      }
+    }
+    li.open-sets {
+      span {
+        left: 23px;
+        top: 18px;
+        width: 17px;
+        height: 17px;
+        background: url('../images/aside-ico.png') 0 -250px no-repeat;
       }
     }
     li.para-sets {
@@ -213,17 +231,17 @@
         background: url('../images/aside-ico.png') 0 -190px no-repeat;
       }
     }
-    li.sign-userlist {
+    li.system-parameter {
       span {
         left: 25px;
         top: 18px;
-        width: 16px;
+        width: 17px;
         height: 15px;
-        background: url('../images/aside-ico.png') 0 -210px no-repeat;
+        background: url('../images/aside-ico.png') 0 -155px no-repeat;
       }
       &.active {
         span {
-          background: url('../images/aside-ico.png') -33px -210px no-repeat;
+          background: url('../images/aside-ico.png') -33px -155px no-repeat;
         }
       }
     }
@@ -241,40 +259,40 @@
         }
       }
     }
-    li.online-business {
+    li.online-sets {
       span {
-        left: 21px;
-        top: 16px;
-        width: 19px;
-        height: 19px;
-        background: url('../images/wt-icon.png') 0 0px no-repeat;
+        left: 23px;
+        top: 18px;
+        width: 17px;
+        height: 16px;
+        background: url('../images/aside-ico.png') 0 -275px no-repeat;
+      }
+    }
+    li.product-release {
+      span {
+        left: 23px;
+        top: 17px;
+        width: 17px;
+        height: 16px;
+        background: url('../images/aside-ico.png') 0 -295px no-repeat;
       }
     }
     li.sales-management {
       span {
         left: 22px;
+        top: 18px;
+        width: 18px;
+        height: 15px;
+        background: url('../images/aside-ico.png') 0 -315px no-repeat;
+      }
+    }
+    li.mall-sets {
+      span {
+        left: 22px;
         top: 17px;
         width: 18px;
-        height: 18px;
-        background: url('../images/wt-icon.png') 0 -25px no-repeat;
-      }
-    }
-    li.online-statistics {
-      span {
-        left: 24px;
-        top: 19px;
-        width: 21px;
-        height: 12px;
-        background: url('../images/wt-icon.png') 0 -50px no-repeat;
-      }
-    }
-    li.mall-statistics {
-      span {
-        left: 24px;
-        top: 19px;
-        width: 21px;
-        height: 12px;
-        background: url('../images/wt-icon.png') 0 -50px no-repeat;
+        height: 16px;
+        background: url('../images/aside-ico.png') 0 -335px no-repeat;
       }
     }
   }

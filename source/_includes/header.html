@@ -10,15 +10,30 @@
     </ul>
   </div>
   <div class="site-nav">
-   <ul>
-    <li><a class="xtgg" href="#">系统公告</a></li>
-    <li><a class="spyz" href="#">视频验证</a></li>
-    <li><a class="zsbf" href="#">证书颁发</a></li>
-    <li><a class="khsh" href="#">开户审核</a></li>
-    <li><a class="khfh" href="#">开户复核</a></li>
-  </ul>
-</div>
-<h1>中华证券网上开户业务管理系统<p>版本号：V1.2</p></h1>
+    <ul>
+      <li><a class="xtgg" href="#">系统公告</a></li>
+      <li><a class="spyz" href="#">视频验证</a></li>
+      <li><a class="zsbf" href="#">证书颁发</a></li>
+      <li><a class="khsh" href="#">开户审核</a></li>
+      <li><a class="khfh" href="#">开户复核</a></li>
+    </ul>
+  </div>
+  <div class="site-menu">
+    <a class="selected-menu" href="jacascript:void(0)">开户系统<i></i></a>
+    <div class="menu-inner" style="display:none">
+      <a href="jacascript:void(0)">开户系统</a>
+      <a href="jacascript:void(0)">网厅系统</a>
+      <a href="jacascript:void(0)">商城系统</a>
+      <a href="jacascript:void(0)">小贷系统</a>
+      <a href="jacascript:void(0)">门户网站</a>
+      <a href="jacascript:void(0)">炒股大赛</a>
+      <a href="jacascript:void(0)">模拟系统</a>
+      <a href="jacascript:void(0)">电子档案</a>
+      <a href="jacascript:void(0)">对账单</a>
+      <a href="jacascript:void(0)">开发平台</a>
+      <a href="jacascript:void(0)">行情交易</a>
+    </div>
+  </div>
 </div>
 <script type="text/javascript">
   $(function(){
@@ -91,6 +106,21 @@
           },
         content: '<h1 class="h-title">您确定退出当前账号？</h1>'
       });
+    });
+    $('.site-menu').mouseover(function(event) {
+      /* Act on the event */
+      $('.menu-inner').show();
+    });
+    $('.site-menu').mouseleave(function(event) {
+      /* Act on the event */
+      $('.menu-inner').hide();
+    });
+    $('.menu-inner').on('click', 'a', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var _html = $(this).html();
+      $('.selected-menu').html(_html+'<i></i>');
+      $('.menu-inner').hide();
     });
   });
 </script>
