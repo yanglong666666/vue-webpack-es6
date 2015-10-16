@@ -1,18 +1,43 @@
 .page-handle {
   .handle-title {
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     font-size: 16px;
     color: #3a3d42;
   }
+  .back-content {
+    .back-btn {
+      display: inline-block;
+      font-size: 16px;
+      color: #3ecacb;
+      text-decoration: underline;
+      margin: 10px 0 0 20px;
+    }
+  }
+  .align-right {
+    margin-top: 0;
+    .output {
+      font-size: 14px;
+      top: -30px;
+    }
+  }
+
   .handle-items {
     margin: 20px 0;
     .top-content {
+      position: relative;
       background: #f0f4fb;
       padding: 15px 20px;
       .title {
         color: #3a3d42;
         display: inline-block;
         width: 110px;
+      }
+      .more {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        color: #fe6581;
+        text-decoration: underline;
       }
       .info {
         display: inline-block;
@@ -28,7 +53,18 @@
         margin: 20px;
         padding-right: 15px;
         border-right: 1px solid #dee6f5;
-        height: 170px;
+        padding-bottom: 25px;
+        // height: 170px;
+        &.login-item {
+          padding-bottom: 50px;
+        }
+        &.account-item {
+          .number {
+            .title {
+              width: 80px;
+            }
+          }
+        }
         .number {
           margin-top: 50px;
           &.mt-15 {
@@ -57,6 +93,15 @@
               &.close-num {
                 color: #fe6581;
               }
+              &.account-num {
+                color: #d3bc05;
+              }
+              &.active-num {
+                color: #f5294f;
+              }
+              &.business-num {
+                color: #0cb9f9;
+              }
             }
           }
         }
@@ -66,8 +111,12 @@
           margin-top: 10px;
         }
       }
+      #security_chart {
+        float: left;
+        width: 800px;
+        height: 420px;
+      }
       #login_chart,
-      #security_chart,
       #fund_chart {
         float: left;
         width: 800px;

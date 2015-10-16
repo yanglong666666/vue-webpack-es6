@@ -24,7 +24,7 @@ class: handle
     <span class="info">时间以第一人开通时间为准</span>
   </div>
   <div class="handle-inner">
-    <div class="handle-item">
+    <div class="handle-item login-item">
       <p class="number">
         <span class="title">登录</span>
         <span class="sum"><b class="login-num">100</b>/200</span>
@@ -41,7 +41,7 @@ class: handle
     <span class="info">时间以第一人开通时间为准</span>
   </div>
   <div class="handle-inner">
-    <div class="handle-item">
+    <div class="handle-item account-item">
       <p class="number mt-15">
         <span class="title">新开</span>
         <span class="sum"><b class="new-num">100</b>/200</span>
@@ -50,6 +50,21 @@ class: handle
       <p class="number mt-15">
         <span class="title">下挂</span>
         <span class="sum"><b class="underbarrel-num">100</b>/200</span>
+      </p>
+      <p class="rate">成功率：80%</p>
+      <p class="number mt-15">
+        <span class="title">激活</span>
+        <span class="sum"><b class="active-num">100</b>/200</span>
+      </p>
+      <p class="rate">成功率：80%</p>
+      <p class="number mt-15">
+        <span class="title">设为主账</span>
+        <span class="sum"><b class="account-num">100</b>/200</span>
+      </p>
+      <p class="rate">成功率：80%</p>
+      <p class="number mt-15">
+        <span class="title">指定交易</span>
+        <span class="sum"><b class="business-num">100</b>/200</span>
       </p>
       <p class="rate">成功率：80%</p>
     </div>
@@ -61,6 +76,7 @@ class: handle
     <span class="title">开放式基金</span>
     <span class="time">2015-01-23</span>
     <span class="info">时间以第一人开通时间为准</span>
+    <a href="{{ site.baseurl }}/online-statistics/handle-fund.html" class="more">更多</a>
   </div>
   <div class="handle-inner">
     <div class="handle-item">
@@ -179,6 +195,18 @@ $(function(){
     name: '下挂',
     color: '#f96841',
     data: [500, 240, 1000, 2002, 1800, 200, 500]
+    }, {
+    name: '激活',
+    color: '#f5294f',
+    data: [900, 440, 500, 602, 300, 400, 200]
+    }, {
+    name: '设为主账',
+    color: '#d3bc05',
+    data: [600, 1240, 400, 6002, 800, 280, 500]
+    }, {
+    name: '指定交易',
+    color: '#0cb9f9',
+    data: [400, 240, 600, 1002, 2800, 1200, 600]
     }]
   });
   //开放式基金
