@@ -1,0 +1,107 @@
+---
+title: 耗时统计
+layout: default
+class: online-time
+---
+
+<h1 class="time-title">耗时统计</h1>
+<div class="main-content no-margin-bottom">
+  {% include component/search.html %}
+  <div class="p-right">
+    <button class="btn-primary" href="#">输出报表</button>
+  </div>
+  <div id="all_search_list">
+    {% include component/features-option.html %}
+    <div class="button-content">
+      <button class="btn-fill btn-lg" href="#">查询</button>
+    </div>
+  </div>
+</div>
+<div class="border-content">
+  <div class="time-main">
+    <div class="time-content">
+      <dl class="average">
+        <dd class="ico"></dd>
+        <dt>
+          <p class="time"><em>15</em> 分钟</p>
+          <p>平均用时</p>
+        </dt>
+      </dl>
+      <dl class="fastest">
+        <dd class="ico"></dd>
+        <dt>
+          <p class="time"><em>111111</em> 分钟</p>
+          <p>最快用时</p>
+        </dt>
+      </dl>
+      <dl class="longest">
+        <dd class="ico"></dd>
+        <dt>
+          <p class="time"><em>25</em> 分钟</p>
+          <p>最长用时</p>
+        </dt>
+      </dl>
+    </div>
+    <div id="time_line"></div>
+  </div>
+</div>
+<script src="../../javascript/highcharts.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+    //折线统计图模拟 平均等待时间
+   $('#time_line').highcharts({
+    chart: {
+      backgroundColor: '#fff',
+      type: 'line'
+    },
+    title: {
+      text: '时间分布图',
+      style: {
+        fontFamily: 'Microsoft YaHei',
+        color: '#5a5d63',
+        fontSize:'16px'
+      }
+    },
+    xAxis: {
+      gridLineWidth: 1,
+      lineWidth: 1,
+      labels: {
+        style: {
+          fontSize: 12,
+          color: '#c0c5ce'
+        }
+      },
+      categories: ['5分钟以内', '6-10分钟', '11-15分钟', '16-20分钟']
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: null
+      },
+      gridLineWidth: 1,
+      lineWidth: 1,
+      plotLines: [{
+        value: 0,
+        width: 1,
+        color: '#808080'
+      }]
+    },
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y} %</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+    },
+    legend: {
+      enabled: false
+    },
+    series: [{
+      name: '百分比',
+      color: '#e4788c',
+      data: [30, 50, 15, 30]
+    }]
+  });
+});
+</script>

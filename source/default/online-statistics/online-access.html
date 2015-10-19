@@ -1,0 +1,134 @@
+---
+title: 接入方式
+layout: default
+class: online-access
+---
+
+<h1 class="access-title">接入方式</h1>
+<div class="main-content no-margin-bottom">
+  {% include component/search.html %}
+  <div class="p-right">
+    <button class="btn-primary" href="#">输出报表</button>
+  </div>
+  <div id="all_search_list">
+    {% include component/access-option.html %}
+    <div class="button-content">
+      <button class="btn-fill btn-lg" href="#">查询</button>
+    </div>
+  </div>
+</div>
+<div id="access_bar"></div>
+<div id="access_column"></div>
+<script src="../../javascript/highcharts.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+  //柱形图，横向的模拟
+  $('#access_bar').highcharts({
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: null
+    },
+    xAxis: {
+      categories: ['产品1', '产品2', '产品3', '产品4', '产品5']
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: null
+      },
+      labels: {
+       enabled: false
+      },
+      gridLineWidth: 0
+    },
+    legend: {
+      backgroundColor: '#FFFFFF',
+      reversed: true,
+      verticalAlign: 'top'
+    },
+    plotOptions: {
+      series: {
+        stacking: 'normal'
+      }
+    },
+    series: [{
+      name: '手机端',
+      data: [1222, 1232, 1453, 1542,2000],
+      color: '#e4788c',
+      dataLabels: {
+        enabled: true,
+        style: {
+          color: '#fff',
+          fontWeight: 'normal',
+          textShadow: 0
+        },
+        align: 'center'
+      }
+    }, {
+      name: 'PC端',
+      data: [2455, 1223, 1224, 333,1000],
+      color: '#44c1de',
+      dataLabels: {
+        enabled: true,
+        style: {
+          color: '#fff',
+          fontWeight: 'normal',
+          textShadow: 0
+        },
+        align: 'center'
+      }
+    }],
+  });
+  //竖的柱形图
+  $('#access_column').highcharts({
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: null
+    },
+    xAxis: {
+      categories: [
+      '产品1',
+      '产品2',
+      '产品3',
+      '产品4',
+      '产品5'
+      ]
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: null
+      },
+      gridLineWidth: 1,
+      lineWidth: 1,
+    },
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y}</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0,
+        borderWidth: 0
+      }
+    },
+    series: [{
+      name: 'PC端',
+      color: '#44c1de',
+      data: [1111, 222, 123, 444, 900]
+    }, {
+      name: '手机端',
+      color: '#e4788c',
+      data: [683, 378, 498, 593, 106]
+    }]
+  });
+});
+</script>
