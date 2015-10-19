@@ -120,59 +120,44 @@ class: video
       event.preventDefault();
       /* Act on the event */
       if($(this).hasClass('input')) {
-        var input_screen = new Dialog(null,{
+        DIALOG.show({
+          dragable:true,
           title: '',
           width: '450',
-          needDestroy: true,
-          hasBtn: true,
+          hasBtn:true,
           btnText: ["确定"],
-          btnRole: ['confirm'],
-          confirm: function() {
-            //确定按钮事件
-            input_screen.hide();
-          },
-          content: '<div class="dialog-content-input dialog-center">'+
-          '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
-          '<input type="text" class="txt" value="'+$(this).parent().parent().find('.name').text()+'">'+
-          '</div>'
-        });
+          html: '<div class="dialog-content-input dialog-center">'+
+            '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
+            '<input type="text" class="txt" value="'+$(this).parent().parent().find('.name').text()+'">'+
+            '</div>'
+          });
       } else if($(this).hasClass('radio')) {
-        var radio_screen = new Dialog(null,{
+        DIALOG.show({
+          dragable:true,
           title: '',
           width: '400',
-          needDestroy: true,
-          hasBtn: true,
+          hasBtn:true,
           btnText: ["确定"],
-          btnRole: ['confirm'],
-          confirm: function() {
-            //确定按钮事件
-            radio_screen.hide();
-          },
-          content: '<div class="dialog-content-radio dialog-center">'+
+          html: '<div class="dialog-content-radio dialog-center">'+
           '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
           '<label><input type="radio" name="sex" checked="checked">男</label>'+
           '<label><input type="radio" name="sex">女</label>'+
           '</div>'
-        });
+          });
       } else if($(this).hasClass('select')) {
-        var select_screen = new Dialog(null,{
+        DIALOG.show({
+          dragable:true,
           title: '',
           width: '450',
-          needDestroy: true,
-          hasBtn: true,
+          hasBtn:true,
           btnText: ["确定"],
-          btnRole: ['confirm'],
-          confirm: function() {
-            //确定按钮事件
-            select_screen.hide();
-          },
-          content: '<div class="dialog-content-select dialog-center">'+
+          html: '<div class="dialog-content-select dialog-center">'+
           '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
           '<input type="text" class="txt" id="beginTime" value="2015-07-21">'+
           '<span> 至 </span>'+
           '<input type="text" class="txt" id="endTime" value="2015-07-21">'+
           '</div>'
-        });
+          });
         $('#beginTime').datepicker({
           onClose: function( selectedDate ) {
             $('#endTime').datepicker( "option", "minDate", selectedDate );

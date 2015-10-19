@@ -1,0 +1,110 @@
+---
+title: 商品销售统计
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>产品名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>产品代码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>日期</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output" href="#">输出报表</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="15%">产品名称</td>
+        <td width="15%">产品代码</td>
+        <td width="10%">认购客户</td>
+        <td width="10%">认购金额（万）</td>
+        <td width="10%">申购客户</td>
+        <td width="10%">申购金额（万）</td>
+        <td width="10%">撤单客户</td>
+        <td width="10%">撤单金额（万）</td>
+        <td width="10%">成交金额（万）</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>月月福1</td>
+        <td>C1280980</td>
+        <td>90</td>
+        <td>90000.00</td>
+        <td>89</td>
+        <td>12989.02</td>
+        <td>89</td>
+        <td>2312323.00</td>
+        <td>2312323.00</td>
+      </tr>
+      <tr>
+        <td>月月福1</td>
+        <td>C1280980</td>
+        <td>90</td>
+        <td>90000.00</td>
+        <td>89</td>
+        <td>12989.02</td>
+        <td>89</td>
+        <td>2312323.00</td>
+        <td>2312323.00</td>
+      </tr>
+      <tr>
+        <td>月月福1</td>
+        <td>C1280980</td>
+        <td>90</td>
+        <td>90000.00</td>
+        <td>89</td>
+        <td>12989.02</td>
+        <td>89</td>
+        <td>2312323.00</td>
+        <td>2312323.00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.begin-time').datepicker({
+    onClose: function( selectedDate ) {
+      $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+</script>

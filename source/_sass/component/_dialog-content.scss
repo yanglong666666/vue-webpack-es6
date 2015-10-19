@@ -95,45 +95,6 @@
       }
     }
   }
-  .dialog-content-input {
-    .txt {
-      width: 280px;
-      display: inline-block;
-      border: none;
-      background: #e1e6ef;
-      height: 37px;
-      line-height: 37px;
-      border-radius: 5px;
-      color: #3a3d42;
-      font-size: 14px;
-      padding: 0 10px;
-      outline: none;
-      margin-left: 5px;
-    }
-  }
-  .dialog-content-radio {
-    input[type="radio"] {
-      vertical-align: middle;
-      display: inline-block;
-      margin-right: 5px;
-    }
-  }
-  .dialog-content-select {
-    .txt {
-      width: 100px;
-      display: inline-block;
-      border: none;
-      background: #e1e6ef;
-      height: 37px;
-      line-height: 37px;
-      border-radius: 5px;
-      color: #3a3d42;
-      font-size: 14px;
-      padding: 0 10px;
-      outline: none;
-      margin-left: 5px;
-    }
-  }
   .dialog-content-password {
     color: #ccd1da;
     font-size: 14px;
@@ -462,5 +423,44 @@
       font-size: 14px;
       padding: 5px 25px;
     }
+  }
+}
+.dialog-content-radio {
+  input[type="radio"] {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+.dialog-content-select {
+  .txt {
+    width: 100px;
+    display: inline-block;
+    border: none;
+    background: #e1e6ef;
+    height: 37px;
+    line-height: 37px;
+    border-radius: 5px;
+    color: #3a3d42;
+    font-size: 14px;
+    padding: 0 10px;
+    outline: none;
+    margin-left: 5px;
+  }
+}
+.dialog-content-input {
+  .txt {
+    width: 280px;
+    display: inline-block;
+    border: none;
+    background: #e1e6ef;
+    height: 37px;
+    line-height: 37px;
+    border-radius: 5px;
+    color: #3a3d42;
+    font-size: 14px;
+    padding: 0 10px;
+    outline: none;
+    margin-left: 5px;
   }
 }
