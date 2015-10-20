@@ -125,12 +125,23 @@ class: video
           title: '',
           width: '450',
           hasBtn:true,
-          btnText: ["确定"],
+          btnText: ["确定", "取消"],
           html: '<div class="dialog-content-input dialog-center">'+
             '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
             '<input type="text" class="txt" value="'+$(this).parent().parent().find('.name').text()+'">'+
             '</div>'
           });
+        $("#clos").click(function(){
+          alert('此处可写点击关闭图标事件！');
+        });
+        $('.btn-confirm').click(function() {
+          /* Act on the event */
+          alert('此处可写点击确定按钮事件！');
+        });
+        $('.btn-cancel').click(function() {
+          /* Act on the event */
+          alert('此处可写点击取消按钮事件！');
+        });
       } else if($(this).hasClass('radio')) {
         DIALOG.show({
           dragable:true,

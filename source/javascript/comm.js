@@ -1187,7 +1187,7 @@ var DIALOG = {
             boxId:    "boxId",
             dragable: false,
             hasBtn:   false,
-            btnCls:   ["btn-confirm edit-btn btn", "btn btn-cancel"],
+            btnCls:   ["btn-confirm", "btn-cancel ml-30"],
             btnEvent: ["", "DIALOG.hide()"],
             btnText:  ["确定", "取消"],
             clsEvent: function (){}
