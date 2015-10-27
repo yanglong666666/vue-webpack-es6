@@ -464,3 +464,43 @@
     margin-left: 5px;
   }
 }
+.dialog-content-words {
+  position: relative;
+  .edit-words {
+    position: absolute;
+    top: -32px;
+    left: 10px;
+    z-index: 9;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    font-size: 0;
+    width: 15px;
+    height: 16px;
+    background: url(../images/video/video-list.png) 0 -95px no-repeat;
+  }
+  textarea {
+    font-size: 14px;
+    color: #3a3d42;
+    line-height: 24px;
+    width: 300px;
+    height: 300px;
+    max-height: 280px;
+    overflow: auto;
+    resize: none;
+    outline: none;
+    border: 0;
+    padding: 10px;
+    &.edit {
+      background: #e1e6ef;
+    }
+  }
+  .save-words {
+    font-size: 14px;
+    display: block;
+    margin: 0 auto;
+    width: 110px;
+    padding: 5px 0;
+  }
+}
