@@ -196,7 +196,9 @@
         background: url('../images/aside-ico.png') 0 -210px no-repeat;
       }
     }
-    li.operation-analysis {
+    li.operation-analysis,
+    li.online-analysis,
+    li.mall-analysis {
       span {
         left: 27px;
         top: 18px;
@@ -269,7 +271,7 @@
         background: url('../images/aside-ico.png') 0 -275px no-repeat;
       }
     }
-    li.product-release {
+    li.mall-product {
       span {
         left: 23px;
         top: 17px;
@@ -278,7 +280,7 @@
         background: url('../images/aside-ico.png') 0 -295px no-repeat;
       }
     }
-    li.sales-management {
+    li.mall-sales {
       span {
         left: 22px;
         top: 18px;

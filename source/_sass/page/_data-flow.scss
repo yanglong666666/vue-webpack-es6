@@ -1,0 +1,22 @@
+.page-data-flow {
+  .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    color: #3ecacb;
+  }
+  .main-table {
+    .data-table {
+      tbody {
+        td {
+          height: auto;
+          line-height: 16px;
+          white-space: normal;
+          padding: 5px 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
