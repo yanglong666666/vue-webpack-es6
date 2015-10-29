@@ -1,14 +1,15 @@
 <div class="leftShadow"></div>
 <div class="leftaside">
   <ul class="leftul">
-    <li class="index">
-      <span></span>
-      <a class="father" href="{{ site.baseurl }}/home.html">我的首页</a>
-      <i></i>
-    </li>
+    <!-- 公用部分导航 begin -->
     <li class="announcement">
       <span></span>
       <a class="father" href="{{ site.baseurl }}/announcement.html">系统公告</a>
+      <i></i>
+    </li>
+    <li class="index">
+      <span></span>
+      <a class="father" href="{{ site.baseurl }}/home.html">我的首页</a>
       <i></i>
     </li>
     <li class="vedio-validate">
@@ -23,7 +24,7 @@
     </li>
     <li class="certificate">
       <span></span>
-      <a class="father" href="{{ site.baseurl }}/certificate-pre.html">证书颁发</a>
+      <a class="father" href="{{ site.baseurl }}/certificate-pre.html">颁发证书</a>
       <small>3</small>
       <i></i>
     </li>
@@ -38,6 +39,30 @@
       <small>123</small>
       <i></i>
     </li>
+    <li class="para-sets">
+      <span></span>
+      <p>系统设置</p>
+      <ul class="inner-ul">
+        <li><a href="{{ site.baseurl }}/system/dot.html">网点管理</a></li>
+        <li><a href="{{ site.baseurl }}/system/fund-company.html">基金公司管理</a></li>
+        <li><a href="{{ site.baseurl }}/system/role.html">角色权限</a></li>
+        <li><a href="{{ site.baseurl }}/system/operator.html">操作员管理</a></li>
+        <li><a href="{{site.baseurl}}/system/depository-bank.html">存管银行</a></li>
+        <li><a href="{{site.baseurl}}/system/blacklist.html">黑名单管理</a></li>
+        <li><a href="{{site.baseurl}}/system/business.html">业务设置</a></li>
+        <li><a href="{{site.baseurl}}/system/finicial.html">理财产品</a></li>
+        <li><a href="{{ site.baseurl }}/system/risk.html">风险测评题库</a></li>
+      </ul>
+      <b></b>
+    </li>
+    <li class="system-parameter">
+      <span></span>
+      <a class="father" href="{{site.baseurl}}/parameter.html">系统配置</a>
+      <i></i>
+    </li>
+    <!-- 公用部分导航 end -->
+
+    <!-- 开户部分导航 begin -->
     <li class="business-search">
       <span></span>
       <p>业务查询</p>
@@ -106,55 +131,25 @@
       </ul>
       <b></b>
     </li>
-    <li class="para-sets">
-      <span></span>
-      <p>系统设置</p>
-      <ul class="inner-ul">
-        <li><a href="{{ site.baseurl }}/system/dot.html">网点管理</a></li>
-        <li><a href="{{ site.baseurl }}/system/fund-company.html">基金公司管理</a></li>
-        <li><a href="{{ site.baseurl }}/system/role.html">角色权限</a></li>
-        <li><a href="{{ site.baseurl }}/system/operator.html">操作员管理</a></li>
-        <li><a href="{{site.baseurl}}/system/depository-bank.html">存管银行</a></li>
-        <li><a href="{{site.baseurl}}/system/blacklist.html">黑名单管理</a></li>
-        <li><a href="{{site.baseurl}}/system/business.html">业务设置</a></li>
-        <li><a href="{{site.baseurl}}/system/finicial.html">理财产品</a></li>
-        <li><a href="{{ site.baseurl }}/system/risk.html">风险测评题库</a></li>
-      </ul>
-      <b></b>
-    </li>
-    <li class="system-parameter">
-      <span></span>
-      <a class="father" href="{{site.baseurl}}/parameter.html">系统配置</a>
-      <i></i>
-    </li>
+    <!-- 开户部分导航 end -->
+    <!-- 网厅部分导航 begin -->
     <li class="business-online">
       <span></span>
       <p>业务查询</p>
       <ul class="inner-ul">
         <li><a href="{{ site.baseurl }}/online/log.html">业务流水</a></li>
-      </ul>
-      <b></b>
-    </li>
-    <li class="online-sets">
-      <span></span>
-      <p>网厅设置</p>
-      <ul class="inner-ul">
-        <li><a href="{{ site.baseurl }}/online/protocol.html">协议查询</a></li>
-        <li><a href="{{ site.baseurl }}/online/workload.html">工作量统计</a></li>
-        <li><a href="{{ site.baseurl }}/online/blacklist.html">网厅黑名单</a></li>
-        <li><a href="{{ site.baseurl }}/online/usage.html">使用量统计</a></li>
-        <li><a href="{{ site.baseurl }}/online/verify-list.html">审核任务列表</a></li>
         <li><a href="{{ site.baseurl }}/online/image-data.html">影像资料查询</a></li>
         <li><a href="{{ site.baseurl }}/online/trading.html">融资融券信息</a></li>
-        <li><a href="{{ site.baseurl }}/online/online-sets.html">网厅配置</a></li>
-        <li><a href="{{ site.baseurl }}/online/business-introduce.html">业务介绍设置</a></li>
-        <li><a href="{{ site.baseurl }}/online/business-classify.html">业务分类设置</a></li>
+        <li><a href="{{ site.baseurl }}/online/workload.html">工作量统计</a></li>
+        <li><a href="{{ site.baseurl }}/online/usage.html">使用量统计</a></li>
+        <li><a href="{{ site.baseurl }}/online/verify-list.html">审核任务列表</a></li>
+        <li><a href="{{ site.baseurl }}/online/data-flow.html">资料修改流水</a></li>
       </ul>
       <b></b>
     </li>
-    <li class="product-release">
+    <li class="online-analysis">
       <span></span>
-      <p>产品发布</p>
+      <p>运营分析</p>
       <ul class="inner-ul">
         <li><a href="{{ site.baseurl }}/online-statistics/handle.html">办理统计</a></li>
         <li><a href="{{ site.baseurl }}/online-statistics/flow.html">流量统计</a></li>
@@ -165,23 +160,58 @@
       </ul>
       <b></b>
     </li>
-    <li class="sales-management">
+    <li class="online-sets">
       <span></span>
-      <p>销售管理</p>
+      <p>网厅设置</p>
       <ul class="inner-ul">
-        <li><a href="{{ site.baseurl }}/sales/merchandising.html">商品销售统计</a></li>
+        <li><a href="{{ site.baseurl }}/online/protocol.html">协议维护</a></li>
+        <li><a href="{{ site.baseurl }}/online/online-sets.html">网厅配置</a></li>
+        <li><a href="{{ site.baseurl }}/online/business-introduce.html">3.0业务介绍设置</a></li>
+        <li><a href="{{ site.baseurl }}/online/business-classify.html">3.0业务分类设置</a></li>
+        <li><a href="{{ site.baseurl }}/online/blacklist.html">黑名单</a></li>
       </ul>
       <b></b>
     </li>
-
+    <!-- 网厅部分导航 end -->
+    <!-- 商城部分导航 begin -->
+    <li class="mall-product">
+      <span></span>
+      <p>产品设置</p>
+      <ul class="inner-ul">
+        <li><a href="{{ site.baseurl }}/mall/product-manage.html">商品销售统计</a></li>
+      </ul>
+      <b></b>
+    </li>
+    <li class="mall-sales">
+      <span></span>
+      <p>销售管理</p>
+      <ul class="inner-ul">
+        <li><a href="{{ site.baseurl }}/mall/.html">订单查询</a></li>
+        <li><a href="{{ site.baseurl }}/mall/.html">信托预约查询</a></li>
+      </ul>
+      <b></b>
+    </li>
+    <li class="mall-analysis">
+      <span></span>
+      <p>运营分析</p>
+      <ul class="inner-ul">
+        <li><a href="{{ site.baseurl }}/mall/.html">产品分析</a></li>
+        <li><a href="{{ site.baseurl }}/mall/.html">流量统计</a></li>
+        <li><a href="{{ site.baseurl }}/mall/.html">耗时统计</a></li>
+        <li><a href="{{ site.baseurl }}/mall/.html">接入方式</a></li>
+        <li><a href="{{ site.baseurl }}/mall/.html">商品销售统计</a></li>
+      </ul>
+      <b></b>
+    </li>
     <li class="mall-sets">
       <span></span>
       <p>商城设置</p>
       <ul class="inner-ul">
-        <li><a href="#">XXXX</a></li>
+        <li><a href="#">暂无</a></li>
       </ul>
       <b></b>
     </li>
+    <!-- 商城部分导航 end -->
   </ul>
 </div>
 <script type="text/javascript">
