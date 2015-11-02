@@ -1,0 +1,62 @@
+---
+title: 佣金调整
+layout: default
+class: commission
+---
+
+<div class="commission-content">
+  <div class="back-content">
+    <a class="back-btn" href="{{ site.baseurl }}/online/commission.html">&lt;返回</a>
+  </div>
+  <h1 class="commission-title">佣金调整</h1>
+  <div class="commission-item">
+    <span class="name">资金账号：</span>
+    <div class="commission-inner">
+      <label class="w-300"><input type="text" class="txt"></label>
+    </div>
+  </div>
+  <div class="commission-item">
+    <span class="name">用户名：</span>
+    <div class="commission-inner">
+      <label class="w-300"><input type="text" class="txt"></label>
+    </div>
+  </div>
+  <div class="commission-item">
+    <span class="name">手机号码：</span>
+    <div class="commission-inner">
+      <label class="w-300"><input type="text" class="txt"></label>
+    </div>
+  </div>
+  <div class="commission-item">
+    <span class="name">当前佣金套餐：</span>
+    <div class="commission-inner">
+      <label class="w-300"><input type="text" class="txt"></label>
+      <span class="pre">&</span>
+      <label class="w-300"><input type="text" class="txt"></label>
+    </div>
+  </div>
+  <div class="commission-item">
+    <span class="name">重选佣金套餐：</span>
+    <div class="commission-inner">
+      <select name="" id="department_list" class="diy-select" style="display: none;">
+        <option selected="" value="-1">请选择营业部</option>
+        <option value="1">营业部1</option>
+        <option value="1">营业部2</option>
+      </select>
+      <span class="pre">&</span>
+      <select name="" id="commission_list" class="diy-select" style="display: none;">
+        <option selected="" value="-1">请选择佣金套餐</option>
+        <option value="1">套餐1</option>
+      </select>
+    </div>
+  </div>
+  <div class="button-content">
+    <a class="btn-primary-white btn-lg" href="{{ site.baseurl }}/online/commission.html">取消</a>
+    <button class="btn-fill btn-lg ml-30">确定</button>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+  });
+</script>

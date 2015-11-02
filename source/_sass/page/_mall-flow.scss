@@ -1,0 +1,142 @@
+.page-mall-flow {
+  .back-btn {
+    display: inline-block;
+    font-size: 16px;
+    color: #3ecacb;
+    text-decoration: underline;
+    margin: 10px 0 0 15px;
+  }
+  .flow-title {
+    margin: 15px 0 0 15px;
+    font-size: 16px;
+    color: #3a3d42;
+  }
+  .flow-items {
+    .output-content {
+      margin: 0 15px 15px 0px;
+      text-align: right;
+      .output {
+        font-size: 14px;
+      }
+    }
+    .flow-item {
+      margin-bottom: 30px;
+    }
+  }
+  .flow-top {
+    position: relative;
+    background: #f0f4fb;
+    padding: 5px 15px;
+    height: 40px;
+    .name {
+      display: inline-block;
+      padding-left: 10px;
+      margin-top: 10px;
+      height: 18px;
+      line-height: 18px;
+      &.sum {
+        border-left: 5px solid #3ecacb;
+      }
+      &.trend {
+        border-left: 5px solid #e4788c;
+      }
+      &.time {
+        border-left: 5px solid #b897f3;
+      }
+      &.business {
+        border-left: 5px solid #63a9ff;
+      }
+    }
+    .ui-search {
+      position: absolute;
+      right: 15px;
+      top: 5px;
+    }
+  }
+  .flow-content {
+    @include clearfix;
+    overflow: hidden;
+    margin: 20px 40px 0 40px;
+    dl {
+      float: left;
+      border-right: 1px solid #dee6f5;
+      padding: 10px 0;
+      dt {
+        display: block;
+        font-size: 16px;
+        color: #3a3d42;
+        padding-bottom: 30px;
+      }
+      dd {
+        display: inline-block;
+        &.w-50 {
+          width: 45%;
+        }
+        &.w-33 {
+          width: 29%;
+        }
+        .title {
+          font-size: 14px;
+          color: #6f7b91;
+          margin-bottom: 10px;
+        }
+        .num {
+          font-size: 18px;
+          color: #3ecacb;
+        }
+      }
+    }
+    .scale {
+      width: 210px;
+    }
+    .quality {
+      width: 450px;
+      margin-left: 60px;
+    }
+    .terminus {
+      float: left;
+      width: 150px;
+      margin-left: 60px;
+      .pc {
+        margin: 10px 0 50px 0px;
+      }
+      .pc-txt {
+        display: inline-block;
+        width: 100px;
+        i {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 8px;
+          width: 30px;
+          height: 26px;
+          background: url(../images/terminus.png) 0 0 no-repeat;
+        }
+      }
+      .mobile-txt {
+        display: inline-block;
+        width: 100px;
+        i {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 13px 0 5px;
+          width: 21px;
+          height: 28px;
+          background: url(../images/terminus.png) 0px -35px no-repeat;
+        }
+      }
+      .pc-rate {
+        font-size: 18px;
+        color: #3ecacb;
+      }
+      .mobile-rate {
+        font-size: 18px;
+        color: #e4788c;
+      }
+    }
+  }
+  .flow-chart {
+    margin: 0 5%;
+    width: 90%;
+    height: 300px;
+  }
+}
