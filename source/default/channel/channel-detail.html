@@ -121,6 +121,60 @@ class: channel
       <a class="add-bank" href="javascript:void(0)"><i></i>添加</a>
     </div>
   </div>
+  <div class="ui-option">
+    <div class="alllistname" id="partment_content">
+      <h3>营业部：</h3>
+      <div class="search-box" style="display:none;">
+        <label class="search-label" for="">
+          <input type="text" name="" value="" class="search-input">
+        </label>
+      </div>
+      <div class="content-name" id="attr-list">
+        <div class="attr-panl">
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+          <a href="javascript:void(0)" class=""><span class="param-checkbox"></span>北京营业部</a>
+        </div>
+      </div>
+        <div class="option-name">
+          <a class="more" href="javascript:void(0)">更多
+            <span class=""></span>
+          </a>
+        </div>
+    </div>
+  </div>
+  <div class="ui-option">
+    <div class="alllistname" id="type_content">
+      <h3>类型：</h3>
+      <div class="search-box" style="display:none;">
+        <label class="search-label" for="">
+          <input type="text" name="" value="" class="search-input">
+        </label>
+      </div>
+      <div class="content-name" id="attr-list">
+        <div class="attr-panl">
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+          <label><input name="radio" type="radio">类型类型</label>
+        </div>
+      </div>
+        <div class="option-name">
+          <a class="more" href="javascript:void(0)">更多
+            <span class=""></span>
+          </a>
+        </div>
+    </div>
+  </div>
   <div class="button-content">
     <a class="btn-primary btn-lg" href="{{ site.baseurl }}/channel/marketing-manage.html">取消</a>
     <button class="btn-fill btn-lg ml-30">保存</button>
@@ -204,6 +258,45 @@ class: channel
       /* Act on the event */
       if ($('#username').val() != "") {
         $('.user-table').show();
+      }
+    });
+    $('.attr-panl').find('a').click(function() {//多选选中状态
+      if($(this).hasClass('current')) {
+        $(this).removeClass('current');
+      } else {
+        $(this).addClass('current');
+      }
+    });
+    var flag = true;//营业部
+    var status = true;
+    $('#partment_content').on('click', '.more', function(event) {//营业部多选更多和收起的切换
+      event.preventDefault();
+      /* Act on the event */
+      if(flag) {
+        $(this).html('收起 ').append('<span class="ico-arrow"></span>');
+        $('#partment_content').addClass('active');
+        $('#partment_content').find('.search-box').show();
+        flag = false;
+      } else {
+        $(this).html('更多 ').append('<span class=""></span>');
+        $('#partment_content').removeClass('active');
+        $('#partment_content').find('.search-box').hide();
+        flag = true;
+      }
+    });
+    $('#type_content').on('click', '.more', function(event) {//更多和收起的切换
+      event.preventDefault();
+      /* Act on the event */
+      if(status) {
+        $(this).html('收起 ').append('<span class="ico-arrow"></span>');
+        $('#type_content').addClass('active');
+        $('#type_content').find('.search-box').show();
+        status = false;
+      } else {
+        $(this).html('更多 ').append('<span class=""></span>');
+        $('#type_content').removeClass('active');
+        $('#type_content').find('.search-box').hide();
+        status = true;
       }
     });
   });

@@ -1,0 +1,55 @@
+.page-commission {
+  .button-content {
+    .add-btn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .input {
+      position: absolute;
+      bottom: 0;
+      right: 180px;
+    }
+  }
+  .back-btn {
+    display: inline-block;
+    font-size: 16px;
+    color: #3ecacb;
+    text-decoration: underline;
+    margin: 10px 0 0 15px;
+  }
+  .commission-title {
+    font-size: 16px;
+    padding: 15px 0;
+    color: #4d4d4d;
+    margin: 0 15px 15px 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  .commission-content {
+    .commission-item {
+      @include clearfix;
+      overflow: hidden;
+      margin-bottom: 25px;
+      .w-300 {
+        width: 300px;
+        .txt {
+          width: 300px;
+        }
+      }
+      .name {
+        float: left;
+        display: inline-block;
+        width: 120px;
+        line-height: 37px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      .commission-inner {
+        float: left;
+      }
+      .js-select {
+        width: 280px;
+      }
+    }
+  }
+}

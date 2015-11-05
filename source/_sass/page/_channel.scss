@@ -117,4 +117,23 @@
       }
     }
   }
+  .attr-panl {
+    label {
+      color: #a6a6a6;
+      font-size: 12px;
+      height: 14px;
+      line-height: 14px;
+      display: inline-block;
+      min-width: 175px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 10px;
+      input {
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
 }

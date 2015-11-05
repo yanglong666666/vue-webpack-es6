@@ -1,0 +1,112 @@
+---
+title: 理财TA维护
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>编号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>TA代码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>TA名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <a href="{{ site.baseurl }}/online/commission-info.html" class="btn-primary output">添加</a>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="15%">编号</td>
+        <td width="15%">TA代码</td>
+        <td width="20%">TA名称</td>
+        <td width="20%">证书名称</td>
+        <td width="10%">协议数量</td>
+        <td class="text-c" width="20%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1321321</td>
+        <td>BOM1321321</td>
+        <td>TA名称1324饿3</td>
+        <td>任意证书</td>
+        <td>123123</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/online/finicialTA-info.html" class="btn-primary-white btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>1321321</td>
+        <td>BOM1321321</td>
+        <td>TA名称1324饿3</td>
+        <td>任意证书</td>
+        <td>123123</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/online/finicialTA-info.html" class="btn-primary-white btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>1321321</td>
+        <td>BOM1321321</td>
+        <td>TA名称1324饿3</td>
+        <td>任意证书</td>
+        <td>123123</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/online/finicialTA-info.html" class="btn-primary-white btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.data-table').on('click', '.delete-btn', function(event) {
+      //删除弹出层
+      event.preventDefault();
+      /* Act on the event */
+      var delete_screen = new Dialog(null,{
+        title: '',
+        width: '400',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+          },
+        content: '<h1 class="h-title">您确定删除此记录吗？</h1>'
+      });
+    });
+  });
+</script>
