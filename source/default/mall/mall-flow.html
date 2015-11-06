@@ -105,12 +105,12 @@ class: mall-flow
       <span class="name time">时段趋势</span>
       <div class="ui-search">
         <label>
-          <input class="txt begin-time2" type="text" placeholder="开始时间">
+          <input class="txt begin-time3" type="text" placeholder="开始时间">
           <i></i>
         </label>
         <span class="pre">至</span>
         <label>
-          <input class="txt end-time2" type="text" placeholder="截止时间">
+          <input class="txt end-time3" type="text" placeholder="截止时间">
           <i></i>
         </label>
         <span>
@@ -137,7 +137,7 @@ class: mall-flow
         </label>
         <span class="pre">至</span>
         <label>
-          <input class="txt end-time2" type="text" placeholder="截止时间">
+          <input class="txt end-time4" type="text" placeholder="截止时间">
           <i></i>
         </label>
       </div>
@@ -185,6 +185,46 @@ class: mall-flow
 <script type="text/javascript">
   $(function(){
     $('.diy-select').diySelect();
+    $('.begin-time1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time1').datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $('.end-time1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time1').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+    $('.begin-time2').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time2').datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $('.end-time2').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time2').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+    $('.begin-time3').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time3').datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $('.end-time3').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time3').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+    $('.begin-time4').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time4').datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $('.end-time4').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time4').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
     $('#flow_line').highcharts({
       chart: {
         backgroundColor: '#fff',
