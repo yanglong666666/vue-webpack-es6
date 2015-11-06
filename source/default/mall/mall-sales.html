@@ -31,18 +31,30 @@ class: mall-sales
         </span>
       </div>
     </div>
-    <div class="sales-content">
-      <div>
-        <p><span>委托转化率</span><b>90%</b></p>
-        <p><span>撤单转化率</span><b>10%</b></p>
+    <div class="sum-content">
+      <div class="sales-content">
+        <div class="left">
+          <div class="entrust-content mt-30"><span>委托转化率</span><b>90%</b></div>
+          <div class="cancellation-content"><span>撤单转化率</span><b>10%</b></div>
+        </div>
+        <div class="left">
+          <img src="../../images/sales.png" alt="sales">
+        </div>
+        <div class="left" style="width:65%;">
+          <div class="visitor-content row-v"><span>访客数</span><span class="num">100</span><b>90%</b></div>
+          <div class="entrust-content row-e"><span>委托数</span><span class="num">100</span><b>90%</b><span>委托金额</span><span class="num">100000</span><b>7%</b></div>
+          <div class="cancellation-content row-c"><span>撤单数</span><span class="num">100</span><b>10%</b><span>撤单金额</span><span class="num">100000</span><b>6%</b></div>
+        </div>
       </div>
-      <div>
-        <img src="../images/sales.png" alt="sales">
-      </div>
-      <div>
-        <div><span>访客数</span><span>100</span><b>90%</b></div>
-        <div><span>访客数</span><span>100</span><b>90%</b><span>委托金额</span><span>100000</span><b>7%</b></div>
-        <div><span>撤单数</span><span>100</span><b>10%</b><span>撤单金额</span><span>100000</span><b>6%</b></div>
+      <div class="interpretation-txt">
+        <div class="fl">
+          <p class="name">交易解读</p>
+          <p class="info">了解详情？查看具体<a href="#">商品分析</a></p>
+        </div>
+        <div class="fr">
+          <p class="name">交易解读</p>
+          <p class="info">了解详情？查看具体<a href="#">商品分析</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -78,6 +90,26 @@ class: mall-sales
 <script type="text/javascript">
   $(function(){
     $('.diy-select').diySelect();
+    $('.begin-time1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time1').datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $('.end-time1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time1').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+    $('.begin-time2').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time2').datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $('.end-time2').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time2').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
     $('#sales_line').highcharts({
       chart: {
         backgroundColor: '#fff',

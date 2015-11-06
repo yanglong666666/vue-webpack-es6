@@ -49,6 +49,7 @@
 @import "component/info/account";
 @import "component/info/stock";
 @import "component/time";
+@import "component/analysis";
 
 
 //Page
@@ -101,6 +102,8 @@
 @import "page/mall-time";
 @import "page/mall-flow";
 @import "page/mall-sales";
+@import "page/mall-product";
+@import "page/mall-features";
 
 //Vendor
 @import "jquery-ui";
