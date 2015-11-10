@@ -11,12 +11,14 @@
   </div>
   <div class="site-nav">
     <ul>
-      <li><a class="xtgg" href="#">系统公告</a></li>
-      <li><a class="spyz" href="#">视频验证</a></li>
-      <li><a class="zsbf" href="#">证书颁发</a></li>
-      <li><a class="khsh" href="#">开户审核</a></li>
-      <li><a class="khfh" href="#">开户复核</a></li>
+        <!-- <li><a href="#">系统公告<span>（开户）</span></a></li>
+        <li><a href="#">系统公告<span>（开户）</span></a></li>
+        <li><a href="#">系统公告<span>（开户）</span></a></li>
+        <li><a href="#">系统公告<span>（开户）</span></a></li>
+        <li><a href="#">系统公告<span>（开户）</span></a></li>
+        <li><a href="#">系统公告<span>（开户）</span></a></li> -->
     </ul>
+    <a class="collect" href="javascript:void(0)" id="collect_btn"><i></i>收藏</a>
   </div>
   <div class="site-menu">
     <a class="selected-menu" href="jacascript:void(0)">开户系统<i></i></a>
@@ -37,6 +39,12 @@
 </div>
 <script type="text/javascript">
   $(function(){
+    $('.site-nav').on('click', '#collect_btn', function(event) {
+      //收藏按钮
+      event.preventDefault();
+      /* Act on the event */
+      $('.ui-collect').show();
+    });
     $('.header-inner').on('click', '.rwtx', function(event) {
       //铃声关闭事件
       event.preventDefault();

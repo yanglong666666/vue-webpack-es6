@@ -1,17 +1,18 @@
 /**
  * Wrapper
  */
-.container {
-    @include clearfix;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
+ .container {
+  @include clearfix;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  margin-top: 76px;
+  .credit-inner {
+    background: #fff;
+  }
+  .ui-content {
     position: relative;
-    margin-top: 76px;
-    .credit-inner {
-      background: #fff;
-    }
-    .ui-content {
     padding: 15px;
     margin-left: 150px;
     .main-content {
