@@ -1,0 +1,54 @@
+.products-content {
+	position: relative;
+	margin: 20px 100px;
+}
+.products-content .product-list,
+.products-content .nav-products {
+	float: left;
+}
+.product-list,
+.nav-products {
+	height: 400px;
+	overflow-y: scroll;
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 290px;
+}
+.product-list a,
+.nav-products a {
+	position: relative;
+	display: block;
+	color: #444;
+	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	margin: 5px 0px;
+	padding: 0px 5px;
+}
+.product-list a:hover {
+	background: #f0f0f0;
+}
+.product-list .active {
+	background: #f0f0f0;
+}
+.nav-products .current {
+	background: #fdf6da;
+}
+.delete {
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	color: #da9c15;
+	cursor: pointer;
+	font-style: normal;
+}
+.pro-ico{
+	float: left;
+	margin: 190px 40px;
+	width: 36px;
+	height: 22px;
+	background: url(/images/arrow-left.png) 0 0 no-repeat;
+}
+.certificateConf {
+	margin-left: 250px;
+}

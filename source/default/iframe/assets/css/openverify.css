@@ -1,0 +1,77 @@
+.js-select,#openVerify .fakeOption li {text-align: left;}
+.fakeOption li {text-align: left;}
+
+/* 开户审核详情 */
+.tasktype {margin-bottom: 10px;background: #f4f4f4;padding: 10px 0 10px 20px;}
+.lastOP {margin-bottom: 20px;}
+.lastOP .lastop {width: 9%;}
+.lastOP .oper {width: 50%;}
+.lastOP .opTime {width: 9%;}
+.lastOP .opTimeC {width: 42%;}
+.userSetTime{margin: 14px 0;text-indent: 20px;}
+.userSetTime span{font-weight: bold}
+.userBasicInfo,.IDVeriInfo,.companyInquiry,.thirdPartyBank,.chooseAccount,.riskResult,.protocolArrange,.IDVideoVeriInfo{margin-bottom: 16px;}
+p.pTitle{height: 32px;line-height: 32px;background: #f4f4f4;font-weight: bold;text-indent: 20px;border:1px solid #ccc;border-bottom: none;}
+p.pTitleNoBorder{height: 32px;line-height: 32px;font-weight: bold;}
+.IDVideoVeriInfo{overflow: hidden;}
+.IDInfoPart img{padding-right: 20px;}
+.IDInfoPart span{width: 7px;height: 6px;display: inline-block;background: url(/images/global.png) -20px -20px no-repeat;margin: 0 10px 20px 0;}
+.IDInfoPart .ID{width: 10px;}
+.IDInfoPart .IDC{width: 90px;}
+.IDC cite.vid_tip {margin-left: 20px;font-weight: normal;}
+#openVerify .tableStyle tbody tr td.police{padding: 10px;}
+.VeriResult  dd{float: left;padding-right: 10px;white-space: nowrap;}
+.police .policeC{overflow: hidden;margin-bottom: 10px;}
+.police .picture img {vertical-align: middle;}
+.cenVideoVeri textarea{width: 356px;}
+.bgGray{background: #f9f9f9;color:#808080;}
+#openVerify .tableStyle tbody tr td{padding-left: 8px;padding-right: 8px;text-align: left;}
+#openVerify .tableStyle .check{display: inline;vertical-align: middle;}
+#openVerify .tableStyle i{margin: 0 3px;cursor: pointer;vertical-align: top}
+#openVerify .tableStyle .correct{display: inline-block;width: 17px;height: 17px;background: url(/images/check.jpg) 0 0 no-repeat;margin-left: 8px;}
+#openVerify .tableStyle .wrong{display:none;width: 17px;height: 17px;background: url(/images/check.jpg) -20px 0 no-repeat;}
+#openVerify .tableStyle .edit{display:none; width: 17px;height: 17px;background: url(/images/check.jpg) -40px 0 no-repeat;}
+.companyInquiry textarea{width: 600px;height: 100px;}
+.inquiryResult{text-indent: 20px;margin-top: 10px}
+.companyInq {margin: 10px 0 20px 0;}
+.companyInq a{padding-right: 20px;margin: 0 20px 0 10px}
+.companyInq a em{padding-left: 20px;}
+.companyInq span{padding: 10px 0 0 0;vertical-align: middle;}
+.inquiryResult{font-weight: bold}
+.inquiryOpinion{text-indent: 26px;}
+.inquiryResult span{font-weight: normal;}
+.conclusions{margin: 10px 0;}
+.conclusions label input{margin:0 8px 0 30px;}
+#openVerify table cite{padding-right: 10px;}
+#openVerify .inquiryResult textarea{height: 80px;width: 80%}
+.riskResult td.scoreC cite{font-weight: bold}
+.rectifiConf{padding-left: 0;}
+.advice li {line-height: 40px;}
+.advice li input{vertical-align: middle;}
+.advice b {width: 17px;height: 17px;background: url(/images/check.jpg) -40px 0 no-repeat;display: inline-block;vertical-align: middle;margin-left: 10px;cursor: pointer;}
+.protocolArrange span{padding: 0 10px;}
+#editBox .txt {width: 240px;}
+.confC {background: #fff;height: 44px;line-height: 44px;+margin-top: 24px;overflow: hidden;margin-top: 16px;padding: 0;text-align: center;}
+.confC a {+margin-top: 0;float: none;margin: 0;}
+#chkboxCont {line-height: 32px;}
+#chkboxContLong {line-height: 32px;}
+#chkboxCont input {vertical-align: middle;margin: 0 2px 0 12px}
+#chkboxCont label {width: 82px;*width:86px;display: inline-block;}
+#chkboxContLong label {width: 120px;*width:86px;display: inline-block;}
+#entrustCont input{vertical-align:middle;margin: 0 4px 0 10px;}
+#chkboxContLong input{vertical-align:middle;margin: 0 4px 0 10px;}
+#entrustCont {line-height: 32px;}
+#entrustCont label {width: 82px;display: inline-block;}
+
+.nopass_cont h3{ text-indent:  28px;margin: 10px 0}
+.nopass_cont label { margin: 10px 0;display: block;}
+
+#CRMCheck .outer_ul  {margin-left: 80px}
+#CRMCheck div.inner  {padding-left: 40px}
+#CRMCheck ul  {margin-left: 80px;font-size: 14px;width: 350px;}
+#CRMCheck ul li {margin-bottom: 12px;line-height: 30px;*line-height:10px;margin-bottom: 20px;}
+#CRMCheck ul li span.right {width: 31px;height: 31px;float:left;background: url(../images/CRMcheck.jpg) 0 0 no-repeat;vertical-align: middle;margin-right: 10px;}
+#CRMCheck ul li span.wrong {width: 31px;height: 31px;float:left;background: url(../images/CRMcheck.jpg) 0 -31px no-repeat;vertical-align: middle;margin-right: 10px;}
+#CRMCheck ul li span.tips {width: 31px;height: 31px;float:left;background: url(../images/CRMcheck.jpg) 0 -62px no-repeat;vertical-align: middle;margin-right: 10px;}
+#CRMCheck .confirmC {margin: 6px 0 0;}
+#CRMCheck .crm_tips {margin: 0 0 20px 180px;}

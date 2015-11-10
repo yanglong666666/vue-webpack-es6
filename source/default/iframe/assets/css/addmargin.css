@@ -1,0 +1,47 @@
+#addmargin {
+  width: 960px;
+  margin: 30px auto 0;
+}
+#addmargin h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 30px 0;
+  letter-spacing: 1px;
+}
+.item {
+  margin-bottom: 10px;
+  height: 30px;
+}
+.item input,
+.item cite,
+.item button {
+  float: left;
+}
+.item .addoption {
+  cursor: pointer;
+}
+.item b {
+  width: 17px;
+  height: 17px;
+  float: left;
+  background: url("../images/check.jpg") 0 0 no-repeat;
+  cursor: pointer;
+  margin: 5px 0 0 10px;
+}
+.item button {
+  margin: 2px 0 0 10px;
+}
+.item .del {
+  float: left;
+  width: 7px;
+  height: 6px;
+  background: url("/images/global.png") -20px -20px no-repeat;
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+}
+.item input.first_input {
+  margin-right: 10px;
+}
+.js-select {
+  float: left;
+}

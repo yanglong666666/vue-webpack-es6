@@ -1,0 +1,158 @@
+.js-dialog .top-edge,
+.js-dialog .bottom-edge {
+  height: 5px;
+}
+
+/* line 6 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .edge {
+  background-color: #000;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+}
+
+/* line 11 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .left-edge,
+.js-dialog .right-edge {
+  width: 5px;
+}
+
+/* line 14 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content {
+  position: relative;
+  background-color: #fff;
+}
+
+/* line 18 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .hd {
+  height: 38px;
+  line-height: 38px;
+  padding-left: 18px;
+  background-color: #f9f9f9;
+}
+
+/* line 24 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .hd h2 {
+  font-family: "Helvetica Neue", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti;
+  font-weight: bold;
+  font-size: 14px;
+  color: #646464;
+}
+
+/* line 30 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .bd .confirm-wrap {
+  position: relative;
+  padding: 0 50px;
+  line-height: 20px;
+  margin-left: 40px;
+}
+
+/* line 37 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .bd .btn-wrap {
+  padding: 20px 0 0;
+  text-align: center;
+}
+
+/* line 41 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .bd .btn-wrap .dia_btn {
+  margin: 0 5px;
+}
+
+/* line 45 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 13px 0 0;
+}
+
+/* line 51 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .close .js-close {
+  display: -moz-inline-stack;
+  vertical-align: middle;
+  zoom: 1;
+  height: 16px;
+  line-height: 16px;
+  color: #8d8d8d;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* line 62 : e:\standard\stylus\_same\base\dialog.styl */
+.js-mask {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  filter: alpha(opacity=15);
+  opacity: 0.15;
+}
+
+/* line 72 : e:\standard\stylus\_same\base\dialog.styl */
+
+/* line 73 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .protocol_wrapper {
+  width: 100%;
+  height: 400px;
+  overflow: auto;
+  padding: 4px 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  resize: none;
+}
+
+/* line 81 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .tip_cont {
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  position: relative;
+  padding: 0 50px;
+  margin-left: 40px;
+}
+
+/* line 87 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .tip_cont i {
+  position: absolute;
+  top: -3px;
+  margin-left: -40px;
+  line-height: 0;
+}
+
+/* line 92 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content p {
+  color: #777;
+  text-align: left;
+  margin-top: 14px;
+}
+
+/* line 96 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content p.tip {
+  text-align: center;
+}
+
+/* line 98 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content p iframe {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* line 101 : e:\standard\stylus\_same\base\dialog.styl */
+.js-dialog .content .confirmC {
+  margin-bottom: 20px;
+}
+.js-dialog .dialog_btn {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  margin-right: 10px;
+}
+.js-dialog .dialog_btn.btn-default-blue {
+  color: #fff;
+  background: #4e92d9;
+  border: 1px solid #093096;
+}
+.js-dialog .dialog_btn.btn-default-gray {
+  background: #f6f6f6;
+  border: 1px solid #abaaaa;
+}

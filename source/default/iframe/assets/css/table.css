@@ -1,0 +1,102 @@
+/* 表格相同样式 */
+.tableStyle {
+  border: 1px solid #ccc;
+}
+.tableStyle thead {
+  height: 34px;
+}
+.tableStyle thead tr {
+  background: url("/images/tile.jpg") 0 -48px repeat-x;
+  height: 34px;
+  line-height: 34px;
+}
+.tableStyle thead tr .th {
+  display: block;
+  float: left;
+}
+.tableStyle tbody {
+  text-align: center;
+}
+.tableStyle thead tr th {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+.tableStyle tbody tr td {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  *border-right: 1px solid #ccc;
+  *border-bottom: 1px solid #ccc;
+}
+.tableStyle thead tr th.borderN {
+  border-left: none;
+  border-right: none;
+}
+.tableStyle tbody tr td {
+  padding: 10px 0;
+}
+.tableStyle tbody tr td a.btn {
+  float: none;
+  margin-top: 0;
+}
+.editrole {
+  margin-right: 10px;
+}
+.page {
+  margin: 0 auto;
+  width: 560px;
+  margin-top: 20px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+}
+.page li {
+  display: inline-block;
+  margin-right: 6px;
+}
+.page li {
+  *display: inline;
+  margin-right: 6px;
+}
+.page a {
+  display: inline-block;
+  _float: left;
+  padding-right: 16px;
+  vertical-align: middle;
+  background: url("/images/all-btns.png") right -200px no-repeat;
+  font-weight: normal;
+}
+.page em {
+  display: inline-block;
+  float: left;
+  padding-left: 16px;
+  vertical-align: middle;
+  background: url("/images/all-btns.png") left -164px no-repeat;
+  color: #707070;
+  height: 36px;
+  line-height: 36px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.page .thisPage a {
+  display: inline-block;
+  padding-right: 16px;
+  vertical-align: middle;
+  background: url("/images/all-btns.png") right -272px no-repeat;
+  font-weight: normal;
+  cursor: default;
+}
+.page .thisPage em {
+  display: inline-block;
+  float: left;
+  padding-left: 16px;
+  vertical-align: middle;
+  background: url("/images/all-btns.png") left -236px no-repeat;
+  color: #fff;
+  height: 36px;
+  line-height: 36px;
+  font-weight: bold;
+  cursor: default;
+}
+.page .thisPage a:hover {
+  text-decoration: none;
+}
