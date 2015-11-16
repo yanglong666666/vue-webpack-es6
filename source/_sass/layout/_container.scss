@@ -11,10 +11,12 @@
   .credit-inner {
     background: #fff;
   }
-  .ui-content {
+  .ui-wrap {
     position: relative;
-    padding: 15px;
     margin-left: 150px;
+    padding: 15px;
+  }
+  .ui-content {
     .main-content {
       position: relative;
       padding: 20px;
