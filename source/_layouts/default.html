@@ -6,9 +6,11 @@
 <div class="container">
   <div class="container-inner">
     {% include aside.html %}
-    <div class="ui-content">
+    <div class="ui-wrap">
       {% include collect.html %}
-      {{ content }}
+      <div class="ui-content">
+        {{ content }}
+      </div>
     </div>
   </div>
 </div>
