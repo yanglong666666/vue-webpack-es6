@@ -116,9 +116,17 @@
   background-color: transparent;
   color: #7d7d7d;
   border: 1px solid #7d7d7d;
+  text-align: center;
 }
 .btn-default {
   cursor: default;
   background-color: #7d7d7d;
   color: #fff;
+}
+.btn-gray-fill {
+  cursor: default;
+  background-color: #7d7d7d;
+  color: #fff;
+  border: 1px solid #7d7d7d;
+  text-align: center;
 }
