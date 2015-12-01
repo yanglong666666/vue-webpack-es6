@@ -1,0 +1,106 @@
+---
+title: 客户档案查询
+layout: default
+---
+
+<div class="ui-table-info">
+  <h2 class="table-title">用户基本资料</h2>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td>姓名</td>
+        <td>张三</td>
+        <td>国籍</td>
+        <td>中国</td>
+      </tr>
+      <tr>
+        <td>性别</td>
+        <td>男</td>
+        <td>年龄</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>身份证号</td>
+        <td>310112199109091122</td>
+        <td>民族</td>
+        <td>汉</td>
+      </tr>
+      <tr>
+        <td>证件有效期</td>
+        <td>2005.01.12-2015.01.12</td>
+        <td>学历</td>
+        <td>本科</td>
+      </tr>
+      <tr>
+        <td>发证机关</td>
+        <td>滨江西兴公安局</td>
+        <td>职业</td>
+        <td>个体</td>
+      </tr>
+      <tr>
+        <td>证件地址</td>
+        <td>杭州市滨江区江陵路1号</td>
+        <td>移动电话</td>
+        <td>18211112222</td>
+      </tr>
+      <tr>
+        <td>联系地址</td>
+        <td>杭州市滨江区江陵路1号</td>
+        <td>固话</td>
+        <td>0571-11112222</td>
+      </tr>
+      <tr>
+        <td>开户营业部</td>
+        <td>杭州市滨江区江陵路营业部</td>
+        <td>邮编</td>
+        <td>310000</td>
+      </tr>
+      <tr>
+        <td>行业</td>
+        <td>互联网金融</td>
+        <td>类型</td>
+        <td>个人</td>
+      </tr>
+      <tr>
+        <td>年收入</td>
+        <td>10万-20万</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="ui-table-info">
+  <h2 class="table-title">业务信息</h2>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td>业务类型</td>
+        <td>证券</td>
+        <td>办理业务</td>
+        <td>创业板</td>
+      </tr>
+      <tr>
+        <td>时间</td>
+        <td>2015-10-10 12:00</td>
+        <td>办理营业部</td>
+        <td>创业板</td>
+      </tr>
+      <tr>
+        <td>操作员</td>
+        <td>张三</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% include component/record/verify1.html %}
+
+<div class="protocol-table-info">
+  <h2>协议签署情况</h2>
+  <div class="protocol-content">
+    <a class="protocol-detail" href="javascript:void(0)">《柜台交易业务客户协议》</a>
+    <a class="protocol-detail" href="javascript:void(0)">《中国银行存管协议》</a>
+  </div>
+</div>
+<div class="button-content">
+  <button class="btn-lg btn-fill" id="submit_btn">下载</button>
+</div>

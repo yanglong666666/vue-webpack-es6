@@ -1,0 +1,108 @@
+---
+title: 第二屏内容设置
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>广告名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>状态</dt>
+      <dd>
+        <select name="" id="status_list" class="diy-select" style="display: none;">
+          <option selected="" value="1">第三方存管</option>
+          <option value="2">类别1</option>
+          <option value="3">类别2</option>
+        </select>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <a class="btn-primary output" href="{{ site.baseurl }}/e-record/content-info.html">新增</a>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">序号</td>
+        <td width="25%">广告名称</td>
+        <td width="15%">内容</td>
+        <td width="15%">状态</td>
+        <td width="15%">最后更新</td>
+        <td class="text-c" width="20%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>产品名称11111</td>
+        <td><a href="#" class="link">预览</a></td>
+        <td>已发布</td>
+        <td>2015-11-11 11:11</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/e-record/content-info.html" class="btn-fill btn-lw detail-btn">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="javascript:void(0)" class="btn-primary-white btn-lw">下架</a>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>产品名称11111</td>
+        <td><a href="#" class="link">预览</a></td>
+        <td>已发布</td>
+        <td>2015-11-11 11:11</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/e-record/content-info.html" class="btn-fill btn-lw detail-btn">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="javascript:void(0)" class="btn-primary-white btn-lw">下架</a>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>产品名称11111</td>
+        <td><a href="#" class="link">预览</a></td>
+        <td>已发布</td>
+        <td>2015-11-11 11:11</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/e-record/content-info.html" class="btn-fill btn-lw detail-btn">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="javascript:void(0)" class="btn-primary-white btn-lw">下架</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+    $('.data-table').on('click', '.delete-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var delete_screen = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+          },
+        content: '<h1 class="h-title">您确定删除此记录？</h1>'
+      });
+    });
+  });
+</script>

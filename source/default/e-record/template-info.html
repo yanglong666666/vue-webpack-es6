@@ -1,0 +1,68 @@
+---
+title: 协议模板管理
+layout: default
+---
+
+<div class="ui-detail-info">
+  <div class="item">
+    <span class="name">协议编号</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">协议名称</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">协议版本</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">显示序号</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">协议类型</span>
+    <div class="item-inner">
+      <select name="" id="type_list1" class="diy-select" style="display: none;">
+        <option selected="" value="1">第三方存管</option>
+        <option value="2">类别1</option>
+        <option value="3">类别2</option>
+      </select>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">协议类别</span>
+    <div class="item-inner">
+      <select name="" id="type_list2" class="diy-select" style="display: none;">
+        <option selected="" value="1">第三方存管</option>
+        <option value="2">类别1</option>
+        <option value="3">类别2</option>
+      </select>
+    </div>
+  </div>
+  <div class="button-content">
+    <a href="{{ site.baseurl }}/e-record/template.html" class="btn-primary btn-lg">取消</a>
+    <button class="ml-30 btn-fill btn-lg">确定</button>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect({width:'280px'});
+  });
+</script>

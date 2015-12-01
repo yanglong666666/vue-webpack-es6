@@ -1,0 +1,31 @@
+.page-content-info {
+  .item {
+    .file-content {
+      position: relative;
+      margin-bottom: 15px;
+      .file {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        filter: alpha(opacity = 0);
+        z-index: 9;
+        display: inline-block;
+        width: 100px;
+        height: 36px;
+        line-height: 36px;
+        cursor: pointer;
+      }
+      a.file-btn {
+        display: inline-block;
+        width: 100px;
+        height: 36px;
+        line-height: 36px;
+        color: #fff;
+        background: #3ecacb;
+        border-radius: 5px;
+        text-align: center;
+      }
+    }
+  }
+}

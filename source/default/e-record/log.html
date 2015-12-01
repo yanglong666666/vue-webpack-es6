@@ -1,0 +1,143 @@
+---
+title: 档案流水查询
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>客户姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>身份证号码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>手机号码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>所属营业部</dt>
+      <dd>
+        <span>
+          <select name="" id="partment_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>业务类型</dt>
+      <dd>
+        <span>
+          <select name="" id="business_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">业务类型1</option>
+            <option value="2">业务类型2</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>状态</dt>
+      <dd>
+        <span>
+          <select name="" id="status_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">状态1</option>
+            <option value="2">状态2</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>用户类型</dt>
+      <dd>
+        <span>
+          <select name="" id="users_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">类型1</option>
+            <option value="2">类型2</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">序号</td>
+        <td width="15%">资金账号</td>
+        <td width="10%">用户姓名</td>
+        <td width="10%">手机号码</td>
+        <td width="15%">业务类型</td>
+        <td width="15%">用户类型</td>
+        <td width="15%">最新时间</td>
+        <td class="text-c" width="10%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>13654651234</td>
+        <td>张三</td>
+        <td>15399990000</td>
+        <td>证券-创业板</td>
+        <td>个人</td>
+        <td>2014-20-11 15:20</td>
+        <td class="text-c"><a href="{{ site.baseurl }}/e-record/record-info1.html" class="btn-fill btn-lw detail-btn">详情</a></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>13654651234</td>
+        <td>张三</td>
+        <td>15399990000</td>
+        <td>证券-创业板</td>
+        <td>机构</td>
+        <td>2014-20-11 15:20</td>
+        <td class="text-c"><a href="{{ site.baseurl }}/e-record/record-info1.html" class="btn-fill btn-lw detail-btn">详情</a></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>13654651234</td>
+        <td>张三</td>
+        <td>15399990000</td>
+        <td>证券-创业板</td>
+        <td>个人</td>
+        <td>2014-20-11 15:20</td>
+        <td class="text-c"><a href="{{ site.baseurl }}/e-record/record-info1.html" class="btn-fill btn-lw detail-btn">详情</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+  });
+</script>
