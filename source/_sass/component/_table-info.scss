@@ -1,0 +1,31 @@
+.ui-table-info {
+  .table-title {
+    font-size: 16px;
+    color: #44c1de;
+    margin: 15px 0 10px 0;
+  }
+  table {
+    background: #f0f5fb;
+    tbody {
+      td {
+        padding: 10px;
+        &:nth-child(odd) {
+          color: #6f7b91;
+          width: 15%;
+        }
+        &:nth-child(even) {
+          color: #4c4f54;
+          width: 35%;
+        }
+        .license {
+          cursor: pointer;
+        }
+        .more {
+          color: #3ecacb;
+          display: inline-block;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

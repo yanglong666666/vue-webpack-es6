@@ -1,0 +1,63 @@
+---
+title: 业务设置
+layout: default
+---
+
+<div class="ui-detail-info">
+  <div class="item">
+    <span class="name">业务类型</span>
+    <div class="item-inner">
+      <select name="" id="business_list" class="diy-select" style="display: none;">
+        <option selected="" value="1">第三方存管</option>
+        <option value="2">类别1</option>
+        <option value="3">类别2</option>
+      </select>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">业务名称</span>
+    <div class="item-inner">
+      <select name="" id="name_list" class="diy-select" style="display: none;">
+        <option selected="" value="1">第三方存管</option>
+        <option value="2">类别1</option>
+        <option value="3">类别2</option>
+      </select>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">用户类型</span>
+    <div class="item-inner">
+      <select name="" id="type_list1" class="diy-select" style="display: none;">
+        <option selected="" value="1">第三方存管</option>
+        <option value="2">类别1</option>
+        <option value="3">类别2</option>
+      </select>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">协议类型</span>
+    <div class="item-inner">
+      <select name="" id="type_list2" class="diy-select" style="display: none;">
+        <option selected="" value="1">第三方存管</option>
+        <option value="2">类别1</option>
+        <option value="3">类别2</option>
+      </select>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">相关协议</span>
+    <div class="item-inner">
+      <textarea></textarea>
+      <a href="#">添加协议</a>
+    </div>
+  </div>
+  <div class="button-content">
+    <a href="{{ site.baseurl }}/e-record/business.html" class="btn-primary btn-lg">取消</a>
+    <button class="ml-30 btn-fill btn-lg">确定</button>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect({width:'280px'});
+  });
+</script>
