@@ -2,11 +2,11 @@
   padding: 50px 20px;
   background: #f0f4fb;
   .item {
-    @include clearfix;
-    overflow: hidden;
+
+    //overflow: hidden;
     margin-bottom: 20px;
     .name {
-      float: left;
+      //float: left;
       display: inline-block;
       width: 100px;
       text-align: right;
@@ -16,12 +16,43 @@
     }
     .item-inner {
       position: relative;
-      float: left;
+      //float: left;
+      display: inline-block;
       width: 78%;
       label {
+        position: relative;
         input {
           vertical-align: middle;
         }
+        .file-btn {
+          position: absolute;
+          top: 3px;
+          right: 0;
+          display: block;
+          text-align: center;
+          width: 80px;
+          height: 35px;
+          line-height: 35px;
+          background: #3ecacb;
+          color: #fff;
+          border-radius: 5px;
+        }
+        .file {
+          position: absolute;
+          top: 3px;
+          right: 0;
+          width: 80px;
+          display: inline-block;
+          height: 35px;
+          line-height: 35px;
+          cursor: pointer;
+          opacity: 0;
+          filter:alpha(opacity=0);
+        }
+      }
+      .col-red {
+        color: #f00;
+        font-size: 12px;
       }
       .w-70 {
         width: 100%;
