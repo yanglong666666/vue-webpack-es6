@@ -1,0 +1,52 @@
+.page-OPI {
+  .data-table {
+    .online {
+      color: #fff;
+      background: #ff5776;
+      border-radius: 9px;
+      padding: 0px 5px;
+      display: inline-block;
+      height: 18px;
+      line-height: 18px;
+      margin-right: 3px;
+    }
+    .outline {
+      color: #fff;
+      background: #9b9b9b;
+      border-radius: 9px;
+      padding: 0px 5px;
+      display: inline-block;
+      height: 18px;
+      line-height: 18px;
+      margin-right: 3px;
+    }
+  }
+  .back-btn {
+    display: inline-block;
+    font-size: 16px;
+    color: #3ecacb;
+    text-decoration: underline;
+    margin-bottom: 15px;
+  }
+  .textbox-content {
+    h2 {
+      font-size: 16px;
+      color: #4d4d4d;
+      display: inline-block;
+      margin-right: 20px;
+    }
+    label {
+      input {
+        vertical-align: middle;
+      }
+    }
+  }
+  .info-title {
+    font-size: 16px;
+    color: #4d4d4d;
+  }
+  .textbox-item {
+    padding: 0 40px 20px 40px;
+    overflow: hidden;
+  }
+}

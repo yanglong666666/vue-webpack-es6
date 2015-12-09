@@ -1,0 +1,47 @@
+.page-navigation {
+  h1 {
+    font-size: 18px;
+    color: #3ecacb;
+    margin-bottom: 15px;
+  }
+  .lc-product {
+    @include clearfix;
+    overflow: hidden;
+    .pre {
+      display: block;
+      float: left;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 150px;
+    }
+    .all-product,
+    .selected-product {
+      float: left;
+      width: 350px;
+      height: 300px;
+      overflow: auto;
+      background: #e1e6ef;
+      padding: 20px;
+    }
+  }
+  .add-navigation {
+    margin: 0 auto;
+    display: block;
+    color: #3ecacb;
+    font-size: 12px;
+    border-radius: 5px;
+    border: 1px solid #3ecacb;
+    height: 28px;
+    line-height: 28px;
+    width: 300px;
+    text-align: center;
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      width: 18px;
+      height: 18px;
+      margin: 0px 5px 3px 0px;
+      background: url(../images/add-ico.png) 0 0 no-repeat;
+    }
+  }
+}

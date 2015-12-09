@@ -1,0 +1,259 @@
+---
+title: 产品信息
+layout: default
+class: OPI
+---
+
+<div class="ui-detail-info">
+  <a href="{{ site.baseurl }}/mall/OPI.html" class="back-btn"><返回</a>
+  <h2 class="info-title">一、详细资料</h2>
+  <div class="item">
+    <span class="name">产品渠道</span>
+    <div class="item-inner">
+      <label>
+        <input type="checkbox" name="channel"> PC
+      </label>
+      <label>
+        <input type="checkbox" name="channel"> 手机
+      </label>
+      <label>
+        <input type="checkbox" name="channel"> 微信
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">产品类型</span>
+    <div class="item-inner">
+      <select name="" id="type_list" class="diy-select" style="display: none;">
+        <option selected="" value="1">开放式基金(股票/债券/混合型)</option>
+        <option value="2">开放式基金(股票/债券/混合型)</option>
+        <option value="3">开放式基金(股票/债券/混合型)</option>
+      </select>
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span>例（货币型、收益凭证型）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">产品名称</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span class="col-red">（*必填项）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">产品代码</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span class="col-red">（*必填项）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">单位净值</span>
+    <div class="item-inner">
+      <label class="w-300">
+        表：ofs_histawed
+      </label>
+      <span class="col-red">（自动获取）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">累计净值</span>
+    <div class="item-inner">
+      <label class="w-300">
+        表：ofs_histawed
+      </label>
+      <span class="col-red">（自动获取）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">起购金额</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span>元</span>
+      <span class="col-red">（*必填项）</span>
+      <span>（范围控制在亿以内）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">风险等级</span>
+    <div class="item-inner">
+      <select name="" id="risk_list" class="diy-select" style="display: none;">
+        <option selected="" value="1">高</option>
+        <option value="2">中高</option>
+        <option value="3">低</option>
+      </select>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">销售状态</span>
+    <div class="item-inner">
+      <select name="" id="status_list" class="diy-select" style="display: none;">
+        <option selected="" value="1">未开卖</option>
+        <option value="2">售完</option>
+      </select>
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">热门产品</span>
+    <div class="item-inner">
+      <label>
+        <input type="radio" name="hot"> 是
+      </label>
+      <label>
+        <input type="radio" name="hot"> 否
+      </label>
+      <span>注：在线热门产品最多4个</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">产品期限</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span>例（8天、8个月）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">流动性</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span>例（随买随卖、一月开放一次）</span>
+      <span class="col-red">（不填则显示产品期限）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">推荐理由</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span>例（期限短小 收益精悍，今年以来收益率：6.78%）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">首页排序</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">缩略图片</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+        <a class="file-btn" href="#">浏览</a>
+        <input class="file" type="file">
+      </label>
+      <span>（PC端图片建议尺寸：375像素*310像素）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">产品图片</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+        <a class="file-btn" href="#">浏览</a>
+        <input class="file" type="file">
+      </label>
+      <span>（PC端图片建议尺寸：910像素*310像素）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">缩略图片</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+        <a class="file-btn" href="#">浏览</a>
+        <input class="file" type="file">
+      </label>
+      <span>（移动端图片建议尺寸：375像素*310像素）</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="name">产品图片</span>
+    <div class="item-inner">
+      <label class="w-300">
+        <input type="text" class="txt">
+        <a class="file-btn" href="#">浏览</a>
+        <input class="file" type="file">
+      </label>
+      <span>（移动端图片建议尺寸：910像素*310像素）</span>
+    </div>
+  </div>
+  <div class="textbox-item">
+    <p>PC详细资料</p>
+    <script id="pc_detail" name="content" type="text/plain" style="height:200px;"></script>
+  </div>
+  <div class="textbox-item">
+    <p>移动端详细资料</p>
+    <script id="app_detail" name="content" type="text/plain" style="height:200px;"></script>
+  </div>
+  <div class="textbox-content">
+    <h2>二、产品概况</h2>
+    <label>
+      <input type="radio" name="pro-show"> 显示
+    </label>
+    <label>
+      <input type="radio" name="pro-show"> 不显示
+    </label>
+  </div>
+  <div class="textbox-content">
+    <h2>三、投资经理</h2>
+    <label>
+      <input type="radio" name="user-show"> 显示
+    </label>
+    <label>
+      <input type="radio" name="user-show"> 不显示
+    </label>
+  </div>
+  <div class="textbox-content">
+    <h2>四、报告公告</h2>
+    <label>
+      <input type="radio" name="notice-show"> 报告公告
+    </label>
+    <label>
+      <input type="radio" name="notice-show"> 咨询展示
+    </label>
+    <label>
+      <input type="radio" name="notice-show"> 不显示
+    </label>
+  </div>
+  <div class="textbox-content">
+    <h2>五、累计净值</h2>
+    <label>
+      <input type="radio" name="sum-show"> 显示
+    </label>
+    <label>
+      <input type="radio" name="sum-show"> 不显示
+    </label>
+  </div>
+  <div class="button-content">
+    <a href="{{ site.baseurl }}/mall/OPI.html" class="btn-primary btn-lg">取消</a>
+    <button class="ml-30 btn-fill btn-lg">确定</button>
+  </div>
+</div>
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect({width:'280px'});
+    var pc = UE.getEditor('pc_detail');
+    var app = UE.getEditor('app_detail');
+  });
+</script>

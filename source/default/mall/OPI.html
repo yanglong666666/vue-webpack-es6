@@ -1,0 +1,190 @@
+---
+title: 产品信息
+layout: default
+class: OPI
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>产品名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>产品代码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>购买状态</dt>
+      <dd>
+        <span>
+          <select name="" id="status_list1" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>上架状态</dt>
+      <dd>
+        <span>
+          <select name="" id="status_list2" class="diy-select" style="display: none;">
+            <option selected="" value="1">未处理</option>
+            <option value="2">已接通</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>是否热门</dt>
+      <dd>
+        <span>
+          <select name="" id="hot_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">是</option>
+            <option value="2">否</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>显示数量</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <a class="btn-primary output" href="{{ site.baseurl }}/mall/OPI-info.html">新增</a>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="5%">序号</td>
+        <td width="13%">产品名称</td>
+        <td width="7%">产品代码</td>
+        <td width="10%">净值\收益率</td>
+        <td width="5%">状态</td>
+        <td width="7%">投资风险</td>
+        <td width="5%">期限</td>
+        <td width="8%">与柜台同步</td>
+        <td width="5%">热门</td>
+        <td width="7%">排序编号</td>
+        <td class="text-c" width="10%">备注</td>
+        <td class="text-c" width="18%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><span class="online">已上线</span>PC手机共享</td>
+        <td>CA12121</td>
+        <td>1.0002</td>
+        <td>已售罄</td>
+        <td>低</td>
+        <td>8天</td>
+        <td>未同步</td>
+        <td>否</td>
+        <td>1</td>
+        <td class="text-c">
+          <a href="#" class="link">上移</a>
+          <a href="#" class="link">下移</a>
+        </td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/mall/OPI-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw shelf-btn">下架</a>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><span class="online">已上线</span>PC手机共享</td>
+        <td>CA12121</td>
+        <td>1.0002</td>
+        <td>已售罄</td>
+        <td>低</td>
+        <td>8天</td>
+        <td>未同步</td>
+        <td>否</td>
+        <td>1</td>
+        <td class="text-c">
+          <a href="#" class="link">上移</a>
+          <a href="#" class="link">下移</a>
+        </td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/mall/OPI-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw shelf-btn">下架</a>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><span class="outline">已下线</span>PC手机共享</td>
+        <td>CA12121</td>
+        <td>1.0002</td>
+        <td>已售罄</td>
+        <td>低</td>
+        <td>8天</td>
+        <td>未同步</td>
+        <td>否</td>
+        <td>1</td>
+        <td class="text-c">
+          <a href="#" class="link">上移</a>
+          <a href="#" class="link">下移</a>
+        </td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/mall/OPI-info.html" class="btn-fill btn-lw">修改</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="javascript:void(0)" class="btn-fill btn-lw shelf-btn">下架</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+    $('.data-table').on('click', '.delete-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var delete_screen = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+          },
+        content: '<h1 class="h-title">您确定删除此记录？</h1>'
+      });
+    });
+    $('.data-table').on('click', '.shelf-btn', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      if ($(this).text() == "上架") {
+        $(this).text('下架');
+      } else {
+        $(this).text('上架');
+      }
+    });
+  });
+</script>
