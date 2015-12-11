@@ -30,10 +30,28 @@
   }
   .collect-item {
     margin-top: 30px;
-    h2 {
-      font-size: 18px;
-      color: #45c0e1;
+    .item-header {
+      background: #e2e6ef;
+      padding: 5px 15px;
+      height: 40px;
+      line-height: 40px;
+      h2 {
+        display: inline-block;
+        font-size: 18px;
+        color: #45c0e1;
+      }
+      a {
+        display: inline-block;
+        margin-left: 25px;
+        color: #9ea7c0;
+        border-bottom: 3px solid #e2e6ef;
+        &.current {
+          color: #46516f;
+          border-bottom: 3px solid #6a7390;
+        }
+      }
     }
+
     .collect-option {
       a {
         margin: 15px 15px 0 0;
