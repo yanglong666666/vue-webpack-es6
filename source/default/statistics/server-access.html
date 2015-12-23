@@ -78,6 +78,7 @@ class: operation-statistics
 {% include component/pagenav.html %}
 <script type="text/javascript">
   $(function () {
+    $('.operation-nav .server-access').addClass('active');
     $('.begin-time').datepicker({
       onClose: function( selectedDate ) {
         $('.end-time').datepicker( "option", "minDate", selectedDate );
