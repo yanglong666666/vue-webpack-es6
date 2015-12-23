@@ -1,0 +1,92 @@
+---
+title: 操作记录
+layout: default
+class: operation-statistics
+---
+
+{% include component/operation-top.html %}
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>操作员编号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>登录IP</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <button class="btn-primary output">导出统计报表</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="25%">操作员编号</td>
+        <td width="25%">操作员姓名</td>
+        <td width="25%">登录IP</td>
+        <td width="25%">访问服务器次数</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>202.111.21.22</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>202.111.21.22</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+</script>
