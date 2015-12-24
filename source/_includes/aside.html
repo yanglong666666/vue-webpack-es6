@@ -112,6 +112,7 @@
         <li><a href="{{ site.baseurl }}/statistics/access-data.html">接口数据</a></li>
         <li><a href="{{ site.baseurl }}/statistics/video-line.html">视频排队</a></li>
         <li><a href="{{ site.baseurl }}/statistics/use-time.html">使用时段</a></li>
+        <li><a href="{{ site.baseurl }}/statistics/operation-record.html">操作统计</a></li>
       </ul>
       <b></b>
     </li>
@@ -245,31 +246,31 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-//点击含有二级li的p的效果
-var href = window.location.href ;
-$(".leftul>li>p").each(function() {
-  var flag = 0;
-  $(this).click(function() {
-   if(!flag) {
-    $(this).siblings("ul").slideDown(200);
-    $(this).parent().find("b").addClass("current");
-    flag = 1;
-  } else {
-   $(this).parent().find("ul").slideUp(200);
-   $(this).parent().find("b").removeClass("current");
-   flag = 0;
- }
-});
-});
-    //二级li点击后的显示效果
-    var arrr = [];
-    $(".leftul li li a").each(function(){
-     var str = $(this).attr("href");
-     var justName = str.slice(0,str.length - 5);
-     arrr.push($(this).attr("href"));
-   });
-    for (var ee in arrr) {
-     if(href.indexOf(arrr[ee]) != -1) {
+  //点击含有二级li的p的效果
+  var href = window.location.href ;
+  $(".leftul>li>p").each(function() {
+    var flag = 0;
+    $(this).click(function() {
+      if(!flag) {
+        $(this).siblings("ul").slideDown(200);
+        $(this).parent().find("b").addClass("current");
+        flag = 1;
+      } else {
+        $(this).parent().find("ul").slideUp(200);
+        $(this).parent().find("b").removeClass("current");
+        flag = 0;
+      }
+    });
+  });
+  //二级li点击后的显示效果
+  var arrr = [];
+  $(".leftul li li a").each(function(){
+    var str = $(this).attr("href");
+    var justName = str.slice(0,str.length - 5);
+    arrr.push($(this).attr("href"));
+  });
+  for (var ee in arrr) {
+    if(href.indexOf(arrr[ee]) != -1) {
       $('.leftul li li').eq(ee).addClass('active');
       $(".leftul li li").eq(ee).parent().show();
     }
@@ -277,10 +278,10 @@ $(".leftul>li>p").each(function() {
 	//点击没有二级li的一级li的效果
 	var $aloneLi = $(".leftul>li").not(".leftul>li:has('li')");
 	$aloneLi.each(function() {
-   var src = $(this).find("a").attr("href");
-   if(href.indexOf(src) != -1) {
-    $(this).addClass('active');
-  }
-});
+    var src = $(this).find("a").attr("href");
+    if(href.indexOf(src) != -1) {
+      $(this).addClass('active');
+    }
+  });
 });
 </script>

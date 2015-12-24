@@ -25,3 +25,4 @@
 
 grunt
 
+代码规范：[猛戳此处](http://www.jianshu.com/p/8e678154b97d)
