@@ -1,0 +1,101 @@
+---
+title: 操作记录
+layout: default
+class: operation-statistics
+---
+
+{% include component/operation-top.html %}
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>操作员编号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>登录IP</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>密码错误次数大于</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <button class="btn-primary output">导出统计报表</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="20%">操作员编号</td>
+        <td width="15%">操作员姓名</td>
+        <td width="20%">登录IP</td>
+        <td width="15%">密码错误次数</td>
+        <td width="15%">首次操作时间</td>
+        <td width="15%">登录时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>202.111.11.11</td>
+        <td>3</td>
+        <td>2015-12-12 09:09</td>
+        <td>2015-12-12 09:09</td>
+      </tr>
+      <tr>
+        <td>18900001111</td>
+        <td>张三</td>
+        <td>202.111.11.11</td>
+        <td>3</td>
+        <td>2015-12-12 09:09</td>
+        <td>2015-12-12 09:09</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.operation-nav .login-status').addClass('active');
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+</script>

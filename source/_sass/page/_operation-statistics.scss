@@ -1,0 +1,47 @@
+.page-operation-statistics {
+  .operation-top {
+    .number-content {
+      margin-bottom: 15px;
+      .number {
+        display: inline-block;
+        margin-right: 30px;
+        span {
+          color: #3a3d42;
+        }
+      }
+    }
+    .operation-nav {
+      @include clearfix;
+      overflow: hidden;
+      a {
+        position: relative;
+        float: left;
+        display: block;
+        width: 25%;
+        height: 45px;
+        line-height: 45px;
+        background: #e1e6ef;
+        color: #3a3d42;
+        text-align: center;
+        font-size: 16px;
+        &.active {
+          color: #fff;
+          background: #3ecacb;
+        }
+        &:hover {
+          color: #fff;
+          background: #3ecacb;
+        }
+        i {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 1px;
+          height: 45px;
+          border-right: 1px solid #cbd2df;
+        }
+      }
+    }
+  }
+}
