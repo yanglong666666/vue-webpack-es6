@@ -49,6 +49,7 @@
     }
   }
   .video-main {
+    position: relative;
     @include clearfix;
     overflow: hidden;
     background: #f0f5fb;
@@ -57,6 +58,29 @@
       float: left;
       width: 710px;
       overflow: hidden;
+    }
+    .tab-link {
+      position: absolute;
+      left: 390px;
+      top: 15px;
+      @include clearfix;
+      overflow: hidden;
+      width: 705px;
+      a {
+        display: inline-block;
+        float: left;
+        width: 50%;
+        height: 38px;
+        line-height: 38px;
+        font-size: 14px;
+        color: #3a3d42;
+        background: #e1e6ef;
+        text-align: center;
+        &.active {
+          color: #fff;
+          background: #3ecacb;
+        }
+      }
     }
   }
 }
