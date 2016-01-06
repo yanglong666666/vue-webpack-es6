@@ -5,8 +5,8 @@ class: video
 ---
 <div class="video-main">
   <div class="tab-link">
-    <a class="active" href="javacript:void(0)">基本信息</a>
-    <a href="javacript:void(0)">机构信息</a>
+    <a class="active basic-link" href="javacript:void(0)">基本信息</a>
+    <a class="institution-link" href="javacript:void(0)">机构信息</a>
   </div>
   <div class="video-inner">
     <div class="video-top">
@@ -18,17 +18,15 @@ class: video
         <!-- 基本信息的照片3张 -->
         {% include component/video/video-photo.html %}
         <!-- 机构信息的5张照片 -->
-        <!-- {% include component/video/institution-photo.html %} -->
+        {% include component/video/institution-photo.html %}
         {% include component/video/video-verify.html %}
       </div>
     </div>
     {% include component/video/video-info.html %}
   </div>
   <div class="video-right" style="margin-top: 50px;">
-    <!-- {% include component/video/video-table.html %} -->
-    <!-- 后台人员请注意，以下注释的内容为“历史资料”和“修改资料”内容，谢谢 -->
-    {% include component/video/video-historical-data.html %}
-    {% include component/video/video-edit-data.html %}
+    {% include component/institution/basic-info.html %}
+    {% include component/institution/institution-info.html %}
     </div>
   </div>
 <div class="button-content">
@@ -259,5 +257,27 @@ class: video
         $('.dialog-content-words').find('textarea').removeClass('edit');
       });
     });
+    $('.tab-link').on('click', '.basic-link', function(event) {
+      //基本信息点击交互
+      event.preventDefault();
+      /* Act on the event */
+      $('.tab-link a').removeClass('active');
+      $(this).addClass('active');
+      $('#institution_basic_info').show();
+      $('#institution_info').hide();
+      $('#institution_photo_five').hide();
+      $('#basic_photo').show();
+    });
   });
+  $('.tab-link').on('click', '.institution-link', function(event) {
+      //机构信息点击交互
+      event.preventDefault();
+      /* Act on the event */
+      $('.tab-link a').removeClass('active');
+      $(this).addClass('active');
+      $('#institution_basic_info').hide();
+      $('#institution_info').show();
+      $('#institution_photo_five').show();
+      $('#basic_photo').hide();
+    });
 </script>
