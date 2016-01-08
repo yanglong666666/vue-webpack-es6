@@ -12,6 +12,9 @@
       line-height: 30px;
       background: #ebeff6;
       color: #6f7b91;
+      &.col-20 {
+        width: 20%;
+      }
       &.current {
         background: #e2e6ef;
         border-top: 5px solid #3ecacb;
