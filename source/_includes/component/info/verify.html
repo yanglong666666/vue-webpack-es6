@@ -41,19 +41,15 @@
     $('.ui-verify-table').on('click', '.big-img', function(event) {
       //点击图片出现大图交互
       event.preventDefault();
-      var img_big_screen = new Dialog(null,{
-        title: '',
-        width: '680',
-        needDestroy: true,
+      DIALOG.show({
+        dragable:true,
+        width:680,
+        title:'',
         hasBtn: true,
         btnText: ["取消","保存"],
-        btnRole: ['cancel','confirm'],
-        btnCls: ['cancel','confirm'],
-        confirm: function() {
-              //确定按钮事件
-              img_big_screen.hide();
-            },
-            content: '<div class="dialog-content-bigimg">'+
+        btnEvent: ["DIALOG.hide()", "DIALOG.hide()"],
+        btnCls: ['btn-cancel','btn-confirm  ml-30'],
+        html: '<div class="dialog-content-bigimg">'+
             '<div class="big-img">'+
             '<img alt="img" src="/images/video/temp5.png" width="350" height="350">'+
             '</div>'+
@@ -69,18 +65,18 @@
             '</div>'+
             '</div>'+
             '</div>'
-      });
+          });
       $('#identity').diySelect();
     });
     $('.contrast').on('click', '.contrast-btn', function(event) {
       //大图对比按钮交互
       event.preventDefault();
-      var contrast_screen = new Dialog(null,{
-        title: '',
-        width: '680',
-        needDestroy: true,
+      DIALOG.show({
+        dragable:true,
+        width:680,
+        title:'',
         hasBtn: false,
-        content: '<div class="dialog-content-contrast">'+
+        html: '<div class="dialog-content-contrast">'+
         '<div class="item">'+
         '<img class="left-img" src="/images/video/temp2.png" alt="img" width="284" height="214">'+
         '<img class="right-img" src="/images/video/temp3.png" alt="img" width="284" height="214">'+

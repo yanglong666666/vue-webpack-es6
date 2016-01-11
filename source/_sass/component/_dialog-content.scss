@@ -66,35 +66,7 @@
     }
   }
 
-  .dialog-content-bigimg {
-    @include clearfix;
-    overflow: hidden;
-    .big-img {
-      float: left;
-      width: 400px;
-    }
-    .operate-img {
-      position: relative;
-      float: right;
-      width: 220px;
-      margin-top: 50px;
-      .turn-content {
-        margin-bottom: 100px;
-        font-size: 16px;
-        a {
-          color: #3a3d42;
-        }
-        i {
-          display: inline-block;
-          vertical-align: middle;
-          background-image: url(../images/rotate.png);
-          width: 36px;
-          height: 47px;
-          margin: 0 10px 0 30px;
-        }
-      }
-    }
-  }
+
   .dialog-content-password {
     color: #ccd1da;
     font-size: 14px;
@@ -207,19 +179,7 @@
       }
     }
   }
-  .dialog-content-contrast {
-    .item {
-      @include clearfix;
-      overflow: hidden;
-      margin-bottom: 15px;
-      .left-img {
-        float: left;
-      }
-      .right-img {
-        float: right;
-      }
-    }
-  }
+
   .dialog-content-protocol {
     max-height: 300px;
     overflow-y: auto;
@@ -502,5 +462,47 @@
     margin: 0 auto;
     width: 110px;
     padding: 5px 0;
+  }
+}
+.dialog-content-bigimg {
+  @include clearfix;
+  overflow: hidden;
+  .big-img {
+    float: left;
+    width: 400px;
+  }
+  .operate-img {
+    position: relative;
+    float: right;
+    width: 220px;
+    margin-top: 50px;
+    .turn-content {
+      margin-bottom: 100px;
+      font-size: 16px;
+      a {
+        color: #3a3d42;
+      }
+      i {
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(../images/rotate.png);
+        width: 36px;
+        height: 47px;
+        margin: 0 10px 0 30px;
+      }
+    }
+  }
+}
+.dialog-content-contrast {
+  .item {
+    @include clearfix;
+    overflow: hidden;
+    margin-bottom: 15px;
+    .left-img {
+      float: left;
+    }
+    .right-img {
+      float: right;
+    }
   }
 }
