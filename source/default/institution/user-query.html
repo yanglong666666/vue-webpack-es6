@@ -1,0 +1,197 @@
+---
+title: 用户查询
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>姓名</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>手机号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>资金号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>渠道名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>开户类型</dt>
+      <dd>
+        <span>
+          <select name="" id="type_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">类型1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>存管银行</dt>
+      <dd>
+        <span>
+          <select name="" id="bank_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">银行1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>开户营业部</dt>
+      <dd>
+        <span>
+          <select name="" id="department_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">营业部1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>状态</dt>
+      <dd>
+        <span>
+          <select name="" id="status_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+            <option value="3">状态2</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>接入方式</dt>
+      <dd>
+        <span>
+          <select name="" id="method_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">方式1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output" href="#">输出报表</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="10%">姓名</td>
+        <td width="10%">手机号</td>
+        <td width="10%">资金号</td>
+        <td width="10%">接入方式</td>
+        <td width="10%">开户类型</td>
+        <td width="10%">渠道名称</td>
+        <td width="10%">开户营业部</td>
+        <td width="10%">状态</td>
+        <td width="10%">操作柜员</td>
+        <td width="10%" class="text-c">详情</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>李四</td>
+        <td>18922222222</td>
+        <td>1232132213123</td>
+        <td>手机开户</td>
+        <td>开户</td>
+        <td>渠道名称1</td>
+        <td>杭州庆春路营业部</td>
+        <td>开户失败</td>
+        <td>张三</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/institution/user-detail.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>18922222222</td>
+        <td>1232132213123</td>
+        <td>手机开户</td>
+        <td>开户</td>
+        <td>渠道名称1</td>
+        <td>杭州庆春路营业部</td>
+        <td>开户失败</td>
+        <td>张三</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/institution/user-detail.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>18922222222</td>
+        <td>1232132213123</td>
+        <td>手机开户</td>
+        <td>开户</td>
+        <td>渠道名称1</td>
+        <td>杭州庆春路营业部</td>
+        <td>开户失败</td>
+        <td>张三</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/institution/user-detail.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('#type_list').diySelect();
+    $('#bank_list').diySelect();
+    $('#department_list').diySelect();
+    $('#status_list').diySelect();
+    $('#method_list').diySelect();
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+  });
+</script>
