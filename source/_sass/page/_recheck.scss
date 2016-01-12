@@ -43,6 +43,7 @@
         overflow: hidden;
         margin-bottom: 10px;
         a {
+          position: relative;
           float: left;
           display: block;
           width: 350px;
@@ -54,6 +55,20 @@
           &.active {
             color: #3ecacb;
             border: 1px solid #3ecacb;
+            .selected {
+              display: inline-block;
+            }
+          }
+          .selected {
+            position: absolute;
+            top: 5px;
+            right: -39px;
+            //display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            background: url(../images/selected.png) 0 0 no-repeat;
+            display: none;
           }
         }
         label {
