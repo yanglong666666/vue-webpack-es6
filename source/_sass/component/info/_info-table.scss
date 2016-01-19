@@ -19,5 +19,17 @@
         }
       }
     }
+    .photo-table {
+      td {
+        &:nth-child(odd),
+        &:nth-child(even) {
+          width: 16%;
+          color: #6f7b91;
+        }
+        .name {
+          margin-bottom: 15px;
+        }
+      }
+    }
   }
 }
