@@ -205,43 +205,108 @@ class: OPI
     <script id="app_detail" name="content" type="text/plain" style="height:200px;"></script>
   </div>
   <div class="textbox-content">
-    <h2>二、产品概况</h2>
-    <label>
-      <input type="radio" name="pro-show"> 显示
-    </label>
-    <label>
-      <input type="radio" name="pro-show"> 不显示
-    </label>
+    <div>
+      <h2>二、产品概况</h2>
+      <label>
+        <input type="radio" name="pro-show"> 显示
+      </label>
+      <label>
+        <input type="radio" name="pro-show"> 不显示
+      </label>
+    </div>
+    <div class="rich-textbox">
+      <script id="introduce_detail" name="content" type="text/plain" style="height:200px;"></script>
+    </div>
   </div>
   <div class="textbox-content">
-    <h2>三、投资经理</h2>
-    <label>
-      <input type="radio" name="user-show"> 显示
-    </label>
-    <label>
-      <input type="radio" name="user-show"> 不显示
-    </label>
+    <div>
+      <h2>三、投资经理</h2>
+      <label>
+        <input type="radio" name="user-show"> 显示
+      </label>
+      <label>
+        <input type="radio" name="user-show"> 不显示
+      </label>
+    </div>
+    <div class="rich-textbox">
+      <script id="manager_detail" name="content" type="text/plain" style="height:200px;"></script>
+    </div>
   </div>
   <div class="textbox-content">
-    <h2>四、报告公告</h2>
-    <label>
-      <input type="radio" name="notice-show"> 报告公告
-    </label>
-    <label>
-      <input type="radio" name="notice-show"> 咨询展示
-    </label>
-    <label>
-      <input type="radio" name="notice-show"> 不显示
-    </label>
+    <div>
+      <h2>四、报告公告</h2>
+      <label>
+        <input type="radio" name="notice-show"> 报告公告
+      </label>
+      <label>
+        <input type="radio" name="notice-show"> 咨询展示
+      </label>
+      <label>
+        <input type="radio" name="notice-show"> 不显示
+      </label>
+    </div>
+    <!-- 报告公告内容 -->
+    <div class="rich-textbox" style="display:none">
+      <label class="w-300">
+        <input type="text" class="txt">
+      </label>
+      <span>例（http://ctsec.com）</span>
+    </div>
+    <!-- 报告公告内容 -->
+    <!-- 咨询展示内容 -->
+    <div class="rich-textbox">
+      <a class="btn-primary" href="#">添加资讯</a>
+      <div class="main-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+          <thead>
+            <tr>
+              <td width="65%">资讯标题</td>
+              <td width="15%">创建时间</td>
+              <td width="20%" class="text-c">操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>暂无资讯，暂无资讯！暂无资讯。</td>
+              <td>2016-01-01 11:11:11</td>
+              <td class="text-c">
+                <a href="javascript:void(0)" class="btn-fill btn-lw edit-btn">编辑</a>
+                <a href="javascript:void(0)" class="btn-fill btn-lw delete-btn">删除</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 咨询展示内容 -->
+    <!-- 咨询展示内容添加 -->
+    <div class="rich-textbox" style="display:none">
+      <div>
+        <span>资讯标题：</span>
+        <label class="w-300">
+          <input class="txt" type="text">
+        </label>
+      </div>
+      <p>资讯内容：</p>
+      <script id="message_detail" name="content" type="text/plain" style="height:200px;"></script>
+      <div class="button-content">
+        <a href="javascript:void(0)" class="btn-primary btn">取消</a>
+        <button class="ml-30 btn-fill btn">保存</button>
+      </div>
+    </div>
+    <!-- 咨询展示内容添加 -->
   </div>
   <div class="textbox-content">
-    <h2>五、累计净值</h2>
-    <label>
-      <input type="radio" name="sum-show"> 显示
-    </label>
-    <label>
-      <input type="radio" name="sum-show"> 不显示
-    </label>
+    <div>
+      <h2>五、累计净值</h2>
+      <label>
+        <input type="radio" name="sum-show"> 显示
+      </label>
+      <label>
+        <input type="radio" name="sum-show"> 不显示
+      </label>
+    </div>
+    <p class="remind">提示：数据来自数据库</p>
   </div>
   <div class="button-content">
     <a href="{{ site.baseurl }}/mall/OPI.html" class="btn-primary btn-lg">取消</a>
@@ -255,5 +320,8 @@ class: OPI
     $('.diy-select').diySelect({width:'280px'});
     var pc = UE.getEditor('pc_detail');
     var app = UE.getEditor('app_detail');
+    var introduce = UE.getEditor('introduce_detail');
+    var manager = UE.getEditor('manager_detail');
+    var message = UE.getEditor('message_detail');
   });
 </script>
