@@ -49,4 +49,27 @@
     padding: 0 40px 20px 40px;
     overflow: hidden;
   }
+  .rich-textbox {
+    margin: 0 40px;
+  }
+  .remind {
+    margin-top: 20px;
+  }
+  .w-300 {
+    width: 300px;
+    .txt {
+      width: 100%;
+    }
+  }
+  .main-table {
+    margin-top: 20px;
+    .data-table {
+      border: 1px solid #dedede;
+      thead {
+        td {
+          background: #e1e6ef;
+        }
+      }
+    }
+  }
 }
