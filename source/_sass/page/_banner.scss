@@ -1,0 +1,46 @@
+.page-banner {
+  .page-title {
+    margin:10px 0 13px;
+    font-size: 16px;
+    line-height: 16px;
+    color: #44c1de;
+  }
+  .search-dl {
+    margin-bottom: 13px;
+    span{
+      &.js-select {
+        width: 240px;
+      }
+    }
+  }
+  .button-inner {
+    .btn-fill {
+      width: 50px;
+      margin-right: 20px;
+    }
+  }
+  .main-table {
+    tr {
+      height: 80px;
+    }
+    .text-c {
+      a {
+        margin: 0 4px;
+        font-size:12px;
+        line-height: 12px;
+        color: #3ecacb;
+      }
+    }
+  }
+  .button-inner {
+    @include clearfix;
+    overflow: hidden;
+    margin-bottom: 20px;
+    a {
+      float: right;
+      &.btn-fill {
+        font-size: 14px;
+      }
+    }
+  }
+}
