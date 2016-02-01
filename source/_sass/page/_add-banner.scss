@@ -1,0 +1,108 @@
+.page-add-banner {
+  .add-item {
+    padding-left: 40px;
+  }
+  .back {
+    display:block;
+     margin:10px 0 13px;
+     font-size: 14px;
+     line-height: 14px;
+     color:#3ecacb
+   }
+  .item-box {
+    margin-bottom: 17px;
+    overflow: hidden;
+    .item-title {
+      float: left;
+      width: 86px;
+      font-size: 14px;
+      line-height: 34px;
+      color: #6f7b91;
+      text-align: right;
+      em {
+        margin-right: 6px;
+        font-size: 18px;
+        color: #ff5776;
+        vertical-align: -4px;
+      }
+    }
+    .item-info {
+      float: left;
+      margin-left:40px;
+      .search-dl {
+        float: left;
+        margin-right: 26px;
+        span{
+          &.js-select {
+            width: 150px;
+          }
+        }
+      }
+      label {
+        width: 327px;
+        .txt {
+          width: 327px;
+          line-height: 34px;
+        }
+      }
+    }
+    .upload-box {
+      .upload {
+        position: relative;
+        float: left;
+        width: 90px;
+        height: 34px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 34px;
+        color: #fff;
+        background: url('../images/input-bg.png') center no-repeat;
+        cursor: pointer;
+        .upload-bg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 14px;
+          color: #fff;
+          text-align: center;
+          line-height: 34px;
+        }
+        .input-file {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 110px;
+          height: 34px;
+          outline: none;
+          font-size: 34px;
+          opacity: 0;
+          filter: alpha(opacity=0);
+        }
+      }
+      .advice {
+        font-size: 12px;
+        line-height: 34px;
+        color: #a6a6a6;
+        margin-left: 20px;
+      }
+    }
+    .img-box {
+      width: 191px;
+      height: 43px;
+      margin-top:17px;
+    }
+  }
+  .button-inner {
+    margin: 36px 0 20px 124px;
+    .btn {
+      width: 155px;
+      height: 42px;
+      font-size:22px;
+      line-height: 42px;
+      margin-right: 17px;
+    }
+  }
+}
