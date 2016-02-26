@@ -18,6 +18,9 @@
       margin: 0 15px 15px 0;
       float: left;
       overflow: hidden;
+      &.notice-box {
+        height: 408px;
+      }
       .title {
         margin: 10px 15px 0 15px;
         text-align: center;
@@ -132,10 +135,10 @@
           resize: none;
         }
         textarea {
+          overflow: hidden;
           color: #6f7b91;
           background: none;
-          height: 152px;
-          overflow: hidden;
+          height: 302px;
         }
         .info {
           display: block;
