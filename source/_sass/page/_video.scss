@@ -22,8 +22,8 @@
     margin-right: 15px;
   }
   .video-right {
-    float: left;
     width: 370px;
+    margin-left: 710px;
     overflow: hidden;
   }
   .v-title {
@@ -55,7 +55,9 @@
     background: #f0f5fb;
     padding: 15px;
     .video-inner {
-      float: left;
+      position: absolute;
+      top: 15px;
+      left: 15px;
       width: 710px;
       overflow: hidden;
     }

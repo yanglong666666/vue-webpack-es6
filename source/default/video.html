@@ -139,6 +139,7 @@ class: video
           title: '',
           width: '450',
           hasBtn:true,
+          needIframe:true,
           btnText: ["确定", "取消"],
           html: '<div class="dialog-content-input dialog-center">'+
             '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
@@ -162,6 +163,7 @@ class: video
           title: '',
           width: '400',
           hasBtn:true,
+          needIframe:true,
           btnText: ["确定"],
           html: '<div class="dialog-content-radio dialog-center">'+
           '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
@@ -175,6 +177,7 @@ class: video
           title: '',
           width: '450',
           hasBtn:true,
+          needIframe:true,
           btnText: ["确定"],
           html: '<div class="dialog-content-select dialog-center">'+
           '<span>'+$(this).parent().parent().find('.title').text()+'：</span>'+
@@ -204,6 +207,7 @@ class: video
           width: '400',
           needDestroy: true,
           hasBtn: true,
+          needIframe:true,
           btnText: ["取消","确定"],
           btnRole: ['cancel','confirm'],
           btnCls: ['cancel', 'confirm'],
@@ -240,6 +244,7 @@ class: video
       DIALOG.show({
         dragable: true,
         width: 350,
+        needIframe:true,
         title: '话术',
         html: '<div class="dialog-content-words">'+
           '<i class="edit-words"></i>'+

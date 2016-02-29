@@ -12,10 +12,15 @@
     overflow: hidden;
     .notice-inner {
       width: 352px;
+      height: 266px;
       border-top: 4px solid #3ecacb;
       background: #f0f5fb;
-      margin: 0 15px 15px 0px;
+      margin: 0 15px 15px 0;
       float: left;
+      overflow: hidden;
+      &.notice-box {
+        height: 408px;
+      }
       .title {
         margin: 10px 15px 0 15px;
         text-align: center;
@@ -43,12 +48,18 @@
         margin-top: 10px;
         .time-inner {
           margin-bottom: 15px;
+          font-size: 0;
+          span {
+            font-size: 14px;
+          }
         }
         .time-label {
           width: 80px;
           margin-left: 8px;
+          font-size: 12px;
           .txt {
             width: 80px;
+            font-size: 12px;
           }
         }
         .btn-normal {
@@ -74,7 +85,7 @@
         position: absolute;
         width: 70px;
         top: 20px;
-        right: 10px;
+        right: 0;
         text-align: center;
         .set-inner {
           background: #fff;
@@ -121,12 +132,19 @@
       }
       &.readonly {
         .title {
+          width: 290px;
           background: none;
+          height: 35px;
+          line-height: 18px;
+          text-align: left;
+          overflow: hidden;
+          resize: none;
         }
         textarea {
+          overflow: hidden;
           color: #6f7b91;
           background: none;
-          height: 303px;
+          height: 302px;
         }
         .info {
           display: block;
