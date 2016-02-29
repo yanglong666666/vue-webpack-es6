@@ -48,12 +48,18 @@
         margin-top: 10px;
         .time-inner {
           margin-bottom: 15px;
+          font-size: 0;
+          span {
+            font-size: 14px;
+          }
         }
         .time-label {
           width: 80px;
           margin-left: 8px;
+          font-size: 12px;
           .txt {
             width: 80px;
+            font-size: 12px;
           }
         }
         .btn-normal {
