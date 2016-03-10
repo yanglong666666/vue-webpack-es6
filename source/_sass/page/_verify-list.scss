@@ -1,0 +1,56 @@
+.page-verify-list {
+  .verify-tip {
+    position: relative;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #f6d1d8;
+    text-align: center;
+    .tip-box {
+      display: inline-block;
+      i {
+        display: inline-block;
+        width: 19px;
+        height: 19px;
+        vertical-align: middle;
+        background: url("../images/tip.png") center no-repeat;
+      }
+      span {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #646464;
+        vertical-align: middle;
+      }
+      a {
+        display: inline-block;
+        width: 76px;
+        height: 28px;
+        padding: 0;
+        margin-left: 42px;
+        border-radius: 4px;
+        background-color: #e4788c;
+        font-size: 14px;
+        line-height: 28px;
+        text-align: center;
+        color: #fbfbfb;
+      }
+    }
+    .tip-hide {
+      position: absolute;
+      top: 18px;
+      right: 14px;
+      i {
+        display: inline-block;
+        width: 19px;
+        height: 19px;
+        vertical-align: middle;
+        background: url("../images/hide.png") center no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+  .main-table {
+    .detail-btn {
+      color: #3ecacb;
+    }
+  }
+}

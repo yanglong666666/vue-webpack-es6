@@ -1,0 +1,171 @@
+---
+title: 审核内容
+layout: default
+class: verify-info
+---
+
+{% include component/business-verify/item.html %}
+{% include component/business-verify/assistant.html %}
+{% include component/business-verify/user.html %}
+{% include component/business-verify/photo.html %}
+{% include component/business-verify/business-info.html %}
+{% include component/business-verify/file.html %}
+{% include component/business-verify/info.html %}
+
+<div class="opinion-content">
+  <div class="button-content">
+    <button class="btn-lg through-btn verify-btn" href="#">复核通过</button>
+    <button class="btn-lg ml-30 nothrough-btn verify-btn" href="#">需要整改</button>
+    <button class="btn-lg ml-30 verify-btn transfer-btn" href="#">任务移交</button>
+  </div>
+  <div class="no-through-content reform-content" style="display:none;">
+    <div class="wrap">
+      <div class="no-through-item">
+        <p>整改意见</p>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="no-through-content reform-content" style="display:none">
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">身份证照片不合格<i class="selected"></i></a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">公安认证信息不一致<i class="selected"></i></a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">基本资料有误<i class="selected"></i></a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">用户中断<i class="selected"></i></a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+    <div class="no-through-item">
+      <a class="reason-btn" href="javascript:void(0)">头像照采集失败<i class="selected"></i></a>
+      <label>
+        <span>备注：</span>
+        <input type="text" class="input">
+      </label>
+    </div>
+  </div>
+  <div class="no-through-content transfer-content" style="display:none;">
+    <div class="wrap">
+      <div class="no-through-item">
+        <p>移交整改意见</p>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-content">
+  <button class="btn-lg btn-fill" id="submit_btn">提交</button>
+</div>
+<div class="main-table log-table">
+  <h2 class="table-title">客服操作流水</h2>
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="25%">操作人</td>
+        <td width="25%">操作</td>
+        <td width="25%">操作内容</td>
+        <td width="25%">操作时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+      <tr>
+        <td>0002 张飞 18900001111</td>
+        <td>审核</td>
+        <td>社和通过开户申请通过视频验证通过</td>
+        <td>2014-12-14 14:23</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.button-content').on('click', '#submit_btn', function(event) {
+      //提交按钮弹出层
+      event.preventDefault();
+      /* Act on the event */
+      var submit_screen = new Dialog(null,{
+        title: '复核结果',
+        width: '500',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["确定"],
+        btnRole: ['confirm'],
+        confirm: function() {
+          //确定按钮事件
+          submit_screen.hide();
+        },
+        content: '<div class="dialog-content-recheck">'+
+                  '<p class="result"><i class="success"></i>复核成功</p>'+
+                  '<p class="result"><i class="success"></i>上传身份证正面照成功</p>'+
+                  '<p class="result"><i class="success"></i>上传身份证反面照成功</p>'+
+                  '<p class="result"><i class="error"></i>上传客户免冠照失败</p>'+
+                  '<p class="result"><i class="success"></i>上传身份证反面照成功</p>'+
+                  '<p class="result"><i class="success"></i>上传身份证反面照成功</p>'+
+                 '</div>'
+      });
+    });
+    $('.opinion-content').on('click', '.verify-btn', function(event) {
+      //通过不通过按钮交互
+      event.preventDefault();
+      /* Act on the event */
+      $('.opinion-content').find('.verify-btn').removeClass('current');
+      $(this).addClass('current');
+      if($(this).hasClass('nothrough-btn')) {
+        $('.no-through-content').hide();
+        $('.reform-content').show();
+      } else if($(this).hasClass('transfer-btn')) {
+        $('.no-through-content').hide();
+        $('.transfer-content').show();
+      } else {
+        $('.no-through-content').hide();
+      }
+    });
+    $('.opinion-content').on('click', '.reason-btn', function(event) {
+      //不通过理由交互
+      event.preventDefault();
+      /* Act on the event */
+      if($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      } else {
+        $(this).addClass('active');
+      }
+    });
+  });
+</script>
