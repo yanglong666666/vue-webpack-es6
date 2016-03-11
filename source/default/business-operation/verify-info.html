@@ -1,119 +1,292 @@
 ---
 title: 审核内容
-layout: default
+layout: default-jz
 class: verify-info
 ---
 
 {% include component/business-verify/item.html %}
+
 {% include component/business-verify/assistant.html %}
+
 {% include component/business-verify/user.html %}
+
 {% include component/business-verify/photo.html %}
+
 {% include component/business-verify/business-info.html %}
+
 {% include component/business-verify/file.html %}
+
 {% include component/business-verify/info.html %}
 
-<div class="opinion-content">
-  <div class="button-content">
-    <button class="btn-lg through-btn verify-btn" href="#">复核通过</button>
-    <button class="btn-lg ml-30 nothrough-btn verify-btn" href="#">需要整改</button>
-    <button class="btn-lg ml-30 verify-btn transfer-btn" href="#">任务移交</button>
-  </div>
-  <div class="no-through-content reform-content" style="display:none;">
-    <div class="wrap">
-      <div class="no-through-item">
-        <p>整改意见</p>
-        <textarea></textarea>
+<div class="verify-item last">
+  <h2>审核结论</h2>
+  <div class="ui-through-content">
+    <div class="button-content">
+      <button class="btn-lg btn-fill btn-primary">审核通过</button>
+      <button class="btn-lg ml-30 btn-primary verify-btn">审核打回</button>
+    </div>
+    <div class="no-through-content" style="display: none;">
+      <div class="no-through-inner">
+        <div class="no-through-item">
+          <span class="name">选择原因</span>
+          <span>
+            <select name="" id="result_1" class="diy-select" style="display: none;">
+              <option value="">请选择</option>
+              <option value="short_code">渠道短码</option>
+              <option value="channel_name">渠道名称</option>
+            </select>
+            <span class="js-select" id="result_1-select">请选择<i class="arrow"></i></span>
+          </span>
+          <label>
+            <span>备注：</span>
+            <input type="text" class="input" maxlength="20">
+          </label>
+          <a class="delete" href="javascript:void(0)">删除</a>
+        </div>
+      </div>
+      <a class="add-no-through" href="javascript:void(0)"><i></i>添加</a>
+      <div class="button-content">
+        <button class="btn-lg btn-fill" href="javascript:void(0)" onclick="handInfo();">提交</button>
       </div>
     </div>
-  </div>
-  <div class="no-through-content reform-content" style="display:none">
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">身份证照片不合格<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">公安认证信息不一致<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">基本资料有误<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">用户中断<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">头像照采集失败<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-  </div>
-  <div class="no-through-content transfer-content" style="display:none;">
-    <div class="wrap">
-      <div class="no-through-item">
-        <p>移交整改意见</p>
-        <textarea></textarea>
-      </div>
-    </div>
-  </div>
 </div>
-<div class="button-content">
-  <button class="btn-lg btn-fill" id="submit_btn">提交</button>
 </div>
-<div class="main-table log-table">
-  <h2 class="table-title">客服操作流水</h2>
-  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-    <thead>
-      <tr>
-        <td width="25%">操作人</td>
-        <td width="25%">操作</td>
-        <td width="25%">操作内容</td>
-        <td width="25%">操作时间</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>0002 张飞 18900001111</td>
-        <td>审核</td>
-        <td>社和通过开户申请通过视频验证通过</td>
-        <td>2014-12-14 14:23</td>
-      </tr>
-      <tr>
-        <td>0002 张飞 18900001111</td>
-        <td>审核</td>
-        <td>社和通过开户申请通过视频验证通过</td>
-        <td>2014-12-14 14:23</td>
-      </tr>
-      <tr>
-        <td>0002 张飞 18900001111</td>
-        <td>审核</td>
-        <td>社和通过开户申请通过视频验证通过</td>
-        <td>2014-12-14 14:23</td>
-      </tr>
-      <tr>
-        <td>0002 张飞 18900001111</td>
-        <td>审核</td>
-        <td>社和通过开户申请通过视频验证通过</td>
-        <td>2014-12-14 14:23</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+<script type="text/javascript">
+  $('.license').on('click', function(event) {
+    //点击图片出现大图交互
+    event.preventDefault();
+    var src = $(this).attr("src");
+    var img_big_screen = new Dialog(null,{
+      title: '',
+      width: '350',
+      needDestroy: true,
+      hasBtn: true,
+      btnText: ["确定"],
+      btnRole: ['confirm'],
+      btnCls: ['confirm'],
+      confirm: function() {
+        //确定按钮事件
+        img_big_screen.hide();
+      },
+      content: '<div class="dialog-content-bigimg">'+
+      '<div class="big-img">'+
+      '<img alt="img" src="'+ src +'" width="300" height="200">'+
+      '</div>'+
+      '</div>'
+    });
+  });
+
+  var flag = 2;
+  $(function(){
+    $('.diy-select').diySelect();
+
+    $('.button-content button').bind('click', function(){
+      $(this).addClass('btn-fill').siblings().removeClass('btn-fill');
+    });
+
+    $('.ui-through-content').on('click', '.verify-btn', function(event) {
+      $('.no-through-content').show();
+    });
+
+    $('.ui-through-content').on('click', '.delete', function(event) {
+      //删除不通过理由交互
+      event.preventDefault();
+      /* Act on the event */
+      $(this).parent().remove();
+    });
+
+    $('.ui-through-content').on('click', '.add-no-through', function(event) {
+      //添加不通过理由交互
+      event.preventDefault();
+      /* Act on the event */
+      var str = '<div class="no-through-item">'+
+        '<span class="name">选择原因</span>\n'+
+        '<span>'+
+        '<select name="" id="result_'+flag+'" class="diy-select">'+
+        '<option value="">请选择</option>'+
+        '<option value="short_code">渠道短码</option>'+
+        '<option value="channel_name">渠道名称</option>'+
+        '</select>'+
+        '</span>\n'+
+        '<label>'+
+        '<span>备注：</span>\n'+
+        '<input type="text" class="input" maxlength="20">'+
+        '</label>'+
+        '<a class="delete" href="javascript:void(0)">删除</a>'+
+        '</div>'+
+        '</div>';
+      $('.no-through-inner').append(str);
+      $('.diy-select').diySelect();
+      flag++;
+    });
+  });
+
+  function handInfo(){
+    var businflow_no = 1000;
+    var result = "";
+    if(businflow_no=="1000" || businflow_no == "1001" || businflow_no == "1004"){
+      for(i=1;i<flag;i++){
+        if(i<flag-1){
+          var remaker= $("#result_"+i).parent().next().find("input").val();
+          if(remaker==""){
+            alert("请填写打回原因!");
+            return;
+          }
+          result+=$("#result_"+i).val()+":"+remaker+";";
+        }else{
+          var remaker= $("#result_"+i).parent().next().find("input").val();
+          if(remaker==""){
+            alert("请填写打回原因!");
+            return;
+          }
+          result+=$("#result_"+i).val()+":"+remaker;
+        }
+      }
+    }else{
+      result=$("#failReason").val();
+    }
+
+    $.ajax({
+      type: "post",
+      traditional: true,
+      data: {
+        operator_no:"000000",
+        request_no:"12",
+        en_column_name:[result]
+      },
+      dataType: "json",
+      url: "/handleAuditFail.json?rnd=" + new Date().getTime(),
+      success: function (data) {
+        if(data.error_no==0) {
+          alert("打回成功");
+          location.href="check.htm";
+        }else{
+          alert(data.error_info);
+        }
+      }
+    });
+  }
+
+  function checkSubmit(){
+    var businflow_no ="1000";
+    var valid_date = $("#validDate").val();
+    var channelValidDate = $("#channelValidDate").val();
+    if(businflow_no==1003){
+      var channel_validdate ="";
+      valid_date =valid_date.replace("-","").replace("-","");
+      if(parseInt(valid_date)>parseInt(channel_validdate)){
+        alert("授权码有效期不能大于渠道有效期！");
+        return;
+      }
+      $.ajax({
+        type: "post",
+        data: {
+          operator_no:"000000",
+          businflow_no: businflow_no,
+          user_id:"100008",
+          valid_date: valid_date
+        },
+        dataType: "json",
+        url: "/updateReqParamsByOperator.json?rnd=" + new Date().getTime(),
+        success: function (data) {
+          if(data.error_no==0){
+            $.ajax({
+              type: "post",
+              data: {
+                operator_no:"000000",
+                request_no: "12"
+              },
+              dataType: "json",
+              url: "/handleAuditSuccess.json?rnd=" + new Date().getTime(),
+              success: function (data) {
+                if(data.error_no==0) {
+                  alert("修改成功");
+                  location.href="check.htm";
+                }else{
+                  alert(data.error_info);
+                }
+              }
+            });
+          }else{
+            alert(data.error_info);
+          };
+        }
+      });
+    }else if(businflow_no==1004){
+      $.ajax({
+        type: "post",
+        data: {
+          operator_no:"000000",
+          request_no: "12"
+        },
+        dataType: "json",
+        url: "/handleAuditSuccess.json?rnd=" + new Date().getTime(),
+        success: function (data) {
+          if(data.error_no==0) {
+
+          }else{
+            alert(data.error_info);
+          }
+        }
+      });
+
+      $.ajax({
+        type: "post",
+        data: {
+          broker_id: "100008"
+        },
+        dataType: "json",
+        url: "/updPhoto.json?rnd=" + new Date().getTime(),
+        success: function (data) {
+          if(data.error_no==0) {
+            alert("修改成功");
+            location.href="check.htm";
+          }else{
+            alert(data.error_info);
+          }
+        }
+      });
+
+    }else if(businflow_no==1005){
+      $.ajax({
+        type: "post",
+        data: {
+          operator_no:"000000",
+          businflow_no: businflow_no,
+          user_id:"100008",
+          channel_validdate: channelValidDate
+        },
+        dataType: "json",
+        url: "/updateReqParamsByOperator.json?rnd=" + new Date().getTime(),
+        success: function (data) {
+          if(data.error_no==0){
+            $.ajax({
+              type: "post",
+              data: {
+                operator_no:"000000",
+                request_no: "12"
+              },
+              dataType: "json",
+              url: "/handleAuditSuccess.json?rnd=" + new Date().getTime(),
+              success: function (data) {
+                if(data.error_no==0) {
+                  alert("修改成功");
+                  location.href="check.htm";
+                }else{
+                  alert(data.error_info);
+                }
+              }
+            });
+          }else{
+            alert(data.error_info);
+          };
+        }
+      });
+    }
+  }
+</script>
+
 <script type="text/javascript">
   $(function(){
     $('.button-content').on('click', '#submit_btn', function(event) {

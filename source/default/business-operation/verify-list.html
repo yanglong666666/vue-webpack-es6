@@ -1,6 +1,6 @@
 ---
 title: 审核列表
-layout: default
+layout: default-jz
 class: verify-list
 ---
 <div class="verify-tip">
@@ -67,7 +67,7 @@ class: verify-list
         <span>
           <select name="" id="type_list" class="diy-select" style="display: none;">
             <option selected="" value="1">全部</option>
-            <option value="2">业务类型1</option>
+            <option value="2">创业板开通</option>
           </select>
         </span>
       </dd>
@@ -78,7 +78,10 @@ class: verify-list
         <span>
           <select name="" id="status_list" class="diy-select" style="display: none;">
             <option selected="" value="1">全部</option>
-            <option value="2">状态1</option>
+            <option value="2">待审核</option>
+            <option value="3">审核中</option>
+            <option value="4">审核通过</option>
+            <option value="5">审核失败</option>
           </select>
         </span>
       </dd>
@@ -145,7 +148,7 @@ class: verify-list
         <td>已通过</td>
         <td>李大成</td>
         <td class="text-c">
-          <a href="verify-info.html" class="btn-lw detail-btn">详情</a>
+          <a href="verify-detail.html" class="btn-lw detail-btn">详情</a>
         </td>
       </tr>
       <tr>
@@ -160,7 +163,7 @@ class: verify-list
         <td>已通过</td>
         <td>李大成</td>
         <td class="text-c">
-          <a href="verify-info.html" class="btn-lw detail-btn">详情</a>
+          <a href="verify-detail.html" class="btn-lw detail-btn">详情</a>
         </td>
       </tr>
       <tr>
@@ -205,7 +208,7 @@ class: verify-list
         <td>未通过</td>
         <td>李大成</td>
         <td class="text-c">
-          <a href="verify-info.html" class="btn-lw detail-btn">详情</a>
+          <a href="verify-detail.html" class="btn-lw detail-btn">详情</a>
         </td>
       </tr>
     </tbody>
@@ -226,23 +229,6 @@ class: verify-list
       onClose: function( selectedDate ) {
           $('.begin-time').datepicker( "option", "maxDate", selectedDate );
         }
-    });
-    $('.data-table').on('click', '.detail-btn', function(event) {
-      //详情按钮交互
-      event.preventDefault();
-      /* Act on the event */
-      var submit_screen = new Dialog(null,{
-        title: '温馨提示',
-        width: '500',
-        needDestroy: true,
-        hasBtn: false,
-        content: '<div class="dialog-content-wtlog">'+
-                  '<p>上海证券账户开立-->失败</p>'+
-                  '<p class="error">失败原因[160162：本地已存在有效股东账户（A0512322）]</p>'+
-                  '<p>上海证券账户开立-->开始</p>'+
-                  '<p>上海证券账户开立-->开始</p>'+
-                 '</div>'
-      });
     });
   });
 </script>

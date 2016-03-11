@@ -1,5 +1,27 @@
 .page-verify-info {
+  .ui-table-info {
+    &.user {
+      .info-table {
+        td:nth-child(even) {
+          width: 20%;
+        }
+      }
+    }
+    .info-table {
+      td {
+        padding: 10px 10px 10px 15px;
+      }
+      &.failed {
+        .failed {
+          color: #999;
+        }
+      }
+    }
+  }
   .verify-item {
+    &.last {
+      padding-bottom: 200px;
+    }
     h2 {
       font-size: 16px;
       color: #44c1de;
@@ -7,14 +29,94 @@
     }
     .verify-item-content {
       background: #f0f5fb;
-      padding: 15px 20px;
+      padding: 15px;
     }
   }
-  .ui-table-info {
-    .main-table {
-      .info-table {
-        td:nth-child(even) {
-          width: 20%;
+  .ui-through-content {
+    background: #f0f5fb;
+    padding: 15px;
+    margin-top: 10px;
+    .button-content {
+      margin: 30px 0;
+      button {
+        outline: none;
+      }
+    }
+    .no-through-content {
+      .no-through-item {
+        margin-bottom: 10px;
+        .name {
+          display: inline-block;
+          width: 100px;
+        }
+        span {
+          .js-select {
+            width: 350px;
+            margin-right: 30px;
+          }
+        }
+        label {
+          display: inline-block;
+          width: 40%;
+          height: auto;
+          span {
+            display: inline-block;
+          }
+          .input {
+            background: none;
+            border: 1px solid #c9d2dc;
+            height: 35px;
+            line-height: 35px;
+            outline: none;
+            width: 350px;
+            padding: 0 10px;
+          }
+        }
+        .delete {
+          color: #3ecacb;
+        }
+      }
+      .add-no-through {
+        display: block;
+        color: #3ecacb;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #3ecacb;
+        height: 28px;
+        line-height: 28px;
+        width: 365px;
+        text-align: center;
+        margin: 15px 0 15px 105px;
+        i {
+          display: inline-block;
+          vertical-align: middle;
+          width: 18px;
+          height: 18px;
+          margin: 0px 5px 3px 0px;
+          background: url("../images/add-ico.png") 0 0 no-repeat;
+        }
+      }
+    }
+    &.no-through-content {
+      position: relative;
+      .button-content {
+        margin: 70px 0;
+      }
+      .no-through-advice {
+        position: absolute;
+        top: 22px;
+        right: 64px;
+        textarea {
+          margin-top: 15px;
+          border-radius: 5px;
+          outline: none;
+          width: 200px;
+          height: 100px;
+          border: none;
+          background: #e1e6ef;
+          line-height: 20px;
+          padding: 10px;
+          resize: none;
         }
       }
     }
