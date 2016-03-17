@@ -1,7 +1,4 @@
 span.js-select {
-  background-image: url(../images/diyselect.png);
-  background-position: right 15px;
-  background-repeat: no-repeat;
   border: none;
   color: #4D4D4D;
   cursor: pointer;
@@ -22,6 +19,16 @@ span.js-select {
   width: 150px;
   border-radius: 5px;
   padding: 0px 10px;
+  i.arrow {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    vertical-align: middle;
+    background: url(../images/icolist.png) -80px -30px no-repeat;
+  }
 }
 .js-option {
   position: absolute;
