@@ -4,3 +4,5 @@ node_modules/
 .idea/
 .svn
 .DS_Store
+.ruby-gemset
+.ruby-version
