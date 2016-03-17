@@ -1,0 +1,36 @@
+---
+title: 渠道管理-渠道信息
+layout: default
+class: channel-info
+---
+
+<div class="ui-back-content">
+  <a class="back-btn" href="{{ site.baseurl }}/default/channel-manage.html">&lt;返回</a>
+</div>
+<div class="tab-content">
+  <div class="tab">
+    <a class="tab1" href="{{ site.baseurl }}/user-data1.html">用户资料</a>
+    <a class="tab2 active" href="{{ site.baseurl }}/channel-info1.html">渠道信息</a>
+  </div>
+</div>
+<div class="channel-content">
+  <div class="channel-link">
+    <a class="active" href="#">开户</a>
+    <a href="#">产品销售</a>
+    <a href="#">活动营销</a>
+  </div>
+  <div class="channel-info">
+    <a class="active" href="#">渠道1</a>
+    <a href="#">渠道2</a>
+    <a href="#">渠道3</a>
+    <a href="#">+</a>
+  </div>
+</div>
+<div class="channel-table">
+  <a class="btn-primary-white edit-sdk" href="{{ site.baseurl }}/sdk-edit.html">修改</a>
+  {% include component/info/sdk.html %}
+</div>
+<div class="channel-table">
+  <a class="btn-primary-white edit-channel" href="{{ site.baseurl }}/channel-edit.html">修改</a>
+  {% include component/info/channel.html %}
+</div>

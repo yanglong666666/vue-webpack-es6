@@ -2,11 +2,9 @@
 encoding: UTF-8
 author: ld
 email: luodan@cairenhui.com
-baseurl: "/default"
-url: "http://yourdomain.com"
-source: source
-destination: _site
 
 # Build settings
+source: source
+destination: public
 sass:
     sass_dir: _sass

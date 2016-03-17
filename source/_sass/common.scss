@@ -171,3 +171,14 @@ tbody {
     }
   }
 }
+
+// 返回按钮
+.ui-back-content {
+  .back-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #3ecacb;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,75 @@
+.page-question-manage {
+  .question-item {
+    @include clearfix;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .name {
+      float: left;
+      width: 100px;
+      text-align: right;
+      margin-right: 15px;
+      display: inline-block;
+      line-height: 35px;
+    }
+    .info {
+      display: inline-block;
+      line-height: 35px;
+    }
+    .item-inner {
+      float: left;
+      width: 70%;
+    }
+    .sub-name {
+      display: inline-block;
+      margin: 0 15px 0 30px;
+    }
+    textarea {
+      width: 380px;
+      padding: 10px;
+      background: #e1e6ef;
+      resize: none;
+      height: 40px;
+      line-height: 20px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+    }
+    label.w-400 {
+      width: 400px;
+      .txt {
+        width: 400px;
+      }
+    }
+    label.w-100 {
+      width: 100px;
+      .txt {
+        width: 100px;
+      }
+    }
+    input[type="radio"] {
+      vertical-align: middle;
+      margin-right: 5px;
+      display: inline-block;
+    }
+    .option-content {
+      float: left;
+      .option-item {
+        margin-bottom: 20px;
+        .detele {
+          color: #3ecacb;
+          display: inline-block;
+          margin-left: 5px;
+        }
+      }
+      .add-option {
+        a {
+          color: #3ecacb;
+        }
+      }
+    }
+  }
+  #container {
+    width: 95%;
+    height: 200px;
+  }
+}

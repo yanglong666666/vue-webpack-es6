@@ -1,0 +1,17 @@
+.page-activity {
+  .table-title {
+    font-size: 16px;
+    color: #44c1de;
+    margin: 15px 0 10px 0;
+  }
+  .ui-table-info,
+  .main-table {
+    position: relative;
+  }
+  .edit-activity,
+  .add-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
