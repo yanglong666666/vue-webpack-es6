@@ -55,69 +55,6 @@
 }
 
 .page-commission-plus {
-  .usernum-content {
-    ul{
-      @include clearfix;
-      overflow: hidden;
-    }
-    li {
-      float: left;
-      margin-right: 1%;
-      width: 19%;
-      display: block;
-      &:last-child {
-        margin: 0px;
-      }
-      p {
-        line-height: 40px;
-        height: 40px;
-        text-align: center;
-        width: 100%;
-        font-size: 30px;
-        color: #fff;
-        border-radius: 8px 8px 0px 0px;
-      }
-      h2 {
-        line-height: 30px;
-        height: 30px;
-        font-size: 14px;
-        text-align: center;
-        width: 100%;
-        background: #fff;
-      }
-      &.tody {
-        p {
-          background: #63a9ff;
-        }
-        h2 {
-          color: #63a9ff;
-        }
-      }
-      &.month {
-        p {
-          background: #b897f3;
-        }
-        h2 {
-          color: #b897f3;
-        }
-      }
-      &.sum {
-        p {
-          background: #e4788c;
-        }
-        h2 {
-          color: #e4788c;
-        }
-      }
-    }
-    .refresh-content {
-      text-align: right;
-      margin-top: 20px;
-      .refresh-btn {
-        margin-left: 10px;
-      }
-    }
-  }
   .most-partment {
     width: 950px;
     margin: 40px auto 30px auto;
