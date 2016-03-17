@@ -1,0 +1,122 @@
+---
+title: 渠道列表
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>注册人名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>注册人手机号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>渠道名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>类型</dt>
+      <dd>
+        <span>
+          <select name="" id="type_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">类别1</option>
+            <option value="3">类别2</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>申请时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <button class="btn-primary output">输出报表</button>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="15%">流水号</td>
+        <td width="10%">注册人名称</td>
+        <td width="15%">类型</td>
+        <td width="15%">注册人手机号</td>
+        <td width="10%">申请时间</td>
+        <td width="15%">渠道名称</td>
+        <td width="10%">状态</td>
+        <td width="10%" class="text-c">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12321212</td>
+        <td>张三</td>
+        <td>个人</td>
+        <td>15322221111</td>
+        <td>2015-11-11 11:11</td>
+        <td>名称121221</td>
+        <td>待审核</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/channel-list-info1.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+      <tr>
+        <td>12321212</td>
+        <td>张三</td>
+        <td>个人</td>
+        <td>15322221111</td>
+        <td>2015-11-11 11:11</td>
+        <td>名称121221</td>
+        <td>待审核</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/channel-list-info1.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.diy-select').diySelect();
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+  });
+</script>

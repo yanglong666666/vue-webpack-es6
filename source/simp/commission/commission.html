@@ -1,0 +1,121 @@
+---
+title: 佣金统计
+layout: default
+class: commission-plus
+---
+
+<div class="main-content usernum-content">
+  <ul>
+    <li class="tody">
+      <p>356</p>
+      <h2>今日注册人数</h2>
+    </li>
+    <li class="tody">
+      <p>356</p>
+      <h2>今日开户人数</h2>
+    </li>
+    <li class="month">
+      <p>9356</p>
+      <h2>本月注册人数</h2>
+    </li>
+    <li class="month">
+      <p>12356</p>
+      <h2>本月开户人数</h2>
+    </li>
+    <li class="sum">
+      <p>66356</p>
+      <h2>累计开户人数</h2>
+    </li>
+  </ul>
+  <div class="refresh-content">
+    <span>数据截止日期：2015-01-01 11:11:11</span>
+    <a class="btn-primary btn-lw refresh-btn" href="#">刷新</a>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>渠道名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>渠道短码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>统计时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time1" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time1" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <button class="btn-primary output">输出报表</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <td width="20%">渠道名称</td>
+        <td width="20%">渠道短码</td>
+        <td width="25%">分给渠道金额（元）</td>
+        <td width="25%">渠道贡献金额（元）</td>
+        <td width="10%" class="text-c">详情</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>渠道名称1</td>
+        <td>123123213</td>
+        <td>123,123,000</td>
+        <td>123,123,000</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/commission/commission-info.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+      <tr>
+        <td>渠道名称1</td>
+        <td>123123213</td>
+        <td>123,123,000</td>
+        <td>123,123,000</td>
+        <td class="text-c">
+          <a href="{{ site.baseurl }}/commission/commission-info.html" class="btn-fill btn-lw detail-btn">查看</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.begin-time1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time1').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time1').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time1').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+  });
+</script>

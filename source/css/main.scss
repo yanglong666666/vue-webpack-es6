@@ -56,6 +56,7 @@
 @import "component/detail-info";
 @import "component/table-info";
 @import "component/record/verify-record";
+@import "component/configure";
 
 
 //Page
@@ -67,6 +68,7 @@
 @import "page/recheck";
 @import "page/verify";
 @import "page/log";
+@import "page/users";
 @import "page/user-detail";
 @import "page/marketing-manage";
 @import "page/role";
@@ -117,6 +119,7 @@
 @import "page/operation-statistics";
 @import "page/banner";
 @import "page/add-banner";
+@import "page/open-account";
 
 //业务集中运营平台
 @import "page/verify-list";
