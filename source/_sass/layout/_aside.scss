@@ -325,6 +325,117 @@
         background: url('../images/aside-jz.png') center no-repeat;
       }
     }
+    li.check {
+      span {
+        left: 13px;
+        top: 16px;
+        width: 16px;
+        height: 19px;
+        background: url('../images/aside-simp.png') 0 0 no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-simp.png') -40px 0 no-repeat;
+        }
+      }
+    }
+    li.channel-list {
+      span {
+        left: 13px;
+        top: 17px;
+        width: 17px;
+        height: 17px;
+        background: url('../images/aside-simp.png') 0 -30px no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-simp.png') -40px -30px no-repeat;
+        }
+      }
+    }
+    li.channel-manage {
+      span {
+        left: 12px;
+        top: 17px;
+        width: 18px;
+        height: 18px;
+        background: url('../images/aside-simp.png') 0 -60px no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-simp.png') -40px -60px no-repeat;
+        }
+      }
+    }
+    li.department {
+      span {
+        left: 13px;
+        top: 18px;
+        width: 16px;
+        height: 16px;
+        background: url('../images/aside-simp.png') 0 -215px no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-simp.png') -40px -215px no-repeat;
+        }
+      }
+    }
+    li.bank {
+      span {
+        left: 11px;
+        top: 18px;
+        width: 21px;
+        height: 16px;
+        background: url('../images/aside-simp.png') 0 -190px no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-simp.png') -40px -190px no-repeat;
+        }
+      }
+    }
+    li.commission-template {
+      span {
+        left: 13px;
+        top: 18px;
+        width: 16px;
+        height: 16px;
+        background: url('../images/aside-simp.png') 0 -90px no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-simp.png') -40px -90px no-repeat;
+        }
+      }
+    }
+    li.statistics {
+      span {
+        left: 13px;
+        top: 19px;
+        width: 16px;
+        height: 14px;
+        background: url('../images/aside-simp.png') 0 -115px no-repeat;
+      }
+    }
+    li.commission {
+      span {
+        left: 13px;
+        top: 16px;
+        width: 17px;
+        height: 17px;
+        background: url('../images/aside-simp.png') 0 -140px no-repeat;
+      }
+    }
+    li.sets {
+      span {
+        left: 14px;
+        top: 17px;
+        width: 16px;
+        height: 16px;
+        background: url('../images/aside-simp.png') 0 -165px no-repeat;
+      }
+    }
   }
 }
 .leftShadow {
