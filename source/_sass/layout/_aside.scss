@@ -316,6 +316,20 @@
         background: url('../images/institution.png') 0 0px no-repeat;
       }
     }
+    li.processes {
+      span {
+        left: 26px;
+        top: 19px;
+        width: 17px;
+        height: 16px;
+        background: url('../images/aside-ico.png') 0 -380px no-repeat;
+      }
+      &.active {
+        span {
+          background: url('../images/aside-ico.png') -33px -380px no-repeat;
+        }
+      }
+    }
     li.jz {
       span {
         left: 10px;

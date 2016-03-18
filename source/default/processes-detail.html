@@ -1,0 +1,157 @@
+---
+title: 修改业务流程
+layout: default
+class: processes
+---
+
+<a href="processes.html" id="back_btn">&lt;返回</a>
+<div class="main-content">
+  <div class="change-process">
+    <div class="button-content">
+      <h2>机构开户流程图</h2>
+      <button class="btn-fill change-btn" href="#">点击更改</button>
+    </div>
+    <div class="img-box">
+      <img src="../images/process.png" alt="" width="1015" height="470">
+    </div>
+  </div>
+</div>
+<div class="apply-content" style="display: none;">
+  <p class="v-title">可修改的内容</p>
+  <div class="main-table">
+    <p class="sub-title">申请条件</p>
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+      <tbody>
+      <tr>
+        <td>
+          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
+          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
+          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
+          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
+          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="main-table">
+    <p class="sub-title">办理条件</p>
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+      <tbody>
+      <tr>
+        <td>
+          <label class="checkbox"><input type="checkbox" name="application">机构开户资料填写</label>
+          <label class="checkbox"><input type="checkbox" name="application">视频验证</label>
+          <label class="checkbox"><input type="checkbox" name="application">双人见证</label>
+          <label class="checkbox"><input type="checkbox" name="application">电子协议签署</label>
+          <label class="checkbox"><input type="checkbox" name="application">回访问卷</label>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="main-table">
+    <p class="sub-title">审核流程</p>
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+      <tbody>
+      <tr>
+        <td>
+          <div class="checkbox no-check">
+            <label><input type="radio" name="process">无须审核</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="radio" name="process">一级审核</label>
+            </div>
+          <div class="checkbox">
+            <label><input type="radio" name="process">二级审核</label>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="check-item" style="display: none;">
+      <div class="search-group">
+        <dl class="search-dl">
+          <dt>项目名称：</dt>
+          <dd>
+            <label class="w-170">
+              <input type="text" class="txt">
+            </label>
+          </dd>
+        </dl>
+        <dl class="search-dl">
+          <dt>项目值：</dt>
+          <dd>
+            <label class="w-170">
+              <input type="text" class="txt">
+            </label>
+          </dd>
+        </dl>
+        <dl class="search-dl">
+          <dt>条件编号：</dt>
+          <dd>
+            <label class="w-170">
+              <input type="text" class="txt">
+            </label>
+          </dd>
+        </dl>
+        <dl class="search-dl">
+          <dt>类别：</dt>
+          <dd>
+        <span>
+          <select name="" id="type_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">类别1</option>
+          </select>
+        </span>
+          </dd>
+        </dl>
+        <dl class="search-dl">
+          <dt>逻辑关系：</dt>
+          <dd>
+        <span>
+          <select name="" id="logic_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">逻辑关系1</option>
+          </select>
+        </span>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="opinion-content">
+    <div class="button-content">
+      <button class="btn-primary btn-lg cancel-btn">取消</button>
+      <button class="btn-fill btn-lg ml-30 sure-btn">确定</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+  $('#type_list').diySelect();
+  $('#logic_list').diySelect();
+
+  $('.change-btn').click(function(){
+    $('.apply-content').show();
+  });
+
+  $('.sure-btn').click(function(){
+    $('.apply-content').hide();
+  });
+
+  $('.cancel-btn').click(function(){
+    $('.apply-content').hide();
+  });
+
+
+  $('.data-table').on('click', '.checkbox', function(event) {
+    if($(this).hasClass('no-check')) {
+      $('.check-item').show();
+    } else {
+      $('.check-item').hide();
+    }
+  });
+});
+</script>

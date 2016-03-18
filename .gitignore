@@ -19,6 +19,7 @@ dist
 build
 release
 public
+_site
 
 # project config
 .idea
