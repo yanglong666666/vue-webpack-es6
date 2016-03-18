@@ -7,27 +7,25 @@
 // Setting
 @import "setting";
 
-//Global
-@import "global";
-
 // Mixin
 @import "mixin";
 
-//Comm
-@import "comm";
+// Global
+@import "reset";
+@import "common";
 
-//Base
+// Base
 @import "base/button";
 @import "base/form";
 @import "base/table";
 
-// Layout
+// Layouts
 @import "layout/aside";
 @import "layout/header";
 @import "layout/container";
 @import "layout/collect";
 
-//Component
+// Components
 @import "component/search";
 @import "component/pagenav";
 @import "component/option";
@@ -56,9 +54,9 @@
 @import "component/detail-info";
 @import "component/table-info";
 @import "component/record/verify-record";
+@import "component/configure";
 
-
-//Page
+// Pages
 @import "page/statistics";
 @import "page/video";
 @import "page/announcement";
@@ -67,6 +65,7 @@
 @import "page/recheck";
 @import "page/verify";
 @import "page/log";
+@import "page/users";
 @import "page/user-detail";
 @import "page/marketing-manage";
 @import "page/role";
@@ -118,6 +117,11 @@
 @import "page/banner";
 @import "page/add-banner";
 @import "page/processes";
+@import "page/open-account";
 
-//Vendor
+// 业务集中运营平台
+@import "page/verify-list";
+@import "page/verify-info";
+
+// Vendor
 @import "jquery-ui";

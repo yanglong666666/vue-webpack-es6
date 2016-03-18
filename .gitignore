@@ -1,5 +1,32 @@
-_site
+# system
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# dependency
+node_modules
+bower_components
+
+# log
+*.log
+npm-debug.log*
+
+# cache
 .sass-cache
-node_modules/
-.idea/
-.svn
+
+# build & release
+dist
+build
+release
+public
+_site
+
+# project config
+.idea
+.jsconfig
+.settings
+.vscode
+*.sublime-project
+*.sublime-workspace
+.ruby-gemset
+.ruby-version

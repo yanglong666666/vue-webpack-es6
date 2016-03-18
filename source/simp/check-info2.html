@@ -1,0 +1,47 @@
+---
+title: 审核任务
+layout: default
+---
+
+<div class="ui-illustrate-content">
+  <span class="name">说明</span>
+  <span class="info">新用户申请</span>
+</div>
+{% include component/info/verify-qy.html %}
+{% include component/info/basic-qy.html %}
+{% include component/info/application.html %}
+{% include component/info/authorization-code.html %}
+{% include component/info/remarks.html %}
+{% include component/info/through.html %}
+{% include component/info/log.html %}
+<script type="text/javascript">
+  $(function(){
+    $('.license').on('click', function(event) {
+      //点击图片出现大图交互
+      event.preventDefault();
+      var img_big_screen = new Dialog(null,{
+        title: '',
+        width: '680',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","保存"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+              //确定按钮事件
+              img_big_screen.hide();
+            },
+            content: '<div class="dialog-content-bigimg">'+
+                        '<div class="big-img">'+
+                          '<img alt="img" src="/images/license.jpg" width="350" height="300">'+
+                        '</div>'+
+                        '<div class="operate-img">'+
+                          '<div class="turn-content">'+
+                            '<a href="javascript:void(0)"><i></i>旋转</a>'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'
+      });
+    });
+  });
+</script>

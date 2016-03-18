@@ -1,0 +1,64 @@
+---
+title: 属性设置
+layout: default
+---
+
+<div class="main-content">
+  {% include component/type-data.html %}
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.add-type-btn').click(function(){
+      var type_screen = new Dialog(null,{
+        title: '',
+        width: '420',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","保存"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          type_screen.hide();
+        },
+        content: '<div class="dialog-content-type">'+
+                    '<div class="item">'+
+                      '<span class="name">属性编号</span>'+
+                      '<div class="item-inner">'+
+                        '<label class="w-170">'+
+                          '<input class="txt" type="text">'+
+                        '</label>'+
+                      '</div>'+
+                    '</div>'+
+                    '<div class="item">'+
+                      '<span class="name">属性名称</span>'+
+                      '<div class="item-inner">'+
+                        '<label class="w-170">'+
+                          '<input class="txt" type="text">'+
+                        '</label>'+
+                      '</div>'+
+                    '</div>'+
+                    '<div class="item">'+
+                      '<span class="name">属性类型</span>'+
+                      '<div class="item-inner">'+
+                        '<label>'+
+                          '<input type="radio" name="type">营业部属性'+
+                        '</label>'+
+                        '<label>'+
+                          '<input type="radio" name="type">通用属性'+
+                        '</label>'+
+                      '</div>'+
+                    '</div>'+
+                    '<div class="item">'+
+                      '<span class="name">其他说明</span>'+
+                      '<div class="item-inner">'+
+                        '<label class="w-170">'+
+                          '<input class="txt" type="text">'+
+                        '</label>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'
+      });
+    });
+  });
+</script>

@@ -1,0 +1,116 @@
+<div class="ui-table-info">
+  <h2 class="table-title">渠道信息</h2>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td>渠道名称</td>
+        <td>企业-新浪理财师</td>
+        <td>渠道短码</td>
+        <td>SDF1231</td>
+      </tr>
+      <tr>
+        <td>渠道有效期</td>
+        <td>2016-01-12</td>
+        <td>状态</td>
+        <td>有效</td>
+      </tr>
+      <tr>
+        <td>存管银行</td>
+        <td>招商银行<a class="more" id="more_bank" href="javascript:void(0)">更多</a></td>
+        <td>开户提成</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>费用比率</td>
+        <td>0.002</td>
+        <td>营业部</td>
+        <td>招商证券文三路营业厅<a class="more" id="more_department" href="javascript:void(0)">更多</a></td>
+      </tr>
+      <tr>
+        <td>交易提成</td>
+        <td colspan="3">
+            <span>佣金提成：0；起始金额：3213；结束金额：10000</span>
+            <a class="more" id="more_money" href="javascript:void(0)">更多</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+  $('.ui-table-info').on('click', '#more_department', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var more_department_screen = new Dialog(null,{
+          title: '营业部',
+          width: '560',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["关闭"],
+          btnRole: ['confirm'],
+          btnCls: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            more_department_screen.hide();
+          },
+          content: '<div class="dialog-content-department">'+
+                      '<p>上海南路营业部</p>'+
+                      '<p>上海南路营业部</p>'+
+                      '<p>上海南路营业部</p>'+
+                      '<p>上海南路营业部</p>'+
+                      '<p>上海南路营业部</p>'+
+                      '<p>上海南路营业部</p>'+
+                      '<p>上海南路营业部</p>'+
+          '</div>'
+        });
+  });
+  $('.ui-table-info').on('click', '#more_bank', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var more_bank_screen = new Dialog(null,{
+          title: '存管银行',
+          width: '560',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["关闭"],
+          btnRole: ['confirm'],
+          btnCls: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            more_bank_screen.hide();
+          },
+          content: '<div class="dialog-content-department">'+
+                      '<p>招商银行</p>'+
+                      '<p>中国银行</p>'+
+                      '<p>农业银行</p>'+
+                      '<p>浦发银行</p>'+
+                      '<p>中国邮政</p>'+
+                      '<p>工商银行</p>'+
+                      '<p>建设银行</p>'+
+          '</div>'
+        });
+  });
+  $('.ui-table-info').on('click', '#more_money', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var more_money_screen = new Dialog(null,{
+          title: '交易提成',
+          width: '560',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["关闭"],
+          btnRole: ['confirm'],
+          btnCls: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            more_money_screen.hide();
+          },
+          content: '<div class="dialog-content-department">'+
+                      '<p>佣金提成：1000；起始金额：123213；结束金额：120000</p>'+
+                      '<p>佣金提成：0；起始金额：3213；结束金额：10000</p>'+
+                      '<p>佣金提成：0；起始金额：3213；结束金额：10000</p>'+
+                      '<p>佣金提成：0；起始金额：3213；结束金额：10000</p>'+
+                      '<p>佣金提成：0；起始金额：3213；结束金额：10000</p>'+
+          '</div>'
+        });
+  });
+</script>
