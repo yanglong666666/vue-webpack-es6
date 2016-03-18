@@ -183,5 +183,109 @@
 			}
 		}
 	}
+	#back_btn {
+		display: inline-block;
+		font-size: 16px;
+		color: #3ecacb;
+		text-decoration: underline;
+		margin-bottom: 15px;
+	}
+	.ui-content {
+		padding-bottom: 70px;
+	}
+	.change-process {
+		.button-content {
+			position: relative;
+			h2 {
+				font-size:30px;
+				line-height: 30px;
+				color: #ff5776;
+				text-align: center;
+			}
+			.btn-fill {
+				position: absolute;
+				top: 0;
+				right: 60px;
+				height: 30px;
+				font-size: 16px;
+				line-height: 30px;
+				outline: none;
+			}
+		}
+		.img-box {
+			margin-top: 34px;
+			text-align: center;
+			img {
+				display: inline-block;
+			}
+		}
+	}
+	.apply-content {
+		.v-title {
+			font-size: 16px;
+			color: #44c1de;
+			margin: 20px 0 10px 0;
+		}
+		.main-table {
+			background: #f0f5fb;
+			padding: 0 40px 16px 40px;
+			.sub-title {
+				padding: 24px 0 30px 0;
+				font-size: 14px;
+				line-height: 14px;
+				color: #6f7b91;
+			}
+			.data-table {
+				background: #f0f5fb;
+				td:last-child {
+					padding: 0;
+					text-align: inherit;
+				}
+				.checkbox {
+					display: inline-block;
+					width: 270px;
+					font-size: 12px;
+					line-height: 12px;
+					color: #3a3d42;
+					input {
+						margin-right: 12px;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+		.check-item {
+			padding: 10px 30px 30px 30px;
+			background-color: #fff;
+			.search-dl {
+				width: 310px;
+				dt {
+					display: inline-block;
+					width: 70px;
+					margin-right: 20px;
+					line-height: 37px;
+					text-align: right;
+				}
+				dd {
+					display: inline-block;
+				}
+				.w-170 {
+					.txt {
+						width: 180px;
+					}
+				}
+				span.js-select {
+					width: 160px;
+				}
+			}
+		}
+		.btn-lg {
+			width: 154px;
+			outline: none;
+		}
+	}
+	.btn-primary {
+		background-color: #fff;
+	}
 }
 

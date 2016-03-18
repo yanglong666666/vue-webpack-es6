@@ -18,7 +18,7 @@ class: processes
     </dl>
   </div>
   <div class="button-content">
-    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-fill btn-lg" href="#">搜索</button>
   </div>
 </div>
 <div class="main-table">
@@ -97,6 +97,7 @@ $(function () {
     event.preventDefault();
     /* Act on the event */
     var delete_screen = new Dialog(null,{
+      title: ' ',
       width: '1010',
       needDestroy: true,
       content: '<img src="../images/processes.jpg" width="948" height="444">'
