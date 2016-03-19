@@ -1,0 +1,182 @@
+.page-audit {
+  .hl-red {
+    color: #f2233b;
+  }
+  .idcard-table {
+    td {
+      width: 15% !important;
+    }
+  }
+  .validate-content {
+    background-color: #f0f5fb;
+    -webkit-border-radius: 6px;
+    ul {
+      padding: 10px;
+    }
+    .item {
+      float: left;
+      margin-left: 10px;
+      padding: 17px 22px 22px 22px;
+      text-align: center;
+      h3 {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+      .desc-text,
+      .pass-text {
+        width: 180px;
+        margin-left: 80px;
+        margin-top: 30px;
+        text-align: justify;
+      }
+      .desc-text {
+        color: #6f7b91;
+      }
+      .pass-text {
+        color: #3a3d42;
+      }
+      &.media {
+        img {
+          cursor: pointer;
+        }
+        .desc-text,
+        .pass-text {
+          width: 90px;
+          margin-left: 130px;
+        }
+        .desc-text {
+          margin-top: 55px;
+        }
+        .pass-text {
+          margin-top: 3px;
+        }
+      }
+      &.invalid {
+        position: relative;
+        background-color: #cbd3e4;
+        -webkit-border-radius: 6px;
+        &:after {
+          position: absolute;
+          left: 50%;
+          content: "需整改";
+          width: 50px;
+          margin-left: -25px;
+          color: #ff5776;
+        }
+      }
+    }
+  }
+  .other-content {
+    .tab-content {
+      .tab {
+        a {
+          width: 14%;
+          width: calc(100% / 7);
+          span {
+            position: relative;
+          }
+          small {
+            position: absolute;
+            top: -14px;
+            right: -32px;
+            z-index: 999;
+            width: 32px;
+            height: 18px;
+            line-height: 18px;
+            color: #fff;
+            background-color: #ff5776;
+            -webkit-border-radius: 8px;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+  .bussiness-content {
+    padding: 20px;
+    background-color: #f0f5fb;
+    .box {
+      position: relative;
+      box-sizing: border-box;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+      border: 1px solid #d1d7e4;
+      &.invalid {
+        background-color: #cbd3e4;
+        &:after {
+          content: "需整改";
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          color: #ff5776;
+        }
+      }
+      .box-title {
+        margin-bottom: 15px;
+      }
+      .box-content {
+        padding-left: 26px;
+        a {
+          color: #3ecacb;
+        }
+        table {
+          span {
+            padding-right: 15px;
+          }
+        }
+      }
+    }
+    .box-inline {
+      position: relative;
+      margin-left: -20px;
+      .box {
+        float: left;
+        min-height: 193px;
+        width: 30%;
+        width: calc((100% - 60px) / 3);
+        margin-left: 20px;
+      }
+    }
+  }
+  .reason-content {
+    padding: 23px 27px;
+    background-color: #f0f5fb;
+    li {
+      width: 50%;
+      float: left;
+      margin-bottom: 10px;
+      .reason-item {
+        float: left;
+        min-width: 360px;
+        padding: 10px 15px;
+        border: 1px solid #c9d2dc;
+      }
+      .reason-del {
+        float: left;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: #3ecacb;
+      }
+    }
+    .remark {
+      width: 100%;
+      height: 80px;
+      border: 1px solid #c9d2dc;
+      line-height: 22px;
+      overflow: auto;
+      resize: none;
+    }
+  }
+  .basic-info {
+    .invalid {
+      position: relative;
+      background-color: #cbd3e4;
+      .modify {
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        color: #ff5776;
+      }
+    }
+  }
+}
