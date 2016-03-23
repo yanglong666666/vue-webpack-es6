@@ -180,3 +180,14 @@
     }
   }
 }
+
+.ui-remarks {
+  .remark {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #c9d2dc;
+    line-height: 22px;
+    overflow: auto;
+    resize: none;
+  }
+}
