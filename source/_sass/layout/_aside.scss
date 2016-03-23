@@ -5,14 +5,14 @@
 	padding-top: 10px;
 	.leftul {
 		li {
-			text-align: center;
 			position: relative;
 			p {
-				position: relative;
-				line-height: 50px;
-				z-index: 10;
-				color: #b0b0b0;
-				cursor: pointer;
+        position: relative;
+        padding-left: 50px;
+        line-height: 45px;
+        z-index: 10;
+        color: #b0b0b0;
+        cursor: pointer;
 			}
 			b {
         position: absolute;
@@ -38,18 +38,14 @@
         height: 18px;
         line-height: 18px;
         border-radius: 8px;
-      }
-      span {
-        position: absolute;
-        display: inline-block;
-        vertical-align: middle;
+        text-align: center;
       }
       a {
         display: block;
         font-size: 14px;
         color: #b0b0b0;
         margin-left: 5px;
-        padding: 15px 0px;
+        padding: 15px 0 15px 45px;
       }
       &.active {
         a {
@@ -57,6 +53,17 @@
           color: #12171d;
           border-left: 5px solid #3ecacb;
         }
+      }
+      .icon {
+        position: absolute;
+        display: inline-block;
+        top: 17px;
+        left: 25px;
+        width: 18px;
+        height: 18px;
+        background-image: url(../images/aside-ico.png);
+        background-repeat: no-repeat;
+        background-position: -9999px -9999px;
       }
       .inner-ul {
         display: none;
@@ -80,258 +87,172 @@
       }
     }
     li.index {
-      span {
-        left: 25px;
-        top: 18px;
-        width: 17px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 0 no-repeat;
+      .icon {
+        background-position: 0 0;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px 0 no-repeat;
+        .icon {
+          background-position: -38px 0;
         }
       }
     }
     li.announcement {
-      span {
-        left: 25px;
-        top: 18px;
-        width: 17px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -20px no-repeat;
+      .icon {
+        background-position: 0 -22px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -20px no-repeat;
+        .icon {
+          background-position: -38px -22px;
         }
       }
     }
     li.vedio-validate {
-      span {
-        left: 27px;
-        top: 18px;
-        width: 12px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -40px no-repeat;
+      .icon {
+        background-position: 0 -45px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -40px no-repeat;
+        .icon {
+          background-position: -38px -45px;
         }
       }
     }
     li.vedio-upload {
-      span {
-        left: 26px;
-        top: 19px;
-        width: 15px;
-        height: 13px;
-        background: url('../images/aside-ico.png') 0 -60px no-repeat;
+      .icon {
+        background-position: 0 -68px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -60px no-repeat;
+        .icon {
+          background-position: -38px -68px;
         }
       }
     }
     li.certificate {
-      span {
-        left: 26px;
-        top: 17px;
-        width: 15px;
-        height: 17px;
-        background: url('../images/aside-ico.png') 0 -75px no-repeat;
+      .icon {
+        background-position: 0 -91px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -75px no-repeat;
+        .icon {
+          background-position: -38px -91px;
         }
       }
     }
     li.open-verify {
-      span {
-        left: 25px;
-        top: 18px;
-        width: 17px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -95px no-repeat;
+      .icon {
+        background-position: 0 -114px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -95px no-repeat;
+        .icon {
+          background-position: -38px -114px;
         }
       }
     }
     li.open-recheck {
-      span {
-        left: 26px;
-        top: 19px;
-        width: 15px;
-        height: 12px;
-        background: url('../images/aside-ico.png') 0 -115px no-repeat;
+      .icon {
+        background-position: 0 -136px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -115px no-repeat;
+        .icon {
+          background-position: -38px -136px;
         }
       }
     }
     li.business-search,
     li.business-online {
-      span {
-        left: 27px;
-        top: 16px;
-        width: 18px;
-        height: 20px;
-        background: url('../images/aside-ico.png') 0 -130px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -159px;
       }
     }
     li.business-operation {
-      span {
-        left: 27px;
-        top: 18px;
-        width: 17px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -210px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -251px;
       }
     }
     li.operation-analysis,
     li.online-analysis,
     li.mall-analysis {
-      span {
-        left: 27px;
-        top: 18px;
-        width: 17px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -230px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -275px;
       }
     }
     li.marketing-channels {
-      span {
-        left: 24px;
-        top: 19px;
-        width: 21px;
-        height: 12px;
-        background: url('../images/aside-ico.png') 0 -175px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -205px;
       }
     }
     li.open-sets {
-      span {
-        left: 23px;
-        top: 18px;
-        width: 17px;
-        height: 17px;
-        background: url('../images/aside-ico.png') 0 -250px no-repeat;
+      .icon {
+        margin-top: -3px;
+        background-position: 0 -297px;
       }
     }
     li.para-sets {
-      span {
-        left: 23px;
-        top: 18px;
-        width: 16px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -190px no-repeat;
+      .icon {
+        margin-top: -3px;
+        background-position: 0 -228px;
       }
     }
     li.system-parameter {
-      span {
-        left: 25px;
-        top: 18px;
-        width: 17px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -155px no-repeat;
+      .icon {
+        background-position: 0 -182px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -155px no-repeat;
-        }
-      }
-    }
-    li.forced-activation {
-      span {
-        left: 25px;
-        top: 14px;
-        width: 17px;
-        height: 25px;
-        background: url('../images/aside-ico.png') 0 -230px no-repeat;
-      }
-      &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -230px no-repeat;
+        .icon {
+          background-position: -38px -182px;
         }
       }
     }
     li.online-sets {
-      span {
-        left: 23px;
-        top: 18px;
-        width: 17px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -275px no-repeat;
+      .icon {
+        margin-top: -3px;
+        background-position: 0 -320px;
       }
     }
     li.mall-product {
-      span {
-        left: 23px;
-        top: 17px;
-        width: 17px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -295px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -344px;
       }
     }
     li.mall-sales {
-      span {
-        left: 22px;
-        top: 18px;
-        width: 18px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -315px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -367px;
       }
     }
     li.mall-sets {
-      span {
-        left: 22px;
-        top: 17px;
-        width: 18px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -335px no-repeat;
+      .icon {
+        margin-top: -3px;
+        background-position: 0 -390px;
       }
     }
     li.e-record {
-      span {
-        left: 22px;
-        top: 17px;
-        width: 18px;
-        height: 15px;
-        background: url('../images/aside-ico.png') 0 -360px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -413px;
       }
     }
     li.institution {
-      span {
-        left: 23px;
-        top: 17px;
-        width: 15px;
-        height: 15px;
-        background: url('../images/institution.png') 0 0px no-repeat;
+      .icon {
+        margin-top: -2px;
+        background-position: 0 -597px;
       }
     }
     li.processes {
-      span {
-        left: 26px;
-        top: 19px;
-        width: 17px;
-        height: 16px;
-        background: url('../images/aside-ico.png') 0 -380px no-repeat;
+      .icon {
+        background-position: 0 -435px;
       }
       &.active {
-        span {
-          background: url('../images/aside-ico.png') -33px -380px no-repeat;
+        .icon {
+          background-position: -38px -435px;
         }
       }
     }
     li.jz {
-      span {
+      .icon {
         left: 10px;
         top: 16px;
         width: 19px;
@@ -340,121 +261,81 @@
       }
     }
     li.check {
-      span {
-        left: 13px;
-        top: 16px;
-        width: 16px;
-        height: 19px;
-        background: url('../images/aside-simp.png') 0 0 no-repeat;
+      .icon {
+        background-position: 0 -459px;
       }
       &.active {
-        span {
-          background: url('../images/aside-simp.png') -40px 0 no-repeat;
+        .icon {
+          background-position: -38px -459px;
         }
       }
     }
     li.channel-list {
-      span {
-        left: 13px;
-        top: 17px;
-        width: 17px;
-        height: 17px;
-        background: url('../images/aside-simp.png') 0 -30px no-repeat;
+      .icon {
+        background-position: 0 -482px;
       }
       &.active {
-        span {
-          background: url('../images/aside-simp.png') -40px -30px no-repeat;
+        .icon {
+          background-position: -38px -482px;
         }
       }
     }
     li.channel-manage {
-      span {
-        left: 12px;
-        top: 17px;
-        width: 18px;
-        height: 18px;
-        background: url('../images/aside-simp.png') 0 -60px no-repeat;
+      .icon {
+        background-position: 0 -505px;
       }
       &.active {
-        span {
-          background: url('../images/aside-simp.png') -40px -60px no-repeat;
+        .icon {
+          background-position: -38px -505px;
         }
       }
     }
     li.department {
-      span {
-        left: 13px;
-        top: 18px;
-        width: 16px;
-        height: 16px;
-        background: url('../images/aside-simp.png') 0 -215px no-repeat;
+      .icon {
+        background-position: 0 -643px;
       }
       &.active {
-        span {
-          background: url('../images/aside-simp.png') -40px -215px no-repeat;
+        .icon {
+          background-position: -38px -643px;
         }
       }
     }
     li.bank {
-      span {
-        left: 11px;
-        top: 18px;
-        width: 21px;
-        height: 16px;
-        background: url('../images/aside-simp.png') 0 -190px no-repeat;
+      .icon {
+        background-position: 0 -620px;
       }
       &.active {
-        span {
-          background: url('../images/aside-simp.png') -40px -190px no-repeat;
+        .icon {
+          background-position: -38px -620px;
         }
       }
     }
     li.commission-template {
-      span {
-        left: 13px;
-        top: 18px;
-        width: 16px;
-        height: 16px;
-        background: url('../images/aside-simp.png') 0 -90px no-repeat;
+      .icon {
+        background-position: 0 -528px;
       }
       &.active {
-        span {
-          background: url('../images/aside-simp.png') -40px -90px no-repeat;
+        .icon {
+          background-position: -38px -528px;
         }
       }
     }
     li.statistics {
-      span {
-        left: 13px;
-        top: 19px;
-        width: 16px;
-        height: 14px;
-        background: url('../images/aside-simp.png') 0 -115px no-repeat;
+      .icon {
+        margin-top: -3px;
+        background-position: 0 -550px;
       }
     }
     li.commission {
-      span {
-        left: 13px;
-        top: 16px;
-        width: 17px;
-        height: 17px;
-        background: url('../images/aside-simp.png') 0 -140px no-repeat;
-      }
-    }
-    li.sets {
-      span {
-        left: 14px;
-        top: 17px;
-        width: 16px;
-        height: 16px;
-        background: url('../images/aside-simp.png') 0 -165px no-repeat;
+      .icon {
+        margin-top: -3px;
+        background-position: 0 -573px;
       }
     }
   }
 }
 .leftShadow {
-	background: url('../images/back.png') right top repeat-y #3a3d42;
-	_background: none;
+	background: #3a3d42 url('../images/back.png') right top repeat-y;
 	position: absolute;
 	top: 0;
 	bottom: 0;
