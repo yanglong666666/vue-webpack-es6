@@ -86,3 +86,19 @@
     }
   }
 }
+
+.opt-btns {
+  .opt-photo,
+  .opt-video {
+    float: left;
+  }
+  .opt-photo {
+    margin-right: 10px;
+  }
+  .btn-photo {
+    width: 60px;
+  }
+  .btn-video {
+    width: 110px;
+  }
+}
