@@ -1,0 +1,16 @@
+.icon {
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: -3px;
+}
+
+.icon-ok-circle,
+.icon-remove-circle {
+  width: 26px;
+  height: 26px;
+  background: url(../images/tip2-icon.png) 0 0 no-repeat;
+}
+
+.icon-remove-circle {
+  background-position: -40px 0;
+}
