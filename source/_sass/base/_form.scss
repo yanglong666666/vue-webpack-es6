@@ -41,3 +41,26 @@ label {
 	display: inline-block;
 }
 
+.form {
+	.form-group {
+		margin-bottom: 10px;
+		.label {
+			width: 100px;
+			margin-right: 10px;
+			text-align: right;
+		}
+		.txt {
+			display: inline-block;
+			width: 160px;
+			height: 37px;
+			line-height: 37px;
+			border: none;
+			background: #e1e6ef;
+			border-radius: 5px;
+			color: #3a3d42;
+			font-size: 12px;
+			text-indent: 10px;
+			outline: none;
+		}
+	}
+}

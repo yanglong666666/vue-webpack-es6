@@ -9,149 +9,104 @@ class: processes
   <div class="change-process">
     <div class="button-content">
       <h2>机构开户流程图</h2>
-      <button class="btn-fill change-btn" href="#">点击更改</button>
+      <!-- <button class="btn-fill change-btn" href="#">点击更改</button> -->
     </div>
     <div class="img-box">
-      <img src="../images/process.png" alt="" width="1015" height="470">
-    </div>
-  </div>
-</div>
-<div class="apply-content" style="display: none;">
-  <p class="v-title">可修改的内容</p>
-  <div class="main-table">
-    <p class="sub-title">申请条件</p>
-    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-      <tbody>
-      <tr>
-        <td>
-          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
-          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
-          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
-          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
-          <label class="checkbox"><input type="checkbox" name="application">申请条件之一</label>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="main-table">
-    <p class="sub-title">办理条件</p>
-    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-      <tbody>
-      <tr>
-        <td>
-          <label class="checkbox"><input type="checkbox" name="application">机构开户资料填写</label>
-          <label class="checkbox"><input type="checkbox" name="application">视频验证</label>
-          <label class="checkbox"><input type="checkbox" name="application">双人见证</label>
-          <label class="checkbox"><input type="checkbox" name="application">电子协议签署</label>
-          <label class="checkbox"><input type="checkbox" name="application">回访问卷</label>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="main-table">
-    <p class="sub-title">审核流程</p>
-    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-      <tbody>
-      <tr>
-        <td>
-          <div class="checkbox no-check">
-            <label><input type="radio" name="process">无须审核</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="radio" name="process">一级审核</label>
-            </div>
-          <div class="checkbox">
-            <label><input type="radio" name="process">二级审核</label>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="check-item" style="display: none;">
-      <div class="search-group">
-        <dl class="search-dl">
-          <dt>项目名称：</dt>
-          <dd>
-            <label class="w-170">
-              <input type="text" class="txt">
-            </label>
-          </dd>
-        </dl>
-        <dl class="search-dl">
-          <dt>项目值：</dt>
-          <dd>
-            <label class="w-170">
-              <input type="text" class="txt">
-            </label>
-          </dd>
-        </dl>
-        <dl class="search-dl">
-          <dt>条件编号：</dt>
-          <dd>
-            <label class="w-170">
-              <input type="text" class="txt">
-            </label>
-          </dd>
-        </dl>
-        <dl class="search-dl">
-          <dt>类别：</dt>
-          <dd>
-        <span>
-          <select name="" id="type_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">全部</option>
-            <option value="2">类别1</option>
-          </select>
-        </span>
-          </dd>
-        </dl>
-        <dl class="search-dl">
-          <dt>逻辑关系：</dt>
-          <dd>
-        <span>
-          <select name="" id="logic_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">全部</option>
-            <option value="2">逻辑关系1</option>
-          </select>
-        </span>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <div class="opinion-content">
-    <div class="button-content">
-      <button class="btn-primary btn-lg cancel-btn">取消</button>
-      <button class="btn-fill btn-lg ml-30 sure-btn">确定</button>
+      <img src="../images/workflow.jpg" alt="" width="1015" height="470">
     </div>
   </div>
 </div>
 
+<div class="ui-workflow-table">
+  <div class="table-tab">
+    <ul class="clearfix">
+      <li class="z1 active"><span>审核流程修改</span></li>
+      <li class="z2"><span>条件规则修改</span></li>
+    </ul>
+    <a href="#" class="btn-add btn-primary">新增</a>
+  </div>
+  <div class="table-content">
+    <table>
+      <thead>
+        <tr>
+          <th>审核级别</th>
+          <th>菜单编号</th>
+          <th>定制审核URL</th>
+          <th>免责条件规则</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>一级</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><a class="opt-link" href="#">删除</a><a class="opt-link" href="#">修改</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-content" style="display: none;">2</div>
+</div>
 <script type="text/javascript">
-$(function () {
-  $('#type_list').diySelect();
-  $('#logic_list').diySelect();
+  $('.table-tab').on('click', 'li', tabSwitch);
 
-  $('.change-btn').click(function(){
-    $('.apply-content').show();
-  });
+  function tabSwitch(e) {
+    var tab = locateTab(e.target);
+    var index = changeTab(tab);
+    var $content = $('.table-content');
+    changeContent($content, index);
+  }
 
-  $('.sure-btn').click(function(){
-    $('.apply-content').hide();
-  });
+  function locateTab(target) {
+    if (target.tagName.toLowerCase() !== 'li') {
+      target = target.parentNode;
+    }
 
-  $('.cancel-btn').click(function(){
-    $('.apply-content').hide();
-  });
+    return target;
+  }
 
+  function changeTab(tab) {
+    var $tabs = $(tab).parent().find('li');
 
-  $('.data-table').on('click', '.checkbox', function(event) {
-    if($(this).hasClass('no-check')) {
-      $('.check-item').show();
-    } else {
-      $('.check-item').hide();
+    $tabs.removeClass('active');
+    $(tab).addClass('active');
+
+    return $tabs.index(tab);
+  }
+
+  function changeContent($content, index) {
+    $content.hide();
+    $content.eq(index).show();
+  }
+
+  var contentHtml = ['<div class="form">',
+    '<div class="form-group">',
+      '<label for="level" class="label">审核级别</label>',
+      '<input type="text" class="txt" id="level">',
+    '</div>',
+    '<div class="form-group">',
+      '<label for="code" class="label">菜单编号</label>',
+      '<input type="text" class="txt" id="code">',
+    '</div>',
+    '<div class="form-group">',
+      '<label for="url" class="label">定制URL</label>',
+      '<input type="text" class="txt" id="url">',
+    '</div>',
+    '<div class="form-group">',
+      '<label for="rule" class="label">免责条件规则</label>',
+      '<input type="text" class="txt" id="rule">',
+    '</div>',
+  '</div>'].join('');
+
+  $('.btn-add').dialog({
+    title: '新增审核流程',
+    content: contentHtml,
+    hasBtn: true,
+    confirm: function (dialog) {
+      alert('已确定');
+      dialog.hide();
     }
   });
-});
 </script>
