@@ -1,3 +1,17 @@
+// button
+$btn-font-weight: normal !default;
+$btn-primary-bg: #f0f4fb !default;
+$btn-primary-color: #3ecacb !default;
+$btn-fill-bg: #3ecacb !default;
+$btn-fill-color: #fff !default;
+$btn-deny-color: #fff !default;
+$btn-deny-bg: #737780 !default;
+$btn-hollow-color: #3ecacb !default;
+$btn-hollow-bg: #fff !default;
+
+// color
+$btn-color-gray: #7d7d7d;
+
 %btn {
   @include inline-block;
   font-weight: $btn-font-weight;
@@ -5,7 +19,7 @@
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
-  @include button-size(0, 40px, 14px, 25px, 5px);
+  @include button-size(0, 15px, 16px, 34px, 5px);
   white-space: nowrap;
   cursor: pointer;
   &,
@@ -38,95 +52,89 @@
   }
 }
 
-.btn-primary {
+.btn {
   @extend %btn;
+}
+
+.btn-primary {
   background-color: $btn-primary-bg;
   color: $btn-primary-color;
   border-color: #3ecacb;
 }
+
 .btn-primary-white {
-  @extend %btn;
   background-color: #fff;
   color: $btn-primary-color;
   border-color: #3ecacb;
 }
 
 .btn-fill {
-  @extend %btn;
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
-  font-size: 22px;
+  // font-size: 22px;
 }
 
 .btn-deny {
+  width: 115px;
   @extend %btn;
   background-color: $btn-deny-bg;
   color: $btn-deny-color;
   border-color: #e6e6e6;
 }
+
 .btn-hollow {
+  width: 115px;
   @extend %btn;
   background-color: transparent;
   color: $btn-hollow-color;
   border-color: #3ecacb;
 }
 
-// large button
-.btn-lg {
-  width: 220px;
-  @include button-size(0, 0px, 20px, 40px, 5px);
-}
-
-// larger button
 .btn-more-lg {
-  @include button-size(0, 60px, 20px, 40px, 5px);
+  @include button-size(15px, 30px, 30px, 30px, 5px);
 }
 
-.btn-normal {
-  width: 180px;
-  @include button-size(0, 0px, 20px, 40px, 5px);
+.btn-lg {
+  @include button-size(0, 20px, 20px, 40px, 5px);
 }
 
-// lower button
-.btn-lw {
-  width: 60px;
-  @include button-size(0, 0px, 12px, 26px, 5px);
+.btn-medium {
+  @include button-size(0, 15px, 14px, 34px, 5px);
 }
 
-.btn {
-  width: 115px;
-  @include button-size(0, 0px, 22px, 45px, 5px);
+.btn-small {
+  @include button-size(0, 10px, 12px, 26px, 5px);
 }
 
 .btn-cancel {
-  @extend %btn;
-  @include button-size(0, 0px, 16px, 35px, 5px);
+  @include button-size(0, 15px, 16px, 35px, 5px);
   background-color: #fff;
   color: $btn-primary-color;
   border-color: #3ecacb;
 }
+
 .btn-confirm {
-  @extend %btn;
-  @include button-size(0, 0px, 16px, 35px, 5px);
+  @include button-size(0, 15px, 16px, 35px, 5px);
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
 }
+
 .btn-gray {
-  cursor: default;
+  color: $btn-color-gray;
+  border: 1px solid $btn-color-gray;
   background-color: transparent;
-  color: #7d7d7d;
-  border: 1px solid #7d7d7d;
   text-align: center;
 }
+
 .btn-default {
   cursor: default;
-  background-color: #7d7d7d;
+  background-color: $btn-color-gray;
   color: #fff;
 }
+
 .btn-gray-fill {
-  cursor: default;
-  background-color: #7d7d7d;
   color: #fff;
-  border: 1px solid #7d7d7d;
+  border: 1px solid $btn-color-gray;
+  background-color: $btn-color-gray;
   text-align: center;
 }

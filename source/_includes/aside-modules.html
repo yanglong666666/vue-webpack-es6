@@ -1,0 +1,57 @@
+<div class="leftShadow"></div>
+<div class="leftaside">
+  <ul class="leftul">
+    <li>
+      <span></span>
+      <p>模块菜单</p>
+      <ul class="inner-ul">
+        <li><a href="{{ site.baseurl }}/modules/buttons.html">按钮</a></li>
+        <li><a href="{{ site.baseurl }}/modules/tables.html">表格</a></li>
+        <li><a href="{{ site.baseurl }}/modules/forms.html">表单</a></li>
+        <li><a href="{{ site.baseurl }}/modules/pagenav.html">翻页</a></li>
+      </ul>
+      <b></b>
+    </li>
+  </ul>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    //点击含有二级li的p的效果
+    var href = window.location.href ;
+    $(".leftul>li>p").each(function() {
+      var flag = 0;
+      $(this).click(function() {
+        if(!flag) {
+          $(this).siblings("ul").slideDown(200);
+          $(this).parent().find("b").addClass("current");
+          flag = 1;
+        } else {
+          $(this).parent().find("ul").slideUp(200);
+          $(this).parent().find("b").removeClass("current");
+          flag = 0;
+        }
+      });
+    });
+    //二级li点击后的显示效果
+    var arrr = [];
+    $(".leftul li li a").each(function(){
+      var str = $(this).attr("href");
+      var justName = str.slice(0,str.length - 5);
+      arrr.push($(this).attr("href"));
+    });
+    for (var ee in arrr) {
+      if(href.indexOf(arrr[ee]) != -1) {
+        $('.leftul li li').eq(ee).addClass('active');
+        $(".leftul li li").eq(ee).parent().show();
+      }
+    }
+    //点击没有二级li的一级li的效果
+    var $aloneLi = $(".leftul>li").not(".leftul>li:has('li')");
+    $aloneLi.each(function() {
+      var src = $(this).find("a").attr("href");
+      if(href.indexOf(src) != -1) {
+        $(this).addClass('active');
+      }
+    });
+  });
+</script>
