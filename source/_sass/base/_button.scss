@@ -19,7 +19,7 @@ $btn-color-gray: #7d7d7d;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
-  @include button-size(0, 40px, 14px, 25px, 5px);
+  @include button-size(0, 15px, 16px, 34px, 5px);
   white-space: nowrap;
   cursor: pointer;
   &,
@@ -54,7 +54,6 @@ $btn-color-gray: #7d7d7d;
 
 .btn {
   @extend %btn;
-  @include button-size(0, 15px, 22px, 45px, 5px);
 }
 
 .btn-primary {
@@ -72,7 +71,7 @@ $btn-color-gray: #7d7d7d;
 .btn-fill {
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
-  font-size: 22px;
+  // font-size: 22px;
 }
 
 .btn-deny {

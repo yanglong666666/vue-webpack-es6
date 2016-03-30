@@ -45,7 +45,10 @@ label {
 	.form-group {
 		margin-bottom: 10px;
 		.label {
+      display: inline-block;
 			width: 100px;
+      height: 37px;
+      line-height: 37px;
 			margin-right: 10px;
 			text-align: right;
 		}
@@ -62,5 +65,40 @@ label {
 			text-indent: 10px;
 			outline: none;
 		}
+	}
+}
+
+.form-inline {
+  @include clearfix;
+  .form-group {
+    float: left;
+		margin-bottom: 10px;
+    margin-right: 20px;
+		.label {
+      display: block;
+      height: 37px;
+      line-height: 37px;
+			width: 100px;
+		}
+		.txt,
+    .time-picker {
+			display: block;
+			width: 160px;
+			height: 37px;
+			line-height: 37px;
+			border: none;
+			background: #e1e6ef;
+			border-radius: 5px;
+			color: #3a3d42;
+			font-size: 12px;
+			text-indent: 10px;
+			outline: none;
+		}
+    .time-picker {
+      display: inline-block;
+      background-image: url(../images/diyselect.png);
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
 	}
 }
