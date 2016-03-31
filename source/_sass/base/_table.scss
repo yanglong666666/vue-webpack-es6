@@ -25,10 +25,11 @@
 }
 .main-table {
   position: relative;
+  width: 100%;
   margin-bottom: 20px;
+  @include clearfix;
   .data-table {
     border: 1px solid #f0f4fb;
-    width: 100%;
     thead {
       th {
         padding: 10px 15px;
@@ -106,6 +107,32 @@
         }
       }
     }
+  }
+  .scroll-table,
+  .fixed-table {
+    float: left;
+  }
+  .scroll-table {
+    width: 90%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    .data-table {
+      table-layout: fixed;
+      th,
+      td {
+        // overflow: hidden;
+        // text-overflow : ellipsis;
+        white-space : nowrap;
+        min-width: 50px;
+      }
+      td {
+        height: 28px;
+        line-height: 28px;
+      }
+    }
+  }
+  .fixed-table {
+    width: 10%;
   }
 }
 
