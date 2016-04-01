@@ -194,30 +194,337 @@
 		padding-bottom: 70px;
 	}
 	.change-process {
+    padding-left: 30px;
+    padding-right: 30px;
 		.button-content {
 			position: relative;
+      .btn-fill {
+        padding: 0 20px;
+        width: 125px;
+        position: absolute;
+        top: 0;
+        right: 60px;
+        font-size: 16px;
+        outline: none;
+        border-radius: 5px;
+        line-height: 30px;
+        height: 30px;
+      }
 			h2 {
 				font-size:30px;
 				line-height: 30px;
 				color: #ff5776;
 				text-align: center;
-			}
-			.btn-fill {
-				position: absolute;
-				top: 0;
-				right: 60px;
-				height: 30px;
-				font-size: 16px;
-				line-height: 30px;
-				outline: none;
+        .change-btn {
+        }
 			}
 		}
 		.img-box {
 			margin-top: 34px;
 			text-align: center;
-			img {
-				display: inline-block;
-			}
+      position: relative;
+      .firstline-process {
+        margin-top: 100px;
+        height: 125px;
+        .btn-process {
+        line-height: 57px;
+        height: 57px;
+        width: 110px;
+        float:left;
+        font-size: 14px;
+        border-radius: 5px;
+        background-color: #3ecacb;
+        color: #fff;
+        margin-top: 30px;
+      }
+        .green-line {
+          width: 47px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/pointer-solid-green.png) 0 28px repeat-x;
+          float:left;
+          margin-top: 30px;
+          margin-left: 5px;
+        }
+        .green-goright {
+          width: 9px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/go-right-green.png)0 24px no-repeat;
+          float:left;
+          margin-top: 30px;
+        }
+        .btn-process-if {
+          line-height: 90px;
+          height: 90px;
+          width: 135px;
+          float:left;
+          font-size: 14px;
+          background: url(../images/process/bg-greenprismatic-solid.png) no-repeat;
+          color: white;
+          margin-top: 15px;
+        }
+        .btn-process-many {
+          line-height: 57px;
+          height: 125px;
+          width: 180px;
+          float:left;
+          font-size: 14px;
+          border-radius: 5px;
+          background-color: #3ecacb;
+          color: #fff;
+          padding-top:5px;
+          padding-bottom:5px;
+          box-sizing: border-box;
+          .btn1 {
+            color: #ff5776;
+            background-color: #cff2f2;
+            border-radius: 4px;
+            line-height: 24px;
+            height: 24px;
+            width: 112px;
+            margin: 0 auto;
+          }
+          p {
+            line-height: 24px;
+          }
+        }
+      }
+      .senondline-process {
+        height: 190px;
+        .btn-process-if-senond {
+          line-height: 90px;
+          height: 90px;
+          width: 135px;
+          float:right;
+          font-size: 14px;
+          background: url(../images/process/bg-blueprismatic.png) no-repeat;
+          color: #66aaff;
+          margin-top: 15px;
+          margin-right: 165px;
+        }
+      }
+      .line-process3 {
+        height: 87px;
+        .btn-process {
+          line-height: 57px;
+          height: 57px;
+          width: 120px;
+          font-size: 14px;
+          border-radius: 5px;
+          border: 2px solid #888888;
+          color: #888888;
+          margin-top: 15px;
+          float:right;
+        }
+        .btn-process-if3 {
+          line-height: 90px;
+          height: 90px;
+          width: 135px;
+          float:right;
+          font-size: 14px;
+          background: url(../images/process/bg-blackprismatic.png) no-repeat;
+          color: #888888;
+          margin-top: 5px;
+          margin-right: 165px;
+        }
+        .black-line {
+          width: 47px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/pointer-black.png) 0 18px repeat-x;
+          float:right;
+          margin-top: 30px;
+        }
+        .black-goleft {
+          width: 9px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/go-left.png)0 14px no-repeat;
+          float:right;
+          margin-top: 30px;
+        }
+      }
+
+      .line-vertical-dash {
+        width: 12px;
+        height: 195px;
+        background: url(../images/process/pointer-vertical.png)4px 0 repeat-y;
+        display: inline-block;
+        float:left;
+        &.height1 {
+          height: 25px;
+          margin-top: 10px;
+          .height1-godown {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: url(../images/process/go-down-black.png) no-repeat;
+            float:left;
+            margin-top: 20px;
+          }
+        }
+        &.height2 {
+          height: 50px;
+          margin-left: -5px;
+          margin-top: 10px;
+        }
+        &.height3 {
+          height: 115px;
+        }
+      }
+      .up-left-down-dash {
+        height: 60px;
+        width: 450px;
+        margin-top: -445px;
+        margin-left: 420px;
+        .up-left-down-dash2 {
+          width: 420px;
+          margin-left: -8px;
+        }
+        span {
+          display: inline-block;
+          background-color: #f0f4fb;
+          padding: 0 5px;
+        }
+      }
+      .down-right-dash {
+        height: 230px;
+        width: 550px;
+        margin-top: 45px;
+        margin-left: 300px;
+        .line-vertical-dash-left {
+          margin-top: -10px;
+        }
+        span {
+          display: inline-block;
+          background-color: #f0f4fb;
+          padding: 0 5px;
+        }
+      }
+      .down-right {
+        height: 135px;
+        width: 122px;
+        margin-top: -230px;
+        margin-left: 680px;
+        .line-vertical-solid {
+          width: 122px;
+          text-align: center;
+          color: #888888;
+          background: url(../images/process/poniter-black-godown.png) 60px 0 repeat-y;
+          float: left;
+          padding-top: 60px;
+          box-sizing: border-box;
+          span {
+            display: inline-block;
+            background-color: #f0f4fb;
+            padding: 0 5px;
+          }
+        }
+        .black-line {
+          width: 47px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/bigline-level.png) 0 18px repeat-x;
+          float:left;
+          margin-top: -20px;
+          margin-left: 60px;
+          &.width1 {
+            width: 30px;
+            margin-top:-22px;
+          }
+        }
+        .black-goright {
+          width: 9px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/go-right-black.png)0 14px no-repeat;
+          float:left;
+          margin-top: -22px;
+
+        }
+      }
+      .right-up-left {
+        width: 70px;
+        margin-left: 890px;
+        margin-top: -145px;
+        .height3 {
+          width: 70px;
+          height: 130px;
+          padding-top: 50px;
+          box-sizing: border-box;
+          background: url(../images/process/pointer-vertical.png) 30px 0 repeat-y;
+          span {
+            display: inline-block;
+            background-color: #f0f4fb;
+            padding: 0 5px;
+          }
+        }
+        .width1 {
+          width: 10px;
+          margin-top: 120px;
+          margin-left: -50px;
+        }
+        .black-goleft {
+          width: 9px;
+          height: 57px;
+          display: inline-block;
+          background: url(../images/process/go-left.png)0 14px no-repeat;
+          float:left;
+          margin-top: -143px;
+          margin-left: -8px;
+        }
+      }
+      .line-line-dash {
+        width: 540px;
+        height: 30px;
+        background: url(../images/process/pointer-level.png)0 10px repeat-x;
+        display: inline-block;
+        float:left;
+        margin-left:5px;
+      }
+      .line-vertical-solid {
+        width: 2px;
+        height: 125px;
+        background: url(../images/process/poniter-black-godown.png) 0 repeat-y;
+        display: inline-block;
+        float:left;
+      }
+      .down-blue {
+        width: 80px;
+        height: 85px;
+        margin-left: 805px;
+        margin-top: 25px;
+        .line-vertical-solid-blue {
+          width: 80px;
+          height: 85px;
+          background: url(../images/process/pointer-solid-blue.png) 40px 0 repeat-y;
+          display: inline-block;
+          padding-top: 30px;
+          box-sizing: border-box;
+          .height1-godown {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: url(../images/process/go-down-blue.png) no-repeat;
+            float:left;
+            margin-top: 25px;
+            margin-left: 36px;
+          }
+          span {
+            display: inline-block;
+            background-color: #f0f4fb;
+            color: #ff5776;
+            padding: 0 5px;
+          }
+        }
+      }
+      .line-solid-black {
+        width: 22px;
+        height: 1px;
+        background: url(../images/process/pointer-black.png) repeat-x;
+        display: inline-block;
+      }
 		}
 	}
 	.apply-content {
