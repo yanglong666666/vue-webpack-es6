@@ -18,39 +18,94 @@ class: verify-info
 
 {% include component/business-verify/info.html %}
 
-<div class="verify-item last">
-  <h2>审核结论</h2>
-  <div class="ui-through-content">
-    <div class="button-content">
-      <button class="btn-lg btn-fill btn-primary">审核通过</button>
-      <button class="btn-lg ml-30 btn-primary verify-btn">审核打回</button>
-    </div>
-    <div class="no-through-content" style="display: none;">
-      <div class="no-through-inner">
-        <div class="no-through-item">
-          <span class="name">选择原因</span>
-          <span>
-            <select name="" id="result_1" class="diy-select" style="display: none;">
-              <option value="">请选择</option>
-              <option value="short_code">渠道短码</option>
-              <option value="channel_name">渠道名称</option>
-            </select>
-            <span class="js-select" id="result_1-select">请选择<i class="arrow"></i></span>
-          </span>
-          <label>
-            <span>备注：</span>
-            <input type="text" class="input" maxlength="20">
-          </label>
-          <a class="delete" href="javascript:void(0)">删除</a>
-        </div>
-      </div>
-      <a class="add-no-through" href="javascript:void(0)"><i></i>添加</a>
-      <div class="button-content">
-        <button class="btn-lg btn-fill" href="javascript:void(0)" onclick="handInfo();">提交</button>
-      </div>
-    </div>
+<!--<div class="verify-item last">-->
+  <!--<h2>审核结论</h2>-->
+  <!--<div class="ui-through-content">-->
+    <!--<div class="button-content">-->
+      <!--<button class="btn-lg btn-fill btn-primary">审核通过</button>-->
+      <!--<button class="btn-lg ml-30 btn-primary verify-btn">审核打回</button>-->
+    <!--</div>-->
+    <!--<div class="no-through-content" style="display: none;">-->
+      <!--<div class="no-through-inner">-->
+        <!--<div class="no-through-item">-->
+          <!--<span class="name">选择原因</span>-->
+          <!--<span>-->
+            <!--<select name="" id="result_1" class="diy-select" style="display: none;">-->
+              <!--<option value="">请选择</option>-->
+              <!--<option value="short_code">渠道短码</option>-->
+              <!--<option value="channel_name">渠道名称</option>-->
+            <!--</select>-->
+            <!--<span class="js-select" id="result_1-select">请选择<i class="arrow"></i></span>-->
+          <!--</span>-->
+          <!--<label>-->
+            <!--<span>备注：</span>-->
+            <!--<input type="text" class="input" maxlength="20">-->
+          <!--</label>-->
+          <!--<a class="delete" href="javascript:void(0)">删除</a>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<a class="add-no-through" href="javascript:void(0)"><i></i>添加</a>-->
+      <!--<div class="button-content">-->
+        <!--<button class="btn-lg btn-fill" href="javascript:void(0)" onclick="handInfo();">提交</button>-->
+      <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="verify-item last last1">
+<h2 class="table-title">整改原因</h2>
+<div class="reason-content">
+  <ul class="clearfix">
+    <li>
+      <div class="reason-item">身份证照片不合格（需重新上传身份证）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">账户选择错误（需重新选择账户)</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">基本资料有误（需重新填写资料）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">密码格式不正确（需重新设置密码）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">营业部选择有误（需重新选择开户营业部）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">三方存管有误（需重新绑定）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">视频不合格（需重新进行视频验证）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+    <li>
+      <div class="reason-item">风险测评结果不合格（需新填写风险测评）</div>
+      <a class="reason-del" href="#">删除</a>
+    </li>
+  </ul>
+  <p>备注:</p>
+  <textarea class="remark"></textarea>
 </div>
 </div>
+<script>
+  $('.reason-content').on('click', '.reason-del', function (e) {
+    e.preventDefault();
+    if($(this).parent().parent().find(".reason-item").length == 1) {
+      $("#commit").html('审核通过');
+    }
+    $(this).parent().remove();
+  });
+</script>
+
+<div class="button-content">
+  <button class="btn-fill btn-lg" id="commit"href="#">审核打回</button>
+</div>
+
 
 <script type="text/javascript">
   $('.license').on('click', function(event) {
