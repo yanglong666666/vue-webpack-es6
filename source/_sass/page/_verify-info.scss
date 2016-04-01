@@ -22,6 +22,9 @@
     &.last {
       padding-bottom: 200px;
     }
+    &.last1 {
+      padding-bottom: 0px;
+    }
     h2 {
       font-size: 16px;
       color: #44c1de;
@@ -120,5 +123,45 @@
         }
       }
     }
+  }
+
+  .reason-content {
+    padding: 23px 27px;
+    background-color: #f0f5fb;
+    li {
+      width: 50%;
+      float: left;
+      margin-bottom: 10px;
+      .reason-item {
+        float: left;
+        min-width: 360px;
+        padding: 10px 15px;
+        border: 1px solid #c9d2dc;
+      }
+      .reason-del {
+        float: left;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: #3ecacb;
+      }
+    }
+    .remark {
+      width: 100%;
+      height: 80px;
+      border: 1px solid #c9d2dc;
+      line-height: 22px;
+      overflow: auto;
+      resize: none;
+    }
+  }
+
+  .invalid {
+    position: relative;
+    background-color: #cbd3e4;
+    .modify {
+      position: absolute;
+      top: 8px;
+      right: 20px;
+      color: #ff5776; }
   }
 }
