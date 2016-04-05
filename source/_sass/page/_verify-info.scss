@@ -35,6 +35,9 @@
       padding: 15px;
     }
   }
+    .pointer {
+    cursor: pointer;
+  }
   .ui-through-content {
     background: #f0f5fb;
     padding: 15px;
@@ -163,6 +166,23 @@
       top: 8px;
       right: 20px;
       color: #ff5776; }
+  }
+  .back,.front,.back1 {
+    padding: 15px 25px 5px 25px;
+    border-radius: 6px;
+    img {
+      cursor: inherit;
+    }
+  }
+  .back1 {
+    width: 130px;
+  }
+  .ui-verify-table .v-title {
+    margin-bottom: 10px;
+  }
+  .modify1 {
+    text-align: center;
+    color: #ff5776;
   }
   .hl-red {
     color: #f2233b; }

@@ -1,10 +1,11 @@
 <div class="verify-item">
   <h2 class="table-title">身份证照片</h2>
-  <a class="btn-primary-white edit-activity" href="#">整改<strong class="hl-red">（2）</strong></a>
+  <a class="btn-primary-white edit-activity1 pointer">整改<strong class="hl-red">（2）</strong></a>
   <div class="ui-verify-table">
   <div class="back">
     <p class="v-title">身份证反面</p>
     <img class="big-img" src="../../images/pic-back.png" width="120" height="80">
+
   </div>
   <div class="front">
     <p class="v-title">身份证正面</p>
@@ -14,19 +15,27 @@
 </div>
 <script type="text/javascript">
   $(function(){
-    $('.ui-verify-table').on('click', '.big-img', function(event) {
-      //点击图片出现大图交互
-      event.preventDefault();
-      DIALOG.show({
-        dragable:true,
-        width:680,
-        title:'',
-        mask: false,
-        hasBtn: true,
-        btnText: ["取消","保存"],
-        btnEvent: ["DIALOG.hide()", "DIALOG.hide()"],
-        btnCls: ['btn-cancel','btn-confirm  ml-30'],
-        html: '<div class="dialog-content-bigimg">'+
+    $(".edit-activity1").click(function() {
+      $(".back,.front").addClass('pointer');
+      $(".back,.front").click(function() {
+        var newNode = document.createElement('div');
+        newNode = '<div class="modify1">需整改</div>'
+        $(this).append(newNode);
+        $(this).addClass('invalid');
+        $(this).unbind("click");
+        $('.ui-verify-table').on('click', '.big-img', function(event) {
+          //点击图片出现大图交互
+          event.preventDefault();
+          DIALOG.show({
+            dragable:true,
+            width:680,
+            title:'',
+            mask: false,
+            hasBtn: true,
+            btnText: ["取消","保存"],
+            btnEvent: ["DIALOG.hide()", "DIALOG.hide()"],
+            btnCls: ['btn-cancel','btn-confirm  ml-30'],
+            html: '<div class="dialog-content-bigimg">'+
             '<div class="big-img" style="width: 350px;height: 350px;">'+
             '<img alt="img" src="../../images/pic-back.png" width="320" height="240">'+
             '</div>'+
@@ -43,7 +52,9 @@
             '</div>'+
             '</div>'
           });
-      $('#identity').diySelect();
-    });
+          $('#identity').diySelect();
+        });
+      })
+    })
   });
 </script>
