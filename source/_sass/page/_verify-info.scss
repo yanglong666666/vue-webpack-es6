@@ -35,6 +35,9 @@
       padding: 15px;
     }
   }
+    .pointer {
+    cursor: pointer;
+  }
   .ui-through-content {
     background: #f0f5fb;
     padding: 15px;
@@ -164,6 +167,34 @@
       right: 20px;
       color: #ff5776; }
   }
+  .back,.front,.file-list {
+    padding: 15px 25px 5px 25px;
+    border-radius: 6px;
+    img {
+      cursor: inherit;
+    }
+  }
+  .file-list {
+    width: 130px;
+  }
+  .ui-verify-table .v-title {
+    margin-bottom: 10px;
+  }
+  .modify-img {
+    text-align: center;
+    color: #ff5776;
+  }
   .hl-red {
-    color: #f2233b; }
+    color: #f2233b;
+  }
+  .btn-primary-white {
+    border:1px solid #3ecacb;
+    border-radius: 4px;
+    padding:3px 3px 3px 5px;
+    margin-left: 30px;
+    &.active {
+      color: white;
+      background-color: #3ecacb;
+    }
+  }
 }

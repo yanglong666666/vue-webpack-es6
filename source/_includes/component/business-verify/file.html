@@ -1,45 +1,79 @@
 <div class="verify-item">
   <h2 class="table-title">业务文件</h2>
-  <a class="btn-primary-white edit-activity" href="#">整改<strong class="hl-red">（2）</strong></a>
+  <a id="edit-activity-file" class="btn-primary-white pointer">整改<strong class="hl-red">（2）</strong></a>
+
   <div class="ui-verify-table">
-    <div class="back">
+    <div class="file-list">
       <p class="v-title">证劵账户业务申请表</p>
       <img class="big-img" src="../../images/pic-file.png" width="120" height="80">
     </div>
   </div>
 </div>
 <script type="text/javascript">
-  $(function(){
-    $('.ui-verify-table').on('click', '.big-img', function(event) {
-      //点击图片出现大图交互
-      event.preventDefault();
-      DIALOG.show({
-        dragable:true,
-        width:680,
-        title:'',
-        mask: false,
-        hasBtn: true,
-        btnText: ["取消","保存"],
-        btnEvent: ["DIALOG.hide()", "DIALOG.hide()"],
-        btnCls: ['btn-cancel','btn-confirm  ml-30'],
-        html: '<div class="dialog-content-bigimg">'+
-            '<div class="big-img" style="width: 350px;height: 350px;">'+
-            '<img alt="img" src="../../images/pic-back.png" width="320" height="240">'+
-            '</div>'+
-            '<div class="operate-img">'+
-            '<div class="turn-content">'+
-            '<a href="javascript:void(0)"><i></i>旋转</a>'+
-            '</div>'+
-            '<div>'+
-            '<select id="identity" class="diy-select">'+
-            '<option value="1">身份证正面</option>'+
-            '<option value="2">身份证反面</option>'+
-            '</select>'+
-            '</div>'+
-            '</div>'+
-            '</div>'
-          });
-      $('#identity').diySelect();
-    });
+  $(function () {
+
+    $("#edit-activity-file").click(function () {
+      if (!$(this).hasClass('active')) {
+        $(this).addClass("active");
+        $(this).parent().find(".file-list").addClass('pointer');
+
+        $(this).parent().find(".file-list").click(function () {
+          if ($(this).find(".modify-img").length == 0) {
+            var newNode = document.createElement('div');
+            newNode = '<div class="modify-img">需整改</div>'
+            $(this).append(newNode);
+            $(this).addClass('invalid');
+
+            $(this).find('.big-img').bind('click', function (event) {
+//            //点击图片出现大图交互
+              if (event && event.stopPropagation) {
+                event.stopPropagation();
+              } else {//IE浏览器
+                event.cancelBubble = true;
+              }
+              DIALOG.show({
+                dragable: true,
+                width: 680,
+                title: '',
+                mask: false,
+                hasBtn: true,
+                btnText: ["取消", "保存"],
+                btnEvent: ["DIALOG.hide()", "DIALOG.hide()"],
+                btnCls: ['btn-cancel', 'btn-confirm  ml-30'],
+                html: '<div class="dialog-content-bigimg">' +
+                '<div class="big-img" style="width: 350px;height: 350px;">' +
+                '<img alt="img" src="../../images/pic-back.png" width="320" height="240">' +
+                '</div>' +
+                '<div class="operate-img">' +
+                '<div class="turn-content">' +
+                '<a href="javascript:void(0)"><i></i>旋转</a>' +
+                '</div>' +
+                '<div>' +
+                '<select id="identity" class="diy-select">' +
+                '<option value="1">身份证正面</option>' +
+                '<option value="2">身份证反面</option>' +
+                '</select>' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+              });
+              $('#identity').diySelect();
+            });
+
+          } else {
+            var childNode = $(this).parents().find(".modify-img");
+            childNode.remove();
+            $(this).removeClass('invalid');
+            $(this).find('.big-img').unbind();
+          }
+        })
+
+      } else {
+        $(this).removeClass("active");
+        $(this).parent().find(".file-list").removeClass('pointer');
+        $(this).parent().find(".file-list").unbind();
+      }
+      return false;
+    })
   });
 </script>
