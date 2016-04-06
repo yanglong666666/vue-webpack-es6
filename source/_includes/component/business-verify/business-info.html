@@ -1,36 +1,53 @@
 <div class="ui-table-info">
   <div class="main-table">
     <h2 class="table-title">业务操作信息</h2>
-    <a class="btn-primary-white edit-activity2 pointer">整改<strong class="hl-red">（2）</strong></a>
+    <a id="edit-activity-businfo" class="btn-primary-white pointer">整改<strong class="hl-red">（2）</strong></a>
     <table width="100%" cellpadding="0" cellspacing="0" class="info-table">
       <tbody>
-        <tr>
-          <td>第二联系人姓名</td>
-          <td>李大晨</td>
-          <td>第二联系人手机号</td>
-          <td>13656684380</td>
-        </tr>
-        <tr>
-          <td>第二联系人关系</td>
-          <td>父亲</td>
-        </tr>
+      <tr>
+        <td>第二联系人姓名</td>
+        <td>李大晨</td>
+        <td>第二联系人手机号</td>
+        <td>13656684380</td>
+      </tr>
+      <tr>
+        <td>第二联系人关系</td>
+        <td>父亲</td>
+      </tr>
       </tbody>
     </table>
   </div>
 </div>
 
 <script type="text/javascript">
-  $(".edit-activity2").click(function() {
-    $(this).parent().find("td").addClass('pointer');
-    $(this).parent().find("td").click(function() {
-      var index = $(this).parents("tr").find("td").index($(this));
-      var num = parseInt(index/2);
-      var newNode = document.createElement('div');
-      newNode = '<div class="modify">需整改</div>'
-      $($(this).parents("tr").find("td")[num * 2 + 1]).append(newNode);
-      $($(this).parents("tr").find("td")[num * 2 + 1]).addClass('invalid');
-      $($(this).parents("tr").find("td")[num * 2 ]).addClass('invalid');
-      $(this).unbind("click");
-    })
+  $("#edit-activity-businfo").click(function () {
+    if (!$(this).hasClass('active')) {
+      $(this).addClass("active");
+      $(this).parent().find("td").addClass('pointer');
+
+      $(this).parent().find("td").click(function () {
+        var index = $(this).parents("tr").find("td").index($(this));//找出当前td是tr里面的第几个，01,23,45,
+        var num = parseInt(index / 2);
+        var small_td = $($(this).parents("tr").find("td")[num * 2]);
+        var big_td = $($(this).parents("tr").find("td")[num * 2 + 1]);
+        if (big_td.find(".modify").length == 0) {
+          var newNode = document.createElement('div');
+          newNode = '<div class="modify">需整改</div>';
+          big_td.html(big_td.text() + newNode);
+          small_td.addClass('invalid');
+          big_td.addClass('invalid');
+        } else {
+          var childNode = big_td.find(".modify");
+          childNode.remove();
+          small_td.removeClass('invalid');
+          big_td.removeClass('invalid');
+        }
+      })
+    } else {
+      $(this).removeClass("active");
+      $(this).parent().find("td").removeClass('pointer');
+      $(this).parent().find("td").unbind("click");
+    }
+    return false;
   })
 </script>

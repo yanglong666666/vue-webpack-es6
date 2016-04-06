@@ -167,20 +167,20 @@
       right: 20px;
       color: #ff5776; }
   }
-  .back,.front,.back1 {
+  .back,.front,.file-list {
     padding: 15px 25px 5px 25px;
     border-radius: 6px;
     img {
       cursor: inherit;
     }
   }
-  .back1 {
+  .file-list {
     width: 130px;
   }
   .ui-verify-table .v-title {
     margin-bottom: 10px;
   }
-  .modify1 {
+  .modify-img {
     text-align: center;
     color: #ff5776;
   }
@@ -192,5 +192,9 @@
     border-radius: 4px;
     padding:3px 3px 3px 5px;
     margin-left: 30px;
+    &.active {
+      color: white;
+      background-color: #3ecacb;
+    }
   }
 }
