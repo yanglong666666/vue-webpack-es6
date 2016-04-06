@@ -185,5 +185,12 @@
     color: #ff5776;
   }
   .hl-red {
-    color: #f2233b; }
+    color: #f2233b;
+  }
+  ..btn-primary-white {
+    border:1px solid #3ecacb;
+    border-radius: 4px;
+    padding:3px 3px 3px 5px;
+    margin-left: 30px;
+  }
 }
