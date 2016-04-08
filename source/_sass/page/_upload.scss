@@ -4,10 +4,14 @@
     padding: 15px;
   }
   .upload-content {
+    position: relative;
     @include clearfix;
     overflow: hidden;
     .upload-left {
-      float: left;
+      // float: left;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 670px;
       .upload-top {
         @include clearfix;
@@ -132,7 +136,7 @@
       float: left;
       width: 370px;
       overflow: hidden;
-      margin-left: 10px;
+      margin-left: 700px;
       .v-title {
         @include clearfix;
         overflow: hidden;
