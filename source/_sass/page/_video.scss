@@ -50,6 +50,7 @@
   }
   .video-main {
     position: relative;
+    min-width: 1080px;
     @include clearfix;
     overflow: hidden;
     background: #f0f5fb;
