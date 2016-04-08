@@ -120,6 +120,7 @@
           color: #3ecacb;
         }
         table {
+          background-color: inherit;
           span {
             padding-right: 15px;
           }
@@ -189,5 +190,11 @@
     line-height: 22px;
     overflow: auto;
     resize: none;
+  }
+}
+
+.idcard-table {
+  img {
+    margin-top: 20px;
   }
 }
