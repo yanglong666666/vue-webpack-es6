@@ -39,33 +39,17 @@
         img {
           cursor: pointer;
         }
-        /*
         .desc-text,
         .pass-text {
           width: 90px;
           margin-left: 130px;
-        }*/
+        }
         .desc-text {
-          width: 100px;
-          margin: 0px 0px 0px 130px;
+          margin-top: 55px;
         }
         .pass-text {
-          width: 100px;
-          margin: 0px 0px 0px 130px;
+          margin-top: 3px;
         }
-
-        .video-styl{
-          width: 100px;
-          margin: 0px 0px 0px 130px;
-          text-align: left;
-          a{
-            color: #44c1de;
-          }
-
-
-        }
-
-
       }
       &.invalid {
         position: relative;
