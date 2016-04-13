@@ -253,9 +253,26 @@ table.czls-style{
   background: #f0f5fb;
   font-size: 14px;
   thead td{
-    padding: 15px 15px;
+    padding: 15px 10px;
     font-weight: 600;
     color: #292828;
   }
 }
+.list-close {
+  height: 80px;
+  overflow: hidden; }
+
+.ui-table-info table.czls-style tbody td:nth-child(1){
+  width:20%;
+}
+.ui-table-info table.czls-style tbody td:nth-child(2){
+  width:20%;
+}
+.ui-table-info table.czls-style tbody td:nth-child(3){
+  width:45%;
+}
+.ui-table-info table.czls-style tbody td:nth-child(4){
+  width:15%;
+}
+
 
