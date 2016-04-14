@@ -1,0 +1,70 @@
+<div class="ui-table-info">
+  <div class="main-table">
+    <h2 class="table-title">渠道信息</h2>
+    <table width="100%" cellpadding="0" cellspacing="0" class="info-table">
+      <thead>
+        <tr>
+          <th width="15%">标题1</th>
+          <th width="35%">标题2</th>
+          <th width="15%">标题3</th>
+          <th width="35%">标题4longlong</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>渠道编码</td>
+          <td>123212</td>
+          <td>经纪人姓名</td>
+          <td class="modify">刘备（18900001111）<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+        </tr>
+        <tr>
+          <td>接入方式</td>
+          <td class="modify">手机开户<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+          <td>开户营业部</td>
+          <td class="modify">上海南路营业部<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+        </tr>
+        <tr>
+          <td>开户类型</td>
+          <td class="modify">开股东户<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+          <td>用户模板</td>
+          <td class="modify">1232132<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+        </tr>
+        <tr>
+          <td>任务类型</td>
+          <td class="modify">开户<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+          <td>任务状态</td>
+          <td class="modify">注册成功<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+        </tr>
+        <tr>
+          <td>客户号</td>
+          <td class="modify">2343212D<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+          <td>流程状态</td>
+          <td class="modify">XXX状态<div class="edit" style="display: none;"><i class="edit-name"></i></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  $('.modify').on('mouseenter', function () {
+    $(this).find('.edit').css('display', 'inline-block');
+  }).on('mouseleave', function () {
+    $(this).find('.edit').css('display', 'none');
+  }).on('click', '.edit', function () {
+    new Dialog(null, {
+      title: '',
+      content: '<div class="dialog-content-input dialog-center">'+
+              '<span>'+$(this).parent().prev().text()+'：</span>'+
+              '<input type="text" class="txt" value="'+$(this).parent().text()+'">'+
+              '</div>',
+      needDestroy: true,
+      hasBtn: true,
+      btnText: ['确定'],
+      btnRole: ['confirm'],
+      confirm: function (dialog) {
+        dialog.hide();
+      }
+    });
+  });
+</script>

@@ -117,15 +117,8 @@
     color: #3a3d42;
   }
 }
-.clearfix{
-	zoom:1;
-	overflow:hidden;
-	&:after{
-		content:'';
-		height:0;
-		display:block;
-		clear:both;
-	}
+.clearfix {
+	@include clearfix;
 }
 tbody {
   tr{

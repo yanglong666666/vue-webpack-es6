@@ -15,16 +15,20 @@
   }
   table {
     background: #f0f5fb;
+    th {
+      padding: 20px 10px 10px 10px;
+      font-weight: bold;
+      color: #444;
+      text-align: justify;
+    }
     tbody {
       td {
         padding: 10px;
         &:nth-child(odd) {
           color: #6f7b91;
-          width: 15%;
         }
         &:nth-child(even) {
           color: #4c4f54;
-          width: 35%;
         }
         .license {
           cursor: pointer;

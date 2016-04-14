@@ -1,0 +1,94 @@
+
+<div class="ui-tab-table">
+  <div class="table-tab">
+    <ul class="clearfix">
+      <li class="z1 active"><span>审核流程修改</span></li>
+      <li class="z2"><span>条件规则修改</span></li>
+    </ul>
+    <a href="#" class="btn btn-add btn-primary-white btn-small">新增</a>
+  </div>
+  <div class="table-content">
+    <table>
+      <thead>
+        <tr>
+          <th>审核级别</th>
+          <th>菜单编号</th>
+          <th>定制审核URL</th>
+          <th>免责条件规则</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>一级</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><a class="opt-link" href="#">删除</a><a class="opt-link" href="#">修改</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-content" style="display: none;">2</div>
+</div>
+<script type="text/javascript">
+  $('.table-tab').on('click', 'li', tabSwitch);
+
+  function tabSwitch(e) {
+    var tab = locateTab(e.target);
+    var index = changeTab(tab);
+    var $content = $('.table-content');
+    changeContent($content, index);
+  }
+
+  function locateTab(target) {
+    if (target.tagName.toLowerCase() !== 'li') {
+      target = target.parentNode;
+    }
+
+    return target;
+  }
+
+  function changeTab(tab) {
+    var $tabs = $(tab).parent().find('li');
+
+    $tabs.removeClass('active');
+    $(tab).addClass('active');
+
+    return $tabs.index(tab);
+  }
+
+  function changeContent($content, index) {
+    $content.hide();
+    $content.eq(index).show();
+  }
+
+  var contentHtml = ['<div class="form">',
+    '<div class="form-group">',
+      '<label for="level" class="label">审核级别</label>',
+      '<input type="text" class="txt" id="level">',
+    '</div>',
+    '<div class="form-group">',
+      '<label for="code" class="label">菜单编号</label>',
+      '<input type="text" class="txt" id="code">',
+    '</div>',
+    '<div class="form-group">',
+      '<label for="url" class="label">定制URL</label>',
+      '<input type="text" class="txt" id="url">',
+    '</div>',
+    '<div class="form-group">',
+      '<label for="rule" class="label">免责条件规则</label>',
+      '<input type="text" class="txt" id="rule">',
+    '</div>',
+  '</div>'].join('');
+
+  $('.btn-add').dialog({
+    title: '新增审核流程',
+    content: contentHtml,
+    hasBtn: true,
+    confirm: function (dialog) {
+      alert('已确定');
+      dialog.hide();
+    }
+  });
+</script>
