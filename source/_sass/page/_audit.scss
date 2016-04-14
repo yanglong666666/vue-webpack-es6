@@ -9,7 +9,8 @@
   }
   .validate-content {
     background-color: #f0f5fb;
-    -webkit-border-radius: 6px;
+    overflow: hidden;
+    @include border-radius(6px);
     ul {
       padding: 10px;
     }

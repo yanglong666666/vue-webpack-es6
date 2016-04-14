@@ -2,6 +2,7 @@
 
   .validate-content {
     background-color: #f0f5fb;
+    overflow: hidden;
     @include border-radius(6px);
     ul {
       padding: 10px;

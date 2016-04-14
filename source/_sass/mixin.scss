@@ -10,7 +10,6 @@
 
 // Clearfix
 @mixin clearfix() {
-  overflow: hidden;
   &:before,
   &:after {
     content: " "; // 1
