@@ -1,0 +1,73 @@
+.page-user-search {
+
+  .validate-content {
+    background-color: #f0f5fb;
+    @include border-radius(6px);
+    ul {
+      padding: 10px;
+    }
+    .item {
+      float: left;
+      margin-left: 10px;
+      padding: 17px 22px 22px 22px;
+      text-align: center;
+      h3 {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+      .desc-text,
+      .pass-text {
+        width: 180px;
+        margin-left: 80px;
+        margin-top: 30px;
+        text-align: justify;
+      }
+      .desc-text {
+        color:#ff3e2f;
+      }
+      .pass-text {
+        color: #3a3d42;
+      }
+      &.media {
+        img {
+          cursor: pointer;
+        }
+        p.video-styl {
+          width: 100px;
+          margin: 0px 0px 0px 130px;
+          text-align: left;
+          font-size: 12px;
+          a {
+            color: #44c1de;
+          }
+        }
+      }
+      &.invalid {
+        position: relative;
+        background-color: #cbd3e4;
+        -webkit-border-radius: 6px;
+        &:after {
+          position: absolute;
+          left: 50%;
+          content: "需整改";
+          width: 50px;
+          margin-left: -25px;
+          color: #ff5776;
+        }
+      }
+    }
+  }
+  table.user_td_2{
+    td{
+      span{
+        margin-right: 25px;
+      }
+    }
+    td:nth-child(1){
+      width: 10%;
+    }
+  }
+}
+.user-search-a {
+  color: #44c1de;
+}

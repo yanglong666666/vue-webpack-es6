@@ -27,7 +27,7 @@
   position: relative;
   width: 100%;
   margin-bottom: 20px;
-  @include clearfix;
+  // @include clearfix;
   .data-table {
     border: 1px solid #f0f4fb;
     thead {
@@ -138,7 +138,7 @@
   }
 }
 
-.ui-workflow-table {
+.ui-tab-table {
   .table-tab {
     position: relative;
     border-bottom: 2px solid #3ecacb;
