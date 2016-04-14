@@ -110,10 +110,12 @@ label {
 }
 
 .adaptive-query-list{
-  padding-right: 55px;
   overflow: hidden;
-  &.H80{
+  &.H70{
     height:70px;
+  }
+  &.haszomm{
+    padding-right: 55px;
   }
   .aql-dl{
     display: inline-block;
