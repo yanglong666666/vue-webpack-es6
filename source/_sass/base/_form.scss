@@ -33,6 +33,12 @@ label {
 			width: 170px;
 		}
 	}
+  &.w-130 {
+    width: 130px;
+    .txt {
+      width: 130px;
+    }
+  }
 }
 .pre {
 	font-size: 12px;
@@ -101,4 +107,59 @@ label {
       background-position: right center;
     }
 	}
+}
+
+.adaptive-query-list{
+  padding-right: 55px;
+  overflow: hidden;
+  &.H80{
+    height:70px;
+  }
+  .aql-dl{
+    display: inline-block;
+    position: relative;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    .aql-dt{
+      margin-bottom: 5px;
+    }
+    .aql-dd{
+      .aql-label{
+        .aql-input{
+          display: inline-block;
+          width: 130px;
+          border: none;
+          background: #e1e6ef;
+          height: 37px;
+          line-height: 37px;
+          border-radius: 5px;
+          color: #3a3d42;
+          font-size: 12px;
+          text-indent: 10px;
+          outline: none;
+        }
+      }
+    }
+  }
+}
+.zoom-btn{
+  position: absolute;
+  right: 26px;
+  top: 53px;
+  display: none;
+  a{
+    color: #6f7b91;
+    font-size: 12px;
+    i{
+      display: inline-block;
+      width: 13px;
+      height: 8px;
+      vertical-align: middle;
+      background: url(../images/icolist.png) -81px -50px no-repeat;
+      margin: 0px 0px 3px 10px;
+    }
+    i.open{
+      background: url(../images/icolist.png) -80px -65px no-repeat;
+    }
+  }
 }

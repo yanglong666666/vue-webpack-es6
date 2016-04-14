@@ -2,6 +2,139 @@
 layout: docs
 title: 表单
 ---
+<div class="main-content">
+  <div class="adaptive-query-list">
+    <dl class="aql-dl">
+      <dt class="aql-dt">姓名</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">姓名</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">姓名</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">姓名</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">姓名</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+    </dl>
+
+    <dl class="aql-dl">
+      <dt class="aql-dt">开户类型</dt>
+      <dd class="aql-dd">
+        <span>
+          <select name="" id="type_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">类型1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">存管银行</dt>
+      <dd class="aql-dd">
+        <span>
+          <select name="" id="bank_list" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">银行1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+
+    <dl class="aql-dl">
+      <dt class="aql-dt">时间</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input class="aql-input begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label class="aql-label">
+          <input class="aql-input end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+
+  </div>
+  <div class="zoom-btn">
+    <a class="open" href="javascript:void(0)">收起<i></i></a>
+  </div>
+  <script type="text/javascript">
+    function adaptiveWidth(){
+      $(".main-content").find(".adaptive-query-list").each(function(){
+        var _this = $(this);
+        var total_width = _this.width();
+        var add_width =0;
+        _this.find(".aql-dl").each(function(){
+          add_width += $(this).outerWidth();
+          window.console.log(add_width);
+        });
+        if(add_width > total_width){
+          _this.siblings(".zoom-btn").show();
+        }else{
+          _this.siblings(".zoom-btn").hide();
+        }
+      });
+    }
+    $(function(){
+      adaptiveWidth();
+      $(window).bind("resize", function(){
+        adaptiveWidth();
+      });
+      $(".zoom-btn").on("click",function(event) {
+        event.preventDefault();
+        var _this = $(this);
+        var a_tag = _this.find("a");
+        if (a_tag.attr("class") == undefined || a_tag.attr("class").indexOf("open") < 0) {
+          _this.find('a')
+            .html('收起')
+            .append('<i></i>')
+            .addClass('open');
+          _this.siblings(".adaptive-query-list").removeClass("H80");
+        } else {
+          _this.find('a')
+            .html('展开')
+            .append('<i></i>')
+            .removeClass('open');
+          _this.siblings(".adaptive-query-list").addClass("H80");
+        }
+      })
+    });
+  </script>
+
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output" href="#">输出报表</button>
+  </div>
+</div>
 
 <div class="form">
   <div class="form-group">
