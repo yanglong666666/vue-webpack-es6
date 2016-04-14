@@ -87,55 +87,57 @@ title: 表单
   <div class="zoom-btn">
     <a class="open" href="javascript:void(0)">收起<i></i></a>
   </div>
-  <script type="text/javascript">
-    function adaptiveWidth(){
-      $(".main-content").find(".adaptive-query-list").each(function(){
-        var _this = $(this);
-        var total_width = _this.width();
-        var add_width =0;
-        _this.find(".aql-dl").each(function(){
-          add_width += $(this).outerWidth();
-          window.console.log(add_width);
-        });
-        if(add_width > total_width){
-          _this.siblings(".zoom-btn").show();
-        }else{
-          _this.siblings(".zoom-btn").hide();
-        }
-      });
-    }
-    $(function(){
-      adaptiveWidth();
-      $(window).bind("resize", function(){
-        adaptiveWidth();
-      });
-      $(".zoom-btn").on("click",function(event) {
-        event.preventDefault();
-        var _this = $(this);
-        var a_tag = _this.find("a");
-        if (a_tag.attr("class") == undefined || a_tag.attr("class").indexOf("open") < 0) {
-          _this.find('a')
-            .html('收起')
-            .append('<i></i>')
-            .addClass('open');
-          _this.siblings(".adaptive-query-list").removeClass("H80");
-        } else {
-          _this.find('a')
-            .html('展开')
-            .append('<i></i>')
-            .removeClass('open');
-          _this.siblings(".adaptive-query-list").addClass("H80");
-        }
-      })
-    });
-  </script>
-
   <div class="button-content">
     <button class="btn-fill btn-lg" href="#">查询</button>
     <button class="btn-primary output" href="#">输出报表</button>
   </div>
 </div>
-
+<script type="text/javascript">
+  //查询表单自适应方法，此方法调用必须在.diySelect()美化select之后调用，否则无法准确计算长度
+  function adaptiveWidth(){
+    $(".main-content").find(".adaptive-query-list").each(function(){
+      var _this = $(this);
+      var total_width = _this.width();
+      var add_width =0;
+      _this.find(".aql-dl").each(function(){
+        add_width += $(this).outerWidth();
+        window.console.log(add_width);
+      });
+      if(add_width > total_width){
+        _this.siblings(".zoom-btn").show();
+      }else{
+        _this.siblings(".zoom-btn").hide();
+      }
+    });
+  }
+  $(function(){
+    //初始加载调用自适应宽度方法
+    adaptiveWidth();
+    //监听屏幕变化时间
+    $(window).bind("resize", function(){
+      adaptiveWidth();
+    });
+    //展开  收起功能
+    $(".zoom-btn").on("click",function(event) {
+      event.preventDefault();
+      var _this = $(this);
+      var a_tag = _this.find("a");
+      if (a_tag.attr("class") == undefined || a_tag.attr("class").indexOf("open") < 0) {
+        _this.find('a')
+          .html('收起')
+          .append('<i></i>')
+          .addClass('open');
+        _this.siblings(".adaptive-query-list").removeClass("H80");
+      } else {
+        _this.find('a')
+          .html('展开')
+          .append('<i></i>')
+          .removeClass('open');
+        _this.siblings(".adaptive-query-list").addClass("H80");
+      }
+    })
+  });
+</script>
 <div class="form">
   <div class="form-group">
     <label for="level" class="label">审核级别</label>
