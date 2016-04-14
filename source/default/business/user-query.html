@@ -298,7 +298,13 @@ layout: default
       });
       if(add_width > total_width){
         _this.siblings(".zoom-btn").show();
+        _this.addClass("haszomm");
       }else{
+        _this.siblings(".zoom-btn").hide();
+        _this.removeClass("haszomm");
+      }
+      if(_this.outerWidth() > add_width){
+        _this.removeClass("haszomm");
         _this.siblings(".zoom-btn").hide();
       }
     });
@@ -320,13 +326,13 @@ layout: default
           .html('收起')
           .append('<i></i>')
           .addClass('open');
-        _this.siblings(".adaptive-query-list").removeClass("H80");
+        _this.siblings(".adaptive-query-list").removeClass("H70");
       } else {
         _this.find('a')
           .html('展开')
           .append('<i></i>')
           .removeClass('open');
-        _this.siblings(".adaptive-query-list").addClass("H80");
+        _this.siblings(".adaptive-query-list").addClass("H70");
       }
     })
   });
