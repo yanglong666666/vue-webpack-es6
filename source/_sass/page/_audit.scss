@@ -1,6 +1,7 @@
 .page-audit {
   .hl-red {
     color: #f2233b;
+    display: none;
   }
   .idcard-table {
     td {
@@ -144,6 +145,7 @@
     padding: 23px 27px;
     background-color: #f0f5fb;
     li {
+      //display: none;
       width: 50%;
       float: left;
       margin-bottom: 10px;
