@@ -16,9 +16,11 @@
       float: left;
       margin: 37px 10px 0 0;
       .error {
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
         color: #ff5776;
+        max-width: 138px;
+
       }
       .identification {
         &.default {
