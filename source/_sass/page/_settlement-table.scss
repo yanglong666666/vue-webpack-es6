@@ -1,0 +1,44 @@
+.page-settlement-table{
+  span.nochecked{
+    padding-left: 17px;
+  }
+  label.table-check{
+    width: auto;
+    height: auto;
+    line-height: normal;
+    cursor: pointer;
+    input[type="checkbox"]{
+      display: none;
+    }
+    span.checkbox{
+      display: inline-block;
+      font-size: 12px;
+      border: solid 1px #868686;
+      color: #3ecacb;
+      height: 10px;
+      width: 10px;
+      line-height: 6px;
+      overflow: hidden;
+      position: relative;
+      top: 1px;
+      margin-right: 5px;
+      border-radius: 2px;
+    }
+  }
+  .table-foot{
+    width: 100%;
+    padding-left: 16px;
+    label{
+      margin-right: 10px;
+    }
+    &:before{
+      content: "";
+      clear: both;
+      width: 100%;
+      display: block;
+      height: 10px;
+    }
+
+  }
+
+}

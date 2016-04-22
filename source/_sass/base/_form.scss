@@ -110,9 +110,9 @@ label {
 }
 
 .adaptive-query-list{
-  overflow: hidden;
   &.H70{
     height:70px;
+    overflow: hidden;
   }
   &.haszomm{
     padding-right: 55px;
