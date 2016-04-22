@@ -1,0 +1,220 @@
+---
+title: 结算表
+layout: default
+class: settlement-table
+---
+<div class="main-content">
+  <div class="adaptive-query-list">
+    <dl class="aql-dl">
+      <dt class="aql-dt">结算周期</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input class="aql-input begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label class="aql-label">
+          <input class="aql-input end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">营业部</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">合作方</dt>
+      <dd class="aql-dd">
+        <span>
+          <select name="" id="partner" class="diy-select" style="display: none;">
+            <option selected="" value="1">同花顺1</option>
+            <option value="2">同花顺2</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="aql-dl">
+      <dt class="aql-dt">状态</dt>
+      <dd class="aql-dd">
+        <span>
+          <select name="" id="state" class="diy-select" style="display: none;">
+            <option selected="" value="1">已结算</option>
+            <option value="2">未结算</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+
+  </div>
+
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn btn-primary-white btn-small output" href="#">输出报表</button>
+  </div>
+</div>
+<div class="main-table" style="overflow: hidden">
+  <div class="scroll-table">
+    <table cellpadding="0" cellspacing="0" class="data-table">
+      <thead>
+      <tr>
+        <th>编号</th>
+        <th>营业部</th>
+        <th>累计总开户成功数</th>
+        <th>客户总资产(元)</th>
+        <th>成交金额(元)</th>
+        <th>毛佣金(元)</th>
+        <th>净佣金(元)</th>
+        <th>普通期达标未计提数</th>
+        <th>促销期达标未计提数</th>
+        <th>普通期开户数</th>
+        <th>促销期开户数</th>
+        <th>本期服务费</th>
+        <th>是否结算</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><label class="table-check"><input type="checkbox" /><span class="checkbox">√</span>张三</label></td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+
+      </tr>
+      <tr class="even">
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fixed-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+      <thead>
+      <tr>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+ <!--     <tr>
+        <td class="text-c">
+          <div class="btn-group">
+            <a href="#" class="btn btn-fill btn-small">审核</a>
+            <i class="dropdown"></i>
+            <ul class="sub-group">
+              <li><a href="#">作废</a></li>
+              <li><a href="#">作废1</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>-->
+      <tr>
+        <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+      </tr>
+      <tr class="even">
+        <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+      </tr>
+       <tr>
+         <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="ui-pagenav">
+  <div class="page">
+    <ul>
+      <li class="page-up"><a href="">上一页</a></li>
+      <li><a href="">1</a></li>
+      <li class="thisPage"><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="">6</a></li>
+      <li>...</li>
+      <li><a href="">12</a></li>
+      <li class="page-down"><a href="">下一页</a></li>
+      <li>跳转到</li>
+      <li><input class="page-go" type="text"></li>
+      <li><a href="">GO</a></li>
+    </ul>
+  </div>
+  <div class="sum-num">
+    <span>共1666条记录</span>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+    $('.begin-time').datepicker({
+      onClose: function (selectedDate) {
+        $('.end-time').datepicker('option', 'minDate', selectedDate);
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function (selectedDate) {
+        $('.begin-time').datepicker('option', 'maxDate', selectedDate);
+      }
+    });
+  $(".table-check").on("click",function(e){
+    e.preventDefault();
+    //<label class="table-check"><input type="checkbox" /><span class="checkbox">√</span>张三</label>
+    var _this = $(this);
+    var _checkbox = _this.find("input[type='checked']");
+    var check_style =_this.find("span.checkbox");
+    if(_checkbox.is(':checked')){
+      _checkbox.attr("checked",false);
+      alert("yes");
+    }else{
+      _checkbox.attr("checked",true);
+      alert("no");
+    }
+
+
+  });
+
+
+  });
+
+</script>
