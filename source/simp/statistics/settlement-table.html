@@ -79,23 +79,7 @@ class: settlement-table
       </thead>
       <tbody>
       <tr>
-        <td><label class="table-check"><input type="checkbox" /><span class="checkbox">√</span>张三</label></td>
-        <td>18677777777</td>
-        <td>开户审核</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-        <td>杭州庆春路营业部</td>
-
-      </tr>
-      <tr class="even">
-        <td>张三</td>
+        <td><span class="nochecked">张三</span></td>
         <td>18677777777</td>
         <td>开户审核</td>
         <td>杭州庆春路营业部</td>
@@ -111,7 +95,39 @@ class: settlement-table
 
       </tr>
       <tr>
-        <td>张三</td>
+        <td><label class="table-check"><input type="checkbox" /><span class="checkbox"></span>张三</label></td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+
+      </tr>
+      <tr class="even">
+        <td><label class="table-check"><input type="checkbox" /><span class="checkbox"></span>张三</label></td>
+        <td>18677777777</td>
+        <td>开户审核</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+        <td>杭州庆春路营业部</td>
+
+      </tr>
+      <tr>
+        <td><label class="table-check"><input type="checkbox" /><span class="checkbox"></span>张三</label></td>
         <td>18677777777</td>
         <td>开户审核</td>
         <td>杭州庆春路营业部</td>
@@ -133,7 +149,7 @@ class: settlement-table
     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
       <thead>
       <tr>
-        <th>操作</th>
+        <th style="text-align: center">操作</th>
       </tr>
       </thead>
       <tbody>
@@ -150,16 +166,26 @@ class: settlement-table
         </td>
       </tr>-->
       <tr>
-        <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+        <td class="text-c">--</td>
+      </tr>
+      <tr>
+        <td class="text-c"><a href="#" class="btn btn-fill btn-small">结算</a></td>
       </tr>
       <tr class="even">
-        <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+        <td class="text-c"><a href="#" class="btn btn-fill btn-small">结算</a></td>
       </tr>
-       <tr>
-         <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
-       </tr>
+      <tr>
+       <td class="text-c"><a href="#" class="btn btn-fill btn-small">结算</a></td>
+      </tr>
       </tbody>
     </table>
+  </div>
+  <div class="table-foot">
+
+    <label class="table-check check-all"><input type="checkbox" /><span class="checkbox"></span>全选</label>
+
+    <a href="#" class="btn btn-fill btn-small">结算</a>
+
   </div>
 </div>
 <div class="ui-pagenav">
@@ -199,17 +225,38 @@ class: settlement-table
     });
   $(".table-check").on("click",function(e){
     e.preventDefault();
-    //<label class="table-check"><input type="checkbox" /><span class="checkbox">√</span>张三</label>
+    //<label class="table-check check-all"><input type="checkbox" /><span class="checkbox">√</span>张三</label>
     var _this = $(this);
-    var _checkbox = _this.find("input[type='checked']");
+    var _checkbox = _this.find("input[type='checkbox']");
     var check_style =_this.find("span.checkbox");
-    if(_checkbox.is(':checked')){
-      _checkbox.attr("checked",false);
-      alert("yes");
+    if(_this.hasClass("check-all")){
+
+        if(_checkbox.is(':checked')){
+          $(".table-check").find("input[type='checkbox']").attr("checked",false);
+
+          $(".table-check").find("span.checkbox").css("border-color","#B5B5B5").html("");
+
+        }else{
+          $(".table-check").find("input[type='checkbox']").attr("checked",true);
+          $(".table-check").find("span.checkbox").css("border-color","#3ecacb").html("√");
+
+        }
+
     }else{
-      _checkbox.attr("checked",true);
-      alert("no");
+      if(_checkbox.is(':checked')){
+        _checkbox.attr("checked",false);
+        _this.parents(".main-table").find(".check-all input[type='checkbox']").attr("checked",false);
+        _this.parents(".main-table").find(".check-all span.checkbox").css("border-color","#3ecacb").html("");
+        check_style.css("border-color","#B5B5B5").html("");
+
+      }else{
+        _checkbox.attr("checked",true);
+        check_style.css("border-color","#3ecacb").html("√");
+
+      }
     }
+
+
 
 
   });
