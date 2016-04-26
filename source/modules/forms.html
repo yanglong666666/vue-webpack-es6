@@ -56,6 +56,9 @@ title: 表单
         </span>
       </dd>
     </dl>
+
+
+
     <dl class="aql-dl">
       <dt class="aql-dt">存管银行</dt>
       <dd class="aql-dd">
@@ -63,6 +66,17 @@ title: 表单
           <select name="" id="bank_list" class="diy-select" style="display: none;">
             <option selected="" value="1">全部</option>
             <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+            <option value="2">银行1</option>
+
           </select>
         </span>
       </dd>
@@ -70,6 +84,15 @@ title: 表单
 
     <dl class="aql-dl">
       <dt class="aql-dt">时间</dt>
+      <dd class="aql-dd">
+        <span class="time-inner">
+          <a class="active" href="javascript:void(0);">今日</a>
+          <a class="" href="javascript:void(0);">昨日</a>
+          <a class="" href="javascript:void(0);">最近7日</a>
+          <a class="" href="javascript:void(0);">最近30日</a>
+          <a class="" href="javascript:void(0);">全部</a>
+        </span>
+      </dd>
       <dd class="aql-dd">
         <label class="aql-label">
           <input class="aql-input begin-time" type="text" placeholder="开始时间">
@@ -81,6 +104,7 @@ title: 表单
           <i></i>
         </label>
       </dd>
+
     </dl>
 
   </div>
@@ -99,8 +123,14 @@ title: 表单
       var _this = $(this);
       var total_width = _this.width();
       var add_width =0;
-      _this.find(".aql-dl").each(function(){
+      _this.find(".aql-dl").each(function(i,e){
         add_width += $(this).outerWidth();
+        add_width += 4;
+        if(add_width > (_this.outerWidth() - 55)){
+          $(e).addClass("aql-display");
+        }else{
+          $(e).removeClass("aql-display");
+        }
       });
       if(add_width > total_width){
         _this.siblings(".zoom-btn").show();
@@ -132,15 +162,27 @@ title: 表单
           .html('收起')
           .append('<i></i>')
           .addClass('open');
-        _this.siblings(".adaptive-query-list").removeClass("H70");
+        //_this.siblings(".adaptive-query-list").removeClass("H70");
+        _this.siblings(".adaptive-query-list").find(".aql-display").show();
       } else {
         _this.find('a')
           .html('展开')
           .append('<i></i>')
           .removeClass('open');
-        _this.siblings(".adaptive-query-list").addClass("H70");
+        //_this.siblings(".adaptive-query-list").addClass("H70");
+        _this.siblings(".adaptive-query-list").find(".aql-display").hide();
       }
-    })
+    });
+    //时间选择今日，明日，一周。。。点击事件
+    $(".time-inner a").on("click",function(){
+      var _this = $(this);
+      if(_this.hasClass("active")){
+        return;
+      }else{
+        _this.siblings("a").removeClass("active");
+        _this.addClass("active");
+      }
+    });
   });
 </script>
 <div class="form">
