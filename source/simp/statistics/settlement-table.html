@@ -166,7 +166,7 @@ class: settlement-table
         </td>
       </tr>-->
       <tr>
-        <td class="text-c">--</td>
+        <td class="text-c"><span class="do-none">--</span></td>
       </tr>
       <tr>
         <td class="text-c"><a href="#" class="btn btn-fill btn-small">结算</a></td>
@@ -246,7 +246,7 @@ class: settlement-table
       if(_checkbox.is(':checked')){
         _checkbox.attr("checked",false);
         _this.parents(".main-table").find(".check-all input[type='checkbox']").attr("checked",false);
-        _this.parents(".main-table").find(".check-all span.checkbox").css("border-color","#3ecacb").html("");
+        _this.parents(".main-table").find(".check-all span.checkbox").css("border-color","#B5B5B5").html("");
         check_style.css("border-color","#B5B5B5").html("");
 
       }else{

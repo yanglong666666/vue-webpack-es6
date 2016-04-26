@@ -126,6 +126,7 @@ label {
       margin-bottom: 5px;
     }
     .aql-dd{
+      display: inline-block;
       .aql-label{
         .aql-input{
           display: inline-block;
@@ -139,6 +140,24 @@ label {
           font-size: 12px;
           text-indent: 10px;
           outline: none;
+        }
+      }
+      .time-inner{
+        a{
+          margin-right: 3px;
+          display: inline-block;
+          height: 35px;
+          line-height: 35px;
+          width: 65px;
+          text-align: center;
+          border: 1px solid #3ecacb;
+          color: #3ecacb;
+          border-radius: 5px;
+          font-size: 14px;
+          &.active{
+            background: #3ecacb;
+            color: #fff;
+          }
         }
       }
     }
