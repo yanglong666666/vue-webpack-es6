@@ -49,6 +49,22 @@
       }
     }
   }
+  .add-activity{
+    background: #F9F9F9;
+    border: 1px solid #E2E0E0;
+    padding: 0px 23px;
+    line-height: 40px;
+    max-height: 210px;
+    overflow: auto;
+    label{
+      cursor: pointer;
+      input[type="checkbox"]{
+        margin-right: 10px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
 
 
 }
