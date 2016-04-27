@@ -162,6 +162,37 @@ class: activity
 </div>
 <script type="text/javascript">
 $(function(){
+
+  $('.ui-table-info').on('click', '.add-bank', function(event) {
+    //新增银行
+    event.preventDefault();
+    /* Act on the event */
+    var add_bank_screen = new Dialog(null,{
+      title: '添加活动渠道',
+      width: '450',
+      needDestroy: true,
+      hasBtn: true,
+      btnText: ["取消","确定"],
+      btnRole: ['cancel','confirm'],
+      btnCls: ['cancel', 'confirm'],
+      confirm: function() {
+        //确定按钮事件
+        add_bank_screen.hide();
+      },
+      content:"<div class='add-activity'><table>" +
+      "<tr><td><label><input type='checkbox' />全选</label></td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
+      "</table></div>",
+    });
+  });
+
+
   $('.ui-table-info').on('click', '#more_department', function(event) {
     event.preventDefault();
     /* Act on the event */
