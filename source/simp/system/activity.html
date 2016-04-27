@@ -180,7 +180,7 @@ $(function(){
         add_bank_screen.hide();
       },
       content:"<div class='add-activity'><table>" +
-      "<tr><td><label><input type='checkbox' />全选</label></td></tr>" +
+      "<tr><td><label class='allchecked'><input type='checkbox' />全选</label></td></tr>" +
       "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
       "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
       "<tr><td><label><input type='checkbox' />渠道名称</label></td><td>********</td></tr>" +
@@ -191,7 +191,21 @@ $(function(){
       "</table></div>",
     });
   });
+$(".page-activity").on("click",".add-activity input[type='checkbox']",function () {
+  var _this =$(this);
+  if(_this.parents("label").hasClass("allchecked")){
+    if(_this.attr('checked')){
+      _this.parents("tr").siblings("tr").find("input").attr("checked",true);
+    }else{
+      _this.parents("tr").siblings("tr").find("input").removeAttr("checked");
+    }
+  }else{
+    if(_this.attr('checked')==undefined){
+      _this.parents("tr").siblings("tr").find(".allchecked input").removeAttr("checked");
+    }
+  }
 
+})
 
   $('.ui-table-info').on('click', '#more_department', function(event) {
     event.preventDefault();
