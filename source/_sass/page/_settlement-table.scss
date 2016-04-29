@@ -40,5 +40,23 @@
     }
 
   }
+  .fuzzy-list{
+    position: absolute;
+    z-index: 1;
+    background: #e1e6ef;
+    min-width: 130px;
+    top: 65px;
+    li{
+      line-height: 30px;
+      padding: 0 10px;
+      white-space: nowrap;
+      font-size: 12px;
+      cursor: pointer;
+      &:hover{
+        background-color: #9ba0a8;
+        color: #fff;
+      }
+    }
+  }
 
 }
