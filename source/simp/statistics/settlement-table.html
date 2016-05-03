@@ -30,16 +30,73 @@ class: settlement-table
     <dl class="aql-dl">
       <dt class="aql-dt">合作方</dt>
       <dd class="aql-dd">
-        <span>
-          <select name="" id="partner" class="diy-select" style="display: none;">
-            <option selected="" value="1">同花顺1</option>
-            <option value="2">同花顺2</option>
-          </select>
-        </span>
+
+          <label class="aql-label">
+            <input type="text" class="aql-input fuzzy-search">
+          </label>
+          <ul class="fuzzy-list">
+
+          </ul>
+
       </dd>
+      <script type="text/javascript">
+        $(function () {
+          //模糊查询数据
+          var _json = {str:["你在干什么","我在发呆","为什么发呆呢","你问我我问谁","去，问你是看的起你","BB不完了，屌什么啊","呵呵"]}
+          //模糊查询输入框，输入事件和聚焦事件绑定
+          $(".page-settlement-table").on("input focus","input.fuzzy-search",function () {
+            var _this =$(this);
+            var isMate = true;
+            var li_html = "";
+            var _thisval = _this.val();
+            //遍历全部数据
+            for(var j=0;j<_json.str.length;j++){
+              isMate =true;
+              //遍历输入框内字符串与数据做匹配
+              for(var i =0;i<_thisval.length;i++){
+                //console.log(_thisval.charAt(i)+"i");
+                //console.log( _json.str[j].charAt(i)+"j");
+                var i_val = _thisval.charAt(i);
+                var j_val = _json.str[j].charAt(i);
+
+                if(i_val.toLowerCase() != j_val.toLowerCase()){
+                  isMate = false;
+                }
+              }
+              //如果匹配拼装html代码
+              if(isMate){
+                //console.log(_json.str[j])
+                li_html += "<li>"+_json.str[j]+"</li>";
+              }
+            }
+            _this.parent().siblings(".fuzzy-list").html(li_html);
+            _this.parent().siblings(".fuzzy-list").show();
+          });
+
+          //模糊查询查询结果列表点击选择事件绑定
+          $(".page-settlement-table").on("click",".fuzzy-list li",function () {
+            var _this = $(this);
+            var _thisval = _this.html();
+            _this.parent().siblings("label").find("input.fuzzy-search").val(_thisval);
+            _this.parent(".fuzzy-list").hide();
+          });
+          //绑定mouseover事件，让鼠标停留在查询出来的列表上时，blur事件失效
+          $(".page-settlement-table").on("mouseover",".fuzzy-list li",function () {
+
+            $(".page-settlement-table").off("blur","input.fuzzy-search");
+          });
+          //绑定mouseout事件，让鼠标停留在查询出来的列表上时，blur事件起效
+          $(".page-settlement-table").on("mouseout",".fuzzy-list li",function () {
+            $(".page-settlement-table").on("blur","input.fuzzy-search",function () {
+              var _this =$(this);
+              _this.parent().siblings(".fuzzy-list").hide();
+            });
+          });
+        })
+      </script>
     </dl>
     <dl class="aql-dl">
-      <dt class="aql-dt">状态</dt>
+      <dt class="aql-dt">开户费结算状态</dt>
       <dd class="aql-dd">
         <span>
           <select name="" id="state" class="diy-select" style="display: none;">
