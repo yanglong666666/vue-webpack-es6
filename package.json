@@ -1,6 +1,6 @@
 {
   "name": "background-management",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "财人汇综合后台管理系统 2.0",
   "directories": {
     "doc": "source/modules"
