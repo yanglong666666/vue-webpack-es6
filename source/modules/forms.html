@@ -207,7 +207,7 @@ title: 表单
     $(function () {
       var num = 0;
       function checked_true(inpu_box){
-        $(inpu_box).attr("checked","true");
+        $(inpu_box).prop("checked","true");
         $(inpu_box).siblings("span").find("em").addClass("checked");
       }
       function checked_false(inpu_box){
