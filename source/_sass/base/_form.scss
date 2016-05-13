@@ -125,6 +125,66 @@ label {
     .aql-dt{
       margin-bottom: 5px;
     }
+    &.tag-search {
+      .aql-dd {
+        margin-bottom: 5px;
+        .aql-label{
+          .aql-input{
+            width: 300px;
+            padding-left: 30px;
+            background: url(../images/input.png) no-repeat;
+          }
+        }
+        .tag-box {
+          border: solid 1px #e1e6ef;
+          padding: 10px;
+          display: none;
+          span {
+            padding: 7px;
+            padding-right: 40px;
+            position: relative;
+            display: inline-block;
+            em{
+              display: inline-block;
+              cursor: pointer;
+              width: 28px;
+              text-align: center;
+              font-size: 19px;
+              top: 3px;
+              position: absolute;
+              right: 14px;
+              font-weight: bold;
+              color: #000;
+            }
+          }
+        }
+        .choose-box {
+          background: #e1e6ef;
+          overflow-y: scroll;
+          height: 60px;
+          padding: 10px;
+          label {
+            width: 160px;
+            input[type="checkbox"] {
+              display: none;
+            }
+            span {
+              em {
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                margin-right: 5px;
+                background: url(../images/icolist.png) -20px -80px no-repeat;
+                &.checked {
+                  background: url(../images/icolist.png) 0px -80px no-repeat;
+                }
+
+              }
+            }
+          }
+        }
+      }
+    }
     .aql-dd{
       display: inline-block;
       .aql-label{
@@ -160,6 +220,7 @@ label {
           }
         }
       }
+
     }
   }
 }

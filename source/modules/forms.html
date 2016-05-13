@@ -104,10 +104,215 @@ title: 表单
           <i></i>
         </label>
       </dd>
+    </dl>
+    <dl class="aql-dl tag-search" style="display: block">
+      <dt class="aql-dt">开户营业部</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input type="text" class="aql-input">
+        </label>
+      </dd>
+      <dd class="aql-dd" style="display: block">
+        <div class="tag-box">
+
+        </div>
+      </dd>
+      <dd class="aql-dd" style="display: block">
+        <div class="choose-box" style="">
+          <label class="all_checked">
+            <input type="checkbox">
+            <span><em></em>全选</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅111</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span><em></em>北京营业厅</span>
+          </label>
+        </div>
+      </dd>
 
     </dl>
 
   </div>
+
+  <script type="text/javascript">
+
+    $(function () {
+      var num = 0;
+      function checked_true(inpu_box){
+        $(inpu_box).attr("checked","true");
+        $(inpu_box).siblings("span").find("em").addClass("checked");
+      }
+      function checked_false(inpu_box){
+        $(inpu_box).removeAttr("checked");
+        $(inpu_box).siblings("span").find("em").removeClass("checked");
+      }
+      $(".tag-search").on("click",".choose-box label",function (e) {
+        e.preventDefault();
+
+        var _this = $(this);
+        var _thisinput = _this.find("input[type='checkbox']");
+        var _tagbox = _this.parents(".tag-search").find(".tag-box");
+        if(_this.hasClass("all_checked")){
+          if(_thisinput.is(':checked')) {
+
+
+            checked_false(_thisinput);
+
+            _this.siblings("label").find("input[type='checkbox']").each(function(i_t,e_t){
+              if($(e_t).parent("label").attr("myid")){
+                var myid = $(e_t).parent("label").attr("myid");
+                $("#"+myid).remove();
+
+
+                checked_false(e_t);
+              }
+            });
+
+          }else{
+
+            checked_true(_thisinput);
+            _this.siblings("label").find("input[type='checkbox']").each(function(i_f,e_f){
+              if($(e_f).is(':checked')){
+
+              }else{
+                num+=1;
+                _tagbox.append('<span id="TAG_CHECK_'+num+'">'+$(e_f).siblings("span").text()+'<em>×</em></span>');
+
+                checked_true(e_f);
+
+
+                $(e_f).parent("label").attr("myid","TAG_CHECK_"+num);
+              }
+
+            })
+          }
+
+        }else{
+
+          if(_thisinput.is(':checked')) {
+
+
+            checked_false(_thisinput);
+
+
+            var all_input = _this.siblings(".all_checked").find("input[type='checkbox']");
+            checked_false(all_input);
+
+            if(_this.attr("myid")){
+              var myid = _this.attr("myid");
+              $("#"+myid).remove();
+            }
+
+          }else{
+            num+=1;
+            _tagbox.append('<span id="TAG_CHECK_'+num+'">'+_this.find("span").text()+'<em>×</em></span>');
+            _this.attr("myid","TAG_CHECK_"+num);
+
+
+            checked_true(_thisinput);
+          }
+        }
+        if(_tagbox.children().length <=0){
+          _tagbox.hide();
+
+        }else {
+          _tagbox.show();
+        }
+
+      });
+
+      $(".tag-search").on("click",".tag-box span em",function (e) {
+        var _this = $(this).parent("span");
+        var myid = _this.attr("id");
+        var _tagbox = _this.parents(".tag-box");
+        var _thislabel = _this.parents(".tag-search").find(".choose-box label[myid='"+myid+"']");
+
+        var this_input =_thislabel.find("input[type='checkbox']");
+        checked_false(this_input);
+        var all_input =_thislabel.siblings(".all_checked").find("input[type='checkbox']");
+        checked_false(all_input);
+        _this.remove();
+        if(_tagbox.children().length <=0){
+          _tagbox.hide();
+
+        }else {
+          _tagbox.show();
+        }
+
+
+      });
+    })
+
+
+  </script>
   <div class="zoom-btn">
     <a class="open" href="javascript:void(0)">收起<i></i></a>
   </div>
