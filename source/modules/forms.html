@@ -222,8 +222,6 @@ title: 表单
         var _tagbox = _this.parents(".tag-search").find(".tag-box");
         if(_this.hasClass("all_checked")){
           if(_thisinput.is(':checked')) {
-
-
             checked_false(_thisinput);
 
             _this.siblings("label").find("input[type='checkbox']").each(function(i_t,e_t){
@@ -286,6 +284,16 @@ title: 表单
         }else {
           _tagbox.show();
         }
+
+      });
+
+
+      $(".tag-search").on("mouseover",".tag-box span",function () {
+        $(this).children("em").show();
+
+      });
+      $(".tag-search").on("mouseout",".tag-box span",function () {
+        $(this).children("em").hide();
 
       });
 

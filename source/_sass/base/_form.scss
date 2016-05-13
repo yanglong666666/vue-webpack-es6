@@ -145,7 +145,7 @@ label {
             position: relative;
             display: inline-block;
             em{
-              display: inline-block;
+              display: none;
               cursor: pointer;
               width: 28px;
               text-align: center;
@@ -154,7 +154,7 @@ label {
               position: absolute;
               right: 14px;
               font-weight: bold;
-              color: #000;
+              color: #3e3f41;
             }
           }
         }
