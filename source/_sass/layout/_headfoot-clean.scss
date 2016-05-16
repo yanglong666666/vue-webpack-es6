@@ -10,12 +10,16 @@
     width: 210px;
     margin: 0 auto;
     line-height: 85px;
-    background: url("../images/ht-logo.png") no-repeat;
-    background-position: 0px 18px;
     color: #40464d;
     font-size: 22px;
     font-weight: bold;
     padding-left: 150px;
+    position: relative;
+    img {
+      position: absolute;
+      left: 0px;
+      top: 20px;
+    }
 
 
   }
