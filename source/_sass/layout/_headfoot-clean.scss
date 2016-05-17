@@ -13,12 +13,16 @@
     color: #40464d;
     font-size: 22px;
     font-weight: bold;
-    padding-left: 150px;
+    padding-left: 190px;
     position: relative;
-    img {
+    .logo-box {
       position: absolute;
       left: 0px;
       top: 20px;
+      width: 190px;
+      img {
+        margin: 0 auto;
+      }
     }
 
 
