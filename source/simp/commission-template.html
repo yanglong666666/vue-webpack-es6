@@ -85,7 +85,7 @@ layout: default
       <td>张三</td>
       <td>18677777777</td>
       <td>开户审核</td>
-      <td width="200px" class="nowrap-ellipsis">杭州庆春路营业部杭州庆春路营业部杭州庆春路营业部杭州庆春路营业部杭州庆春路营业部杭州庆春路营业部杭州庆春路营业部杭州庆春路营业部</td>
+      <td width="200px" class="nowrap-ellipsis">杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,</td>
       <td>2014-12-14 14:23</td>
 
       <td class="text-c" width="150px">
@@ -106,6 +106,12 @@ layout: default
     $(".search-pop").click(function () {
       var _this = $(this);
       var txt = _this.parent().siblings(".nowrap-ellipsis").text();
+      var textarry = txt.split(",");
+      var txtstr = "";
+      $.each(textarry,function (i,e) {
+        txtstr += (e+"<br>");
+
+      });
       //alert(txt)
       var error_screen = new Dialog(null,{
         title: '',
@@ -124,7 +130,7 @@ layout: default
         '<div class="list-row"><span class="row-name"><i>*</i>模板编号：</span><span class="row-value">11111</span></div>' +
         '<div class="list-row"><span class="row-name"><i>*</i>模板名称：</span><span class="row-value">模板一</span></div>' +
         '<div class="list-row"><span class="row-name"><i>*</i>分支机构：</span>' +
-        '<span class="row-value area-scroll">'+txt+'</span>' +
+        '<span class="row-value area-scroll">'+txtstr+'</span>' +
         '</div>' +
         '<div class="list-row"><span class="row-name"><i>*</i>佣金费率：</span><span class="row-value">1%</span></div>' +
         '</div>'
