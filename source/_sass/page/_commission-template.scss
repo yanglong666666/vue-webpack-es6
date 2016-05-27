@@ -1,0 +1,29 @@
+.pop-form-list {
+  overflow: hidden;
+  .list-row {
+    margin-bottom: 10px;
+    span.row-value {
+      display: inline-block;
+      &.area-scroll {
+        background: #EFEFEF;
+        width: 210px;
+        padding: 10px;
+        height: 120px;
+        overflow-y: auto;
+      }
+    }
+
+    span.row-name {
+      float: left;
+      i {
+        color: red;
+        margin-right: 3px;
+      }
+
+    }
+
+
+  }
+
+}
+
