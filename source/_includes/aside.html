@@ -324,7 +324,9 @@
       <b></b>
     </li>
   </ul>
+
 </div>
+<div class="slideleft"></div>
 <script type="text/javascript">
 $(document).ready(function(){
   //点击含有二级li的p的效果
@@ -332,7 +334,7 @@ $(document).ready(function(){
   $(".leftul>li>p").each(function() {
     var flag = 0;
     $(this).click(function() {
-      if(!flag) {
+      if(!$(this).parent().find("b").hasClass("current")) {
         $(this).siblings("ul").slideDown(200);
         $(this).parent().find("b").addClass("current");
         flag = 1;
@@ -352,8 +354,12 @@ $(document).ready(function(){
   });
   for (var ee in arrr) {
     if(href.indexOf(arrr[ee]) != -1) {
-      $('.leftul li li').eq(ee).addClass('active');
-      $(".leftul li li").eq(ee).parent().show();
+      var this_li = $('.leftul li li').eq(ee);
+      this_li.addClass('active');
+      this_li.parents(".inner-ul").siblings("p").addClass("active");
+      this_li.parents("li").siblings("li").removeClass("active");
+      this_li.parents(".inner-ul").siblings("b").addClass("current");
+      this_li.parent().show();
     }
   }
 	//点击没有二级li的一级li的效果
@@ -362,6 +368,35 @@ $(document).ready(function(){
     var src = $(this).find("a").attr("href");
     if(href.indexOf(src) != -1) {
       $(this).addClass('active');
+
+    }
+  });
+
+
+  //左侧导航收拢
+  $(".slideleft").click(function () {
+    var _this = $(this);
+    var leftaside = _this.siblings(".leftaside");
+    var leftShadow = _this.siblings(".leftShadow");
+
+    if(_this.hasClass("right-on")){
+
+      _this.animate({width:"130px"});
+      leftaside.animate({width:"130px"});
+      leftShadow.animate({width:"130px"},function () {
+        leftaside.find("small").show();
+        leftaside.find("b").show();
+
+      })
+      _this.removeClass("right-on");
+
+    }else {
+      leftaside.find("small").hide();
+      leftaside.find("b").hide();
+      _this.animate({width:"37px"});
+      leftaside.animate({width:"37px"});
+      leftShadow.animate({width:"37px"})
+      _this.addClass("right-on");
     }
   });
 });

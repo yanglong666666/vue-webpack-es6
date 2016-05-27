@@ -1,69 +1,79 @@
 .leftaside {
 	position: relative;
 	float: left;
-	width: 150px;
+	width: 130px;
 	padding-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
 	.leftul {
 		li {
 			position: relative;
 			p {
         position: relative;
-        padding-left: 50px;
+        padding-left: 37px;
+        //padding-left: 50px;
         line-height: 45px;
         z-index: 10;
-        color: #b0b0b0;
+        color: #cccdd9;
         cursor: pointer;
 			}
 			b {
         position: absolute;
-        right: 20px;
-        top: 23px;
+        right: 13px;
+        top: 20px;
         width: 9px;
         height: 5px;
         vertical-align: middle;
-        background: url('../images/icolist.png') -60px -50px no-repeat;
+        background: url("../images/icolist.png") -60px -50px no-repeat;
         &.current {
           background: url('../images/icolist.png') -60px -60px no-repeat;
         }
       }
       small {
         position: absolute;
-        right: 5px;
-        top: 17px;
+        right: 4px;
+        top: 14px;
         display: inline-block;
         color: #fff;
         background: #ff5776;
         font-size: 12px;
-        width: 32px;
-        height: 18px;
-        line-height: 18px;
+        width: 30px;
+        height: 14px;
+        line-height: 14px;
         border-radius: 8px;
         text-align: center;
       }
       a {
         display: block;
         font-size: 14px;
-        color: #b0b0b0;
-        margin-left: 5px;
-        padding: 15px 0 15px 45px;
+        color: #cccdd9;
+        padding: 8px 0px;
+        padding-left: 37px;
       }
       &.active {
         a {
-          background: #fff;
-          color: #12171d;
-          border-left: 5px solid #3ecacb;
+          background: rgba(255,255,255,0.1);
+          color: #ffffff;
+          //border-left: 5px solid #3ecacb;
         }
+
       }
       .icon {
         position: absolute;
         display: inline-block;
-        top: 17px;
-        left: 25px;
-        width: 18px;
-        height: 18px;
-        background-image: url(../images/aside-ico.png);
+        top: 11px;
+        left: 12px;
+        width: 14px;
+        height: 17px;
+        background-image: url(../images/Group2.png);
         background-repeat: no-repeat;
-        background-position: -9999px -9999px;
+        margin: 0 0;
+        z-index: -1;
+
+      }
+      p.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
       }
       .inner-ul {
         display: none;
@@ -73,20 +83,23 @@
           a {
             font-size: 12px;
             display: block;
-            padding: 4px 0px;
-            margin: 5px 0px 0px 20px;
+            padding: 5px 0px 5px 37px;
+            text-align: left;
+            text-indent: 0px;
+            margin: 0 0;
           }
           &.active {
             a {
-              background: #fff;
-              color: #12171d;
+              //background: #fff;
+              background: none;
+              color: #ffffff;
               border: none;
             }
           }
         }
       }
     }
-    li.index {
+/*    li.index {
       .icon {
         background-position: 0 0;
       }
@@ -331,16 +344,36 @@
         margin-top: -3px;
         background-position: 0 -573px;
       }
-    }
+    }*/
   }
 }
 
 .leftShadow {
-	background: #3a3d42 url('../images/back.png') right top repeat-y;
+	background: #21283d;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	z-index: -1;
-	width: 150px;
+	width: 130px;
   min-height: 800px;
+}
+.slideleft {
+  background-color: rgba(255, 255, 255, 0.15);
+  background-image: url("../images/Group9.png");
+  background-repeat: no-repeat;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff,endColorstr=#19ffffff);
+  background-position: center;
+  width: 130px;
+  height: 30px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 9999999999;
+  cursor: pointer;
+  &.right-on {
+    background: rgba(255, 255, 255, 0.15) url("../images/Group9-turn.png") no-repeat;
+    background-position: center;
+  }
+
+
 }
