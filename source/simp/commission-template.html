@@ -28,7 +28,7 @@ layout: default
   </div>
 </div>
 
-<div class="main-table">
+<!--<div class="main-table">
   <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
     <thead>
       <tr>
@@ -52,5 +52,90 @@ layout: default
       </tr>
     </tbody>
   </table>
+</div>-->
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th>显示序号</th>
+      <th>模板名称</th>
+      <th>模板编号</th>
+      <th width="200px">分支机构</th>
+      <th>费用比例</th>
+      <th class="text-c" width="150px">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+      <td>张三</td>
+      <td>18677777777</td>
+      <td>开户审核</td>
+      <td width="200px" class="nowrap-ellipsis">杭州庆春路营业部</td>
+      <td>2014-12-14 14:23</td>
+
+      <td class="text-c" width="150px">
+        <a href="javascript:void(0);" class="btn btn-fill btn-small search-pop">查询</a>
+        <a href="{{ site.baseurl }}/commission-template-info.html" class="btn btn-fill btn-small">修改</a>
+        <a href="javascript:void(0)" class="btn btn-fill btn-small">删除</a>
+
+      </td>
+    </tr>
+    <tr class="even">
+      <td>张三</td>
+      <td>18677777777</td>
+      <td>开户审核</td>
+      <td width="200px" class="nowrap-ellipsis">杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,杭州庆春路营业部,</td>
+      <td>2014-12-14 14:23</td>
+
+      <td class="text-c" width="150px">
+        <a href="javascript:void(0);" class="btn btn-fill btn-small search-pop">查询</a>
+        <a href="{{ site.baseurl }}/commission-template-info.html" class="btn btn-fill btn-small">修改</a>
+        <a href="javascript:void(0)" class="btn btn-fill btn-small">删除</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 {% include component/pagenav.html %}
+
+<script type="text/javascript">
+  $(function () {
+
+
+    $(".search-pop").click(function () {
+      var _this = $(this);
+      var txt = _this.parent().siblings(".nowrap-ellipsis").text();
+      var textarry = txt.split(",");
+      var txtstr = "";
+      $.each(textarry,function (i,e) {
+        txtstr += (e+"<br>");
+
+      });
+      //alert(txt)
+      var error_screen = new Dialog(null,{
+        title: '',
+        width: '400',
+        needDestroy: true,
+        hasBtn: true,
+        needIframe:true,
+        btnText: ["关闭"],
+        btnRole: ['confirm'],
+        btnCls: ['confirm'],
+        confirm: function() {
+          //确定按钮事件
+          error_screen.hide();
+        },
+        content: '<div class="pop-form-list">' +
+        '<div class="list-row"><span class="row-name"><i>*</i>模板编号：</span><span class="row-value">11111</span></div>' +
+        '<div class="list-row"><span class="row-name"><i>*</i>模板名称：</span><span class="row-value">模板一</span></div>' +
+        '<div class="list-row"><span class="row-name"><i>*</i>分支机构：</span>' +
+        '<span class="row-value area-scroll">'+txtstr+'</span>' +
+        '</div>' +
+        '<div class="list-row"><span class="row-name"><i>*</i>佣金费率：</span><span class="row-value">1%</span></div>' +
+        '</div>'
+      });
+    })
+
+  })
+</script>
