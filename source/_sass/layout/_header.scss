@@ -4,31 +4,34 @@
   left: 0;
   z-index: 99;
   width: 100%;
-	height: 76px;
-	background: #46516f;
+	height: 58px;
+	background: #3f88cc;
 	color: #fff;
   @include clearfix;
 	.header-inner {
 		position: relative;
     float: left;
-		width: 150px;
+		width: 130px;
+
 		.xtgly {
 			display: block;
-			height: 76px;
-			line-height: 76px;
-			background: #6a7491;
-			text-align: center;
+			height: 58px;
+			line-height: 58px;
+			background: #2f5f8a;
+			text-align: left;
 			margin-right: 20px;
 			color: #fff;
-			font-size: 14px;
-			width: 150px;
+			font-size: 13px;
+			width: 130px;
+      overflow: hidden;
 			span {
 				display: inline-block;
 				width: 26px;
 				height: 27px;
-				background: url(../images/icolist.png) 0 0 no-repeat;
+				background: url(../images/shape.png) 0 0 no-repeat;
 				vertical-align: middle;
 				margin-right: 5px;
+        margin-left: 7px;
 			}
 			i {
 				display: inline-block;
@@ -41,60 +44,66 @@
 		}
 		ul {
 			position: absolute;
-			top: 76px;
+			top: 58px;
 			left: 0px;
       z-index: 999;
-			width: 150px;
-			background: #636c86;
+			width: 130px;
+			background: #3871a4;
 			text-align: center;
+      padding: 15px 0px;
 			li {
-				height: 32px;
-				line-height: 32px;
+				height: 26px;
+				line-height: 26px;
 				a {
 					display: block;
-					color: #434b60;
+					color: #cccdd9;
 					font-size: 12px;
+          text-align: left;
 					i {
 						display: inline-block;
 						vertical-align: middle;
-						margin-right: 5px;
+						//margin-right: 5px;
+            margin: 0px 14px;
 					}
 					&:hover {
 						color: #fff;
 					}
 					&.xgmm {
 						i {
-							width: 15px;
-							height: 15px;
-							background: url(../images/icolist.png) -42px 0 no-repeat;
+							width: 17px;
+							height: 16px;
+							background: url(../images/Group5.png) 0px 0 no-repeat;
+              background-position: center;
 						}
 						&:hover {
 							i {
-								background: url(../images/icolist.png) -60px 0 no-repeat;
+								//background: url(../images/Group5.png) -60px 0 no-repeat;
 							}
 						}
 					}
 					&.tcdl {
 						i {
-							width: 14px;
-							height: 13px;
-							background: url(../images/icolist.png) -80px 0 no-repeat;
+							width: 17px;
+							height: 16px;
+							background: url(../images/Group6.png) 0px 0 no-repeat;
+              background-position: center;
 						}
 						&:hover {
 							i {
-								background: url(../images/icolist.png) 0 -30px no-repeat;
+								//background: url(../images/icolist.png) 0 -30px no-repeat;
 							}
 						}
 					}
 					&.rwtx {
 						i {
-							width: 14px;
-							height: 13px;
-							background: url(../images/icolist.png) -20px -30px no-repeat;
+							width: 17px;
+							height: 17px;
+							background: url(../images/Group2.png) 0px 0px no-repeat;
+              background-position: center;
 						}
 						&:hover {
 							i {
-								background: url(../images/icolist.png) -39px -30px no-repeat;
+								//background: url(../images/icolist.png) -39px -30px no-repeat;
 							}
 						}
             &.closed {
@@ -117,59 +126,68 @@
 		float: left;
     .collect {
       float: left;
-      height: 40px;
-      line-height: 40px;
-      color: #3ecacb;
-      background: #fff;
-      border-radius: 4px;
-      width: 105px;
+      height: 23px;
+      line-height: 23px;
+      font-size: 12px;
+      color: #ffffff;
+      background: #5d9ddb;
+      border-radius: 10px;
+      width: 59px;
       text-align: center;
       display: inline-block;
-      margin: 18px 0 0 15px;
+      margin: 16px 0 0 30px;
       i {
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        background: url(../images/collect.png) 0 0 no-repeat;
-        vertical-align: -2px;
-        margin-right: 5px;
+        font-style: normal;
+        font-size: 14px;
+        margin-right: 3px;
+        //display: inline-block;
+        //width: 15px;
+        //height: 15px;
+        //background: url(../images/collect.png) 0 0 no-repeat;
+        //vertical-align: -2px;
+        //margin-right: 5px;
       }
     }
 		ul {
 			@include clearfix;
       float: left;
+      margin-top: 17px;
 			li {
         position: relative;
 				float: left;
-        margin-left: 15px;
+        margin-left: 25px;
 				a {
 					display: inline-block;
-					font-size: 16px;
+					font-size: 13px;
 					color: #fff;
-					padding: 30px 45px 0px 45px;
-          border-bottom: 4px solid #e4788c;
+					//padding: 30px 45px 0px 45px;
+          padding-bottom: 8px;
+
           text-align: center;
+          &.nav-on {
+            border-bottom: 2px solid #3871a4;
+          }
           span {
             font-size: 12px;
             display: block;
           }
           small {
-            position: absolute;
-            bottom: 13px;
-            right: 0;
+            //position: absolute;
+            //bottom: 13px;
+            //right: 0;
             display: inline-block;
             color: #fff;
-            background: #ff5776;
+            background: #ff6767;
             font-size: 12px;
-            width: 32px;
-            height: 18px;
-            line-height: 18px;
+            width: 24px;
+            height: 14px;
+            line-height: 14px;
             border-radius: 8px;
             text-align: center;
             margin-left: 5px;
           }
 				}
-        &:nth-child(odd) {
+        /*&:nth-child(odd) {
           a {
             border-bottom: 4px solid #e4788c;
           }
@@ -178,7 +196,7 @@
           a {
             border-bottom: 4px solid #f3cd97;
           }
-        }
+        }*/
 			}
 		}
 	}
@@ -186,17 +204,17 @@
     position: relative;
     float: right;
     width: 130px;
-    margin: 18px 15px 0 0;
-    padding-bottom: 5px;
+   // margin: 18px 15px 0 0;
+    //padding-bottom: 5px;
     .selected-menu {
       display: block;
       text-align: center;
-      font-size: 16px;
-      height: 40px;
-      line-height: 40px;
+
+      height: 58px;
+      line-height: 58px;
       color: #fff;
-      background: #586790;
-      border-radius: 5px;
+      background: #2f5f8a;
+      //border-radius: 5px;
       i {
         display: inline-block;
         width: 9px;
@@ -208,22 +226,20 @@
     }
     .menu-inner {
       position: absolute;
-      top: 44px;
+      top: 58px;
       left: 0;
       z-index: 999;
       width: 130px;
-      background: #647092;
-      border-radius: 5px;
+      background: #3871a4;
+
       a {
         display: block;
-        height: 35px;
-        line-height: 35px;
+        height: 40px;
+        line-height: 40px;
         text-align: center;
-        font-size: 16px;
-        padding: 5px 0;
         color: #fff;
         &:hover {
-          background: #919cb9;
+          background: #3f88cc;
         }
       }
     }

@@ -32,7 +32,7 @@
       small {
         position: absolute;
         right: 4px;
-        top: 14px;
+        top: 12px;
         display: inline-block;
         color: #fff;
         background: #ff5776;
@@ -42,6 +42,7 @@
         line-height: 14px;
         border-radius: 8px;
         text-align: center;
+        overflow: hidden;
       }
       a {
         display: block;
@@ -69,6 +70,17 @@
         background-repeat: no-repeat;
         margin: 0 0;
         z-index: -1;
+        em.small-em {
+          display: block;
+          width: 8px;
+          height: 8px;
+          position: absolute;
+          top: -4px;
+          left: -4px;
+          border-radius: 8px;
+          background: #ff6767;
+          display: none;
+        }
 
       }
       p.active {

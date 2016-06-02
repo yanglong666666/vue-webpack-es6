@@ -29,7 +29,7 @@
       <i></i>
     </li>
     <li class="certificate">
-      <span class="icon"></span>
+      <span class="icon"><em class="small-em"></em></span>
       <a class="father" href="{{ site.baseurl }}/default/certificate-pre.html">颁发证书</a>
       <small>3</small>
       <i></i>
@@ -40,7 +40,7 @@
       <i></i>
     </li>
     <li class="open-recheck">
-      <span class="icon"></span>
+      <span class="icon"><em class="small-em"></em></span>
       <a class="father" href="{{ site.baseurl }}/default/recheck-pre.html">开户复核</a>
       <small>123</small>
       <i></i>
@@ -374,30 +374,60 @@ $(document).ready(function(){
 
 
   //左侧导航收拢
+  var is_anim = true;
   $(".slideleft").click(function () {
-    var _this = $(this);
-    var leftaside = _this.siblings(".leftaside");
-    var leftShadow = _this.siblings(".leftShadow");
+    if (is_anim) {
+      is_anim = false;
 
-    if(_this.hasClass("right-on")){
+      var _this = $(this);
+      var leftaside = _this.siblings(".leftaside");
+      var leftShadow = _this.siblings(".leftShadow");
+      var ui_wrap = _this.siblings(".ui-wrap");
+      var small = leftaside.find("small");
+      var header_sys = $(".site-header .header-inner");
+      var header_xtg = $(".site-header .header-inner .xtgly");
 
-      _this.animate({width:"130px"});
-      leftaside.animate({width:"130px"});
-      leftShadow.animate({width:"130px"},function () {
-        leftaside.find("small").show();
-        leftaside.find("b").show();
 
-      })
-      _this.removeClass("right-on");
+      if (_this.hasClass("right-on")) {
 
-    }else {
-      leftaside.find("small").hide();
-      leftaside.find("b").hide();
-      _this.animate({width:"37px"});
-      leftaside.animate({width:"37px"});
-      leftShadow.animate({width:"37px"})
-      _this.addClass("right-on");
+        _this.animate({width: "130px"});
+        leftaside.animate({width: "130px"});
+        header_sys.animate({width: "130px"}, function () {
+          $(this).removeClass("w-37");
+        });
+        header_xtg.animate({width: "130px"});
+        ui_wrap.animate({marginLeft: "130px"});
+
+        leftShadow.animate({width: "130px"}, function () {
+          leftaside.find("small").show();
+          leftaside.find("b").show();
+          leftaside.find("em.small-em").hide();
+          is_anim = true;
+
+        });
+
+        _this.removeClass("right-on");
+
+      } else {
+        leftaside.find("b").hide();
+        leftaside.find("small").hide();
+        _this.animate({width: "37px"});
+        leftaside.animate({width: "37px"});
+
+        header_sys.animate({width: "37px"}, function () {
+          $(this).addClass("w-37");
+        });
+        header_xtg.animate({width: "37px"});
+        ui_wrap.animate({marginLeft: "37px"});
+        leftShadow.animate({width: "37px"}, function () {
+          leftaside.find("em.small-em").show();
+          is_anim = true;
+        });
+        _this.addClass("right-on");
+      }
     }
   });
+
+
 });
 </script>
