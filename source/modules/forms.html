@@ -21,6 +21,47 @@ title: 表单
       </dd>
     </dl>
     <dl class="aql-dl">
+      <dt class="aql-dt">营业部</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input class="aql-input sales-select" type="text">
+          <i></i>
+          <div class="sales-select-box">
+            <label class="on"><input type="checkbox"><em></em>杭州丹一路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹二路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹三路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹四路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹五路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹六路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹七路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹八路营业部</label>
+            <label><input type="checkbox"><em></em>杭州丹九路营业部</label>
+          </div>
+        </label>
+      </dd>
+    </dl>
+    <script>
+      $(function () {
+        $(".sales-select-box").on("click","label",function () {
+
+          var _this = $(this);
+          var this_check = _this.find("input[type='checkout']");
+          var this_em = _this.find("em");
+          if(_this.hasClass("on")){
+            this_check.prop("checked",false);
+          }else {
+            this_check.prop("checked",true);
+            this_em.text("√");
+          }
+
+
+        })
+      });
+    </script>
+
+
+
+    <dl class="aql-dl">
       <dt class="aql-dt">姓名</dt>
       <dd class="aql-dd">
         <label class="aql-label">

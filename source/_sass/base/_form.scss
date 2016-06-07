@@ -201,6 +201,41 @@ label {
           text-indent: 10px;
           outline: none;
         }
+        .sales-select-box {
+          width: 280px;
+          height: 133px;
+          overflow-y: auto;
+          background: #e1e6ef;
+          border-radius: 8px;
+          position: absolute;
+          top: 39px;
+          left: 0px;
+          padding: 13px;
+          z-index: 98;
+          font-size: 10px;
+          label {
+
+            input[type="checkbox"] {
+
+            }
+            em {
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              line-height: 10px;
+              font-size: 12px;
+              background: #FFF;
+              border: solid 1px #d2d6d7;
+
+            }
+            &.on {
+              color: #ff5776;
+
+            }
+
+          }
+
+        }
       }
       .time-inner{
         a{
@@ -245,3 +280,4 @@ label {
     }
   }
 }
+
