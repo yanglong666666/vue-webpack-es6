@@ -201,8 +201,16 @@ label {
           text-indent: 10px;
           outline: none;
         }
+        .sales-select {
+          padding-right: 30px;
+          width: 100px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
         .sales-select-box {
-          width: 280px;
+          display: none;
+          width: 300px;
           height: 133px;
           overflow-y: auto;
           background: #e1e6ef;
@@ -214,8 +222,13 @@ label {
           z-index: 98;
           font-size: 10px;
           label {
+            white-space: normal;
+            overflow: hidden;
+            height: 25px;
+            line-height: 25px;
 
             input[type="checkbox"] {
+              display: none;
 
             }
             em {
@@ -226,10 +239,19 @@ label {
               font-size: 12px;
               background: #FFF;
               border: solid 1px #d2d6d7;
+              color: #FFF;
+              margin-right: 5px;
+              border-radius: 3px;
+              position: relative;
+              top: 1px;
 
             }
             &.on {
               color: #ff5776;
+              em {
+                color: #ff5776;
+
+              }
 
             }
 
