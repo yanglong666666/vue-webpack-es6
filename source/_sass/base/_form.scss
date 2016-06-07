@@ -201,6 +201,71 @@ label {
           text-indent: 10px;
           outline: none;
         }
+        .sales-select {
+          padding-right: 30px;
+          width: 100px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .sales-select-box {
+          display: none;
+          width: 300px;
+          height: 133px;
+          overflow-y: auto;
+          background: #e1e6ef;
+          border-radius: 8px;
+          position: absolute;
+          top: 39px;
+          left: 0px;
+          padding: 13px;
+          z-index: 98;
+
+          label {
+            height: auto;
+            line-height: 26px;
+            margin: 0 0;
+            display: block;
+            float: left;
+            width: 140px;
+
+            input[type="checkbox"] {
+              display: none;
+
+            }
+            em {
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              line-height: 10px;
+              font-size: 12px;
+              background: #FFF;
+              border: solid 1px #d2d6d7;
+              color: #FFF;
+              margin-right: 5px;
+              border-radius: 3px;
+              position: relative;
+              top: 1px;
+              float: left;
+              margin-top: 6px;
+
+            }
+            span {
+              padding-left: 17px;
+              display: block;
+            }
+            &.on {
+              color: #ff5776;
+              em {
+                color: #ff5776;
+
+              }
+
+            }
+
+          }
+
+        }
       }
       .time-inner{
         a{
@@ -245,3 +310,4 @@ label {
     }
   }
 }
+

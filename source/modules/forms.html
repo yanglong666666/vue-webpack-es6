@@ -21,6 +21,109 @@ title: 表单
       </dd>
     </dl>
     <dl class="aql-dl">
+      <dt class="aql-dt">营业部</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input class="aql-input sales-select" type="text">
+          <i></i>
+          <div class="sales-select-box">
+            <label class=""><input type="checkbox"><em></em><span>杭州丹一路营业部这个营业部真的长</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹二路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹三路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹四路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹五路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹六路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹七路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹八路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹九路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹十路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹十一路营业部</span></label>
+
+          </div>
+        </label>
+      </dd>
+    </dl>
+    <script>
+      $(function () {
+        var labelHere = 0;
+        $(".sales-select-box").on("click","label",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var _this = $(this);
+          var this_check = _this.find("input[type='checkbox']");
+          var this_em = _this.find("em");
+          var this_val_input = _this.parent().siblings(".sales-select");
+
+          var this_html = _this.html();
+
+          if(this_check.prop("checked")){
+            this_check.prop("checked",false);
+            _this.removeClass("on");
+            this_em.html("");
+            var this_id = _this.attr("myid");
+            $("#"+this_id).before(_this).remove();
+            var this_val = "";
+            _this.siblings("label.on").each(function (i,e) {
+
+              this_val += $(e).find("span").text();
+              this_val += ","
+            });
+            this_val_input.val(this_val);
+
+          }else {
+            labelHere++;
+            this_check.prop("checked",true);
+            _this.addClass("on");
+            this_em.html("√");
+            _this.attr("myid","labelHere_"+labelHere);
+            _this.after("<span id='labelHere_"+labelHere+"'></span>");
+            _this.parent().prepend(_this);
+            var this_val = _this.find("span").text();
+            _this.siblings("label.on").each(function (i,e) {
+              this_val += ","
+              this_val += $(e).find("span").text();
+            });
+            this_val_input.val(this_val);
+            //_this.html("");
+          }
+
+
+//          if(_this.hasClass("on")){
+//            this_check.prop("checked",false);
+//          }else {
+//            this_check.prop("checked",true);
+//            this_em.text("√");
+//          }
+
+
+        });
+        /*$(".sales-select").on("focus",function (e) {
+          e.preventDefault();
+          $(this).siblings(".sales-select-box").show();
+        });*/
+        $(".sales-select").on("click",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if( $(this).siblings(".sales-select-box").css("display")!="none"){
+
+            $(this).siblings(".sales-select-box").hide();
+          }else {
+            $(this).siblings(".sales-select-box").show();
+          }
+
+        });
+        $(document).click(function (e) {
+
+
+          $(".sales-select-box").hide();
+        });
+
+      });
+    </script>
+
+
+
+    <dl class="aql-dl">
       <dt class="aql-dt">姓名</dt>
       <dd class="aql-dd">
         <label class="aql-label">
