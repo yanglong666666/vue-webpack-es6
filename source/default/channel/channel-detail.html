@@ -175,6 +175,71 @@ class: channel
         </div>
     </div>
   </div>
+  <div class="logo-upload">
+    <div class="channel-item">
+      <span class="name">logo：</span>
+
+      <div class="channel-inner">
+        <label class="w-300"><input type="text" class="txt" id=""></label>
+        <span class="must"></span>
+        <span class="file-upload">
+           <a href="javascript:void(0)" class="query-btn">上传</a>
+          <input class="file-input" type="file">
+        </span>
+        <div class="pic-tips">图片高度不超过74px，大小不超过1M</div>
+        <div class="pic-show">
+          <img src="../../images/logo/swsc.png" rel="">
+        </div>
+
+      </div>
+    </div>
+    <div class="channel-item">
+      <span class="name">页面主图：</span>
+      <div class="channel-inner">
+        <label class="w-300"><input type="text" class="txt"></label>
+        <span class="must">*</span>
+        <span class="file-upload">
+           <a href="javascript:void(0)" class="query-btn">上传</a>
+          <input class="file-input" type="file">
+        </span>
+        <div class="pic-tips">尺寸为720*580，大小不超过1M</div>
+        <div class="pic-show">
+          <img src="../../images/khsx.png" rel="">
+        </div>
+      </div>
+    </div>
+    <div class="channel-item">
+      <span class="name">图文内容：</span>
+      <div class="channel-inner">
+        <label class="w-300"><input type="text" class="txt"></label>
+        <span class="must"></span>
+        <span class="file-upload">
+           <a href="javascript:void(0)" class="query-btn">上传</a>
+          <input class="file-input" type="file">
+        </span>
+
+
+        <div class="pic-tips">图片宽度不超过514px，大小不超过1M</div>
+        <div class="pic-show">
+          <img src="../../images/banner.jpg" rel="">
+        </div>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+  $(function () {
+    var pid = window.location.search.split('=')[1];
+    $("input[type='file'].file-input").change(function () {
+      //alert(1)
+      console.log($(this).val())
+    })
+  })
+</script>
+
+
+
+
+
   <div class="button-content">
     <a class="btn-primary btn-lg" href="{{ site.baseurl }}/channel/marketing-manage.html">取消</a>
     <button class="btn-fill btn-lg ml-30">保存</button>
