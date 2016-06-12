@@ -45,8 +45,21 @@ class: channel
   <div class="channel-item">
     <span class="name">营销人员：</span>
     <div class="channel-inner">
-      <label class="w-300"><input type="text" class="txt" id="username"></label>
+      <label class="w-300"><input type="text" class="txt" id="username" autocomplete="off"></label>
       <a href="javascript:void(0)" class="query-btn">查询</a>
+      <div class="queryname-list">
+        <ul>
+          <li>002 ——  <span class="input-show">李冰</span> —— 13656666666</li>
+          <li>002 ——  <span class="input-show">李作作</span> —— 13656666666</li>
+          <li>002 ——  <span class="input-show">李爱爱</span> —— 13656666666</li>
+          <li>002 ——  <span class="input-show">李傻傻</span> —— 13656666666</li>
+          <li>002 ——  <span class="input-show">李呆呆</span> —— 13656666666</li>
+          <li>002 ——  <span class="input-show">李笨笨</span> —— 13656666666</li>
+        </ul>
+
+      </div>
+
+
       <table cellpadding="0" cellspacing="0" class="user-table" style="display: none;">
         <tbody>
           <tr>
@@ -320,9 +333,11 @@ class: channel
     $('.channel-inner').on('click', '.query-btn', function(event) {
       //查询按钮事件
       event.preventDefault();
+      event.stopPropagation();
       /* Act on the event */
       if ($('#username').val() != "") {
         $('.user-table').show();
+        $(".queryname-list").hide();
       }
     });
     $('.attr-panl').find('a').click(function() {//多选选中状态
@@ -364,5 +379,67 @@ class: channel
         status = true;
       }
     });
+
+    //营销人员查询列表鼠标悬浮事件
+    $(".queryname-list ul li").hover(function () {
+      $(this).addClass("hover-on");
+      $(this).append("<em>√</em>");
+
+    },function () {
+      $(this).removeClass("hover-on");
+      $(this).find("em").remove();
+
+    });
+    //营销人员输入框输入事件
+    $("#username").on("input",function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      var _this = $(this);
+      var _this_val = _this.val();
+      _this.parent().siblings('.user-table').hide();
+      _this.parent().siblings(".queryname-list").show();
+      var _all_li = _this.parent().siblings(".queryname-list").find("li");
+      _all_li.hide();
+      _all_li.each(function (i,e) {
+        var _txt = $(e).text();
+        if(_txt.indexOf(_this_val) > -1){
+          $(e).show();
+
+        }
+      });
+    });
+    //营销人员列表点击选择时间
+    $(".queryname-list li").on("click",function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var _this = $(this);
+      var show_val = _this.find(".input-show").html();
+      _this.parents(".channel-inner").find("#username").val(show_val);
+      $(".queryname-list").hide();
+      _this.parents(".queryname-list").siblings('.user-table').show();
+
+    })
+    //营销人员输入框聚焦事件
+    $("#username").on("focus",function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).parent().siblings('.user-table').hide();
+      $(this).parent().siblings(".queryname-list").show();
+    });
+    //营销人员输入框点击事件（无具体作用，防止点击输入框时document事件也会被触发）
+    $("#username").click(function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    //点击任意一处使列表隐藏
+    $(document).click(function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(".queryname-list").hide();
+    });
+
+
+
   });
 </script>
