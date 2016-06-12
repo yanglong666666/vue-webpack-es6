@@ -124,10 +124,17 @@
       background: #e1e6ef;
       margin-top: 10px;
       padding-left: 10px;
+      display: none;
       ul {
         li {
           padding: 7px 0px;
           cursor: pointer;
+          &.hover-on {
+            color: red;
+            em {
+              margin-left: 10px;
+            }
+          }
         }
       }
 
