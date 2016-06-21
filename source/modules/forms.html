@@ -515,6 +515,109 @@ title: 表单
     <input type="text" class="txt" id="rule">
   </div>
   <div class="form-group">
+    <label for="rule" class="label">存管银行</label>
+    <div class="bank-box">
+      <a class="btn btn-primary btn-small bank-option" href="javascript:void(0);">中国农业银行<i>×</i></a><a class="btn btn-primary btn-small add-option" href="javascript:void(0);" id="add_option">添加+</a>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+
+    $(document).on("click","#add_option",function () {
+      var _this = $(this);
+      var error_screen = new Dialog(null,{
+        title: '',
+        width: '490',
+        needDestroy: true,
+        hasBtn: true,
+        needIframe:true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel', 'confirm'],
+        confirm: function(e) {
+          var content = $(".add-option-pop");
+          var show_str = "";
+          content.find(".option-list li").each(function (index,ele) {
+            var lab = $(ele).find("label");
+            if(!lab.hasClass("all_checked") && lab.find('input[type="checkbox"]').prop("checked")){
+              show_str += '<a class="btn btn-primary btn-small bank-option" href="javascript:void(0);">'+lab.text()+'<i>×</i></a>';
+
+            }
+
+          });
+          _this.before(show_str);
+
+          //console.log(show_str);
+
+          error_screen.hide();
+        },
+        content: '<div class="add-option-pop">' +
+        '<div class="option-search"><input type="text" class="search-input"><a class="btn btn-fill" href="#">查找</a></div>' +
+        '<div class="option-box"><ul class="option-list">' +
+        '<li><label class="all_checked"><input type="checkbox"><em></em>全部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '<li><label><input type="checkbox"><em></em>杭州文三路营业部</label></li>' +
+        '</ul></div></div>'
+      });
+
+    });
+
+    $(document).on("click",".add-option-pop .option-list label",function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var _this = $(this);
+      var checkbox = _this.find('input[type="checkbox"]');
+      var em = _this.find("em");
+      var checkbox_val = checkbox.prop("checked");
+
+      if(checkbox.prop("checked")){
+        checkbox.prop("checked",false);
+        em.removeClass("on");
+        if(_this.hasClass("all_checked")){
+          _this.parent().siblings("li").find('input[type="checkbox"]').prop("checked",false).siblings("em").removeClass("on");
+
+        }else {
+          _this.parent().siblings("li").find(".all_checked").find('input[type="checkbox"]').prop("checked",false).siblings("em").removeClass("on");
+        }
+      }else {
+        checkbox.prop("checked",true);
+        em.addClass("on");
+        if(_this.hasClass("all_checked")){
+          _this.parent().siblings("li").find('input[type="checkbox"]').prop("checked",true).siblings("em").addClass("on");
+        }
+      }
+
+    });
+    
+    $(".bank-box").on("click",".bank-option i",function () {
+      $(this).parent().remove();
+      
+    })
+
+  </script>
+  <div class="form-group">
+    <label for="rule" class="label">营业部</label>
+    <select name="" id="shen" class="diy-select" style="display: none;">
+      <option selected="" value="1">省</option>
+      <option value="2">浙江省</option>
+    </select>
+    <select name="" id="shi" class="diy-select" style="display: none;">
+      <option selected="" value="1">市</option>
+      <option value="2">杭州市</option>
+    </select>
+    <select name="" id="team" class="diy-select" style="display: none;">
+      <option selected="" value="1">营业部</option>
+      <option value="2">杭州文三路营业部</option>
+    </select>
+  </div>
+  <div class="form-group">
     <span class="label"></span>
     <button class="btn btn-fill">确定</button>
   </div>
