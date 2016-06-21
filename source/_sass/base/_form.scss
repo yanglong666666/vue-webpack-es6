@@ -353,6 +353,8 @@ label {
       background: #f9f9f9;
       margin-right: 20px;
       border: solid 1px #e6e6e6;
+      padding-left: 10px;
+      font-size: 14px;
     }
     a.btn {
       float: right;
@@ -372,7 +374,6 @@ label {
       input[type="checkbox"] {
         margin-right: 13px;
         display: none;
-
       }
       em {
         display: inline-block;
