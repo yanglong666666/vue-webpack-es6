@@ -23,6 +23,21 @@
             vertical-align: middle;
           }
         }
+        .img-div {
+          height: 140px;
+          position: relative;
+          img {
+            height: 140px;
+            width: 106px;
+
+          }
+          a {
+            position: absolute;
+            bottom: 0px;
+            left: 130px;
+            color: #3ecacb;
+          }
+        }
       }
       .name {
         width: 10%;
