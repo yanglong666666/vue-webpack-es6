@@ -61,6 +61,78 @@
       /* Act on the event */
       $(this).parent().removeClass('error');
     });
+
+      $(function () {
+        if( !('placeholder' in document.createElement('input')) || (isIE = navigator.userAgent.indexOf("MSIE")!=-1) ){
+          $('input[placeholder],textarea[placeholder]').each(function(){
+            var that = $(this),
+              text= that.attr('placeholder');
+            //password输入框
+            if(that.attr("type") == "password"){
+              var h = that.height();
+              var w = that.width();
+              var inner = that.offset();
+              var outer = that.parent().offset();
+              var top = inner.top - outer.top;
+              var left = inner.left - outer.left;
+              var html = '<div class="placeholder-div">登录密码</div>'
+              var he = $(html).css(
+                {
+                  "height":h+"px",
+                  "line-height":h+"px",
+                  "width":w+"px",
+                  "position":"absolute",
+                  "top":top+"px",
+                  "left":left+"px",
+                  "font-size":"16px",
+                  "color":"#b5bdc3",
+                  "text-align":"left",
+                  "text-indent":"40px",
+                }
+              );
+              that.after(he);
+              that.focus(function(){
+                  $(this).next(".placeholder-div").hide();
+                  that.css("color","inherit");
+                })
+                .blur(function(){
+                  if(that.val()===""){
+                    $(this).next(".placeholder-div").show();
+                    that.css("color","#b5bdc3");
+                  }
+                })
+                .closest('form').submit(function(){
+                if(that.val() === text){
+                  that.val('');
+                }
+              });
+            }else {
+              if(that.val()===""){
+                that.val(text).addClass('placeholder');
+                that.css("color","#b5bdc3");
+              }
+              that.focus(function(){
+                  if(that.val()===text){
+                    that.val("").removeClass('placeholder');
+                  }
+                  that.css("color","inherit");
+                })
+                .blur(function(){
+                  if(that.val()===""){
+                    that.val(text).addClass('placeholder');
+                    that.css("color","#b5bdc3");
+                  }
+                })
+                .closest('form').submit(function(){
+                if(that.val() === text){
+                  that.val('');
+                }
+              });
+            }
+          });
+        }
+      })
+
     </script>
   </body>
 </html>
