@@ -64,7 +64,6 @@
 
       $(function () {
         if( !('placeholder' in document.createElement('input')) || (isIE = navigator.userAgent.indexOf("MSIE")!=-1) ){
-
           $('input[placeholder],textarea[placeholder]').each(function(){
             var that = $(this),
               text= that.attr('placeholder');
@@ -115,10 +114,8 @@
               that.focus(function(){
                   if(that.val()===text){
                     that.val("").removeClass('placeholder');
-
                   }
                   that.css("color","inherit");
-
                 })
                 .blur(function(){
                   if(that.val()===""){
@@ -132,9 +129,6 @@
                 }
               });
             }
-
-
-
           });
         }
       })
