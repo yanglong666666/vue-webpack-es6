@@ -673,6 +673,12 @@ title: 表单
     <span class="pre">至</span>
     <input class="time-picker end-time" type="text" placeholder="结束时间" readonly>
   </div>
+  <div class="form-group">
+    <span class="label">时间(含小时)</span>
+    <input class="time-picker begin-time1" type="text" placeholder="开始时间" readonly>
+    <span class="pre">至</span>
+    <input class="time-picker end-time1" type="text" placeholder="结束时间" readonly>
+  </div>
 </div>
 
 <script>
@@ -685,6 +691,18 @@ title: 表单
   $('.end-time').datepicker({
     onClose: function (selectedDate) {
       $('.begin-time').datepicker('option', 'maxDate', selectedDate);
+    }
+  });
+  $('.begin-time1').datepicker({
+    showHour:true,
+    onClose: function (selectedDate) {
+      $('.end-time1').datepicker('option', 'minDate', selectedDate);
+    }
+  });
+  $('.end-time1').datepicker({
+    showHour:true,
+    onClose: function (selectedDate) {
+      $('.begin-time1').datepicker('option', 'maxDate', selectedDate);
     }
   });
 </script>

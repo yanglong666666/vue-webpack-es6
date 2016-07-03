@@ -434,7 +434,8 @@ function Datepicker() {
 		constrainInput: true, // The input is constrained by the current date format
 		showButtonPanel: false, // True to show button panel, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
-		disabled: false // The initial disabled state
+		disabled: false, // The initial disabled state
+		showHour:false // The initial disabled state
 	};
 	$.extend(this._defaults, this.regional[""]);
 	this.regional.en = $.extend( true, {}, this.regional[ "" ]);
@@ -1330,7 +1331,7 @@ $.extend(Datepicker.prototype, {
 			inst = this._getInst(target[0]);
 
 		dateStr = (dateStr != null ? dateStr : this._formatDate(inst));
-		if (inst.input) {
+		if (inst.input ) {
 			inst.input.val(dateStr);
 		}
 		this._updateAlternate(inst);
@@ -1869,7 +1870,7 @@ $.extend(Datepicker.prototype, {
 		}
 		this._adjustInstDate(inst);
 		if (inst.input) {
-			inst.input.val(clear ? "" : this._formatDate(inst));
+			inst.input.val(clear ? "" : this._formatDate(inst) + inst.lastVal.substring(10));
 		}
 	},
 
@@ -1887,6 +1888,8 @@ $.extend(Datepicker.prototype, {
 	_attachHandlers: function(inst) {
 		var stepMonths = this._get(inst, "stepMonths"),
 			id = "#" + inst.id.replace( /\\\\/g, "\\" );
+		var that = this._defaults;
+		that.showHour = inst.settings.showHour;
 		inst.dpDiv.find("[data-handler]").map(function () {
 			var handler = {
 				prev: function () {
@@ -1901,9 +1904,28 @@ $.extend(Datepicker.prototype, {
 				today: function () {
 					$.datepicker._gotoToday(id);
 				},
+				selectHour: function(){
+					var day = $('.ui-datepicker-calendar .ui-state-highlight').text();
+					if(parseInt(day) < 10 ) {
+						day = '0' + day;
+					}
+					var month = parseInt($('.ui-datepicker-month option:selected').val()) + 1;
+					if(month < 10) {
+						month = '0' + month;
+					}
+					var year =  $('.ui-datepicker-year option:selected').val();
+					inst.input.val( year + '-' + month + '-' + day + ' ' + $('.ui-datepicker-hour select option:selected').text() + ':00');
+					$.datepicker._hideDatepicker();
+				},
 				selectDay: function () {
-					$.datepicker._selectDay(id, +this.getAttribute("data-month"), +this.getAttribute("data-year"), this);
-					return false;
+					if(that.showHour){
+						$(this).parents('tbody').find('a').removeClass('ui-state-highlight');
+						$(this).find('a').addClass('ui-state-highlight');
+						return false;
+				}else {
+						$.datepicker._selectDay(id, +this.getAttribute("data-month"), +this.getAttribute("data-year"), this);
+						return false;
+					}
 				},
 				selectMonth: function () {
 					$.datepicker._selectMonthYear(id, this, "M");
@@ -2093,6 +2115,13 @@ $.extend(Datepicker.prototype, {
 				}
 				calender += "</tbody></table>" + (isMultiMonth ? "</div>" +
 							((numMonths[0] > 0 && col === numMonths[1]-1) ? "<div class='ui-datepicker-row-break'></div>" : "") : "");
+				if(inst.settings.showHour) {
+					calender += "<div class='ui-datepicker-hour'><button class='btn btn-fill ui-datepicker-now'>此刻</button>" +
+					"<select><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option>" +
+					"<option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option>" +
+					"<option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>" +
+					"<option>21</option><option>22</option><option>23</option><option>24</option></select><button class='btn btn-fill ui-datepicker-sure'data-handler='selectHour' data-event='click'>确定</button></div>";
+				}
 				group += calender;
 			}
 			html += group;
