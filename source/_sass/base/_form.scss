@@ -398,8 +398,19 @@ label {
   width: 100%;
   height: 50px;
   line-height: 50px;
+  select {
+    border: 1px solid #3ecacb;
+    border-radius: 4px;
+    color: #3ecacb;
+  }
+  span {
+    padding: 5px;
+    color: #3ecacb;
+    font-size: 16px;
+  }
   button {
-
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .ui-datepicker-now {
     float: left;
