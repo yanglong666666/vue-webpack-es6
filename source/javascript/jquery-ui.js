@@ -1943,10 +1943,10 @@ $.extend(Datepicker.prototype, {
 				},
 				selectHour: function(){
 					var day;
-					if($('.ui-datepicker-calendar .ui-state-highlight'))
-						day = $('.ui-datepicker-calendar .ui-state-highlight').text();
-					else
+					if($('.ui-datepicker-calendar .ui-state-active'))
 						day = $('.ui-datepicker-calendar .ui-state-active').text();
+					else
+						day = $('.ui-datepicker-calendar .ui-state-highlight').text();
 					if(parseInt(day) < 10 ) {
 						day = '0' + day;
 					}
@@ -1968,8 +1968,8 @@ $.extend(Datepicker.prototype, {
 				},
 				selectDay: function () {
 					if(that._defaults.showHour){
-						$(this).parents('tbody').find('a').removeClass('ui-state-highlight');
-						$(this).find('a').addClass('ui-state-highlight');
+						$(this).parents('tbody').find('a').removeClass('ui-state-active');
+						$(this).find('a').addClass('ui-state-active');
 						var selectYear = this.getAttribute("data-year");
 						var selectMonth = parseInt(this.getAttribute("data-month")) + 1;
 						if( selectMonth < 10){
