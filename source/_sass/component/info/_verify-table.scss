@@ -112,3 +112,70 @@
     }
   }
 }
+.ui-verify-table2 {
+  @include clearfix;
+  overflow: hidden;
+  background: #f0f5fb;
+  padding: 32px 15px;
+  .face,
+  .verify,
+  .video {
+    float: left;
+  }
+  .face,
+  .verify {
+    margin-right: 20px;
+  }
+  .verify-inner,
+  .video-inner {
+    @include clearfix;
+    overflow: hidden;
+    img {
+      float: left;
+    }
+  }
+  .verify-txt,
+  .video-txt {
+    float: left;
+    margin-left: 10px;
+  }
+  .verify-txt {
+    .info {
+      font-size: 12px;
+      margin-top: 13px;
+    }
+  }
+  .video-txt {
+    font-size: 12px;
+    .info {
+      margin-top: 20px;
+    }
+    .verify-code {
+      color: #3a3d42;
+    }
+  }
+  .btn-content {
+    text-align: center;
+    margin-top: 13px;
+    a {
+      display: inline-block;
+      color: #3ecacb;
+      border: 1px solid #3ecacb;
+      border-radius: 5px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      width: 80px;
+      font-size: 12px;
+      &.verify-btn {
+        width: 160px;
+      }
+    }
+  }
+  img {
+    border-radius: 5px;
+  }
+  .v-title {
+    margin-bottom: 10px;
+  }
+}
