@@ -27,6 +27,9 @@ title: 表单
           <input class="aql-input sales-select" type="text">
           <i></i>
           <div class="sales-select-box">
+            <div class="sales-search">
+              <input class="s-input" type="text" placeholder="输入关键字">
+            </div>
             <label class=""><input type="checkbox"><em></em><span>杭州丹一路营业部这个营业部真的长</span></label>
             <label><input type="checkbox"><em></em><span>杭州丹二路营业部</span></label>
             <label><input type="checkbox"><em></em><span>杭州丹三路营业部</span></label>
@@ -38,7 +41,6 @@ title: 表单
             <label><input type="checkbox"><em></em><span>杭州丹九路营业部</span></label>
             <label><input type="checkbox"><em></em><span>杭州丹十路营业部</span></label>
             <label><input type="checkbox"><em></em><span>杭州丹十一路营业部</span></label>
-
           </div>
         </label>
       </dd>
@@ -46,6 +48,29 @@ title: 表单
     <script>
       $(function () {
         var labelHere = 0;
+        $(".sales-select-box").on("click",".s-input",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+        $(".sales-select-box").on("input",".s-input",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var _this = $(this);
+          var _val = _this.val();
+          var sales_box = _this.parents(".sales-select-box");
+          var labs = sales_box.find("label");
+          if(_val != ""){
+            labs.hide();
+            $.each(labs,function (i,e) {
+              var sales_str = $(this).find("span").text();
+              if(sales_str.indexOf(_val) > -1){
+                $(this).show();
+              }
+            });
+          }else {
+            labs.show();
+          }
+        });
         $(".sales-select-box").on("click","label",function (e) {
           e.preventDefault();
           e.stopPropagation();
@@ -105,16 +130,15 @@ title: 表单
           e.preventDefault();
           e.stopPropagation();
           if( $(this).siblings(".sales-select-box").css("display")!="none"){
-
             $(this).siblings(".sales-select-box").hide();
           }else {
             $(this).siblings(".sales-select-box").show();
+            $(this).siblings(".sales-select-box").find(".s-input").val("");
+            $(this).siblings(".sales-select-box").find("label").show();
           }
 
         });
         $(document).click(function (e) {
-
-
           $(".sales-select-box").hide();
         });
 
@@ -622,10 +646,10 @@ title: 表单
       }
 
     });
-    
+
     $(".bank-box").on("click",".bank-option i",function () {
       $(this).parent().remove();
-      
+
     })
 
   </script>
