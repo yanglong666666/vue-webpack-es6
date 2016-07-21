@@ -42,21 +42,21 @@
       float: right;
       .id-card-info {
         background: #f0f5fb;
-        padding: 20px 0px;
+        padding: 5px 0px;
         margin-bottom: 15px;
       }
       .id-card-cont {
         position: relative;
-        margin: 20px auto;
+        margin: 10px auto;
         border: 1px solid #e2e6ef;
-        width: 500px;
+        width: 585px;
       }
       .id-card-btn {
         position: absolute;
         top: 0;
         right: 0;
         width: 40px;
-        height: 260px;
+        height: 305px;
         text-align: center;
         .icon {
           display: inline-block;
@@ -67,7 +67,7 @@
             width: 19px;
             height: 21px;
             background-position: 0 0;
-            margin-top: 70px;
+            margin-top: 100px;
           }
           &.anticlockwise {
             width: 21px;
