@@ -4,7 +4,7 @@ build:
 	jekyll build
 
 deploy: build
-	rsync -avze 'ssh -p 22' --delete --filter='P .git' public/ root@192.168.1.215:/usr/local/app/apache/htdocs/standard-back
+	find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms/{} \;
 
 publish: build
 	cd public; \
