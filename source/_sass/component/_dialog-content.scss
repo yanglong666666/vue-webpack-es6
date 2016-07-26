@@ -8,6 +8,40 @@
     padding: 10px 0 20px 0px;
     color: #3a3d42;
   }
+  .dialog-content-channel-select {
+    max-height: 400px;
+    overflow: auto;
+    .form-group-reg {
+      @include clearfix;
+      .label {
+        float: left;
+      }
+      .js-select {
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: 108px;
+      }
+      .select-parent {
+        float: left;
+        @include clearfix;
+        width: 415px;
+
+      }
+    }
+    .label {
+      font-size: 16px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .add-option-pop {
+      padding: 0;
+      .option-box {
+        width: 305px;
+        margin-left: 75px;
+        height: 150px;
+      }
+    }
+  }
   .dialog-content-activation {
     max-height: 250px;
     overflow: auto;
