@@ -43,5 +43,14 @@
       top: 0;
       right: 0;
     }
+    table {
+      .upload-logo,
+      .upload-qcode {
+        display: block;
+        width: 140px;
+        margin-top: 25px;
+        font-size: 14px;
+      }
+    }
   }
 }
