@@ -455,3 +455,61 @@ label {
     line-height: 27px;
   }
 }
+#form_button_main {
+  .download {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+  }
+  .import-content {
+    position: absolute;
+    right: 170px;
+    top: 15px;
+    width: 200px;
+    height: 28px;
+    line-height: 28px;
+    .import-inner {
+      @include clearfix;
+      overflow: hidden;
+      cursor: pointer;
+      .file-name {
+        float: left;
+        height: 28px;
+        line-height: 28px;
+        background: #e1e6ef;
+        border-radius: 5px 0 0 5px;
+        border: none;
+        outline: none;
+        width: 150px;
+      }
+      .log {
+        float: left;
+        display: inline-block;
+        width: 50px;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        background: #8c99b6;
+        border-radius: 0px 5px 5px 0px;
+      }
+    }
+    .file {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      cursor: pointer;
+      outline: none;
+      opacity: 0;
+      -moz-opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  }
+  .input {
+    position: absolute;
+    top: 15px;
+    right: 90px;
+  }
+}
