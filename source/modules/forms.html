@@ -109,23 +109,9 @@ title: 表单
               this_val += $(e).find("span").text();
             });
             this_val_input.val(this_val);
-            //_this.html("");
+
           }
-
-
-//          if(_this.hasClass("on")){
-//            this_check.prop("checked",false);
-//          }else {
-//            this_check.prop("checked",true);
-//            this_em.text("√");
-//          }
-
-
         });
-        /*$(".sales-select").on("focus",function (e) {
-          e.preventDefault();
-          $(this).siblings(".sales-select-box").show();
-        });*/
         $(".sales-select").on("click",function (e) {
           e.preventDefault();
           e.stopPropagation();
@@ -451,8 +437,17 @@ title: 表单
   <div class="zoom-btn">
     <a class="open" href="javascript:void(0)">收起<i></i></a>
   </div>
-  <div class="button-content">
+  <div class="button-content" id="form_button_main">
+    <button class="btn-primary download" href="#">下载模版</button>
     <button class="btn-fill btn-lg" href="#">查询</button>
+    <div class="import-content">
+      <div class="import-inner">
+        <input type="text" class="file-name">
+        <span class="log">浏览</span>
+      </div>
+      <input type="file" class="file">
+    </div>
+    <button class="btn-primary input" href="#">文件导入</button>
     <button class="btn-primary output" href="#">输出报表</button>
   </div>
 </div>
