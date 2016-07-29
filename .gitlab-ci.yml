@@ -1,8 +1,10 @@
-image: 192.168.1.211:5000/jekyll:3.1
+image: 192.168.1.211:5000/jekyll
+
+before_script:
+  - jekyll build
 
 job_deploy:
   script:
-    - jekyll build
     - find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms/{} \;
   stage: deploy
   only:

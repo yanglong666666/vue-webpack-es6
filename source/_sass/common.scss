@@ -1,97 +1,97 @@
 // right comm css
 .search-btn {
-	position: absolute;
-	right: 15px;
-	top: 30px;
-	a {
-		color: #6f7b91;
-		font-size: 12px;
-		i {
-			display: inline-block;
-			width: 13px;
-			height: 8px;
-			vertical-align: middle;
-			background: url(../images/icolist.png) -81px -50px no-repeat;
-			margin: 0px 0px 3px 10px;
-		}
-		&.open {
-			i {
-				background: url(../images/icolist.png) -80px -65px no-repeat;
-			}
-		}
-	}
+  position: absolute;
+  right: 15px;
+  top: 30px;
+  a {
+    color: #6f7b91;
+    font-size: 12px;
+    i {
+      display: inline-block;
+      width: 13px;
+      height: 8px;
+      vertical-align: middle;
+      background: url(../images/icolist.png) -81px -50px no-repeat;
+      margin: 0px 0px 3px 10px;
+    }
+    &.open {
+      i {
+        background: url(../images/icolist.png) -80px -65px no-repeat;
+      }
+    }
+  }
 }
 
 .algin-center {
-	text-align: center;
-	margin: 25px auto;
+  text-align: center;
+  margin: 25px auto;
 }
 .align-right {
-	position: relative;
-	min-height: 30px;
-	margin-top: 20px;
-	button {
-		position: absolute;
-		right: 15px;
-		top: 0px;
-	}
+  position: relative;
+  min-height: 30px;
+  margin-top: 20px;
+  button {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+  }
 }
 .tab-content {
-	.tab{
-		width: 100%;
-		height: 38px;
-		a {
-			float: left;
-			display: inline-block;
-			width: 50%;
-			height: 38px;
-			line-height: 38px;
-			font-size: 14px;
-			color: #3a3d42;
-			background: #e1e6ef;
-			text-align: center;
-			&.active {
-				color: #fff;
-				background: #3ecacb;
-			}
-		}
-	}
-	&.margin-tab {
-		margin-top: 15px;
-	}
+  .tab{
+    width: 100%;
+    height: 38px;
+    a {
+      float: left;
+      display: inline-block;
+      width: 50%;
+      height: 38px;
+      line-height: 38px;
+      font-size: 14px;
+      color: #3a3d42;
+      background: #e1e6ef;
+      text-align: center;
+      &.active {
+        color: #fff;
+        background: #3ecacb;
+      }
+    }
+  }
+  &.margin-tab {
+    margin-top: 15px;
+  }
 }
 
 .detail-btn {
-	color: #3ecacb;
+  color: #3ecacb;
 }
 
 .select-mode {
-	width: 550px;
-	margin: 10px auto 20px auto;
-	label {
-		input {
-			vertical-align: middle;
-			margin-right: 10px;
-		}
-	}
+  width: 550px;
+  margin: 10px auto 20px auto;
+  label {
+    input {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
 }
 .p-right {
-	position: absolute;
-	top: 30px;
-	right: 20px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
 }
 .search-group {
   position: relative;
   .search-dl {
-  	display: inline-block;
-  	margin: 10px 5px 0px 0px;
-  	dt {
-  		font-size: 14px;
-  		color: #6f7b91;
-  		display: block;
-  		line-height: 20px;
+    display: inline-block;
+    margin: 10px 5px 0px 0px;
+    dt {
+      font-size: 14px;
+      color: #6f7b91;
+      display: block;
+      line-height: 20px;
       margin-bottom: 5px;
-  	}
+    }
   }
 }
 .button-content {
@@ -118,7 +118,7 @@
   }
 }
 .clearfix {
-	@include clearfix;
+  @include clearfix;
 }
 tbody {
   tr{
@@ -253,7 +253,8 @@ table.czls-style{
 }
 .list-close {
   height: 80px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .ui-table-info table.czls-style tbody td:nth-child(1){
   width:20%;
@@ -267,5 +268,3 @@ table.czls-style{
 .ui-table-info table.czls-style tbody td:nth-child(4){
   width:15%;
 }
-
-
