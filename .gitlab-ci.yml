@@ -5,7 +5,7 @@ before_script:
 
 job_deploy:
   script:
-    - find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms/{} \;
+    - find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms-new/{} \;
   stage: deploy
   only:
-    - master
+    - new-background
