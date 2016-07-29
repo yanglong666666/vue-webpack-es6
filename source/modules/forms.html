@@ -21,6 +21,119 @@ title: 表单
       </dd>
     </dl>
     <dl class="aql-dl">
+      <dt class="aql-dt">营业部</dt>
+      <dd class="aql-dd">
+        <label class="aql-label">
+          <input class="aql-input sales-select" type="text">
+          <i></i>
+          <div class="sales-select-box">
+            <div class="sales-search">
+              <input class="s-input" type="text" placeholder="输入关键字">
+            </div>
+            <label class=""><input type="checkbox"><em></em><span>杭州丹一路营业部这个营业部真的长</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹二路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹三路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹四路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹五路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹六路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹七路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹八路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹九路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹十路营业部</span></label>
+            <label><input type="checkbox"><em></em><span>杭州丹十一路营业部</span></label>
+          </div>
+        </label>
+      </dd>
+    </dl>
+    <script>
+      $(function () {
+        var labelHere = 0;
+        $(".sales-select-box").on("click",".s-input",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+        $(".sales-select-box").on("input",".s-input",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var _this = $(this);
+          var _val = _this.val();
+          var sales_box = _this.parents(".sales-select-box");
+          var labs = sales_box.find("label");
+          if(_val != ""){
+            labs.hide();
+            $.each(labs,function (i,e) {
+              var sales_str = $(this).find("span").text();
+              if(sales_str.indexOf(_val) > -1){
+                $(this).show();
+              }
+            });
+          }else {
+            labs.show();
+          }
+        });
+        $(".sales-select-box").on("click","label",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var _this = $(this);
+          var this_check = _this.find("input[type='checkbox']");
+          var this_em = _this.find("em");
+          var this_val_input = _this.parent().siblings(".sales-select");
+
+          var this_html = _this.html();
+
+          if(this_check.prop("checked")){
+            this_check.prop("checked",false);
+            _this.removeClass("on");
+            this_em.html("");
+            var this_id = _this.attr("myid");
+            $("#"+this_id).before(_this).remove();
+            var this_val = "";
+            _this.siblings("label.on").each(function (i,e) {
+
+              this_val += $(e).find("span").text();
+              this_val += ","
+            });
+            this_val_input.val(this_val);
+
+          }else {
+            labelHere++;
+            this_check.prop("checked",true);
+            _this.addClass("on");
+            this_em.html("√");
+            _this.attr("myid","labelHere_"+labelHere);
+            _this.after("<span id='labelHere_"+labelHere+"'></span>");
+            _this.parent().prepend(_this);
+            var this_val = _this.find("span").text();
+            _this.siblings("label.on").each(function (i,e) {
+              this_val += ","
+              this_val += $(e).find("span").text();
+            });
+            this_val_input.val(this_val);
+
+          }
+        });
+        $(".sales-select").on("click",function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if( $(this).siblings(".sales-select-box").css("display")!="none"){
+            $(this).siblings(".sales-select-box").hide();
+          }else {
+            $(this).siblings(".sales-select-box").show();
+            $(this).siblings(".sales-select-box").find(".s-input").val("");
+            $(this).siblings(".sales-select-box").find("label").show();
+          }
+
+        });
+        $(document).click(function (e) {
+          $(".sales-select-box").hide();
+        });
+
+      });
+    </script>
+
+
+
+    <dl class="aql-dl">
       <dt class="aql-dt">姓名</dt>
       <dd class="aql-dd">
         <label class="aql-label">
@@ -324,8 +437,17 @@ title: 表单
   <div class="zoom-btn">
     <a class="open" href="javascript:void(0)">收起<i></i></a>
   </div>
-  <div class="button-content">
+  <div class="button-content" id="form_button_main">
+    <button class="btn-primary download" href="#">下载模版</button>
     <button class="btn-fill btn-lg" href="#">查询</button>
+    <div class="import-content">
+      <div class="import-inner">
+        <input type="text" class="file-name">
+        <span class="log">浏览</span>
+      </div>
+      <input type="file" class="file">
+    </div>
+    <button class="btn-primary input" href="#">文件导入</button>
     <button class="btn-primary output" href="#">输出报表</button>
   </div>
 </div>
@@ -412,6 +534,136 @@ title: 表单
     <input type="text" class="txt" id="rule">
   </div>
   <div class="form-group">
+    <label for="rule" class="label">存管银行</label>
+    <div class="bank-box" id="team_box">
+      <a class="btn btn-primary btn-small bank-option" href="javascript:void(0);"><span class="cont">杭州文1路营业部</span><i>×</i></a><a class="btn btn-primary btn-small add-option" href="javascript:void(0);" id="add_option">添加+</a>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    $(document).on("click","#add_option",function () {
+      var _this = $(this);
+      var optionlist = [];
+      _this.siblings(".bank-option").each(function (i,e) {
+        optionlist.push($(e).find("span.cont").text());
+
+      });
+      var error_screen = new Dialog(null,{
+        title: '',
+        width: '490',
+        needDestroy: true,
+        hasBtn: true,
+        needIframe:true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel', 'confirm'],
+        confirm: function(e) {
+          var content = $("#team_pop");
+          var show_str = "";
+          content.find(".option-list li").each(function (index,ele) {
+            var lab = $(ele).find("label");
+            if(!lab.hasClass("all_checked") && lab.find('input[type="checkbox"]').prop("checked")){
+              var is_add = true;
+              $("#team_box").find(".bank-option .cont").each(function (i,e) {
+                if($(e).text() == lab.text()){
+                  is_add = false;
+                }
+              });
+              if(is_add){
+                show_str += '<a class="btn btn-primary btn-small bank-option" href="javascript:void(0);"><span class="cont">'+lab.text()+'</span><i>×</i></a>';
+              }
+
+            }
+          });
+          _this.before(show_str);
+          error_screen.hide();
+        },
+        content: '<div class="add-option-pop" id="team_pop">' +
+        '<div class="option-search"><input type="text" class="search-input"><a class="btn btn-fill" href="#">查找</a></div>' +
+        '<div class="option-box"><ul class="option-list">' +
+        '<li><label class="all_checked"><input type="checkbox"><em></em>全部</label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文1路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文2路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文3路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文4路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文5路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文6路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文7路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文8路营业部</span></label></li>' +
+        '<li><label><input type="checkbox"><em></em><span class="cont">杭州文9路营业部</span></label></li>' +
+        '</ul></div></div>'
+      });
+
+      var span_cont = $("#team_pop").find(".option-list li .cont");
+
+      span_cont.each(function (i,e) {
+        var name = $(e).text();
+
+        $.each(optionlist,function (index,ele) {
+          if(name == ele){
+            $(e).siblings("em").addClass("on");
+            $(e).siblings("input[type='checkbox']").prop("checked",true);
+
+          }
+
+        });
+
+      });
+
+
+
+
+    });
+
+    $(document).on("click",".add-option-pop .option-list label",function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var _this = $(this);
+      var checkbox = _this.find('input[type="checkbox"]');
+      var em = _this.find("em");
+      var checkbox_val = checkbox.prop("checked");
+
+      if(checkbox.prop("checked")){
+        checkbox.prop("checked",false);
+        em.removeClass("on");
+        if(_this.hasClass("all_checked")){
+          _this.parent().siblings("li").find('input[type="checkbox"]').prop("checked",false).siblings("em").removeClass("on");
+
+        }else {
+          _this.parent().siblings("li").find(".all_checked").find('input[type="checkbox"]').prop("checked",false).siblings("em").removeClass("on");
+        }
+      }else {
+        checkbox.prop("checked",true);
+        em.addClass("on");
+        if(_this.hasClass("all_checked")){
+          _this.parent().siblings("li").find('input[type="checkbox"]').prop("checked",true).siblings("em").addClass("on");
+        }
+      }
+
+    });
+
+    $(".bank-box").on("click",".bank-option i",function () {
+      $(this).parent().remove();
+
+    })
+
+  </script>
+  <div class="form-group">
+    <label for="rule" class="label">营业部</label>
+    <select name="" id="shen" class="diy-select" style="display: none;">
+      <option selected="" value="1">省</option>
+      <option value="2">浙江省</option>
+    </select>
+    <select name="" id="shi" class="diy-select" style="display: none;">
+      <option selected="" value="1">市</option>
+      <option value="2">杭州市</option>
+    </select>
+    <select name="" id="team" class="diy-select" style="display: none;">
+      <option selected="" value="1">营业部</option>
+      <option value="2">杭州文三路营业部</option>
+    </select>
+  </div>
+  <div class="form-group">
     <span class="label"></span>
     <button class="btn btn-fill">确定</button>
   </div>
@@ -440,6 +692,12 @@ title: 表单
     <span class="pre">至</span>
     <input class="time-picker end-time" type="text" placeholder="结束时间" readonly>
   </div>
+  <div class="form-group">
+    <span class="label">时间(含小时)</span>
+    <input class="time-picker begin-time1" type="text" placeholder="开始时间" readonly>
+    <span class="pre">至</span>
+    <input class="time-picker end-time1" type="text" placeholder="结束时间" readonly>
+  </div>
 </div>
 
 <script>
@@ -452,6 +710,18 @@ title: 表单
   $('.end-time').datepicker({
     onClose: function (selectedDate) {
       $('.begin-time').datepicker('option', 'maxDate', selectedDate);
+    }
+  });
+  $('.begin-time1').datepicker({
+    showHour:true,
+    onClose: function (selectedDate) {
+      $('.end-time1').datepicker('option', 'minDate', selectedDate);
+    }
+  });
+  $('.end-time1').datepicker({
+    showHour:true,
+    onClose: function (selectedDate) {
+      $('.begin-time1').datepicker('option', 'maxDate', selectedDate);
     }
   });
 </script>
