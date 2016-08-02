@@ -87,8 +87,8 @@ class: marketing-manage
 {% include component/pagenav.html %}
 <script type="text/javascript">
   $(function(){
-    $('.department').diySelect();
-    $('.bank').diySelect();
+    $('.diy-select').diySelect();
+    //$('.bank').diySelect();
     $('.data-table').on('click', '.delete-btn', function(event) {
       //删除按钮事件
       event.preventDefault();
