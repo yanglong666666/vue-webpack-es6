@@ -62,11 +62,10 @@
       .icon {
         position: absolute;
         display: inline-block;
-        top: 11px;
-        left: 12px;
-        width: 14px;
-        height: 17px;
-        background-image: url(../images/Group2.png);
+        top: 7px;
+        left: 5px;
+        width: 24px;
+        height: 24px;
         background-repeat: no-repeat;
         margin: 0 0;
         z-index: -1;
@@ -111,168 +110,156 @@
         }
       }
     }
-/*    li.index {
+    li.announcement {
       .icon {
-        background-position: 0 0;
+        background-image: url(../images/aside/notice.png);
       }
       &.active {
         .icon {
-          background-position: -38px 0;
+          background-image: url(../images/aside/notice1.png);
         }
       }
     }
-    li.announcement {
+    li.index {
       .icon {
-        background-position: 0 -22px;
+        background-image: url(../images/aside/home.png);
       }
       &.active {
         .icon {
-          background-position: -38px -22px;
+          background-image: url(../images/aside/home1.png);
         }
       }
     }
     li.vedio-validate {
       .icon {
-        background-position: 0 -45px;
+        background-image: url(../images/aside/validate.png);
       }
       &.active {
         .icon {
-          background-position: -38px -45px;
+          background-image: url(../images/aside/validate1.png);
         }
       }
     }
     li.vedio-upload {
       .icon {
-        background-position: 0 -68px;
+        background-image: url(../images/aside/upload.png);
       }
       &.active {
         .icon {
-          background-position: -38px -68px;
+          background-image: url(../images/aside/upload1.png);
         }
       }
     }
     li.certificate {
       .icon {
-        background-position: 0 -91px;
+        background-image: url(../images/aside/certificate.png);
       }
       &.active {
         .icon {
-          background-position: -38px -91px;
+          background-image: url(../images/aside/certificate1.png);
         }
       }
     }
     li.open-verify {
       .icon {
-        background-position: 0 -114px;
+        background-image: url(../images/aside/verify.png);
       }
       &.active {
         .icon {
-          background-position: -38px -114px;
+          background-image: url(../images/aside/verify1.png);
         }
       }
     }
     li.open-recheck {
       .icon {
-        background-position: 0 -136px;
+        background-image: url(../images/aside/recheck.png);
       }
       &.active {
         .icon {
-          background-position: -38px -136px;
+          background-image: url(../images/aside/recheck1.png);
         }
       }
     }
     li.business-search,
     li.business-online {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -159px;
+        background-image: url(../images/aside/search.png);
       }
     }
     li.business-operation {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -251px;
+        background-image: url(../images/aside/operation.png);
       }
     }
     li.operation-analysis,
     li.online-analysis,
     li.mall-analysis {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -275px;
+        background-image: url(../images/aside/analysis.png);
       }
     }
     li.marketing-channels {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -205px;
+        background-image: url(../images/aside/channels.png);
       }
     }
     li.open-sets {
       .icon {
-        margin-top: -3px;
-        background-position: 0 -297px;
+        background-image: url(../images/aside/open-sets.png);
       }
     }
     li.para-sets {
       .icon {
-        margin-top: -3px;
-        background-position: 0 -228px;
+        background-image: url(../images/aside/sets.png);
       }
     }
     li.system-parameter {
       .icon {
-        background-position: 0 -182px;
+        background-image: url(../images/aside/parameter.png);
       }
       &.active {
         .icon {
-          background-position: -38px -182px;
+          background-image: url(../images/aside/parameter1.png);
         }
       }
     }
     li.online-sets {
       .icon {
-        margin-top: -3px;
-        background-position: 0 -320px;
+        background-image: url(../images/aside/online-sets.png);
       }
     }
     li.mall-product {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -344px;
+        background-image: url(../images/aside/product.png);
       }
     }
     li.mall-sales {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -367px;
+        background-image: url(../images/aside/sales.png);
       }
     }
     li.mall-sets {
       .icon {
-        margin-top: -3px;
-        background-position: 0 -390px;
+        background-image: url(../images/aside/mall-sets.png);
       }
     }
     li.e-record {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -413px;
+        background-image: url(../images/aside/e-record.png);
       }
     }
     li.institution {
       .icon {
-        margin-top: -2px;
-        background-position: 0 -597px;
+        background-image: url(../images/aside/institution.png);
       }
     }
     li.processes {
       .icon {
-        background-position: 0 -435px;
+        background-image: url(../images/aside/processes.png);
       }
       &.active {
         .icon {
-          background-position: -38px -435px;
+          background-image: url(../images/aside/processes1.png);
         }
       }
     }
@@ -287,76 +274,74 @@
     }
     li.check {
       .icon {
-        background-position: 0 -459px;
+        background-image: url(../images/aside/check.png);
       }
       &.active {
         .icon {
-          background-position: -38px -459px;
+          background-image: url(../images/aside/check1.png);
         }
       }
     }
     li.channel-list {
       .icon {
-        background-position: 0 -482px;
+        background-image: url(../images/aside/list.png);
       }
       &.active {
         .icon {
-          background-position: -38px -482px;
+          background-image: url(../images/aside/list1.png);
         }
       }
     }
     li.channel-manage {
       .icon {
-        background-position: 0 -505px;
+        background-image: url(../images/aside/manage.png);
       }
       &.active {
         .icon {
-          background-position: -38px -505px;
+          background-image: url(../images/aside/manage1.png);
         }
       }
     }
     li.department {
       .icon {
-        background-position: 0 -643px;
+        background-image: url(../images/aside/department.png);
       }
       &.active {
         .icon {
-          background-position: -38px -643px;
+          background-image: url(../images/aside/department1.png);
         }
       }
     }
     li.bank {
       .icon {
-        background-position: 0 -620px;
+        background-image: url(../images/aside/bank.png);
       }
       &.active {
         .icon {
-          background-position: -38px -620px;
+          background-image: url(../images/aside/bank1.png);
         }
       }
     }
     li.commission-template {
       .icon {
-        background-position: 0 -528px;
+        background-image: url(../images/aside/commission.png);
       }
       &.active {
         .icon {
-          background-position: -38px -528px;
+          background-image: url(../images/aside/commission1.png);
         }
       }
     }
     li.statistics {
       .icon {
-        margin-top: -3px;
-        background-position: 0 -550px;
+        background-image: url(../images/aside/statistics.png);
       }
     }
     li.commission {
       .icon {
-        margin-top: -3px;
-        background-position: 0 -573px;
+        background-image: url(../images/aside/c-statistics.png);
       }
-    }*/
+    }
   }
 }
 
