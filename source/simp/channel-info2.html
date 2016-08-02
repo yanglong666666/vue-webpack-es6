@@ -67,8 +67,14 @@ class: channel-info
             <option value="2">200*200px</option>
             <option value="3">300*300px</option>
           </select>
-          <a class="btn btn-primary upload-logo" href="#">上传LOGO</a>
-          <a class="btn btn-primary upload-qcode" href="#">上传二维码</a>
+          <div class="file-content">
+            <a class="btn btn-primary upload-logo" href="#">上传LOGO</a>
+            <input type="file" class="file">
+          </div>
+          <div class="file-content">
+            <a class="btn btn-primary upload-qcode" href="#">上传二维码</a>
+            <input type="file" class="file">
+          </div>
         </td>
         <td colspan="3">
           <img src="../../images/mar-qcode.png" width="170" height="170" alt="qcode">
