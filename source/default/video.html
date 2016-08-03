@@ -340,5 +340,32 @@ class: video
         $('.dialog-content-words').find('textarea').removeClass('edit');
       });
     });
+
+    $("a.more-main").on("mousedown",function (e) {
+      if (e.preventDefault) {
+        e.preventDefault();
+      }
+      else {
+        e.returnvalue = false;
+      }
+    });
+    /*$("a").on("mousemove",function (e) {
+      if (e.preventDefault) {
+        e.preventDefault();
+      }
+      else {
+        e.returnvalue = false;
+      }
+    });*/
+   /* $("a").on("mouseup",function (e) {
+      if (e.preventDefault) {
+        e.preventDefault();
+      }
+      else {
+        e.returnvalue = false;
+      }
+    });*/
+
+
   });
 </script>

@@ -1,5 +1,6 @@
 .ui-table-info {
   .main-table {
+    font-size: 15px;
     .table-title {
       font-size: 16px;
       color: #44c1de;
@@ -10,10 +11,10 @@
       td {
         padding: 10px;
         &:nth-child(odd) {
-          color: #6f7b91;
+          color: #4f5d77;
         }
         &:nth-child(even) {
-          color: #4c4f54;
+          color: #222;
         }
       }
     }
@@ -26,6 +27,59 @@
         }
         .name {
           margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  .ui-user-basic-info {
+    @include clearfix;
+    table {
+      float: left;
+    }
+    .basic-info-right {
+      width: 53%;
+      margin-left: 2%;
+      float: right;
+      .id-card-info {
+        background: #f0f5fb;
+        padding: 5px 0px;
+        margin-bottom: 15px;
+      }
+      .id-card-cont {
+        position: relative;
+        margin: 10px auto;
+        border: 1px solid #e2e6ef;
+        width: 585px;
+      }
+      .id-card-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 305px;
+        text-align: center;
+        .icon {
+          display: inline-block;
+          vertical-align: middle;
+          background-image: url(../images/trans-icon.png);
+          background-repeat: no-repeat;
+          &.clockwise {
+            width: 19px;
+            height: 21px;
+            background-position: 0 0;
+            margin-top: 100px;
+          }
+          &.anticlockwise {
+            width: 21px;
+            height: 21px;
+            background-position: 0px -30px;
+            margin: 25px 0;
+          }
+          &.edit {
+            width: 19px;
+            height: 19px;
+            background-position: 0px -60px;
+          }
         }
       }
     }
