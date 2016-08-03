@@ -41,10 +41,10 @@
       .no-through-item {
         overflow: hidden;
         margin-bottom: 10px;
-        cursor: pointer;
         border: 1px solid #c9d2dc;
         padding: 5px 15px;
         .item-head {
+          cursor: pointer;
           color: #6f7b91;
           height: 24px;
           line-height: 24px;

@@ -157,14 +157,14 @@ class: recheck
         $('.no-through-content').hide();
       }
     });
-    $('.reform-content').on('click', '.no-through-item', function(event) {
+    $('.reform-content').on('click', '.item-head', function(event) {
       //不通过理由交互
       event.preventDefault();
       /* Act on the event */
-      if($(this).hasClass('on')) {
-        $(this).removeClass('on');
+      if($(this).parent().hasClass('on')) {
+        $(this).parent().removeClass('on');
       } else {
-        $(this).addClass('on');
+        $(this).parent().addClass('on');
       }
     });
   });
