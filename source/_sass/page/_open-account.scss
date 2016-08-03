@@ -65,6 +65,15 @@
 }
 
 .page-open-account-plus {
+  .channel-cont {
+    margin-bottom: 15px;
+    .channel-option {
+      color: #333;
+    }
+    a {
+      color: #63a9ff;
+    }
+  }
   .usernum-content {
     ul{
       @include clearfix;

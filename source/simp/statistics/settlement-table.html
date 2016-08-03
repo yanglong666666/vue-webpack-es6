@@ -53,7 +53,11 @@ class: settlement-table
             for(var j=0;j<_json.str.length;j++){
               isMate =true;
               //遍历输入框内字符串与数据做匹配
-              for(var i =0;i<_thisval.length;i++){
+              if(_json.str[j].indexOf(_thisval) > -1){
+                li_html += "<li>"+_json.str[j]+"</li>";
+
+              };
+              /*for(var i =0;i<_thisval.length;i++){
                 //console.log(_thisval.charAt(i)+"i");
                 //console.log( _json.str[j].charAt(i)+"j");
                 var i_val = _thisval.charAt(i);
@@ -62,12 +66,12 @@ class: settlement-table
                 if(i_val.toLowerCase() != j_val.toLowerCase()){
                   isMate = false;
                 }
-              }
+              }*/
               //如果匹配拼装html代码
-              if(isMate){
+              /*if(isMate){
                 //console.log(_json.str[j])
                 li_html += "<li>"+_json.str[j]+"</li>";
-              }
+              }*/
             }
             _this.parent().siblings(".fuzzy-list").html(li_html);
             _this.parent().siblings(".fuzzy-list").show();

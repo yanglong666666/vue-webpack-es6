@@ -40,6 +40,7 @@ label {
     }
   }
 }
+
 .pre {
 	font-size: 12px;
 	color: #6f7b91;
@@ -71,7 +72,36 @@ label {
 			text-indent: 10px;
 			outline: none;
 		}
+    .bank-box {
+      position: relative;
+      margin-left: 114px;
+      top: -29px;
+      a{
+        color: #6f7b91;
+        min-width: 160px;
+        &.bank-option {
+          background: #FFF;
+          text-align: left;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          i {
+            font-style: normal;
+            float: right;
+            display: block;
+            width: 30px;
+            text-align: right;
+            font-size: 17px;
 	}
+
+}
+        &.add-option {
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+  }
 }
 
 .form-inline {
@@ -109,27 +139,27 @@ label {
 	}
 }
 
-.adaptive-query-list{
-  &.H70{
-    height:70px;
+.adaptive-query-list {
+  &.H70 {
+    height: 70px;
     overflow: hidden;
   }
-  &.haszomm{
+  &.haszomm {
     padding-right: 55px;
   }
-  .aql-dl{
+  .aql-dl {
     display: inline-block;
     position: relative;
     padding-right: 5px;
     margin-bottom: 10px;
-    .aql-dt{
+    .aql-dt {
       margin-bottom: 5px;
     }
     &.tag-search {
       .aql-dd {
         margin-bottom: 5px;
-        .aql-label{
-          .aql-input{
+        .aql-label {
+          .aql-input {
             width: 300px;
             padding-left: 30px;
             background: url(../images/input.png) no-repeat;
@@ -144,7 +174,7 @@ label {
             padding-right: 40px;
             position: relative;
             display: inline-block;
-            em{
+            em {
               display: none;
               cursor: pointer;
               width: 28px;
@@ -185,10 +215,10 @@ label {
         }
       }
     }
-    .aql-dd{
+    .aql-dd {
       display: inline-block;
-      .aql-label{
-        .aql-input{
+      .aql-label {
+        .aql-input {
           display: inline-block;
           width: 130px;
           border: none;
@@ -201,9 +231,100 @@ label {
           text-indent: 10px;
           outline: none;
         }
+        .sales-select {
+          padding-right: 30px;
+          width: 100px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .sales-select-box {
+          display: none;
+          width: 300px;
+          height: 133px;
+          overflow-y: auto;
+          background: #e1e6ef;
+          border-radius: 8px;
+          position: absolute;
+          top: 39px;
+          left: 0px;
+          padding: 13px;
+          padding-top: 45px;
+          z-index: 98;
+          .sales-search {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            &:after {
+              content: "";
+              background: url("../images/sales-search.png") no-repeat;
+              display: block;
+              width: 12px;
+              height: 12px;
+              position: absolute;
+              left: 20px;
+              top: 17px;
+            }
+            input.s-input {
+              width: 239px;
+              padding-left: 25px;
+              height: 23px;
+              line-height: 23px;
+              margin-left: 15px;
+              margin-top: 11px;
+              border: none;
+              border-radius: 4px;
+            }
+          }
+
+          label {
+            height: auto;
+            line-height: 26px;
+            margin: 0 0;
+            display: block;
+            float: left;
+            width: 140px;
+
+            input[type="checkbox"] {
+              display: none;
+
+            }
+            em {
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              line-height: 10px;
+              font-size: 12px;
+              background: #FFF;
+              border: solid 1px #d2d6d7;
+              color: #FFF;
+              margin-right: 5px;
+              border-radius: 3px;
+              position: relative;
+              top: 1px;
+              float: left;
+              margin-top: 6px;
+
+            }
+            span {
+              padding-left: 17px;
+              display: block;
+        }
+            &.on {
+              color: #ff5776;
+              em {
+                color: #ff5776;
+
       }
-      .time-inner{
-        a{
+
+            }
+
+          }
+
+        }
+      }
+      .time-inner {
+        a {
           margin-right: 3px;
           display: inline-block;
           height: 35px;
@@ -224,15 +345,16 @@ label {
     }
   }
 }
-.zoom-btn{
+
+.zoom-btn {
   position: absolute;
   right: 26px;
   top: 53px;
   display: none;
-  a{
+  a {
     color: #6f7b91;
     font-size: 12px;
-    i{
+    i {
       display: inline-block;
       width: 13px;
       height: 8px;
@@ -240,8 +362,154 @@ label {
       background: url(../images/icolist.png) -81px -50px no-repeat;
       margin: 0px 0px 3px 10px;
     }
-    i.open{
+    i.open {
       background: url(../images/icolist.png) -80px -65px no-repeat;
     }
+  }
+}
+
+.add-option-pop {
+  padding-left: 10px;
+  .option-search {
+    margin-bottom: 24px;
+    .search-input {
+      width: 320px;
+      height: 34px;
+      border-radius: 5px;
+      background: #f9f9f9;
+      margin-right: 20px;
+      border: solid 1px #e6e6e6;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+    a.btn {
+      float: right;
+    }
+
+  }
+  .option-box {
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background: #f9f9f9;
+    border: solid 1px #e6e6e6;
+    height: 220px;
+    overflow-y: auto;
+    label {
+      width: 100%;
+      input[type="checkbox"] {
+        margin-right: 13px;
+        display: none;
+      }
+      em {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        margin-right: 13px;
+        background: url(../images/icolist.png) -20px -80px no-repeat;
+        &.on {
+          background: url(../images/icolist.png) 0px -80px no-repeat;
+        }
+    }
+    }
+
+  }
+
+
+
+}
+.ui-datepicker-hour {
+  border-top: 1px solid #e1e6ef;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  select {
+    border: 1px solid #3ecacb;
+    border-radius: 4px;
+    color: #3ecacb;
+  }
+  span {
+    padding: 5px;
+    color: #3ecacb;
+    font-size: 16px;
+  }
+  button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .ui-datepicker-now {
+    float: left;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 29px;
+    margin-top: 10px;
+    line-height: 27px;
+  }
+  .ui-datepicker-sure {
+    float: right;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 29px;
+    margin-top: 10px;
+    line-height: 27px;
+  }
+}
+#form_button_main {
+  .download {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+  }
+  .import-content {
+    position: absolute;
+    right: 170px;
+    top: 15px;
+    width: 200px;
+    height: 28px;
+    line-height: 28px;
+    .import-inner {
+      @include clearfix;
+      overflow: hidden;
+      cursor: pointer;
+      .file-name {
+        float: left;
+        height: 28px;
+        line-height: 28px;
+        background: #e1e6ef;
+        border-radius: 5px 0 0 5px;
+        border: none;
+        outline: none;
+        width: 150px;
+      }
+      .log {
+        float: left;
+        display: inline-block;
+        width: 50px;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        background: #8c99b6;
+        border-radius: 0px 5px 5px 0px;
+      }
+    }
+    .file {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      cursor: pointer;
+      outline: none;
+      opacity: 0;
+      -moz-opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  }
+  .input {
+    position: absolute;
+    top: 15px;
+    right: 90px;
   }
 }

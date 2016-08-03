@@ -87,10 +87,16 @@
     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
       <thead>
         <tr>
-          <th>操作</th>
+          <th class="text-c">操作</th>
         </tr>
       </thead>
       <tbody>
+        <tr class="even">
+          <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+        </tr>
+        <tr>
+          <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
+        </tr>
         <tr>
           <td class="text-c">
             <div class="btn-group">
@@ -102,12 +108,6 @@
               </ul>
             </div>
           </td>
-        </tr>
-        <tr class="even">
-          <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
-        </tr>
-        <tr>
-          <td class="text-c"><a href="#" class="btn btn-fill btn-small">处理</a></td>
         </tr>
       </tbody>
     </table>
@@ -206,7 +206,7 @@
     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
       <thead>
       <tr>
-        <th style="text-align: center">操作</th>
+        <th class="text-c">操作</th>
       </tr>
       </thead>
       <tbody>
@@ -235,6 +235,32 @@
 </div>
 
 <script type="text/javascript">
+  $('.btn-group').on('mouseenter', '.dropdown', showDropdown);
+  $('.btn-group').on('mouseleave', '.dropdown', hideDropdown);
+  $('.btn-group').on('mouseleave', '.sub-group', hideSelf);
+
+  function showDropdown(e) {
+    var $btn = $(e.target).parent().find('.btn');
+    var width = $btn.outerWidth() - 2;
+
+    $(e.target).next('ul').width(width).show();
+  }
+
+  function hideDropdown(e) {
+    var evt = e || window.event;
+    var relatedNode = evt.relatedTarget || evt.toElement;
+    var ul = $(e.target).next('ul')[0];
+    var isInside = $.contains(ul, relatedNode);
+    var isEqual = (relatedNode == ul);
+
+    if (isInside || isEqual) return;
+    $(e.target).next('ul').hide();
+  }
+
+  function hideSelf() {
+    $(this).hide();
+  }
+
   $(".table-check").on("click",function(e){
     e.preventDefault();
     //<label class="table-check check-all"><input type="checkbox" /><span class="checkbox">√</span>张三</label>

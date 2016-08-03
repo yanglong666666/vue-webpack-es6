@@ -116,6 +116,65 @@
         font-size: 12px;
       }
     }
+    .logo-upload {
+      padding-top: 60px;
+      border-top: solid 1px #e1e6ef;
+      .pic-tips {
+        padding: 18px 0px;
+      }
+      .pic-show {
+        img {
+          max-width: 280px;
+          max-height: 80px;
+        }
+      }
+      span.must {
+        display: inline-block;
+        color: red;
+        width: 25px;
+        text-align: center;
+      }
+      .file-upload {
+        position: relative;
+        display: inline-block;
+        .file-input {
+          height: 37px;
+          width: 70px;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          opacity: 0;
+          cursor: pointer;
+
+        }
+      }
+
+
+    }
+
+    .queryname-list {
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 380px;
+      height: 144px;
+      background: #e1e6ef;
+      margin-top: 10px;
+      padding-left: 10px;
+      display: none;
+      ul {
+        li {
+          padding: 7px 0px;
+          cursor: pointer;
+          &.hover-on {
+            color: red;
+            em {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+    }
   }
   .attr-panl {
     label {

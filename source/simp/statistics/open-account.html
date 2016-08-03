@@ -4,6 +4,11 @@ layout: default
 class: open-account-plus
 ---
 
+<div class="channel-cont">
+  <span>数据范围：</span>
+  <span class="channel-option">全部渠道</span>
+  <a href="#" class="edit-channel">修改</a>
+</div>
 <div class="main-content usernum-content">
 	<table>
     <tbody>
@@ -86,6 +91,198 @@ class: open-account-plus
 <script src="../../javascript/exporting.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(function () {
+    $('.channel-cont').on('click', '.edit-channel', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var channel_screen = new Dialog(null,{
+        title: '渠道选择',
+        width: '550',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          channel_screen.hide();
+        },
+        content: '<div class="dialog-content-channel-select">'+
+                  '<div class="form-group-reg">'+
+                    '<span class="label">渠道范围</span>'+
+                    '<div class="select-parent">'+
+                      '<select class="diy-select" name="type" id="own_parent">'+
+                        '<option value="0">请选择</option>'+
+                        '<option value="1">工商银行</option>'+
+                        '<option value="2">招商银行</option>'+
+                      '</select>'+
+                    '</div>'+
+                  '</div>'+
+                  '<div class="add-option-pop" id="team_pop">'+
+                    '<div class="option-search">'+
+                      '<span class="label">渠道搜索</span>'+
+                      '<input type="text" class="search-input">'+
+                      '<a class="btn btn-fill" href="#">查找</a>'+
+                    '</div>'+
+                    '<div class="option-box">'+
+                      '<ul class="option-list">'+
+                        '<li>'+
+                          '<label class="all_checked"><input type="checkbox"><em></em>全部</label>'+
+                        '</li>'+
+                        '<li>'+
+                        '<label><input type="checkbox"><em class="on"></em><span class="cont">杭州文1路营业部</span></label>'+
+                        '</li>'+
+                        '<li>'+
+                        '<label><input type="checkbox"><em></em><span class="cont">杭州文2路营业部</span></label>'+
+                        '</li>'+
+                        '<li>'+
+                        '<label><input type="checkbox"><em></em><span class="cont">杭州文3路营业部</span></label>'+
+                        '</li>'+
+                      '</ul>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'
+      });
+      $('.diy-select').diySelect();
+    });
+    //这里根据选中值调用接口查询数据回来,
+    var array = [
+      {
+        value:'西南证券',
+        key:10,
+        parent_id:0,
+        type : 1
+        },
+      {
+        value:'浙江营业部',
+        key:101,
+        parent_id:10,
+        type : 1
+      },
+      {
+        value:'南京营业部',
+        key:102,
+        parent_id:10,
+        type : 1
+      },
+      {
+        value:'工商银行',
+        key:199,
+        parent_id:0,
+        type : 2
+      },
+      {
+        value:'浙江分行',
+        key:1199,
+        parent_id:199,
+        type : 2
+      },
+      {
+        value:'杭州支行',
+        key:11199,
+        parent_id:1199,
+        type : 2
+      },
+      {
+        value:'滨江网点',
+        key:111199,
+        parent_id:11199,
+        type : 2
+      },
+      {
+        value:'江苏分行',
+        key:1299,
+        parent_id:199,
+        type : 2
+      },
+      {
+        value:'南京支行',
+        key:12199,
+        parent_id:1299,
+        type : 2
+      },
+      {
+        value:'玄武网点',
+        key:121199,
+        parent_id:121199,
+        type : 2
+        }];
+    $(document).on('change', '#own_parent',function () {
+      var index = $(this).val();
+      array['own_parent0'] = [];
+      $(this).parent().find('.next-select').remove();
+      for (var i in array) {
+        if (array[i].type == index && array[i].parent_id == 0 ) {
+          array['own_parent0'].push({'key': array[i].key, 'value': array[i].value});
+        }
+      }
+      // if ($(this).val() == 3) {//如果选择的是其他的话，那么就显示出查询输入框
+      //   var childHtml = '<span class="next-select"><label class="w-170"><input placeholder="请输入上级帐号" type="text" class="txt" id="own_parent0"></label>';
+      //   $(this).parent().append(childHtml);
+      // } else
+      if (array['own_parent0'].length == 0) {//如果选择的是证劵或者合作方的话，但是查询出的下级为空，就不操作
+        return;
+      } else {
+        var childHtml = '<span class="next-select"><select class="diy-select input-l"id="own_parent0"><option>请选择</option>';
+        for (var i in array['own_parent0']) {
+          childHtml +=
+            '<option value="' + array['own_parent0'][i].key + '">' + array['own_parent0'][i].value + '</option>';
+        }
+        $(this).parent().append(childHtml);
+        $('.diy-select').diySelect();
+      }
+    })
+    $(document).on('change', '.form-group-reg .next-select select', function () {
+      var index = $(this).val();
+      var select_index = $('.form-group-reg .next-select').length;//这个代表第几行数据
+      array['own_parent' + select_index] = [];
+      $(this).parent().nextAll().remove();
+      for (var i in array) {
+        if (array[i].parent_id + "" === index) {
+          array['own_parent' + select_index].push({'key': array[i].key, 'value': array[i].value});
+        }
+      }
+      if (array['own_parent' + select_index].length == 0) {//如果选择的是证劵或者合作方的话，但是查询出的下级为空，就不操作
+        return;
+      } else {
+        var childHtml = '<span class="next-select"><select class="diy-select input-l" id="own_parent' + select_index + '"><option>请选择</option>';
+        for (var i in array['own_parent' + select_index]) {
+          childHtml +=
+            '<option value="' + array['own_parent' + select_index][i].key + '">' + array['own_parent' + select_index][i].value + '</option>';
+        }
+        $(this).parents('.select-parent').append(childHtml);
+        $('.diy-select').diySelect();
+      }
+
+    })
+    //渠道选择交互
+    $(document).on("click",".add-option-pop .option-list label",function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var _this = $(this);
+      var checkbox = _this.find('input[type="checkbox"]');
+      var em = _this.find("em");
+      var checkbox_val = checkbox.prop("checked");
+
+      if(checkbox.prop("checked")){
+        checkbox.prop("checked",false);
+        em.removeClass("on");
+        if(_this.hasClass("all_checked")){
+          _this.parent().siblings("li").find('input[type="checkbox"]').prop("checked",false).siblings("em").removeClass("on");
+
+        }else {
+          _this.parent().siblings("li").find(".all_checked").find('input[type="checkbox"]').prop("checked",false).siblings("em").removeClass("on");
+        }
+      }else {
+        checkbox.prop("checked",true);
+        em.addClass("on");
+        if(_this.hasClass("all_checked")){
+          _this.parent().siblings("li").find('input[type="checkbox"]').prop("checked",true).siblings("em").addClass("on");
+        }
+      }
+
+    });
+
+
     var flag = true;//营业部
     $('.attr-panl').find('a').click(function() {//多选选中状态
       if($(this).hasClass('current')) {
