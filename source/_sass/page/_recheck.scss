@@ -39,9 +39,60 @@
         }
       }
       .no-through-item {
-        @include clearfix;
         overflow: hidden;
         margin-bottom: 10px;
+        cursor: pointer;
+        border: 1px solid #c9d2dc;
+        padding: 5px 15px;
+        .item-head {
+          color: #6f7b91;
+          height: 24px;
+          line-height: 24px;
+          .selected {
+            display: none;
+          }
+        }
+        .inner {
+          margin-left: 30px;
+          display: none;
+          .checkbox {
+            width: 260px;
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            input {
+              vertical-align: middle;
+            }
+          }
+          .other-res {
+            label {
+              width: 500px;
+              .txt {
+                width: 100%;
+              }
+            }
+          }
+        }
+        &.on {
+          border: 1px solid #3ecacb;
+          .item-head {
+            position: relative;
+            color: #3ecacb;
+            .selected {
+              width: 24px;
+              height: 24px;
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 5px;
+              background: url(../images/selected.png) 0 0 no-repeat;
+            }
+          }
+          .inner {
+            display: block;
+            padding-bottom: 10px;
+          }
+        }
         a {
           position: relative;
           float: left;
@@ -69,24 +120,6 @@
             vertical-align: middle;
             background: url(../images/selected.png) 0 0 no-repeat;
             display: none;
-          }
-        }
-        label {
-          float: right;
-          display: block;
-          width: 40%;
-          height: auto;
-          span {
-            display: inline-block;
-          }
-          .input {
-            background: none;
-            border: 1px solid #c9d2dc;
-            height: 35px;
-            line-height: 35px;
-            outline: none;
-            width: 350px;
-            padding: 0 10px;
           }
         }
       }
