@@ -16,49 +16,51 @@ class: recheck
     <button class="btn-lg ml-30 nothrough-btn verify-btn" href="#">需要整改</button>
     <button class="btn-lg ml-30 verify-btn transfer-btn" href="#">任务移交</button>
   </div>
-  <div class="no-through-content reform-content" style="display:none;">
-    <div class="wrap">
-      <div class="no-through-item">
-        <p>整改意见</p>
-        <textarea></textarea>
-      </div>
-    </div>
-  </div>
   <div class="no-through-content reform-content" style="display:none">
     <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">身份证照片不合格<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
+      <p class="item-head"><i class="selected"></i>身份证照片不合格</p>
+      <div class="inner">
+        <label class="checkbox"><input type="checkbox" name="card-check">未满18周岁开户</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">证件缺损</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">未非证件原件</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">照片太小</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">照片模糊或存在反光、遮挡等影响识别因素</label>
+        <div class="other-res">
+          <label>
+            <input type="text" class="txt" placeholder="其他原因">
+          </label>
+        </div>
+      </div>
     </div>
     <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">公安认证信息不一致<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
+      <p class="item-head"><i class="selected"></i>基本资料（营业部选择）</p>
+       <div class="inner">
+        <label class="checkbox"><input type="checkbox" name="card-check">未满18周岁开户</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">证件缺损</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">未非证件原件</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">照片太小</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">照片模糊或存在反光、遮挡等影响识别因素</label>
+        <div class="other-res">
+          <label>
+            <input type="text" class="txt" placeholder="其他原因">
+          </label>
+        </div>
+      </div>
     </div>
     <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">基本资料有误<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">用户中断<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
-    </div>
-    <div class="no-through-item">
-      <a class="reason-btn" href="javascript:void(0)">头像照采集失败<i class="selected"></i></a>
-      <label>
-        <span>备注：</span>
-        <input type="text" class="input">
-      </label>
+      <p class="item-head"><i class="selected"></i>视频拍照</p>
+       <div class="inner">
+        <label class="checkbox"><input type="checkbox" name="card-check">未满18周岁开户</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">证件缺损</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">未非证件原件</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">照片太小</label>
+        <label class="checkbox"><input type="checkbox" name="card-check">照片模糊或存在反光、遮挡等影响识别因素</label>
+        <div class="other-res">
+          <label>
+            <input type="text" class="txt" placeholder="其他原因">
+          </label>
+        </div>
+      </div>
     </div>
   </div>
   <div class="no-through-content transfer-content" style="display:none;">
@@ -78,10 +80,10 @@ class: recheck
   <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
     <thead>
       <tr>
-        <td width="25%">操作人</td>
-        <td width="25%">操作</td>
-        <td width="25%">操作内容</td>
-        <td width="25%">操作时间</td>
+        <th width="25%">操作人</th>
+        <th width="15%">操作</th>
+        <th width="40%">操作内容</th>
+        <th width="20%">操作时间</th>
       </tr>
     </thead>
     <tbody>
@@ -155,14 +157,14 @@ class: recheck
         $('.no-through-content').hide();
       }
     });
-    $('.opinion-content').on('click', '.reason-btn', function(event) {
+    $('.reform-content').on('click', '.item-head', function(event) {
       //不通过理由交互
       event.preventDefault();
       /* Act on the event */
-      if($(this).hasClass('active')) {
-        $(this).removeClass('active');
+      if($(this).parent().hasClass('on')) {
+        $(this).parent().removeClass('on');
       } else {
-        $(this).addClass('active');
+        $(this).parent().addClass('on');
       }
     });
   });
