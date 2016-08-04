@@ -48,21 +48,21 @@ class: business
     </dl>
   </div>
   <div class="button-content">
-    <button class="btn-fill btn-lg" href="#">查询</button>
-    <button class="btn-primary output" href="#">输出报表</button>
+    <button class="btn btn-fill btn-lg" href="#">查询</button>
+    <button class="btn btn-small btn-primary output" href="#">输出报表</button>
   </div>
 </div>
 <div class="main-table">
   <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
     <thead>
       <tr>
-        <td width="14%">序号</td>
-        <td width="14%">业务单元</td>
-        <td width="14%">业务名称</td>
-        <td width="14%">风险等级</td>
-        <td width="14%">证书类型</td>
-        <td width="14%">协议数量</td>
-        <td class="text-c" width="16%">操作</td>
+        <th width="14%">序号</th>
+        <th width="14%">业务单元</th>
+        <th width="14%">业务名称</th>
+        <th width="14%">风险等级</th>
+        <th width="14%">证书类型</th>
+        <th width="14%">协议数量</th>
+        <th class="text-c" width="16%">操作</th>
       </tr>
     </thead>
     <tbody>
@@ -74,8 +74,20 @@ class: business
         <td>任意证书</td>
         <td>3</td>
         <td class="text-c">
-          <a href="{{site.baseurl}}/system/business-after.html" class="btn-fill btn-lw">修改</a>
-          <a href="javascript:;" class="btn-fill btn-lw delete-btn">删除</a>
+          <a href="{{site.baseurl}}/default/system/business-after.html" class="btn btn-fill btn-small">修改</a>
+          <a href="javascript:;" class="btn btn-fill btn-small delete-btn">删除</a>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>23</td>
+        <td>港股通</td>
+        <td>港股通</td>
+        <td>低</td>
+        <td>任意证书</td>
+        <td>3</td>
+        <td class="text-c">
+          <a href="{{site.baseurl}}/default/system/business-after.html" class="btn btn-fill btn-small">修改</a>
+          <a href="javascript:;" class="btn btn-fill btn-small delete-btn">删除</a>
         </td>
       </tr>
     </tbody>
