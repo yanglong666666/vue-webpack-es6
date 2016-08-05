@@ -4,7 +4,7 @@
     display: block;
     float: left;
     &.on {
-      background: #44c1de;
+      background: #3f88cc;
       color: #FFF;
     }
   }
@@ -17,7 +17,7 @@
       background: #f0f4fb;
       font-size: 16px;
       &.on {
-        background: #44c1de;
+        background: #3f88cc;
         color: #FFF;
       }
     }
@@ -35,8 +35,8 @@
       border-radius: 3px;
       border: solid 1px #cccccc;
       &.on {
-        background: #44c1de;
-        border: solid 1px #44c1de;
+        background: #3f88cc;
+        border: solid 1px #3f88cc;
         color: #FFF;
       }
     }
