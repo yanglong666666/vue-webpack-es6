@@ -268,3 +268,12 @@ table.czls-style{
 .ui-table-info table.czls-style tbody td:nth-child(4){
   width:15%;
 }
+#set_first_page {
+  text-align: right;
+  margin-bottom: 15px;
+  a {
+    color: #6a7491;
+    text-decoration: none;
+    padding-right: 5px;
+  }
+}
