@@ -86,6 +86,19 @@
       }
     }
   }
+  .ui-video-table {
+    .operation-table {
+      td {
+        &:nth-child(odd) {
+          width: 25%;
+        }
+        &:nth-child(even) {
+          width: 75%;
+
+        }
+      }
+    }
+  }
 }
 
 .opt-btns {
