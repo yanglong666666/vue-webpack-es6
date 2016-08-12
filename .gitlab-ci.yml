@@ -1,11 +1,21 @@
 image: 192.168.1.211:5000/jekyll
 
-before_script:
-  - jekyll build
+stages:
+  - build
+  - deploy
 
-job_deploy:
-  script:
-    - find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms-new/{} \;
+build:
+  stage: build
+  script: jekyll build
+  artifacts:
+    name: "${CI_PROJECT_NAME}-${CI_BUILD_TAG}"
+    paths:
+    - public/
+    expire_in: 2 weeks
+
+deploy:
   stage: deploy
+  script:
+    - find public -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://192.168.1.211/bms-new/{} \;
   only:
     - new-background
