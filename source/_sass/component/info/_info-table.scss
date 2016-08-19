@@ -35,6 +35,12 @@
     @include clearfix;
     table {
       float: left;
+      .w-300 {
+        width: 300px;
+        .txt {
+          width: 100%;
+        }
+      }
     }
     .basic-info-right {
       width: 53%;

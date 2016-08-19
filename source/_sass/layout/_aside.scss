@@ -332,6 +332,55 @@
         background-position: 0 -573px;
       }
     }
+    li.BDM,
+    li.agent,
+    li.partner,
+    li.account-manage {
+      .icon {
+        background-image: url(../images/ico-list1.png);
+      }
+    }
+    li.BDM {
+      .icon {
+        background-position: 0 0;
+      }
+      &.active {
+        .icon {
+          background-position: -30px 0px;
+        }
+      }
+    }
+    li.agent {
+      .icon {
+        background-position: 0 -25px;
+      }
+      &.active {
+        .icon {
+          background-position: -30px -25px;
+        }
+      }
+    }
+    li.partner {
+      .icon {
+        top: 19px;
+        background-position: 0 -50px;
+      }
+      &.active {
+        .icon {
+          background-position: -30px -50px;
+        }
+      }
+    }
+    li.account-manage {
+      .icon {
+        background-position: 0 -70px;
+      }
+      &.active {
+        .icon {
+          background-position: -30px -70px;
+        }
+      }
+    }
   }
 }
 
