@@ -1,7 +1,7 @@
 .leftaside {
 	position: relative;
 	float: left;
-	width: 130px;
+	width: 150px;
 	padding-top: 10px;
   white-space: nowrap;
   overflow: hidden;
@@ -11,7 +11,7 @@
 			position: relative;
 			p {
         position: relative;
-        padding-left: 37px;
+        padding-left: 47px;
         //padding-left: 50px;
         line-height: 45px;
         z-index: 10;
@@ -20,7 +20,7 @@
 			}
 			b {
         position: absolute;
-        right: 13px;
+        right: 20px;
         top: 20px;
         width: 9px;
         height: 5px;
@@ -50,7 +50,7 @@
         font-size: 14px;
         color: #cccdd9;
         padding: 12px 0px;
-        padding-left: 37px;
+        padding-left: 47px;
       }
       &.active {
         a {
@@ -64,7 +64,7 @@
         position: absolute;
         display: inline-block;
         top: 12px;
-        left: 5px;
+        left: 15px;
         width: 24px;
         height: 24px;
         background-repeat: no-repeat;
@@ -352,7 +352,7 @@
 	top: 0;
 	bottom: 0;
 	z-index: -1;
-	width: 130px;
+	width: 150px;
   min-height: 800px;
 }
 .slideleft {
@@ -361,7 +361,7 @@
   background-repeat: no-repeat;
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff,endColorstr=#19ffffff);
   background-position: center;
-  width: 130px;
+  width: 150px;
   height: 30px;
   position: fixed;
   bottom: 0px;
