@@ -54,11 +54,13 @@
       }
       &.active {
         a {
-          background: rgba(255,255,255,0.1);
+          background: #4c5262;
           color: #ffffff;
           //border-left: 5px solid #3f88cc;
         }
-
+        .icon {
+          z-index: 0;
+        }
       }
       .icon {
         position: absolute;
@@ -83,10 +85,10 @@
         }
 
       }
-      p.active {
-        background: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-      }
+      // p.active {
+      //   background: rgba(255, 255, 255, 0.1);
+      //   color: #ffffff;
+      // }
       .inner-ul {
         display: none;
         li {
@@ -95,16 +97,15 @@
           a {
             font-size: 12px;
             display: block;
-            padding: 5px 0px 5px 37px;
+            padding: 5px 0px 5px 30px;
             text-align: left;
             text-indent: 0px;
-            margin: 0 0;
+            margin: 5px 0 0 17px;
           }
           &.active {
             a {
-              //background: #fff;
-              background: none;
-              color: #ffffff;
+              background: #fff;
+              color: #12171d;
               border: none;
             }
           }
@@ -356,10 +357,10 @@
   min-height: 800px;
 }
 .slideleft {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #4c5262;
   background-image: url("../images/Group9.png");
   background-repeat: no-repeat;
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff,endColorstr=#19ffffff);
+  //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff,endColorstr=#19ffffff);
   background-position: center;
   width: 150px;
   height: 30px;
@@ -369,7 +370,7 @@
   z-index: 9999999999;
   cursor: pointer;
   &.right-on {
-    background: rgba(255, 255, 255, 0.15) url("../images/Group9-turn.png") no-repeat;
+    background: #4c5262 url("../images/Group9-turn.png") no-repeat;
     background-position: center;
   }
 
