@@ -9,6 +9,28 @@
 	.leftul {
 		li {
 			position: relative;
+      .iconfont {
+        color: #cccdd9;
+        position: absolute;
+        top: 7px;
+        left: 15px;
+        em.small-em {
+          display: block;
+          width: 8px;
+          height: 8px;
+          position: absolute;
+          top: -4px;
+          left: -4px;
+          border-radius: 8px;
+          background: #ff6767;
+          display: none;
+        }
+      }
+      &.active {
+        .iconfont {
+          color: #fff;
+        }
+      }
 			p {
         position: relative;
         padding-left: 47px;
@@ -31,8 +53,8 @@
       }
       small {
         position: absolute;
-        right: 4px;
-        top: 12px;
+        right: 7px;
+        top: 17px;
         display: inline-block;
         color: #fff;
         background: #ff5776;
@@ -59,29 +81,6 @@
         .icon {
           z-index: 0;
         }
-      }
-      .icon {
-        position: absolute;
-        display: inline-block;
-        top: 12px;
-        left: 15px;
-        width: 24px;
-        height: 24px;
-        background-repeat: no-repeat;
-        margin: 0 0;
-        z-index: -1;
-        em.small-em {
-          display: block;
-          width: 8px;
-          height: 8px;
-          position: absolute;
-          top: -4px;
-          left: -4px;
-          border-radius: 8px;
-          background: #ff6767;
-          display: none;
-        }
-
       }
       p.active {
         background-color: rgba(255,255,255,0.2);
@@ -110,238 +109,6 @@
             }
           }
         }
-      }
-    }
-    li.announcement {
-      .icon {
-        background-image: url(../images/aside/notice.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/notice1.png);
-        }
-      }
-    }
-    li.index {
-      .icon {
-        background-image: url(../images/aside/home.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/home1.png);
-        }
-      }
-    }
-    li.vedio-validate {
-      .icon {
-        background-image: url(../images/aside/validate.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/validate1.png);
-        }
-      }
-    }
-    li.vedio-upload {
-      .icon {
-        background-image: url(../images/aside/upload.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/upload1.png);
-        }
-      }
-    }
-    li.certificate {
-      .icon {
-        background-image: url(../images/aside/certificate.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/certificate1.png);
-        }
-      }
-    }
-    li.open-verify {
-      .icon {
-        background-image: url(../images/aside/verify.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/verify1.png);
-        }
-      }
-    }
-    li.open-recheck {
-      .icon {
-        background-image: url(../images/aside/recheck.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/recheck1.png);
-        }
-      }
-    }
-    li.business-search,
-    li.business-online {
-      .icon {
-        background-image: url(../images/aside/search.png);
-      }
-    }
-    li.business-operation {
-      .icon {
-        background-image: url(../images/aside/operation.png);
-      }
-    }
-    li.operation-analysis,
-    li.online-analysis,
-    li.mall-analysis {
-      .icon {
-        background-image: url(../images/aside/analysis.png);
-      }
-    }
-    li.marketing-channels {
-      .icon {
-        background-image: url(../images/aside/channels.png);
-      }
-    }
-    li.open-sets {
-      .icon {
-        background-image: url(../images/aside/open-sets.png);
-      }
-    }
-    li.para-sets {
-      .icon {
-        background-image: url(../images/aside/sets.png);
-      }
-    }
-    li.system-parameter {
-      .icon {
-        background-image: url(../images/aside/parameter.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/parameter1.png);
-        }
-      }
-    }
-    li.online-sets {
-      .icon {
-        background-image: url(../images/aside/online-sets.png);
-      }
-    }
-    li.mall-product {
-      .icon {
-        background-image: url(../images/aside/product.png);
-      }
-    }
-    li.mall-sales {
-      .icon {
-        background-image: url(../images/aside/sales.png);
-      }
-    }
-    li.mall-sets {
-      .icon {
-        background-image: url(../images/aside/mall-sets.png);
-      }
-    }
-    li.e-record {
-      .icon {
-        background-image: url(../images/aside/e-record.png);
-      }
-    }
-    li.institution {
-      .icon {
-        background-image: url(../images/aside/institution.png);
-      }
-    }
-    li.processes {
-      .icon {
-        background-image: url(../images/aside/processes.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/processes1.png);
-        }
-      }
-    }
-    li.jz {
-      .icon {
-        left: 10px;
-        top: 16px;
-        width: 19px;
-        height: 20px;
-        background: url('../images/aside-jz.png') center no-repeat;
-      }
-    }
-    li.check {
-      .icon {
-        background-image: url(../images/aside/check.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/check1.png);
-        }
-      }
-    }
-    li.channel-list {
-      .icon {
-        background-image: url(../images/aside/list.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/list1.png);
-        }
-      }
-    }
-    li.channel-manage {
-      .icon {
-        background-image: url(../images/aside/manage.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/manage1.png);
-        }
-      }
-    }
-    li.department {
-      .icon {
-        background-image: url(../images/aside/department.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/department1.png);
-        }
-      }
-    }
-    li.depository-bank {
-      .icon {
-        background-image: url(../images/aside/bank.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/bank1.png);
-        }
-      }
-    }
-    li.commission-template {
-      .icon {
-        background-image: url(../images/aside/commission.png);
-      }
-      &.active {
-        .icon {
-          background-image: url(../images/aside/commission1.png);
-        }
-      }
-    }
-    li.statistics {
-      .icon {
-        background-image: url(../images/aside/statistics.png);
-      }
-    }
-    li.commission {
-      .icon {
-        background-image: url(../images/aside/c-statistics.png);
       }
     }
   }
@@ -373,6 +140,4 @@
     background: #4c5262 url("../images/Group9-turn.png") no-repeat;
     background-position: center;
   }
-
-
 }
