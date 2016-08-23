@@ -12,7 +12,6 @@
 			p {
         position: relative;
         padding-left: 47px;
-        //padding-left: 50px;
         line-height: 45px;
         z-index: 10;
         color: #cccdd9;
@@ -56,7 +55,6 @@
         a {
           background: #4c5262;
           color: #ffffff;
-          //border-left: 5px solid #3f88cc;
         }
         .icon {
           z-index: 0;
@@ -85,10 +83,11 @@
         }
 
       }
-      // p.active {
-      //   background: rgba(255, 255, 255, 0.1);
-      //   color: #ffffff;
-      // }
+      p.active {
+        background-color: rgba(255,255,255,0.2);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#20ffffff,endColorstr=#20ffffff);
+        color: #ffffff;
+      }
       .inner-ul {
         display: none;
         li {
@@ -104,9 +103,10 @@
           }
           &.active {
             a {
-              background: #fff;
-              color: #12171d;
+              background: none;
+              color: #49a7fe;
               border: none;
+              font-weight: bold;
             }
           }
         }

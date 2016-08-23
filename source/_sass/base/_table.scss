@@ -30,7 +30,7 @@ $table-border-color: #3f88cc !default;
   width: 100%;
   margin-bottom: 20px;
   // overflow: hidden;
-  @include clearfix;
+  //@include clearfix;
   .data-table {
     border: 1px solid #f0f4fb;
     thead {
