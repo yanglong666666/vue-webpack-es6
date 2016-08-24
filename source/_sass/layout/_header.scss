@@ -11,7 +11,7 @@
 	.header-inner {
 		position: relative;
     float: left;
-		width: 130px;
+		width: 150px;
 
 		.xtgly {
 			display: block;
@@ -22,7 +22,7 @@
 			margin-right: 20px;
 			color: #fff;
 			font-size: 13px;
-			width: 130px;
+			width: 150px;
       overflow: hidden;
 			span {
 				display: inline-block;
@@ -31,7 +31,7 @@
 				background: url(../images/shape.png) 0 0 no-repeat;
 				vertical-align: middle;
 				margin-right: 5px;
-        margin-left: 7px;
+        margin-left: 17px;
 			}
 			i {
 				display: inline-block;
@@ -47,7 +47,7 @@
 			top: 58px;
 			left: 0px;
       z-index: 999;
-			width: 130px;
+			width: 150px;
 			background: #3871a4;
 			text-align: center;
       padding: 15px 0px;
@@ -62,59 +62,53 @@
 					i {
 						display: inline-block;
 						vertical-align: middle;
-						//margin-right: 5px;
-            margin: 0px 14px 4px;
+            width: 14px;
+            height: 15px;
+            margin: 0px 14px 4px 24px;
+            background-image: url(../images/head-aside.png);
+            background-repeat: no-repeat
 					}
 					&:hover {
 						color: #fff;
 					}
 					&.xgmm {
 						i {
-							width: 17px;
-							height: 16px;
-							background: url(../images/Group14.png) 0px 0 no-repeat;
-              background-position: center;
+							background-position: 0 0 ;
 						}
 						&:hover {
 							i {
-								//background: url(../images/Group5.png) -60px 0 no-repeat;
+								background-position: -30px 0;
 							}
 						}
 					}
 					&.tcdl {
 						i {
-							width: 17px;
-							height: 16px;
-							background: url(../images/Group13.png) 0px 0 no-repeat;
-              background-position: center;
+							background-position: 0 -30px;
 						}
 						&:hover {
 							i {
-								//background: url(../images/icolist.png) 0 -30px no-repeat;
+								background-position: -30px -30px;
 							}
 						}
 					}
 					&.rwtx {
 						i {
-							width: 17px;
-							height: 17px;
-							background: url(../images/Group12.png) 0px 0px no-repeat;
-              background-position: center;
+							background-position: 0 -60px;
 						}
-						&:hover {
-							i {
-								//background: url(../images/icolist.png) -39px -30px no-repeat;
-							}
-						}
+						// &:hover {
+						// 	i {
+						// 		background-position: -30px -60px;
+						// 	}
+						// }
             &.closed {
               i {
                 background: url(../images/bell.png) 0px 0px no-repeat;
               }
-              &:hover {
-                i {
-                  background: url(../images/bell.png) 0px -15px no-repeat;
-                }
-              }
+              // &:hover {
+              //   i {
+              //     background: url(../images/head-aside.png) -30px -60px no-repeat;
+              //   }
+              // }
             }
 					}
 				}
@@ -124,28 +118,46 @@
 	.site-nav {
     @include clearfix;
 		float: left;
-    .collect {
+    .collect,
+    .first-page {
       float: left;
-      height: 23px;
-      line-height: 23px;
-      font-size: 12px;
-      color: #ffffff;
+      height: 25px;
+      line-height: 25px;
       background: #5d9ddb;
-      border-radius: 10px;
-      width: 59px;
+      border-radius: 3px;
+      width: 25px;
       text-align: center;
       display: inline-block;
-      margin: 16px 0 0 30px;
+      margin: 15px 0 15px 15px;
       i {
         font-style: normal;
-        font-size: 14px;
-        margin-right: 3px;
-        //display: inline-block;
-        //width: 15px;
-        //height: 15px;
-        //background: url(../images/collect.png) 0 0 no-repeat;
-        //vertical-align: -2px;
-        //margin-right: 5px;
+        display: inline-block;
+        width: 12px;
+        height: 11px;
+        background-image: url(../images/collect.png);
+        background-repeat: no-repeat;
+      }
+    }
+    .collect {
+      .enable {
+        background-position: 0 0;
+      }
+      .disabled {
+        background-position: 0 -20px;
+      }
+      .selected {
+        background-position: 0 -40px;
+      }
+    }
+    .first-page {
+      .enable {
+        background-position: -20px 0;
+      }
+      .disabled {
+        background-position: -20px -20px;
+      }
+      .selected {
+        background-position: -20px -40px;
       }
     }
 		ul {
@@ -179,7 +191,7 @@
             color: #fff;
             background: #ff6767;
             font-size: 12px;
-            width: 24px;
+            width: 30px;
             height: 14px;
             line-height: 14px;
             border-radius: 8px;
