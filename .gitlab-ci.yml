@@ -12,6 +12,8 @@ build:
     paths:
     - public/
     expire_in: 2 weeks
+  only:
+    - new-background
 
 deploy:
   stage: deploy
