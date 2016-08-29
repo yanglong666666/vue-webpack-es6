@@ -1,4 +1,7 @@
-// right comm css
+input[type=text]::-ms-clear
+{
+  display: none;
+}// right comm css
 .search-btn {
   position: absolute;
   right: 15px;
