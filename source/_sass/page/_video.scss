@@ -96,6 +96,12 @@
           width: 75%;
         }
         label {
+          &.w-200 {
+            width: 200px;
+            .txt {
+              width: 100%;
+            }
+          }
           .txt {
             background: #fff;
           }
