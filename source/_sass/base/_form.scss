@@ -434,10 +434,6 @@ label {
     color: #3ecacb;
     font-size: 16px;
   }
-  button {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
   .ui-datepicker-now {
     float: left;
     font-size: 12px;
@@ -445,6 +441,7 @@ label {
     height: 29px;
     margin-top: 10px;
     line-height: 27px;
+    margin-left: 10px;
   }
   .ui-datepicker-sure {
     float: right;
@@ -453,6 +450,7 @@ label {
     height: 29px;
     margin-top: 10px;
     line-height: 27px;
+    margin-right: 10px;
   }
 }
 #form_button_main {
