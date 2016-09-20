@@ -435,7 +435,8 @@ function Datepicker() {
 		showButtonPanel: false, // True to show button panel, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false, // The initial disabled state
-		showHour:false // The initial disabled state
+		showHour:false, // The initial not show hour
+    showMinute:false // The initial not show minute
 	};
 	$.extend(this._defaults, this.regional[""]);
 	this.regional.en = $.extend( true, {}, this.regional[ "" ]);
@@ -1890,10 +1891,11 @@ $.extend(Datepicker.prototype, {
 			id = "#" + inst.id.replace( /\\\\/g, "\\" );
 		var that = this;
 		that._defaults.showHour = inst.settings.showHour;
+    that._defaults.showMinute = inst.settings.showMinute;
 		var maxDate_lin,minDate_lin;
 		if(inst.settings.maxDate){
 			maxDate_lin = inst.settings.maxDate;
-		}else if( inst.settings.minDate){
+		}else if(inst.settings.minDate){
 			minDate_lin = inst.settings.minDate;
 		}
 		var myDate = new Date();
@@ -1923,25 +1925,124 @@ $.extend(Datepicker.prototype, {
 				},
 				selectNow: function(){
 					var myDate = new Date();
-					var hour = parseInt(myDate.getHours());
-					if(minDate_lin ){
-						if( minDate_lin.substring(0,10) > that.nowTime)
-							return false;
-						else if ( minDate_lin.substring(0,10) == that.nowTime &&  parseInt(minDate_lin.substring(11,13)) > hour)
-							return false;
-					}else if(maxDate_lin ){
-						if( maxDate_lin.substring(0,10) < that.nowTime)
-							return false;
-						else if ( maxDate_lin.substring(0,10) == that.nowTime &&  parseInt(maxDate_lin.substring(11,13)) < hour)
-						return false;
-					}
-					if(hour < 10 ) {
-						hour = '0' + hour;
-					};
-					inst.input.val( that.nowTime + ' ' + hour + ':00');
+          if(that._defaults.showMinute){
+            var hour = parseInt(myDate.getHours());
+            var minutes = parseInt(myDate.getMinutes());
+            if(minDate_lin ){
+              if( minDate_lin.substring(0,10) > that.nowTime)
+                return false;
+              else if ( minDate_lin.substring(0,10) == that.nowTime &&  parseInt(minDate_lin.substring(11,13)) > hour)
+                return false;
+              else if ( minDate_lin.substring(0,10) == that.nowTime &&  parseInt(minDate_lin.substring(11,13)) == hour
+                && parseInt(minDate_lin.substring(14,16)) > minutes)
+                return false;
+            }else if(maxDate_lin ){
+              if( maxDate_lin.substring(0,10) < that.nowTime)
+                return false;
+              else if ( maxDate_lin.substring(0,10) == that.nowTime &&  parseInt(maxDate_lin.substring(11,13)) < hour)
+                return false;
+              else if ( maxDate_lin.substring(0,10) == that.nowTime &&  parseInt(maxDate_lin.substring(11,13)) == hour
+              && parseInt(minDate_lin.substring(14,16)) < minutes)
+                return false;
+            }
+            if(hour < 10 ) {
+              hour = '0' + hour;
+            };
+            if(minutes < 10 ) {
+              minutes = '0' + minutes;
+            };
+            inst.input.val( that.nowTime + ' ' + hour + ':' + minutes);
+          }else {
+            var hour = parseInt(myDate.getHours());
+            if(minDate_lin ){
+              if( minDate_lin.substring(0,10) > that.nowTime)
+                return false;
+              else if ( minDate_lin.substring(0,10) == that.nowTime &&  parseInt(minDate_lin.substring(11,13)) > hour)
+                return false;
+            }else if(maxDate_lin ){
+              if( maxDate_lin.substring(0,10) < that.nowTime)
+                return false;
+              else if ( maxDate_lin.substring(0,10) == that.nowTime &&  parseInt(maxDate_lin.substring(11,13)) < hour)
+                return false;
+            }
+            if(hour < 10 ) {
+              hour = '0' + hour;
+            };
+            inst.input.val( that.nowTime + ' ' + hour + ':00');
+          }
 					$.datepicker._hideDatepicker();
 				},
-				selectHour: function(){
+        selectHour: function(){
+          if(inst.settings.showMinute) {
+            var minute_option = "";
+            var minute_show;
+            var day;
+            if($('.ui-datepicker-calendar .ui-state-active'))
+              day = $('.ui-datepicker-calendar .ui-state-active').text();
+            else
+              day = $('.ui-datepicker-calendar .ui-state-highlight').text();
+            if(parseInt(day) < 10 ) {
+              day = '0' + day;
+            }
+            var month = parseInt($('.ui-datepicker-month option:selected').val()) + 1;
+            if(month < 10) {
+              month = '0' + month;
+            }
+            var year =  $('.ui-datepicker-year option:selected').val();
+            var time_hour = year + '-' + month + '-' + day + ' ' + $('.ui-datepicker-hour .hour-select option:selected').text();
+            if(inst.settings.minDate){
+              var min_date = inst.settings.minDate.substring(0,13);
+              if (min_date == time_hour) {
+                minute_show = inst.settings.minDate.substring(14,16);
+                for(var i = parseInt(minute_show);i < 60;i ++){
+                  if(i<10) {
+                    minute_option += "<option>0" + i + "</option>";
+                  }else {
+                    minute_option += "<option>" + i + "</option>";
+                  }
+                }
+              }else {
+                for(var i = 1;i <= 60;i ++){
+                  if(i<10) {
+                    minute_option += "<option>0" + i + "</option>";
+                  }else {
+                    minute_option += "<option>" + i + "</option>";
+                  }
+                }
+              }
+            }else if(inst.settings.maxDate){
+              var max_date = inst.settings.maxDate.substring(0,13);
+              if (max_date == time_hour) {
+                minute_show = inst.settings.maxDate.substring(14,16);
+                for(var i = 1;i <= parseInt(minute_show);i ++){
+                  if(i<10) {
+                    minute_option += "<option>0" + i + "</option>";
+                  }else {
+                    minute_option += "<option>" + i + "</option>";
+                  }
+                }
+              }else {
+                for(var i = 1;i <= 60;i ++){
+                  if(i<10) {
+                    minute_option += "<option>0" + i + "</option>";
+                  }else {
+                    minute_option += "<option>" + i + "</option>";
+                  }
+                }
+              }
+            }else {
+              for(var i = 1;i <= 60;i ++){
+                if(i<10) {
+                  minute_option += "<option>0" + i + "</option>";
+                }else {
+                  minute_option += "<option>" + i + "</option>";
+                }
+              }
+            }
+            $('.ui-datepicker-hour .minute-select').html(minute_option);
+          }
+        },
+        selectMinute: function(){
 					var day;
 					if($('.ui-datepicker-calendar .ui-state-active'))
 						day = $('.ui-datepicker-calendar .ui-state-active').text();
@@ -1955,19 +2056,24 @@ $.extend(Datepicker.prototype, {
 						month = '0' + month;
 					}
 					var year =  $('.ui-datepicker-year option:selected').val();
-					if(!$('.ui-datepicker-hour select option:selected').text())
+					if(!$('.ui-datepicker-hour .hour-select option:selected').text())
 						return;
-					var time_hour = year + '-' + month + '-' + day + ' ' + $('.ui-datepicker-hour select option:selected').text()+ ':00';
+					var time_hour = year + '-' + month + '-' + day + ' ' + $('.ui-datepicker-hour .hour-select option:selected').text();
+          if(inst.settings.showMinute) {
+            time_hour += ':' + $('.ui-datepicker-hour .minute-select option:selected').text();
+          }else {
+            time_hour += ':00';
+          }
 					if(minDate_lin &&time_hour < minDate_lin){
 							return false;
 					}else if(maxDate_lin &&time_hour > maxDate_lin){
 							return false;
 					}
-					inst.input.val( time_hour);
+					inst.input.val(time_hour);
 					$.datepicker._hideDatepicker();
 				},
 				selectDay: function () {
-					if(that._defaults.showHour){
+          if(that._defaults.showHour){
 						$(this).parents('tbody').find('a').removeClass('ui-state-active');
 						$(this).find('a').addClass('ui-state-active');
 						var selectYear = this.getAttribute("data-year");
@@ -1980,7 +2086,7 @@ $.extend(Datepicker.prototype, {
 							selectDay = '0' + selectDay;
 						}
 						var myDate = selectYear + '-' + selectMonth + '-' + selectDay;
-						var calender_hour ="<select>";
+						var calender_hour ="";
 						if(minDate_lin && minDate_lin.substring(0,10) == myDate) {
 								var select_hour;
 								if (minDate_lin) {
@@ -1992,7 +2098,18 @@ $.extend(Datepicker.prototype, {
 											calender_hour += "<option>" + i + "</option>";
 										}
 									}
-									calender_hour += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectHour' data-event='click'>确定</button>";
+                  if(that._defaults.showMinute) {
+                    var select_minute = minDate_lin.substring(14,16);
+                    var calender_minute = '';
+                    for(var i = parseInt(select_minute);i < 60;i ++){
+                      if(i<10) {
+                        calender_minute += "<option>0" + i + "</option>";
+                      }else {
+                        calender_minute += "<option>" + i + "</option>";
+                      }
+                    }
+                    $('.ui-datepicker-hour .minute-select').html(calender_minute);
+                  }
 								}
 							}else if(maxDate_lin &&maxDate_lin.substring(0,10) == myDate) {
 									select_hour = maxDate_lin.substring(11, 13);
@@ -2003,15 +2120,37 @@ $.extend(Datepicker.prototype, {
 											calender_hour += "<option>" + i + "</option>";
 										}
 									}
-									calender_hour += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectHour' data-event='click'>确定</button>";
+              if(that._defaults.showMinute) {
+                var select_minute = maxDate_lin.substring(14,16);
+                var calender_minute = '';
+                for(var i = 1; i <= select_minute;i ++){
+                  if(i<10) {
+                    calender_minute += "<option>0" + i + "</option>";
+                  }else {
+                    calender_minute += "<option>" + i + "</option>";
+                  }
+                }
+                $('.ui-datepicker-hour .minute-select').html(calender_minute);
+              }
 							}else {
 								calender_hour += "<option>01</option><option>02</option><option>03</option><option>04</option>" +
 								"<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>" +
 								"<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option>" +
 								"<option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>" +
 								"<option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>" ;
+              if(that._defaults.showMinute) {
+                var calender_minute = '';
+                for (var i = 1; i <= 60; i++) {
+                  if (i < 10) {
+                    calender_minute += "<option>0" + i + "</option>";
+                  } else {
+                    calender_minute += "<option>" + i + "</option>";
+                  }
+                }
+                $('.ui-datepicker-hour .minute-select').html(calender_minute);
+              }
 							}
-							$('.ui-datepicker-hour select').html(calender_hour);
+							$('.ui-datepicker-hour .hour-select').html(calender_hour);
 						return false;
 				}else {
 						$.datepicker._selectDay(id, +this.getAttribute("data-month"), +this.getAttribute("data-year"), this);
@@ -2206,12 +2345,70 @@ $.extend(Datepicker.prototype, {
 				}
 				calender += "</tbody></table>" + (isMultiMonth ? "</div>" +
 							((numMonths[0] > 0 && col === numMonths[1]-1) ? "<div class='ui-datepicker-row-break'></div>" : "") : "");
-				if(inst.settings.showHour) {
+        if(inst.settings.showMinute) {
+          calender += "<div class='ui-datepicker-hour'><button class='btn btn-fill ui-datepicker-now'data-handler='selectNow' data-event='click'>此刻</button>" +
+          "<select class='hour-select'data-handler='selectHour' data-event='change'>";
+          var select_hour,select_minute;
+          if ((inst.settings.minDate && inst.settings.minDate == inst.input.val().substring(0,10)) ||(inst.settings.minDate && inst.settings.minDate == inst.input.val().substring(0,10)) ) {
+            select_hour = inst.settings.minDate.substring(11,13);
+            select_minute = inst.settings.minDate.substring(14,16);
+            for(var i = parseInt(select_hour);i < 25;i ++){
+              if(i<10) {
+                calender += "<option>0" + i + "</option>";
+              }else {
+                calender += "<option>" + i + "</option>";
+              }
+            }
+            calender += "</select><span>时</span><select class='minute-select'";
+            for(var i = parseInt(select_minute);i < 60;i ++){
+              if(i<10) {
+                calender += "<option>0" + i + "</option>";
+              }else {
+                calender += "<option>" + i + "</option>";
+              }
+            }
+            calender += "</select><span>分</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectMinute' data-event='click'>确定</button></div>";
+          }else if(inst.settings.maxDate && inst.settings.maxDate == inst.input.val().substring(0,10)) {
+            select_hour = inst.settings.maxDate.substring(11,13);
+            select_minute = inst.settings.minDate.substring(14,16);
+            for(var i = 1;i <= parseInt(select_hour);i ++){
+              if(i<10) {
+                calender += "<option>0" + i + "</option>";
+              }else {
+                calender += "<option>" + i + "</option>";
+              }
+            }
+            calender += "</select><span>时</span><select class='minute-select'";
+            for(var i = 1;i <= parseInt(select_minute);i ++ ) {
+              if(i<10) {
+                calender += "<option>0" + i + "</option>";
+              }else {
+                calender += "<option>" + i + "</option>";
+              }
+            }
+            calender += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectMinute' data-event='click'>确定</button></div>";
+          }else {
+            calender += "<option>01</option><option>02</option><option>03</option><option>04</option>" +
+            "<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>" +
+            "<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option>" +
+            "<option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>" +
+            "<option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>" +
+            "</select><span>时</span><select class='minute-select'>";
+            for(var i = 1;i <= 60;i ++){
+              if(i<10) {
+                calender += "<option>0" + i + "</option>";
+              }else {
+                calender += "<option>" + i + "</option>";
+              }
+            }
+            calender += "</select><span>分</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectMinute' data-event='click'>确定</button></div>";
+          }
+        }else if(inst.settings.showHour) {
 					calender += "<div class='ui-datepicker-hour'><button class='btn btn-fill ui-datepicker-now'data-handler='selectNow' data-event='click'>此刻</button>" +
-					"<select>";
+					"<select class='hour-select'data-handler='selectHour' data-event='change'>";
 					var select_hour;
 					if ((inst.settings.minDate && inst.settings.minDate == inst.input.val().substring(0,10)) ||(inst.settings.minDate && inst.settings.minDate == inst.input.val().substring(0,10)) ) {
-						
+
 						select_hour = inst.settings.minDate.substring(11,13);
 						for(var i = parseInt(select_hour);i < 25;i ++){
 							if(i<10) {
@@ -2220,7 +2417,7 @@ $.extend(Datepicker.prototype, {
 								calender += "<option>" + i + "</option>";
 							}
 						}
-						calender += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectHour' data-event='click'>确定</button></div>";
+						calender += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectMinute' data-event='click'>确定</button></div>";
 					}else if(inst.settings.maxDate && inst.settings.maxDate == inst.input.val().substring(0,10)) {
 						select_hour = inst.settings.maxDate.substring(11,13);
 						for(var i = 1;i <= select_hour;i ++){
@@ -2230,14 +2427,14 @@ $.extend(Datepicker.prototype, {
 								calender += "<option>" + i + "</option>";
 							}
 						}
-						calender += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectHour' data-event='click'>确定</button></div>";
+						calender += "</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectMinute' data-event='click'>确定</button></div>";
 					}else {
 						calender += "<option>01</option><option>02</option><option>03</option><option>04</option>" +
 						"<option>05</option><option>06</option><option>07</option><option>08</option><option>09</option>" +
 						"<option>10</option><option>11</option><option>12</option><option>13</option><option>14</option>" +
 						"<option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>" +
 						"<option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>" +
-						"</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectHour' data-event='click'>确定</button></div>";
+						"</select><span>时</span><button class='btn btn-fill ui-datepicker-sure'data-handler='selectMinute' data-event='click'>确定</button></div>";
 					}
 				}
 				group += calender;
