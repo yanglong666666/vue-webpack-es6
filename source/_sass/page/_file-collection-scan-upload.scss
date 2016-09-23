@@ -1,0 +1,88 @@
+.page-file-collection-scan-upload {
+  .scan-upload-content {
+    text-align: center;
+    margin-top: 60px;
+    .scan-upload-erweima {
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .scan-upload-erweima-tops {
+      font-size: 14px;
+      color: #333;
+    }
+  }
+  .manual-content {
+    text-align: center;
+    margin-top: 60px;
+    .search-dl {
+      width: 100%;
+      margin-top: 20px;
+      dt {
+        width: 100px;
+        text-align: left;
+        display: inline-block;
+      }
+      dd {
+        display: inline-block;
+        label {
+          width: inherit;
+          input {
+            width: 300px;
+          }
+        }
+      }
+      .js-select {
+        text-align: left;
+      }
+    }
+    .button-content {
+      margin-left: 106px;
+      font-size: 0;
+    }
+    .btn {
+      width: 140px;
+      margin: 0 10px;
+    }
+  }
+
+}
+.file-collection-top {
+  margin: 30px 20px 20px;
+  position: relative;
+  .file-collection-title {
+    font-size: 18px;
+    line-height: 30px;
+    color: #444;
+    font-weight: 600;
+    @include inline-block();
+  }
+  .file-collection-tab {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0;
+    .file-collection-tabItem {
+      width: 120px;
+      line-height: 30px;
+      font-size: 12px;
+      color: #333;
+      background-color: #eee;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      &.active {
+        color: #fff;
+        background-color: #3f88cc;
+      }
+    }
+    .tabItem-left {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .tabItem-right {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+

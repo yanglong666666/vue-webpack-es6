@@ -132,6 +132,13 @@
 // 业务集中运营平台
 @import "page/verify-list";
 @import "page/verify-info";
+// 档案管理
+@import "page/_file-collection-scan";
+@import "page/_file-collection-list";
+@import "page/_file-collection-scan-upload";
+// 档案审核
+@import "page/_file-review-list";
+@import "page/_file-review-details";
 
 // Vendor
 @import "jquery-ui";

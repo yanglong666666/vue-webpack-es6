@@ -1,0 +1,172 @@
+---
+title: 档案审核列表
+layout: default
+class: file-review-list
+---
+<div class="main-content">
+  <div class="more-condition">更多条件</div>
+  <div class="search-group">
+    <dl class="search-dl show">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>档案类型</dt>
+      <dd>
+        <span>
+          <select name="" id="diy-select-1" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>档案类型</dt>
+      <dd>
+        <span>
+          <select name="" id="diy-select-2" class="diy-select"  style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>档案类型</dt>
+      <dd>
+        <span>
+          <select name="" id="diy-select-3" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+
+    <dl class="search-dl show">
+      <dt>档案类型</dt>
+      <dd>
+        <span>
+          <select name="" id="diy-select-4" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl show">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+
+  </div>
+  <div class="button-content">
+    <button class="btn btn-fill btn-lg">查询</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="15%">客户号</th>
+      <th width="10%">姓名</th>
+      <th width="10%">资金账号</th>
+      <th width="20%">营业部</th>
+      <th width="15%">业务名称</th>
+      <th width="10%">提交日期</th>
+      <th width="10%">审核状态</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>610000173488</td>
+        <td>乾多多</td>
+        <td>0040118945</td>
+        <td>财通证券杭州体育馆营业部</td>
+        <td>证券自然人账户</td>
+        <td>2016.08.30</td>
+        <td>未审核</td>
+        <td><div class="btn-group"><a class="btn btn-fill btn-small btn-review">审核<span class="dropdown"></span></a></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('#diy-select-1').diySelect();
+    $('#diy-select-2').diySelect();
+    $('#diy-select-3').diySelect();
+    $('#diy-select-4').diySelect();
+
+
+    //更多条件 点击事件
+    $('.more-condition').on('click',function(){
+      if($(this).text() == '更多条件'){
+        $(this).text('收起↑');
+        $('.search-group').find('.search-dl').addClass('show');
+      }else{
+        $(this).text('更多条件');
+        upItems();
+      }
+    });
+
+    //收起不是第一行的item
+    function upItems(){
+      var $searchGroup = $('.search-group');
+      var offsetTop;
+      $searchGroup.find('.search-dl').each(function(index,item){
+        if(index ==0 ){
+          offsetTop = $(item).offset().top;
+        }else{
+          if($(item).offset().top > offsetTop+10){
+            $(item).removeClass('show');
+          }
+        }
+      });
+    }
+    upItems();
+  })
+</script>

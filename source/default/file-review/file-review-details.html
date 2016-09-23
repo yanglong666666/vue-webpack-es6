@@ -1,0 +1,206 @@
+---
+title: 档案审核详情
+layout: default
+class: file-review-details
+---
+<div class="file-collection-top">
+  <div class="file-collection-title">客户档案信息</div>
+</div>
+<div id="basic-info" class="info-table info-table-basic">
+  <div class="info-table-title">客户基本信息</div>
+  <div class="info-table-content">
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          客户号
+        </div>
+        <div class="info-table-val">
+          610000173488
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          姓名
+        </div>
+        <div class="info-table-val">
+          乾多多
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          性别
+        </div>
+        <div class="info-table-val">
+          男
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          联系手机
+        </div>
+        <div class="info-table-val">
+          13856930128
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          开户营业部
+        </div>
+        <div class="info-table-val">
+          杭州营业部
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          开户日期
+        </div>
+        <div class="info-table-val">
+          2014-10-12
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          证件类型
+        </div>
+        <div class="info-table-val">
+          身份证
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          证件号码
+        </div>
+        <div class="info-table-val">
+          32055119910128056X
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          发证机关
+        </div>
+        <div class="info-table-val">
+          杭州派出所
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          证件有效期
+        </div>
+        <div class="info-table-val">
+          2005.09.07～2024.09.01
+        </div>
+      </div>
+      <div class="info-table-item item-long">
+        <div class="info-table-key">
+          证件地址
+        </div>
+        <div class="info-table-val">
+          浙江省杭州市滨江大道
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="file" class="info-table info-table-file">
+  <div class="info-table-title">影像文件</div>
+  <div class="info-table-content">
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          文件编号
+        </div>
+        <div class="info-table-val">
+          文件名称
+        </div>
+        <div class="info-table-val">
+          文件对象
+        </div>
+        <div class="info-table-val">
+          最近更新日期
+        </div>
+        <div class="info-table-val">
+          操作
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          0001
+        </div>
+        <div class="info-table-val">
+          客户头像照片
+        </div>
+        <div class="info-table-val">
+          <img src="../../images/erweima.png" class="file-obj">
+        </div>
+        <div class="info-table-val">
+          2016-8-30
+        </div>
+        <div class="info-table-val">
+          <a class="btn btn-fill btn-small">导出</a>
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          0001
+        </div>
+        <div class="info-table-val">
+          客户头像照片
+        </div>
+        <div class="info-table-val">
+          <img src="../../images/erweima.png" class="file-obj">
+        </div>
+        <div class="info-table-val">
+          2016-8-30
+        </div>
+        <div class="info-table-val">
+          <a class="btn btn-fill btn-small">导出</a>
+        </div>
+      </div>
+    </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('#diy-select-1').diySelect();
+    $('#diy-select-2').diySelect();
+    $('#diy-select-3').diySelect();
+    $('#diy-select-4').diySelect();
+
+
+    //更多条件 点击事件
+    $('.more-condition').on('click',function(){
+      if($(this).text() == '更多条件'){
+        $(this).text('收起↑');
+        $('.search-group').find('.search-dl').addClass('show');
+      }else{
+        $(this).text('更多条件');
+        upItems();
+      }
+    });
+
+    //收起不是第一行的item
+    function upItems(){
+      var $searchGroup = $('.search-group');
+      var offsetTop;
+      $searchGroup.find('.search-dl').each(function(index,item){
+        if(index ==0 ){
+          offsetTop = $(item).offset().top;
+        }else{
+          if($(item).offset().top > offsetTop+10){
+            $(item).removeClass('show');
+          }
+        }
+      });
+    }
+    upItems();
+  })
+</script>

@@ -1,0 +1,246 @@
+---
+title: 档案采集扫描
+layout: default
+class: file-collection-scan
+---
+
+<div class="image-content">
+  <div class="image-top">
+    <div class="image-top-back"></div>
+    <div class="image-top-wrap">
+      <div class="image-top-item scan">扫描</div>
+      <div class="image-top-item camera">拍摄</div>
+      <div id="save" class="image-top-item save">保存</div>
+      <div id="upload" class="image-top-item upload">上传</div>
+      <div id="delete" class="image-top-item delete">删除</div>
+    </div>
+  </div>
+  <div class="image-middle">
+    <div class="image-middle-aside">
+      <div class="to-be-scan">
+        <div class="image-aside-top">待扫描文件</div>
+        <dl>
+          <dt>上海证券账户代理资料</dt>
+          <dd style="display:none;" class="aside-1">账户本人有效身份证件</dd>
+          <dd style="display:none;" class="aside-2">委托代办书</dd>
+          <dd style="display:none;" class="aside-3">代理人身份证</dd>
+        </dl>
+        <dl>
+          <dt>上海证券账户代理资料</dt>
+          <dd style="display:none;" class="aside-1">账户本人有效身份证件</dd>
+          <dd style="display:none;" class="aside-2">委托代办书</dd>
+          <dd style="display:none;" class="aside-3">代理人身份证</dd>
+        </dl>
+      </div>
+      <div class="scand">
+        <div class="image-aside-top">已完成扫描文件</div>
+        <dl>
+          <dt>深圳证券账户代理资料</dt>
+          <dd style="display:none;" class="aside-1">账户本人有效身份证件</dd>
+          <dd style="display:none;" class="aside-2">委托代办书</dd>
+          <dd style="display:none;" class="aside-3">代理人身份证</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="image-middle-wrap">
+      <div class="handle-wrap">
+        <div class="handle-item revoke">撤销</div>
+        <div class="handle-item re-revoke">重做</div>
+        <div class="handle-item rotate">旋转</div>
+        <div class="handle-item cut">裁剪</div>
+        <div class="handle-item border">黑边调节</div>
+        <div class="handle-item enlarge">放大</div>
+        <div class="handle-item narrow">缩小</div>
+        <div class="handle-item previous">上一页</div>
+        <div class="handle-item next">下一页</div>
+        <div class="handle-item full-screen">全屏</div>
+        <div class="handle-item insert-picture">插入图片</div>
+        <div class="handle-item append">追加</div>
+      </div>
+      <div class="image-wrap">
+        <div class="image-page-wrap"><span class="current-page">2</span><span>/</span><span class="total-page">8</span></div>
+        <div class="image-append-wrap">
+          <div class="image-append-item append-add">追加到新页面</div>
+          <div class="image-append-item append-cover">覆盖当前页面</div>
+          <div class="image-append-item append-merge">合并当前页面</div>
+        </div><img src="../../images/video/pre-video.jpg" class="img">
+      </div>
+    </div>
+  </div>
+  <div class="image-bottom"><a class="btn btn-fill submit">全部提交</a><a class="btn btn-hollow cancel">取消</a></div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    //侧边栏交互
+    $('.image-middle-aside dt').on('click',function(){
+      var $self = $(this);
+      if($self.hasClass('active')){
+        $self.siblings('dd').slideUp(400,function(){
+          $self.removeClass('active');
+        });
+      }else{
+        $self.addClass('active').siblings('dd').slideDown(400);
+      }
+    });
+    $('.image-middle-aside').on('click','dd',function(){
+      var $self = $(this);
+      if(!$self.hasClass('checked')){
+        $('.image-middle-aside dd.checked').removeClass('checked');
+        $self.addClass('checked');
+        //ajax
+      }
+    });
+
+    //点击上传
+    $('#upload').on('click',function(){
+      var uploadDialog = new Dialog(null,{
+        title: '温馨提示',
+        width: '550',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          uploadDialog.hide();
+        },
+
+        cancel: function() {
+          //确定按钮事件
+          uploadDialog.hide();
+        },
+        content: '<div class="upload-dialog">' +
+        '<div class="upload-dialog-top">' +
+        '<a class="btn btn-hollow upload-dialog-choose">选择文件</a>'+
+        '<a class="btn btn-fill upload-dialog-btn">上传</a>'+
+        '</div>'+
+        '<ul class="upload-dialog-wrap">'+
+        '<li class="upload-dialog-item">'+
+        '<img class="upload-dialog-type" src="../../images/sprite/filecapture/upload-type.png" />'+
+        '<div class="upload-dialog-text">自然人账户注册申请表1.doc</div>'+
+        '<img class="upload-dialog-edit" src="../../images/sprite/filecapture/upload-edit.png" />'+
+        '<div class="upload-dialog-delete"></div>'+
+        '</li>'+
+        '<li class="upload-dialog-item">'+
+        '<img class="upload-dialog-type" src="../../images/sprite/filecapture/upload-type.png" />'+
+        '<div class="upload-dialog-text">自然人账户注册申请表2.doc</div>'+
+        '<img class="upload-dialog-edit" src="../../images/sprite/filecapture/upload-edit.png" />'+
+        '<div class="upload-dialog-delete"></div>'+
+        '</li>'+
+        '<li class="upload-dialog-item">'+
+        '<img class="upload-dialog-type" src="../../images/sprite/filecapture/upload-type.png" />'+
+        '<div class="upload-dialog-text">自然人账户注册申请表3.doc</div>'+
+        '<img class="upload-dialog-edit" src="../../images/sprite/filecapture/upload-edit.png" />'+
+        '<div class="upload-dialog-delete"></div>'+
+        '</li>'+
+        '<li class="upload-dialog-item">'+
+        '<img class="upload-dialog-type" src="../../images/sprite/filecapture/upload-type.png" />'+
+        '<div class="upload-dialog-text">自然人账户注册申请表4.doc</div>'+
+        '<img class="upload-dialog-edit" src="../../images/sprite/filecapture/upload-edit.png" />'+
+        '<div class="upload-dialog-delete"></div>'+
+        '</li>'+
+        '<li class="upload-dialog-item">'+
+        '<img class="upload-dialog-type" src="../../images/sprite/filecapture/upload-type.png" />'+
+        '<div class="upload-dialog-text">自然人账户注册申请表5.doc</div>'+
+        '<img class="upload-dialog-edit" src="../../images/sprite/filecapture/upload-edit.png" />'+
+        '<div class="upload-dialog-delete"></div>'+
+        '</li>'+
+        '</ul>'+
+        '</div>'
+      });
+    });
+
+    //点击删除
+    $('#delete').on('click',function(){
+      var deleteDialog = new Dialog(null,{
+        title: '温馨提示',
+        width: '450',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          deleteDialog.hide();
+        },
+        cancel: function() {
+          //确定按钮事件
+          deleteDialog.hide();
+        },
+        //正确为 success-ico 错误为 error-ico
+        content: '<div class="item">确定删除？</div>'
+      });
+    });
+
+    //点击保存
+    $('#save').on('click',function(){
+      var saveDialog = new Dialog(null,{
+        title: '温馨提示',
+        width: '550',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          saveDialog.hide();
+        },
+        cancel: function() {
+          //确定按钮事件
+          saveDialog.hide();
+        },
+        //正确为 success-ico 错误为 error-ico
+        content: '<div class="save-dialog">'+
+        '<img src="../../images/sprite/activation/idCard.png" class="save-dialog-file" />'+
+        '<div class="save-dialog-save">'+
+        '<div class="save-dialog-item">桌面</div>'+
+        '<div class="save-dialog-item">覆盖原图</div>'+
+        '<div class="save-dialog-item checked">自定义</div>'+
+        '</div>'+
+        '<div class="save-dialog-path">'+
+        '<input type="text" value="D:/档案库/新华路营业部/上海证券开户代理资料/张三_自然人身份资料.jpg" readonly />'+
+        '</div>'+
+        '</div>'
+      });
+    });
+
+    //保存弹窗中，保存路径切换
+    $('.page-file-collection-scan').on('click','.save-dialog-item',function(){
+      $(this).addClass('checked').siblings('.save-dialog-item').removeClass('checked');
+      if($(this).text() == '自定义'){
+        $('.save-dialog-path input').removeAttr('readonly');
+        $('.save-dialog-path input').val(' ');
+      }else{
+        $('.save-dialog-path input').attr('readonly','readonly');
+
+        if($(this).text() == '桌面'){
+          $('.save-dialog-path input').val('C:桌面');
+        }else{
+          $('.save-dialog-path input').val($('.save-dialog-file').attr('src'));
+        }
+
+      }
+    });
+
+    //点击上传弹窗中的上传按钮
+    $('.page-file-collection-scan').on('click','.upload-dialog-btn',function(){
+      if($('.scand dt').hasClass('active')){
+        $('.upload-dialog-item').each(function(){
+          $('.scand dl').append('<dd class="aside-1">' + $(this).find('.upload-dialog-text').text() + '</dd>');
+        });
+      }else{
+        $('.upload-dialog-item').each(function(){
+          $('.scand dl').append('<dd class="aside-1" style="display: none;">' + $(this).find('.upload-dialog-text').text() + '</dd>');
+        });
+        $('.scand dt').click();
+      }
+
+      $(this).parents('.js-dialog').hide();
+      $('.js-mask').hide();
+    });
+
+  });
+</script>
