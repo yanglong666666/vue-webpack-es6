@@ -1,0 +1,113 @@
+.page-file-search-client-info {
+
+}
+.info-table {
+  border: solid 1px #eee;
+  margin-bottom: 20px;
+  color: #333;
+  .info-table-title {
+    height: 40px;
+    line-height: 40px;
+    background: #E1E6EF;
+    padding: 0 15px;
+    color: #555;
+    font-weight: 600;
+  }
+  .info-table-content {
+    font-size: 0;
+    hr {
+      height: 1px;
+      background: #eee;
+      border: 0;
+    }
+    .info-table-colspan {
+      border-bottom: solid 1px #eee;
+      .info-table-item {
+        display: inline-block;
+        width: 33.3%;
+        .info-table-key {
+          line-height: 40px;
+          display: inline-block;
+          font-size: 13px;
+          padding: 0 15px;
+          @include box-sizing(border-box);
+          border-right: solid 1px #eee;
+
+          background: #F7F9FD;
+          width: 40%;
+        }
+        .info-table-val {
+          line-height: 40px;
+          display: inline-block;
+          font-size: 13px;
+          padding: 0 15px;
+          @include box-sizing(border-box);
+          border-right: solid 1px #eee;
+          width: 60%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          vertical-align: top;
+        }
+        &.item-long {
+          width: 66.6%;
+          .info-table-key {
+            width: 20%;
+          }
+          .info-table-val {
+            width: 80%;
+          }
+        }
+        &:last-child {
+          .info-table-val {
+            border-right: none;
+          }
+        }
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  &.info-table-file {
+    .info-table-colspan {
+      height: 120px;
+      &:first-child {
+        height: 40px;
+        .info-table-key {
+          line-height: 40px !important;
+        }
+        .info-table-val {
+          line-height: 40px !important;
+        }
+      }
+      &:last-child {
+
+      }
+      .info-table-item {
+        width: 100% !important;
+        height: 100%;
+      }
+      .info-table-key {
+        width: 10% !important;
+        height: 100%;
+        line-height: 120px !important;;
+      }
+      .info-table-val {
+        height: 100%;
+        line-height: 120px !important;;
+        width: 22.5% !important;
+        border-right: solid 1px #eee !important;
+        &:last-child {
+          text-align: center;
+        }
+      }
+      .file-obj {
+        height: 100%;
+        padding: 10px 0;
+        max-width: 100%;
+        @include box-sizing(border-box);
+      }
+    }
+  }
+}

@@ -93,6 +93,25 @@ $table-border-color: #3f88cc !default;
         background-position: 1px 7px;
         cursor: pointer;
       }
+      .dropdown-list {
+        display: inline-block;
+        width: 100%;
+        left:0;
+        position: absolute;
+        top: 28px;
+        padding: 2px 0 0;
+        @include box-sizing(border-box);
+        border-color: #3f88cc;
+        >div,>li {
+          display: block;
+          padding: 0 10px;
+          text-align: center;
+          cursor: pointer;
+          &:hover {
+            background-color:rgba(63, 136, 204, 0.4);
+          }
+        }
+      }
       ul {
         display: none;
         position: absolute;

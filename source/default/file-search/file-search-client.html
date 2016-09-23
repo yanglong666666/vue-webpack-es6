@@ -1,173 +1,105 @@
 ---
-title: 档案查询-客户档案信息
+title: 档案查询-客户档案查询
 layout: default
 class: file-search-client
 ---
-<div class="file-collection-top">
-  <div class="file-collection-title">客户档案信息</div>
-</div>
-<div id="basic-info" class="info-table info-table-basic">
-  <div class="info-table-title">客户基本信息</div>
-  <div class="info-table-content">
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          客户号
-        </div>
-        <div class="info-table-val">
-          610000173488
-        </div>
-      </div>
-      <div class="info-table-item">
-        <div class="info-table-key">
-          姓名
-        </div>
-        <div class="info-table-val">
-          乾多多
-        </div>
-      </div>
-      <div class="info-table-item">
-        <div class="info-table-key">
-          性别
-        </div>
-        <div class="info-table-val">
-          男
-        </div>
-      </div>
-    </div>
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          联系手机
-        </div>
-        <div class="info-table-val">
-          13856930128
-        </div>
-      </div>
-      <div class="info-table-item">
-        <div class="info-table-key">
-          开户营业部
-        </div>
-        <div class="info-table-val">
-          杭州营业部
-        </div>
-      </div>
-      <div class="info-table-item">
-        <div class="info-table-key">
-          开户日期
-        </div>
-        <div class="info-table-val">
-          2014-10-12
-        </div>
-      </div>
-    </div>
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          证件类型
-        </div>
-        <div class="info-table-val">
-          身份证
-        </div>
-      </div>
-      <div class="info-table-item">
-        <div class="info-table-key">
-          证件号码
-        </div>
-        <div class="info-table-val">
-          32055119910128056X
-        </div>
-      </div>
-      <div class="info-table-item">
-        <div class="info-table-key">
-          发证机关
-        </div>
-        <div class="info-table-val">
-          杭州派出所
-        </div>
-      </div>
-    </div>
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          证件有效期
-        </div>
-        <div class="info-table-val">
-          2005.09.07～2024.09.01
-        </div>
-      </div>
-      <div class="info-table-item item-long">
-        <div class="info-table-key">
-          证件地址
-        </div>
-        <div class="info-table-val">
-          浙江省杭州市滨江大道
-        </div>
-      </div>
-    </div>
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>一卡通账户</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>客户编号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>资金账号</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>证件类别</dt>
+      <dd>
+        <span>
+          <select name="" id="diy-select-1" class="diy-select" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">状态1</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>证件号码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn btn-fill btn-lg">查询</button>
   </div>
 </div>
-<div id="file" class="info-table info-table-file">
-  <div class="info-table-title">影像文件</div>
-  <div class="info-table-content">
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          文件编号
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="12%">客户号</th>
+      <th width="10%">客户姓名</th>
+      <th width="12%">一卡通账号</th>
+      <th width="12%">资金账号</th>
+      <th width="12%">开户营业部</th>
+      <th width="12%">已办理业务</th>
+      <th width="10%">累计档案数量</th>
+      <th width="10%">最近办理日期</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>610000173488</td>
+      <td>乾多多</td>
+      <td>610000173488</td>
+      <td>610000173488</td>
+      <td>杭州营业部</td>
+      <td>证券自然人账户</td>
+      <td>200</td>
+      <td>2016-08-30</td>
+      <td><div class="btn-group"><a class="btn btn-fill btn-small btn-review">档案查询</a></div></td>
+    </tr>
+    <tr>
+      <td>610000173488</td>
+      <td>乾多多</td>
+      <td>610000173488</td>
+      <td>610000173488</td>
+      <td>杭州营业部</td>
+      <td>证券自然人账户</td>
+      <td>200</td>
+      <td>2016-08-30</td>
+      <td>
+        <div class="btn-group">
+          <a class="btn btn-fill btn-small btn-review">档案查询<span class="dropdown"></span></a>
         </div>
-        <div class="info-table-val">
-          文件名称
-        </div>
-        <div class="info-table-val">
-          文件对象
-        </div>
-        <div class="info-table-val">
-          最近更新日期
-        </div>
-        <div class="info-table-val">
-          操作
-        </div>
-      </div>
-    </div>
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          0001
-        </div>
-        <div class="info-table-val">
-          客户头像照片
-        </div>
-        <div class="info-table-val">
-          <img src="../../images/erweima.png" class="file-obj">
-        </div>
-        <div class="info-table-val">
-          2016-8-30
-        </div>
-        <div class="info-table-val">
-          <a class="btn btn-fill btn-small">导出</a>
-        </div>
-      </div>
-    </div>
-    <div class="info-table-colspan">
-      <div class="info-table-item">
-        <div class="info-table-key">
-          0001
-        </div>
-        <div class="info-table-val">
-          客户头像照片
-        </div>
-        <div class="info-table-val">
-          <img src="../../images/erweima.png" class="file-obj">
-        </div>
-        <div class="info-table-val">
-          2016-8-30
-        </div>
-        <div class="info-table-val">
-          <a class="btn btn-fill btn-small">导出</a>
-        </div>
-      </div>
-    </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+{% include component/pagenav.html %}
 <script type="text/javascript">
   $(function(){
     $('#diy-select-1').diySelect();
@@ -175,32 +107,26 @@ class: file-search-client
     $('#diy-select-3').diySelect();
     $('#diy-select-4').diySelect();
 
-
-    //更多条件 点击事件
-    $('.more-condition').on('click',function(){
-      if($(this).text() == '更多条件'){
-        $(this).text('收起↑');
-        $('.search-group').find('.search-dl').addClass('show');
-      }else{
-        $(this).text('更多条件');
-        upItems();
+    $('.btn-group').on('click',function(){
+      var $self = $(this);
+      if($self.find('.dropdown').length >0 ){
+        var ul = '<ul class="dropdown-list">'+
+          '<li>档案查看</li>'+
+          '<li>档案查看</li>'+
+          '<li>档案查看</li>'+
+          '<li>档案查看</li>'+
+          '</ul>';
+        if($self.find('.dropdown-list').length <= 0){
+          $self.append(ul);
+        }
+        if($self.hasClass('active')){
+          $self.removeClass('active');
+          $self.find('.dropdown-list').hide();
+        }else{
+          $self.addClass('active');
+          $self.find('.dropdown-list').show();
+        }
       }
     });
-
-    //收起不是第一行的item
-    function upItems(){
-      var $searchGroup = $('.search-group');
-      var offsetTop;
-      $searchGroup.find('.search-dl').each(function(index,item){
-        if(index ==0 ){
-          offsetTop = $(item).offset().top;
-        }else{
-          if($(item).offset().top > offsetTop+10){
-            $(item).removeClass('show');
-          }
-        }
-      });
-    }
-    upItems();
-  })
+  });
 </script>

@@ -1,4 +1,12 @@
 .page-file-review-check {
+  .top-back {
+    display: inline-block;
+    width: 21px;
+    height: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+    background: url(../../images/sprite/filecheck/file-check.png) no-repeat 0 -204px;
+  }
   .review-check-content {
     position: relative;
   }

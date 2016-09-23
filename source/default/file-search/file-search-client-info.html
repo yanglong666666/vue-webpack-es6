@@ -1,9 +1,11 @@
 ---
-title: 档案审核详情
+title: 档案查询-客户档案信息
 layout: default
-class: file-review-check
+class: file-search-client-info
 ---
-<div class="top-back"></div>
+<div class="file-collection-top">
+  <div class="file-collection-title">客户档案信息</div>
+</div>
 <div id="basic-info" class="info-table info-table-basic">
   <div class="info-table-title">客户基本信息</div>
   <div class="info-table-content">
@@ -105,80 +107,100 @@ class: file-review-check
     </div>
   </div>
 </div>
-<div class="review-check-content">
-  <div class="review-check-left">
-    <img src="../../images/video/pre-video.jpg" class="handle-img">
-    <div class="handle-num">2/12</div>
-
-    <div class="handle-btn preview"></div>
-    <div class="handle-btn next"></div>
-    <div class="handle-btn enlarge"></div>
-    <div class="handle-btn narrow"></div>
-    <div class="handle-btn refresh"></div>
-  </div>
-  <div class="review-check-right">
-    <div class="right-top">
-      <div class="top-title">
-        审核档案列表
-      </div>
-      <div class="top-content">
-        <dl class="top-content-item">
-          <dt>创业版开通</dt>
-          <dd>证件类型</dd>
-          <dd>身份证扫描信息</dd>
-          <dd>风险揭示书</dd>
-        </dl>
-      </div>
-      <div class="top-title">
-        审核关键信息
-      </div>
-      <div class="top-content">
-        <p>1. 确认业务关联信息，风险等级、首次交易日期、开通所需时间符合客户事实。</p>
-        <p>2. 确认第二联系人信息与《客户风险揭示书》填写的一致。</p>
-        <p>3.  确认客户头像照片拍摄脸部正面且含公司logo、照片清晰不反光。</p>
+<div id="file" class="info-table info-table-file">
+  <div class="info-table-title">影像文件</div>
+  <div class="info-table-content">
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          文件编号
+        </div>
+        <div class="info-table-val">
+          文件名称
+        </div>
+        <div class="info-table-val">
+          文件对象
+        </div>
+        <div class="info-table-val">
+          最近更新日期
+        </div>
+        <div class="info-table-val">
+          操作
+        </div>
       </div>
     </div>
-    <div class="right-bottom">
-      <div class="bottom-radio">
-        <div class="radio-item">
-          <input type="radio" class="pass-radio" value="通过" />
-          <span>通过</span>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          0001
         </div>
-        <div class="radio-item">
-          <input type="radio" class="notPass-radio" value="通过" />
-          <span>不通过</span>
+        <div class="info-table-val">
+          客户头像照片
         </div>
-      </div>
-      <div class="bottom-option">
-        <div class="option-top">
-          批注意见
+        <div class="info-table-val">
+          <img src="../../images/erweima.png" class="file-obj">
         </div>
-        <textarea class="option-textarea"></textarea>
-      </div>
-      <div class="button-content">
-        <a class="btn btn-small btn-primary-white ">取消</a>
-        <a class="btn btn-small btn-fill">保存</a>
+        <div class="info-table-val">
+          2016-8-30
+        </div>
+        <div class="info-table-val">
+          <a class="btn btn-fill btn-small">导出</a>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          0001
+        </div>
+        <div class="info-table-val">
+          客户头像照片
+        </div>
+        <div class="info-table-val">
+          <img src="../../images/erweima.png" class="file-obj">
+        </div>
+        <div class="info-table-val">
+          2016-8-30
+        </div>
+        <div class="info-table-val">
+          <a class="btn btn-fill btn-small">导出</a>
+        </div>
+      </div>
+    </div>
 </div>
 <script type="text/javascript">
   $(function(){
-    $('.top-content-item dt').on('click',function(){
-      var $self = $(this);
-      if($self.hasClass('active')){
-        $self.siblings('dd').slideUp(400,function(){
-          $self.removeClass('active')
-        });
+    $('#diy-select-1').diySelect();
+    $('#diy-select-2').diySelect();
+    $('#diy-select-3').diySelect();
+    $('#diy-select-4').diySelect();
+
+
+    //更多条件 点击事件
+    $('.more-condition').on('click',function(){
+      if($(this).text() == '更多条件'){
+        $(this).text('收起↑');
+        $('.search-group').find('.search-dl').addClass('show');
       }else{
-        $self.siblings('dd').slideDown(400,function(){
-          $self.addClass('active')
-        });
+        $(this).text('更多条件');
+        upItems();
       }
     });
-    $('.radio-item').on('click',function(){
-      $(this).find('input').prop('checked',true);
-      $(this).siblings('.radio-item').find('input').prop('checked',false);
-    })
+
+    //收起不是第一行的item
+    function upItems(){
+      var $searchGroup = $('.search-group');
+      var offsetTop;
+      $searchGroup.find('.search-dl').each(function(index,item){
+        if(index ==0 ){
+          offsetTop = $(item).offset().top;
+        }else{
+          if($(item).offset().top > offsetTop+10){
+            $(item).removeClass('show');
+          }
+        }
+      });
+    }
+    upItems();
   })
 </script>
