@@ -4,7 +4,7 @@ build:
 	jekyll build
 
 deploy: build
-	find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms/{} \;
+	find public -type f -exec curl --ftp-create-dirs -T {} -u crhdemo:crhdemo ftp://192.168.1.211/bms-new/{} \;
 
 publish: build
 	cd public; \
