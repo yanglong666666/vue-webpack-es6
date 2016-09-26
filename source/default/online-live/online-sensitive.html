@@ -1,0 +1,82 @@
+---
+title: 敏感词
+layout: default
+---
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>词语</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>&nbsp;</dt>
+      <dd>
+        <label class="w-170">
+          <button class="btn-fill btn-lg" href="#">搜索</button>
+          <a class="add-role btn btn-small btn-fill" href="{{ site.baseurl }}/default/online-live/add-sensitive.html">新增</a>
+        </label>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+      <thead>
+      <tr>
+        <th width="20%">编号</th>
+        <th width="60%">营业部</th>
+       <th class="text-c" width="20%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="even">
+        <td><label class="table-check"><input type="checkbox" /><span class="checkbox"></span>张三</label></td>
+        <td>18677777777</td>
+        <td class="text-c"><a href="#" class="btn btn-fill btn-small">删除</a></td>
+      </tr>
+ 
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+  	$(".table-check").on("click",function(e){
+    e.preventDefault();
+    //<label class="table-check check-all"><input type="checkbox" /><span class="checkbox">√</span>张三</label>
+    var _this = $(this);
+    var _checkbox = _this.find("input[type='checkbox']");
+    var check_style =_this.find("span.checkbox");
+    if(_this.hasClass("check-all")){
+
+      if(_checkbox.is(':checked')){
+        $(".table-check").find("input[type='checkbox']").attr("checked",false);
+
+        $(".table-check").find("span.checkbox").css("border-color","#B5B5B5").html("");
+
+      }else{
+        $(".table-check").find("input[type='checkbox']").attr("checked",true);
+        $(".table-check").find("span.checkbox").css("border-color","#3ecacb").html("√");
+
+      }
+
+    }else{
+      if(_checkbox.is(':checked')){
+        _checkbox.attr("checked",false);
+        _this.parents(".main-table").find(".check-all input[type='checkbox']").attr("checked",false);
+        _this.parents(".main-table").find(".check-all span.checkbox").css("border-color","#B5B5B5").html("");
+        check_style.css("border-color","#B5B5B5").html("");
+
+      }else{
+        _checkbox.attr("checked",true);
+        check_style.css("border-color","#3ecacb").html("√");
+
+      }
+    }
+
+  });
+  </script>
