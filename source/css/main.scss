@@ -139,9 +139,11 @@
 // 档案审核
 @import "page/_file-review-list";
 @import "page/_file-review-check";
-//档案查询
+// 档案查询
 @import "page/_file-search-client";
 @import "page/_file-search-client-info";
+// 档案配置
+@import "page/_file-type-config";
 
 // Vendor
 @import "jquery-ui";

@@ -1,0 +1,99 @@
+.page-file-type-config {
+
+}
+.file-config-checkbox {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-top: -2px;
+}
+.file-config-top {
+  margin: 20px 0;
+  min-height: 30px;
+}
+.file-config-search {
+  float: right;
+}
+.file-config-search-input {
+  line-height: 16px;
+  padding: 5px;
+  border: solid 1px #ccc;
+  outline: none;
+  vertical-align: top;
+  @include border-radius(5px);
+  margin-right: 3px;
+}
+.file-config-bottom {
+  margin-left: 15px;
+}
+.file-config-erweima {
+  height: 28px;
+  display: inline-block;
+  vertical-align: top;
+}
+.file-config-a {
+  color: #3f88cc;
+}
+.file-config-search-select {
+  display: inline-block;
+  margin-right: 3px;
+  height: 30px;
+  vertical-align: top;
+  .js-select {
+    height: 26px !important;
+    line-height: 26px !important;
+    background-color: #fff !important;
+    border: solid 1px #ccc !important;
+  }
+  .js-option {
+    border: solid 1px #ccc !important;
+    background-color: #fff !important;
+  }
+  .arrow {
+    top: 10px !important;
+  }
+}
+.main-table tbody .table-tr-red td {
+  color: #FF5776;
+}
+.main-table tbody {
+  .btn {
+    z-index: 9;
+  }
+}
+.file-dialog-item {
+  padding: 12px 30px;
+  .file-dialog-key {
+    display: inline-block;
+    line-height: 20px;
+    padding-right: 36px;
+    color: #666;
+    width: 80px;
+    text-align: right;
+    vertical-align: top;
+    font-size: 13px;
+  }
+  .file-dialog-value {
+    display: inline-block;
+    line-height: 20px;
+    font-size: 13px;
+    color: #333;
+    max-width: 240px;
+  }
+  .file-dialog-textarea {
+    display: inline-block;
+    height: 80px;
+    width: 240px;
+    outline: none;
+    padding: 5px;
+    line-height: 16px;
+    font-size: 13px;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: #E1E6EF;
+    resize: none;
+    border: none;
+
+  }
+}

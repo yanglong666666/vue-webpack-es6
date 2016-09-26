@@ -107,6 +107,8 @@ $table-border-color: #3f88cc !default;
           padding: 0 10px;
           text-align: center;
           cursor: pointer;
+          font-size: 12px;
+          line-height: 24px;
           &:hover {
             background-color:rgba(63, 136, 204, 0.4);
           }

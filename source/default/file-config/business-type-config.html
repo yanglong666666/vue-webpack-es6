@@ -1,0 +1,101 @@
+---
+title: 业务类型配置-存储服务器配置
+layout: default
+class: business-type-config
+---
+
+<div class="file-config-top">
+  <button class="btn btn-fill btn-small">&nbsp;&nbsp;添加&nbsp;&nbsp;</button>
+  <div class="file-config-search">
+    <input type="text" class="file-config-search-input" placeholder="档案编号/档案名称" />
+    <button class="btn btn-fill btn-small">&nbsp;&nbsp;搜索&nbsp;&nbsp;</button>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="15%">ID</th>
+      <th width="15%">业务编码</th>
+      <th width="15%">业务类型名称</th>
+      <th width="15%">设置人</th>
+      <th width="20%">设置时间</th>
+      <th width="10%">对应档案</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><input type="checkbox" class="file-config-checkbox" /><span>0001</span></td>
+      <td>CYBKT</td>
+      <td>创业板开通</td>
+      <td>0027818</td>
+      <td>2016-08-20 10:00:01</td>
+      <td><a href="" class="file-config-a">查看</a></td>
+      <td><div class="btn-group"><a class="btn btn-fill btn-small">修改<span class="dropdown"></span></a></div></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="file-config-bottom">
+  <input type="checkbox" class="file-config-checkbox" />
+  <a class="btn btn-fill btn-small btn-remove-all">批量删除</a>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('.btn-group').on('click',function(){
+      var $self = $(this);
+      if($self.find('.dropdown').length >0 ){
+        var ul = '<ul class="dropdown-list">'+
+          '<li>修改</li>'+
+          '<li>删除</li>'+
+          '</ul>';
+        if($self.find('.dropdown-list').length <= 0){
+          $self.append(ul);
+        }
+        if($self.hasClass('active')){
+          $self.removeClass('active');
+          $self.find('.dropdown-list').hide();
+        }else{
+          $self.addClass('active');
+          $self.find('.dropdown-list').show();
+        }
+      }
+    });
+
+    $('.btn-remove-all').on('click', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var delete_screen = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          delete_screen.hide();
+        },
+        content: '<h1 class="h-title">您确定删除此记录？</h1>'
+      });
+    });
+
+    $('.main-table').on('click', '.file-config-a', function(event) {
+      event.preventDefault();
+      var file_dialog = new Dialog(null,{
+        title: '业务对应档案信息',
+        width: '500',
+        needDestroy: true,
+        content: '<div class="file-dialog-item"><div class="file-dialog-key">业务类型编号</div><div class="file-dialog-value">v1.0</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">业务类型名称</div><div class="file-dialog-value">CYBKT</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">适用客户类型</div><div class="file-dialog-value">个人</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">对应档案类型</div><textarea class="file-dialog-textarea"></textarea></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">是否有效</div><div class="file-dialog-value">有效</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">说明</div><div class="file-dialog-value">无</div></div>'
+      });
+    });
+  });
+</script>
