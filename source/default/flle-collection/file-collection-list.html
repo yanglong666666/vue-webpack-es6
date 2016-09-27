@@ -4,10 +4,12 @@ layout: default
 class: file-collection-list
 ---
 <div class="button-content">
-  <a class="output btn-primary-white" href="#">输出报表</a>
+  <a class="output btn-primary-white" href="#">新增档案袋</a>
+
   <div class="import-content">
     <div class="import-inner">
-      <input type="text" class="file-name">
+      <input type="text" class="business-name" placeholder="业务名称" />
+      <input type="text" class="file-name" placeholder="客户号/客户姓名/一卡通账号" />
       <span class="log">浏览</span>
     </div>
   </div>
@@ -29,7 +31,7 @@ class: file-collection-list
     </thead>
     <tbody>
     <tr>
-      <td><input type="checkbox" class="td-checkbox"/>1</td>
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
       <td>123456789012</td>
       <td>钱多多</td>
       <td>123456789012</td>
@@ -40,7 +42,7 @@ class: file-collection-list
       <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
     </tr>
     <tr class="even">
-      <td><input type="checkbox" class="td-checkbox"/>1</td>
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
       <td>123456789012</td>
       <td>钱多多</td>
       <td>123456789012</td>
@@ -51,7 +53,7 @@ class: file-collection-list
       <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
     </tr>
     <tr>
-      <td><input type="checkbox" class="td-checkbox"/>1</td>
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
       <td>123456789012</td>
       <td>钱多多</td>
       <td>123456789012</td>
@@ -62,7 +64,7 @@ class: file-collection-list
       <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
     </tr>
     <tr class="even">
-      <td><input type="checkbox" class="td-checkbox"/>1</td>
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
       <td>123456789012</td>
       <td>钱多多</td>
       <td>123456789012</td>

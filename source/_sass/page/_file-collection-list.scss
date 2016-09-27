@@ -7,36 +7,44 @@
       top:0;
       right: inherit;
       bottom: inherit;
+      text-align: center;
+      margin:0;
     }
   }
   .import-content {
-    width: 200px;
-    height: 28px;
-    line-height: 28px;
     display: inline-block;
     .import-inner {
       @include clearfix;
       overflow: hidden;
       cursor: pointer;
-      .file-name {
-        float: left;
+      font-size: 0;
+      .file-name,.business-name {
         height: 28px;
         line-height: 28px;
         background: #e1e6ef;
-        border-radius: 5px 0 0 5px;
         border: none;
         outline: none;
-        width: 150px;
+        text-indent: 8px;
       }
+      .file-name {
+        @include border-radius(5px 0 0 5px);
+        width: 200px;
+      }
+      .business-name {
+        @include border-radius(5px);
+        margin-right: 10px;
+        width: 100px;
+      }
+
       .log {
-        float: left;
         display: inline-block;
         width: 50px;
         color: #fff;
         text-align: center;
         font-size: 12px;
         background: #8c99b6;
-        border-radius: 0px 5px 5px 0px;
+        border-radius: 0 5px 5px 0;
+        line-height: 28px;
       }
     }
   }
@@ -56,6 +64,15 @@
         margin-left: 5px;
         padding: 0 5px;
       }
+    }
+  }
+  tbody {
+    .td-checkbox {
+      width: 16px;
+      height: 16px;
+      vertical-align: top;
+      margin-right: 10px;
+      margin-top: 3px;
     }
   }
 }

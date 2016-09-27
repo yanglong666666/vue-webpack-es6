@@ -142,6 +142,27 @@ class: file-review-list
     $('#diy-select-4').diySelect();
 
 
+    $('.btn-group').on('click',function(){
+      var $self = $(this);
+      if($self.find('.dropdown').length >0 ){
+        var ul = '<ul class="dropdown-list">'+
+          '<li class="dropdown-li">修改</li>'+
+          '<li class="dropdown-li">删除</li>'+
+          '</ul>';
+        if($self.find('.dropdown-list').length <= 0){
+          $self.append(ul);
+        }
+        if($self.hasClass('active')){
+          $self.removeClass('active');
+          $self.find('.dropdown-list').hide();
+        }else{
+          $self.addClass('active');
+          $self.find('.dropdown-list').show();
+        }
+      }
+    });
+
+
     //更多条件 点击事件
     $('.more-condition').on('click',function(){
       if($(this).text() == '更多条件'){

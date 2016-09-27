@@ -167,40 +167,10 @@ class: file-search-client-info
         </div>
       </div>
     </div>
+  </div>
 </div>
 <script type="text/javascript">
   $(function(){
-    $('#diy-select-1').diySelect();
-    $('#diy-select-2').diySelect();
-    $('#diy-select-3').diySelect();
-    $('#diy-select-4').diySelect();
 
-
-    //更多条件 点击事件
-    $('.more-condition').on('click',function(){
-      if($(this).text() == '更多条件'){
-        $(this).text('收起↑');
-        $('.search-group').find('.search-dl').addClass('show');
-      }else{
-        $(this).text('更多条件');
-        upItems();
-      }
-    });
-
-    //收起不是第一行的item
-    function upItems(){
-      var $searchGroup = $('.search-group');
-      var offsetTop;
-      $searchGroup.find('.search-dl').each(function(index,item){
-        if(index ==0 ){
-          offsetTop = $(item).offset().top;
-        }else{
-          if($(item).offset().top > offsetTop+10){
-            $(item).removeClass('show');
-          }
-        }
-      });
-    }
-    upItems();
   })
 </script>
