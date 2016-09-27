@@ -83,7 +83,7 @@ class: online-click
     </tbody>
   </table>
 </div>
-<div class="click-details-win">
+<!-- <div class="click-details-win">
   <div class="win-title">点赞详情</div>
   <div class="win-close" id="click_win_close">关闭</div>
   <div class="win-lists">
@@ -96,7 +96,13 @@ class: online-click
       <li>点赞数：1920</li>
     </ul>
   </div>
-</div>
+</div> -->
+
+<pre id="words_content" style="display:none">
+9月11日  点赞数：1920
+9月12日  点赞数：1920
+</pre>
+
 {% include component/pagenav.html %}
 <script type="text/javascript">
 
@@ -104,14 +110,31 @@ class: online-click
     $('#status_list').diySelect();
   });
 
-  $(".view-details-btn").on('click',function(){
-    $(".click-details-win").show();
-    $(".view-details-btn").disabled(true)
-  })
-  $("#click_win_close").on('click',function(){
-    $(".click-details-win").hide();
-    $(".view-details-btn").disabled(false)
-  })
+  // $(".view-details-btn").on('click',function(){
+  //   $(".click-details-win").show();
+  //   $(".view-details-btn").disabled(true)
+  // })
+  // $("#click_win_close").on('click',function(){
+  //   $(".click-details-win").hide();
+  //   $(".view-details-btn").disabled(false)
+  // })
+
+  $('.view-details-btn').on('click', function(event) {
+      //打开话术交互
+      var str = $('#words_content').html();
+      event.preventDefault();
+      /* Act on the event */
+      DIALOG.show({
+        dragable: true,
+        width: 350,
+        needIframe:true,
+        title: "点赞详情",
+        html: '<div class="dialog-content-words">'+
+          '<textarea>'+ str +'</textarea>'+
+        '</div>'
+      });
+      
+    });
 </script>
 
 
