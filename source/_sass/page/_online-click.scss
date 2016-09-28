@@ -1,0 +1,48 @@
+.page-online-click{
+	.click-details-win{
+		display: none;
+		z-index: 999;
+	    position: fixed;
+		width: 390px;
+		height: 280px;
+		border-radius: 5px;
+		top: 30%;
+		left: 35%;
+		border: 1px solid #ccc;
+		background: #fff;
+	}
+	.win-title{
+		height: 30px;
+		line-height: 30px;
+		padding-left: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+	.win-close{
+	    position: absolute;
+	    right: 20px;
+	    top: 5px;
+	    height: 20px;
+	    cursor: pointer;
+	}
+	.win-lists{
+		ul{
+			color: #000;
+			padding-top:5px;
+			padding-left:20px;
+		}
+		ul>li{
+			display: inline-block;
+			list-style: none;
+			height: 18px;
+			line-height: 18px;
+		}
+		ul>li:nth-child(odd){
+	      padding-left:5px;
+	      border-left:2px solid red;
+	    }
+	    ul>li:nth-child(even){
+	    	margin-left:50px;
+	    }
+	}
+
+}
