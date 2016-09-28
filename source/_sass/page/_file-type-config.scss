@@ -5,8 +5,9 @@
   width: 16px;
   height: 16px;
   vertical-align: middle;
-  margin-right: 3px;
+  margin-right: 5px;
   margin-top: -2px;
+  cursor: pointer;
 }
 .file-config-top {
   margin: 20px 0;
@@ -25,7 +26,16 @@
   margin-right: 3px;
 }
 .file-config-bottom {
-  margin-left: 15px;
+  padding: 6px 6px 6px 181px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  z-index: 10;
+  left: 0;
+  .btn {
+    margin-right: 10px;
+  }
 }
 .file-config-erweima {
   height: 28px;

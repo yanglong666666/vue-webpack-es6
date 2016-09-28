@@ -1,20 +1,22 @@
 /**
  * Wrapper
  */
- .container {
+.container {
   @include clearfix;
   width: 100%;
   height: auto;
   min-height: 100%;
   position: relative;
-  margin-top: 58px;
+  padding-top: 58px;
   .credit-inner {
     background: #fff;
   }
   .ui-wrap {
     position: relative;
     margin-left: 150px;
-    padding: 15px;
+    padding: 15px 15px 40px;
+    background: #fff;
+    z-index: 9;
   }
   .ui-content {
     .main-content {
@@ -27,7 +29,7 @@
         background: #fff;
       }
       &.no-margin-bottom {
-        margin-bottom: 0px;
+        margin-bottom: 0;
       }
     }
     .border-content {

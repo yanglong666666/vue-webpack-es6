@@ -1,12 +1,18 @@
 .leftaside {
-	position: relative;
-	float: left;
 	width: 150px;
-	padding-top: 10px;
+	padding-top: 58px;
+  padding-bottom: 40px;
   white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  background: #21283d;
   overflow: hidden;
-  margin-bottom: 40px;
 	.leftul {
+    width: 167px;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100%;
 		li {
 			position: relative;
       .iconfont {
@@ -115,13 +121,13 @@
 }
 
 .leftShadow {
-	background: #21283d;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	z-index: -1;
-	width: 150px;
-  min-height: 800px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 17px;
+  left: 150px;
 }
 .slideleft {
   background-color: #4c5262;
@@ -130,7 +136,7 @@
   //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff,endColorstr=#19ffffff);
   background-position: center;
   width: 150px;
-  height: 30px;
+  height: 40px;
   position: fixed;
   bottom: 0px;
   left: 0px;
