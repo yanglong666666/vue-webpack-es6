@@ -98,26 +98,24 @@ class: business-type-config
       }
     });
 
-    $('body').on('click','.dialog-tab',function(){
-      var $self = $(this);
-      $self.addClass('active').siblings('.dialog-tab').removeClass('active');
-
-      var contentHtml = '';
-      if($self.attr('type') == "1"){
-        contentHtml = '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input">0000档案文件列表</div>'+
-               '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input">0000档案文件列表</div>';
-      }else{
-        contentHtml = '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input">0000是否需要扫描列表</div>'+
-               '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input">0000是否需要扫描列表</div>';
-      }
-      $self.parent().siblings('.dialog-tab-content').html(contentHtml);
-    });
-
 
     $('body').on('click','.dialog-radio-wrap',function(){
       var $self = $(this);
       $self.siblings('.dialog-radio-wrap').find('.dialog-radio').prop('checked',false);
       $self.find('.dialog-radio').prop('checked',true);
+    });
+
+    $('body').on('click','.content-input',function(){
+      var $self = $(this);
+      if(!$self.prop('checked')){
+        $self.parent().siblings('.content-right').find('.content-radio').prop('checked',false);
+      }
+    });
+
+    $('body').on('click','.content-radio',function(){
+      var $self = $(this);
+      $self.siblings('.content-radio').prop('checked',false);
+      $self.prop('checked',true);
     });
 
     $('body').on('click','.dropdown-list .dropdown-li',function(event){
@@ -167,6 +165,7 @@ class: business-type-config
             '<div class="dialog-left must-icon">数量</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="2" />' +
+              '<span class="dialog-span" >个</span>' +
             '</div>' +
           '</div>'+
           '<div class="config-dialog-item">' +
@@ -279,19 +278,43 @@ class: business-type-config
           '<div class="dialog-left must-icon">使用客户类型</div>' +
           '<div class="dialog-right">' +
             '<select class="dialog-select" style="display: none;"><option>1</option><option>2</option></select>' +
-            '<div class="dialog-tab-wrap">' +
-              '<div class="dialog-tab-top">' +
-                '<div class="dialog-tab active" type="1">档案文件</div>' +
-                '<div class="dialog-tab" type="2">是否必须扫描</div>' +
+            '<div class="dialog-wrap">' +
+              '<div class="dialog-top">' +
+                '<div class="dialog">档案文件</div>' +
+                '<div class="dialog">是否必须扫描</div>' +
               '</div>' +
-              '<div class="dialog-tab-content">' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0002自然人证券账户申请表</div>' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0003资金账户开户申请表</div>' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0004身份验证申请表</div>' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0004身份验证申请表</div>' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0004身份验证申请表</div>' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0004身份验证申请表</div>' +
-                '<div class="dialog-tab-content-item"><input type="checkbox" class="dialog-tab-content-input" />0004身份验证申请表</div>' +
+              '<div class="dialog-content">' +
+                '<div class="dialog-content-item">' +
+                  '<div class="content-left">' +
+                    '<input type="checkbox" class="content-input" />0002自然人证券账户申请表' +
+                  '</div>' +
+                  '<div class="content-right">' +
+                    '<input type="checkbox" class="content-radio content-yes" />是' +
+                    '<div class="content-space"></div>' +
+                    '<input type="checkbox" class="content-radio content-no" />否' +
+                  '</div>' +
+                '</div>' +
+                '<div class="dialog-content-item">' +
+                  '<div class="content-left">' +
+                    '<input type="checkbox" class="content-input" />0002自然人证券账户申请表' +
+                  '</div>' +
+                  '<div class="content-right">' +
+                    '<input type="checkbox" class="content-radio content-yes" />是' +
+                    '<div class="content-space"></div>' +
+                    '<input type="checkbox" class="content-radio content-no" />否' +
+                  '</div>' +
+                '</div>' +
+                '<div class="dialog-content-item">' +
+                  '<div class="content-left">' +
+                    '<input type="checkbox" class="content-input" />0002自然人证券账户申请表' +
+                  '</div>' +
+                  '<div class="content-right">' +
+                    '<input type="checkbox" class="content-radio content-yes" />是' +
+                    '<div class="content-space"></div>' +
+                    '<input type="checkbox" class="content-radio content-no" />否' +
+                  '</div>' +
+                '</div>' +
+
               '</div>' +
             '</div>' +
           '</div>' +

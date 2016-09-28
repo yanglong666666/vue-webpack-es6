@@ -99,12 +99,13 @@
 
 .config-dialog-item {
   margin: 12px 0;
-  padding: 0 40px;
+  padding-left: 40px;
   font-size: 0;
+  white-space: nowrap;
   .dialog-left {
     display: inline-block;
     line-height: 28px;
-    padding-right: 36px;
+    padding-right: 24px;
     color: #666;
     width: 80px;
     text-align: left;
@@ -155,25 +156,28 @@
       width: 240px;
       @include border-radius(5px);
     }
-    .dialog-tab-wrap {
+    .dialog-span {
+      color: #666;
+      margin-left: 5px;
+    }
+    .dialog-wrap {
       width: 100%;
-      .dialog-tab-top {
+      .dialog-top {
         width: 100%;
-        .dialog-tab {
+        .dialog {
           display: inline-block;
           width: 50%;
           background-color: #C9D1DF;
           color: #333;
           line-height: 30px;
           text-align: center;
-          cursor: pointer;
-          &.active {
-            background-color: #3f88cc;
-            color: #fff;
+          @include box-sizing(border-box);
+          &:nth-child(1) {
+            border-right: solid 1px #E1E6EF;
           }
         }
       }
-      .dialog-tab-content {
+      .dialog-content {
         width: 100%;
         background-color: #E1E6EF;
         height: 140px;
@@ -182,18 +186,45 @@
         padding: 5px 10px 0;
         cursor: default;
         @include box-sizing(border-box);
-        .dialog-tab-content-item {
+        .dialog-content-item {
           line-height: 20px;
-          padding-left: 20px;
           position: relative;
           margin-bottom: 5px;
-          .dialog-tab-content-input {
-            position: absolute;
-            top: 2px;
-            left: 0;
-            width: 16px;
-            height: 16px;
+          padding-left: 17px;
+          .content-left,.content-right {
+            width: 50%;
+            display: inline-block;
+          }
+          .content-left {
+            position: relative;
+            padding-right: 5px;
+            @include box-sizing(border-box);
+            .content-input {
+              position: absolute;
+              top: 3px;
+              left: -17px;
+              width: 16px;
+              height: 16px;
+              vertical-align: top;
+              cursor: pointer;
+            }
+          }
+          .content-right {
             vertical-align: top;
+            text-align: center;
+            line-height: 20px;
+            .content-radio {
+              width: 16px;
+              height: 16px;
+              margin-right: 5px;
+              margin-top: 3px;
+              vertical-align: top;
+              cursor: pointer;
+            }
+            .content-space {
+              display: inline-block;
+              width: 40px;
+            }
           }
         }
       }
