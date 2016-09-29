@@ -30,12 +30,37 @@
       margin-left: 223px;
       padding: 0 30px;
       font-size: 0;
+      position: relative;
       ms-touch-action: manipulation;
       touch-action: manipulation;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      .top-btn-wrap {
+        position: absolute;
+        text-align: center;
+        right: 0;
+        top: 10px;
+        margin-right: 10px;
+        .btn {
+          width: 80px;
+          margin: 0 10px;
+          background: #fff;
+          color: #0054ab;
+          border-color: #fff;
+          ms-touch-action: manipulation;
+          touch-action: manipulation;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          opacity: .9;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
       .image-top-item {
         height: 100%;
         line-height: 48px;
@@ -192,6 +217,8 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      width: 100%;
+      @include box-sizing(border-box);
       .handle-item {
         color: #000;
         display: inline-block;
@@ -288,27 +315,10 @@
       .img {
         height: 95%;
         width: auto;
+        max-width: 100%;
         display: inline-block;
         @include box-shadow(0 2px 2px 0px #909090);
       }
-    }
-  }
-  .image-bottom {
-    height: 60px;
-    background: #fff;
-    min-width: 1200px;
-    padding: 10px 0 10px 223px;
-    border-top: solid 1px #dcdcdc;
-    text-align: center;
-    .btn {
-      width: 150px;
-      margin: 0 10px;
-      ms-touch-action: manipulation;
-      touch-action: manipulation;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
     }
   }
   .upload-dialog {

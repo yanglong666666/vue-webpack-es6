@@ -6,13 +6,17 @@ class: file-collection-scan
 
 <div class="image-content">
   <div class="image-top">
-    <div class="image-top-back"></div>
+    <!--<div class="image-top-back"></div>-->
     <div class="image-top-wrap">
       <div class="image-top-item scan">扫描</div>
       <div class="image-top-item camera">拍摄</div>
       <div id="save" class="image-top-item save">保存</div>
       <div id="upload" class="image-top-item upload">上传</div>
       <div id="delete" class="image-top-item delete">删除</div>
+      <div class="top-btn-wrap">
+        <a class="btn btn-hollow btn-small">取消</a>
+        <a class="btn btn-hollow btn-small">全部提交</a>
+      </div>
     </div>
   </div>
   <div class="image-middle">
@@ -67,7 +71,6 @@ class: file-collection-scan
       </div>
     </div>
   </div>
-  <div class="image-bottom"><a class="btn btn-fill submit">全部提交</a><a class="btn btn-hollow cancel">取消</a></div>
 </div>
 <script type="text/javascript">
   $(function(){
