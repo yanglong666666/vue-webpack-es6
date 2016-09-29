@@ -8,6 +8,7 @@
   top: 0;
   background: #21283d;
   overflow: hidden;
+  z-index: 9998;
 	.leftul {
     width: 167px;
     overflow: hidden;
@@ -140,7 +141,7 @@
   position: fixed;
   bottom: 0px;
   left: 0px;
-  z-index: 98;
+  z-index: 9999;
   cursor: pointer;
   &.right-on {
     background: #4c5262 url("../images/Group9-turn.png") no-repeat;
