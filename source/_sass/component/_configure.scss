@@ -10,6 +10,17 @@
     @include clearfix;
     overflow: hidden;
     margin-bottom: 25px;
+    .select-item {
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .select-link {
+        display: inline-block;
+        margin-left: 5px;
+        color: #3ecacb;
+      }
+    }
     .w-300 {
       width: 300px;
       .txt {
