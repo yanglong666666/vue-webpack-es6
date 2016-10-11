@@ -45,6 +45,21 @@
     }
     .configure-inner {
       float: left;
+      position: relative;
+      img{
+          padding: 15px 0 0 0;
+          display: inline-block;         
+      }
+      .file{
+          position:absolute;
+          opacity: 0;
+          left: 4px;
+          top: 3px;         
+      }
+      .xieyi{
+          margin-left: 10px;
+          vertical-align:middle
+      }
     }
     .query-btn {
       height: 37px;
@@ -133,11 +148,20 @@
       outline: none;
     }
   }
+  .configure-option{
+      margin-bottom: 1px;     
+  }
+  .configure-list{
+      margin-left: 30px;
+  }
   .commission-item {
     margin-bottom: 10px;
     .delete-btn {
       color: #3ecacb;
       font-size: 12px;
     }
+  }
+  .find{
+      line-height: 35px;
   }
 }

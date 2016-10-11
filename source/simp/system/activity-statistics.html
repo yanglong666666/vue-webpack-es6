@@ -1,0 +1,186 @@
+---
+title: 活动统计
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+  	<dl class="search-dl">
+      <dt>申请时间</dt>
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">-</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>渠道短码</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+   <dl class="search-dl">
+      <dt>所属上级</dt>
+      <dd>
+        <label>
+          <select  class="txt " >
+		      <option selected="" value="1">工商银行</option>
+		      <option value="2">工商银行</option>
+		  </select>
+        </label>
+
+        <label>
+         <select  class="txt ">
+		      <option selected="" value="1">杭州分行</option>
+		      <option value="2">杭州分行</option>
+		  </select>
+        </label>
+        
+        <label>
+         <select  class="txt " >
+		      <option selected="" value="1">滨江支行</option>
+		      <option value="2">滨江支行</option>
+		  	</select>
+        </label>
+      </dd>
+    </dl>
+    
+    <!--<dl class="search-dl">
+      <dt>所属上级</dt>
+      <dd>
+        <label>
+           <select  class="txt " >
+		      <option selected="" value="1">滨江支行</option>
+		      <option value="2">滨江支行</option>
+		  	</select>
+          <i></i>
+        </label>
+
+        <label>
+          <input class="txt" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+        
+        <label>
+          <input class="txt" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>-->
+    
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn-primary output" href="#">输出报表</button>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr class="top" style="background: #e1e6ef;height:60px;text-align: center;line-height: 60px;">
+        <td width="10%">账号</td>
+        <td width="10%">名称</td>
+        <td width="10%">渠道短码</td>
+        <td width="15%">所属上级</td>
+        <td width="8%">开户量  ↑</td>
+        <td width="8%">有效户  ↑</td>
+        <td width="13%">收益  ↑</td>
+        <td width="13%">佣金  ↑</td>
+        <td width="13%">总资产  ↑</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12132331</td>
+        <td>新浪理财师</td>
+        <td>DG100215</td>
+        <td>工商银行浙江分行</td>
+        <td>12034</td>
+        <td>234</td>
+        <td>123,123,000.00</td>
+        <td>123,123,000.00</td>
+      	<td>123,123,000.00</td>
+      </tr>
+       <tr>
+        <td>12132331</td>
+        <td>新浪理财师</td>
+        <td>DG100215</td>
+        <td>工商银行浙江分行</td>
+        <td>12034</td>
+        <td>234</td>
+        <td>123,123,000.00</td>
+        <td>123,123,000.00</td>
+      	<td>123,123,000.00</td>
+      </tr>
+       <tr>
+        <td>12132331</td>
+        <td>新浪理财师</td>
+        <td>DG100215</td>
+        <td>工商银行浙江分行</td>
+        <td>12034</td>
+        <td>234</td>
+        <td>123,123,000.00</td>
+        <td>123,123,000.00</td>
+      	<td>123,123,000.00</td>
+      </tr>
+       <tr>
+        <td>12132331</td>
+        <td>新浪理财师</td>
+        <td>DG100215</td>
+        <td>工商银行浙江分行</td>
+        <td>12034</td>
+        <td>234</td>
+        <td>123,123,000.00</td>
+        <td>123,123,000.00</td>
+      	<td>123,123,000.00</td>
+      </tr>
+       <tr>
+        <td>12132331</td>
+        <td>新浪理财师</td>
+        <td>DG100215</td>
+        <td>工商银行浙江分行</td>
+        <td>12034</td>
+        <td>234</td>
+        <td>123,123,000.00</td>
+        <td>123,123,000.00</td>
+      	<td>123,123,000.00</td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function () {
+    $('.diy-select').diySelect();
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+  });
+</script>
+
+
