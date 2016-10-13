@@ -130,3 +130,41 @@
     }
   }
 }
+.ui-timepicker-div{
+    position: relative;
+    height: 50px;
+    .ui_tpicker_time_label{
+        position: absolute;
+        left:19px;            
+    }
+    .ui_tpicker_hour_label{
+        position: absolute;
+        left:100px; 
+        top:0;
+    }
+    .ui_tpicker_minute_label{
+        position: absolute;
+        left:190px; 
+        top:0       
+    }
+    .ui_tpicker_time{
+        position: absolute;
+        left:19px;
+        top:30px;     
+    }
+    .ui_tpicker_hour{
+        position: absolute;
+        left:100px;
+        top:30px;     
+    }
+    .ui_tpicker_minute{
+        position: absolute;
+        left:190px;
+        top:30px;
+        
+    }
+
+
+}
+
+

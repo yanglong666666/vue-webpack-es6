@@ -153,16 +153,17 @@ class: attestation
   </table>
 </div>
 {% include component/pagenav.html %}
+<script src="../../javascript/jquery-ui-timepicker-addon.js"></script>
 <script>
 $(function (){
 	$('#department').diySelect();
 	$('#protocal').diySelect();
-	$('.begin-time').datepicker({
+	$('.begin-time').datetimepicker({
 		onClose: function( selectedDate ) {
 			$('.end-time').datepicker( "option", "minDate", selectedDate );
 			}
 	});
-	$('.end-time').datepicker({
+	$('.end-time').datetimepicker({
 		onClose: function( selectedDate ) {
 			$('.begin-time').datepicker( "option", "maxDate", selectedDate );
 		}
