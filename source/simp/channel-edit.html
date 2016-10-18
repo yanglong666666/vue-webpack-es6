@@ -14,26 +14,28 @@ layout: default
       <div class="configure-inner">
         <select name="" id="owner_list" class="diy-select" style="display: none;">
           <option selected="" value="1">营业部2</option>
-          <option value="2">营业部111</option>
+          <option value="2">营业部111</option>       
         </select>
       </div>
     </div>
     <div class="configure-item">
       <span class="name">有效户标准</span>
-      <div class="configure-inner">
+      <div class="configure-inner">     	
         <div class="select-item">
           <select name="" id="effective_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">营业部2</option>
-            <option value="2">营业部111</option>
+            <option selected="" value="1">条件1</option>
+            <option value="2">条件2</option>     
           </select>
-          <span>*对有效户的定义</span>
+          <a class="btn-add select-link state1" href="javascript:void(0);">添加</a>
+          <span class="state2" style="display: none;">*对有效户的定义</span>
         </div>
-        <div class="select-item">
+        <p class="state2" style="display: none;margin-bottom: 5px;">或</p>
+        <div class="select-item state2" style="display: none;">
           <select name="" id="effective_list1" class="diy-select" style="display: none;">
-            <option selected="" value="1">营业部2</option>
-            <option value="2">营业部111</option>
+            <option selected="" value="1">条件1</option>
+            <option value="2">条件2</option>     
           </select>
-          <a class="select-link" href="#">删除</a>
+          <a class="select-link btn-del" href="#">删除</a>
         </div>
       </div>
     </div>
@@ -187,6 +189,14 @@ layout: default
 </div>
 <script type="text/javascript">
   $(function(){
+  	$(".btn-add").click(function(){
+  		$(".state1").hide();
+  		$(".state2").show();
+  	});
+  	$(".btn-del").click(function(){
+  		$(".state1").show();
+  		$(".state2").hide();
+  	});  	
     $('.diy-select').diySelect({width: '280px'});
     $('.department-content').on('click', '.delete-btn', function(event) {
       //删除营业部
