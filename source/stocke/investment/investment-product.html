@@ -1,0 +1,171 @@
+---
+title: 投顾产品管理
+layout: default
+---
+
+<div class="main-content">
+  <div class="search-group">
+    <dl class="search-dl">
+      <dt>产品名称</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>对应投顾</dt>
+      <dd>
+        <label class="w-170">
+          <input type="text" class="txt">
+        </label>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dt>状态</dt>
+      <dd>
+        <span>
+          <select class="diy-select" id="status_list" style="display: none;">
+            <option selected="" value="1">全部</option>
+            <option value="2">未上线</option>
+            <option value="3">已上线</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="button-content">
+    <button class="btn-fill btn-lg">查询</button>
+    <a class="btn btn-small btn-primary output" href="product-info.html">新增</a>
+    <a class="btn btn-small btn-primary output2" href="product-info1.html">新增子产品</a>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+      <tr>
+        <th width="10%">序号</th>
+        <th width="20%">产品名称</th>
+        <th width="10%">价格</th>
+        <th width="10%">对应投顾</th>
+        <th width="10%">展示序号</th>
+        <th width="10%">状态</th>
+        <th width="10%">时间</th>
+        <th width="20%" class="text-c">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>投顾产品</td>
+        <td>2999/月</td>
+        <td>张三</td>
+        <td>10</td>
+        <td>未上线</td>
+        <td>2016-09-09</td>
+        <td class="text-c">
+          <div class="btn-group">
+            <a href="#" class="btn btn-fill btn-small">修改</a>
+            <i class="dropdown"></i>
+            <ul class="sub-group">
+              <li><a href="#">删除</a></li>
+              <li><a href="#">下线</a></li>
+              <li><a href="investment-productchild.html">子产品</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>1</td>
+        <td>投顾产品</td>
+        <td>2999/月</td>
+        <td>张三</td>
+        <td>10</td>
+        <td>未上线</td>
+        <td>2016-09-09</td>
+        <td class="text-c">
+          <div class="btn-group">
+            <a href="#" class="btn btn-fill btn-small">修改</a>
+            <i class="dropdown"></i>
+            <ul class="sub-group">
+              <li><a href="#">删除</a></li>
+              <li><a href="#">下线</a></li>
+               <li><a href="investment-productchild.html">子产品</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>投顾产品</td>
+        <td>2999/月</td>
+        <td>张三</td>
+        <td>10</td>
+        <td>未上线</td>
+        <td>2016-09-09</td>
+        <td class="text-c">
+          <div class="btn-group">
+            <a href="#" class="btn btn-fill btn-small">修改</a>
+            <i class="dropdown"></i>
+            <ul class="sub-group">
+              <li><a href="#">删除</a></li>
+              <li><a href="#">下线</a></li>
+               <li><a href="investment-productchild.html">子产品</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>1</td>
+        <td>投顾产品</td>
+        <td>2999/月</td>
+        <td>张三</td>
+        <td>10</td>
+        <td>未上线</td>
+        <td>2016-09-09</td>
+        <td class="text-c">
+          <div class="btn-group">
+            <a href="#" class="btn btn-fill btn-small">修改</a>
+            <i class="dropdown"></i>
+            <ul class="sub-group">
+              <li><a href="#">删除</a></li>
+              <li><a href="#">下线</a></li>
+              <li><a href="investment-productchild.html">子产品</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+$(function () {
+  $('.diy-select').diySelect();
+  $('.btn-group').on('mouseenter', '.dropdown', showDropdown);
+  $('.btn-group').on('mouseleave', '.dropdown', hideDropdown);
+  $('.btn-group').on('mouseleave', '.sub-group', hideSelf);
+
+  function showDropdown(e) {
+    var $btn = $(e.target).parent().find('.btn');
+    var width = $btn.outerWidth() - 2;
+
+    $(e.target).next('ul').width(width).show();
+  }
+
+  function hideDropdown(e) {
+    var evt = e || window.event;
+    var relatedNode = evt.relatedTarget || evt.toElement;
+    var ul = $(e.target).next('ul')[0];
+    var isInside = $.contains(ul, relatedNode);
+    var isEqual = (relatedNode == ul);
+
+    if (isInside || isEqual) return;
+    $(e.target).next('ul').hide();
+  }
+
+  function hideSelf() {
+    $(this).hide();
+  }
+});
+</script>
