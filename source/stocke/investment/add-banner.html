@@ -1,0 +1,71 @@
+---
+title: 添加广告图片
+layout: default
+class: add-banner
+---
+
+<div class="main-content">
+  <div class="add-item">
+    <a href="banner.html" class="back">&lt;返回</a>
+    <div class="item-box">
+      <div class="item-title">图片位置：</div>
+      <div class="item-info clearfix">
+        <label class="w-170"><input type="checkbox" name="position">投顾资讯</label>
+        <label class="w-170"><input type="checkbox" name="position">投顾产品</label>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">图片上传：</div>
+      <div class="item-info">
+        <div class="upload-box">
+          <div class="upload">
+            <span class="upload-bg">选择文件</span>
+            <input class="input-file" type="file" size="90">
+          </div>
+          <span class="advice">（建议图片尺寸：1280px*325px）</span>
+        </div>
+        <div class="img-box">
+          <img src="{{ site.static }}/images/banner.jpg" width="191" height="43">
+        </div>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">链接：</div>
+      <div class="item-info">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">展示序号：</div>
+      <div class="item-info">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">是否上线：</div>
+      <div class="item-info">
+        <label class="w-170">
+          <input type="radio" name="online"> 是
+        </label>
+        <label class="w-170">
+          <input type="radio" name="online"> 否
+        </label>
+      </div>
+    </div>
+    <div class="button-inner">
+      <button class="btn btn-fill">确定</button>
+      <button class="btn btn-primary">取消</button>
+    </div>
+  </div>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+$(function () {
+  $('#device').diySelect();
+  $('#page').diySelect();
+});
+</script>
