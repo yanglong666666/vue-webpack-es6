@@ -4,39 +4,90 @@
 .container {
   @include clearfix;
   width: 100%;
-  height: auto;
-  min-height: 100%;
+  height: 100%;
   position: relative;
-  padding-top: 58px;
+  padding-top: 62px;
+  @include box-sizing(border-box);
   .credit-inner {
     background: #fff;
+    height: 100%;
+  }
+  .container-inner {
+    height: 100%;
   }
   .ui-wrap {
     position: relative;
-    margin-left: 150px;
-    padding: 15px 15px 40px;
-    background: #fff;
-    z-index: 9;
+    height: 100%;
+    margin-left: 200px;
+    background-color: #fff;
+    z-index: 99;
+    .nav-cftrade {
+      border-bottom: 4px solid $theme-color;
+      background-color: white;
+      ul {
+        height: 36px;
+        padding: 0 20px;
+        li {
+          cursor: pointer;
+          display: inline-block;
+          text-align: center;
+          height: 36px;
+          padding: 0 10px;
+          box-sizing: border-box;
+          line-height: 36px;
+          border-radius: 4px 4px 0 0;
+          max-width: 104px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          min-width: 76px;
+          &.active {
+            background-color: $theme-color;
+            color: white;
+            position: relative;
+            .icon-close {
+              background: url("../images/cftrade/close-nav.png") 4px 4px no-repeat;
+              width: 15px;
+              height: 15px;
+              position: absolute;
+              right: 0;
+              top: 0;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      &.nav-cfrobot {
+        ul {
+          li {
+            width: 120px;
+          }
+        }
+      }
+    }
   }
-  .ui-content {
-    .main-content {
-      position: relative;
-      padding: 20px;
-      background: #f0f4fb;
-      margin-bottom: 20px;
-      height: auto;
-      &.no-back {
-        background: #fff;
-      }
-      &.no-margin-bottom {
-        margin-bottom: 0;
-      }
+}
+.ui-content {
+  margin-bottom: 50px;
+  padding: 20px;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  .main-content {
+    position: relative;
+    margin-bottom: 20px;
+    height: auto;
+    &.no-back {
+      background: #fff;
     }
-    .border-content {
-      border: 1px solid #f0f4fb;
-      padding: 15px;
-      margin-bottom: 20px;
-      overflow: hidden;
+    &.no-margin-bottom {
+      margin-bottom: 0px;
     }
+  }
+  .border-content {
+    border: 1px solid #f0f4fb;
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
   }
 }

@@ -275,3 +275,28 @@ table.czls-style{
 .ui-table-info table.czls-style tbody td:nth-child(4){
   width:15%;
 }
+
+
+
+//new common
+// 加载
+.shadow-div {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 62px;
+  left: 0;
+  z-index: 20160615;
+  display: none;
+  .loading-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
+    z-index: 2016061501;
+    background: url('../images/cftrade/loading.gif') no-repeat;
+  }
+}

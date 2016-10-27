@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body {% if page.class %} class="page-{{ page.class }}"{% endif %}>
+<div class="ui-content">
+  <div class="ui-content-scroll">
+    {{ content }}
+  </div>
+</div>
+</body>
+</html>

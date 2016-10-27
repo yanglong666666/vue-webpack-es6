@@ -1,0 +1,83 @@
+<div class="leftaside">
+    <ul class="leftul">
+        <li class="index index-archive-manage">
+            <span class="icon"></span>
+            <p class=""><a href="javascript:void(0)" data-json='{"href":"index","cd":"","name":"首页"}'>首页</a></p>
+        </li>
+        <li class="index index-archive-manage">
+            <span class="icon"></span>
+            <p class="cftrade-p">档案管理</p>
+            <ul class="inner-ul">
+                <li><a href="javascript:void(0)" data-json='{"href":"index","cd":"","name":"首页"}'>首页</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"arch-configs","cd":"cf/cfarchives","name":"业务档案配置"}'>业务档案配置</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"arch-type-query","cd":"cf/cfarchives","name":"档案类型查询"}'>档案类型查询</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"home","cd":"cf/cfarchives","name":"档案物理位置管理"}'>档案物理位置管理</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"event-manager","cd":"cfarchives","name":"档案文件版本维护"}'>档案文件版本维护</a></li>
+              <li><a href="javascript:void(0)" data-json='{"href":"modal-review","cd":"cfarchives","name":"合同管理"}'>合同管理</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"task-review","cd":"cfarchives","name":"档案档案查询"}'>档案档案查询</a></li>
+            </ul>
+            <b></b>
+        </li>
+
+        <li class="index index-archive-manage">
+            <span class="icon"></span>
+            <p class="">平台管理</p>
+            <ul class="inner-ul">
+                <li><a href="javascript:void(0)" data-json='{"href":"home","cd":"cftrade","name":"首页"}'>审核列表</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"mot-event","cd":"cftrade","name":"MOT事件"}'>消息中心</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"modal-manager","cd":"cftrade","name":"处理模版管理"}'>用户管理</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"event-manager","cd":"cftrade","name":"事件群组管理"}'>组织关系配置</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"modal-review","cd":"cftrade","name":"处理模版审核"}'>尸体维护</a></li>
+            </ul>
+            <b></b>
+        </li>
+        <li class="index index-archive-manage">
+            <span class="icon"></span>
+            <p class="">客户屏幕管理</p>
+            <ul class="inner-ul">
+                <li><a href="javascript:void(0)" data-json='{"href":"home","cd":"cftrade","name":"首页"}'>质检系统</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"mot-event","cd":"cftrade","name":"MOT事件"}'>任务设置</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"modal-manager","cd":"cftrade","name":"处理模版管理"}'>客户质检任务</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"event-manager","cd":"cftrade","name":"事件群组管理"}'>业务质检任务</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"modal-review","cd":"cftrade","name":"处理模版审核"}'>客户质检补录</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"task-review","cd":"cftrade","name":"处理任务审核"}'>业务质检补录</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"search","cd":"cftrade","name":"事件统计"}'>补录审核任务</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"search","cd":"cftrade","name":"事件统计"}'>质检报告</a></li>
+                <li><a href="javascript:void(0)" data-json='{"href":"search","cd":"cftrade","name":"事件统计"}'>档案更新记录</a></li>
+            </ul>
+            <b></b>
+        </li>
+
+    </ul>
+</div>
+<script_add></script_add>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //点击含有二级li的p的效果
+        var href = window.location.href;
+        $(".leftul>li>p").each(function () {
+            var flag = 0;
+            $(this).click(function () {
+                if (!flag) {
+                    $(this).siblings("ul").slideDown(200);
+                    $(this).parent().find("p").addClass("current");
+                    $(this).parent().find("b").addClass("current");
+                    $(this).parent().addClass("current");
+                    flag = 1;
+                } else {
+                    $(this).parent().find("ul").slideUp(200);
+                    $(this).parent().find("p").removeClass("current");
+                    $(this).parent().find("b").removeClass("current");
+                    $(this).parent().removeClass("current");
+                    flag = 0;
+                }
+            });
+        });
+    });
+    $(".index a").click(function () {
+            var href = $(this).data("json").href;
+            var name = $(this).data("json").name;
+            var cd = $(this).data("json").cd;
+            go_url(href,cd,name);
+    })
+</script>

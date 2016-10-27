@@ -2,13 +2,20 @@
 <html>
 {% include head.html %}
 <body {% if page.class %} class="page-{{ page.class }}"{% endif %}>
-{% include header.html %}
-<div class="container">
+{% include header-cftrade.html %}
+<div class="container container-cftrade">
   <div class="container-inner">
-    {% include aside.html %}
-    <div class="ui-wrap">
+    {% include aside-cftrade.html %}
+    <div class="ui-wrap ui-wrap-cftrade">
+      {% include nav-cftrade.html %}
+      <div class="shadow-div">
+        <i class="loading-img"></i>
+      </div>
       <div class="ui-content">
-        {{ content }}
+        <iframe id="iframepage" frameborder="0" scrolling="no" src="/cf/cfarchives/arch-configs.html?from=iframe" style="border:none;width:100%;height: 100%;"></iframe>
+        <div class="ui-content-scroll">
+          {{ content }}
+        </div>
       </div>
     </div>
   </div>

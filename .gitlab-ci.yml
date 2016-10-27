@@ -13,11 +13,11 @@ build:
     - public/
     expire_in: 2 weeks
   only:
-    - new-background
+    - cf-sbc-background
 
 deploy:
   stage: deploy
   script:
-    - find public -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://192.168.1.211/bms-new/{} \;
+    - find public -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://192.168.1.211/cf-sbc-background/{} \;
   only:
-    - new-background
+    - cf-sbc-background

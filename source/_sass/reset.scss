@@ -34,15 +34,20 @@ figure {
 /**
  * Basic styling
  */
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
   font-weight: 300;
-  color: $text-color;
+  color: $font-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
   min-width: 1000px;
+  overflow: hidden;
 }
 
 table {
@@ -96,19 +101,6 @@ a img {
   height: 30px;
   line-height: 30px;
 }
-
-/**
- * Clearfix
- */
-
-// %clearfix {
-//   *zoom: 1;
-//   &:after {
-//     content: "";
-//     display: table;
-//     clear: both;
-//   }
-// }
 
 button {
   font-family: $base-font-family;
