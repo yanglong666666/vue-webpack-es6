@@ -1,139 +1,70 @@
 <div class="nav-cftrade">
-    <ul>
-        <!--<li class="active">营业部排名-->
-        <!--<i class="icon-close"></i></li>-->
-    </ul>
+  <ul>
+    <!--<li class="active">营业部排名-->
+    <!--<i class="icon-close"></i></li>-->
+  </ul>
 </div>
 <!--<ul class="ul-menu"style="top:100px;left:100px"><li>关闭当前标签</li><li>关闭其他标签</li></ul>-->
 <script type="text/javascript">
-    $(".nav-cftrade ul").on('click', " li", function () {
-        var href = $(this).data("href");
-        var cd = $(this).data("cd");
+  $(".nav-cftrade ul").on('click', " li", function () {
+    var href = $(this).data("href");
+    $(".nav-cftrade ul li").removeClass("active");
+    $(this).addClass("active");
 
-        //模拟调用申请数据
-        $('.shadow-div').show();
+    $('.iframepage').hide();
+    $(document.getElementById(href)).show();
+  });
 
-
-        $(".nav-cftrade ul li").removeClass("active");
-        $(".nav-cftrade ul li").find(".icon-close").remove();
-        $(this).addClass("active");
-
-        $(this).append('<i class="icon-close"title="关闭"></i>');
-        setTimeout(function () {
-            var htmlObj = $.ajax({url: href + ".html", async: false});
-            $(".ui-content").html($(htmlObj.responseText).find(".ui-content"));
-
-            var varScript = document.createElement("script");
-            varScript.language = "javascript";
-            varScript.type = "text/javascript";
-            varScript.src = "/javascript/" + cd + "/" + href + ".js";
-            $("script_add").html(varScript);
-            $(".js-dialog").remove();
-            $('.shadow-div').hide();
-        }, 5000);
-    })
-    $(".nav-cftrade ul").on("contextmenu", "li", function (e) {
-        e.preventDefault();
-        $('.ul-menu').remove();
-        var html = '<ul class="ul-menu"style="top:' + e.pageY + 'px;left:' + e.pageX + 'px"data-href="' + $(this).data('href') + '"><li id="close-now">关闭当前标签</li><li id="close-other">关闭其他标签</li></ul>';
-        $("body").append(html);
-    })
-
-    $("body").on("click", ".ul-menu #close-now", function () {
-        close_nav($(this).parent().data('href'));
-    })
-
-    $("body").on("click", ".ul-menu #close-other", function () {
-        close_other_nav($(this).parent().data('href'));
-    })
-    $(document).click(function () {
-        $(".ul-menu").remove();
-    })
-
-    function close_nav(data_href) {
-        var li_all = $(".nav-cftrade ul").find("li");
-        var index;
-        for (var i in li_all) {
-            if (li_all.eq(i).data('href') == data_href) {
-                index = i;
-            }
-        }
-        if (li_all.eq(index).find('.icon-close').length == 0) {//如果当前关闭的标签不是激活的标签的话，那么就不用其他操作
-            li_all.eq(index).remove();
-            return;
-        } else {//如果当前关闭的标签是激活的标签，那么要把激活状态转给其他标签
-            li_all.eq(index).remove();
-            li_all = $(".nav-cftrade ul").find("li");
-            if (li_all.length == 0) {
-                $(".ui-content").html("");
-            } else {
-                var that;
-                if (index == li_all.length) {
-                    that = li_all[li_all.length - 1];
-                } else {
-                    that = li_all[index];
-                }
-                var href = $(that).data("href");
-                var cd = $(that).data("cd");
-
-
-                //模拟调用申请数据
-                $('.shadow-div').show();
-
-
-                $(that).addClass("active");
-                $(that).append('<i class="icon-close"title="关闭"></i>');
-                setTimeout(function () {
-                    var htmlObj = $.ajax({url: href + '.html', async: false});
-                    $(".ui-content").html($(htmlObj.responseText).find(".ui-content").html());
-
-                    var varScript = document.createElement("script");
-                    varScript.language = "javascript";
-                    varScript.type = "text/javascript";
-                    varScript.src = "/javascript/" + cd + "/" + href + ".js";
-                    $("script_add").html(varScript);
-                    $(".js-dialog").remove();
-                    $('.shadow-div').hide();
-                    $('.shadow-div').hide();
-                }, 5000);
-            }
-        }
+  function close_nav(self) {
+    var $self = $(self);
+    var currentLi = $self.parent();
+    var nextLi;
+    //判断li前后是否有，next>prev>index-home.html
+    if(currentLi.next().length > 0 ){
+      nextLi = currentLi.next();
+    }else if(currentLi.prev().length > 0 ){
+      nextLi = currentLi.prev();
+    }else{
+      nextLi = "";
     }
 
-    function close_other_nav(data_href) {
-        var li_all = $(".nav-cftrade ul").find("li");
-        li_all.each(function () {
-            if ($(this).data('href') != data_href) {
-                $(this).remove();
-            }
-        })
-        $that = $(".nav-cftrade ul").find("li").eq(0);//剩下的一个添加选中事件
-        go_url($that.data("href"), $that.data("cd"), $that.data("name"));
-    }
+    if(nextLi){
+      currentLi.remove();
 
-    $(".nav-cftrade ul").on("click", "li .icon-close", function (event) {
-        event.preventDefault();
-        if (event && event.stopPropagation) {
-            event.stopPropagation();
-        } else {//IE浏览器
-            event.cancelBubble = true;
-        }
-        close_nav($(this).parent().data('href'));
-    })
-    var maxNum = 19999;
-    $("body").on("click", '.page-num', function () {
-        $(this).addClass('thisPage').siblings().removeClass('thisPage');
-        $(this).parents("ul").find('li').removeClass('no-page');
-        if ($(this).text() == 1) {
-            $('.page-up').addClass('no-page');
-            $('.page-up').html('<span class="pageUp">< 上一页</span>');
-        }
-        else if ($(this).text() == maxNum) {
-            $('.page-down').html('<span class="pageDown">下一页 ></span>');
-            $('.page-down').addClass('no-page');
-        } else {
-            $('.page-up').html('<a href="javascript:void(0)">< 上一页</a>');
-            $('.page-down').html('<a href="javascript:void(0)">下一页 ></a>');
-        }
-    })
+      $('#'+currentLi.data('href')).remove();
+
+      nextLi.show().addClass('active');
+      $('#'+nextLi.data('href')).show();
+    }else{
+      currentLi.remove();
+      $('.leftul li').eq(0).find('a').click().parent().addClass('current');
+    }
+  }
+
+  $(".nav-cftrade ul").on("click", ".icon-close", function (event) {
+    event.preventDefault();
+    if (event && event.stopPropagation) {
+      event.stopPropagation();
+    } else {//IE浏览器
+      event.cancelBubble = true;
+    }
+    close_nav(this);
+  });
+
+  var maxNum = 19999;
+  $("body").on("click", '.page-num', function () {
+    $(this).addClass('thisPage').siblings().removeClass('thisPage');
+    $(this).parents("ul").find('li').removeClass('no-page');
+    if ($(this).text() == 1) {
+      $('.page-up').addClass('no-page');
+      $('.page-up').html('<span class="pageUp">< 上一页</span>');
+    }
+    else if ($(this).text() == maxNum) {
+      $('.page-down').html('<span class="pageDown">下一页 ></span>');
+      $('.page-down').addClass('no-page');
+    } else {
+      $('.page-up').html('<a href="javascript:void(0)">< 上一页</a>');
+      $('.page-down').html('<a href="javascript:void(0)">下一页 ></a>');
+    }
+  })
 </script>

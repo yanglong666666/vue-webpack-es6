@@ -1296,35 +1296,13 @@ var DIALOG = {
 /*
  * 财富页面的切换
  */
-var go_url = function (href, cd, name) {
+var go_url = function (href, param, name) {
   var contentHtml = ['<div class="form form-add">',
     '<div class="form-group">',
     '标签不能超过七个，请关闭其他标签',
     '</div>'].join('');
-  var li_all = $(".nav-cftrade ul li");
-  for (var i in li_all) {
-    if (href == li_all.eq(i).data("href")) {
 
-      //模拟调用申请数据
-      $('.shadow-div').show();
-      li_all.removeClass("active");
-      li_all.find(".icon-close").remove();
-      li_all.eq(i).addClass("active");
-      li_all.eq(i).append('<i class="icon-close"title="关闭"></i>');
-      setTimeout(function () {
-        var htmlObj = $.ajax({url: href + '.html', async: false});
-        $(".ui-content").html($(htmlObj.responseText).find(".ui-content").html());
-        var varScript = document.createElement("script");
-        varScript.language = "javascript";
-        varScript.type = "text/javascript";
-        varScript.src = "/javascript/" + cd + "/" + href + ".js";
-        $("script_add").html(varScript);
-        $(".js-dialog").remove();
-        $('.shadow-div').hide();
-      }, 5000);
-      return;//如果有一个同名的话就控制样式返回，否则就往下走添加
-    }
-  }
+  var li_all = $(".nav-cftrade ul li");
   if (li_all.length == 7) {
     var dailog = new Dialog(null, {
       title: '提示',
@@ -1340,24 +1318,33 @@ var go_url = function (href, cd, name) {
     dailog.show();
     return;
   } else {
-
-    //模拟调用申请数据
     $('.shadow-div').show();
+    $('.iframepage').hide();
+    var tabHasThis = false;
+    for (var i in li_all) {
+      if (href == li_all.eq(i).data("href")) {
+        //模拟调用申请数据
+        $('.shadow-div').show();
+        li_all.removeClass("active");
+        li_all.eq(i).addClass("active");
+        $(document.getElementById(href)).show();
+        tabHasThis = true;
+      }
+    }
+    if(!tabHasThis){
+      //tab栏增加一项
+      li_all.removeClass("active");
+      var child_li = ' <li data-href="' + href + '"data-param="' + param + '" title="' + name + '" class="active">' + name + '<i class="icon-close" title="关闭"></i></li>';
+      $(".nav-cftrade ul").append(child_li);
 
-    li_all.removeClass("active");
-    li_all.find(".icon-close").remove();
-    var child_li = ' <li data-href="' + href + '"data-cd="' + cd + '" title="' + name + '" class="active">' + name + '<i class="icon-close"title="关闭"></i></li>';
-    $(".nav-cftrade ul").append(child_li);
-    setTimeout(function () {
-      var htmlObj = $.ajax({url: href + '.html', async: false});
-      $(".ui-content").html($(htmlObj.responseText).find(".ui-content").html());
-      var varScript = document.createElement("script");
-      varScript.language = "javascript";
-      varScript.type = "text/javascript";
-      varScript.src = "/javascript/" + cd + "/" + href + ".js";
-      $("script_add").html(varScript);
-      $(".js-dialog").remove();
-      $('.shadow-div').hide();
-    }, 5000);
+      var doc = document;
+      var ifr = doc.createElement('iframe');
+      ifr.id = href;
+      ifr.className = "iframepage";
+      ifr.src = href + '.html' + param;
+      var iframeWrap = doc.getElementById('iframeWrap');
+      iframeWrap.appendChild(ifr);
+    }
+    $('.shadow-div').hide();
   }
-}
+};

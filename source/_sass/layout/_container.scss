@@ -24,6 +24,10 @@
     .nav-cftrade {
       border-bottom: 4px solid $theme-color;
       background-color: white;
+      position: absolute;
+      top: 0;
+      left:0;
+      width: 100%;
       ul {
         height: 36px;
         padding: 0 20px;
@@ -41,20 +45,25 @@
           overflow: hidden;
           white-space: nowrap;
           min-width: 76px;
+          .icon-close {
+            background: url("../images/cftrade/close-nav.png") 4px 4px no-repeat;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            display: none;
+          }
           &.active {
             background-color: $theme-color;
             color: white;
             position: relative;
             .icon-close {
-              background: url("../images/cftrade/close-nav.png") 4px 4px no-repeat;
-              width: 15px;
-              height: 15px;
-              position: absolute;
-              right: 0;
-              top: 0;
-              cursor: pointer;
+              display: inline-block;
             }
           }
+
         }
       }
       &.nav-cfrobot {
@@ -68,11 +77,9 @@
   }
 }
 .ui-content {
-  margin-bottom: 50px;
-  padding: 20px;
   height: 100%;
-  overflow: hidden;
-  overflow-y: auto;
+  padding-top: 40px;
+  @include box-sizing(border-box);
   .main-content {
     position: relative;
     margin-bottom: 20px;
@@ -90,4 +97,16 @@
     margin-bottom: 20px;
     overflow: hidden;
   }
+}
+.ui-content-scroll {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 15px;
+  @include box-sizing(border-box);
+}
+.iframepage {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
