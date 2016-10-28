@@ -1,0 +1,80 @@
+---
+title: 业务档案配置
+layout: default-iframe
+---
+<script type="text/javascript" src="/javascript/page/arch-contracts-manager.js"></script>
+<div class="main-content arch-contracts-manager">
+  <div class="task-search clearfix">
+    <button class="btn-fill btn-lg download floatleft btn-add">登记</button>
+    <button class="btn-fill btn-lg download floatleft btn-add marginleft20">销毁</button>
+    <button class="btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="合同编号">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="yyb_list" class="diy-select">
+            <option selected="" value="1">使用营业部</option>
+            <option selected="" value="2">武汉营业部</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="model_list" class="diy-select">
+            <option selected="" value="1">业务类型</option>
+            <option selected="" value="2">客户关系</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="used_list" class="diy-select">
+            <option selected="" value="1">已使用</option>
+            <option selected="" value="2">未使用</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="14%" class="left-align" style="padding-left: 50px">合同编号</th>
+        <th width="10%">业务类型</th>
+        <th width="15%">开户营业部</th>
+        <th width="10%">操作日期</th>
+        <th width="10%">操作人</th>
+        <th width="13%">客户号</th>
+        <th width="10%">客户姓名</th>
+        <th width="9%">状态</th>
+        <th width="9%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left-align"><div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox" style="margin-right: 10px;"></span>CFZQ1111</a></div></td>
+          <td>创业板开通合同</td>
+          <td>杭州营业部</td>
+          <td><div>2016-06-01</div></td>
+          <td>方立方</td>
+          <td>610000173488</td>
+          <td>李小晨</td>
+          <td>使用中</td>
+          <td>
+            <span class="text-blue set-btn curs-hand">查看流水</span>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+{% include component/pagenav-cf.html %}
+<div class="footer-select clearfix">
+  <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全选</a></div>
+</div>

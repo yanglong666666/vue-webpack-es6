@@ -1,3 +1,32 @@
+// html {
+//   height: 100%;
+//   width: 100%;
+// }
+
+
+// 加载
+.shadow-div {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 62px;
+  left: 0;
+  z-index: 20160615;
+  display: none;
+  .loading-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
+    z-index: 2016061501;
+    background: url('../images/cftrade/loading.gif') no-repeat;
+  }
+}
+
+
 // right comm css
 .search-btn {
 	position: absolute;
@@ -126,6 +155,10 @@
 }
 .clearfix {
 	@include clearfix;
+}
+.clearfix1 {
+  overflow:hidden;
+  zoom:1;
 }
 tbody {
   tr{
@@ -260,8 +293,8 @@ table.czls-style{
 }
 .list-close {
   height: 80px;
-  overflow: hidden;
-}
+  overflow: hidden; 
+  }
 
 .ui-table-info table.czls-style tbody td:nth-child(1){
   width:20%;
@@ -275,28 +308,1193 @@ table.czls-style{
 .ui-table-info table.czls-style tbody td:nth-child(4){
   width:15%;
 }
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #f00;
+}
 
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ccc;
+}
 
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #ccc;
+}
 
-//new common
-// 加载
-.shadow-div {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 62px;
-  left: 0;
-  z-index: 20160615;
-  display: none;
-  .loading-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -15px;
-    margin-left: -15px;
-    width: 30px;
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+// edit by wushang at 20161027 
+ /*
+下面这个是导航选择，比如营业部排名(home-rank-depart.html)的A++类，A+类
+*/
+.rank-depart-tab {
+  height: 37px;
+  margin-bottom: 13px;
+  border-bottom: 1px solid #f0f4fb;
+  ul {
+    float: left;
+    li {
+      font-size: 14px;
+      line-height: 35px;
+      float: left;
+      padding: 0 10px;
+      text-align: center;
+      cursor: pointer;
+      &.active {
+        color: #f1374d;
+        border-bottom: 2px solid #f1374d;
+      }
+    }
+  }
+  .rank-depart-time {
+    margin-top: 10px;
+    color: #999999;
+    float: right;
+  }
+  .nav-right {
+    color: #999999;
     height: 30px;
-    z-index: 2016061501;
-    background: url('../images/cftrade/loading.gif') no-repeat;
+    box-sizing: border-box;
+    padding: 2px 7px;
+    float: right;
+    font-size: 14px;
+  }
+  .nav-mostright {
+    color: #999999;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 2px 7px;
+    float: right;
+    border-right: 1px solid #c3c7cd;
+    font-size: 14px;
   }
 }
+/*
+上面这个是导航选择，比如营业部排名的A++类，A+类
+*/
+
+/*
+下面这个是每个模块的标题，比如某数据趋势（rank-depart-detail-trend.html）的每个模块的标题
+*/
+.title {
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  /*
+上面这个是每个模块的标题，比如某数据趋势（rank-depart-detail-trend.html）的每个模块的标题
+*/
+
+/*下面是下拉选择框修改
+*/
+.search-dl {
+  span.js-select {
+    height: 28px;
+    min-width: 106px;
+    width: auto;
+    padding-right: 25px;
+    box-sizing: border-box;
+    line-height: 28px;
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 0;
+    i.arrow {
+      top: 12px;
+    }
+  }
+}
+  /*下面是下拉选择框修改
+  */
+
+/*下面是下拉选择框修改
+    */
+input[type="text"] {
+  height: 28px;
+  width: 106px;
+  line-height: 28px;
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 0;
+  padding-left: 7px;
+}
+/*下面是下拉选择框修改*/
+
+/*下面是勾选框 */
+.attr-panl {
+  a {
+    color: #333333;
+    font-size: 12px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .param-checkbox {
+      display: inline-block;
+      vertical-align: middle;
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
+      .opera-type {
+        vertical-align: middle;
+      }
+    }
+   
+    &.current {
+      .param-checkbox {
+        background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
+        background-size: 100%;
+      }
+    }
+    .param-null{
+      margin-right: 28px;
+    }
+  }
+}
+
+ /*上面是勾选框*/
+
+  /*下面是日期框*/
+.time-input {
+  float: left;
+  position: relative;
+  .time-title {
+    line-height: 30px;
+    margin-right: 15px;
+  }
+  i {
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    vertical-align: middle;
+    background: url(../images/icolist.png) -80px -30px no-repeat;
+  }
+}
+
+  /*上面是日期框
+  */
+
+  .time-show {
+    float: right;
+    font-size: 14px;
+  }
+
+  .nav-offer {
+    padding-left: 20px;
+    border: 1px solid #dbe6f4;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    .nav-offer-title {
+      height: 48px;
+      ul {
+        li {
+          float: left;
+          width: 25%;
+          text-align: center;
+          padding-top: 13px;
+          p {
+            float: left;
+          }
+          .icon-bigrise {
+            float: left;
+            width: 10px;
+            height: 17px;
+            background: url(../images/icon/icon-bigrise.png) 0 0 no-repeat;
+            display: inline-block;
+            margin-top: 6px;
+            margin-left: 2px;
+          }
+        }
+
+        .importanrmessage {
+          color: rgb(111, 123, 145);
+          font-weight: bold;
+          font-size: 18px;
+          .text-bigred {
+            font-size: 18px;
+            color: #ff5875;
+          }
+        }
+        .importanrmessage1 {
+          font-size: 16px;
+          color: rgb(134, 144, 161);
+          .text-bigred {
+            color: #ff5875;
+          }
+        }
+      }
+    }
+    .nav-offer-text {
+      height: 35px;
+      font-size: 14px;
+      color: #cbc9c9;
+      i {
+        float: left;
+        margin-top: 5px;
+      }
+      p {
+        float: left;
+      }
+      .problem {
+        width: 12px;
+        height: 12px;
+        background: url(../images/icon/icon-problem.png) 0 0 no-repeat;
+        display: inline-block;
+      }
+    }
+  }
+
+  .main-table {
+    min-height:555px;
+    tbody {
+      tr {
+        td {
+          &.active {
+            background-color: #e1e6ef;
+            font-weight: bold;
+          }
+          input[type="text"] {
+            &.edit-input {
+              width: initial;
+            }
+            &.active {
+              border: none;
+              text-align: right;
+            }
+          }
+          .complete-btn {
+            display: none;
+          }
+        }
+      }
+    }
+    .data-table{
+      font-size: 13px;
+       thead {
+        th {
+          height: 26px;
+          box-sizing: border-box;
+          background-color: $bg-color;
+          color: #646e7c;
+          text-align: center;
+          padding: 5px 10px;
+          font-weight: 500;
+          
+          &.num-th {
+            padding-left: 35px;
+          }
+        }
+        
+      }
+      tbody {
+        td {
+          border-bottom: 1px solid #f1f5f8;
+          text-align: center;
+          padding: 5px 10px;
+         
+          .text-time {
+            color: #b3b3b3;
+          }
+          img {
+            float: left;
+          }
+          .img-text {
+            float: left;
+            margin-left: 10px;
+          }
+          input[type="text"] {
+            margin: 0;
+            width: 73px;
+          }
+          &.num-th {
+            padding-left: 35px;
+          }
+        }
+        
+      }
+      &.border-lr{
+        border-left: 1px solid #f1f5f8;
+        border-right: 1px solid #f1f5f8;
+      }
+      &.table-padding20 {
+        thead th {
+          padding: 5px 20px;
+        }
+        tbody td {
+          padding: 10px 20px;
+        }
+      }
+      &.table-padding7 {
+        thead th {
+          padding: 5px 7px;
+        }
+        tbody td {
+          padding: 10px 7px;
+        }
+      }
+
+     .list-detail{
+        .td-box{
+          padding-top: 0;
+          tbody  td{
+            border-bottom: none;
+          }
+        }
+        &.details-hide{
+          display: none;
+        }
+        &.details-show{
+          display: run-in;
+        }
+      }
+    }
+
+  }
+  .table-warning {
+    margin-top: 10px;
+    .table-warning {
+      color: #f1374d;
+    }
+    .table-message {
+      color: #737373;
+    }
+  }
+
+  /*表格上面的工具栏样式*/
+  .task-search {
+      font-size: 12px;
+      height: 50px;
+      .search-dl {
+        float: right;
+        margin-right: 13px;
+        input[type="text"] {
+          width: 128px;
+          height: 26px;
+        }
+      }
+      .upload-span {
+        color: $color-blue;
+        cursor: pointer;
+        margin-left: 45px;
+        float: left;
+        line-height: 32px;
+      }
+      .download-span {
+        color: $color-blue;
+        cursor: pointer;
+        margin-left: 45px;
+        float: left;
+        line-height: 32px;
+      }
+      .more-btn {
+        color: #007bff;
+        float: right;
+        line-height: 30px;
+        cursor: pointer;
+        margin-left: 13px;
+      }
+      input[type="text"] {
+        font-size: 12px;
+        width: 190px;
+        &.aql-input {
+          width: 120px;
+          float: right;
+          margin-right: 10px;
+        }
+      }
+    }
+
+  /*
+   下面是一些按钮
+   */
+.btn {
+  background-color: $color-red;
+  color: white;
+  font-size: 14px;
+  padding: 0 15px;
+}
+
+.btn-lg {
+  &.download {
+    float: right;
+    background-color: white;
+    border: 1px solid $theme-color;
+    height: 30px;
+    line-height: 30px;
+    width: inherit;
+    font-size: 12px;
+    color: $theme-color;
+    cursor: pointer;
+  }
+  &.magnifier {
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    border: 1px solid #e8e8e8;
+    background: url("../images/cftrade/magnifier.png") center no-repeat;
+    background-color: #ffffff;
+    margin-right: 0;
+    cursor: pointer;
+  }
+  &.btn-add {
+    float: right;
+    background-color: white;
+    border: 1px solid $theme-color;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: $theme-color;
+    cursor: pointer;
+  }
+  &.floatleft {
+    float: left;
+  }
+  &.floatleft10 {
+    float: left;
+    margin-left: 10px;
+  }
+}
+
+/*
+上面是一些按钮
+*/
+/**
+*
+*下面是页码效果
+*/
+.ui-pagenav {
+  .page-cf {
+    margin: 0 auto;
+    width: 1000px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    @include clearfix;
+    ul {
+      display: inline-block;
+      li {
+        float: left;
+        margin-left: 10px;
+        a {
+          display: inline-block;
+          border: 1px solid #e1e3e7;
+          font-size: 14px;
+          color: #6f7b91;
+          width: 36px;
+          &.active {
+            color: white;
+            background-color: $theme-color;
+          }
+        }
+        .pageUp, .pageDown {
+          display: inline-block;
+          border: 1px solid #e1e3e7;
+          font-size: 14px;
+          color: #6f7b91;
+          width: 70px;
+        }
+        &.first-num {
+          margin-left: 10px;
+        }
+        &.last-page {
+          margin-left: 10px;
+        }
+        &.page-right {
+          margin-left: 10px;
+        }
+        &.page-go-sure {
+          a {
+            padding: 0 5px;
+            color: #333333;
+          }
+        }
+        .page-go {
+          width: 28px;
+          border: 1px solid #e1e3e7;
+          height: 22px;
+          line-height: 22px;
+          text-align: center;
+        }
+        &.thisPage {
+          a {
+            border: 1px solid $theme-color;
+            color: white;
+            background-color: $theme-color;
+          }
+        }
+      }
+      .page-num {
+        margin-left: -1px;
+        a {
+          width: inherit;
+          padding: 0 15px;
+        }
+      }
+      .page-up {
+        a {
+          width: 70px;
+        }
+        &.no-page {
+          a {
+            color: #cccccc;
+          }
+          span {
+            color: #cccccc;
+          }
+        }
+      }
+      .page-down {
+        a {
+          border-left: 1px solid #e1e3e7;
+          color: #666666;
+          width: 70px;
+        }
+        &.no-page {
+          a {
+            color: #cccccc;
+          }
+          span {
+            color: #cccccc;
+          }
+        }
+      }
+    }
+  }
+}
+/*
+   下面是表格的一些按钮
+   */
+
+.footer-select {
+  background-color: $bg-color;
+  padding: 5px 30px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  .attr-panl {
+    margin-top: 5px;
+    float: left;
+    a {
+      color: #333333;
+      font-size: 12px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .param-checkbox{
+        display: inline-block;
+        vertical-align: middle;
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
+        .opera-type {
+          vertical-align: middle;
+        }
+      }
+      &.current {
+        .param-checkbox {
+          background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
+          background-size: 100%;
+        }
+      }
+
+
+    }
+  }
+  button {
+    float: left;
+    margin-left: 14px;
+    float: left;
+    background-color: white;
+    height: 30px;
+    line-height: 30px;
+    width: 70px;
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
+
+/*
+上面是表格的一些按钮
+*/
+/*下面是弹窗的补充*/
+.js-dialog {
+  input {
+    height: 11px;
+    width: 128px;
+    border: 1px solid #e8e8e8;
+    padding: 9px 10px;
+  }
+  .js-dialog-hd {
+    padding-left: 4px;
+    h2 {
+      font-size: 14px;
+      text-align: left;
+      padding: 0 10px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+  }
+  .js-dialog-bd {
+    color: $font-color;
+    padding-bottom: 20px;
+    div {
+      line-height: 24px;
+    }
+    .attr-panl {
+      a {
+        margin-right: 34px;
+        color: #333333;
+        font-size: 12px;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        .param-checkbox {
+          display: inline-block;
+          vertical-align: middle;
+          width: 18px;
+          height: 18px;
+          margin-right: 10px;
+          background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
+          .opera-type {
+            vertical-align: middle;
+          }
+        }
+        &.current {
+          .param-checkbox {
+            background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
+            background-size: 100%;
+          }
+        }
+      }
+    }
+    .form-add {
+      .form-group {
+        color: #9e9e9e;
+        text-align: left;
+        .important-label {
+          font-weight: bold;
+          color: $font-color;
+        }
+        input {
+          width: 200px;
+          margin-left: 5px;
+        }
+        textarea {
+          width: 270px;
+          margin-left: 5px;
+        }
+        .select-label {
+          width: auto;
+        }
+        .time-last {
+          padding: 5px;
+        }
+        .label {
+          width: 95px;
+        }
+        &.time-group {
+          .aql-label {
+            width: 135px;
+            .aql-input {
+              width: 108px;
+              margin-left: 0;
+            }
+          }
+        }
+        &.textarea-group {
+          .label {
+            vertical-align: top;
+          }
+          .aql-label {
+            width: 320px;
+            .attr-panl {
+              line-height: 37px;
+            }
+          }
+          textarea {
+            width: 260px;
+            height: 79px;
+            padding: 7px 13px;
+            border: 1px solid #e8e8e8;
+            &.long-textarea {
+              width: 381px;
+            }
+          }
+        }
+        .warin-message {
+          width: 290px;
+          display: inline-block;
+          text-align: left;
+        }
+        .set-time {
+          width: 410px;
+          line-height: 47px;
+          background-color: $bg-color;
+          font-size: 12px;
+          color: $font-color;
+          .reset-div {
+            display: inline-block;
+            margin-left: 5px;
+            input {
+              width: 64px;
+            }
+            .reset-btn {
+              cursor: pointer;
+              color: $color-blue;
+              margin-left: 20px;
+            }
+          }
+          .time-title {
+            display: inline-block;
+            width: 57px;
+            text-align: right;
+          }
+          .hour-div {
+            display: inline-block;
+            height: 39px;
+            width: 200px;
+            margin-left: 10px;
+            margin-right: 8px;
+            vertical-align: inherit;
+            input {
+              width: 74px;
+              padding: 0 5px;
+              margin: 0;
+            }
+          }
+          .refresh-time {
+            height: 28px;
+            width: 25px;
+            margin: 8px;
+            padding: 0 5px;
+          }
+        }
+      }
+      .btn-wrap {
+        padding-top: 21px;
+      }
+    }
+    .form-delete {
+      .form-group {
+        line-height: 30px;
+        font-size: 16px;
+        text-align: center;
+      }
+      .btn-wrap {
+        .btn-confirm,.btn-cancel {
+          margin: 0 36px;
+        }
+      }
+    }
+    .btn-wrap {
+      padding-top: 31px;
+      .btn-confirm {
+        width: 72px;
+        height: 30px;
+        line-height: 30px;
+        background-color: $theme-color;
+        box-sizing: border-box;
+        border: 1px solid $theme-color;
+        margin: 0 9px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .btn-cancel {
+        width: auto;
+        min-width: 72px;
+        height: 30px;
+        line-height: 30px;
+        box-sizing: border-box;
+        border: 1px solid #e8e8e8;
+        color: #646e7c;
+        margin: 0 9px;
+        font-size: 14px;
+      }
+    }
+    .small-table {
+      width: 100%;
+      border: 1px solid $bg-color;
+      thead {
+        tr {
+          th {
+            background-color: $bg-color;
+            padding: 5px 25px;
+            color: #646e7c;
+            text-align: right;
+            border-bottom: 1px solid $bg-color;
+          }
+          th:first-child {
+            text-align: right;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            padding: 10px 25px;
+            color: $font-color;
+            text-align: right;
+            border-bottom: 1px solid $bg-color;
+            .small-input {
+              width: 46px;
+              height: 16px;
+              padding: 0;
+              text-align: center;
+              margin-right: 5px;
+            }
+            .insert-data {
+              color: #007aff;
+              cursor: pointer;
+            }
+          }
+          td:first-child {
+            text-align: left;
+          }
+        }
+      }
+      &.big-table {
+        thead {
+          tr {
+            th {
+              padding: 5px 20px 5px 25px;
+            }
+            th:first-child {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+    .ui-pagenav {
+      margin: 110px 0 0 0;
+      .page-cf {
+        width: 640px;
+        .page-go {
+          padding: 0;
+        }
+      }
+    }
+  }
+  .js-dialog-close {
+    top: 11px;
+    right: 13px;
+    height: 16px;
+    width: 16px;
+    background: url(../images/cftrade/icon-close.png) 0 0 no-repeat
+  }
+  .form-change-message {
+    max-height: 550px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .text-red {
+      color: $color-red;
+      padding-right: 10px;
+      vertical-align: middle;
+    }
+    .part-group {
+      width: 570px;
+      @include clearfix;
+      .part-item {
+        margin-top: 17px;
+        display: inline-block;
+        @include clearfix;
+        vertical-align: middle;
+        &.floatright {
+          float: right;
+        }
+        .item-name {
+          width: 120px;
+          float: left;
+          text-align: right;
+          &.item-describe {
+            margin-top: 45px;
+          }
+        }
+        .item-message {
+          text-align: left;
+          margin-left: 25px;
+          width: 393px;
+          float: left;
+          &.long-message {
+            width: 545px;
+          }
+          &.item-search {
+            border: 1px solid #ebebeb;
+            padding: 11px;
+          }
+          input[type="text"] {
+            width: 191px;
+          }
+          textarea {
+            height: 90px;
+            width: 403px;
+            padding: 5px;
+            border: 1px solid #ebebeb;
+          }
+          .attr-panl {
+            display:inline-block;
+            margin-right: 13px;
+            a {
+              margin-left: 25px;
+              .param-checkbox {
+                margin-right: 8px;
+              }
+              .param-name {
+                vertical-align: middle;
+              }
+            }
+            a:first-child {
+              margin-left: 8px;
+            }
+          }
+          .part-item-nav {
+            width: 297px;
+            border-bottom: 1px solid $bg-color;
+            ul {
+              li {
+                height: 20px;
+                line-height: 0px;
+                display: inline-block;
+                margin: 0 20px;
+                cursor: pointer;
+                color: #646e7c;
+                &.active {
+                  color: $color-red;
+                  border-bottom: 2px solid $color-red;
+                }
+              }
+            }
+          }
+          .part-item-content {
+            margin-top: 5px;
+            .set-time {
+              margin-top: 10px;
+              width: 402px;
+              border: 1px solid #ebebeb;
+              line-height: 70px;
+              padding-left: 12px;
+              .set-time-add {
+                margin-bottom: 10px;
+              }
+              .hour-div {
+                display: inline-block;
+                width: 210px;
+                input {
+                  width: 73px;
+                }
+              }
+              .minute {
+                 width: 36px;
+                 margin-left: 10px;
+                 margin-right: 10px;
+               }
+              .btn-add {
+                display: inline-block;
+                margin-left: 10px;
+                color: $color-blue;
+                cursor: pointer;
+              }
+              .btn-delete {
+                display: inline-block;
+                margin-left: 5px;
+                color: $color-blue;
+                cursor: pointer;
+              }
+            }
+            .indicate-sentence {
+              padding-left: 10px;
+              width: 100%;
+              font-size: 12px;
+              color: #cccccc;
+              text-align: left;
+              line-height: 30px;
+            }
+            &.auto-time {
+              .hour-div {
+                width: 135px;
+              }
+            }
+          }
+          .insert-btn {
+            color: #007aff;
+            cursor: pointer;
+            margin-left: 8px;
+          }
+          .item-search-title {
+            height: 100%;
+            width: 155px;
+            .search-name {
+              width: 145px;
+            }
+          }
+          .item-search-content {
+            width: 393px;
+            margin-top: 8px;
+            .left-content,.right-content {
+              height: 120px;
+              float: left;
+              width: 165px;
+              border: 1px solid #e8e8e8;
+              background-color: white;
+              overflow-y: auto;
+              li {
+                cursor: pointer;
+                padding: 5px 20px;
+                &:hover,&.active {
+                  background-color: #cccccc;
+                }
+              }
+            }
+            .transform-content {
+              float: left;
+              box-sizing: border-box;
+              padding-top: 35px;
+              width: 57px;
+              text-align: center;
+              .go-right {
+                height: 25px;
+                width: 34px;
+                background-image: url("../images/cftrade/right.png");
+                background-color: white;
+                cursor: pointer;
+              }
+              .go-left {
+                height: 25px;
+                width: 34px;
+                background-image: url("../images/cftrade/left.png");
+                background-color: white;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*下面是展开和收缩*/
+.list-more{
+  .param-openbox {
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    background: url(../images/cfarchives/opener-closed.png) 0 0 no-repeat;
+  }
+   
+    &.opend {
+      td{
+        border-bottom: none !important;
+      }
+      .param-openbox{
+        background: url(../images/cfarchives/opener-opend.png) 0 0 no-repeat;
+      }
+    }
+ }
+/*以上是展开和收缩 */
+/*以下综合表格*/
+.info-table{
+    border: solid 1px #eee;
+    margin-bottom: 20px;
+    color: #333;
+    .info-table-title{
+      height: 40px;
+      line-height: 40px;
+      background: #E1E6EF;
+      padding: 0 15px;
+      color: #555;
+      // font-weight: 600;
+    }
+    .info-table-content{
+        font-size: 0;
+        .info-table-colspan{
+          border-bottom: solid 1px #eee;
+          .info-table-item{
+              display: inline-block;
+              width: 33.3%;
+              .info-table-key{
+                  line-height: 40px;
+                  display: inline-block;
+                  font-size: 13px;
+                  padding: 0 15px;
+                  -webkit-box-sizing: border-box;
+                  -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+                  border-right: solid 1px #eee;
+                  background: #F7F9FD;
+                  width: 40%;
+              }
+              .info-table-val{
+                  line-height: 40px;
+                  display: inline-block;
+                  font-size: 13px;
+                  padding: 0 15px;
+                  -webkit-box-sizing: border-box;
+                  -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+                  border-right: solid 1px #eee;
+                  width: 60%;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  vertical-align: top;
+              }
+          }
+        }
+    }
+}
+/*以上综合表格*/
+
+/*以下为右侧的提示区域*/
+.tip-panel{
+  width:100%;
+  background-color:rgb(228, 228, 228);
+  padding:10px 0;
+  color:#333;
+  height: 100%;
+  position: relative;
+  .tip-panel-title{
+    padding-left:10px;
+    font-size: 14px;
+    // @include  txt-clr(#fc7e94);
+    color:red;
+  }
+  .tip-panel-content{
+    padding:5px 0 ;
+    font-size: 12px;
+    p{
+      padding:0 10px;
+      line-height: 20px;
+    }
+  }
+  .tip-panel-footer{
+    position: absolute;
+    height: 50px;
+    bottom: 0;
+    left:0;
+    margin-left: 35%;
+    button{
+        background-color: white;
+        border: 1px solid #f1374d;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        color: #f1374d;
+        cursor: pointer;
+    }
+  }
+}
+/*以上为右侧提示区域*/
