@@ -30,14 +30,13 @@
 
     if(nextLi){
       currentLi.remove();
-
-      $('#'+currentLi.data('href')).remove();
+      $(document.getElementById(currentLi.data('href'))).remove();
 
       nextLi.show().addClass('active');
-      $('#'+nextLi.data('href')).show();
+      $(document.getElementById(nextLi.data('href'))).show();
     }else{
       currentLi.remove();
-      $('.leftul li').eq(0).find('a').click().parent().addClass('current');
+      $('.leftul li').eq(0).find('a').click().parents('li').addClass('current');
     }
   }
 

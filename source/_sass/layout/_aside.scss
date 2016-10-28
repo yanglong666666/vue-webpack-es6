@@ -9,21 +9,33 @@
   background: #F5F6F8;
   .leftul {
     >li {
+      position: relative;
       a {
         font-size: 14px;
         display: block;
         margin: 0 10px 0 0;
-        line-height: 18px;
+        line-height: 20px;
         color: #737373;
-        padding: 10px 0;
+        padding: 10px 0 10px 55px;
         &.active {
           color: #e33448;
         }
       }
-      position: relative;
+      >a {
+        margin: 5px 0;
+      }
+      p {
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+        color: #64696c;
+        padding-left: 55px;
+        line-height: 40px;
+        margin: 5px 0;
+      }
       .inner-ul {
         background-color: #E8E9ED;
-        padding: 8px 0 8px 55px;
+        padding: 8px 0;
         display: none;
         li {
           text-align: left;
@@ -38,15 +50,6 @@
         background: url("../images/icolist.png") -60px -50px no-repeat;
         top: 18px;
       }
-      p {
-        position: relative;
-        z-index: 10;
-        cursor: pointer;
-        color: #64696c;
-        padding-left: 55px;
-        line-height: 40px;
-        margin: 5px 0;
-      }
       .icon {
         position: absolute;
         display: inline-block;
@@ -57,10 +60,14 @@
         background: url(../images/aside-ico.png) no-repeat 0 0;
       }
       &.current {
-        p {
-          border-left: 5px solid $theme-color;
-          color: $theme-color;
-          padding-left: 50px;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 40px;
+          width: 5px;
+          background-color: $theme-color;
         }
         b {
           background: url("../images/cftrade/show-ul.png") no-repeat;
