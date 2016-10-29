@@ -1,16 +1,18 @@
-
+$titlecolor:rgb(240,240,240);
+$gaplinecolor:#e5e5e5;
 
 @mixin txt-clr($clr:rgb(198, 60, 70)){
   color:$clr;
 }
+
 @mixin line-h($h:48px){
-  height: $h;
-  line-height: $h;
+    height: $h;
+    line-height: $h;
 }
 
 @mixin setboxs($dir,$val){
     #{$dir}:$val ;
-}
+} 
 // 公共
 .container .ui-content .main-content{
   margin-bottom: 0;
@@ -18,12 +20,7 @@
   background-color: white;
   font-family: 'Microsoft YaHei';
 }
-// 对弹窗的公共修改-标题
-.js-dialog{
-  .js-dialog-hd{
-    background-color: rgb(240,240,240) ;
-  }
-}
+
 // 颜色设置
 .text-red {
   @include  txt-clr(#fc7e94);
@@ -43,7 +40,8 @@
 .curs-hand{cursor: pointer;}
 
 .padding5{
-  @include  setboxs('padding',5px);
+  // @include  setboxs('padding',5px);
+  padding: 5px;
 }
 .padding10{padding: 10px;}
 .padding15{padding: 15px;}
