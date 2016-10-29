@@ -4,15 +4,26 @@
   // @include opacity(.2);
   border-radius: 10px;
   background-color: #fff;
+  input {
+    height: 11px;
+    width: 128px;
+    border: 1px solid #e8e8e8;
+    padding: 9px 10px;
+  }
   .js-dialog-hd {
-    height: 40px;
-    line-height: 40px;
-    padding-left: 18px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(240, 240, 240);  
     h2 {
+      padding-left: 15px;
       color: #12171d;
       font-size: 22px;
       text-align: center;
-      padding-top: 10px;
+      border-bottom: 1px solid $gaplinecolor;
+      &.posleft{
+        text-align: left;
+      }
     }
   }
   .js-dialog-bd {
@@ -50,7 +61,7 @@
   }
   .js-dialog-close {
     position: absolute;
-    top: 4px;
+    top: 8px;
     right: 12px;
     @include inline-block;
     height: 32px;
@@ -58,7 +69,7 @@
     background: url(../images/close-ico.png) 0 0 no-repeat;
     cursor: pointer;
     font-size: 0;
-    content: "";
+    content: ""; 
   }
   .js-scrollable {
     overflow-x: hidden;

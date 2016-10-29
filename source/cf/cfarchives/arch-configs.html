@@ -36,6 +36,23 @@ layout: default-iframe
       </tbody>
     </table>
   </div>
+  <!-- 以下为dialog -->
+  <div class="js-dialog" style="width: 410px; height: auto; z-index: 999; position: absolute; left: 495px; top: 40.5px; display: none;border:1px solid #ccc;">
+    <div class="js-dialog-hd">
+        <h2>修改业务</h2>
+    </div>
+    <div class="js-dialog-bd" style="padding: 21px 27px 32px;">
+        <div>
+            
+        </div>
+        <div class="btn-wrap">
+            <button type="button" data-role="confirm" class="btn-event btn-dialog btn-confirm">保存</button>
+            <button type="button" data-role="cancel" class="btn-event btn-dialog btn-cancel">取消</button>
+        </div>
+    </div>
+    <div class="js-dialog-close"></div>
+</div>
+  <!-- dialog end -->
 </div>
 {% include component/pagenav-cf.html %}
 <div class="footer-select clearfix">

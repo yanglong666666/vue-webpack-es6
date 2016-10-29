@@ -47,13 +47,12 @@ span.js-select {
     white-space: nowrap;
     font-size: 12px;
     cursor: pointer;
+    background-color: white;
     &.active {
-      background-color: #9ba0a8;
-      color: #fff;
+      background-color: #f0efee;
     }
     &.selected {
-      background-color: #9ba0a8;
-      color: #fff;
+      background-color: #f0efee;
     }
   }
 }

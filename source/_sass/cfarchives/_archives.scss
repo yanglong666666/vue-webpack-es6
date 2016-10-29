@@ -1,8 +1,14 @@
-.container .ui-content .main-content {
 
-	// @mixin margins()
-	// @mixin borders()
-	&.arch-home-content{
+.container .ui-content .main-content {
+	@mixin line-h($h:48px){
+	  height: $h;
+	  line-height: $h;
+	}
+	@mixin txt-clr($clr:rgb(198, 60, 70)){
+	  color:$clr;
+	}
+
+	& .arch-home-content{
 		.content-title{
 			font-size: 20px;
 			font-weight: 700;
@@ -31,6 +37,7 @@
 		}
 		
 	}
+
 	&.arch-configs{
 	
 	}

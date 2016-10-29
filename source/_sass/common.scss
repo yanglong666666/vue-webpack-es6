@@ -646,26 +646,16 @@ input[type="text"] {
 */
 /*下面是弹窗的补充*/
 .js-dialog {
-  input {
-    height: 11px;
-    width: 128px;
-    border: 1px solid #e8e8e8;
-    padding: 9px 10px;
-  }
-  .js-dialog-hd {
-    padding-left: 4px;
-    h2 {
-      font-size: 14px;
-      text-align: left;
-      padding: 0 10px;
-      border-bottom: 1px solid #e8e8e8;
-    }
-  }
   .js-dialog-bd {
     color: $font-color;
     padding-bottom: 20px;
     div {
       line-height: 24px;
+    }
+    span.js-select{
+      background: transparent;
+      border:1px solid $gaplinecolor;
+      width:228px;
     }
     .attr-panl {
       a {
@@ -901,7 +891,91 @@ input[type="text"] {
     width: 16px;
     background: url(../images/cftrade/icon-close.png) 0 0 no-repeat
   }
-  .form-change-message {
+    .ui-pagenav {
+      margin: 110px 0 0 0;
+      .page-cf {
+        width: 640px;
+        .page-go {
+          padding: 0;
+        }
+      }
+    }
+    .config-dialog-item {
+        margin: 12px 0;
+        padding-left: 40px;
+        font-size: 0;
+        white-space: nowrap;
+        .dialog-left {
+          display: inline-block;
+          line-height: 28px;
+          padding-right: 24px;
+          color: #666;
+          width: 80px;
+           text-align: left;
+          vertical-align: top;
+          font-size: 13px;
+          position: relative;
+        }
+        .dialog-right {
+            display: inline-block;
+            font-size: 13px;
+            color: #333;
+            width: 228px;
+            .dialog-textarea {
+              display: inline-block;
+              height: 80px;
+              width: 100%;
+              outline: none;
+              padding: 10px;
+              font-size: 13px;
+              overflow: hidden;
+              // overflow-y: scroll;
+              resize: none;
+              border: none;
+              line-height: 24px;
+              background: #e1e6ef;
+              text-indent: 8px;
+              border-radius: 5px;
+          }
+          .dialog-divbox{
+            display: inline-block;
+            min-height: 80px;
+            width: 100%;
+            padding:10px;
+            overflow: hidden;
+            white-space: normal;
+            word-break: break-word;
+            border:1px solid #e5e5e5;
+            border-radius: 5px;
+
+            position: relative;
+            .item-btn{
+              display: table;
+              padding:2px 30px 2px 8px;
+              font-size: 12px;
+              line-height: 16px;
+              border:1px solid #3c95e9;
+              border-radius: 3px;
+              margin-bottom:8px;
+              position: relative;
+              &:after{
+                  cursor: pointer;
+                  position: absolute;
+                  content: 'X';
+                  right:8px;
+                  width:10px;
+              }
+            }
+            .add-item-btn{
+              position: absolute;
+              right: 10px;
+              cursor: pointer;
+            }
+          }
+        }
+    }
+}
+.form-change-message {
     max-height: 550px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -1090,7 +1164,6 @@ input[type="text"] {
       }
     }
   }
-}
 
 /*下面是展开和收缩*/
 .list-more {
@@ -1174,11 +1247,36 @@ input[type="text"] {
   background-color: rgb(228, 228, 228);
   padding: 10px 0;
   color: #333;
+}
+.area-wrap{
+
+  height: 250px;
+  border: 1px solid #eee;
+  margin-bottom:20px;
+  &:after{
+    content: '';
+    clear: both;
+  }
+}
+.left-area-wrap{
+  width:calc(100% - 200px);
+  float:left;
+}
+.right-area-wrap{
+ float:right;
+ height:100%;
+ width: 200px;
+}
+.tip-panel{
+  width:100%;
+  background-color:rgb(228, 228, 228);
+  color:#333;
   height: 100%;
   position: relative;
   .tip-panel-title {
     padding-left: 10px;
     font-size: 14px;
+    padding:8px;
     // @include  txt-clr(#fc7e94);
     color: red;
   }
