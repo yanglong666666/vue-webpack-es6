@@ -44,10 +44,10 @@ body {
   line-height: $base-line-height;
   font-weight: 300;
   color: $font-color;
-  background-color: $background-color;
+  background-color: #ffffff;
   -webkit-text-size-adjust: 100%;
-  min-width: 1000px;
   overflow: hidden;
+  overflow-x: auto;
 }
 
 table {
@@ -86,6 +86,7 @@ h6 {
 }
 a {
   text-decoration: none;
+  color: $color-blue;
 }
 a img {
   border: 0 none;

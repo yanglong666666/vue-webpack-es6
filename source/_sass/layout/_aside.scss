@@ -1,12 +1,13 @@
 .leftaside {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   overflow: hidden;
   overflow-y: scroll;
   margin-top: 62px;
   width: 217px;
-  background: #F5F6F8;
+  background: #fbfbfb;
+
   .leftul {
     >li {
       position: relative;

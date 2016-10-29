@@ -1,0 +1,95 @@
+---
+title: 任务设置
+layout: default-iframe
+---
+<script type="text/javascript">
+  $(function(){
+    $('.diy-select').diySelect();
+  });
+</script>
+<div class="main-content arch-configs">
+  <div class="task-search clearfix">
+    <button class="btn btn-lg floatleft btn-add">创建</button>
+    <button class="btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="业务名称">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" class="diy-select">
+            <option selected="">状态</option>
+            <option selected="" value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" class="diy-select">
+            <option selected="">质检规则</option>
+            <option selected="" value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" class="diy-select">
+            <option selected="">质检类型</option>
+            <option selected="" value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" class="diy-select">
+            <option selected="">任务类型</option>
+            <option selected="" value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="4%"></th>
+        <th width="12%">任务名称</th>
+        <th width="8%">业务类型</th>
+        <th width="8%">质检类型</th>
+        <th width="10%">质检规则</th>
+        <th width="12%">质检营业厅</th>
+        <th width="12%">操作营业厅</th>
+        <th width="10%">创建日期</th>
+        <th width="8%">创建人</th>
+        <th width="6%">状态</th>
+        <th width="10%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><span class="param-checkbox"></span></td>
+        <td>创业板每日质检任务</td>
+        <td>每日任务</td>
+        <td>按业务</td>
+        <td>随机质检</td>
+        <td>总部、杭州营业部、温州...</td>
+        <td>总部</td>
+        <td>2016-06-01</td>
+        <td>李小晨</td>
+        <td>启用</td>
+        <td>
+          <span class="text-blue set-btn curs-hand">修改</span>
+          <span class="text-blue delete-btn curs-hand marginleft20">删除</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% include component/pagenav-cf.html %}
