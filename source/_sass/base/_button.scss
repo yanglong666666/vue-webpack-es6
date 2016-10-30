@@ -31,7 +31,7 @@ $btn-color-gray: #7d7d7d;
     margin-right: 0;
     cursor: pointer;
   }
-  &.btn-add {
+  &.btn-add,&.btn-move,&.btn-use {
     float: right;
     background-color: white;
     border: 1px solid $theme-color;
