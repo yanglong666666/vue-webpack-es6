@@ -12,7 +12,7 @@ $gaplinecolor:#e5e5e5;
 
 @mixin setboxs($dir,$val){
     #{$dir}:$val ;
-} 
+}
 // 公共
 .container .ui-content .main-content{
   margin-bottom: 0;
@@ -32,7 +32,7 @@ $gaplinecolor:#e5e5e5;
   @include  txt-clr(#15a931);
 }
 .text-blue {
-  @include  txt-clr(#007aff);
+  @include  txt-clr($color-blue);
 }
 
 .right-align {text-align: right !important;}

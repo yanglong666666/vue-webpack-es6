@@ -1,0 +1,232 @@
+---
+title: 质检报告
+layout: default-iframe
+---
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect();
+    $('#select2').diySelect();
+    $('#select3').diySelect();
+
+    $('.main-table').on('click','.btn-view',function(){
+      $('.main-content').hide();
+      $('#view-content').show();
+    });
+    $('.view-back').on('click',function(){
+      $('.view-content').hide();
+      $('.main-content').show();
+    });
+  });
+</script>
+<div class="main-content arch-configs">
+  <div class="task-search clearfix">
+    <button class="btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="任务名称">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select1" class="diy-select">
+            <option selected>质检规则</option>
+            <option value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select2" class="diy-select">
+            <option selected="">质检类型</option>
+            <option value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select3" class="diy-select">
+            <option selected="">任务类型</option>
+            <option value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="4%"></th>
+        <th width="10%">生成日期</th>
+        <th width="16%">任务名称</th>
+        <th width="10%">任务类型</th>
+        <th width="10%">质检类型</th>
+        <th width="10%">质检规则</th>
+        <th width="10%">营业部</th>
+        <th width="10%">任务完成率</th>
+        <th width="10%">质检合格率</th>
+        <th width="10%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="param-checkbox"></span></td>
+          <td>2016-05-17</td>
+          <td>创业板每日质检任务20150512</td>
+          <td>每日任务</td>
+          <td>按业务</td>
+          <td>随机质检</td>
+          <td>总部、杭州营业部、温...</td>
+          <td>50.3%</td>
+          <td>70.3%</td>
+          <td>
+            <a class="btn-view">查看</a>
+            <a>导出</a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="param-checkbox"></span></td>
+          <td>2016-05-17</td>
+          <td>创业板每日质检任务20150512</td>
+          <td>每日任务</td>
+          <td>按业务</td>
+          <td>随机质检</td>
+          <td>总部、杭州营业部、温...</td>
+          <td>50.3%</td>
+          <td>70.3%</td>
+          <td>
+            <a class="btn-view">查看</a>
+            <a>导出</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {% include component/pagenav-cf.html %}
+  <div class="footer-select clearfix">
+    <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全选</a></div>
+    <button class="btn-fill delete-btn btn-enable">批量删除</button>
+  </div>
+</div>
+<div class="view-content" id="view-content" style="display: none;">
+  <a class="view-back"> << 返回</a>
+  <div class="report-title">创业板每日质检任务报告——20160512</div>
+  <div class="report-tips">
+    <div class="tips-item">
+      <div class="tips-title">任务名称: </div>
+      <div class="tips-text">创业板每日质检任务</div>
+    </div>
+    <div class="tips-item">
+      <div class="tips-title">任务类型: </div>
+      <div class="tips-text">日常质检任务</div>
+    </div>
+    <div class="tips-item">
+      <div class="tips-title">营业部: </div>
+      <div class="tips-text">杭州营业部</div>
+    </div>
+    <div class="tips-item">
+      <div class="tips-title">报告生成时间: </div>
+      <div class="tips-text">2016-05-12 20:00</div>
+    </div>
+  </div>
+  <div class="info-table">
+    <div class="info-table-title">质检任务数据</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">质检客户</div>
+          <div class="info-table-val">1000人</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">已质检客户</div>
+          <div class="info-table-val">700人</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">任务完成度</div>
+          <div class="info-table-val">70%</div>
+        </div>
+      </div>
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">任务执行人数</div>
+          <div class="info-table-val">8人</div>
+        </div>
+      </div>
+    </div>
+  </div><div class="info-table">
+    <div class="info-table-title">质检任务数据</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">质检客户</div>
+          <div class="info-table-val">1000人</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">已质检客户</div>
+          <div class="info-table-val">700人</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">任务完成度</div>
+          <div class="info-table-val">70%</div>
+        </div>
+      </div>
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">任务执行人数</div>
+          <div class="info-table-val">8人</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info-table">
+    <div class="info-table-title">质检结果数据</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">已质检客户</div>
+          <div class="info-table-val">700人</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">质检合格客户</div>
+          <div class="info-table-val">350人</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">质检不合格客户</div>
+          <div class="info-table-val">350人</div>
+        </div>
+      </div>
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">之间不合格率</div>
+          <div class="info-table-val">50%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table text-left">
+      <thead>
+      <tr>
+        <th width="40%">质检细项质检数据</th>
+        <th width="20%"></th>
+        <th width="20%"></th>
+        <th width="20%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>业务信息、开通需要时间合格</td>
+        <td>质检合格客户：350人</td>
+        <td>质检合格客户：350人</td>
+        <td>质检不合格率：50.0%</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="btn-content text-center">
+    <button class="btn btn-fill btn-long">产看不合格客户名单</button>
+    <button class="btn btn-fill">导出</button>
+  </div>
+</div>

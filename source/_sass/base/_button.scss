@@ -53,7 +53,7 @@ $btn-color-gray: #7d7d7d;
   @include inline-block;
   text-align: center;
   cursor: pointer;
-  @include button-size(0, 5px, 14px, 28px, 3px);
+  @include button-size(0, 7px, 14px, 28px, 3px);
   white-space: nowrap;
   width: 72px;
   background-color: #ffffff;
@@ -97,7 +97,6 @@ $btn-color-gray: #7d7d7d;
 .btn-fill {
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
-  @include button-size(0, 0, 14px, 28px, 3px);
 }
 
 .btn-deny {
@@ -126,7 +125,6 @@ $btn-color-gray: #7d7d7d;
 }
 
 .btn-confirm {
-  @include button-size(0, 5px, 16px, 28px, 3px);
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
 }
@@ -152,19 +150,23 @@ $btn-color-gray: #7d7d7d;
 
 //btn大小
 .btn-more-lg {
-  @include button-size(15px, 5px, 20px, 30px, 3px);
+  @include button-size(15px, 7px, 20px, 30px, 3px);
 }
 
 .btn-lg {
-  @include button-size(0, 5px, 16px, 28px, 3px);
+  @include button-size(0, 7px, 16px, 28px, 3px);
   width: 88px;
 }
 
 .btn-medium {
-  @include button-size(0, 5px, 14px, 28px, 3px);
+  @include button-size(0, 7px, 14px, 28px, 3px);
 }
 
 .btn-small {
-  @include button-size(0, 5px, 14px, 28px, 3px);
+  @include button-size(0, 7px, 14px, 28px, 3px);
   width: 48px;
+}
+.btn-long {
+  @include button-size(0, 7px, 14px, 28px, 3px);
+  width: inherit;
 }
