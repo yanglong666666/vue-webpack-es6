@@ -1,20 +1,15 @@
 label {
 	position: relative;
 	display: inline-block;
-	height: 37px;
-	line-height: 37px;
-	width: 130px;
 	.txt {
 		display: inline-block;
-		width: 130px;
-		border: none;
-		background: #e1e6ef;
-		height: 37px;
-		line-height: 37px;
-		border-radius: 5px;
-		color: #3a3d42;
+		width: 150px;
+    border: 1px solid #e8e8e8;
+		background: #ffffff;
+		line-height: 30px;
+    @include border-radius(3px);
+		color: #4D4D4D;
 		font-size: 12px;
-		text-indent: 10px;
 		outline: none;
 	}
 	i {

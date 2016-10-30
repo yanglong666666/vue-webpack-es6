@@ -32,7 +32,7 @@ layout: default-iframe
     <dl class="search-dl">
       <dt>姓名</dt>
       <dd>
-        <label class="w-170">
+        <label class="">
           <input type="text" class="txt">
         </label>
       </dd>
@@ -40,23 +40,7 @@ layout: default-iframe
     <dl class="search-dl">
       <dt>手机号</dt>
       <dd>
-        <label class="w-170">
-          <input type="text" class="txt">
-        </label>
-      </dd>
-    </dl>
-    <dl class="search-dl">
-      <dt>身份证号</dt>
-      <dd>
-        <label class="w-170">
-          <input type="text" class="txt">
-        </label>
-      </dd>
-    </dl>
-    <dl class="search-dl">
-      <dt>操作员姓名</dt>
-      <dd>
-        <label class="w-170">
+        <label class="">
           <input type="text" class="txt">
         </label>
       </dd>
@@ -85,7 +69,33 @@ layout: default-iframe
     </dl>
   </div>
   <div class="button-content">
-    <button class="btn-fill btn-lg" href="#">查询</button>
+    <button class="btn btn-fill" href="#">查询</button>
+  </div>
+
+
+  <div class="task-search clearfix">
+    <button class="btn btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="客户号/客户姓名">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select3" class="diy-select" style="display: none;">
+            <option selected="">经办营业部</option>
+            <option value="1">11111111</option>
+          </select><span class="js-select" id="select3-select">经办营业部<i class="arrow"></i></span><div class="js-option" id="select3-option" style="display: none;"><ul><li data-select-val="经办营业部">经办营业部</li><li data-select-val="1">11111111</li></ul></div>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select4" class="diy-select" style="display: none;">
+            <option selected="">任务分组</option>
+            <option value="1">11111111</option>
+          </select><span class="js-select" id="select4-select">任务分组<i class="arrow"></i></span><div class="js-option" id="select4-option" style="display: none;"><ul><li data-select-val="任务分组">任务分组</li><li data-select-val="1">11111111</li></ul></div>
+        </span>
+      </dd>
+    </dl>
   </div>
 </div>
 <div class="main-table">

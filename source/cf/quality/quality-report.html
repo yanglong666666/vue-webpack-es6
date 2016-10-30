@@ -71,7 +71,7 @@ layout: default-iframe
       </thead>
       <tbody>
         <tr>
-          <td><span class="param-checkbox"></span></td>
+          <td><div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div></td>
           <td>2016-05-17</td>
           <td>创业板每日质检任务20150512</td>
           <td>每日任务</td>
@@ -86,7 +86,7 @@ layout: default-iframe
           </td>
         </tr>
         <tr>
-          <td><span class="param-checkbox"></span></td>
+          <td><div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div></td>
           <td>2016-05-17</td>
           <td>创业板每日质检任务20150512</td>
           <td>每日任务</td>
@@ -105,7 +105,7 @@ layout: default-iframe
   </div>
   {% include component/pagenav-cf.html %}
   <div class="footer-select clearfix">
-    <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span>全选</a></div>
+    <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox checkAll"></span>全选</a></div>
     <button class="btn-fill delete-btn btn-enable">批量删除</button>
   </div>
 </div>
@@ -144,7 +144,7 @@ layout: default-iframe
         </div>
         <div class="info-table-item">
           <div class="info-table-key">任务完成度</div>
-          <div class="info-table-val">70%</div>
+          <div class="info-table-val font-red">70%</div>
         </div>
       </div>
       <div class="info-table-colspan">
@@ -193,7 +193,7 @@ layout: default-iframe
         </div>
         <div class="info-table-item">
           <div class="info-table-key">质检不合格客户</div>
-          <div class="info-table-val">350人</div>
+          <div class="info-table-val font-red">350人</div>
         </div>
       </div>
       <div class="info-table-colspan">
@@ -219,14 +219,14 @@ layout: default-iframe
       <tr>
         <td>业务信息、开通需要时间合格</td>
         <td>质检合格客户：350人</td>
-        <td>质检合格客户：350人</td>
-        <td>质检不合格率：50.0%</td>
+        <td class="font-red">质检合格客户：350人</td>
+        <td class="font-red">质检不合格率：50.0%</td>
       </tr>
       </tbody>
     </table>
   </div>
   <div class="btn-content text-center">
-    <button class="btn btn-fill btn-long">产看不合格客户名单</button>
+    <button class="btn btn-fill btn-long">查看不合格客户名单</button>
     <button class="btn btn-fill">导出</button>
   </div>
 </div>

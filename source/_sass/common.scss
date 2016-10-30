@@ -115,7 +115,8 @@
   position: relative;
   .search-dl {
     display: inline-block;
-    margin: 10px 5px 0px 0px;
+    margin: 10px 5px 0 0;
+    vertical-align: top;
     dt {
       font-size: 14px;
       color: #6f7b91;
@@ -129,7 +130,7 @@
 .button-content {
   position: relative;
   text-align: center;
-  margin-top: 30px;
+  margin: 20px 0;
   .output {
     position: absolute;
     top: 15px;
@@ -428,6 +429,8 @@ input[type="text"] {
 
 /*下面是勾选框 */
 .attr-panl {
+  text-align: center;
+  min-width: 20px;
   a {
     color: #333333;
     font-size: 12px;
@@ -440,15 +443,11 @@ input[type="text"] {
       vertical-align: middle;
       width: 18px;
       height: 18px;
-      margin-right: 10px;
       background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
       .opera-type {
         vertical-align: middle;
       }
-    }
-
-    &.current {
-      .param-checkbox {
+      &.checkbox-checked {
         background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
         background-size: 100%;
       }
@@ -560,10 +559,9 @@ input[type="text"] {
   margin-bottom: 15px;
   .search-dl {
     float: right;
-    margin-right: 13px;
+    margin-right: 10px;
     input[type="text"] {
       width: 128px;
-      height: 26px;
     }
   }
   .upload-span {
@@ -589,11 +587,12 @@ input[type="text"] {
   }
   input[type="text"] {
     font-size: 12px;
-    width: 190px;
+    width: 180px;
     &.aql-input {
-      width: 180px;
       float: right;
       margin-right: 10px;
+      outline: none;
+      @include border-radius(3px);
     }
   }
 }
@@ -610,8 +609,9 @@ input[type="text"] {
   margin-left: -15px;
   @include box-sizing(border-box);
   .attr-panl {
-    margin-top: 5px;
     float: left;
+    height: 30px;
+    line-height: 30px;
     a {
       color: #333333;
       font-size: 12px;
@@ -620,23 +620,9 @@ input[type="text"] {
       overflow: hidden;
       text-overflow: ellipsis;
       .param-checkbox {
-        display: inline-block;
-        vertical-align: middle;
-        width: 18px;
-        height: 18px;
-        margin-right: 10px;
-        background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
-        .opera-type {
-          vertical-align: middle;
-        }
+        vertical-align: top;
+        margin: 7px 5px 0 0;
       }
-      &.current {
-        .param-checkbox {
-          background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
-          background-size: 100%;
-        }
-      }
-
     }
   }
   button {
@@ -1527,7 +1513,7 @@ input[type="text"] {
         height: 15px;
         margin-right: 5px;
         vertical-align: middle;
-      } 
+      }
     }
   }
 }

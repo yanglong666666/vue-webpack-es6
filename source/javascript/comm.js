@@ -1303,34 +1303,33 @@ var go_url = function (href, param, name) {
     '</div>'].join('');
 
   var li_all = $(".nav-cftrade ul li");
-  $('.shadow-div').show();
-  $('.iframepage').hide();
-  var tabHasThis = false;
-  for (var i in li_all) {
-    if (href == li_all.eq(i).data("href")) {
-      //模拟调用申请数据
-      $('.shadow-div').show();
-      li_all.removeClass("active");
-      li_all.eq(i).addClass("active");
-      $(document.getElementById(href)).show();
-      tabHasThis = true;
+  if (li_all.length == 7) {
+    var dailog = new Dialog(null, {
+      title: '提示',
+      content: contentHtml,
+      hasBtn: true,
+      width: 240,
+      confirm: function (dialog) {
+        dialog.hide();
+      },
+      afterShow: function () {
+      }
+    });
+    dailog.show();
+  }else{
+    $('.shadow-div').show();
+    $('.iframepage').hide();
+    var tabHasThis = false;
+    for (var i in li_all) {
+      if (href == li_all.eq(i).data("href")) {
+        $('.shadow-div').show();
+        li_all.removeClass("active");
+        li_all.eq(i).addClass("active");
+        $(document.getElementById(href)).show();
+        tabHasThis = true;
+      }
     }
-  }
-  if(!tabHasThis){
-    if (li_all.length == 7) {
-      var dailog = new Dialog(null, {
-        title: '提示',
-        content: contentHtml,
-        hasBtn: true,
-        width: 240,
-        confirm: function (dialog) {
-          dialog.hide();
-        },
-        afterShow: function () {
-        }
-      });
-      dailog.show();
-    }else{
+    if(!tabHasThis){
       //tab栏增加一项
       li_all.removeClass("active");
       var child_li = ' <li data-href="' + href + '"data-param="' + param + '" title="' + name + '" class="active">' + name + '<i class="icon-close" title="关闭"></i></li>';
@@ -1345,5 +1344,25 @@ var go_url = function (href, param, name) {
       iframeWrap.appendChild(ifr);
     }
   }
+
   $('.shadow-div').hide();
 };
+$('.param-checkbox').on('click',function(){
+  var $self = $(this);
+  if($self.hasClass('checkbox-checked')){
+    $self.removeClass('checkbox-checked');
+    if($self.hasClass('checkAll')){
+      $('.param-checkbox').removeClass('checkbox-checked');
+    }
+  }else{
+    $self.addClass('checkbox-checked');
+    if($self.hasClass('checkAll')){
+      $('.param-checkbox').addClass('checkbox-checked');
+    }
+  }
+  if($('table .param-checkbox').length == $('table .param-checkbox.checkbox-checked').length){
+    $('.param-checkbox.checkAll').addClass('checkbox-checked');
+  }else{
+    $('.param-checkbox.checkAll').removeClass('checkbox-checked');
+  }
+});
