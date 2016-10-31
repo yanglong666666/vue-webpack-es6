@@ -8,24 +8,42 @@ layout: default-iframe
     $('#select2').diySelect();
     $('#select3').diySelect();
     $('#select4').diySelect();
+    $('#dialogSelect1').diySelect();
+    $('#dialogSelect2').diySelect();
+    $('#dialogSelect3').diySelect();
 
-    var addHtml = "TODO";
-    $('#addOne').dialog({
-      title: '创建',
-      content: addHtml,
-      hasBtn: true,
-      width: 500,
-      height: 'auto',
-      btnText: ['保存', '取消'],
-      padding: '21px 27px 32px 27px',
-      confirm: function (dialog) {
-        dialog.hide();
-      },
-      afterShow: function () {
+    $('#addOne').on('click',function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+    $('#finish').on('click',function(){
+      $('.main-content').show();
+      $('.view-content').hide();
+    });
+    $('#cancel').on('click',function(){
+      $('.main-content').show();
+      $('.view-content').hide();
+    });
 
-      }
-    })
+    //列表内部点击事件需冒泡
+    $('.main-table').on('click','.item-modify', function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+    $('.main-table').on('click','.item-delete', function(){
+      var $self = $(this);
+      var dailog = new Dialog(null, {
+        title: '提示',
+        content: '确定删除此项吗？',
+        hasBtn: true,
+        width: 240,
+        confirm: function () {
+          $self.parents('tr').remove();
+        }
+      });
+    });
   });
+
 </script>
 <div class="main-content arch-configs">
   <div class="task-search clearfix">
@@ -93,7 +111,9 @@ layout: default-iframe
       </thead>
       <tbody>
       <tr>
-        <td><span class="param-checkbox"></span></td>
+        <td>
+          <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
+        </td>
         <td>创业板每日质检任务</td>
         <td>每日任务</td>
         <td>按业务</td>
@@ -104,12 +124,90 @@ layout: default-iframe
         <td>李小晨</td>
         <td>启用</td>
         <td>
-          <a class="">修改</a>
-          <a class="">删除</a>
+          <a class="item-modify">修改</a>
+          <a class="item-delete">删除</a>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
   {% include component/pagenav-cf.html %}
+</div>
+<div class="view-content" id="edit-content" style="display: none;">
+  <div class="dialog-item-wrap">
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">任务名称</div>
+      <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">任务类型</div>
+      <div class="dialog-right"><label><input type="radio" class="">专项任务</label><label><input type="radio" class="">每日任务</label>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">质检类型</div>
+      <div class="dialog-right"><label><input type="radio" class="">按客户</label><label><input type="radio"
+                                                                                             class="">按业务</label></div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">开户日期</div>
+      <div class="dialog-right"><input class="dialog-input" placeholder="年/月/日" value=""><span
+        style="margin: 0 5px;">至</span><input class="dialog-input" placeholder="年/月/日" value=""></div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">质检范围</div>
+      <div class="dialog-right"><select name="" id="dialogSelect1" class="diy-select" style="display: none;">
+        <option selected="">请选择</option>
+        <option selected="" value="1">111111</option>
+      </select><span class="js-select" id="dialogSelect1-select">111111<i class="arrow"></i></span>
+        <div class="js-option" id="dialogSelect1-option" style="display: none;">
+          <ul>
+            <li data-select-val="请选择">请选择</li>
+            <li data-select-val="1">111111</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">操作营业部</div>
+      <div class="dialog-right"><select name="" id="dialogSelect2" class="diy-select" style="display: none;">
+        <option selected="">请选择</option>
+        <option selected="" value="1">111111</option>
+      </select><span class="js-select" id="dialogSelect2-select">111111<i class="arrow"></i></span>
+        <div class="js-option" id="dialogSelect2-option" style="display: none;">
+          <ul>
+            <li data-select-val="请选择">请选择</li>
+            <li data-select-val="1">111111</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">质检规则</div>
+      <div class="dialog-right"><label><input type="radio" class="">按客户号尾号</label><label><input type="radio" class="">按流水号尾号</label><label><input
+        type="radio" class="">随机比例</label></div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">客户号</div>
+      <div class="dialog-right"><select name="" id="dialogSelect3" class="diy-select" style="display: none;">
+        <option selected="">请选择</option>
+        <option selected="" value="1">111111</option>
+      </select><span class="js-select" id="dialogSelect3-select">111111<i class="arrow"></i></span>
+        <div class="js-option" id="dialogSelect3-option" style="display: none;">
+          <ul>
+            <li data-select-val="请选择">请选择</li>
+            <li data-select-val="1">111111</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">任务要点描述</div>
+      <div class="dialog-right"><textarea class="dialog-input-long" placeholder="秒速内容"></textarea></div>
+    </div>
+  </div>
+  <div class="button-content" style="text-align: left;margin-left: 145px;">
+    <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
+    <button class="btn btn-deny" id="cancel">取消</button>
+  </div>
 </div>
