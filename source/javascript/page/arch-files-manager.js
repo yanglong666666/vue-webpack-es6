@@ -5,9 +5,11 @@ $(function(){
 	$('#hander_list').diySelect();
   	CrtDialogInit();
   	ListDialogInit();
+    ModelDialogInit();
 })
 function CrtDialogInit(){
-	var contentHtml = '<div class="config-dialog-item">' +
+	var contentHtml = '<div class="dialog-item-wrap">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">业务类型</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="area_list" class="diy-select" style="display: none;">' + 
@@ -15,13 +17,13 @@ function CrtDialogInit(){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案文件名称</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input"  value="创业板开通现场头像" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案文件模板内容</div>' +
               '<div class="dialog-right">' +
               '<div class="dialog-divbox2">'+
@@ -48,11 +50,12 @@ function CrtDialogInit(){
               '</div>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">备注</div>' +
               '<div class="dialog-right">' +
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
+          '</div>' + 
           '</div>'
   $('.btn-add').dialog({
     title: '创建业务',
@@ -125,6 +128,43 @@ function ListDialogInit(){
     },
     afterShow: function () {
       	
+    }
+  })
+}
+function ModelDialogInit(){
+  var contentHtml = '<div class="dialog-pic-wrap">' +
+    '<div class="pic-time">2016年8月12</div>' +
+    '<div class="pic-items">' +
+      '<div class="pic-item-3"> ' +
+        '<img src="" style="" alt="">' +
+        '<p class="pic-page-num">第一页</p>' +
+        '<p class="pic-page-info">条形码：12312313</p>  ' +
+      '</div>' +
+      '<div class="pic-item-3"> ' +
+        '<img src="" style="" alt="">' +
+        '<p class="pic-page-num">第二页</p>' +
+        '<p class="pic-page-info">条形码：12312313</p>  ' +
+      '</div>' +
+      '<div class="pic-item-3"> ' +
+        '<img src="" style="" alt="">' +
+        '<p class="pic-page-num">第三页</p>' +
+        '<p class="pic-page-info">条形码：12312313</p>  ' +
+      '</div>' +
+    '</div>' +
+  '</div>'
+
+  $('.set-btn').dialog({
+    title: '档案模板详情',
+    content: contentHtml,
+    hasBtn: false,
+    width: 600,
+    height: 'auto',
+    padding: '21px 27px 32px 27px',
+    confirm: function (dialog) {
+      dialog.destory();
+    },
+    afterShow: function () {
+        
     }
   })
 }

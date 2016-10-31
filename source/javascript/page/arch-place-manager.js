@@ -10,13 +10,14 @@ $(function(){
 	})
 })
 function UseDialogInit(){
-	var contentHtml = '<div class="config-dialog-item">' +
+	var contentHtml = '<div class="dialog-item-wrap">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">借阅客户号</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="123123123" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">客户档案选择</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="arch_list" class="diy-select" style="display: none;">' + 
@@ -24,7 +25,7 @@ function UseDialogInit(){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">接受营业部</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="uyyb_list" class="diy-select" style="display: none;">' + 
@@ -32,19 +33,20 @@ function UseDialogInit(){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">借阅人</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="李二狗" />' +
             '</div>' +
           '</div>'+
          
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">备注</div>' +
               '<div class="dialog-right">' +
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
-          '</div>'
+          '</div>' +
+          '</div>';
   $('.btn-use').dialog({
     title: '创建业务',
     content: contentHtml,
@@ -64,7 +66,8 @@ function UseDialogInit(){
   })
 }
 function MoveDialogInit(){
-	var contentHtml = '<div class="config-dialog-item">' +
+	var contentHtml = '<div class="dialog-item-wrap">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">接收营业部</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="myyb_list" class="diy-select" style="display: none;">' + 
@@ -72,7 +75,7 @@ function MoveDialogInit(){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">接收档案管理员</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="manager_list" class="diy-select" style="display: none;">' + 
@@ -81,12 +84,13 @@ function MoveDialogInit(){
             '</div>' +
           '</div>'+
          
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left">备注</div>' +
               '<div class="dialog-right">' +
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
-          '</div>'
+          '</div>' +
+          '</div>';
   $('.btn-move').dialog({
     title: '档案位置归档',
     content: contentHtml,
@@ -105,7 +109,8 @@ function MoveDialogInit(){
   })
 }
 function HoldDialogInit(){
-	var contentHtml = '<div class="config-dialog-item">' +
+	var contentHtml = '<div class="dialog-item-wrap">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">存放位置</div>' +
               '<div class="dialog-right item-inner small-item">' +
               '<select name="" id="hyyb_list" class="diy-select" style="display: none;">' + 
@@ -119,15 +124,16 @@ function HoldDialogInit(){
               '</select>' +
             '</div>' +
           '</div>' + 
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
           '<div class="dialog-item-tips">' + '杭州营业部-1号档案柜-1层' +
+          '</div>' +
           '</div>' +
           '</div>';
   $('.btn-add').dialog({
     title: '档案位置归档',
     content: contentHtml,
     hasBtn: true,
-    width: 600,
+    width: 700,
     height: 'auto',
     btnText: ['保存', '取消'],
     padding: '21px 27px 32px 27px',

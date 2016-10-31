@@ -40,7 +40,8 @@ function DelDialongInit() {
   });
 }
 function ModDialongInit(){
-  var contentHtml = '<div class="config-dialog-item">' +
+  var contentHtml =  '<div class="dialog-item-wrap">' +
+        '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">业务类型</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="area_list" class="diy-select" style="display: none;">' + 
@@ -48,13 +49,13 @@ function ModDialongInit(){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">业务编码</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" disabled="disabled" value="123123123" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案配置</div>' +
               '<div class="dialog-right">' +
               '<div class="dialog-divbox">'+
@@ -67,18 +68,19 @@ function ModDialongInit(){
               '</div>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案名称</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="客户现场头像照片" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">备注</div>' +
               '<div class="dialog-right">' +
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
-          '</div>'
+          '</div>' +
+        '</div>';
   $('.set-btn').dialog({
     title: '修改业务',
     content: contentHtml,
@@ -106,7 +108,8 @@ function ModDialongInit(){
 }
 function CrtDialogInit(){
 
-  var contentHtml = '<div class="config-dialog-item">' +
+  var contentHtml = '<div class="dialog-item-wrap">' +
+            '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">业务类型</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="area_list" class="diy-select" style="display: none;">' + 
@@ -114,13 +117,13 @@ function CrtDialogInit(){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">业务编码</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" disabled="disabled" value="123123123" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案配置</div>' +
               '<div class="dialog-right">' +
               '<div class="dialog-divbox">'+
@@ -133,12 +136,13 @@ function CrtDialogInit(){
               '</div>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">备注</div>' +
               '<div class="dialog-right">' +
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
-          '</div>'
+          '</div>' +
+        '</div>';
   $('.btn-add').dialog({
     title: '创建业务',
     content: contentHtml,
@@ -166,19 +170,20 @@ function CrtDialogInit(){
   })
 }
 function addItemDialogInit(obj){
-  var contentHtml = '<div class="config-dialog-item">' +
+  var contentHtml = '<div class="dialog-item-wrap">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案文件编号</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="CYB001" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">档案文件名称</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="CYB001" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">文件格式</div>' +
               '<div class="dialog-right item-inner">' +
               '<select name="" id="area_list" class="diy-select" style="display: none;">' + 
@@ -187,24 +192,25 @@ function addItemDialogInit(obj){
               '</select>' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
-            '<div class="dialog-left must-icon">单个文件大小</div>' +
+          '<div class="dialog-item">' +
+              '<div class="dialog-left must-icon">单个文件大小</div>' +
               '<div class="dialog-right">' +
-              '<input class="dialog-input"  value="123" />MB以内' +
-            '</div>' +
+                '<input class="dialog-input"  value="123" />MB以内' +
+              '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">数量</div>' +
               '<div class="dialog-right">' +
               '<input class="dialog-input" value="12" />' +
             '</div>' +
           '</div>'+
-          '<div class="config-dialog-item">' +
+          '<div class="dialog-item">' +
             '<div class="dialog-left must-icon">备注</div>' +
               '<div class="dialog-right">' +
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
-          '</div>'
+          '</div>' +
+        '</div>';
   $(obj).dialog({
     title: '新建档案类型',
     content: contentHtml,
