@@ -26,10 +26,11 @@ $btn-color-gray: #7d7d7d;
     line-height: 30px;
     float: right;
     border: 1px solid #e8e8e8;
-    background: url("../images/cftrade/magnifier.png") center no-repeat;
+    background: url("../images/cf/magnifier-red.png") center no-repeat;
     background-color: #ffffff;
     margin-right: 0;
     cursor: pointer;
+    outline: none;
   }
   &.btn-add,&.btn-move,&.btn-use {
     float: right;

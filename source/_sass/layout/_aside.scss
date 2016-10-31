@@ -52,13 +52,12 @@
         top: 18px;
       }
       .icon {
+        height: 24px;
+        width: 24px;
+        top: 8px;
+        left: 15px;
         position: absolute;
         display: inline-block;
-        top: 17px;
-        left: 25px;
-        width: 18px;
-        height: 18px;
-        background: url(../images/aside-ico.png) no-repeat 0 0;
       }
       &.current {
         &:before {
@@ -73,33 +72,59 @@
         b {
           background: url("../images/cftrade/show-ul.png") no-repeat;
         }
+        >a,>p {
+          color: $theme-color
+        }
       }
-      &.index-archive-manage {
+      &.index-home {
         .icon {
-          height: 30px;
-          width: 30px;
-          top: 8px;
-          left: 15px;
-          background-image: url(../images/cftrade/icon-setting.png);
+          background: url(../images/aside/aside-cf.png) no-repeat 0 -48px;
         }
         &.current {
           .icon {
-            background-image: url(../images/cftrade/icon-setting-current.png);
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -72px;
+          }
+        }
+      }
+      &.index-archive-manage {
+        .icon {
+          background: url(../images/aside/aside-cf.png) no-repeat 0 0;
+        }
+        &.current {
+          .icon {
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -24px;
           }
 
         }
       }
-      &.index-Arch {
+      &.index-platform-manage {
         .icon {
-          height: 30px;
-          width: 30px;
-          top: 10px;
-          left: 15px;
-          background-image: url(../images/cfarchives/icon-people.png);
+          background: url(../images/aside/aside-cf.png) no-repeat 0 -96px;
         }
         &.current {
           .icon {
-            background-image: url(../images/cfarchives/icon-people-current.png);
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -120px;
+          }
+
+        }
+      }
+      &.index-quality-system {
+        .icon {
+          background: url(../images/aside/aside-cf.png) no-repeat 0 -144px;
+        }
+        &.current {
+          .icon {
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -168px;
+          }
+        }
+      }
+      &.index-Arch {
+        .icon {
+          background-image: url(../images/aside/icon-people.png);
+        }
+        &.current {
+          .icon {
+            background-image: url(../images/aside/icon-people-current.png);
           }
         }
       }
