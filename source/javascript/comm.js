@@ -1309,8 +1309,9 @@ var go_url = function (href, param, name) {
       content: contentHtml,
       hasBtn: true,
       width: 240,
+      btnText: ['确定'],
       confirm: function (dialog) {
-        dialog.hide();
+        dialog.destroy();
       },
       afterShow: function () {
       }
@@ -1347,22 +1348,26 @@ var go_url = function (href, param, name) {
 
   $('.shadow-div').hide();
 };
-$('.param-checkbox').on('click',function(){
+
+//初始化checkbox
+$('body').on('click','.param-checkbox',function(){
   var $self = $(this);
-  if($self.hasClass('checkbox-checked')){
-    $self.removeClass('checkbox-checked');
-    if($self.hasClass('checkAll')){
+  if($self.hasClass('checkAll')){
+    if($self.hasClass('checkbox-checked')){
       $('.param-checkbox').removeClass('checkbox-checked');
-    }
-  }else{
-    $self.addClass('checkbox-checked');
-    if($self.hasClass('checkAll')){
+    }else{
       $('.param-checkbox').addClass('checkbox-checked');
     }
-  }
-  if($('table .param-checkbox').length == $('table .param-checkbox.checkbox-checked').length){
-    $('.param-checkbox.checkAll').addClass('checkbox-checked');
   }else{
-    $('.param-checkbox.checkAll').removeClass('checkbox-checked');
+    if($self.hasClass('checkbox-checked')){
+      $self.removeClass('checkbox-checked');
+    }else{
+      $self.addClass('checkbox-checked');
+    }
+    if($('table .param-checkbox').length == $('table .param-checkbox.checkbox-checked').length){
+      $('.param-checkbox.checkAll').addClass('checkbox-checked');
+    }else{
+      $('.param-checkbox.checkAll').removeClass('checkbox-checked');
+    }
   }
 });

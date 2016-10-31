@@ -32,15 +32,43 @@ layout: default-iframe
     });
     $('.main-table').on('click','.item-delete', function(){
       var $self = $(this);
-      var dailog = new Dialog(null, {
+      var dialog = new Dialog(null, {
         title: '提示',
         content: '确定删除此项吗？',
         hasBtn: true,
         width: 240,
-        confirm: function () {
+        confirm: function (dialog) {
           $self.parents('tr').remove();
+          dialog.destroy();
         }
       });
+    });
+
+    $('.dialog-right').on('click','input[type=radio]',function(){
+      $(this).prop('checked',true).parent().siblings('label').find('input[type=radio]').prop('checked',false);
+    });
+
+    $('.textarea-add').on('click',function(){
+      $(this).parents('.dialog-right').append('<textarea class="dialog-input-long" placeholder="描述内容"></textarea>')
+    });
+
+    $('.textarea-delete').on('click',function(){
+      var $textarea = $(this).parents('.dialog-right').find('.dialog-input-long');
+      if($textarea.length > 1){
+        $textarea.eq($textarea.length-1).remove();
+      }else{
+        var dialog = new Dialog(null, {
+          dialogClass: 'js-dialog',
+          title: '提示',
+          content: '只剩一条输入框了！',
+          hasBtn: true,
+          width: 240,
+          btnText: ['确定'],
+          confirm: function (dialog) {
+            dialog.hide();
+          }
+        });
+      }
     });
   });
 
@@ -111,6 +139,24 @@ layout: default-iframe
       </thead>
       <tbody>
       <tr>
+        <td>
+          <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
+        </td>
+        <td>创业板每日质检任务</td>
+        <td>每日任务</td>
+        <td>按业务</td>
+        <td>随机质检</td>
+        <td>总部、杭州营业部、温州...</td>
+        <td>总部</td>
+        <td>2016-06-01</td>
+        <td>李小晨</td>
+        <td>启用</td>
+        <td>
+          <a class="item-modify">修改</a>
+          <a class="item-delete">删除</a>
+        </td>
+      </tr>
+      <tr class="even">
         <td>
           <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
         </td>
@@ -203,7 +249,11 @@ layout: default-iframe
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">任务要点描述</div>
-      <div class="dialog-right"><textarea class="dialog-input-long" placeholder="秒速内容"></textarea></div>
+      <div class="dialog-right">
+        <a class="textarea-add">增加</a>
+        <a class="textarea-delete">删除</a>
+        <textarea class="dialog-input-long" placeholder="描述内容"></textarea>
+      </div>
     </div>
   </div>
   <div class="button-content" style="text-align: left;margin-left: 145px;">
