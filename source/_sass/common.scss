@@ -1029,7 +1029,8 @@ input[type="text"] {
       .dialog-textarea {
         display: inline-block;
         height: 80px;
-        width: 100%;
+        width: 220px;
+        box-sizing: border-box;
         outline: none;
         padding: 5px 10px;
         font-size: 13px;
@@ -1047,7 +1048,8 @@ input[type="text"] {
       .dialog-divbox {
         display: inline-block;
         min-height: 80px;
-        width: 100%;
+        width: 220px;
+        box-sizing: border-box;
         padding: 10px;
         overflow: hidden;
         white-space: normal;
@@ -1600,6 +1602,7 @@ input[type="text"] {
 /*文件上传*/
 .upload-box {
   display: inline-block;
+  vertical-align: middle;
   .upload {
     position: relative;
     float: left;

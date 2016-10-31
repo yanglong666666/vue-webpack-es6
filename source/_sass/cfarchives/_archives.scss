@@ -1,14 +1,31 @@
-
-.container .ui-content .main-content {
-	@mixin line-h($h:48px){
-	  height: $h;
-	  line-height: $h;
+.js-dialog{
+	.js-dialog-bd{
+		.dialog-pic-wrap{
+			padding:0px 20px;
+			.pic-time{
+				padding-left: 20px;
+    			margin-bottom: 10px;
+			}
+			.pic-items{
+				.pic-item-3{
+					width:33%;
+					text-align: center;
+					display: inline-block;
+					img{
+						height: 200px;width:130px;margin:0 auto;
+						margin-bottom: 5px;
+					}
+				}
+				.pic-page-num,.pic-page-info{
+					font-size: 12px;
+				}
+				
+			}
+		}
 	}
-	@mixin txt-clr($clr:rgb(198, 60, 70)){
-	  color:$clr;
-	}
+}
 
-	& .arch-home-content{
+	 .arch-home-content{
 		.content-title{
 			font-size: 20px;
 			font-weight: 700;
@@ -34,20 +51,51 @@
 					}
 				}
 			}
-		}
-		
+		}	
 	}
 
-	&.arch-configs{
-	
+	.arch-detail{
+		.detail-page-title{
+		    font-size: 20px;
+		    text-align: center;
+		    font-weight: 700;
+		    margin-bottom: 20px
+		}
+		.info-table .info-table-content .info-table-colspan
+		{
+			.info-table-long{
+				width:100%;
+				.info-table-key{
+					width:100%;
+				}
+			}
+			.table-list-null{
+				.info-table-key{
+					background: transparent;
+					padding:0;
+				}
+				.main-table{
+					margin-bottom: 0;
+					.data-table{
+						border:none;
+						tr{
+							border-bottom: 1px solid #ebebeb;
+						}
+						td{
+							text-align: left;
+							padding:0;
+							&.left10{
+								padding-left: 10px;
+							}
+						}
+						thead {
+							background: #f5f6f8;
+						}
+					}
+				}
+			}
+			.info-table-cols2{
+				height: 40px;
+			}
+		}
 	}
-	&.arch-type{
-		
-	}
-	&.arch-place-manager{
-		
-	}
-	&.arch-files-manager,&.arch-contracts-manager,&.arch-contracts-query{
-		
-	}
-}
