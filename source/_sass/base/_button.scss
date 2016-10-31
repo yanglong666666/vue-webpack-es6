@@ -73,7 +73,7 @@ $btn-color-gray: #7d7d7d;
     @include opacity(.65);
   }
 }
-.btn {
+.btn,.btn-dialog {
   @extend %btn;
 }
 
