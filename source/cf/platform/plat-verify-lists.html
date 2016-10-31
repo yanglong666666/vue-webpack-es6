@@ -1,0 +1,119 @@
+---
+title: 业务档案配置
+layout: default-iframe
+---
+<script type="text/javascript">
+$(function () {
+    $('#zjlx_list').diySelect();
+  $('#model_list').diySelect();
+
+  $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+  });
+</script>
+<div class="main-content arch-place-manager">
+  <div class="task-search clearfix">
+    <button class="btn btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="证件号码">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="zjlx_list" class="diy-select">
+            <option selected="" value="1">身份证</option>
+            <option selected="" value="2">已归档</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+   
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="model_list" class="diy-select">
+            <option selected="" value="1">业务类型</option>
+            <option selected="" value="2">客户关系</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span class="pre">办理时间</span>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始时间">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="截止时间">
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="15%">申请时间</th>
+        <th width="10%">受理单号</th>
+        <th width="15%">业务名称</th>
+        <th width="10%">客户号</th>
+        <th width="10%">证件类型</th>
+        <th width="15%">证件号码</th>
+        <th width="10%">审核人</th>
+        <th width="8%">状态</th>
+        <th width="7%">操作</th>
+
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2016-09-11 12:12:12</td>
+          <td>0782355</td>
+          <td>创业板开通</td>
+          <td>610007</td>
+          <td>身份证</td>
+          <td>420322198809134559</td>
+          <td>李小路</td>
+          <td>审核中</td>
+          <td><span class="text-blue set-btn curs-hand">审核</span></td>  
+        </tr>
+        <tr>
+          <td>2016-09-11 12:12:12</td>
+          <td>0782355</td>
+          <td>创业板开通</td>
+          <td>610007</td>
+          <td>身份证</td>
+          <td>420322198809134559</td>
+          <td>李小路</td>
+          <td>审核中</td>
+          <td><span class="text-blue set-btn curs-hand">审核</span></td>  
+        </tr>
+        <tr>
+          <td>2016-09-11 12:12:12</td>
+          <td>0782355</td>
+          <td>创业板开通</td>
+          <td>610007</td>
+          <td>身份证</td>
+          <td>420322198809134559</td>
+          <td>李小路</td>
+          <td>审核中</td>
+          <td><span class="text-blue set-btn curs-hand">审核</span></td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% include component/pagenav-cf.html %}
+<div class="footer-select clearfix">
+  <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox checkAll"></span>全选</a></div>
+</div>
