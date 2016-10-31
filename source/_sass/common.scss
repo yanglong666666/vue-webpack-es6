@@ -901,7 +901,7 @@ input[type="text"] {
     right: 13px;
     height: 16px;
     width: 16px;
-    background: url(../images/cftrade/icon-close.png) 0 0 no-repeat
+    background: url(../images/cf/close-black.png) no-repeat
   }
   .ui-pagenav {
     margin: 110px 0 0 0;
@@ -909,6 +909,57 @@ input[type="text"] {
       width: 640px;
       .page-go {
         padding: 0;
+      }
+    }
+  }
+
+  //档案记录
+  .dialog-file {
+    position: relative;
+    height: 300px;
+    .dialog-file-aside {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      overflow: hidden;
+      .file-name {
+        line-height: 1.2;
+        margin: 0 0 15px 0;
+        font-size: 13px;
+        color: #999999;
+      }
+      .current {
+        color: #000000;
+      }
+    }
+    .dialog-file-content {
+      margin: 0 0 0 165px;
+      height: 100%;
+      background: #ffffff;
+      padding: 0 15px;
+      border-left: solid 1px $border-color;
+      overflow: hidden;
+      overflow-y: auto;
+      .file-item-wrap {
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+      }
+      .file-item {
+        margin-bottom: 10px;
+        font-size: 0;
+        .file-item-date {
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+        .file-item-pic {
+          display: inline-block;
+          width: 50%;
+          padding: 0 10px;
+          @include box-sizing(border-box);
+        }
       }
     }
   }

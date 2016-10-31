@@ -11,14 +11,14 @@
     padding: 9px 10px;
   }
   .js-dialog-hd {
-    height: 48px;
-    line-height: 48px;
-    border-radius: 10px 10px 0 0;
-    background-color: rgb(240, 240, 240);  
+    height: 36px;
+    line-height: 36px;
+    border-radius: 5px 5px 0 0;
+    background-color: #F0F0F0;
     h2 {
       padding-left: 15px;
       color: #12171d;
-      font-size: 22px;
+      font-size: 15px;
       text-align: left;
       border-bottom: 1px solid $gaplinecolor;
       &.posleft{
@@ -61,15 +61,15 @@
   }
   .js-dialog-close {
     position: absolute;
-    top: 8px;
-    right: 12px;
     @include inline-block;
-    height: 32px;
-    width: 33px;
-    background: url(../images/close-ico.png) 0 0 no-repeat;
     cursor: pointer;
     font-size: 0;
-    content: ""; 
+    content: "";
+    top: 11px;
+    right: 13px;
+    height: 16px;
+    width: 16px;
+    background: url(../images/cf/close-black.png) no-repeat;
   }
   .js-scrollable {
     overflow-x: hidden;

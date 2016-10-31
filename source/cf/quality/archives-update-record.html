@@ -7,8 +7,46 @@ layout: default-iframe
     $('#select1').diySelect();
     $('#select2').diySelect();
     $('#select3').diySelect();
+
+    var fileContent =
+      '<div class="dialog-file">' +
+      '  <div class="dialog-file-aside">' +
+      '    <div class="file-name current">客户身份证扫描件(1)</div>' +
+      '    <div class="file-name">客户现场头像照片(1)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '  </div>' +
+      '  <div class="dialog-file-content">' +
+      '       <div class="file-item">' +
+      '         <div class="file-item-date">2016年8月21日</div>' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '       </div>' +
+      '       <div class="file-item">' +
+      '         <div class="file-item-date">2016年8月21日</div>' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '       </div>' +
+      '       <div class="file-item">' +
+      '         <div class="file-item-date">2016年8月21日</div>' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '       </div>' +
+      '  </div>' +
+      '</div>';
+    $('.main-table').on('click','.btn-quality',function(){
+      var dialog = new Dialog(null, {
+        title: '档案更新记录',
+        content: fileContent,
+        hasBtn: false,
+        padding: "20px 15px",
+        width: 600
+      });
+    });
   });
 </script>
+
+
 <div class="main-content arch-configs">
   <div class="task-search clearfix">
     <button class="btn-fill btn-lg magnifier" href="#"></button>
