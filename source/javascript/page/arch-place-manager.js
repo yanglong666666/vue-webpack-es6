@@ -2,12 +2,13 @@ $(function(){
 	$('#model_list').diySelect();
 	$('#hold_list').diySelect();
 	$('#yyb_list').diySelect();
-	HoldDialogInit();
-	MoveDialogInit();
-	UseDialogInit();
-	$(".set-btn").on('click',function(){
-		ListDialogInit(this);
-	})
+
+
+  HoldDialogInit();
+  MoveDialogInit();
+  UseDialogInit();
+   
+  ListDialogInit();
 })
 function UseDialogInit(){
 	var contentHtml = '<div class="dialog-item-wrap">' +
@@ -47,6 +48,8 @@ function UseDialogInit(){
             '</div>' +
           '</div>' +
           '</div>';
+ 
+
   $('.btn-use').dialog({
     title: '创建业务',
     content: contentHtml,
@@ -90,7 +93,7 @@ function MoveDialogInit(){
               '<textarea class="dialog-textarea"></textarea>' +
             '</div>' +
           '</div>' +
-          '</div>';
+          '</div>';    
   $('.btn-move').dialog({
     title: '档案位置归档',
     content: contentHtml,
@@ -128,7 +131,7 @@ function HoldDialogInit(){
           '<div class="dialog-item-tips">' + '杭州营业部-1号档案柜-1层' +
           '</div>' +
           '</div>' +
-          '</div>';
+          '</div>'; 
   $('.btn-add').dialog({
     title: '档案位置归档',
     content: contentHtml,
@@ -141,13 +144,13 @@ function HoldDialogInit(){
       dialog.destory();
     },
     afterShow: function () {
-      	$('#hyyb_list').diySelect();
-		$('#arch_hus_list').diySelect();
-		$('#arch_flr_list').diySelect();
+        $('#hyyb_list').diySelect();
+		    $('#arch_hus_list').diySelect();
+		    $('#arch_flr_list').diySelect();
     }
   })
 }
-function ListDialogInit(obj){
+function ListDialogInit(){
 	var contentHtml = '<div class="main-table">' +
     '<table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">' + 
       '<thead>' + 
@@ -155,7 +158,7 @@ function ListDialogInit(obj){
         '<th width="8%">ID</th>' + 
         '<th width="15%">档案条形码</th>' + 
         '<th width="10%">档案名称</th>' + 
-       	'<th width="10%">操作人</th>' + 
+        '<th width="10%">操作人</th>' + 
         '<th width="15%">存放物理位置</th>' + 
         '<th width="12%">操作日期</th>' + 
         '<th width="10%">接受人</th>' + 
@@ -189,18 +192,25 @@ function ListDialogInit(obj){
       '</tbody>' + 
     '</table>' + 
   '</div>';
-  $(obj).dialog({
-    title: '档案位置变更流水',
-    content: contentHtml,
-    hasBtn: false,
-    width: 800,
-    height: 'auto',
-    padding: '21px 27px 32px 27px',
-    confirm: function (dialog) {
-      dialog.destory();
-    },
-    afterShow: function () {
-      	
-    }
-  })
+  
+   $('.main-table').on('click','.set-btn', function(){
+    var dialog = new Dialog(null, {
+        title: '档案位置变更流水',
+        content: contentHtml,
+        hasBtn: false,
+        width: 800,
+        height: 'auto',
+        padding: '21px 27px 32px 27px',
+        confirm: function (dialog) {
+          dialog.destory();
+        },
+        cancel:function(){
+           dialog.destory();
+         },
+        afterShow: function () {
+            
+        }
+      });
+
+  });
 }
