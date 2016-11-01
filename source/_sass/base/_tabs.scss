@@ -64,3 +64,59 @@
     }
   }
 }
+
+
+
+//财富消息中心
+.main-tab {
+  border-bottom: solid 1px $border-color;
+  margin-bottom: 20px;
+  .main-tab-item {
+    display: inline-block;
+    padding: 0 10px 10px;
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+      content: " ";
+      width: 1px;
+      height: 14px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: $border-color;
+    }
+    &.current {
+      font-weight: 600;
+    }
+    &:nth-child(1) {
+      &:before {
+        width: 0;
+      }
+    }
+    .not-read {
+      background: $theme-color;
+      color: #ffffff;
+      padding: 0 3px;
+      font-size: 12px;
+      line-height: 1;
+      @include border-radius(6px);
+    }
+  }
+}
+.main-filter {
+  margin-bottom: 20px;
+  font-size: 0;
+  .main-filter-item {
+    font-size: 12px;
+    margin: 0 10px 10px 0;
+    &.current {
+      background-color: $btn-fill-bg;
+      color: $btn-fill-color;
+      border: solid 1px $btn-fill-bg;
+    }
+  }
+}

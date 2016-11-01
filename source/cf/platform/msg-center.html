@@ -1,0 +1,216 @@
+---
+title: 消息中心
+layout: default-iframe
+---
+<script type="text/javascript">
+  $(function () {
+    //列表内部点击事件需冒泡
+    $('.main-table').on('click','.item-view-details', function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+    $('.main-tab').on('click','.main-tab-item', function(){
+      $(this).addClass('current').siblings('.main-tab-item').removeClass('current');
+    });
+    $('.main-filter').on('click','.main-filter-item', function(){
+      $(this).addClass('current').siblings('.main-filter-item').removeClass('current');
+    });
+  });
+
+</script>
+<div class="main-content">
+  <div class="main-tab">
+    <div class="main-tab-item">未读消息<span class="not-read">999</span></div>
+    <div class="main-tab-item current">全部消息</div>
+    <div class="main-tab-item">已读消息</div>
+  </div>
+  <div class="main-filter">
+    <div class="btn btn-long main-filter-item btn-deny-fill current">全部类型消息</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">待审核任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">待复核任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">待定任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">待质检任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">待质检整改任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">档案归档任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">待整改审核任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">档案确认任务(1)</div>
+    <div class="btn btn-long main-filter-item btn-deny-fill">系统消息(1)</div>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7 text-left">
+      <thead>
+      <tr>
+        <th width="4%"></th>
+        <th width="56%">标题内容</th>
+        <th width="20%">提交时间</th>
+        <th width="10%">类型</th>
+        <th width="10%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="has-details">
+        <td>
+          <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
+        </td>
+        <td>业务集中运营平台管理权限变更通知</td>
+        <td>2016-9-10 16:38</td>
+        <td>系统消息</td>
+        <td>
+          <button class="btn btn-primary item-view-details">查看详情</button>
+        </td>
+      </tr>
+      <tr class="details">
+        <td></td>
+        <td colspan="4">您在2016年2月21日12:33:44提交的融资融卷额度调整申请未通过，未通过原因为：您有部分负面信用记录未清除。详细内容请点击:<a>查看详情</a></td>
+      </tr>
+      <tr class="current">
+        <td>
+          <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
+        </td>
+        <td>您有一条业务办理申请被打回</td>
+        <td>2016-9-10 16:38</td>
+        <td>打回消息</td>
+        <td>
+          <button class="btn btn-primary item-handle">去办理</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer-select clearfix">
+    <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox checkAll"></span>全选</a></div>
+    <button class="btn-fill delete-btn btn-enable">批量删除</button>
+  </div>
+</div>
+
+<div class="view-content" id="view-content" style="display: none;">
+  <a class="view-back"> << 返回</a>
+
+  <div class="info-table">
+    <div class="info-table-title">业务状态</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item item-50p">
+          <div class="info-table-key">名称</div>
+          <div class="info-table-val">创业板开通</div>
+        </div>
+        <div class="info-table-item item-50p">
+          <div class="info-table-key">状态</div>
+          <div class="info-table-val">已办理</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-table">
+    <div class="info-table-title">营业部办理员</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">姓名</div>
+          <div class="info-table-val">李小晨</div>
+        </div>
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">员工编号</div>
+          <div class="info-table-val">12392</div>
+        </div>
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">办理状态</div>
+          <div class="info-table-val">办理成功</div>
+        </div>
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">办理时间</div>
+          <div class="info-table-val">2016-05-12 12:12</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-table">
+    <div class="info-table-title">业务审核员</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">姓名</div>
+          <div class="info-table-val">李小晨</div>
+        </div>
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">员工编号</div>
+          <div class="info-table-val">12392</div>
+        </div>
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">办理状态</div>
+          <div class="info-table-val">办理成功</div>
+        </div>
+        <div class="info-table-item item-25p">
+          <div class="info-table-key">办理时间</div>
+          <div class="info-table-val">2016-05-12 12:12</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-table">
+    <div class="info-table-title">客户基本信息</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">客户号</div>
+          <div class="info-table-val">610000173488</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">姓名</div>
+          <div class="info-table-val">乾多多</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">性别</div>
+          <div class="info-table-val">男</div>
+        </div>
+      </div>
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">联系手机</div>
+          <div class="info-table-val">13856930128</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">开户营业部</div>
+          <div class="info-table-val">杭州营业部
+          </div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">开户日期</div>
+          <div class="info-table-val">2014-10-12</div>
+        </div>
+      </div>
+      <div class="info-table-colspan">
+        <div class="info-table-item item-100p">
+          <div class="info-table-key">证件号码</div>
+          <div class="info-table-val">
+            32055119910128056X
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-table">
+    <div class="info-table-title">业务操作信息</div>
+    <div class="info-table-content">
+      <div class="info-table-colspan">
+        <div class="info-table-item">
+          <div class="info-table-key">紧急联系人姓名</div>
+          <div class="info-table-val">方正方</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">紧急联系人手机</div>
+          <div class="info-table-val">18539283888</div>
+        </div>
+        <div class="info-table-item">
+          <div class="info-table-key">紧急联系人关系</div>
+          <div class="info-table-val">兄弟</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -171,3 +171,8 @@ $btn-color-gray: #7d7d7d;
   @include button-size(0, 7px, 14px, 28px, 3px);
   width: inherit;
 }
+.btn-file {
+  height: 30px;
+  width: 72px;
+  outline: none;
+}

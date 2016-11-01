@@ -106,6 +106,20 @@ $table-border-color: #3f88cc !default;
           padding-left: 35px;
         }
       }
+      tr.has-details {
+        td {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+      tr.details {
+        td {
+          border-top: none;
+          padding-top: 0;
+          color: #999999;
+          line-height: 30px;
+        }
+      }
       tr.even {
         background-color: #f7f9fd;
       }

@@ -443,24 +443,24 @@ input[type="text"] {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    .param-checkbox {
-      display: inline-block;
-      vertical-align: middle;
-      width: 18px;
-      height: 18px;
-      background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
-      .opera-type {
-        vertical-align: middle;
-      }
-      &.checkbox-checked {
-        background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
-        background-size: 100%;
-      }
-    }
-    .param-null {
-      margin-right: 28px;
-    }
   }
+}
+.param-checkbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  vertical-align: top;
+  cursor: pointer;
+  background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
+  &.checkbox-checked {
+    background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
+    background-size: 100%;
+  }
+}
+
+.param-null {
+  margin-right: 28px;
 }
 
 /*上面是勾选框*/
@@ -686,9 +686,6 @@ input[type="text"] {
           height: 18px;
           margin-right: 10px;
           background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
-          .opera-type {
-            vertical-align: middle;
-          }
         }
         &.current {
           .param-checkbox {
@@ -971,13 +968,22 @@ input[type="text"] {
     font-size: 0;
     white-space: nowrap;
     position: relative;
+    .w50p {
+      position: relative;
+      .dialog-left {
+        padding-left: 0;
+      }
+      .dialog-right {
+
+      }
+    }
     .dialog-left {
       display: inline-block;
       line-height: 30px;
       padding-right: 24px;
       padding-left: 40px;
       color: #666;
-      width: 80px;
+      width: 100px;
       text-align: right;
       vertical-align: top;
       font-size: 13px;
@@ -1002,7 +1008,7 @@ input[type="text"] {
       color: #333;
       min-width: 222px;
       white-space: normal;
-      margin: 0 40px 0 104px;
+      margin: 0 40px 0 124px;
       display: block;
       .dialog-wrap {
         width: 100%;
@@ -1178,6 +1184,35 @@ input[type="text"] {
         position: absolute;
         top: 5px;
         left: 695px;
+      }
+      .checkbox-item {
+        display: inline-block;
+        margin-right: 40px;
+        padding: 4px 0;
+        &.checkAll-item {
+          display: block;
+        }
+      }
+      .btn-declare {
+        margin-left: 10px;
+        width: 120px;
+        height: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        display: inline-block;
+        line-height: 30px;
+      }
+      .checkbox-declare {
+        margin-left: 5px;
+        width: 120px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        display: inline-block;
+        line-height: 24px;
       }
       &.small-item {
         span.js-select {
@@ -1493,6 +1528,15 @@ input[type="text"] {
           }
           .info-table-val {
             width: 80%;
+          }
+        }
+        &.item-25p {
+          width: 25%;
+          .info-table-key {
+            width: 50%;
+          }
+          .info-table-val {
+            width: 50%;
           }
         }
         &.item-50p {
