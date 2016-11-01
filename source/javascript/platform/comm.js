@@ -1,4 +1,4 @@
-var isIE6 = ($.browser || 0).msie && $.browser.version == 6.0;
+var isIE6 = ($.support || 0).msie && $.support == 6.0;
 /**
  * 名称: diyselect.js
  * 描述: 用其它 HTMLElement 模拟 select
@@ -164,8 +164,10 @@ DiySelect.prototype = {
 
     setupOption: function () {
         var fragment = document.createDocumentFragment();
-
         for (var i = 0; i < this.optionSize; i++) {
+        	if($(this.option[i]).attr("ignorePlaceholder")=="1"){
+        		continue;
+        	}
             var li = document.createElement('li');
             var value = this.option[i].value;
             var text = this.option[i].text;
@@ -681,6 +683,15 @@ Dialog.prototype = {
       this.destroy();
     }
   },
+  
+  hideWithoutDestroy : function () {
+	  this.options.beforeHide && this.options.beforeHide.call(this);
+
+	  this.dialog.hide();
+	  this.options.hasMask && this.mask.hide();
+
+	  this.options.afterHide && this.options.afterHide.call(this);
+  },
 
   render: function () {
     var $dialog = $(this.dialog.overlay),
@@ -721,7 +732,7 @@ Dialog.prototype = {
       content += '<div class="btn-wrap">';
       for (var i = 0; i < this.options.btnText.length; i++) {
         btnCls = this.options.btnCls[i];
-        content += '<button type="button" data-role="' + this.options.btnRole[i] + '" class="btn-event btn-dialog btn-' + btnCls + '">' + this.options.btnText[i] + '</button>'
+        content += '<button type="button" data-role="' + this.options.btnRole[i] + '" class="btn-event btn-dialog btn-' + btnCls + ' btn-hollow">' + this.options.btnText[i] + '</button>'
       }
       content += '</div>';
     };
@@ -753,7 +764,7 @@ Dialog.prototype = {
     if (this.el) {
       $(this.el).off('click.dialog');
     }
-  },
+  }
 
 }
 
@@ -1292,82 +1303,148 @@ var DIALOG = {
         }, delayTime);
     }
 };
+String.prototype.StartWith=function(s){
+	  if(s==null||s==""||this.length==0||s.length>this.length)
+	   return false;
+	  if(this.substr(0,s.length)==s)
+	     return true;
+	  else
+	     return false;
+	  return true;
+	 }
+String.prototype.EndWith=function(s){
+	  if(s==null||s==""||this.length==0||s.length>this.length)
+	     return false;
+	  if(this.substring(this.length-s.length)==s)
+	     return true;
+	  else
+	     return false;
+	  return true;
+	 }
+  
+//扩展Date的format方法   
+Date.prototype.format = function (format) {  
+    var o = {  
+        "M+": this.getMonth() + 1,  
+        "d+": this.getDate(),  
+        "h+": this.getHours(),  
+        "m+": this.getMinutes(),  
+        "s+": this.getSeconds(),  
+        "q+": Math.floor((this.getMonth() + 3) / 3),  
+        "S": this.getMilliseconds()  
+    }  
+    if (/(y+)/.test(format)) {  
+        format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));  
+    }  
+    for (var k in o) {  
+        if (new RegExp("(" + k + ")").test(format)) {  
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));  
+        }  
+    }  
+    return format;  
+}  
+/**   
+*转换日期对象为日期字符串   
+* @param date 日期对象   
+* @param isFull 是否为完整的日期数据,   
+*               为true时, 格式如"2000-03-05 01:05:04"   
+*               为false时, 格式如 "2000-03-05"   
+* @return 符合要求的日期字符串   
+*/    
+function getSmpFormatDate(date, isFull) {  
+    var pattern = "";  
+    if (isFull == true || isFull == undefined) {  
+        pattern = "yyyy-MM-dd hh:mm:ss";  
+    } else {  
+        pattern = "yyyy-MM-dd";  
+    }  
+    return getFormatDate(date, pattern);  
+}  
+/**   
+*转换当前日期对象为日期字符串   
+* @param date 日期对象   
+* @param isFull 是否为完整的日期数据,   
+*               为true时, 格式如"2000-03-05 01:05:04"   
+*               为false时, 格式如 "2000-03-05"   
+* @return 符合要求的日期字符串   
+*/    
 
-/*
- * 财富页面的切换
- */
-var go_url = function (href, param, name) {
-  var contentHtml = ['<div class="form form-add">',
-    '<div class="form-group">',
-    '标签不能超过七个，请关闭其他标签',
-    '</div>'].join('');
+function getSmpFormatNowDate(isFull) {  
+    return getSmpFormatDate(new Date(), isFull);  
+}  
+/**   
+*转换long值为日期字符串   
+* @param l long值   
+* @param isFull 是否为完整的日期数据,   
+*               为true时, 格式如"2000-03-05 01:05:04"   
+*               为false时, 格式如 "2000-03-05"   
+* @return 符合要求的日期字符串   
+*/    
 
-  var li_all = $(".nav-cftrade ul li");
-  if (li_all.length == 7) {
-    var dailog = new Dialog(null, {
-      title: '提示',
-      content: contentHtml,
-      hasBtn: true,
-      width: 240,
-      btnText: ['确定'],
-      confirm: function (dialog) {
-        dialog.destroy();
-      },
-      afterShow: function () {
+function getSmpFormatDateByLong(l, isFull) {  
+    return getSmpFormatDate(new Date(l), isFull);  
+}  
+/**   
+*转换long值为日期字符串   
+* @param l long值   
+* @param pattern 格式字符串,例如：yyyy-MM-dd hh:mm:ss   
+* @return 符合要求的日期字符串   
+*/    
+
+function getFormatDateByLong(l, pattern) {  
+    return getFormatDate(new Date(l), pattern);  
+}  
+/**   
+*转换日期对象为日期字符串   
+* @param l long值   
+* @param pattern 格式字符串,例如：yyyy-MM-dd hh:mm:ss   
+* @return 符合要求的日期字符串   
+*/    
+function getFormatDate(date, pattern) {  
+    if (date == undefined) {  
+        date = new Date();  
+    }  
+    if (pattern == undefined) {  
+        pattern = "yyyy-MM-dd hh:mm:ss";  
+    }  
+    return date.format(pattern);  
+}  
+function dateSFormat(row, head){
+  	var _value = row[head["id"]];
+  	if(_value != undefined){
+  		return getFormatDateByLong(_value, "yyyy-MM-dd hh:mm:ss");
+  	}else{
+  		return "";
+  	}
+}
+//查询表单自适应方法，此方法调用必须在.diySelect()美化select之后调用，否则无法准确计算长度
+function adaptiveWidth(){
+    $(".main-content").find(".adaptive-query-list").each(function(){
+      var _this = $(this);
+      var total_width = _this.width();
+      var add_width =0;
+      _this.find(".aql-dl").each(function(i,e){
+        add_width += $(this).outerWidth();
+        add_width += 4;
+        if(add_width > (_this.outerWidth() - 55)){
+          $(e).addClass("aql-display");
+        }else{
+          $(e).removeClass("aql-display")
+          $(e).show();
+        }
+      });
+      if(add_width > (_this.outerWidth() - 55)){
+        _this.siblings(".zoom-btn").show();
+        _this.addClass("haszomm");
+      }else{
+        _this.siblings(".zoom-btn").hide();
+        _this.removeClass("haszomm");
       }
+      if(_this.outerWidth()-55 > add_width){
+        _this.removeClass("haszomm");
+        _this.siblings(".zoom-btn").hide();
+      }
+      $(".adaptive-query-list").find(".aql-display").hide();
     });
-    dailog.show();
-  }else{
-    $('.shadow-div').show();
-    $('.iframepage').hide();
-    var tabHasThis = false;
-    for (var i in li_all) {
-      if (href == li_all.eq(i).data("href")) {
-        $('.shadow-div').show();
-        li_all.removeClass("active");
-        li_all.eq(i).addClass("active");
-        $(document.getElementById(href)).show();
-        tabHasThis = true;
-      }
-    }
-    if(!tabHasThis){
-      //tab栏增加一项
-      li_all.removeClass("active");
-      var child_li = ' <li data-href="' + href + '"data-param="' + param + '" title="' + name + '" class="active">' + name + '<i class="icon-close" title="关闭"></i></li>';
-      $(".nav-cftrade ul").append(child_li);
-
-      var doc = document;
-      var ifr = doc.createElement('iframe');
-      ifr.id = href;
-      ifr.className = "iframepage";
-      ifr.src = href + '.html' + param;
-      var iframeWrap = doc.getElementById('iframeWrap');
-      iframeWrap.appendChild(ifr);
-    }
   }
 
-  $('.shadow-div').hide();
-};
-
-//初始化checkbox
-$('body').on('click','.param-checkbox',function(){
-  var $self = $(this);
-  if($self.hasClass('checkAll')){
-    if($self.hasClass('checkbox-checked')){
-      $('.param-checkbox').removeClass('checkbox-checked');
-    }else{
-      $('.param-checkbox').addClass('checkbox-checked');
-    }
-  }else{
-    if($self.hasClass('checkbox-checked')){
-      $self.removeClass('checkbox-checked');
-    }else{
-      $self.addClass('checkbox-checked');
-    }
-    if($('table .param-checkbox').length == $('table .param-checkbox.checkbox-checked').length){
-      $('.param-checkbox.checkAll').addClass('checkbox-checked');
-    }else{
-      $('.param-checkbox.checkAll').removeClass('checkbox-checked');
-    }
-  }
-});
