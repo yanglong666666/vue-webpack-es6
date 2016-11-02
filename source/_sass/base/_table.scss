@@ -205,6 +205,12 @@ $table-border-color: #3f88cc !default;
     .list-detail{
       .td-box{
         padding-top: 0;
+        .data-table{
+          border:none;
+        }
+        thead th{
+          background:#f7f9fd;
+        }
         tbody  td{
           border-bottom: none;
         }

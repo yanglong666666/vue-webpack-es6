@@ -11,10 +11,9 @@
 .js-dialog{
 	.js-dialog-bd{
 		.dialog-pic-wrap{
-			padding:0px 20px;
 			.pic-time{
 				padding-left: 20px;
-    			margin-bottom: 10px;
+    			margin-bottom: 15px;
 			}
 			.pic-items{
 				.pic-item-3{
@@ -22,7 +21,7 @@
 					text-align: center;
 					display: inline-block;
 					img{
-						height: 200px;width:130px;margin:0 auto;
+						height: 180px;width:130px;margin:0 auto;
 						margin-bottom: 5px;
 					}
 				}
@@ -130,7 +129,7 @@
 			
 			height:40px;
 			line-height:40px; 
-			color:rgb(198, 60, 70);
+			color:$color-red;
 		}
 		.content-wrap{
 			padding:0 30px 0 10px;

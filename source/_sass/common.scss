@@ -973,9 +973,6 @@ input[type="text"] {
       .dialog-left {
         padding-left: 0;
       }
-      .dialog-right {
-
-      }
     }
     .dialog-left {
       display: inline-block;
@@ -1143,6 +1140,8 @@ input[type="text"] {
       .dialog-divbox2 {
         .log-tl {
           color: #3c95e9;
+          display:inline-block;
+          vertical-align:middle;
         }
       }
       .dialog-input {
@@ -1157,6 +1156,10 @@ input[type="text"] {
         text-indent: 8px;
         &:disabled {
           color: #a6a6a6;
+        }
+        &.not-all{
+            width: 150px;
+            margin-right: 10px;
         }
       }
       .dialog-input-long {
@@ -1701,17 +1704,16 @@ input[type="text"] {
     position: relative;
     float: left;
     width: 80px;
-    height: 28px;
+    height: 24px;
     font-size: 12px;
     text-align: center;
-    line-height: 28px;
     color: #000;
     // background: url('../images/input-bg.png') center no-repeat;
     cursor: pointer;
     border: 1px solid #e5e5e5;
     @include border-radius(3px);
     margin-left: 10px;
-    margin-top: 3px;
+    margin-top:5px;
     .upload-bg {
       display: block;
       width: 100%;
@@ -1722,32 +1724,34 @@ input[type="text"] {
       font-size: 12px;
       color: #000;
       text-align: center;
-      line-height: 28px;
+      line-height: 24px;
     }
     .input-file {
       position: absolute;
       top: 0;
       left: 0;
-      width: 110px;
-      height: 28px;
+      width: 80px;
+      height: 24px;
       outline: none;
       font-size: 28px;
       opacity: 0;
       filter: alpha(opacity=0);
+      padding:0 !important;
     }
   }
   .advice {
+    display:inline-block;
     font-size: 12px;
-    line-height: 28px;
     color: #a6a6a6;
     // margin-left: 20px;
     .w-label {
       margin-left: 10px;
       .status {
-        width: 15px;
-        height: 15px;
+        width: 15px !important;
+        height: 15px !important;
+        margin:0 !important;
         margin-right: 5px;
-        vertical-align: middle;
+        vertical-align: middle !important;
       }
     }
   }
