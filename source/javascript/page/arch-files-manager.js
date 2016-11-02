@@ -33,7 +33,7 @@ function CrtDialogInit(){
 		            '<span class="upload-bg">请选择文件</span>' + 
 		            '<input class="input-file" type="file" size="90">' + 
 		          '</div>' + 
-		          '<span class="advice"><label class="w-label"><input class="status"  type="checkbox">免现场扫描</label>' + 
+		          '<span class="advice"><label class="w-label"><input class="status"  type="radio">免现场扫描</label>' + 
 		        '</div>' + 
               	'</div>' + 
 
@@ -43,7 +43,7 @@ function CrtDialogInit(){
 		            '<span class="upload-bg">请选择文件</span>' + 
 		            '<input class="input-file" type="file" size="90">' + 
 		          '</div>' + 
-		          '<span class="advice"><label class="w-label"><input class="status"  type="checkbox">免现场扫描</label>' + 
+		          '<span class="advice"><label class="w-label"><input class="status"  type="radio">免现场扫描</label>' + 
 		        '</div>' + 
               	'</div>' +
 
@@ -79,39 +79,24 @@ function ListDialogInit(){
     '<table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">' + 
       '<thead>' + 
       '<tr>' + 
-        '<th width="8%">ID</th>' + 
-        '<th width="15%">档案条形码</th>' + 
-        '<th width="10%">档案名称</th>' + 
-       	'<th width="10%">操作人</th>' + 
-        '<th width="15%">存放物理位置</th>' + 
-        '<th width="12%">操作日期</th>' + 
-        '<th width="10%">接受人</th>' + 
-        '<th width="10%">类型</th>' + 
-        '<th width="10%">备注</th>' + 
+        '<th width="10%">ID</th>' + 
+        '<th width="50%">操作时间</th>' + 
+        '<th width="30%">操作人</th>' + 
+        '<th width="10%">状态</th>' + 
       '</tr>' + 
       '</thead>' + 
       '<tbody>' + 
         '<tr>' +
-          '<td><div class="attr-panl">001</div></td>' +
-          '<td>6001110135</td>' +
-          '<td>创业板开通档案</td>' +
-          '<td>五月</td>' +
-          '<td>杭州营业部-1号档案柜-1层</td>' +
-          '<td>2016-05-17</td>' +
-          '<td>李二狗</td>' +
-          '<td>首次归档</td> ' +
-          '<td>快递单号</td> ' +
+          '<td>001</td>' +
+          '<td>2016-05-17 12:12:12</td>' +
+          '<td>李二狗（10015）</td>' +
+          '<td>有效</td> ' +
         '</tr>' +
         '<tr>' +
-          '<td><div class="attr-panl">001</div></td>' +
-          '<td>6001110135</td>' +
-          '<td>创业板开通档案</td>' +
-          '<td>五月</td>' +
-          '<td>杭州营业部-1号档案柜-1层</td>' +
-          '<td>2016-05-17</td>' +
-          '<td>李二狗</td>' +
-          '<td>首次归档</td> ' +
-          '<td>快递单号</td> ' +
+          '<td>001</td>' +
+          '<td>2016-05-17 12:12:12</td>' +
+          '<td>李二狗（10015）</td>' +
+          '<td>有效</td> ' +
         '</tr>' +
       '</tbody>' + 
     '</table>' + 
@@ -120,7 +105,7 @@ function ListDialogInit(){
     title: '档案位置变更流水',
     content: contentHtml,
     hasBtn: false,
-    width: 800,
+    width: 500,
     height: 'auto',
     padding: '21px 27px 32px 27px',
     confirm: function (dialog) {
@@ -137,17 +122,17 @@ function ModelDialogInit(){
     '<div class="pic-items">' +
       '<div class="pic-item-3"> ' +
         '<img src="" style="" alt="">' +
-        '<p class="pic-page-num">第一页</p>' +
+        '<p class="pic-page-num">第1页</p>' +
         '<p class="pic-page-info">条形码：12312313</p>  ' +
       '</div>' +
       '<div class="pic-item-3"> ' +
         '<img src="" style="" alt="">' +
-        '<p class="pic-page-num">第二页</p>' +
+        '<p class="pic-page-num">第2页</p>' +
         '<p class="pic-page-info">条形码：12312313</p>  ' +
       '</div>' +
       '<div class="pic-item-3"> ' +
         '<img src="" style="" alt="">' +
-        '<p class="pic-page-num">第三页</p>' +
+        '<p class="pic-page-num">第3页</p>' +
         '<p class="pic-page-info">条形码：12312313</p>  ' +
       '</div>' +
     '</div>' +
@@ -157,7 +142,7 @@ function ModelDialogInit(){
     title: '档案模板详情',
     content: contentHtml,
     hasBtn: false,
-    width: 600,
+    width: 550,
     height: 'auto',
     padding: '21px 27px 32px 27px',
     confirm: function (dialog) {
