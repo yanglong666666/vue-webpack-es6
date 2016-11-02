@@ -4,37 +4,37 @@ layout: default-iframe
 ---
 <script type="text/javascript">
 $(function () {
-    $('#zjlx_list').diySelect();
+  $('#zjlx_list').diySelect();
   $('#model_list').diySelect();
 
   $('.begin-time').datepicker({
-      onClose: function( selectedDate ) {
-        $('.end-time').datepicker( "option", "minDate", selectedDate );
-      }
-    });
-    $('.end-time').datepicker({
-      onClose: function( selectedDate ) {
-          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
-        }
-    });
-    $("#ver-btn").on('click',function(){
-      $('.main-content').hide();
-      $("#quality-content").show();
-    })
-    $('.view-back').on('click',function(){
-      $('#quality-content').hide();
-      $('.main-content').show();
-    });
-    $('.right-area-wrap').on('click','.item-bottom input[type=radio]',function(){
-      $(this).prop('checked',true).parent().siblings('label').find('input[type=radio]').prop('checked',false);
-    });
-    $("#start_ver").on('click',function(){
-      $(".panel-0").hide();
-      $(".panel-1").show();
-    })
-    PassDialogInit();
-    FailedDialogInit();
+    onClose: function( selectedDate ) {
+      $('.end-time').datepicker( "option", "minDate", selectedDate );
+    }
   });
+  $('.end-time').datepicker({
+    onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+  });
+  $("#ver-btn").on('click',function(){
+    $('.main-content').hide();
+    $("#quality-content").show();
+  })
+  $('.view-back').on('click',function(){
+    $('#quality-content').hide();
+    $('.main-content').show();
+  });
+  $('.right-area-wrap').on('click','.item-bottom input[type=radio]',function(){
+    $(this).prop('checked',true).parent().siblings('label').find('input[type=radio]').prop('checked',false);
+  });
+  $("#start_ver").on('click',function(){
+    $(".panel-0").hide();
+    $(".panel-1").show();
+  });
+  PassDialogInit();
+  FailedDialogInit();
+});
 function PassDialogInit(){
   var winHtml = $("#js-window1").html();
   $('.btn-pass').dialog({
@@ -48,7 +48,7 @@ function PassDialogInit(){
       dialog.destory();
     },
     afterShow: function () {
-      
+
     }
   })
 }
@@ -66,7 +66,7 @@ function FailedDialogInit(){
       dialog.destory();
     },
     afterShow: function () {
-      
+
     }
   })
 }
@@ -85,7 +85,7 @@ function FailedDialogInit(){
         </span>
       </dd>
     </dl>
-   
+
     <dl class="search-dl">
       <dd>
         <span>
@@ -137,7 +137,7 @@ function FailedDialogInit(){
           <td>420322198809134559</td>
           <td>李小路</td>
           <td>审核中</td>
-          <td><span class="text-blue curs-hand" id="ver-btn">审核</span></td>  
+          <td><span class="text-blue curs-hand" id="ver-btn">审核</span></td>
         </tr>
         <tr>
           <td>2016-09-11 12:12:12</td>
@@ -148,7 +148,7 @@ function FailedDialogInit(){
           <td>420322198809134559</td>
           <td>李小路</td>
           <td>审核中</td>
-          <td><span class="text-blue curs-hand" >审核</span></td>  
+          <td><span class="text-blue curs-hand" >审核</span></td>
         </tr>
         <tr>
           <td>2016-09-11 12:12:12</td>
@@ -159,7 +159,7 @@ function FailedDialogInit(){
           <td>420322198809134559</td>
           <td>李小路</td>
           <td>审核中</td>
-          <td><span class="text-blue curs-hand">审核</span></td>  
+          <td><span class="text-blue curs-hand">审核</span></td>
         </tr>
       </tbody>
     </table>
@@ -469,7 +469,7 @@ function FailedDialogInit(){
             客户开通创业板所需时间正确
         </div>
       </div>
-    </div> 
+    </div>
   </div>
   <div  class="center-align" style="padding-right:250px;">
     <button class="btn btn-deny-fill" href="#">继续</button>

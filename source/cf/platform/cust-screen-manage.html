@@ -9,6 +9,18 @@ layout: default-iframe
     $('#select2').diySelect();
     $('#dialogSelect1').diySelect({width:222});
 
+    //时间控件
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+
     $('#addOne').on('click',function(){
       $('.main-content').hide();
       $('.view-content').show();
@@ -33,32 +45,18 @@ layout: default-iframe
 <div class="main-content">
   <div class="task-search clearfix">
     <button class="btn btn-lg floatleft btn-add" id="addOne">创建</button>
-    <button class="btn-fill btn-lg magnifier" href="#"></button>
+    <button class="btn btn-fill btn-lg magnifier" href="#"></button>
     <dl class="search-dl">
       <dd>
-        <span>
-          <select id="select1" class="diy-select">
-            <option selected>状态</option>
-            <option value="1">11111111</option>
-          </select>
-        </span>
-      </dd>
-    </dl>
-    <dl class="search-dl">
-      <dd>
-        <span>
-          至
-        </span>
-      </dd>
-    </dl>
-    <dl class="search-dl">
-      <dd>
-        <span>
-          <select id="select2" class="diy-select">
-            <option selected>状态</option>
-            <option value="1">11111111</option>
-          </select>
-        </span>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始日期">
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="结束日期">
+          <i></i>
+        </label>
       </dd>
     </dl>
   </div>
