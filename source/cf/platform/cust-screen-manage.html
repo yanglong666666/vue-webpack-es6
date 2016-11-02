@@ -1,0 +1,154 @@
+---
+title: 客户屏幕管理
+layout: default-iframe
+---
+
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect();
+    $('#select2').diySelect();
+    $('#dialogSelect1').diySelect({width:222});
+
+    $('#addOne').on('click',function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+    $('#finish').on('click',function(){
+      $('.main-content').show();
+      $('.view-content').hide();
+    });
+    $('#cancel').on('click',function(){
+      $('.main-content').show();
+      $('.view-content').hide();
+    });
+
+    //列表内部点击事件需冒泡
+    $('.main-table').on('click','.item-view', function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+  });
+
+</script>
+<div class="main-content">
+  <div class="task-search clearfix">
+    <button class="btn btn-lg floatleft btn-add" id="addOne">创建</button>
+    <button class="btn-fill btn-lg magnifier" href="#"></button>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select1" class="diy-select">
+            <option selected>状态</option>
+            <option value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          至
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select2" class="diy-select">
+            <option selected>状态</option>
+            <option value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="4%"></th>
+        <th width="12%">任务名称</th>
+        <th width="8%">业务类型</th>
+        <th width="8%">质检类型</th>
+        <th width="10%">质检规则</th>
+        <th width="12%">质检营业厅</th>
+        <th width="12%">操作营业厅</th>
+        <th width="10%">创建日期</th>
+        <th width="8%">创建人</th>
+        <th width="6%">状态</th>
+        <th width="10%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
+        </td>
+        <td>创业板每日质检任务</td>
+        <td>每日任务</td>
+        <td>按业务</td>
+        <td>随机质检</td>
+        <td>总部、杭州营业部、温州...</td>
+        <td>总部</td>
+        <td>2016-06-01</td>
+        <td>李小晨</td>
+        <td>启用</td>
+        <td>
+          <a class="item-modify">修改</a>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>
+          <div class="attr-panl"><a href="javascript:void(0)" class=""><span class="param-checkbox"></span></a></div>
+        </td>
+        <td>创业板每日质检任务</td>
+        <td>每日任务</td>
+        <td>按业务</td>
+        <td>随机质检</td>
+        <td>总部、杭州营业部、温州...</td>
+        <td>总部</td>
+        <td>2016-06-01</td>
+        <td>李小晨</td>
+        <td>启用</td>
+        <td>
+          <a class="item-modify">修改</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {% include component/pagenav-cf.html %}
+</div>
+<div class="view-content" id="edit-content" style="display: none;">
+  <div class="dialog-item-wrap">
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">名称</div>
+      <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">质检范围</div>
+      <div class="dialog-right"><select name="" id="dialogSelect1" class="diy-select" style="display: none;">
+        <option selected="">请选择</option>
+        <option selected="" value="1">111111</option>
+      </select>
+    </div>
+  </div>
+    <div class="dialog-item">
+      <div class="dialog-left">图片</div>
+      <div class="dialog-right">
+        <input type="button" class="btn-file" value="浏览..."><div class="btn-declare" style="width: inherit;">支持jpg,png；图片大小不得大于100K</div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-right">
+        <img class="file-pic" src="../../images/license.jpg" style="width: 222px;" />
+      </div>
+    </div>
+
+    <div class="button-content" style="text-align: left;margin-left: 165px;">
+      <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
+      <button class="btn btn-deny" id="cancel">取消</button>
+    </div>
+
+  </div>
+</div>

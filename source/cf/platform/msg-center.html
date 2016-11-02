@@ -9,6 +9,10 @@ layout: default-iframe
       $('.main-content').hide();
       $('.view-content').show();
     });
+    $('.view-back').on('click', function(){
+      $('.view-content').hide();
+      $('.main-content').show();
+    });
     $('.main-tab').on('click','.main-tab-item', function(){
       $(this).addClass('current').siblings('.main-tab-item').removeClass('current');
     });

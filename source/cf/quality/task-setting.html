@@ -8,29 +8,29 @@ layout: default-iframe
     $('#select2').diySelect();
     $('#select3').diySelect();
     $('#select4').diySelect();
-    $('#dialogSelect1').diySelect();
-    $('#dialogSelect2').diySelect();
-    $('#dialogSelect3').diySelect();
+    $('#dialogSelect1').diySelect({width:222});
+    $('#dialogSelect2').diySelect({width:222});
+    $('#dialogSelect3').diySelect({width:222});
 
-    $('#addOne').on('click',function(){
+    $('#addOne').on('click', function () {
       $('.main-content').hide();
       $('.view-content').show();
     });
-    $('#finish').on('click',function(){
+    $('#finish').on('click', function () {
       $('.main-content').show();
       $('.view-content').hide();
     });
-    $('#cancel').on('click',function(){
+    $('#cancel').on('click', function () {
       $('.main-content').show();
       $('.view-content').hide();
     });
 
     //列表内部点击事件需冒泡
-    $('.main-table').on('click','.item-modify', function(){
+    $('.main-table').on('click', '.item-modify', function () {
       $('.main-content').hide();
       $('.view-content').show();
     });
-    $('.main-table').on('click','.item-delete', function(){
+    $('.main-table').on('click', '.item-delete', function () {
       var $self = $(this);
       var dialog = new Dialog(null, {
         title: '提示',
@@ -44,19 +44,19 @@ layout: default-iframe
       });
     });
 
-    $('.dialog-right').on('click','input[type=radio]',function(){
-      $(this).prop('checked',true).parent().siblings('label').find('input[type=radio]').prop('checked',false);
+    $('.dialog-right').on('click', 'input[type=radio]', function () {
+      $(this).prop('checked', true).parent().siblings('label').find('input[type=radio]').prop('checked', false);
     });
 
-    $('.textarea-add').on('click',function(){
-      $(this).parents('.dialog-right').append('<textarea class="dialog-input-long" placeholder="描述内容"></textarea>')
+    $('.textarea-add').on('click', function () {
+      $(this).parents('.dialog-right').append('<textarea  rows="1" class="dialog-input-long" placeholder="描述内容"></textarea>')
     });
 
-    $('.textarea-delete').on('click',function(){
+    $('.textarea-delete').on('click', function () {
       var $textarea = $(this).parents('.dialog-right').find('.dialog-input-long');
-      if($textarea.length > 1){
-        $textarea.eq($textarea.length-1).remove();
-      }else{
+      if ($textarea.length > 1) {
+        $textarea.eq($textarea.length - 1).remove();
+      } else {
         var dialog = new Dialog(null, {
           dialogClass: 'js-dialog',
           title: '提示',
@@ -205,59 +205,43 @@ layout: default-iframe
       <div class="dialog-right"><select name="" id="dialogSelect1" class="diy-select" style="display: none;">
         <option selected="">请选择</option>
         <option selected="" value="1">111111</option>
-      </select><span class="js-select" id="dialogSelect1-select">111111<i class="arrow"></i></span>
-        <div class="js-option" id="dialogSelect1-option" style="display: none;">
-          <ul>
-            <li data-select-val="请选择">请选择</li>
-            <li data-select-val="1">111111</li>
-          </ul>
-        </div>
+      </select>
       </div>
+
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">操作营业部</div>
       <div class="dialog-right"><select name="" id="dialogSelect2" class="diy-select" style="display: none;">
         <option selected="">请选择</option>
         <option selected="" value="1">111111</option>
-      </select><span class="js-select" id="dialogSelect2-select">111111<i class="arrow"></i></span>
-        <div class="js-option" id="dialogSelect2-option" style="display: none;">
-          <ul>
-            <li data-select-val="请选择">请选择</li>
-            <li data-select-val="1">111111</li>
-          </ul>
+      </select>
+      </div>
+      <div class="dialog-item">
+        <div class="dialog-left must-icon">质检规则</div>
+        <div class="dialog-right"><label><input type="radio" class="">按客户号尾号</label><label><input type="radio"
+                                                                                                  class="">按流水号尾号</label><label><input
+          type="radio" class="">随机比例</label></div>
+      </div>
+      <div class="dialog-item">
+        <div class="dialog-left must-icon">客户号</div>
+        <div class="dialog-right"><select name="" id="dialogSelect3" class="diy-select" style="display: none;">
+          <option selected="">请选择</option>
+          <option selected="" value="1">111111</option>
+        </select>
+        </div>
+        <div class="dialog-item">
+          <div class="dialog-left must-icon">任务要点描述</div>
+          <div class="dialog-right">
+            <a class="textarea-add">增加</a>
+            <a class="textarea-delete">删除</a>
+            <textarea rows="1" class="dialog-input-long" placeholder="描述内容"></textarea>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="dialog-item">
-      <div class="dialog-left must-icon">质检规则</div>
-      <div class="dialog-right"><label><input type="radio" class="">按客户号尾号</label><label><input type="radio" class="">按流水号尾号</label><label><input
-        type="radio" class="">随机比例</label></div>
-    </div>
-    <div class="dialog-item">
-      <div class="dialog-left must-icon">客户号</div>
-      <div class="dialog-right"><select name="" id="dialogSelect3" class="diy-select" style="display: none;">
-        <option selected="">请选择</option>
-        <option selected="" value="1">111111</option>
-      </select><span class="js-select" id="dialogSelect3-select">111111<i class="arrow"></i></span>
-        <div class="js-option" id="dialogSelect3-option" style="display: none;">
-          <ul>
-            <li data-select-val="请选择">请选择</li>
-            <li data-select-val="1">111111</li>
-          </ul>
-        </div>
+      <div class="button-content" style="text-align: left;margin-left: 165px;">
+        <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
+        <button class="btn btn-deny" id="cancel">取消</button>
       </div>
     </div>
-    <div class="dialog-item">
-      <div class="dialog-left must-icon">任务要点描述</div>
-      <div class="dialog-right">
-        <a class="textarea-add">增加</a>
-        <a class="textarea-delete">删除</a>
-        <textarea class="dialog-input-long" placeholder="描述内容"></textarea>
-      </div>
-    </div>
-  </div>
-  <div class="button-content" style="text-align: left;margin-left: 145px;">
-    <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
-    <button class="btn btn-deny" id="cancel">取消</button>
   </div>
 </div>
