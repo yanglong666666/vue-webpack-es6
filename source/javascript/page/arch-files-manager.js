@@ -33,7 +33,7 @@ function CrtDialogInit(){
 		            '<span class="upload-bg">请选择文件</span>' + 
 		            '<input class="input-file" type="file" size="90">' + 
 		          '</div>' + 
-		          '<span class="advice"><label class="w-label"><input class="status"  type="radio">免现场扫描</label>' + 
+		          '<span class="advice"><label class="w-label"><input class="status" value="1"  type="radio">免现场扫描</label>' + 
 		        '</div>' + 
               	'</div>' + 
 
@@ -43,7 +43,7 @@ function CrtDialogInit(){
 		            '<span class="upload-bg">请选择文件</span>' + 
 		            '<input class="input-file" type="file" size="90">' + 
 		          '</div>' + 
-		          '<span class="advice"><label class="w-label"><input class="status"  type="radio">免现场扫描</label>' + 
+		          '<span class="advice"><label class="w-label"><input class="status" value="0"  type="radio">免现场扫描</label>' + 
 		        '</div>' + 
               	'</div>' +
 
@@ -70,7 +70,18 @@ function CrtDialogInit(){
     },
     afterShow: function () {
       $('#area_list').diySelect();
-     
+      $('.upload-box').on('click','.w-label',function(event){
+        event.preventDefault();
+        if (event && event.stopPropagation) {
+          event.stopPropagation();
+        } else {//IE浏览器
+          event.cancelBubble = true;
+        }
+        
+        var child = $(this).children("input[type='radio']");
+        var ck = child.prop("checked");
+        child.prop("checked",!ck);
+      })
     }
   })
 }
