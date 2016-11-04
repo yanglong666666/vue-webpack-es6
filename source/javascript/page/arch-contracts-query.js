@@ -5,7 +5,6 @@ $(function(){
 function EventBind(){
 	$(".list-more").on('click',function(){
 		var $e = $(this) ;
-		console.log($e.hasClass('opend'));
 		if($e.hasClass('opend'))
 		{
 			$e.removeClass('opend');
@@ -15,7 +14,7 @@ function EventBind(){
 		else{
 			$e.addClass('opend') ;
 			$($e.next()).removeClass('details-hide').addClass('details-show')
-			// $($e.next()).show(500)
+			// $($e.next()).show(500);
 
 		}
 	})
