@@ -8,9 +8,9 @@ layout: default-iframe
     $('#select2').diySelect();
     $('#select3').diySelect();
     $('#select4').diySelect();
-    $('#dialogSelect1').diySelect({width:222});
-    $('#dialogSelect2').diySelect({width:222});
-    $('#dialogSelect3').diySelect({width:222});
+    $('#dialogSelect1').diySelect({width: 222});
+    $('#dialogSelect2').diySelect({width: 222});
+    $('#dialogSelect3').diySelect({width: 222});
 
     $('#addOne').on('click', function () {
       $('.main-content').hide();
@@ -44,10 +44,6 @@ layout: default-iframe
       });
     });
 
-    $('.dialog-right').on('click', 'input[type=radio]', function () {
-      $(this).prop('checked', true).parent().siblings('label').find('input[type=radio]').prop('checked', false);
-    });
-
     $('.textarea-add').on('click', function () {
       $(this).parents('.dialog-right').append('<textarea  rows="1" class="dialog-input-long" placeholder="描述内容"></textarea>')
     });
@@ -70,6 +66,69 @@ layout: default-iframe
         });
       }
     });
+
+
+    $('.dialog-right').on('click', 'input[type=radio]', function () {
+      $(this).prop('checked', true).parent().siblings('label').find('input[type=radio]').prop('checked', false);
+      //任务类型
+      if ($('#special-task').prop('checked') == true) {
+        $('.special-item').show();
+        $('.daily-item').hide();
+      } else {
+        $('.special-item').hide();
+        $('.daily-item').show();
+      }
+      //质检类型
+      if ($('#by-busi').prop('checked') == true) {
+        $('.busi-item').show();
+      } else {
+        $('.busi-item').hide();
+      }
+      //质检规则
+      if ($('#by-cust-last').prop('checked') == true) {
+        $('.cust-last-item').show();
+        $('.cust-flow-item').hide();
+        $('.random-item').hide();
+      } else if ($('#by-flow-last').prop('checked') == true) {
+        $('.cust-flow-item').show();
+        $('.cust-last-item').hide();
+        $('.random-item').hide();
+      } else {
+        $('.random-item').show();
+        $('.cust-last-item').hide();
+        $('.cust-flow-item').hide();
+      }
+    });
+
+
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+
+
+    //初始化
+    $("#cust-last-input").MultDropList({
+      "selectedItem": '2,3',
+      "width": '220',
+      "selectAllBox": true
+    });
+    $("#cust-flow-input").MultDropList({
+      "width": '220'
+    });
+    /*selectedItem默认选中项或者这样执行
+     $("#holder_rights").siblings('.holderRightChoosed').val(selectedItem);
+     $("#holder_rights").MultDropChoosed();
+     */
+
+    //获取结果
+    console.log($('#holder_rights').val());
   });
 
 </script>
@@ -187,61 +246,107 @@ layout: default-iframe
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">任务类型</div>
-      <div class="dialog-right"><label><input type="radio" class="">专项任务</label><label><input type="radio" class="">每日任务</label>
+      <div class="dialog-right">
+        <label><input type="radio" id="special-task" checked>专项任务</label>
+        <label><input type="radio" id="daily-task" class="">每日任务</label>
       </div>
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">质检类型</div>
-      <div class="dialog-right"><label><input type="radio" class="">按客户</label><label><input type="radio"
-                                                                                             class="">按业务</label></div>
+      <div class="dialog-right">
+        <label><input type="radio" id="by-cust" class="" checked>按客户</label>
+        <label><input type="radio" id="by-busi" class="">按业务</label></div>
+    </div>
+    <div class="dialog-item busi-item" style="display: none;">
+      <div class="dialog-left must-icon">业务类型</div>
+      <div class="dialog-right">
+        <div class="special-item">
+          <input class="dialog-input" placeholder="业务类型/业务编号">
+        </div>
+        <div class="daily-item">
+          <input class="dialog-input" placeholder="创业板开通" value="创业板开通">
+        </div>
+      </div>
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">开户日期</div>
-      <div class="dialog-right"><input class="dialog-input" placeholder="年/月/日" value=""><span
-        style="margin: 0 5px;">至</span><input class="dialog-input" placeholder="年/月/日" value=""></div>
+      <div class="dialog-right">
+        <div class="special-item">
+          <label>
+            <input class="dialog-input begin-time" type="text" placeholder="开始时间" readonly />
+            <i></i>
+          </label>
+          <span style="margin-top: 10px;vertical-align: top;line-height: 30px;">至</span>
+          <label>
+            <input class="dialog-input end-time" type="text" placeholder="截止时间" readonly />
+            <i></i>
+          </label>
+        </div>
+        <div class="daily-item" style="display:none;">
+          <input class="dialog-input" placeholder="每日" value="每日">
+        </div>
+      </div>
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">质检范围</div>
-      <div class="dialog-right"><select name="" id="dialogSelect1" class="diy-select" style="display: none;">
-        <option selected="">请选择</option>
-        <option selected="" value="1">111111</option>
-      </select>
+      <div class="dialog-right">
+        <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
+          <option selected="">请选择</option>
+          <option selected="" value="1">111111</option>
+        </select>
       </div>
 
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">操作营业部</div>
-      <div class="dialog-right"><select name="" id="dialogSelect2" class="diy-select" style="display: none;">
-        <option selected="">请选择</option>
-        <option selected="" value="1">111111</option>
-      </select>
-      </div>
-      <div class="dialog-item">
-        <div class="dialog-left must-icon">质检规则</div>
-        <div class="dialog-right"><label><input type="radio" class="">按客户号尾号</label><label><input type="radio"
-                                                                                                  class="">按流水号尾号</label><label><input
-          type="radio" class="">随机比例</label></div>
-      </div>
-      <div class="dialog-item">
-        <div class="dialog-left must-icon">客户号</div>
-        <div class="dialog-right"><select name="" id="dialogSelect3" class="diy-select" style="display: none;">
+      <div class="dialog-right">
+        <select name="" id="dialogSelect2" class="diy-select" style="display: none;">
           <option selected="">请选择</option>
           <option selected="" value="1">111111</option>
         </select>
-        </div>
-        <div class="dialog-item">
-          <div class="dialog-left must-icon">任务要点描述</div>
-          <div class="dialog-right">
-            <a class="textarea-add">增加</a>
-            <a class="textarea-delete">删除</a>
-            <textarea rows="1" class="dialog-input-long" placeholder="描述内容"></textarea>
-          </div>
-        </div>
       </div>
-      <div class="button-content" style="text-align: left;margin-left: 165px;">
-        <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
-        <button class="btn btn-deny" id="cancel">取消</button>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">质检规则</div>
+      <div class="dialog-right">
+        <label><input type="radio" id="by-cust-last" class="" checked>按客户号尾号</label>
+        <label><input type="radio" id="by-flow-last" class="">按流水号尾号</label>
+        <label><input type="radio" id="by-random" class="">随机比例</label></div>
+    </div>
+    <div class="dialog-item cust-last-item">
+      <div class="dialog-left must-icon">客户号</div>
+      <div class="dialog-right">
+        <input id="cust-last-input" class="dialog-input" readonly="readonly" />
+        <input type="hidden" class="holderRightList" value="{'0':'自动配股','1':'自动配售','2':'红利领取','3':'市价委托'}"/>
+        <input type="hidden" class="holderRightChoosed" value="1、3"/>
       </div>
+    </div>
+    <div class="dialog-item cust-flow-item" style="display: none;">
+      <div class="dialog-left must-icon">流水号</div>
+      <div class="dialog-right">
+        <input id="cust-flow-input" class="dialog-input" readonly="readonly" />
+        <input type="hidden" class="holderRightList" value="{'0':'自动配股','1':'自动配售','2':'红利领取','3':'市价委托'}"/>
+        <input type="hidden" class="holderRightChoosed" value="1、3"/>
+      </div>
+    </div>
+    <div class="dialog-item random-item" style="display: none;">
+      <div class="dialog-left must-icon">质检比例</div>
+      <div class="dialog-right">
+        <input class="dialog-input" placeholder="" value="80">
+        <span class="dialog-span">%</span>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">任务要点描述</div>
+      <div class="dialog-right">
+        <a class="textarea-add">增加</a>
+        <a class="textarea-delete">删除</a>
+        <textarea rows="1" class="dialog-input-long" placeholder="描述内容"></textarea>
+      </div>
+    </div>
+    <div class="button-content" style="text-align: left;margin-left: 165px;">
+      <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
+      <button class="btn btn-deny" id="cancel">取消</button>
     </div>
   </div>
 </div>
