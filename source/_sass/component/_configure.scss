@@ -1,15 +1,16 @@
 .ui-configure-content {
   .configure-title {
     font-size: 16px;
-    padding: 15px 0;
+    padding: 10px 0;
     color: #4d4d4d;
     margin: 0 0 15px 0;
     border-bottom: 1px dashed #ccc;
+    line-height: 36px;
   }
   .configure-item {
     @include clearfix;
     overflow: hidden;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     .select-item {
       margin-bottom: 10px;
       &:last-child {
@@ -35,7 +36,12 @@
       .status {
         margin-right: 5px;
         vertical-align: middle;
+        width: 16px;
+        height: 16px;
       }
+    }
+    .w-inherit {
+      width: inherit;
     }
     .name {
       float: left;
@@ -47,13 +53,13 @@
       float: left;
       img{
           padding: 15px 0 0 0;
-          display: inline-block;         
+          display: inline-block;
       }
       .file{
           position:absolute;
           opacity: 0;
           left: 4px;
-          top: 3px;         
+          top: 3px;
       }
       .xieyi{
           margin-left: 10px;
@@ -94,10 +100,6 @@
       padding: 20px 10px 10px 10px;
       .item {
         margin-bottom: 10px;
-      }
-      .delete-btn {
-        color: #3ecacb;
-        font-size: 12px;
       }
     }
     .bank-content {
@@ -148,7 +150,7 @@
     }
   }
   .configure-option{
-      margin-bottom: 1px;     
+      margin-bottom: 1px;
   }
   .configure-list{
       margin-left: 30px;
@@ -158,9 +160,15 @@
     .delete-btn {
       color: #3ecacb;
       font-size: 12px;
+      cursor: pointer;
     }
   }
   .find{
       line-height: 35px;
+  }
+  .delete-btn {
+    color: #3ecacb;
+    font-size: 12px;
+    cursor: pointer;
   }
 }

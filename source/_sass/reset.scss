@@ -118,6 +118,25 @@ button {
 .ml-30 {
   margin-left: 30px;
 }
+.ml-20 {
+  margin-left: 20px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.font-small {
+  font-size: $small-font-size;
+}
 textarea,
 input {
   font-family: $base-font-family;

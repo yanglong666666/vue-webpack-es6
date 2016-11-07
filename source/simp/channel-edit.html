@@ -8,208 +8,560 @@ layout: default
     <a class="back-btn" href="{{ site.baseurl }}/channel-info1.html">&lt;返回</a>
   </div>
   <div class="ui-configure-content">
-    <h2 class="configure-title">渠道信息</h2>
-    <div class="configure-item">
-      <span class="name">渠道拥有方</span>
-      <div class="configure-inner">
-        <select name="" id="owner_list" class="diy-select" style="display: none;">
-          <option selected="" value="1">营业部2</option>
-          <option value="2">营业部111</option>       
-        </select>
-      </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">有效户标准</span>
-      <div class="configure-inner">     	
-        <div class="select-item">
-          <select name="" id="effective_list" class="diy-select" style="display: none;">
-            <option selected="" value="1">条件1</option>
-            <option value="2">条件2</option>     
-          </select>
-          <a class="btn-add select-link state1" href="javascript:void(0);">添加</a>
-          <span class="state2" style="display: none;">*对有效户的定义</span>
-        </div>
-        <p class="state2" style="display: none;margin-bottom: 5px;">或</p>
-        <div class="select-item state2" style="display: none;">
-          <select name="" id="effective_list1" class="diy-select" style="display: none;">
-            <option selected="" value="1">条件1</option>
-            <option value="2">条件2</option>     
-          </select>
-          <a class="select-link btn-del" href="#">删除</a>
+    <h2 class="configure-title">
+      渠道信息
+      <a class="btn btn-fill fr ml-30">同步修改信息</a>
+      <a class="btn btn-primary fr">修改</a>
+    </h2>
+    <div class="configure-display">
+      <div class="configure-item">
+        <span class="name">合作方</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            工商银行
+          </label>
         </div>
       </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">状态</span>
-      <div class="configure-inner">
-        <label class="w-150"><input class="status" name="status" type="radio">有效</label>
-        <label class="w-150"><input class="status" name="status" type="radio">无效</label>
+      <div class="configure-item">
+        <span class="name">账号</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            12332125650
+          </label>
+
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">状态</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            有效
+          </label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">开户费（元/人）</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            50
+          </label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">有效户标准</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            有一次交易
+          </label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">平均资产</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            <div>大于1000小于10000 奖励30</div>
+            <div>大于1000 奖励30</div>
+          </label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">营业部</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            浙江杭州庆春营业部
+          </label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">存管银行</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            工商银行
+          </label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">LOGO</span>
+        <div class="configure-inner">
+          <div>
+            <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传LOGO</a>
+            <input type="file" class="file">
+          </div>
+          <img src="../images/icbc.png">
+          <a href="#">删除</a>
+        </div>
+      </div>
+
+      <div class="configure-item">
+        <span class="name">协议</span>
+        <div class="configure-inner">
+          <div>
+            <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传协议</a>
+            <input type="file" class="file">
+          </div>
+          <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
+          <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
+        </div>
       </div>
     </div>
-    <div class="configure-item">
-      <span class="name">开户佣金（元）</span>
-      <div class="configure-inner">
-        <label class="w-300"><input type="text" class="txt"></label>
+
+
+    <h2 class="configure-title">
+      渠道信息
+    </h2>
+    <div class="configure-edit">
+      <div class="configure-item">
+        <span class="name">合作方</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            工商银行
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">交易佣金（%）</span>
-      <div class="configure-inner">
-        <label class="w-300"><input type="text" class="txt"></label>
-        <label class="w-170"><input type="text" class="txt"></label>
-        <span>至</span>
-        <label class="w-170"><input type="text" class="txt"></label>
-        <span>交易额（万元）</span>
-        <a class="add-commission" href="javascript:void(0)"><i></i>添加</a>
+      <div class="configure-item">
+        <span class="name">账号</span>
+        <div class="configure-inner">
+          <label class="w-150">
+            12332125650
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">渠道短码</span>
-      <div class="configure-inner">
-        <label class="w-300"><input type="text" class="txt"></label>
+      <div class="configure-item">
+        <span class="name">状态</span>
+        <div class="configure-inner">
+          <label class="w-150"><input class="status" name="status" type="radio">有效</label>
+          <label class="w-150"><input class="status" name="status" type="radio">无效</label>
+        </div>
       </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">合作机构</span>
-      <div class="configure-inner">
-        <select name="" id="cooperation_list" class="diy-select" style="display: none;">
-          <option selected="" value="1">合作机构1</option>
-          <option value="2">合作机构2</option>
-        </select>
+      <div class="configure-item">
+        <span class="name">开户分成模块</span>
+        <div class="configure-inner">
+          <label class="w-150"><input class="status" type="checkbox">开户费</label>
+          <label class="w-150"><input class="status" type="checkbox">有效户费</label>
+          <label class="w-150"><input class="status" type="checkbox">收益分成</label>
+          <label class="w-150"><input class="status" type="checkbox">交易分成</label>
+        </div>
       </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">营销人员</span>
-      <div class="configure-inner">
-        <label class="w-300"><input type="text" class="txt" id="username"></label>
-        <a href="javascript:void(0)" class="query-btn">查询</a>
-        <table cellpadding="0" cellspacing="0" class="user-table" style="display: none;">
-          <tbody>
-            <tr>
-              <td>姓名：</td>
-              <td>李冰</td>
-            </tr>
-            <tr>
-              <td>手机号：</td>
-              <td>18911110000</td>
-            </tr>
-            <tr>
-              <td>所属营业部：</td>
-              <td>上海南路营业部</td>
-            </tr>
-            <tr>
-              <td>员工号：</td>
-              <td>A122333</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="configure-item">
+        <span class="name">开户费(元/人)</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*的发生的</span>
+        </div>
       </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">开户营业部</span>
-      <div class="configure-inner">
-        <div class="department-content">
-          <div class="item">
-            <label class="w-300 mr-30"><input type="text" class="txt" value="上海南路营业部"></label>
+      <div class="configure-item">
+        <span class="name">有效户标准</span>
+        <div class="configure-inner">
+          <select name="" id="select1" class="diy-select" style="display: none;">
+            <option selected="" value="1">有1次交易</option>
+            <option value="2">有1次交易</option>
+          </select>
+          <span class="ml-10 font-small">*对有效户的定义</span>
+          <p class="state2" style="margin-bottom: 5px;">
+            <label class="w-150 "><input class="status" type="radio" />且</label>
+            <label class="w-150 "><input class="status" type="radio" />或</label>
+          </p>
+
+          <select name="" id="select2" class="diy-select" style="display: none;">
+            <option selected="" value="1">条件1</option>
+            <option value="2">条件2</option>
+          </select>
+          <span class="ml-10 font-small"><a class="delete-btn" href="#">删除</a></span>
+
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">有效户佣金（元/人）</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*每个开户用户变为有效户可获得的奖励</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">平均资产(元)</span>
+        <div class="configure-inner">
+          <div class="mb-10">
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <a class="delete-btn">删除</a>
+          </div>
+          <div>
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <a class="delete-btn">删除</a>
+          </div>
+          <a class="add-department" href="javascript:void(0)"><i></i>添加</a>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">交易分成方式</span>
+        <div class="configure-inner">
+          <select name="" id="select3" class="diy-select" style="display: none;">
+            <option selected="" value="1">毛佣金分成</option>
+            <option value="2">毛佣金分成2</option>
+          </select>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">基准佣金率</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*用于计算用户交易成本</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">交易提成比例</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*用于计算每笔交易的渠道分uwufei</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">佣金模板</span>
+        <div class="configure-inner">
+          <select name="" id="select4" class="diy-select" style="display: none;">
+            <option selected="" value="1">111</option>
+            <option value="2">222</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="configure-item">
+        <span class="name">开户营业部</span>
+        <div class="configure-inner">
+          <div class="department-content">
+            <div class="item">
+              <label class="w-300 mr-30"><input type="text" class="txt" value="上海南路营业部"></label>
             <span>
-              <select name="" id="department1" class="diy-select" style="display: none;">
+              <select name="" id="select5" class="diy-select" style="display: none;">
                 <option selected="" value="1">0001-万分之三佣金</option>
                 <option value="2">0001-万分之五佣金</option>
               </select>
             </span>
-            <a class="delete-btn" href="javascript:void(0)">删除</a>
-          </div>
-          <div class="item">
-            <label class="w-300 mr-30"><input type="text" class="txt" value="上海南路营业部"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300 mr-30"><input type="text" class="txt" value="上海南路营业部"></label>
             <span>
-              <select name="" id="department2" class="diy-select" style="display: none;">
+              <select name="" id="select6" class="diy-select" style="display: none;">
                 <option selected="" value="1">0001-万分之三佣金</option>
                 <option value="2">0001-万分之五佣金</option>
               </select>
             </span>
-            <a class="delete-btn" href="javascript:void(0)">删除</a>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
           </div>
+          <a class="add-department" href="javascript:void(0)"><i></i>添加</a>
         </div>
-        <a class="add-department" href="javascript:void(0)"><i></i>添加</a>
+      </div>
+      <div class="configure-item">
+        <span class="name">存管银行</span>
+        <div class="configure-inner">
+          <div class="bank-content">
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+          </div>
+          <a class="add-bank" href="javascript:void(0)"><i></i>添加</a>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">LOGO</span>
+        <div class="configure-inner">
+          <div>
+            <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传LOGO</a>
+            <input type="file" class="file">
+          </div>
+          <img src="../images/icbc.png">
+          <a href="#">删除</a>
+        </div>
+      </div>
+
+      <div class="configure-item">
+        <span class="name">协议</span>
+        <div class="configure-inner">
+          <div>
+            <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传协议</a>
+            <input type="file" class="file">
+          </div>
+          <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
+          <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
+        </div>
       </div>
     </div>
-    <div class="configure-item">
-      <span class="name">存管银行</span>
-      <div class="configure-inner">
-        <div class="bank-content">
-          <div class="item">
-            <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
-            <a class="delete-btn" href="javascript:void(0)">删除</a>
-          </div>
-          <div class="item">
-            <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
-            <a class="delete-btn" href="javascript:void(0)">删除</a>
-          </div>
-          <div class="item">
-            <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
-            <a class="delete-btn" href="javascript:void(0)">删除</a>
-          </div>
-          <div class="item">
-            <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
-            <a class="delete-btn" href="javascript:void(0)">删除</a>
-          </div>
-        </div>
-        <a class="add-bank" href="javascript:void(0)"><i></i>添加</a>
-      </div>
-    </div>
-    <div class="configure-item">
-      <span class="name">LOGO</span>
-      <div class="configure-inner">
-        <div>
-          <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传LOGO</a>
-        <input type="file" class="file">
-        </div>
-        <img src="../images/icbc.png">
-        <a href="#">删除</a>
-      </div>
-    </div>
-    
-    <div class="configure-item">
-      <span class="name">协议</span>
-      <div class="configure-inner">
-        <div>
-          <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传协议</a>
-          <input type="file" class="file">
-        </div>
-        <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
-      	<p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>     
-      </div>
-    </div>
-    
     <div class="button-content">
-      <a class="btn-primary btn-lg" href="{{ site.baseurl }}/channel-info1.html">取消</a>
-      <button class="btn-fill btn-lg ml-30">保存</button>
+      <a class="btn btn-primary btn-lg" href="{{ site.baseurl }}/channel-info1.html">取消</a>
+      <button class="btn btn-fill btn-lg ml-30">保存</button>
+    </div>
+
+
+    <h2 class="configure-title">
+      渠道信息
+    </h2>
+    <div class="configure-edit">
+      <div class="configure-item">
+        <span class="name">合作方</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">登录密码</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">开户分成模块</span>
+        <div class="configure-inner">
+          <label class="w-150"><input class="status" type="checkbox">开户费</label>
+          <label class="w-150"><input class="status" type="checkbox">有效户费</label>
+          <label class="w-150"><input class="status" type="checkbox">收益分成</label>
+          <label class="w-150"><input class="status" type="checkbox">交易分成</label>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">开户费(元/人)</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*的发生的</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">有效户标准</span>
+        <div class="configure-inner">
+          <select name="" id="select7" class="diy-select" style="display: none;">
+            <option selected="" value="1">有1次交易</option>
+            <option value="2">有1次交易</option>
+          </select>
+          <span class="ml-10 font-small">*对有效户的定义</span>
+          <p class="state2" style="margin-bottom: 5px;">
+            <label class="w-150 "><input class="status" type="radio" />且</label>
+            <label class="w-150 "><input class="status" type="radio" />或</label>
+          </p>
+          <select name="" id="select8" class="diy-select" style="display: none;">
+            <option selected="" value="1">总资产大于10万</option>
+            <option value="2">总资产大于10万</option>
+          </select>
+          <span class="ml-10 font-small"><a class="delete-btn">删除</a></span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">有效户佣金（元/人）</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*每个开户用户变为有效户可获得的奖励</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">交易分成方式</span>
+        <div class="configure-inner">
+          <select name="" id="select9" class="diy-select" style="display: none;">
+            <option selected="" value="1">毛佣金分成</option>
+            <option value="2">毛佣金分成2</option>
+          </select>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">基准佣金率</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*用于计算用户交易成本</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">交易提成比例</span>
+        <div class="configure-inner">
+          <label class="w-300"><input type="text" class="txt"></label>
+          <span class="ml-10 font-small">*用于计算每笔交易的渠道分uwufei</span>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">平均资产(元)</span>
+        <div class="configure-inner">
+          <div class="mb-10">
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <a class="delete-btn">删除</a>
+          </div>
+          <div>
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="w-inherit">
+              大于
+              <input type="text" class="txt">
+            </label>
+            <a class="delete-btn">删除</a>
+          </div>
+          <a class="add-department" href="javascript:void(0)"><i></i>添加</a>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">佣金模板</span>
+        <div class="configure-inner">
+          <select name="" id="select10" class="diy-select" style="display: none;">
+            <option selected="" value="1">111</option>
+            <option value="2">222</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="configure-item">
+        <span class="name">开户营业部</span>
+        <div class="configure-inner">
+          <div class="department-content">
+            <div class="item">
+              <label class="w-300 mr-30"><input type="text" class="txt" value="上海南路营业部"></label>
+            <span>
+              <select name="" class="diy-select" style="display: none;">
+                <option selected="" value="1">0001-万分之三佣金</option>
+                <option value="2">0001-万分之五佣金</option>
+              </select>
+            </span>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300 mr-30"><input type="text" class="txt" value="上海南路营业部"></label>
+            <span>
+              <select name="" class="diy-select" style="display: none;">
+                <option selected="" value="1">0001-万分之三佣金</option>
+                <option value="2">0001-万分之五佣金</option>
+              </select>
+            </span>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+          </div>
+          <a class="add-department" href="javascript:void(0)"><i></i>添加</a>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">存管银行</span>
+        <div class="configure-inner">
+          <div class="bank-content">
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+            <div class="item">
+              <label class="w-300"><input type="text" class="txt" value="中国工商银行"></label>
+              <a class="delete-btn" href="javascript:void(0)">删除</a>
+            </div>
+          </div>
+          <a class="add-bank" href="javascript:void(0)"><i></i>添加</a>
+        </div>
+      </div>
+      <div class="configure-item">
+        <span class="name">LOGO</span>
+        <div class="configure-inner">
+          <div>
+            <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传LOGO</a>
+            <input type="file" class="file">
+          </div>
+          <img src="../images/icbc.png">
+          <a href="#">删除</a>
+        </div>
+      </div>
+
+      <div class="configure-item">
+        <span class="name">协议</span>
+        <div class="configure-inner">
+          <div>
+            <a class="btn-fill btn btn-small file-btn" href="javascript:void(0)">上传协议</a>
+            <input type="file" class="file">
+          </div>
+          <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
+          <p><a  href="#">工商银行渠道合作协议.pdf</a><span class="xieyi"><img src="../images/dele.png" alt="" /></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="button-content">
+      <a class="btn btn-primary btn-lg" href="{{ site.baseurl }}/channel-info1.html">取消</a>
+      <button class="btn btn-fill btn-lg ml-30">保存</button>
     </div>
   </div>
 </div>
 <script type="text/javascript">
   $(function(){
-  	$(".btn-add").click(function(){
-  		$(".state1").hide();
-  		$(".state2").show();
-  	});
-  	$(".btn-del").click(function(){
-  		$(".state1").show();
-  		$(".state2").hide();
-  	});  	
-    $('.diy-select').diySelect({width: '280px'});
+    $('.diy-select').each(function(){
+      $(this).diySelect({width: 280});
+    });
+
+
     $('.department-content').on('click', '.delete-btn', function(event) {
       //删除营业部
       event.preventDefault();
       /* Act on the event */
       $(this).parent().remove();
     });
+
     $('.bank-content').on('click', '.delete-btn', function(event) {
       //删除银行
       event.preventDefault();
       /* Act on the event */
       $(this).parent().remove();
     });
+
     $('.configure-inner').on('click', '.add-bank', function(event) {
       //新增银行
       event.preventDefault();
@@ -264,13 +616,6 @@ layout: default
           '</div>'
         });
     });
-    $('.configure-inner').on('click', '.query-btn', function(event) {
-      //查询按钮事件
-      event.preventDefault();
-      /* Act on the event */
-      if ($('#username').val() != "") {
-        $('.user-table').show();
-      }
-    });
   });
+
 </script>

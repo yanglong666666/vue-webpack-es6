@@ -1,8 +1,11 @@
 .leftaside {
-	position: relative;
-	float: left;
-	width: 150px;
-	padding-top: 10px;
+  width: 167px;
+  position: fixed;
+  top: 76px;
+  bottom: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 20px;
 	.leftul {
 		li {
 			position: relative;

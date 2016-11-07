@@ -9,28 +9,69 @@ class: channel-info
 </div>
 <div class="tab-content">
   <div class="tab">
-    <a class="tab1" href="{{ site.baseurl }}/user-data1.html">用户资料</a>
-    <a class="tab2 active" href="{{ site.baseurl }}/channel-info1.html">渠道信息</a>
+    <a class="tab1 active">用户资料</a>
+    <a class="tab2">渠道信息</a>
   </div>
 </div>
-<div class="channel-content">
-  <div class="channel-link">
-    <a class="active" href="#">开户</a>
-    <a href="#">产品销售</a>
-    <a href="#">活动营销</a>
+
+<div class="tab1-content">
+  <div class="channel-table">
+    <!--<a class="btn-primary-white edit-sdk" href="{{ site.baseurl }}/sdk-edit.html">修改</a>-->
+    {% include component/info/sdk.html %}
   </div>
-  <div class="channel-info">
-    <a class="active" href="#">渠道1</a>
-    <a href="#">渠道2</a>
-    <a href="#">渠道3</a>
-    <a href="#">+</a>
+  <div class="channel-table">
+    {% include component/info/channel.html %}
+  </div>
+
+</div>
+<div class="tab2-content">
+  <div class="channel-table">
+    {% include component/info/verify-qy.html %}
+  </div>
+  <div class="channel-table">
+    <div class="ui-table-info">
+      <h2 class="table-title">账号信息</h2>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+          <td width="15%">邮箱</td>
+          <td width="35%">5453028@qq.com</td>
+          <td width="15%">手机号码</td>
+          <td width="35%">13029382933</td>
+        </tr>
+        <tr>
+          <td>QQ</td>
+          <td>5453028</td>
+          <td>联系地址</td>
+          <td>杭州西湖区文三路营业厅</td>
+        </tr>
+        <tr>
+          <td>微信</td>
+          <td>5453028</td>
+          <td>状态</td>
+          <td>有效</td>
+        </tr>
+        <tr>
+          <td>角色</td>
+          <td>内部经纪人</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-<div class="channel-table">
-  <a class="btn-primary-white edit-sdk" href="{{ site.baseurl }}/sdk-edit.html">修改</a>
-  {% include component/info/sdk.html %}
-</div>
-<div class="channel-table">
-  <a class="btn-primary-white edit-channel" href="{{ site.baseurl }}/channel-edit.html">修改</a>
-  {% include component/info/channel.html %}
-</div>
+
+<script type="text/javascript">
+  $(function(){
+    $('.tab a').on('click',function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      if($(this).hasClass('tab1')){
+        $('.tab1-content').show();
+        $('.tab2-content').hide();
+      }else{
+        $('.tab2-content').show();
+        $('.tab1-content').hide();
+      }
+    });
+  });
+</script>

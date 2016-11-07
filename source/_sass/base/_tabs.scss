@@ -12,10 +12,11 @@
     overflow: hidden;
     margin-bottom: 5px;
     .tab-option {
-      padding: 7px 30px;
+      padding: 7px 0;
       text-align: center;
       background: #f0f4fb;
       font-size: 16px;
+      width: 50%;
       &.on {
         background: #44c1de;
         color: #FFF;
@@ -23,7 +24,6 @@
     }
   }
   &.add-tabs {
-    background: #f0f4fb;
     overflow: hidden;
     padding: 20px 10px;
     .tab-option {
@@ -31,9 +31,11 @@
       text-align: center;
       background: #FFF;
       font-size: 14px;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: solid 1px #cccccc;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: solid 1px #44c1de;
+      color: #44c1de;
+
       &.on {
         background: #44c1de;
         border: solid 1px #44c1de;
@@ -44,14 +46,15 @@
       cursor: pointer;
       display: block;
       float: left;
-      padding: 5px 0px;
+      padding: 5px 0;
       width: 87px;
       text-align: center;
       background: #FFF;
       font-size: 14px;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: solid 1px #cccccc;
+      margin-right: 20px;
+      border-radius: 5px;
+      border: solid 1px #44c1de;
+      color: #44c1de;
     }
   }
 
