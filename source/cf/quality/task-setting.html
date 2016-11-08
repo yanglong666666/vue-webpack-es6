@@ -113,7 +113,22 @@ layout: default-iframe
     });
 
 
-    //初始化
+    //初始化 多选下拉框
+    $("#busi-type").MultDropList({
+      "selectedItem": '2,3',
+      "width": '220',
+      "selectAllBox": true
+    });
+    $("#handle-department").MultDropList({
+      "selectedItem": '2,3',
+      "width": '220',
+      "selectAllBox": true
+    });
+    $("#quality-range").MultDropList({
+      "selectedItem": '2,3',
+      "width": '220',
+      "selectAllBox": true
+    });
     $("#cust-last-input").MultDropList({
       "selectedItem": '2,3',
       "width": '220',
@@ -261,7 +276,9 @@ layout: default-iframe
       <div class="dialog-left must-icon">业务类型</div>
       <div class="dialog-right">
         <div class="special-item">
-          <input class="dialog-input" placeholder="业务类型/业务编号">
+          <input id="busi-type" class="dialog-input" readonly="readonly" />
+          <input type="hidden" class="holderRightList" value="{'0':'自动配股','1':'自动配售','2':'红利领取','3':'市价委托'}"/>
+          <input type="hidden" class="holderRightChoosed" value="1、3"/>
         </div>
         <div class="daily-item">
           <input class="dialog-input" placeholder="创业板开通" value="创业板开通">
@@ -290,20 +307,18 @@ layout: default-iframe
     <div class="dialog-item">
       <div class="dialog-left must-icon">质检范围</div>
       <div class="dialog-right">
-        <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
-          <option selected="">请选择</option>
-          <option selected="" value="1">111111</option>
-        </select>
+        <input id="quality-range" class="dialog-input" readonly="readonly" />
+        <input type="hidden" class="holderRightList" value="{'0':'自动配股','1':'自动配售','2':'红利领取','3':'市价委托'}"/>
+        <input type="hidden" class="holderRightChoosed" value="1、3"/>
       </div>
 
     </div>
     <div class="dialog-item">
       <div class="dialog-left must-icon">操作营业部</div>
       <div class="dialog-right">
-        <select name="" id="dialogSelect2" class="diy-select" style="display: none;">
-          <option selected="">请选择</option>
-          <option selected="" value="1">111111</option>
-        </select>
+        <input id="handle-department" class="dialog-input" readonly="readonly" />
+        <input type="hidden" class="holderRightList" value="{'0':'自动配股','1':'自动配售','2':'红利领取','3':'市价委托'}"/>
+        <input type="hidden" class="holderRightChoosed" value="1、3"/>
       </div>
     </div>
     <div class="dialog-item">
