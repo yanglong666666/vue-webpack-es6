@@ -144,7 +144,7 @@ $.fn.extend({
           if(index==0){
             kArr += $(this).val();
           }else{
-            kArr +=  '、' + $(this).val();
+            kArr +=  ',' + $(this).val();
           }
         });
         $self.val(kArr);
@@ -184,7 +184,7 @@ $.fn.extend({
         if(index==0){
           kArr += $(this).val();
         }else{
-          kArr +=  '、' + $(this).val();
+          kArr +=  ',' + $(this).val();
         }
       });
       $self.val(kArr);
