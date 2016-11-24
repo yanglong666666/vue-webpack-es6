@@ -170,7 +170,33 @@
 		    margin-bottom: 20px;
 		    margin-top:30px;
 		}
-		
+		.button-fill-blue{
+			background:#007aff;
+			color:#fff;
+			border:none;
+			border-radius:6px;
+			margin-left:20px;
+			font-size:13px;
+			line-height:24px;
+		}
+		.buttom-modst{
+			position:absolute;
+			top:60%;
+			left:-10px;
+		}
+		.item-wrap{
+		    background: rgba(200, 210, 250,.4);
+		    border-radius: 5px;
+		    padding: 8px 5px;
+		    margin-top: 5px;
+		    .item-top{
+		    	margin-bottom:0 !important;
+		    }
+		    textarea{
+		    	background:transparent !important;
+		    	border:none !important;
+		    }
+		}
 	}
 
 
