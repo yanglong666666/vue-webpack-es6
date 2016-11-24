@@ -76,3 +76,118 @@ $('body').on('click','.param-checkbox',function(){
     }
   }
 });
+
+//多选框
+$.fn.extend({
+  MultDropList: function (params) {
+    var selectedItem =  params.selectedItem || "",
+      selectAllBox =  params.selectAllBox || false,
+      width =  params.width || '200',
+      $self = $(this),
+      $parent,
+      options = $self.siblings('.holderRightList').val();
+    var op = { wraperClass: "mult-wraper", width: width.replace('px','') + "px", data: options};
+    return this.each(function () {
+      var $hf = $(this).next(); //指向隐藏控件存
+      var conSelector = $self.parent().children();
+      var $wraper = conSelector.wrapAll("<div><div></div></div>").parent().parent().addClass(op.wraperClass);
+
+      var $list = $('<div class="list"></div>').appendTo($wraper);
+      $parent = $(this).parents(".mult-wraper");
+
+      $list.css({ "width": op.width,"height":"inherit"});
+      //控制弹出页面的显示与隐藏
+      $self.click(function (e) {
+        $parent.find('.list').hide();
+        $list.toggle();
+        e.stopPropagation();
+      });
+
+      $(document).click(function () {
+        $list.hide();
+      });
+
+      $list.filter("*").click(function (e) {
+        e.stopPropagation();
+      });
+      //插入selectAll
+      $list.append('<ul><li><label><input type="checkbox" class="selectAll" value="" />全选/全不选</label></li></ul>');
+      //绑定selectAll点击事件
+      $parent.find('.selectAll').click(function (){
+        if($(this).is(':checked')) {
+          $parent.find(".list input").prop("checked",true);
+        }
+        else{
+          $parent.find(".list input").prop("checked",false);
+        }
+      });
+      //是否显示selectAll
+      if(selectAllBox != true){
+        $parent.find('.selectAll').parent().hide();
+      }
+
+      var $ul = $list.find("ul");
+      var listArr=[];
+      //加载json数据
+      $.each(eval("(" + op.data + ")"), function(key, value) {
+        listArr.push({key:key,value:value});
+      });
+      for(var i = 0; i < listArr.length; i++) {
+        var jsonData = listArr[i];
+        $ul.append('<li><label><input type="checkbox" value="' + jsonData.key + '" />'
+          +  jsonData.value + '</label></li>');
+      }
+      //点击其它复选框时，更新隐藏控件值,文本框的值
+      $parent.find(".list").on("click","label",function () {
+        var kArr = "";
+        $parent.find(".list input[class!='selectAll']:checked").each(function (index) {
+          if(index==0){
+            kArr += $(this).val();
+          }else{
+            kArr +=  ',' + $(this).val();
+          }
+        });
+        $self.val(kArr);
+      });
+      $parent.find(".list input[class!='selectAll']").on('click',function(){
+        if($parent.find(".list input[class!='selectAll']:checked").length == $parent.find(".list input[class!='selectAll']").length){
+          $parent.find('.selectAll').prop("checked",true);
+        }else{
+          $parent.find('.selectAll').prop("checked",false);
+        }
+      });
+      if(selectedItem){
+        $self.siblings('.holderRightChoosed').val(selectedItem);
+      }
+      $self.MultDropChoosed();
+    });
+  },
+  MultDropChoosed: function(){
+    //加载勾选项
+    var $self = $(this);
+    var $parent = $(this).parents(".mult-wraper");
+    var selected = $self.siblings('.holderRightChoosed').val();
+    var seledArr = [];
+    if (selected.length > 0) {
+      seledArr = selected.split(",");
+    }
+    if(seledArr.length > 0){
+      $.each(seledArr, function (index,selectItem) {
+        $self.parents('.mult-wraper').find('.list li').each(function (index,item) {
+          if($(item).find('input').val() == selectItem){
+            $(item).find('input').prop('checked',true);
+          }
+        });
+      });
+      var kArr = "";
+      $parent.find(".list input[class!='selectAll']:checked").each(function (index) {
+        if(index==0){
+          kArr += $(this).val();
+        }else{
+          kArr +=  ',' + $(this).val();
+        }
+      });
+      $self.val(kArr);
+    }
+  }
+});
