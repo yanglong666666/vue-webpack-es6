@@ -170,19 +170,27 @@
 		    margin-bottom: 20px;
 		    margin-top:30px;
 		}
-		.button-fill-blue{
-			background:#007aff;
-			color:#fff;
-			border:none;
+		.button-null-blue{
+			color:#007aff;
+			border-color:#007aff;
 			border-radius:6px;
 			margin-left:20px;
 			font-size:13px;
 			line-height:24px;
 		}
+		.button-fill-blue{
+			color:#fff;
+			background:#007aff;
+		}
 		.buttom-modst{
 			position:absolute;
 			top:60%;
 			left:-10px;
+		}
+		.vertical-line{
+			    height: 2px;
+			    background: #f1374d;
+			    margin-top: 5px;
 		}
 		.item-wrap{
 		    background: rgba(200, 210, 250,.4);
@@ -196,6 +204,27 @@
 		    	background:transparent !important;
 		    	border:none !important;
 		    }
+		}
+		.item-del-span,.item-del-span2{
+			color:red;
+			cursor:pointer;
+		}
+		.info-table .info-table-content .info-table-colspan{
+			.cur-active{
+				background:#ccc;
+				.info-table-key{
+					background:#ccc;
+				}
+				.info-table-val{
+					position:relative;
+					&:after{
+						content:"需整改";
+						position:absolute;
+						right:5px;
+						color:red;
+					}
+				}
+			}
 		}
 	}
 
