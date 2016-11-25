@@ -32,6 +32,97 @@ $(function () {
     $(".panel-0").hide();
     $(".panel-1").show();
   });
+  $(".info-table-title").on('click','.yw-btn',function(){
+    let ck = $(this).next("input[type='checkbox']").prop("checked");
+    if(!ck)
+    {
+      $(this).addClass('button-fill-blue');
+      $(this).next("input[type='checkbox']").prop("checked",'checked');
+    }else{
+      $(this).removeClass('button-fill-blue');
+      $(this).next("input[type='checkbox']").prop("checked",'');
+    }
+  })
+  $(".clickable").on('click','.info-table-item',function(){
+      // $(this).toggleClass("cur-active");
+      let ck = $('.yw-btn').next("input[type='checkbox']").prop("checked")
+      if(!ck)
+        return ;
+      let c = $(this).hasClass('cur-active');
+      if(!c)
+      {
+          $(this).addClass('cur-active');
+          let len = $(".clickable").children(".cur-active").length;
+          $('.yw-btn').html("整改(" + len + ")");
+
+          let timestamp = (new Date()).getTime();
+          $(this).attr("clickId",timestamp);
+          let t = $(this).children('.info-table-key').html();
+          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' + 
+                '<div class="item-top">'+ t +' 需整改</div>' +
+                '<span class="item-del-span">删除</span>' + 
+              '</div>'
+          $(".text-area").before(h);
+          // 添加删除事件
+          $(".item-del-span").on('click',function(){
+            let timestamp = $(this).parent('.clickable').attr("clickId");
+            $(".clickable").children('[clickId = "' + timestamp + '"]').removeClass('cur-active');
+            let len = $(".clickable").children(".cur-active").length;
+            if(len != 0){
+              $('.yw-btn').html("整改(" + len + ")");
+            }
+            else{
+              $('.yw-btn').html("整改").removeClass('button-fill-blue').next("input[type='checkbox']").prop("checked",'');
+
+            }
+            $(this).parent('.clickable').remove();
+          })
+      }
+      else{
+          $(this).removeClass('cur-active');
+          let len = $(".clickable").children(".cur-active").length;
+           if(len != 0){
+              $('.yw-btn').html("整改(" + len + ")");
+            }
+            else{
+              $('.yw-btn').html("整改").removeClass('button-fill-blue').next("input[type='checkbox']").prop("checked",'');
+            }
+
+          let timestamp = $(this).attr("clickId");
+          $(".tip-panel-content").children('[clickId = "' + timestamp + '"]').remove();
+      }
+  })
+
+  $(".clickenable").on("click",'.buttom-modst',function(){
+    let $ele = $(this).parent('.info-table-key').next(".info-table-val");
+    let ck = $ele.hasClass('cur-active');
+    $ele.toggleClass('cur-active');
+    $(this).toggleClass('button-fill-blue');
+    // 添加
+    if(!ck){
+          let timestamp = (new Date()).getTime();
+          $(this).attr("clickId",timestamp);
+          let t = $(this).prev('span').text();
+          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' + 
+                '<div class="item-top">'+ t +' 需整改</div>' +
+                '<span class="item-del-span2">删除</span>' + 
+              '</div>'
+          $(".text-area").before(h);
+          // 添加删除事件
+          $(".item-del-span2").on('click',function(){
+            let timestamp = $(this).parent('.clickable').attr("clickId");
+            let $b = $(".buttom-modst[clickId=" + timestamp + "]");
+            $b.removeClass('button-fill-blue').parent('.info-table-key').next(".info-table-val").removeClass('cur-active');
+            $(this).parent('.clickable').remove();
+          })
+    }
+    else{
+         let timestamp = $(this).attr("clickId");
+         $(".tip-panel-content").children('[clickId = "' + timestamp + '"]').remove();
+    }
+
+  });
+  
   PassDialogInit();
   FailedDialogInit();
 });
@@ -240,9 +331,9 @@ function FailedDialogInit(){
         </div>
       </div>
       <div class="info-table">
-        <div class="info-table-title">业务操作信息<button class="btn button-fill-blue  btn-small" href="#">整改</button></div>
+        <div class="info-table-title">业务操作信息<button class="btn button-null-blue yw-btn" >整改</button><input style="display:none" type="checkbox" name=""></div>
         <div class="info-table-content">
-          <div class="info-table-colspan">
+          <div class="info-table-colspan clickable">
             <div class="info-table-item">
               <div class="info-table-key">
                 紧急联系人姓名
@@ -316,25 +407,25 @@ function FailedDialogInit(){
       <div class="info-table info-table-file">
         <div class="info-table-title">业务凭证</div>
         <div class="info-table-content">
-          <div class="info-table-colspan">
+          <div class="info-table-colspan clickenable">
             <div class="info-table-item">
-              <div class="info-table-key">客户现场头像照片<button class="btn button-fill-blue  btn-small buttom-modst" href="#">整改</button></div>
+              <div class="info-table-key"><span>客户现场头像照片</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
               <div class="info-table-val">
                 <img src="../../images/license.jpg" class="file-obj">
               </div>
             </div>
           </div>
-          <div class="info-table-colspan">
+          <div class="info-table-colspan clickenable">
             <div class="info-table-item">
-              <div class="info-table-key">客户身份证扫描件<button class="btn button-fill-blue  btn-small buttom-modst" href="#">整改</button></div>
+              <div class="info-table-key"><span>客户身份证扫描件</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
               <div class="info-table-val">
                 <img src="../../images/license.jpg" class="file-obj">
               </div>
             </div>
           </div>
-          <div class="info-table-colspan">
+          <div class="info-table-colspan clickenable">
             <div class="info-table-item">
-              <div class="info-table-key">风险评测签字电子档<button class="btn button-fill-blue  btn-small buttom-modst" href="#">整改</button></div>
+              <div class="info-table-key"><span>风险评测签字电子档</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
               <div class="info-table-val">
                 <img src="../../images/license.jpg" class="file-obj">
               </div>
@@ -432,52 +523,38 @@ function FailedDialogInit(){
         <div class="tip-panel-content">
           <div class="content-item item-wrap">
             <div class="item-top">客户开通创业板所需时间正确</div>
-            <!-- <div class="item-bottom">
-              <label><input type="radio" class="radio-yes"/>是</label>
-              <label><input type="radio" class="radio-no"/>否</label>
-            </div> -->
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">客户档案是否齐全（客户现场头像、客户身份证扫描件、风险评测签字电子档、风险劝导书电子档、《风险揭示书》扫描件）；</div>
-            <!-- <div class="item-bottom">
-              <label><input type="radio" class="radio-yes"/>是</label>
-              <label><input type="radio" class="radio-no"/>否</label>
-            </div> -->
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">客户现场头像照、客户身份证扫描件清晰</div>
-            <!-- <div class="item-bottom">
-              <label><input type="radio" class="radio-yes"/>是</label>
-              <label><input type="radio" class="radio-no"/>否</label>
-            </div> -->
+           
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">客户现场头像照带现场logo，且与客户身份证扫描件是同一个人</div>
-            <!-- <div class="item-bottom">
-              <label><input type="radio" class="radio-yes"/>是</label>
-              <label><input type="radio" class="radio-no"/>否</label>
-            </div> -->
+         
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">风险揭示书页数正确、内容清晰</div>
-            <!-- <div class="item-bottom">
-              <label><input type="radio" class="radio-yes"/>是</label>
-              <label><input type="radio" class="radio-no"/>否</label>
-            </div> -->
+          
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">勾选项、紧急联系人内容、抄写内容及签字清晰可辨</div>
-            <!-- <div class="item-bottom">
-              <label><input type="radio" class="radio-yes"/>是</label>
-              <label><input type="radio" class="radio-no"/>否</label>
-            </div> -->
+         
           </div>
-          <div class="content-item item-wrap">
-            <div class="item-top">备注</div>
-            <div class="item-bottom">
-              <textarea ></textarea>
+          
+        </div>
+        <div class="tip-panel-title">
+          <span>整改原因</span>
+        </div>
+        <div class="tip-panel-content">
+            <div class="content-item item-wrap text-area">
+              <div class="item-top">备注</div>
+              <div class="item-bottom">
+                <textarea ></textarea>
+              </div>
             </div>
-          </div>
         </div>
         <div class="tip-panel-footer">
           <button class="btn btn-fill btn-pass">通过</button>
