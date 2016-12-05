@@ -58,9 +58,9 @@ $(function () {
           let timestamp = (new Date()).getTime();
           $(this).attr("clickId",timestamp);
           let t = $(this).children('.info-table-key').html();
-          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' + 
+          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
                 '<div class="item-top">'+ t +' 需整改</div>' +
-                '<span class="item-del-span">删除</span>' + 
+                '<span class="item-del-span">删除</span>' +
               '</div>'
           $(".text-area").before(h);
           // 添加删除事件
@@ -103,9 +103,9 @@ $(function () {
           let timestamp = (new Date()).getTime();
           $(this).attr("clickId",timestamp);
           let t = $(this).prev('span').text();
-          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' + 
+          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
                 '<div class="item-top">'+ t +' 需整改</div>' +
-                '<span class="item-del-span2">删除</span>' + 
+                '<span class="item-del-span2">删除</span>' +
               '</div>'
           $(".text-area").before(h);
           // 添加删除事件
@@ -122,7 +122,7 @@ $(function () {
     }
 
   });
-  
+
   PassDialogInit();
   FailedDialogInit();
 });
@@ -325,7 +325,7 @@ function FailedDialogInit(){
               <div class="info-table-val">
                 420322198809148990
               </div>
-            </div> 
+            </div>
           </div>
 
         </div>
@@ -336,10 +336,10 @@ function FailedDialogInit(){
           <div class="info-table-colspan clickable">
             <div class="info-table-item">
               <div class="info-table-key">
-                紧急联系人姓名
+                <div class="overflow-pop-up">紧急联系人姓名姓名姓名</div>
               </div>
               <div class="info-table-val">
-                王大锤
+                <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
               </div>
             </div>
             <div class="info-table-item">
@@ -529,21 +529,21 @@ function FailedDialogInit(){
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">客户现场头像照、客户身份证扫描件清晰</div>
-           
+
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">客户现场头像照带现场logo，且与客户身份证扫描件是同一个人</div>
-         
+
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">风险揭示书页数正确、内容清晰</div>
-          
+
           </div>
           <div class="content-item item-wrap">
             <div class="item-top">勾选项、紧急联系人内容、抄写内容及签字清晰可辨</div>
-         
+
           </div>
-          
+
         </div>
         <div class="tip-panel-title">
           <span>整改原因</span>
