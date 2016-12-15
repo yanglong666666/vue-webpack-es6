@@ -36,10 +36,16 @@
       }
       .inner-ul {
         background-color: #E8E9ED;
-        padding: 8px 0;
         display: none;
         li {
           text-align: left;
+          a {
+            margin: 0;
+            &.active {
+              background: #e33448;
+              color: #fff;
+            }
+          }
         }
       }
       b {

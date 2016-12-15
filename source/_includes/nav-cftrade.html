@@ -13,6 +13,12 @@
 
     $('.iframepage').hide();
     $(document.getElementById(href)).show();
+
+    $('.leftaside .index a').removeClass('active').each(function(){
+      if(JSON.parse($(this).attr('data-json')).href == href){
+        $(this).addClass('active');
+      }
+    });
   });
 
   function close_nav(self) {

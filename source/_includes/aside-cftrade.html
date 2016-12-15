@@ -74,12 +74,13 @@
     });
 
     //a标签跳转页面
-    $(".index a").click(function () {
+    $(".leftul .index a").click(function () {
       var href = $(this).data("json").href;
       var name = $(this).data("json").name;
       var param = $(this).data("json").param;
-      go_url(href, param, name);
-    })
+      var go = go_url.bind(this);
+      go(href, param, name);
+    });
   });
 
 </script>

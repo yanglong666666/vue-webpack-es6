@@ -2,13 +2,27 @@
  * 财富页面的切换
  */
 var go_url = function (href, param, name) {
+  var $self = $(this);
+  var tabHasThis = false;
+  var li_all = $(".nav-cftrade ul li");
+  for (var i in li_all) {
+    if (href == li_all.eq(i).data("href")) {
+      $(".leftul .index a").removeClass('active');
+      $self.addClass('active');
+      li_all.removeClass("active");
+      li_all.eq(i).addClass("active");
+      $('.iframepage').hide();
+      $(document.getElementById(href)).show();
+      tabHasThis = true;
+    }
+  }
+  if(tabHasThis) return;
+
   var contentHtml = ['<div class="form form-add">',
     '<div class="form-group">',
     '标签不能超过七个，请关闭其他标签',
     '</div>'].join('');
-
-  var li_all = $(".nav-cftrade ul li");
-  if (li_all.length == 7) {
+  if (li_all.length >= 7) {
     var dailog = new Dialog(null, {
       title: '提示',
       content: contentHtml,
@@ -22,36 +36,23 @@ var go_url = function (href, param, name) {
       }
     });
     dailog.show();
-  }else{
-    $('.shadow-div').show();
-    $('.iframepage').hide();
-    var tabHasThis = false;
-    for (var i in li_all) {
-      if (href == li_all.eq(i).data("href")) {
-        $('.shadow-div').show();
-        li_all.removeClass("active");
-        li_all.eq(i).addClass("active");
-        $(document.getElementById(href)).show();
-        tabHasThis = true;
-      }
-    }
-    if(!tabHasThis){
-      //tab栏增加一项
-      li_all.removeClass("active");
-      var child_li = ' <li data-href="' + href + '"data-param="' + param + '" title="' + name + '" class="active">' + name + '<i class="icon-close" title="关闭"></i></li>';
-      $(".nav-cftrade ul").append(child_li);
-
-      var doc = document;
-      var ifr = doc.createElement('iframe');
-      ifr.id = href;
-      ifr.className = "iframepage";
-      ifr.src = href + '.html' + param;
-      var iframeWrap = doc.getElementById('iframeWrap');
-      iframeWrap.appendChild(ifr);
-    }
+    return false;
   }
 
-  $('.shadow-div').hide();
+  $(".leftul .index a").removeClass('active');
+  $self.addClass('active');
+  //tab栏增加一项
+  li_all.removeClass("active");
+  var child_li = ' <li data-href="' + href + '"data-param="' + param + '" title="' + name + '" class="active">' + name + '<i class="icon-close" title="关闭"></i></li>';
+  $(".nav-cftrade ul").append(child_li);
+
+  var doc = document;
+  var ifr = doc.createElement('iframe');
+  ifr.id = href;
+  ifr.className = "iframepage";
+  ifr.src = href + '.html' + param;
+  var iframeWrap = doc.getElementById('iframeWrap');
+  iframeWrap.appendChild(ifr);
 };
 
 //初始化checkbox
