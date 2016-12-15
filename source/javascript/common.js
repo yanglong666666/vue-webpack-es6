@@ -42,6 +42,7 @@ var go_url = function (href, param, name) {
   $(".leftul .index a").removeClass('active');
   $self.addClass('active');
   //tab栏增加一项
+  $('.iframepage').hide();
   li_all.removeClass("active");
   var child_li = ' <li data-href="' + href + '"data-param="' + param + '" title="' + name + '" class="active">' + name + '<i class="icon-close" title="关闭"></i></li>';
   $(".nav-cftrade ul").append(child_li);

@@ -28,7 +28,7 @@
 				.pic-page-num,.pic-page-info{
 					font-size: 12px;
 				}
-				
+
 			}
 		}
 	}
@@ -76,7 +76,7 @@
 
     	}
     }
-	
+
 }
 .info-table .info-table-content .info-table-colspan
 {
@@ -126,9 +126,9 @@
 		.content-title{
 			font-size: 20px;
 			font-weight: 700;
-			
+
 			height:40px;
-			line-height:40px; 
+			line-height:40px;
 			color:$color-red;
 		}
 		.content-wrap{
@@ -136,13 +136,13 @@
 			table{
 				tr{
 					height:48px;
-					line-height:48px; 
+					line-height:48px;
 					border-bottom:1px solid #ccc;
 					td{
-						text-align: left;	
+						text-align: left;
 						color:#000;
 
-						
+
 						.text-link{
 							cursor: pointer;
 							color:#007aff;
@@ -150,7 +150,7 @@
 					}
 				}
 			}
-		}	
+		}
 	}
 
 	.arch-detail,.plat-lists{
@@ -203,8 +203,25 @@
 		    textarea{
 		    	background:transparent !important;
 		    	border:none !important;
+
 		    }
 		}
+    .text-area {
+      .item-bottom {
+        margin-bottom: 0 !important;
+      }
+      position: relative;
+      .item-top{
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        line-height: 24px;
+      }
+      textarea{
+        text-indent: 40px !important;
+        padding: 0 !important;
+      }
+    }
 		.item-del-span,.item-del-span2{
 			color:red;
 			cursor:pointer;
