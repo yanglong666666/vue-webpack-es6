@@ -13,12 +13,16 @@ layout: default-iframe
     $('.begin-time').datepicker({
       onClose: function( selectedDate ) {
         $('.end-time').datepicker( "option", "minDate", selectedDate );
-      }
+      },
+      changeYear: true,
+      yearRange:'1900:2016'
     });
     $('.end-time').datepicker({
       onClose: function( selectedDate ) {
         $('.begin-time').datepicker( "option", "maxDate", selectedDate );
-      }
+      },
+      changeYear: true,
+      yearRange:'1900:2016'
     });
 
     $('#addOne').on('click',function(){

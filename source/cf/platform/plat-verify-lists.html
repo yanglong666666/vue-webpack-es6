@@ -10,12 +10,16 @@ $(function () {
   $('.begin-time').datepicker({
     onClose: function( selectedDate ) {
       $('.end-time').datepicker( "option", "minDate", selectedDate );
-    }
+    },
+    changeYear: true,
+    yearRange:'1990:2016'
   });
   $('.end-time').datepicker({
     onClose: function( selectedDate ) {
         $('.begin-time').datepicker( "option", "maxDate", selectedDate );
-      }
+    },
+    changeYear: true,
+    yearRange:'1900:2016'
   });
   $("#ver-btn").on('click',function(){
     $('.main-content').hide();
