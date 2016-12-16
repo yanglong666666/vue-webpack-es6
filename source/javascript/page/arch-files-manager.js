@@ -9,7 +9,7 @@ $(function(){
 
 
   $('body').on('click','.num-add-btn',function(){
-    $(this).parents('.num-wrap').append(
+    $(this).siblings('.num-wrap').append(
       '<div class="num-item">' +
       '<input class="num-input" />' +
       '<div class="num-up"></div>' +
@@ -53,9 +53,8 @@ function CrtDialogInit(){
                     '<a class="num-a">采集</a>' +
                     '<div class="btn btn-deny num-delete-btn">删除</div>' +
                   '</div>' +
-                  '<div class="btn num-add-btn">添加</div>' +
                 '</div>' +
-
+              '<div class="btn num-add-btn">添加</div>' +
               '</div>' +
             '</div>' +
             '<div class="dialog-item">' +
