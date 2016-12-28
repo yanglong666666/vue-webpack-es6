@@ -1627,7 +1627,8 @@ input[type="text"]{
 }
 
 /*表单验证*/
-form{
+.commentForm{
+    margin-top: 50px;
     .fill-group {
         margin-bottom: 30px;
         font-size: 0;
