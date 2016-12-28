@@ -197,11 +197,11 @@
       padding: 0 !important;
     }
   }
-  .item-del-span, .item-del-span2 {
+  .item-del-span, .item-del-span2, .item-del-span3 {
     color: red;
     cursor: pointer;
   }
-  .info-table .info-table-content .info-table-colspan {
+  .info-table {
     .cur-active {
       background: #ccc;
       .info-table-key {

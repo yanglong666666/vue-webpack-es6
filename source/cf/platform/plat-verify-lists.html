@@ -37,7 +37,7 @@ $(function () {
     $(".panel-1").show();
   });
   $(".info-table-title").on('click','.yw-btn',function(){
-    let ck = $(this).next("input[type='checkbox']").prop("checked");
+    var ck = $(this).next("input[type='checkbox']").prop("checked");
     if(!ck)
     {
       $(this).addClass('button-fill-blue');
@@ -49,29 +49,29 @@ $(function () {
   })
   $(".clickable").on('click','.info-table-item',function(){
       // $(this).toggleClass("cur-active");
-      let ck = $('.yw-btn').next("input[type='checkbox']").prop("checked")
+      var ck = $('.yw-btn').next("input[type='checkbox']").prop("checked")
       if(!ck)
         return ;
-      let c = $(this).hasClass('cur-active');
+      var c = $(this).hasClass('cur-active');
       if(!c)
       {
           $(this).addClass('cur-active');
-          let len = $(".clickable").children(".cur-active").length;
+          var len = $(".clickable").children(".cur-active").length;
           $('.yw-btn').html("整改(" + len + ")");
 
-          let timestamp = (new Date()).getTime();
+          var timestamp = (new Date()).getTime();
           $(this).attr("clickId",timestamp);
-          let t = $(this).children('.info-table-key').html();
-          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
+          var t = $(this).children('.info-table-key').html();
+          var h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
                 '<div class="item-top">'+ t +' 需整改</div>' +
                 '<span class="item-del-span">删除</span>' +
               '</div>'
           $(".text-area").before(h);
           // 添加删除事件
           $(".item-del-span").on('click',function(){
-            let timestamp = $(this).parent('.clickable').attr("clickId");
+            var timestamp = $(this).parent('.clickable').attr("clickId");
             $(".clickable").children('[clickId = "' + timestamp + '"]').removeClass('cur-active');
-            let len = $(".clickable").children(".cur-active").length;
+            var len = $(".clickable").children(".cur-active").length;
             if(len != 0){
               $('.yw-btn').html("整改(" + len + ")");
             }
@@ -84,7 +84,7 @@ $(function () {
       }
       else{
           $(this).removeClass('cur-active');
-          let len = $(".clickable").children(".cur-active").length;
+          var len = $(".clickable").children(".cur-active").length;
            if(len != 0){
               $('.yw-btn').html("整改(" + len + ")");
             }
@@ -92,39 +92,68 @@ $(function () {
               $('.yw-btn').html("整改").removeClass('button-fill-blue').next("input[type='checkbox']").prop("checked",'');
             }
 
-          let timestamp = $(this).attr("clickId");
+          var timestamp = $(this).attr("clickId");
           $(".tip-panel-content").children('[clickId = "' + timestamp + '"]').remove();
       }
   })
 
   $(".clickenable").on("click",'.buttom-modst',function(){
-    let $ele = $(this).parent('.info-table-key').next(".info-table-val");
-    let ck = $ele.hasClass('cur-active');
+    var $ele = $(this).parent('.info-table-key').next(".info-table-val");
+    var ck = $ele.hasClass('cur-active');
     $ele.toggleClass('cur-active');
     $(this).toggleClass('button-fill-blue');
     // 添加
     if(!ck){
-          let timestamp = (new Date()).getTime();
+          var timestamp = (new Date()).getTime();
           $(this).attr("clickId",timestamp);
-          let t = $(this).prev('span').text();
-          let h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
+          var t = $(this).prev('span').text();
+          var h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
                 '<div class="item-top">'+ t +' 需整改</div>' +
                 '<span class="item-del-span2">删除</span>' +
               '</div>'
           $(".text-area").before(h);
           // 添加删除事件
           $(".item-del-span2").on('click',function(){
-            let timestamp = $(this).parent('.clickable').attr("clickId");
-            let $b = $(".buttom-modst[clickId=" + timestamp + "]");
+            var timestamp = $(this).parent('.clickable').attr("clickId");
+            var $b = $(".buttom-modst[clickId=" + timestamp + "]");
             $b.removeClass('button-fill-blue').parent('.info-table-key').next(".info-table-val").removeClass('cur-active');
             $(this).parent('.clickable').remove();
           })
     }
     else{
-         let timestamp = $(this).attr("clickId");
+         var timestamp = $(this).attr("clickId");
          $(".tip-panel-content").children('[clickId = "' + timestamp + '"]').remove();
     }
 
+  });
+
+  $('.info-table').on('click','.ls-btn',function(){
+    var $ele = $(this).parents('.info-table').find("table");
+    var ck = $ele.hasClass('cur-active');
+    $ele.toggleClass('cur-active');
+    $(this).toggleClass('button-fill-blue');
+    // 添加
+    if(!ck){
+      var timestamp = (new Date()).getTime();
+      $(this).attr("clickId",timestamp);
+      var t = $(this).prev('span').text();
+      var h = '<div class="content-item item-wrap clickable" clickId="' + timestamp + '">' +
+        '<div class="item-top">'+ t +' 需整改</div>' +
+        '<span class="item-del-span3">删除</span>' +
+        '</div>'
+      $(".text-area").before(h);
+      // 添加删除事件
+      $(".item-del-span3").on('click',function(){
+        var timestamp = $(this).parent('.clickable').attr("clickId");
+        var $b = $(".ls-btn[clickId=" + timestamp + "]");
+        $b.removeClass('button-fill-blue').parents('.info-table').find("table").removeClass('cur-active');
+        $(this).parent('.clickable').remove();
+      })
+    }
+    else{
+      var timestamp = $(this).attr("clickId");
+      $(".tip-panel-content").children('[clickId = "' + timestamp + '"]').remove();
+    }
   });
 
   PassDialogInit();
@@ -439,7 +468,7 @@ function FailedDialogInit(){
       </div>
 
       <div class="info-table">
-        <div class="info-table-title">档案流水</div>
+        <div class="info-table-title">档案流水<button class="btn button-null-blue ls-btn">整改</button></div>
         <div class="main-table">
           <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
             <thead>
