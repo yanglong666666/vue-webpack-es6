@@ -1,0 +1,66 @@
+--- 
+title: 修改密码 
+layout: default-iframe 
+---
+
+<div class="main-content">
+	<form id="commentForm1">
+		<div class="fill-box">
+			<div class="fill-group">
+				<label class="fill-label must-icon">原密码</label>
+				<div class="fill-control">
+					<input class="dialog-input" id="password1" type="password" placeholder="请输入原密码" required name="name1" maxlength="20" minlength="6" class="fill-input">
+				</div>
+			</div>
+		</div>
+		<div class="fill-box">
+			<div class="fill-group">
+				<label class="fill-label must-icon">新密码</label>
+				<div class="fill-control">
+					<input class="dialog-input" id="password2" type="password" placeholder="请输入新密码" required name="name2" maxlength="20" minlength="6" class="fill-input">
+				</div>
+			</div>
+		</div>
+		<div class="fill-box">
+			<div class="fill-group">
+				<label class="fill-label must-icon">确认密码</label>
+				<div class="fill-control">
+					<input class="dialog-input" id="password3" type="password" placeholder="请再次输入新密码" required name="name3" maxlength="20" minlength="6" class="fill-input">
+				</div>
+			</div>
+		</div>
+		<input class="btn-change" type="submit" value="确认修改">
+	</form>
+</div>
+
+<script src="../../javascript/lib/jquery-validate/jquery.validate.min.js"></script>
+<script src="../../javascript/lib/jquery-validate/messages_zh.js"></script>
+<script src="../../javascript/lib/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript">
+	$(function() {
+	  //初始化表单验证
+	  $("#commentForm1").validate({
+	    submitHandler: function (form) {
+	      alert("ajax提交，阻止表单action自动跳转页面");
+	
+	      //可以多加一些校验
+	      var $password1 = $('#password1'), $password2 = $('#password2'),$password3 = $('#password3');
+	      if($password2.val() != $password3.val()){
+	        showError($password3,'两次输入的新密码不一致！');
+	      }
+	
+	      //ajax
+	    }
+	  });
+	
+	  function showError($input, text) {
+	    if ($input.siblings('label.error').length > 0) {
+	      $input.siblings('label.error').text(text).show();
+	    }else{
+	      $input.parent().append('<label id="' + $input.attr('id') + '-error" class="error" for="' + $input.attr('id') + '">' + text + '</label>')
+	    }
+	    $input.removeClass('valid').addClass('error');
+	
+	  }
+	});
+</script>
