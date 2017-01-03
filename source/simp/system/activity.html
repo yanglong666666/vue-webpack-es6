@@ -191,21 +191,22 @@ $(function(){
       "</table></div>",
     });
   });
-$(".page-activity").on("click",".add-activity input[type='checkbox']",function () {
+$(".page-activity").on("change",".add-activity input[type='checkbox']",function () {
   var _this =$(this);
   if(_this.parents("label").hasClass("allchecked")){
-    if(_this.attr('checked')){
-      _this.parents("tr").siblings("tr").find("input").attr("checked",true);
+    if(_this.prop('checked') == true){
+      _this.parents("table").find("input[type='checkbox']").prop("checked",true);
     }else{
-      _this.parents("tr").siblings("tr").find("input").removeAttr("checked");
+      _this.parents("table").find("input[type='checkbox']").prop("checked",false);
     }
   }else{
-    if(_this.attr('checked')==undefined){
-      _this.parents("tr").siblings("tr").find(".allchecked input").removeAttr("checked");
+    if(_this.parents('table').find('tr label').not('.allchecked').find('input[type=checkbox]:checked').length == _this.parents('table').find('tr label').not('.allchecked').find('input[type=checkbox]').length){
+      _this.parents("table").find(".allchecked").find('input[type=checkbox]').prop("checked",true);
+    }else{
+      _this.parents("table").find(".allchecked").find('input[type=checkbox]').prop("checked",false);
     }
   }
-
-})
+});
 
   $('.ui-table-info').on('click', '#more_department', function(event) {
     event.preventDefault();
