@@ -1,0 +1,80 @@
+---
+title: 添加广告
+layout: default
+class: add-banner
+---
+<div class="main-content">
+  <div class="add-item">
+    <a href="ads-manager" class="back">&lt;返回</a>
+    <div class="item-box">
+      <div class="item-title">标题：</div>
+      <div class="item-info">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+      <span class="advice">（<em>*</em>活动名称）</span>
+    </div>
+    <div class="item-box">
+      <div class="item-title">位置：</div>
+      <div class="item-info clearfix">
+        <div class="search-dl">
+            <span>
+              <select class="diy-select" id="device" style="display: none;">
+                <option selected="" value="1">经纪宝APP</option>
+                <option value="2">PC</option>
+              </select>
+            </span>
+        </div>
+        <div class="search-dl">
+            <span>
+              <select class="diy-select" id="page" style="display: none;">
+                <option selected="" value="1">活动专区</option>
+                <option value="2">首页</option>
+              </select>
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">顺序：</div>
+      <div class="item-info">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">连接：</div>
+      <div class="item-info">
+        <label>
+          <input type="text" class="txt">
+        </label>
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="item-title">图片：</div>
+      <div class="item-info">
+        <div class="upload-box">
+          <div class="upload">
+            <span class="upload-bg">选择文件</span>
+            <input class="input-file" type="file" size="90">
+          </div>
+          <span class="advice"><em>*</em><span>未选择任何图片</span>（建议图片尺寸：1280px*325px）</span>
+        </div>
+      </div>
+    </div>
+    <div class="button-inner">
+      <button class="btn btn-primary btn-medium">取消</button>
+      <button class="btn btn-confirm">保存</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+  $('#device').diySelect();
+  $('#page').diySelect();
+});
+</script>
+
