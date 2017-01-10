@@ -6,6 +6,7 @@
   overflow: hidden;
   overflow-y: scroll;
   padding-bottom: 20px;
+  background-color: #3a3d42;
 	.leftul {
 		li {
 			position: relative;
@@ -47,8 +48,7 @@
         display: block;
         font-size: 14px;
         color: #b0b0b0;
-        margin-left: 5px;
-        padding: 15px 0 15px 45px;
+        padding: 15px 0 15px 50px;
       }
       &.active {
         a {
@@ -388,11 +388,12 @@
 }
 
 .leftShadow {
-	background: #3a3d42 url('../images/back.png') right top repeat-y;
-	position: absolute;
-	top: 0;
 	bottom: 0;
-	z-index: -1;
-	width: 150px;
   min-height: 800px;
+  position: fixed;
+  top: 76px;
+  left: 150px;
+  width: 17px;
+  background: #fff;
+  z-index: 9;
 }
