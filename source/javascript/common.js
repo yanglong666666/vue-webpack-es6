@@ -1,3 +1,23 @@
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== "function") {
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
+    var aArgs = Array.prototype.slice.call(arguments, 1),
+      fToBind = this,
+      fNOP = function () {},
+      fBound = function () {
+        return fToBind.apply(this instanceof fNOP && oThis
+            ? this
+            : oThis,
+          aArgs.concat(Array.prototype.slice.call(arguments)));
+      };
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+    return fBound;
+  };
+}
+
 /*
  * 财富页面的切换
  */
@@ -50,6 +70,7 @@ var go_url = function (href, param, name) {
   var doc = document;
   var ifr = doc.createElement('iframe');
   ifr.id = href;
+  ifr.frameBorder = 'no';
   ifr.className = "iframepage";
   ifr.src = href + '.html' + param;
   var iframeWrap = doc.getElementById('iframeWrap');
