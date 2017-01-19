@@ -159,29 +159,29 @@ class: contract-detail
           </tr>
       </table> -->
       <div class="check-sel">
-        <label for="cval1" class="clabel1">通过审核</label>
-        <label for="cval2" class="clabel2 active">需要整改</label>
+        <label for="cval1" id="clabel1" class="active">通过审核</label>
+        <label for="cval2" id="clabel2" class="">需要整改</label>
       </div>
       <div class="check-info">
         <div class="check-item">
-          <label for="cidcard" class="active">上传身份证</label>
-          备注：<input type="text" >
+          <label for="cidcard" class="">上传身份证</label>
+          备注：<input type="text" disabled>
         </div>
         <div class="check-item">
-          <label for="cgongan" class="active">公安认证</label>
-          备注：<input type="text" >
+          <label for="cgongan" class="">公安认证</label>
+          备注：<input type="text" disabled>
         </div>
         <div class="check-item">
           <label for="cvideo">单向视频</label>
-          备注：<input type="text" disabled >
+          备注：<input type="text" disabled>
         </div>
         <div class="check-item">
           <label for="cuserinfo">资料填写</label>
-          备注：<input type="text" disabled >
+          备注：<input type="text" disabled>
         </div>
         <div class="check-item">
           <label for="caddress">网络选择与合同签署</label>
-          备注：<input type="text" disabled >
+          备注：<input type="text" disabled>
         </div>
       </div>
     </div>
@@ -191,7 +191,33 @@ class: contract-detail
   </div>
 </div>
 <script type="text/javascript">
-
+// 是否需要审核，默认为需要
+var needCk = false ;
+$("#clabel1").on('click',function(){
+  $("#clabel2").removeClass('active');
+  $(this).addClass('active');
+  $(".check-item label").removeClass('active')
+  $(".check-item input").prop('disabled',true).val('');
+  needCk = false ;
+})
+$("#clabel2").on('click',function(){
+  $("#clabel1").removeClass('active');
+  $(this).addClass('active');
+  $(".check-item label").removeClass('active')
+  $(".check-item input").prop('disabled',true).val('');
+  needCk = true;
+})
+$(".check-item label").on('click',function(){
+    if(needCk){
+      $(this).toggleClass('active');
+      var inp = $(this).parent('.check-item').children('input');
+      var dis = $(inp).attr('disabled');
+      $(inp).prop('disabled',!dis).val('');
+    }
+    else{
+      return ;
+    }
+  });
 </script>
 
 
