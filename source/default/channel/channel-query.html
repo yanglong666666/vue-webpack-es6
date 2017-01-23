@@ -12,7 +12,25 @@ layout: default
         </label>
       </dd>
     </dl>
-    
+
+    <dl class="search-dl">
+      <dt>类型</dt>
+      <dd>
+
+          <!--<select type="text" class="text" >
+            <option value="1">全部1</option>
+            <option value="2">全部2</option>
+          </select>-->
+          <div class="configure-inner">
+            <select name="" id="select3" class="diy-select" >
+              <option selected="" value="1">毛佣金分成</option>
+              <option value="2">毛佣金分成2</option>
+            </select>
+          </div>
+
+      </dd>
+    </dl>
+
     <dl class="search-dl">
       <dt>时间</dt>
       <dd>
@@ -153,4 +171,83 @@ layout: default
           $('.begin-time').datepicker( "option", "maxDate", selectedDate );
         }
     });
+
+
+    $(function(){
+      $('.diy-select').each(function(){
+        $(this).diySelect({width: 170});
+      });
+
+
+      $('.department-content').on('click', '.delete-btn', function(event) {
+        //删除营业部
+        event.preventDefault();
+        /* Act on the event */
+        $(this).parent().remove();
+      });
+
+      $('.bank-content').on('click', '.delete-btn', function(event) {
+        //删除银行
+        event.preventDefault();
+        /* Act on the event */
+        $(this).parent().remove();
+      });
+
+      /*$('.configure-inner').on('click', '.add-bank', function(event) {
+        //新增银行
+        event.preventDefault();
+        /!* Act on the event *!/
+        var add_bank_screen = new Dialog(null,{
+          title: '添加存管银行',
+          width: '560',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["取消","确定"],
+          btnRole: ['cancel','confirm'],
+          btnCls: ['cancel', 'confirm'],
+          confirm: function() {
+            //确定按钮事件
+            add_bank_screen.hide();
+          },
+          content: '<div class="dialog-content-configure">'+
+          '<label><input type="checkbox" name="all">全选</label>'+
+          '<label><input type="checkbox" name="bank">中国工商银行</label>'+
+          '<label><input type="checkbox" name="bank">中国工商银行</label>'+
+          '<label><input type="checkbox" name="bank">中国工商银行</label>'+
+          '<label><input type="checkbox" name="bank">中国工商银行</label>'+
+          '<label><input type="checkbox" name="bank">中国工商银行</label>'+
+          '<label><input type="checkbox" name="bank">中国工商银行</label>'+
+          '</div>'
+        });
+      });*/
+     /* $('.configure-inner').on('click', '.add-department', function(event) {
+        //新增银行
+        event.preventDefault();
+        /!* Act on the event *!/
+        var add_department_screen = new Dialog(null,{
+          title: '添加开户营业部',
+          width: '560',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["取消","确定"],
+          btnRole: ['cancel','confirm'],
+          btnCls: ['cancel', 'confirm'],
+          confirm: function() {
+            //确定按钮事件
+            add_department_screen.hide();
+          },
+          content: '<div class="dialog-content-configure">'+
+          '<label><input type="checkbox" name="all">全选</label>'+
+          '<label><input type="checkbox" name="department">上海南路营业部</label>'+
+          '<label><input type="checkbox" name="department">上海南路营业部</label>'+
+          '<label><input type="checkbox" name="department">上海南路营业部</label>'+
+          '<label><input type="checkbox" name="department">上海南路营业部</label>'+
+          '<label><input type="checkbox" name="department">上海南路营业部</label>'+
+          '<label><input type="checkbox" name="department">上海南路营业部</label>'+
+          '</div>'
+        });
+      });*/
+    });
+
+
 </script>

@@ -1,0 +1,69 @@
+---
+layout: docs
+title: tab切换
+---
+<!--
+示例：
+<div class="tabs-head">
+    <span class="tab-option on">11111</span>
+    <span class="tab-option">2222</span>
+</div>
+<div class="tabs-body">
+    <div class="tabs-content on">
+        11111的内容
+    </div>
+    <div class="tabs-content">
+        22222的内容
+    </div>
+</div>
+注意事项:
+整体结构和类名不能改，要添加样式自行添加class
+示例中类名都不可缺少
+支持多个tab切换
+-->
+<div class="tabs-head normal-tabs">
+    <span class="tab-option on">用户资料</span>
+    <span class="tab-option">渠道信息</span>
+</div>
+<div class="tabs-body">
+    <div class="tabs-content on">
+        这里是用户资料
+    </div>
+    <div class="tabs-content">
+        这里是渠道信息
+    </div>
+</div>
+
+
+<div class="tabs-head add-tabs">
+    <span class="tab-option on">渠道一</span>
+    <span class="tab-option">渠道二</span>
+    <span class="tab-option">渠道三</span>
+    <a class="tab-add" href="#">+</a>
+</div>
+<div class="tabs-body">
+    <div class="tabs-content on">
+        这里是渠道一
+    </div>
+    <div class="tabs-content">
+        这里是渠道二
+    </div>
+    <div class="tabs-content">
+        这里是渠道三
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $(".tabs-head").on("click",".tab-option",function () {
+            var _this = $(this);
+            var tabs_head = _this.parent();
+            var tabs_body = tabs_head.next(".tabs-body");
+            _this.addClass("on").siblings(".tab-option").removeClass("on");
+            var index = tabs_head.find(".tab-option").index(_this);
+            tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
+        })
+    });
+
+</script>
+
