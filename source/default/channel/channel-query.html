@@ -12,7 +12,25 @@ layout: default
         </label>
       </dd>
     </dl>
-    
+
+    <dl class="search-dl">
+      <dt>类型</dt>
+      <dd>
+
+          <!--<select type="text" class="text" >
+            <option value="1">全部1</option>
+            <option value="2">全部2</option>
+          </select>-->
+          <div class="configure-inner">
+            <select name="" id="select3" class="diy-select" >
+              <option selected="" value="1">毛佣金分成</option>
+              <option value="2">毛佣金分成2</option>
+            </select>
+          </div>
+
+      </dd>
+    </dl>
+
     <dl class="search-dl">
       <dt>时间</dt>
       <dd>
@@ -153,4 +171,30 @@ layout: default
           $('.begin-time').datepicker( "option", "maxDate", selectedDate );
         }
     });
+
+
+    $(function(){
+      $('.diy-select').each(function(){
+        $(this).diySelect({width: 170});
+      });
+
+
+      $('.department-content').on('click', '.delete-btn', function(event) {
+        //删除营业部
+        event.preventDefault();
+        /* Act on the event */
+        $(this).parent().remove();
+      });
+
+      $('.bank-content').on('click', '.delete-btn', function(event) {
+        //删除银行
+        event.preventDefault();
+        /* Act on the event */
+        $(this).parent().remove();
+      });
+
+
+    });
+
+
 </script>

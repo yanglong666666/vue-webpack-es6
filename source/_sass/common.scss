@@ -24,6 +24,29 @@ input[type=text]::-ms-clear
     }
   }
 }
+//新增tab3
+.tab3-content {
+    width:100%;
+    border-bottom:3px solid #44c1de;
+  .table-title1 {
+    display: inline-block;
+    font-size: 16px;
+    color: #44c1de;
+   padding: 15px 0 10px 0;
+  }
+}
+//新增botton
+ .btn-change{
+   font-size:16px;
+   margin-top:15px;
+   margin-left:2px;
+   padding:8px 11px;
+   color:#64cccf;
+   font-weight: normal;
+   outline:none;
+   border:1px solid #3ecacb;
+   @include border-radius(5px);
+ }
 
 .algin-center {
   text-align: center;
@@ -101,10 +124,20 @@ input[type=text]::-ms-clear
   position: relative;
   text-align: center;
   margin-top: 30px;
+
+  //20170124修改
+  .btn-lg{
+    padding:0px 90px !important;
+    outline:none !important;
+   }
   .output {
+    outline:none !important;
     position: absolute;
-    top: 15px;
+    top: 1px;
     right: 20px;
+    padding:5px 30px;
+    border:1px solid #3ecacb;
+    @include border-radius(5px);
   }
 }
 .ui-reason-content {

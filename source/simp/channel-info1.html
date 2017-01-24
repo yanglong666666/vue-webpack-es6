@@ -14,6 +14,11 @@ class: channel-info
   </div>
 </div>
 
+
+<div class="tab3-content">
+  <h2 class="table-title1">开户</h2>
+</div>
+
 <div class="tab1-content">
   <div class="channel-table">
     <!--<a class="btn-primary-white edit-sdk" href="{{ site.baseurl }}/sdk-edit.html">修改</a>-->
@@ -24,10 +29,11 @@ class: channel-info
   </div>
 
 </div>
-<div class="tab2-content">
+<div class="tab2-content" style="display:none">
   <div class="channel-table">
     {% include component/info/verify-qy.html %}
   </div>
+  <button class="btn-change" href="#">修改</button>
   <div class="channel-table">
     <div class="ui-table-info">
       <h2 class="table-title">账号信息</h2>
@@ -55,6 +61,26 @@ class: channel-info
           <td>角色</td>
           <td>内部经纪人</td>
         </tr>
+
+
+        <tr>
+          <td rowspan="3" >
+            <select name="" id="select11" class="diy-select" style="display: none;">
+              <option selected  value="1">APP二维码</option>
+              <option value="2">APP二维码</option>
+            </select>
+          </td>
+          <td rowspan="3" colspan="3">
+            <img src="../../images/mar-qcode.png" style="width:100px;height: 100px;margin-top: 10px;">
+          </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+
         </tbody>
       </table>
     </div>
@@ -68,10 +94,14 @@ class: channel-info
       if($(this).hasClass('tab1')){
         $('.tab1-content').show();
         $('.tab2-content').hide();
+
       }else{
+
         $('.tab2-content').show();
         $('.tab1-content').hide();
+
       }
     });
-  });
+  })
+
 </script>
