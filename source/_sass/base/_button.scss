@@ -1,92 +1,114 @@
 // button
-$btn-font-weight: normal !default;
-$btn-primary-bg: #f0f4fb !default;
-$btn-primary-color: #3ecacb !default;
-$btn-fill-bg: #3ecacb !default;
+
+//主题色背景
+$btn-fill-bg: $theme-color !default;
 $btn-fill-color: #fff !default;
-$btn-deny-color: #fff !default;
-$btn-deny-bg: #737780 !default;
-$btn-hollow-color: #3ecacb !default;
+//灰色背景
+$btn-deny-color: $color-grey !default;
+
+$btn-font-weight: normal !default;
+
+
+$btn-primary-bg: $color-blue !default;
+$btn-primary-color: $color-blue !default;
+
+$btn-hollow-color: #3f88cc !default;
 $btn-hollow-bg: #fff !default;
 
 // color
 $btn-color-gray: #7d7d7d;
 
+
+.btn-lg {
+  &.magnifier {
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    border: 1px solid #e8e8e8;
+    background: url("../images/cf/magnifier-red.png") center no-repeat;
+    background-color: #ffffff;
+    margin-right: 0;
+    cursor: pointer;
+    outline: none;
+  }
+  &.btn-add,&.btn-move,&.btn-use {
+    float: right;
+    background-color: white;
+    border: 1px solid $theme-color;
+    line-height: 28px;
+    font-size: 12px;
+    color: $theme-color;
+    cursor: pointer;
+  }
+  &.floatleft {
+    float: left;
+  }
+  &.floatleft10 {
+    float: left;
+    margin-left: 10px;
+  }
+}
+//btn
 %btn {
   @include inline-block;
-  font-weight: $btn-font-weight;
   text-align: center;
   cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
-  @include button-size(0, 15px, 16px, 34px, 5px);
+  @include button-size(0, 7px, 14px, 28px, 3px);
   white-space: nowrap;
-  cursor: pointer;
-  &,
-  &:active,
-  &.active {
-    &:focus,
-    &.focus {
-      @include tab-focus;
-    }
+  width: 72px;
+  background-color: #ffffff;
+  color: $theme-color;
+  border: solid 1px $theme-color;
+  font-size: 14px;
+  outline: none;
+  &:hover {
+    @include opacity(.8);
   }
-
-  &:hover,
-  &:focus,
-  &.focus {
-    text-decoration: none;
+  &:active {
+    @include opacity(1);
   }
-
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
+  &.disabled, &[disabled], fieldset[disabled] & {
     cursor: default;
     pointer-events: none; // Future-proof disabling of clicks
     @include opacity(.65);
   }
 }
-
-.btn {
+.btn,.btn-dialog {
   @extend %btn;
 }
 
+
+//btn颜色变化
 .btn-primary {
-  background-color: $btn-primary-bg;
+  background-color: #ffffff;
   color: $btn-primary-color;
-  border-color: #3ecacb;
+  border-color: $btn-primary-color;
 }
-
 .btn-primary-white {
-  background-color: #fff;
+  background-color: #ffffff;
   color: $btn-primary-color;
-  border:1px solid #3ecacb;
-  border-radius: 4px;
-  padding:3px 3px 3px 5px;
-  margin-left: 30px;
-  &.active {
-    color: white;
-    background-color: #3ecacb;
-  }
+  border-color: $btn-primary-color;
 }
-
+.btn-primary-fill {
+  background-color: $btn-primary-color;
+  color: #ffffff;
+  border-color: $btn-primary-color;
+}
 .btn-fill {
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
-  // font-size: 22px;
 }
 
 .btn-deny {
-  width: 115px;
-  @extend %btn;
-  background-color: $btn-deny-bg;
+  background-color: #ffffff;
   color: $btn-deny-color;
-  border-color: #e6e6e6;
+  border-color: $btn-deny-color;
+}
+.btn-deny-fill {
+  background-color: $btn-deny-color;
+  color: #ffffff;
+  border-color: $btn-deny-color;
 }
 
 .btn-hollow {
@@ -94,34 +116,16 @@ $btn-color-gray: #7d7d7d;
   @extend %btn;
   background-color: transparent;
   color: $btn-hollow-color;
-  border-color: #3ecacb;
-}
-
-.btn-more-lg {
-  @include button-size(15px, 30px, 30px, 30px, 5px);
-}
-
-.btn-lg {
-  @include button-size(0, 20px, 20px, 40px, 5px);
-}
-
-.btn-medium {
-  @include button-size(0, 15px, 14px, 34px, 5px);
-}
-
-.btn-small {
-  @include button-size(0, 10px, 12px, 26px, 5px);
+  border-color: #3f88cc;
 }
 
 .btn-cancel {
-  @include button-size(0, 15px, 16px, 35px, 5px);
-  background-color: #fff;
+  background-color: #ffffff;
   color: $btn-primary-color;
-  border-color: #3ecacb;
+  border-color: $btn-primary-color;
 }
 
 .btn-confirm {
-  @include button-size(0, 15px, 16px, 35px, 5px);
   background-color: $btn-fill-bg;
   color: $btn-fill-color;
 }
@@ -129,19 +133,46 @@ $btn-color-gray: #7d7d7d;
 .btn-gray {
   color: $btn-color-gray;
   border: 1px solid $btn-color-gray;
-  background-color: transparent;
-  text-align: center;
+  background-color: #ffffff;
 }
-
-.btn-default {
-  cursor: default;
-  background-color: $btn-color-gray;
-  color: #fff;
-}
-
 .btn-gray-fill {
   color: #fff;
   border: 1px solid $btn-color-gray;
   background-color: $btn-color-gray;
-  text-align: center;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: $btn-color-gray;
+  border: 1px solid $btn-color-gray;
+}
+
+
+
+//btn大小
+.btn-more-lg {
+  @include button-size(15px, 7px, 20px, 30px, 3px);
+}
+
+.btn-lg {
+  @include button-size(0, 7px, 16px, 28px, 3px);
+  width: 88px;
+}
+
+.btn-medium {
+  @include button-size(0, 7px, 14px, 28px, 3px);
+}
+
+.btn-small {
+  @include button-size(0, 7px, 14px, 28px, 3px);
+  width: inherit;
+}
+.btn-long {
+  @include button-size(0, 7px, 14px, 28px, 3px);
+  width: inherit;
+}
+.btn-file {
+  height: 30px;
+  width: 72px;
+  outline: none;
 }

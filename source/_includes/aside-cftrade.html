@@ -1,0 +1,88 @@
+<div class="leftaside">
+  <ul class="leftul">
+    <li class="index index-home">
+      <span class="icon"></span>
+      <a href="javascript:void(0)" data-json='{"href":"indexHome","param":"","name":"首页"}'>首页</a>
+    </li>
+    <li class="index index-archive-manage">
+      <span class="icon"></span>
+      <p class="cftrade-p">档案管理</p>
+      <ul class="inner-ul">
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/home","param":"?a=1&b=2","name":"首页"}'>首页</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-configs","param":"?a=1&b=2","name":"业务档案配置"}'>业务档案配置</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-type-query","param":"?a=1&b=2","name":"档案类型查询"}'>档案类型查询</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-place-manager","param":"?a=1&b=2","name":"档案物理位置管理"}'>档案物理位置管理</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-files-manager","param":"?a=1&b=2","name":"档案文件版本维护"}'>档案文件版本维护</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-contracts-manager","param":"?a=1&b=2","name":"合同管理"}'>合同管理</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-contracts-query","param":"?a=1&b=2","name":"客户档案查询"}'>客户档案查询</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/cfarchives/arch-busi-query","param":"?a=1&b=2","name":"业务档案查询"}'>业务档案查询</a></li>
+      </ul>
+      <b></b>
+    </li>
+
+    <li class="index index-platform-manage">
+      <span class="icon"></span>
+      <p class="">平台管理</p>
+      <ul class="inner-ul">
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/plat-verify-lists","param":"","name":"审核列表"}'>审核列表</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/msg-center","param":"","name":"消息中心"}'>消息中心</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/user-manage","param":"","name":"用户管理"}'>用户管理</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/changepwd","param":"","name":"修改密码"}'>修改密码</a></li>        
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/organize-contract","param":"","name":"事件群组管理"}'>组织关系配置</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/cust-screen-manage","param":"","name":"客户屏幕管理"}'>客户屏幕管理</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/platform/parameter","param":"","name":"系统配置管理"}'>系统参数配置</a></li>        
+      </ul>
+      <b></b>
+    </li>
+
+    <li class="index index-quality-system">
+      <span class="icon"></span>
+      <p class="">客户屏幕管理</p>
+      <ul class="inner-ul">
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/task-setting","param":"","name":"任务设置"}'>任务设置</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/cust-quality-busi","param":"","name":"客户质检任务"}'>客户质检任务</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/busi-quality-task","param":"","name":"业务质检任务"}'>业务质检任务</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/cust-quality-makeup","param":"","name":"客户质检补录"}'>客户质检补录</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/busi-quality-makeup","param":"","name":"业务质检补录"}'>业务质检补录</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/makeup-review-task","param":"","name":"补录审核任务"}'>补录审核任务</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/quality-report","param":"","name":"质检报告"}'>质检报告</a></li>
+        <li><a href="javascript:void(0)" data-json='{"href":"cf/quality/archives-update-record","param":"","name":"档案更新记录"}'>档案更新记录</a></li>
+      </ul>
+      <b></b>
+    </li>
+  </ul>
+</div>
+<script_add></script_add>
+<script type="text/javascript">
+  $(document).ready(function () {
+    //有二级li>p
+    $(".leftul>li>p").on('click', function () {
+      var $self = $(this);
+      var currentLi = $self.parent();
+      if (currentLi.hasClass("current")) {
+        if (currentLi.index != 0) {
+          currentLi.removeClass("current").find("ul").slideUp(200);
+        }
+      } else {
+        currentLi.addClass("current").find("ul").slideDown(200);
+      }
+    });
+
+    //没有二级li>a
+    $(".leftul>li>a").on('click', function () {
+      var $self = $(this);
+      var currentLi = $self.parent();
+      currentLi.addClass("current").find("ul").slideDown(200);
+    });
+
+    //a标签跳转页面
+    $(".leftul .index a").click(function () {
+      var href = $(this).data("json").href;
+      var name = $(this).data("json").name;
+      var param = $(this).data("json").param;
+      var go = go_url.bind(this);
+      go(href, param, name);
+    });
+  });
+
+</script>

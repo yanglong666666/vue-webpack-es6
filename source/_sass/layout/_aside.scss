@@ -1,399 +1,140 @@
 .leftaside {
-  width: 167px;
-  position: fixed;
-  top: 76px;
+  position: absolute;
+  top: 0;
   bottom: 0;
   overflow: hidden;
   overflow-y: scroll;
-  padding-bottom: 20px;
-  background-color: #3a3d42;
-	.leftul {
-		li {
-			position: relative;
-			p {
-        position: relative;
-        padding-left: 50px;
-        line-height: 45px;
-        z-index: 10;
-        color: #b0b0b0;
-        cursor: pointer;
-			}
-			b {
-        position: absolute;
-        right: 20px;
-        top: 23px;
-        width: 9px;
-        height: 5px;
-        vertical-align: middle;
-        background: url('../images/icolist.png') -60px -50px no-repeat;
-        &.current {
-          background: url('../images/icolist.png') -60px -60px no-repeat;
-        }
-      }
-      small {
-        position: absolute;
-        right: 5px;
-        top: 17px;
-        display: inline-block;
-        color: #fff;
-        background: #ff5776;
-        font-size: 12px;
-        width: 32px;
-        height: 18px;
-        line-height: 18px;
-        border-radius: 8px;
-        text-align: center;
-      }
+  margin-top: 62px;
+  width: 217px;
+  background: #fbfbfb;
+
+  .leftul {
+    >li {
+      position: relative;
       a {
-        display: block;
         font-size: 14px;
-        color: #b0b0b0;
-        padding: 15px 0 15px 50px;
-      }
-      &.active {
-        a {
-          background: #fff;
-          color: #12171d;
-          border-left: 5px solid #3ecacb;
+        display: block;
+        margin: 0 10px 0 0;
+        line-height: 20px;
+        color: #737373;
+        padding: 10px 0 10px 55px;
+        &.active {
+          color: #e33448;
         }
       }
-      .icon {
-        position: absolute;
-        display: inline-block;
-        top: 17px;
-        left: 25px;
-        width: 18px;
-        height: 18px;
-        background-image: url(../images/aside-ico.png);
-        background-repeat: no-repeat;
-        background-position: -9999px -9999px;
+      >a {
+        margin: 5px 0;
+      }
+      p {
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+        color: #64696c;
+        padding-left: 55px;
+        line-height: 40px;
+        margin: 5px 0;
       }
       .inner-ul {
+        background-color: #E8E9ED;
         display: none;
         li {
           text-align: left;
-          text-indent: 35px;
           a {
-            font-size: 12px;
-            display: block;
-            padding: 4px 0px;
-            margin: 5px 0px 0px 20px;
-          }
-          &.active {
-            a {
-              background: #fff;
-              color: #12171d;
-              border: none;
+            margin: 0;
+            &.active {
+              background: #e33448;
+              color: #fff;
             }
           }
         }
       }
-    }
-    li.index {
-      .icon {
-        background-position: 0 0;
+      b {
+        position: absolute;
+        right: 20px;
+        width: 9px;
+        height: 5px;
+        vertical-align: middle;
+        background: url("../images/icolist.png") -60px -50px no-repeat;
+        top: 18px;
       }
-      &.active {
-        .icon {
-          background-position: -38px 0;
+      .icon {
+        height: 24px;
+        width: 24px;
+        top: 8px;
+        left: 15px;
+        position: absolute;
+        display: inline-block;
+      }
+      &.current {
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 40px;
+          width: 5px;
+          background-color: $theme-color;
+        }
+        b {
+          background: url("../images/cftrade/show-ul.png") no-repeat;
+        }
+        >a,>p {
+          color: $theme-color
         }
       }
-    }
-    li.announcement {
-      .icon {
-        background-position: 0 -22px;
-      }
-      &.active {
+      &.index-home {
         .icon {
-          background-position: -38px -22px;
+          background: url(../images/aside/aside-cf.png) no-repeat 0 -48px;
+        }
+        &.current {
+          .icon {
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -72px;
+          }
         }
       }
-    }
-    li.vedio-validate {
-      .icon {
-        background-position: 0 -45px;
-      }
-      &.active {
+      &.index-archive-manage {
         .icon {
-          background-position: -38px -45px;
+          background: url(../images/aside/aside-cf.png) no-repeat 0 0;
+        }
+        &.current {
+          .icon {
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -24px;
+          }
+
         }
       }
-    }
-    li.vedio-upload {
-      .icon {
-        background-position: 0 -68px;
-      }
-      &.active {
+      &.index-platform-manage {
         .icon {
-          background-position: -38px -68px;
+          background: url(../images/aside/aside-cf.png) no-repeat 0 -96px;
+        }
+        &.current {
+          .icon {
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -120px;
+          }
+
         }
       }
-    }
-    li.certificate {
-      .icon {
-        background-position: 0 -91px;
-      }
-      &.active {
+      &.index-quality-system {
         .icon {
-          background-position: -38px -91px;
+          background: url(../images/aside/aside-cf.png) no-repeat 0 -144px;
+        }
+        &.current {
+          .icon {
+            background: url(../images/aside/aside-cf.png) no-repeat 0 -168px;
+          }
         }
       }
-    }
-    li.open-verify {
-      .icon {
-        background-position: 0 -114px;
-      }
-      &.active {
+      &.index-Arch {
         .icon {
-          background-position: -38px -114px;
+          background-image: url(../images/aside/icon-people.png);
+        }
+        &.current {
+          .icon {
+            background-image: url(../images/aside/icon-people-current.png);
+          }
         }
       }
-    }
-    li.open-recheck {
-      .icon {
-        background-position: 0 -136px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -136px;
-        }
-      }
-    }
-    li.business-search,
-    li.business-online {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -159px;
-      }
-    }
-    li.business-operation {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -251px;
-      }
-    }
-    li.operation-analysis,
-    li.online-analysis,
-    li.mall-analysis {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -275px;
-      }
-    }
-    li.marketing-channels {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -205px;
-      }
-    }
-    li.open-sets {
-      .icon {
-        margin-top: -3px;
-        background-position: 0 -297px;
-      }
-    }
-    li.para-sets {
-      .icon {
-        margin-top: -3px;
-        background-position: 0 -228px;
-      }
-    }
-    li.system-parameter {
-      .icon {
-        background-position: 0 -182px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -182px;
-        }
-      }
-    }
-    li.online-sets {
-      .icon {
-        margin-top: -3px;
-        background-position: 0 -320px;
-      }
-    }
-    li.mall-product {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -344px;
-      }
-    }
-    li.mall-sales {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -367px;
-      }
-    }
-    li.mall-sets {
-      .icon {
-        margin-top: -3px;
-        background-position: 0 -390px;
-      }
-    }
-    li.e-record {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -413px;
-      }
-    }
-    li.institution {
-      .icon {
-        margin-top: -2px;
-        background-position: 0 -597px;
-      }
-    }
-    li.processes {
-      .icon {
-        background-position: 0 -435px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -435px;
-        }
-      }
-    }
-    li.jz {
-      .icon {
-        left: 10px;
-        top: 16px;
-        width: 19px;
-        height: 20px;
-        background: url('../images/aside-jz.png') center no-repeat;
-      }
-    }
-    li.check {
-      .icon {
-        background-position: 0 -459px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -459px;
-        }
-      }
-    }
-    li.channel-list {
-      .icon {
-        background-position: 0 -482px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -482px;
-        }
-      }
-    }
-    li.channel-manage {
-      .icon {
-        background-position: 0 -505px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -505px;
-        }
-      }
-    }
-    li.department {
-      .icon {
-        background-position: 0 -643px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -643px;
-        }
-      }
-    }
-    li.bank {
-      .icon {
-        background-position: 0 -620px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -620px;
-        }
-      }
-    }
-    li.commission-template {
-      .icon {
-        background-position: 0 -528px;
-      }
-      &.active {
-        .icon {
-          background-position: -38px -528px;
-        }
-      }
-    }
-    li.statistics {
-      .icon {
-        margin-top: -3px;
-        background-position: 0 -550px;
-      }
-    }
-    li.commission {
-      .icon {
-        margin-top: -3px;
-        background-position: 0 -573px;
-      }
-    }
-    li.BDM,
-    li.agent,
-    li.partner,
-    li.account-manage {
-      .icon {
-        background-image: url(../images/ico-list1.png);
-      }
-    }
-    li.BDM {
-      .icon {
-        background-position: 0 0;
-      }
-      &.active {
-        .icon {
-          background-position: -30px 0px;
-        }
-      }
-    }
-    li.agent {
-      .icon {
-        background-position: 0 -25px;
-      }
-      &.active {
-        .icon {
-          background-position: -30px -25px;
-        }
-      }
-    }
-    li.partner {
-      .icon {
-        top: 19px;
-        background-position: 0 -50px;
-      }
-      &.active {
-        .icon {
-          background-position: -30px -50px;
-        }
-      }
-    }
-    li.account-manage {
-      .icon {
-        background-position: 0 -70px;
-      }
-      &.active {
-        .icon {
-          background-position: -30px -70px;
-        }
-      }
+
     }
   }
-}
-
-.leftShadow {
-	bottom: 0;
-  min-height: 800px;
-  position: fixed;
-  top: 76px;
-  left: 150px;
-  width: 17px;
-  background: #fff;
-  z-index: 9;
 }

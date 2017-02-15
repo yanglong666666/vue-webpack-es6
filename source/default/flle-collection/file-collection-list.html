@@ -1,0 +1,85 @@
+---
+title: 档案采集列表
+layout: default
+class: file-collection-list
+---
+<div class="button-content">
+  <a class="output btn-primary-white" href="#">新增档案袋</a>
+
+  <div class="import-content">
+    <div class="import-inner">
+      <input type="text" class="business-name" placeholder="业务名称" />
+      <input type="text" class="file-name" placeholder="客户号/客户姓名/一卡通账号" />
+      <span class="log">浏览</span>
+    </div>
+  </div>
+</div>
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="10%">ID</th>
+      <th width="10%">客户编号</th>
+      <th width="10%">客户姓名</th>
+      <th width="10%">一户通账号</th>
+      <th width="15%">办理业务名称<small>7</small></th>
+      <th width="15%">办理时间<small>1</small></th>
+      <th width="10%">经办人</th>
+      <th width="10%">档案状态<small>8</small></th>
+      <th width="10%">操作</th >
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
+      <td>123456789012</td>
+      <td>钱多多</td>
+      <td>123456789012</td>
+      <td>证券自然人账户</td>
+      <td>2014.12.14 14:23:00</td>
+      <td>王红(001037)</td>
+      <td>待采集</td>
+      <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
+    </tr>
+    <tr class="even">
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
+      <td>123456789012</td>
+      <td>钱多多</td>
+      <td>123456789012</td>
+      <td>证券自然人账户</td>
+      <td>2014.12.14 14:23:00</td>
+      <td>王红(001037)</td>
+      <td>待采集</td>
+      <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
+      <td>123456789012</td>
+      <td>钱多多</td>
+      <td>123456789012</td>
+      <td>证券自然人账户</td>
+      <td>2014.12.14 14:23:00</td>
+      <td>王红(001037)</td>
+      <td>待采集</td>
+      <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
+    </tr>
+    <tr class="even">
+      <td><input type="checkbox" class="td-checkbox"/><span>1</span></td>
+      <td>123456789012</td>
+      <td>钱多多</td>
+      <td>123456789012</td>
+      <td>证券自然人账户</td>
+      <td>2014.12.14 14:23:00</td>
+      <td>王红(001037)</td>
+      <td>待采集</td>
+      <td><a href="{{ site.baseurl }}/recheck.html" class="btn btn-fill btn-small btn-conllect">采集</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+
+  })
+</script>

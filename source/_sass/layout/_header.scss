@@ -1,102 +1,181 @@
 .site-header {
-	position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
   width: 100%;
-	height: 76px;
-	background: #46516f;
-	color: #fff;
+  height: 76px;
+  background: #46516f;
+  color: #fff;
+  border-bottom: solid 1px #d8d8d8;
   @include clearfix;
-	.header-inner {
-		position: relative;
+  &.cftrade-header {
+    background-color: #fbfbfb;
+    height: 62px;
+    padding-left: 20px;
+    padding-top:10px;
+    box-sizing: border-box;
+    .header-logo {
+      position: relative;
+      width: 179px;
+      float: left;
+      .company {
+        float: left;
+        font-size: 18px;
+        border-left: 1px solid white;
+        padding-left: 20px;
+      }
+      .icon-imgcftrade {
+        height: 42px;
+        width: 42px;
+        display: inline-block;
+        background: url("../images/cftrade/imgcftrade.png") no-repeat;
+      }
+      .icon-imgcftradetext {
+        height: 42px;
+        width: 109px;
+        display: inline-block;
+        background: url("../images/cftrade/imgcftradetext.png") no-repeat;
+      }
+    }
+    .company {
+      font-size: 19px;
+      border-left: 1px solid #d8d8d8;
+      padding-left: 10px;
+      line-height: 40px;
+      color: #4a4a4a;
+    }
+    .btn-right {
+      float: right;
+      width: 500px;
+      color: #1c466c;
+      margin-top: 15px;
+      .btn-nav {
+        text-align: right;
+        ul {
+          font-size: 12px;
+          li {
+            float: right;
+            line-height:12px;
+            .text-red {
+              color: #f1374d;
+            }
+            a {
+              color: #1c466c;
+            }
+          }
+        }
+        .header-msg {
+          padding: 0 5px;
+          a {
+            color: lightblue;
+
+          }
+        }
+        .header-exit {
+          border-left: solid 1px #CCCCCC;
+          padding: 0 10px;
+        }
+        .header-user {
+          padding: 0 10px 0 5px;
+        }
+      }
+      .text-message {
+        padding: 4px 22px;
+        border-radius: 18px;
+        background-color: #36393f;
+      }
+    }
+  }
+  .header-inner {
+    position: relative;
     float: left;
-		width: 150px;
-		.xtgly {
-			display: block;
-			height: 76px;
-			line-height: 76px;
-			background: #6a7491;
-			text-align: center;
-			margin-right: 20px;
-			color: #fff;
-			font-size: 14px;
-			width: 150px;
-			span {
-				display: inline-block;
-				width: 26px;
-				height: 27px;
-				background: url(../images/icolist.png) 0 0 no-repeat;
-				vertical-align: middle;
-				margin-right: 5px;
-			}
-			i {
-				display: inline-block;
-				width: 9px;
-				height: 5px;
-				background: url(../images/icolist.png) -30px 0 no-repeat;
-				vertical-align: middle;
-				margin-left: 5px;
-			}
-		}
-		ul {
-			position: absolute;
-			top: 76px;
-			left: 0px;
+    width: 150px;
+    .xtgly {
+      display: block;
+      height: 76px;
+      line-height: 76px;
+      background: #6a7491;
+      text-align: center;
+      margin-right: 20px;
+      color: #fff;
+      font-size: 14px;
+      width: 150px;
+      span {
+        display: inline-block;
+        width: 26px;
+        height: 27px;
+        background: url(../images/icolist.png) 0 0 no-repeat;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      i {
+        display: inline-block;
+        width: 9px;
+        height: 5px;
+        background: url(../images/icolist.png) -30px 0 no-repeat;
+        vertical-align: middle;
+        margin-left: 5px;
+      }
+    }
+    ul {
+      position: absolute;
+      top: 76px;
+      left: 0px;
       z-index: 999;
-			width: 150px;
-			background: #636c86;
-			text-align: center;
-			li {
-				height: 32px;
-				line-height: 32px;
-				a {
-					display: block;
-					color: #434b60;
-					font-size: 12px;
-					i {
-						display: inline-block;
-						vertical-align: middle;
-						margin-right: 5px;
-					}
-					&:hover {
-						color: #fff;
-					}
-					&.xgmm {
-						i {
-							width: 15px;
-							height: 15px;
-							background: url(../images/icolist.png) -42px 0 no-repeat;
-						}
-						&:hover {
-							i {
-								background: url(../images/icolist.png) -60px 0 no-repeat;
-							}
-						}
-					}
-					&.tcdl {
-						i {
-							width: 14px;
-							height: 13px;
-							background: url(../images/icolist.png) -80px 0 no-repeat;
-						}
-						&:hover {
-							i {
-								background: url(../images/icolist.png) 0 -30px no-repeat;
-							}
-						}
-					}
-					&.rwtx {
-						i {
-							width: 14px;
-							height: 13px;
-							background: url(../images/icolist.png) -20px -30px no-repeat;
-						}
-						&:hover {
-							i {
-								background: url(../images/icolist.png) -39px -30px no-repeat;
-							}
-						}
+      width: 150px;
+      background: #636c86;
+      text-align: center;
+      li {
+        height: 32px;
+        line-height: 32px;
+        a {
+          display: block;
+          color: #434b60;
+          font-size: 12px;
+          i {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+          }
+          &:hover {
+            color: #fff;
+          }
+          &.xgmm {
+            i {
+              width: 15px;
+              height: 15px;
+              background: url(../images/icolist.png) -42px 0 no-repeat;
+            }
+            &:hover {
+              i {
+                background: url(../images/icolist.png) -60px 0 no-repeat;
+              }
+            }
+          }
+          &.tcdl {
+            i {
+              width: 14px;
+              height: 13px;
+              background: url(../images/icolist.png) -80px 0 no-repeat;
+            }
+            &:hover {
+              i {
+                background: url(../images/icolist.png) 0 -30px no-repeat;
+              }
+            }
+          }
+          &.rwtx {
+            i {
+              width: 14px;
+              height: 13px;
+              background: url(../images/icolist.png) -20px -30px no-repeat;
+            }
+            &:hover {
+              i {
+                background: url(../images/icolist.png) -39px -30px no-repeat;
+              }
+            }
             &.closed {
               i {
                 background: url(../images/bell.png) 0px 0px no-repeat;
@@ -107,14 +186,14 @@
                 }
               }
             }
-					}
-				}
-			}
-		}
-	}
-	.site-nav {
+          }
+        }
+      }
+    }
+  }
+  .site-nav {
     @include clearfix;
-		float: left;
+    float: left;
     .collect {
       float: left;
       height: 40px;
@@ -135,18 +214,18 @@
         margin-right: 5px;
       }
     }
-		ul {
-			@include clearfix;
+    ul {
+      @include clearfix;
       float: left;
-			li {
+      li {
         position: relative;
-				float: left;
+        float: left;
         margin-left: 15px;
-				a {
-					display: inline-block;
-					font-size: 16px;
-					color: #fff;
-					padding: 30px 45px 0px 45px;
+        a {
+          display: inline-block;
+          font-size: 16px;
+          color: #fff;
+          padding: 30px 45px 0px 45px;
           border-bottom: 4px solid #e4788c;
           text-align: center;
           span {
@@ -168,7 +247,7 @@
             text-align: center;
             margin-left: 5px;
           }
-				}
+        }
         &:nth-child(odd) {
           a {
             border-bottom: 4px solid #e4788c;
@@ -179,10 +258,10 @@
             border-bottom: 4px solid #f3cd97;
           }
         }
-			}
-		}
-	}
-	.site-menu {
+      }
+    }
+  }
+  .site-menu {
     position: relative;
     float: right;
     width: 130px;

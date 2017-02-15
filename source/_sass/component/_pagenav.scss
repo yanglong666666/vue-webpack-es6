@@ -1,27 +1,29 @@
 .ui-pagenav {
   position: relative;
-  margin: 20px 0px;
+  margin: 20px 0;
+  text-align: center;
   .page {
     margin: 0 auto;
-    width: 640px;
     height: 36px;
     line-height: 36px;
     text-align: center;
+    display: inline-block;
     @include clearfix;
     li {
       margin-right: 6px;
       float: left;
       a {
         display: inline-block;
-        background: #f0f4fb;
+        background: $color-grey;
         font-size: 14px;
-        color: #6f7b91;
+        color: #ffffff;
+        border: solid 1px $color-grey;
         width: 36px;
-        border-radius: 3px;
+        @include border-radius(3px);
       }
       .page-go {
         width: 60px;
-        border: 1px solid #f0f4fb;
+        border: 1px solid $color-grey;
         border-radius: 5px;
         height: 36px;
         line-height: 36px;
@@ -29,8 +31,9 @@
       }
       &.thisPage {
         a {
-          color: #fff;
-          background: #6a7491;
+          color: #ffffff;
+          background: $theme-color;
+          border: 1px solid $theme-color;
         }
       }
     }

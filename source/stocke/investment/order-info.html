@@ -1,0 +1,89 @@
+---
+title: 订单管理
+layout: default
+---
+
+<!-- 用户信息 -->
+<div class="ui-table-info">
+  <h2 class="table-title">用户信息</h2>
+  <table class="toggle-content" width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+      <td>姓名 </td>
+      <td>张三</td>
+      <td>资金账号</td>
+      <td>45678909</td>
+    </tr>
+    <tr>
+      <td>身份证号</td>
+      <td>362523100990991122</td>
+      <td>手机号码</td>
+      <td>18922223333</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 订单信息 -->
+<div class="ui-table-info basic-info">
+  <h2 class="table-title">订单信息</h2>
+  <table class="toggle-content" width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+      <td>购买产品</td>
+      <td>浙商汇金增强聚力</td>
+      <td>购买数量</td>
+      <td>3个月</td>
+    </tr>
+    <tr>
+      <td>下单时间</td>
+      <td>2016-09-09 09:09</td>
+      <td>付款时间</td>
+      <td>2016-09-09 09:09</td>
+    </tr>
+    <tr>
+      <td>到期时间</td>
+      <td colspan="3">2016-09-09 09:09</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 已签协议 -->
+<div class="ui-table-info">
+  <h2 class="table-title">已签协议</h2>
+
+  <table class="toggle-content" width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+      <td><a href="#" class="user-search-a preview-protocol">《柜台交易业务客户协议》</a><a href="#" class="user-search-a preview-protocol">《中国银行存管协议》</a></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<script>
+
+$('.ui-table-info').on('click', '.preview-protocol', function(event) {
+      //查看协议内容事件
+      event.preventDefault();
+      /* Act on the event */
+      var protocol_screen = new Dialog(null,{
+        title: '《网厅期货开户委托的风险业务揭示书》',
+        width: '680',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["确定"],
+        btnRole: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            protocol_screen.hide();
+          },
+        content: '<div class="dialog-content-protocol">'+
+                    '<div class="dialog-protocol">协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容协议内容</div>'+
+                 '</div>'
+      });
+    });
+</script>

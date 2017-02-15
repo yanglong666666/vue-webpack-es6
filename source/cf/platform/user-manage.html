@@ -1,0 +1,273 @@
+---
+title: 用户管理
+layout: default-iframe
+---
+
+<script src="../../javascript/jquery.ztree.all-3.5.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect({width:222});
+    $('#select2').diySelect({width:222});
+    $('#select3').diySelect({width:222});
+    $('#select4').diySelect({width:222});
+    $('#select5').diySelect({width:222});
+    initZtree();
+
+    $('.param-checkbox').on('click',function(e){
+      e.stopPropagation();
+
+      var $self = $(this);
+      if($self.hasClass('checkAll')){
+        if($self.hasClass('checkbox-checked')){
+          $self.removeClass('checkbox-checked');
+          $self.parents().siblings('.checkbox-item').find('.param-checkbox').removeClass('checkbox-checked');
+        }else{
+          $self.addClass('checkbox-checked');
+          $self.parents().siblings('.checkbox-item').find('.param-checkbox').addClass('checkbox-checked');
+        }
+      }else{
+        if($self.hasClass('checkbox-checked')){
+          $self.removeClass('checkbox-checked');
+        }else{
+          $self.addClass('checkbox-checked');
+        }
+        if($self.parents('.dialog-right').find('.checkOne-item').find('.param-checkbox').length == $self.parents('.dialog-right').find('.checkOne-item').find('.param-checkbox.checkbox-checked').length){
+          $self.parent().siblings('.checkAll-item').find('.param-checkbox.checkAll').addClass('checkbox-checked');
+        }else{
+          $self.parent().siblings('.checkAll-item').find('.param-checkbox.checkAll').removeClass('checkbox-checked');
+        }
+      }
+    });
+
+    function initZtree(){
+      var zNodes =[
+        {id:1, pId:0, name:"系统管理员", open:true},
+        {id:2, pId:1, name:"系统管理员01"},
+        {id:3, pId:1, name:"系统管理员02"},
+        {id:4, pId:1, name:"系统管理员03"},
+        {id:5, pId:1, name:"系统管理员04"},
+        {id:6, pId:1, name:"系统管理员05"},
+        {id:7, pId:1, name:"系统管理员06"},
+        {id:8, pId:1, name:"系统管理员07"},
+        {id:9, pId:1, name:"系统管理员08"},
+        {id:11, pId:0, name:"管理员"}
+      ];
+      var setting = {
+        view: {
+          dblClickExpand: false,
+          showLine: true,
+          selectedMulti: false
+        },
+        check: {
+          enable: true
+        },
+        data: {
+          simpleData: {
+            enable:true,
+            idKey: "id",
+            pIdKey: "pId",
+            rootPId: ""
+          }
+        },
+        callback: {
+          beforeClick: function(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            if (treeNode.isParent) {
+              zTree.expandNode(treeNode);
+              return false;
+            } else {
+              return true;
+            }
+          }
+        }
+      };
+      var t = $("#tree");
+      $.fn.zTree.init(t, setting, zNodes);
+    }
+  });
+
+</script>
+<div class="main-content">
+  <div class="dialog-item-wrap">
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">头像</div>
+        <div class="dialog-right"><input type="button" class="btn-file" value="浏览..."><div class="btn-declare">未选择的文件</div></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">微信账号</div>
+        <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left">微信二维码URL</div>
+        <div class="dialog-right"><input type="button" class="btn-file" value="浏览..."><div class="btn-declare">未选择的文件</div></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left must-icon">员工编号</div>
+        <div class="dialog-right"><input class="dialog-input" placeholder="" value="000000000001" ></div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left must-icon">密码</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value="12345678" ></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left must-icon">分支机构</div>
+        <div class="dialog-right">
+          <select name="" id="select1" class="diy-select" style="display: none;">
+            <option selected="">请选择</option>
+            <option value="1">中华证券</option>
+          </select>
+        </div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left must-icon">用户名称</div>
+        <div class="dialog-right"><input class="dialog-input" placeholder="" value="系统管理员" ></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left must-icon">操作员类型</div>
+        <div class="dialog-right">
+          <select name="" id="select2" class="diy-select" style="display: none;">
+            <option selected="">请选择</option>
+            <option value="1">操作员</option>
+          </select>
+        </div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left must-icon">手机号码</div>
+        <div class="dialog-right"><input class="dialog-input" placeholder="" value="1344654678"></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">联系地址</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value=""></div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left">电子信箱</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value=""></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">性别</div>
+        <div class="dialog-right">
+          <select name="" id="select3" class="diy-select" style="display: none;">
+            <option>请选择性别</option>
+            <option value="1">男</option>
+            <option selected="" value="2">女</option>
+          </select>
+        </div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left">从业证书编号</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value=""></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">MAC地址</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value=""></div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left">绑定IP地址</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value=""></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">固定电话</div>
+        <div class="dialog-right"><input class="dialog-input" type="password" placeholder="" value=""></div>
+      </div>
+      <div class="w50p">
+        <div class="dialog-left">审核模式</div>
+        <div class="dialog-right">
+          <select name="" id="select4" class="diy-select" style="display: none;">
+            <option selected="">请选择</option>
+            <option value="1">引导式审核</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left must-icon">用户状态</div>
+        <div class="dialog-right">
+          <select name="" id="select5" class="diy-select" style="display: none;">
+            <option selected="">请选择</option>
+            <option value="1">正常</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="w50p">
+        <div class="dialog-left">授权操作</div>
+        <div class="dialog-right"><button class="btn btn-fill">授权</button></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left">赋予角色</div>
+      <div class="dialog-right">
+        <div class="checkbox-item checkAll-item">
+          <span class="param-checkbox checkAll"></span>
+          <span class="checkbox-declare checkAll">全选</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">系统管理员</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">系统管理员</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">系统管理员</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">系统管理员</span>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left">子账户管理</div>
+      <div class="dialog-right">
+        <div id="tree" class="ztree"></div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left">赋予组织关系</div>
+      <div class="dialog-right">
+        <div class="checkbox-item checkAll-item">
+          <span class="param-checkbox checkAll"></span>
+          <span class="checkbox-declare">全选</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">杭州营业部总部</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">杭州营业部总部</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">杭州营业部总部</span>
+        </div>
+        <div class="checkbox-item checkOne-item">
+          <span class="param-checkbox"></span>
+          <span class="checkbox-declare">杭州营业部总部</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,224 @@
+
+.text-blue {
+  color: $color-blue
+}
+
+.center-align {
+  text-align: center !important;
+}
+
+.right-align {
+  text-align: right !important;
+}
+
+.left-align {
+  text-align: left !important;
+}
+
+.curs-hand {
+  cursor: pointer;
+}
+
+.marginleft20 {
+  margin-left: 20px;
+}
+
+.js-dialog {
+  .js-dialog-bd {
+    .dialog-pic-wrap {
+      .pic-time {
+        padding-left: 20px;
+        margin-bottom: 15px;
+      }
+      .pic-items {
+        .pic-item-3 {
+          width: 33%;
+          text-align: center;
+          display: inline-block;
+          img {
+            height: 180px;
+            width: 130px;
+            margin: 0 auto;
+            margin-bottom: 5px;
+          }
+        }
+        .pic-page-num, .pic-page-info {
+          font-size: 12px;
+        }
+
+      }
+    }
+  }
+}
+
+.js-window {
+  .radio-v-group {
+    label {
+      margin-right: 10px;
+    }
+    input[type='radio'] {
+      vertical-align: middle;
+      margin-right: 5px;
+      width: 12px;
+      height: 12px;
+    }
+    margin: 10px 0;
+  }
+  .result-wrap {
+    textarea {
+      min-height: 80px;
+      width: 100%;
+      padding: 8px 10px;
+      box-sizing: border-box;
+    }
+  }
+  .left-area-wrap {
+    border: none;
+    border-right: 1px solid #ebebeb;
+    padding-bottom: 0;
+  }
+  .ver-info-lists {
+    padding: 5px 20px;
+    p {
+      position: relative;
+      margin-left: 30px;
+      height: 40px;
+    }
+    p:before {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 20px;
+      left: -25px;
+      background: url('../images/icon/success.png') center center no-repeat;
+
+    }
+  }
+
+}
+
+// 页面部分
+.arch-home-content {
+  .content-title {
+    font-size: 20px;
+    font-weight: 700;
+
+    height: 40px;
+    line-height: 40px;
+    color: $color-red;
+  }
+  .content-wrap {
+    padding: 0 30px 0 10px;
+    table {
+      tr {
+        height: 48px;
+        line-height: 48px;
+        border-bottom: 1px solid #ccc;
+        td {
+          text-align: left;
+          color: #000;
+
+          .text-link {
+            cursor: pointer;
+            color: #007aff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.arch-detail, .plat-lists {
+  .top-back-panel {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background: #fff;
+    height: 35px;
+    line-height: 35px;
+    z-index: 2;
+  }
+  .detail-page-title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  .button-null-blue {
+    color: #007aff;
+    border-color: #007aff;
+    border-radius: 6px;
+    margin-left: 20px;
+    font-size: 13px;
+    line-height: 24px;
+  }
+  .button-fill-blue {
+    color: #fff;
+    background: #007aff;
+  }
+  .buttom-modst {
+    position: absolute;
+    top: 60%;
+    left: -10px;
+  }
+  .vertical-line {
+    height: 2px;
+    background: #f1374d;
+    margin-top: 5px;
+  }
+  .item-wrap {
+    background: rgba(200, 210, 250, .4);
+    border-radius: 5px;
+    padding: 8px 5px;
+    margin-top: 5px;
+    .item-top {
+      margin-bottom: 0 !important;
+    }
+    textarea {
+      background: transparent !important;
+      border: none !important;
+
+    }
+  }
+  .text-area {
+    .item-bottom {
+      margin-bottom: 0 !important;
+    }
+    position: relative;
+    .item-top {
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      line-height: 24px;
+    }
+    textarea {
+      text-indent: 40px !important;
+      padding: 0 !important;
+    }
+  }
+  .item-del-span, .item-del-span2, .item-del-span3 {
+    color: red;
+    cursor: pointer;
+  }
+  .info-table {
+    .cur-active {
+      background: #ccc;
+      .info-table-key {
+        background: #ccc;
+      }
+      .info-table-val {
+        position: relative;
+        &:after {
+          content: "需整改";
+          position: absolute;
+          right: 5px;
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+
+

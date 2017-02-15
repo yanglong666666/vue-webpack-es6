@@ -1,0 +1,68 @@
+.mult-wraper {
+  position: relative;
+  display: inline-block;
+}
+.mult-wraper-title {
+  display: inline-block;
+}
+.mult-wraper input {
+  text-overflow: ellipsis;
+}
+.mult-wraper .list
+{
+  width: 220px;
+  overflow: auto;
+  position: absolute;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  display: none;
+  left: 0;
+  top: 30px;
+  z-index: 1000000;
+  min-height: 24px;
+  max-height: 200px;
+  height:expression(this.scrollHeight>200?'200':'auto');
+}
+.mult-wraper .list ul li
+{
+  padding: 3px 10px;
+  font-size: 0;
+  display: block !important;
+}
+.mult-wraper .list ul li label
+{
+  height: 19px !important;
+  line-height: 19px!important;
+  width: 100%!important;
+  margin: 0!important;
+  font-size: 14px;
+}
+.mult-wraper .list ul li:last-child {
+  border-bottom: none;
+}
+.mult-wraper .list ul li input {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  vertical-align: top;
+  margin-top: 2px;
+}
+.mult-wraper .list ul li span{
+  height: 19px;
+  line-height: 19px;
+  margin-left: 2px;
+}
+.mult-wraper .list ul li:hover {
+  background: #dcdcdc;
+  cursor: default;
+}
+
+.mult-wraper ul
+{
+  list-style:none;
+  padding-left: 0px;
+  width: 100%;
+  height: 100%;
+  float: left;
+  margin: 0px;
+}

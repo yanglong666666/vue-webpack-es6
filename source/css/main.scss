@@ -14,6 +14,8 @@
 @import "reset";
 @import "common";
 
+@import "iconfont";
+
 // Base
 @import "base/button";
 @import "base/form";
@@ -58,6 +60,9 @@
 @import "component/table-info";
 @import "component/record/verify-record";
 @import "component/configure";
+@import "component/multdroplist";
+@import "component/overflow-pop";
+@import "component/input-number";
 
 // Pages
 @import "page/statistics";
@@ -128,9 +133,34 @@
 @import "page/activity";
 @import "page/fail404";
 @import "page/commission-template";
+@import "page/stocke-protocol";
+@import "page/stocke-product";
 // 业务集中运营平台
 @import "page/verify-list";
 @import "page/verify-info";
 @import "page/contract-detail";
+
+// 档案管理
+@import "page/_file-collection-scan";
+@import "page/_file-collection-list";
+@import "page/_file-collection-scan-upload";
+// 档案审核
+@import "page/_file-review-list";
+@import "page/_file-review-check";
+// 档案查询
+@import "page/_file-search-client";
+@import "page/_file-search-client-info";
+// 档案配置
+@import "page/_file-type-config";
+// 档案首页
+@import "page/_file-index";
+
+// 直播项目
+@import "page/_add-sensitive";
+@import "page/_online-click";
+// @import "common";
+@import "cfarchives/_archives";
+
 // Vendor
 @import "jquery-ui";
+@import "select2";

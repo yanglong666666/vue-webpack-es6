@@ -1,0 +1,96 @@
+---
+title: 档案类型查询
+layout: default-iframe
+---
+<script type="text/javascript" src="/javascript/page/arch-files-manager.js"></script>
+<div class="main-content arch-files-manager">
+  <div class="task-search clearfix">
+    <button class="btn btn-fill btn-lg floatleft btn-add">创建</button>
+    <button class="btn btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="业务编号/业务名称">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="hander_list" class="diy-select">
+            <option selected="" value="1">操作人</option>
+            <option selected="" value="2">管理员</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="name_list" class="diy-select">
+            <option selected="" value="1">档案文件名称</option>
+            <option selected="" value="2">客户身份证扫描件</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="model_list" class="diy-select">
+            <option selected="" value="1">业务类型</option>
+            <option selected="" value="2">客户关系</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select name="" id="valid_list" class="diy-select">
+            <option selected="" value="1">有效</option>
+            <option selected="" value="2">无效</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+
+
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="5%">ID</th>
+        <th width="8%">业务编码</th>
+        <th width="10%">业务类型</th>
+        <th width="10%">档案文件编码</th>
+        <th width="15%">档案文件名称</th>
+        <th width="8%">操作人</th>
+        <th width="10%">创建日期</th>
+        <th width="10%">作废日期</th>
+        <th width="5%">状态</th>
+        <th width="12%">档案模板详情</th>
+        <th width="7%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="attr-panl">001</div></td>
+          <td>CYB</td>
+          <td>创业板开通</td>
+          <td>01</td>
+          <td>风险揭示书</td>
+          <td>管理员</td>
+          <td><div>2016-06-01</div></td>
+          <td><div>2016-08-01</div></td>
+          <td>生效</td>
+          <td>
+            <span class="text-blue set-btn curs-hand">查看</span>
+            <span class="text-blue load-btn curs-hand marginleft20">下载</span>
+          </td>
+          <td>
+            <span class="text-blue view-btn curs-hand">查看流水</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+{% include component/pagenav-cf.html %}
+

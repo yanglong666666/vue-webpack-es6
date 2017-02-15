@@ -15,6 +15,7 @@
     </li>
   </ul>
 </div>
+<div class="slideleft"></div>
 <script type="text/javascript">
   $(document).ready(function(){
     //点击含有二级li的p的效果
@@ -52,6 +53,61 @@
       var src = $(this).find("a").attr("href");
       if(href.indexOf(src) != -1) {
         $(this).addClass('active');
+      }
+    });
+
+    //左侧导航收拢
+    var is_anim = true;
+    $(".slideleft").click(function () {
+      if (is_anim) {
+        is_anim = false;
+
+        var _this = $(this);
+        var leftaside = _this.siblings(".leftaside");
+        var leftShadow = _this.siblings(".leftShadow");
+        var ui_wrap = _this.siblings(".ui-wrap");
+        var small = leftaside.find("small");
+        var header_sys = $(".site-header .header-inner");
+        var header_xtg = $(".site-header .header-inner .xtgly");
+
+
+        if (_this.hasClass("right-on")) {
+
+          _this.animate({width: "130px"});
+          leftaside.animate({width: "130px"});
+          header_sys.animate({width: "130px"}, function () {
+            $(this).removeClass("w-37");
+          });
+          header_xtg.animate({width: "130px"});
+          ui_wrap.animate({marginLeft: "130px"});
+
+          leftShadow.animate({width: "130px"}, function () {
+            leftaside.find("small").show();
+            leftaside.find("b").show();
+            leftaside.find("em.small-em").hide();
+            is_anim = true;
+
+          });
+
+          _this.removeClass("right-on");
+
+        } else {
+          leftaside.find("b").hide();
+          leftaside.find("small").hide();
+          _this.animate({width: "37px"});
+          leftaside.animate({width: "37px"});
+
+          header_sys.animate({width: "37px"}, function () {
+            $(this).addClass("w-37");
+          });
+          header_xtg.animate({width: "37px"});
+          ui_wrap.animate({marginLeft: "37px"});
+          leftShadow.animate({width: "37px"}, function () {
+            leftaside.find("em.small-em").show();
+            is_anim = true;
+          });
+          _this.addClass("right-on");
+        }
       }
     });
   });

@@ -1,0 +1,41 @@
+.page-add-sensitive{
+	$color:#000;
+	.sensitive-content{
+		padding-top:15px;
+		padding-left:40px;
+		text-align:left;
+	}
+	.sensitive-title{
+		color:$color;
+		font-size: 16px;
+		margin:5px 0;
+	}
+	.sensitive-mark{
+		color:$color;
+		font-size: 13px;
+		margin:10px 0;
+	}
+	.sensitive-data{
+		width: 400px;
+		height: auto;
+		/*min-height: 200px;*/
+		overflow-y: hidden;
+		overflow-x: hidden;
+		textarea{
+			background: #e0e1f6;
+			width:100%;
+			height: 100%;
+			min-height: 200px;
+			outline: none;
+			border:0px;
+			resize: none;
+			border-radius: 5px;
+			padding: 15px;
+			font-size: 12px;
+			text-indent: 0px;
+		}
+	}
+	.button-left-align{
+		text-align:left;
+	}
+}

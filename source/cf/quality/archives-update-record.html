@@ -1,0 +1,117 @@
+---
+title: 档案更新记录
+layout: default-iframe
+---
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect();
+    $('#select2').diySelect();
+    $('#select3').diySelect();
+
+    var fileContent =
+      '<div class="dialog-file">' +
+      '  <div class="dialog-file-aside">' +
+      '    <div class="file-name current">客户身份证扫描件(1)</div>' +
+      '    <div class="file-name">客户现场头像照片(1)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '    <div class="file-name">《风险揭示书》扫描件(4)</div>' +
+      '  </div>' +
+      '  <div class="dialog-file-content">' +
+      '       <div class="file-item">' +
+      '         <div class="file-item-date">2016年8月21日</div>' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '       </div>' +
+      '       <div class="file-item">' +
+      '         <div class="file-item-date">2016年8月21日</div>' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '       </div>' +
+      '       <div class="file-item">' +
+      '         <div class="file-item-date">2016年8月21日</div>' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '         <img class="file-item-pic" src="../../images/license.jpg" />' +
+      '       </div>' +
+      '  </div>' +
+      '</div>';
+    $('.main-table').on('click','.btn-quality',function(){
+      var dialog = new Dialog(null, {
+        title: '档案更新记录',
+        content: fileContent,
+        hasBtn: false,
+        padding: "20px 15px",
+        width: 600
+      });
+    });
+  });
+</script>
+
+
+<div class="main-content">
+  <div class="task-search clearfix">
+    <button class="btn btn-fill btn-lg magnifier" href="#"></button>
+    <input type="text" class="aql-input" placeholder="客户号/客户姓名/身份证号码">
+    <dl class="search-dl">
+      <dd>
+        <span>
+          <select id="select3" class="diy-select">
+            <option selected="">业务类型</option>
+            <option value="1">11111111</option>
+          </select>
+        </span>
+      </dd>
+    </dl>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="10%">业务类型</th>
+        <th width="10%">客户号</th>
+        <th width="6%">客户姓名</th>
+        <th width="10%">身份证号码</th>
+        <th width="10%">一码通账户</th>
+        <th width="10%">开户营业部</th>
+        <th width="10%">档案名称</th>
+        <th width="6%">档案编号</th>
+        <th width="12%">档案存放位置</th>
+        <th width="10%">最近更新日期</th>
+        <th width="6%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>创业板开通</td>
+        <td>610000173488</td>
+        <td>方立方</td>
+        <td>320********0499</td>
+        <td>310000173488</td>
+        <td>杭州营业部</td>
+        <td>创业板开通档案</td>
+        <td>4322341</td>
+        <td>苏州营业部1档案柜-1层-1袋</td>
+        <td>2016-05-12</td>
+        <td>
+          <a class="btn-quality">查看</a>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>创业板开通</td>
+        <td>610000173488</td>
+        <td>方立方</td>
+        <td>320********0499</td>
+        <td>310000173488</td>
+        <td>杭州营业部</td>
+        <td>创业板开通档案</td>
+        <td>4322341</td>
+        <td>苏州营业部1档案柜-1层-1袋</td>
+        <td>2016-05-12</td>
+        <td>
+          <a class="btn-quality">查看</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {% include component/pagenav-cf.html %}
+</div>

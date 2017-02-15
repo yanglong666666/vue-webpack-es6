@@ -1,0 +1,339 @@
+---
+title: 业务类型配置-存储服务器配置
+layout: default
+class: business-type-config
+---
+
+<div class="file-config-top">
+  <button class="btn btn-fill btn-small business-type-add">&nbsp;&nbsp;添加&nbsp;&nbsp;</button>
+  <div class="file-config-search">
+    <input type="text" class="file-config-search-input" placeholder="档案编号/档案名称" />
+    <button class="btn btn-fill btn-small">&nbsp;&nbsp;搜索&nbsp;&nbsp;</button>
+  </div>
+</div>
+
+<div class="main-table">
+  档案类型配置
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="10%">档案编号</th>
+      <th width="15%">档案名称</th>
+      <th width="10%">文件类型</th>
+      <th width="15%">单个文件大小(< mb)</th>
+      <th width="10%">数量</th>
+      <th width="10%">创建日期</th>
+      <th width="10%">创建人</th>
+      <th width="10%">档案二维码</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><input type="checkbox" class="file-config-checkbox" /><span>0001</span></td>
+      <td>客户现场头像照片</td>
+      <td>png/jpg/jpeg</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2016-05-12</td>
+      <td>五月天</td>
+      <td><img src="../../images/mar-qcode.png" class="file-config-erweima"/></td>
+      <td><div class="btn-group"><a class="btn btn-fill btn-small">修改<span class="dropdown"></span></a></div></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="main-table">
+  业务类型配置-存储服务器配置
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="15%">ID</th>
+      <th width="15%">业务编码</th>
+      <th width="15%">业务类型名称</th>
+      <th width="15%">设置人</th>
+      <th width="20%">设置时间</th>
+      <th width="10%">对应档案</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><input type="checkbox" class="file-config-checkbox" /><span>0001</span></td>
+      <td>CYBKT</td>
+      <td>创业板开通</td>
+      <td>0027818</td>
+      <td>2016-08-20 10:00:01</td>
+      <td><a href="" class="file-config-a">查看</a></td>
+      <td><div class="btn-group"><a class="btn btn-fill btn-small">修改<span class="dropdown"></span></a></div></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="file-config-bottom">
+  <input type="checkbox" class="file-config-checkbox" />
+  <a class="btn btn-fill btn-small btn-remove-all">批量删除</a>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('.btn-group').on('click',function(){
+      var $self = $(this);
+      if($self.find('.dropdown').length >0 ){
+        var ul = '<ul class="dropdown-list">'+
+          '<li class="dropdown-li">修改</li>'+
+          '<li class="dropdown-li">删除</li>'+
+          '</ul>';
+        if($self.find('.dropdown-list').length <= 0){
+          $self.append(ul);
+        }
+        if($self.hasClass('active')){
+          $self.removeClass('active');
+          $self.find('.dropdown-list').hide();
+        }else{
+          $self.addClass('active');
+          $self.find('.dropdown-list').show();
+        }
+      }
+    });
+
+
+    $('body').on('click','.dialog-radio-wrap',function(){
+      var $self = $(this);
+      $self.siblings('.dialog-radio-wrap').find('.dialog-radio').prop('checked',false);
+      $self.find('.dialog-radio').prop('checked',true);
+    });
+
+    $('body').on('click','.content-input',function(){
+      var $self = $(this);
+      if(!$self.prop('checked')){
+        $self.parent().siblings('.content-right').find('.content-radio').prop('checked',false);
+      }
+    });
+
+    $('body').on('click','.content-radio',function(){
+      var $self = $(this);
+      $self.siblings('.content-radio').prop('checked',false);
+      $self.prop('checked',true);
+    });
+
+    $('body').on('click','.dropdown-list .dropdown-li',function(event){
+      event.preventDefault();
+      var $self = $(this);
+      var $parent = $self.parents('tr');
+      if($self.text() == '修改'){
+        var ID = $parent.find('td').eq(0).text(); //跟据ID找到对应的整条数据，填充到弹窗中
+        var repair_one = new Dialog(null,{
+          title: '提示',
+          width: '500',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["确定"],
+          btnRole: ['confirm'],
+          btnCls: ['confirm'],
+          confirm: function() {
+            //确定按钮事件
+            repair_one.hide();
+          },
+          content:
+          '<div class="config-dialog-item">' +
+            '<div class="dialog-left must-icon">' + $parent.find('td').eq(0).text() + '</div>' +
+              '<div class="dialog-right">' +
+              '<input class="dialog-input" value="0001" />' +
+            '</div>' +
+          '</div>'+
+          '<div class="config-dialog-item">' +
+            '<div class="dialog-left must-icon">' + $parent.find('td').eq(1).text() + '</div>' +
+              '<div class="dialog-right">' +
+              '<input class="dialog-input" value="1231231231" />' +
+            '</div>' +
+          '</div>'+
+          '<div class="config-dialog-item">' +
+            '<div class="dialog-left must-icon">' + $parent.find('td').eq(2).text() + '</div>' +
+              '<div class="dialog-right">' +
+              '<input class="dialog-input" value="客户现场头像照片" />' +
+            '</div>' +
+          '</div>'+
+          '<div class="config-dialog-item">' +
+            '<div class="dialog-left must-icon">文件格式</div>' +
+              '<div class="dialog-right">' +
+              '<input class="dialog-input" value="png/jpg/jpeg" />' +
+            '</div>' +
+          '</div>'+
+          '<div class="config-dialog-item">' +
+            '<div class="dialog-left must-icon">数量</div>' +
+              '<div class="dialog-right">' +
+              '<input class="dialog-input" value="2" />' +
+              '<span class="dialog-span" >个</span>' +
+            '</div>' +
+          '</div>'+
+          '<div class="config-dialog-item">' +
+            '<div class="dialog-left must-icon">备注</div>' +
+              '<div class="dialog-right">' +
+              '<textarea class="dialog-textarea"></textarea>' +
+            '</div>' +
+          '</div>'
+        });
+      }else if($self.text() == '删除'){
+        var delete_one = new Dialog(null,{
+          title: '提示',
+          width: '360',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["取消","确定"],
+          btnRole: ['cancel','confirm'],
+          btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            var ID = $parent.find('td').eq(0).text(); //点击弹窗的确定时，跟据ID调后台接口，删除后台此条
+            $parent.remove();
+            delete_one.hide();
+          },
+          content: '<h1 class="h-title">您确定删除此条？</h1>'
+        });
+      }
+
+    });
+
+    $('.btn-remove-all').on('click', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var delete_checked = new Dialog(null,{
+        title: '提示',
+        width: '360',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          var IDs = [];
+          $('.main-table .file-config-checkbox:checked').each(function(){
+            IDs.push($(this).siblings('span').text());
+          });
+          //IDs调用后台接口，success会调中remove页面上对应项
+          $('.main-table .file-config-checkbox:checked').remove();
+          delete_checked.hide();
+        },
+        content: '<h1 class="h-title">您确定批量删除？</h1>'
+      });
+    });
+
+    $('.main-table').on('click', '.file-config-a', function(event) {
+      event.preventDefault();
+      var file_dialog = new Dialog(null,{
+        title: '业务对应档案信息',
+        width: '500',
+        needDestroy: true,
+        content: '<div class="file-dialog-item"><div class="file-dialog-key">业务类型编号</div><div class="file-dialog-value">v1.0</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">业务类型名称</div><div class="file-dialog-value">CYBKT</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">适用客户类型</div><div class="file-dialog-value">个人</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">对应档案类型</div>' +
+          '<textarea class="file-dialog-textarea" readonly>' +
+            '0001《客户开户申请表》|必传;\n' +
+            '0001《客户开户申请表》|必传;\n' +
+            '0001《客户开户申请表》|必传;\n' +
+            '0001《客户开户申请表》|必传;\n' +
+          '</textarea>' +
+        '</div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">是否有效</div><div class="file-dialog-value">有效</div></div>'+
+        '<div class="file-dialog-item"><div class="file-dialog-key">说明</div><div class="file-dialog-value">无</div></div>'
+      });
+    });
+
+    $('.business-type-add').on('click',function(event){
+      event.preventDefault();
+      var add_dialog = new Dialog(null,{
+        title: '添加业务类型',
+        width: '700',
+        needDestroy: true,
+        hasBtn: true,
+        btnText: ["取消","确定"],
+        btnRole: ['cancel','confirm'],
+        btnCls: ['cancel','confirm'],
+        confirm: function() {
+          //确定按钮事件
+          add_dialog.hide();
+        },
+        cancel: function() {
+          //确定按钮事件
+          alert(1);
+        },
+        content:
+        '<div class="config-dialog-item">' +
+          '<div class="dialog-left must-icon">业务类型编码</div>' +
+          '<div class="dialog-right">' +
+            '<input class="dialog-input" value="" />' +
+          '</div>' +
+        '</div>'+
+        '<div class="config-dialog-item">' +
+          '<div class="dialog-left must-icon">业务类型名称</div>' +
+          '<div class="dialog-right">' +
+            '<input class="dialog-input" value="" />' +
+          '</div>' +
+        '</div>'+
+        '<div class="config-dialog-item select-tab">' +
+          '<div class="dialog-left must-icon">使用客户类型</div>' +
+          '<div class="dialog-right">' +
+            '<select class="dialog-select" style="display: none;"><option>1</option><option>2</option></select>' +
+            '<div class="dialog-wrap">' +
+              '<div class="dialog-top">' +
+                '<div class="dialog">档案文件</div>' +
+                '<div class="dialog">是否必须扫描</div>' +
+              '</div>' +
+              '<div class="dialog-content">' +
+                '<div class="dialog-content-item">' +
+                  '<div class="content-left">' +
+                    '<input type="checkbox" class="content-input" />0002自然人证券账户申请表' +
+                  '</div>' +
+                  '<div class="content-right">' +
+                    '<input type="checkbox" class="content-radio content-yes" />是' +
+                    '<div class="content-space"></div>' +
+                    '<input type="checkbox" class="content-radio content-no" />否' +
+                  '</div>' +
+                '</div>' +
+                '<div class="dialog-content-item">' +
+                  '<div class="content-left">' +
+                    '<input type="checkbox" class="content-input" />0002自然人证券账户申请表' +
+                  '</div>' +
+                  '<div class="content-right">' +
+                    '<input type="checkbox" class="content-radio content-yes" />是' +
+                    '<div class="content-space"></div>' +
+                    '<input type="checkbox" class="content-radio content-no" />否' +
+                  '</div>' +
+                '</div>' +
+                '<div class="dialog-content-item">' +
+                  '<div class="content-left">' +
+                    '<input type="checkbox" class="content-input" />0002自然人证券账户申请表' +
+                  '</div>' +
+                  '<div class="content-right">' +
+                    '<input type="checkbox" class="content-radio content-yes" />是' +
+                    '<div class="content-space"></div>' +
+                    '<input type="checkbox" class="content-radio content-no" />否' +
+                  '</div>' +
+                '</div>' +
+
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>'+
+        '<div class="config-dialog-item">' +
+          '<div class="dialog-left must-icon">是否启用</div>' +
+          '<div class="dialog-right">' +
+            '<div class="dialog-radio-wrap">' +
+              '<input type="radio" class="dialog-radio" value="" />启用' +
+            '</div>' +
+            '<div class="dialog-radio-wrap">' +
+              '<input type="radio" class="dialog-radio" value="" />禁用' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      });
+      $('.js-dialog').find('.dialog-select').diySelect({
+        width: 220
+      });
+    });
+  });
+</script>

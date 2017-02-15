@@ -1,0 +1,511 @@
+.page-file-collection-scan {
+  background-color: #fff;
+  .ui-wrap {
+    padding: 0;
+  }
+  .image-content {
+    margin: 0 auto;
+    min-width: 1200px;
+  }
+  .image-top {
+    height: 48px;
+    background: #0054AB;
+    position: relative;
+    .image-top-back {
+      width: 223px;
+      height:100%;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #036CD8 url("../images/sprite/filecapture/back.png") no-repeat 90% 50%;
+      cursor: pointer;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .image-top-wrap {
+      height:100%;
+      margin-left: 223px;
+      padding: 0 30px;
+      font-size: 0;
+      position: relative;
+      ms-touch-action: manipulation;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      .top-btn-wrap {
+        position: absolute;
+        text-align: center;
+        right: 0;
+        top: 10px;
+        margin-right: 10px;
+        .btn {
+          width: 80px;
+          margin: 0 10px;
+          background: #fff;
+          color: #0054ab;
+          border-color: #fff;
+          ms-touch-action: manipulation;
+          touch-action: manipulation;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          opacity: .9;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      .image-top-item {
+        height: 100%;
+        line-height: 48px;
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        padding: 0 20px 0 55px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: 20px 50%;
+        opacity: .8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .scan {
+        background-image: url("../images/sprite/filecapture/scan.png");
+      }
+      .camera {
+        background-image: url("../images/sprite/filecapture/camera.png");
+      }
+      .save {
+        background-image: url("../images/sprite/filecapture/save.png");
+        /*background-position: 20px 52%;*/
+      }
+      .upload {
+        background-image: url("../images/sprite/filecapture/upload.png");
+        /*background-position: 25px 20px;*/
+      }
+      .delete {
+        background-image: url("../images/sprite/filecapture/delete.png");
+        /*background-position: 24px 20px;*/
+      }
+    }
+  }
+  .image-middle {
+    position: relative;
+    background: #fff;
+    border-top: none;
+    .image-aside-wrap {
+      border-bottom: solid 1px #dcdcdc;
+    }
+    .image-middle-aside {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 240px;
+      overflow: scroll;
+      overflow-x: hidden;
+      background: #F7F7F7;
+      .image-aside-top {
+        height: 56px;
+        line-height: 56px;
+        padding-left: 40px;
+        color: #0054AB;
+        background: #fff;
+        font-size: 18px;
+        border-top: solid 1px #dcdcdc;
+      }
+      dl {
+        color: #000;
+        margin: 0;
+        dt {
+          line-height: 18px;
+          padding: 12px 12px 12px 40px;
+          border-top: solid 1px #dcdcdc;
+          font-size: 14px;
+          font-weight: inherit;
+          background: #fff;
+          cursor: pointer;
+          position: relative;
+          &:before {
+            content: " ";
+            background: url("../images/sprite/filecapture/dt-add.png") no-repeat 50% 50%;
+            position: absolute;
+            top: 13px;
+            left: 10px;
+            width: 16px;
+            height: 16px;
+            border: solid 1px #dcdcdc;
+            @include border-radius(2px);
+          }
+          &.active {
+            border-bottom: solid 1px #dcdcdc;
+            &:before {
+              background: url("../images/sprite/filecapture/dt-del.png") no-repeat 50% 50%;
+            }
+          }
+        }
+        dd {
+          line-height: 20px;
+          margin: 12px 0;
+          padding: 0 30px 0 40px;
+          font-size: 14px;
+          cursor: pointer;
+          position: relative;
+          color: #666;
+          &:first-child {
+            border-top: solid 1px #dcdcdc;
+          }
+          &.must {
+            color: red;
+          }
+          &.checked {
+            color: #0054AB !important;
+            background: url("../images/sprite/filecapture/dd-checked.png") no-repeat 95% 0;
+          }
+        }
+        .aside-1:before {
+          content: " ";
+          width: 20px;
+          height: 20px;
+          background: url("../images/sprite/filecapture/aside-1.png") no-repeat 0 -1px;
+          position: absolute;
+          top: 0;
+          left: 10px;
+        }
+        .aside-2:before {
+          content: " ";
+          width: 20px;
+          height: 20px;
+          background: url("../images/sprite/filecapture/aside-2.png") no-repeat;
+          position: absolute;
+          top: 0;
+          left: 10px;
+        }
+        .aside-3:before {
+          content: " ";
+          width: 20px;
+          height: 20px;
+          background: url("../images/sprite/filecapture/aside-3.png") no-repeat;
+          position: absolute;
+          top: 0;
+          left: 10px;
+        }
+      }
+    }
+    .image-middle-wrap {
+      margin-left: 223px;
+      z-index: 10;
+      background: #f0f0f0;
+      position: relative;
+      border-left: solid 1px #dcdcdc;
+    }
+    .handle-wrap {
+      height: 36px;
+      background: #fff;
+      padding-left: 60px;
+      font-size: 0;
+      ms-touch-action: manipulation;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      width: 100%;
+      @include box-sizing(border-box);
+      .handle-item {
+        color: #000;
+        display: inline-block;
+        padding: 0 10px 0 30px;
+        line-height: 36px;
+        background-repeat: no-repeat;
+        background-position: 5px 50%;
+        cursor: pointer;
+        font-size: 14px;
+        opacity: .8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .revoke {
+        background-image: url("../images/sprite/filecapture/revoke.png");
+      }
+      .re-revoke {
+        background-image: url("../images/sprite/filecapture/re-revoke.png");
+      }
+      .rotate {
+        background-image: url("../images/sprite/filecapture/rotate.png");
+      }
+      .cut {
+        background-image: url("../images/sprite/filecapture/cut.png");
+      }
+      .border {
+        background-image: url("../images/sprite/filecapture/border.png");
+      }
+      .enlarge {
+        background-image: url("../images/sprite/filecapture/enlarge.png");
+      }
+      .narrow {
+        background-image: url("../images/sprite/filecapture/narrow.png");
+      }
+      .previous {
+        background-image: url("../images/sprite/filecapture/previous.png");
+      }
+      .next {
+        background-image: url("../images/sprite/filecapture/next.png");
+      }
+      .full-screen {
+        background-image: url("../images/sprite/filecapture/full-screen.png");
+      }
+      .insert-picture {
+        background-image: url("../images/sprite/filecapture/insert-picture.png");
+      }
+      .append {
+        background-image: url("../images/sprite/filecapture/append.png");
+      }
+    }
+    .image-wrap {
+      height: 635px;
+      text-align: center;
+      position: relative;
+      .image-page-wrap {
+        line-height: 20px;
+        margin: 5px 0 0;
+        .current-page {
+          color: #0054AB;
+        }
+      }
+      .image-append-wrap {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        z-index: 10;
+        ms-touch-action: manipulation;
+        touch-action: manipulation;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        .image-append-item {
+          line-height: 40px;
+          padding-left: 30px;
+          cursor: pointer;
+          opacity: .8;
+          color: #000;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      .append-add {
+        background: url("../images/sprite/filecapture/append-add.png") no-repeat 3px 50%;
+      }
+      .append-cover {
+        background: url("../images/sprite/filecapture/append-cover.png") no-repeat 0 50%;
+      }
+      .append-merge {
+        background: url("../images/sprite/filecapture/append-merge.png") no-repeat 0 50%;
+      }
+      .img {
+        height: 95%;
+        width: auto;
+        max-width: 100%;
+        display: inline-block;
+        @include box-shadow(0 2px 2px 0px #909090);
+      }
+    }
+  }
+  .upload-dialog {
+    .upload-dialog-top {
+      padding: 15px 40px;
+      .btn-next {
+        width: 120px;
+        display: inline-block;
+        @include border-radius(2px);
+        font-size: 14px;
+        vertical-align: top;
+        opacity: .9;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .upload-dialog-choose {
+        color: #0054AB;
+        background-color: #fff;
+        border: solid 1px #0054AB;
+        position: relative;
+        margin-right: 20px;
+        &:before {
+          content: " ";
+          width: 24px;
+          height: 24px;
+          background: url("../images/sprite/filecapture/upload-choose.png") no-repeat;
+          display: inline-block;
+          margin: 5px 5px 0 0;
+          vertical-align: top;
+        }
+      }
+      .upload-dialog-btn {
+
+      }
+    }
+    .upload-dialog-wrap {
+      background-color: #F4F4F7;
+      min-height: 300px;
+      max-height: 500px;
+      overflow: hidden;
+      overflow-y: auto;
+      .upload-dialog-item {
+        padding: 0 40px;
+        position: relative;
+        &:hover {
+          .upload-dialog-delete {
+            background: url("../images/sprite/filecapture/upload-delete-2.png") no-repeat 50% 50%;
+          }
+        }
+        .upload-dialog-text {
+          padding: 0 50px;
+          border-bottom: solid 1px #dcdcdc;
+          line-height: 56px;
+          color: #333;
+        }
+        .upload-dialog-type {
+          position: absolute;
+          left: 40px;
+          top: 8px;
+        }
+        .upload-dialog-edit {
+          position: absolute;
+          right: 80px;
+          top: 21px;
+          cursor: pointer;
+          opacity: .8;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        .upload-dialog-delete {
+          cursor: pointer;
+          vertical-align: top;
+          position: absolute;
+          right: 40px;
+          top: 16px;
+          width: 24px;
+          height: 24px;
+          background: url("../images/sprite/filecapture/upload-delete.png") no-repeat 50% 50%;
+          opacity: .8;
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+  }
+  .save-dialog {
+    text-align: left;
+    .bd {
+      padding: 20px;
+    }
+    .save-dialog-file {
+      height: 160px;
+      width: auto;
+      margin-left: 100px;
+      margin-bottom: 15px;
+    }
+    .save-dialog-save {
+      margin-left: 100px;
+      margin-bottom: 15px;
+      position: relative;
+      &:before {
+        content: "保存路径";
+        display: inline-block;
+        position: absolute;
+        left: -70px;
+        height: 24px;
+        line-height: 24px;
+        top: 0;
+      }
+      .save-dialog-item {
+        margin-right: 30px;
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        cursor: pointer;
+        &.checked {
+          &:before {
+            background: url("../images/sprite/filecapture/save-checked.png") no-repeat 0 50%;
+          }
+        }
+        &:before {
+          content: " ";
+          width: 16px;
+          height: 100%;
+          background: url("../images/sprite/filecapture/save-unchecked.png") no-repeat 0 50%;
+          display: inline-block;
+          vertical-align: top;
+          margin-right: 10px;
+        }
+      }
+    }
+    .save-dialog-path {
+      padding: 0 50px 0 100px;
+      margin-bottom: 15px;
+      input {
+        width: 100%;
+        height: 24px;
+        line-height: 24px;
+        text-indent: 0.5em;
+        font-size: 12px;
+        color: #333;
+        outline: none;
+      }
+    }
+    .save-dialog-sure {
+      margin: 0 auto 0 100px;
+      @include border-radius(2px);
+      font-size: 15px;
+      vertical-align: top;
+      opacity: .9;
+      &:hover {
+        opacity: 1;
+      }
+      background-color: #0054AB;
+    }
+  }
+
+  .component-comfirm,.component-alert {
+    .comfirm-btn {
+      @include border-radius(2px);
+      font-size: 15px;
+      opacity: .9;
+      background: #0054AB;
+      &:hover {
+        background: #0054AB;
+        opacity: 1;
+      }
+      &:active {
+        background: #0054AB;
+        opacity: 1;
+      }
+
+    }
+    .comfirm-cancel {
+      @include border-radius(2px);
+      font-size: 15px;
+      opacity: .9;
+      height: 26px;
+      line-height: 26px;
+      border: solid 1px #dcdcdc;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

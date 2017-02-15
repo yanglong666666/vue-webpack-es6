@@ -4,15 +4,26 @@
   // @include opacity(.2);
   border-radius: 10px;
   background-color: #fff;
+  input {
+    height: 11px;
+    width: 128px;
+    border: 1px solid #e8e8e8;
+    padding: 9px 10px;
+  }
   .js-dialog-hd {
-    height: 40px;
-    line-height: 40px;
-    padding-left: 18px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 5px 5px 0 0;
+    background-color: #F0F0F0;
     h2 {
+      padding-left: 15px;
       color: #12171d;
-      font-size: 22px;
-      text-align: center;
-      padding-top: 10px;
+      font-size: 15px;
+      text-align: left;
+      border-bottom: 1px solid $gaplinecolor;
+      &.posleft{
+        text-align: left;
+      }
     }
   }
   .js-dialog-bd {
@@ -24,12 +35,13 @@
       margin-right: 5px;
     }
     .btn-wrap {
-      padding: 20px 0 0;
+      padding: 15px 0 0;
       text-align: center;
     }
     .btn-dialog {
       width: 115px;
       margin: 0 5px;
+      cursor: pointer;
     }
     .tip-wrap {
       position: relative;
@@ -49,15 +61,15 @@
   }
   .js-dialog-close {
     position: absolute;
-    top: 4px;
-    right: 12px;
     @include inline-block;
-    height: 32px;
-    width: 33px;
-    background: url(../images/close-ico.png) 0 0 no-repeat;
     cursor: pointer;
     font-size: 0;
     content: "";
+    top: 11px;
+    right: 13px;
+    height: 16px;
+    width: 16px;
+    background: url(../images/cf/close-black.png) no-repeat;
   }
   .js-scrollable {
     overflow-x: hidden;

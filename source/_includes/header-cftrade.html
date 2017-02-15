@@ -1,0 +1,55 @@
+<div class="site-header cftrade-header">
+  <div class="header-logo">
+    <i class="icon-imgcftrade"></i>
+    <i class="icon-imgcftradetext"></i>
+  </div>
+  <span class="company">业务运营平台管理</span>
+  <div class="btn-right">
+    <div class="btn-nav">
+      <ul>
+        <li class="header-exit">
+          <a href="#">退出</a>
+        </li>
+        <li class="header-user">
+          <a href="javascript:void(0)">欢迎您，五月</a>
+        </li>
+        <li class="header-msg">
+          消息
+          <a href="javascript:void(0)">(4)</a>
+        </li>
+      </ul>
+      <script>
+        $(function(){
+          $('.header-user').on('click',function(){
+            var password_screen = new Dialog(null,{
+              title: '密码修改',
+              width: '436',
+              needDestroy: true,
+              hasBtn: true,
+              btnText: ["确定"],
+              btnRole: ['confirm'],
+              btnCls: ['confirm'],
+              confirm: function() {
+                //确定按钮事件
+                password_screen.destroy();
+              },
+              afterShow: function(){
+                $('.dialog-content-login').siblings('.btn-wrap').find('.btn-confirm').css('width',240);
+              },
+              //正确为 success-ico 错误为 error-ico
+              content: '<div class="dialog-content-login">'+
+              '<div class="item account">'+
+              '<input type="text" class="input" placeholder="账号" >'+
+              '</div>'+
+              '<div class="item password">'+
+              '<input type="password" class="input" placeholder="密码" >'+
+              '</div>'+
+              '<div class="error">密码不正确</div>'+
+              '</div>'
+            });
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>

@@ -1,38 +1,33 @@
 label {
-  position: relative;
-  display: inline-block;
-  height: 37px;
-  line-height: 37px;
-  width: 130px;
-  .txt {
-    display: inline-block;
-    width: 130px;
-    border: none;
-    background: #e1e6ef;
-    height: 37px;
-    line-height: 37px;
-    border-radius: 5px;
-    color: #3a3d42;
-    font-size: 12px;
-    text-indent: 10px;
-    outline: none;
-  }
-  i {
-    position: absolute;
-    top: 17px;
+	position: relative;
+	display: inline-block;
+	.txt {
+		display: inline-block;
+		width: 150px;
+    border: 1px solid #e8e8e8;
+		background: #ffffff;
+		line-height: 30px;
+    @include border-radius(3px);
+		color: #4D4D4D;
+		font-size: 12px;
+		outline: none;
+	}
+	i {
+		position: absolute;
+    top: 12px;
     right: 10px;
     display: inline-block;
-    width: 13px;
-    height: 8px;
+    width: 9px;
+    height: 5px;
     vertical-align: middle;
-    background: url(../images/icolist.png) -80px -30px no-repeat;
-  }
-  &.w-170 {
-    width: 170px;
-    .txt {
-      width: 170px;
-    }
-  }
+		background: url(../images/icolist.png) -60px -50px no-repeat;
+	}
+	&.w-170 {
+		width: 170px;
+		.txt {
+			width: 170px;
+		}
+	}
   &.w-130 {
     width: 130px;
     .txt {
@@ -42,36 +37,36 @@ label {
 }
 
 .pre {
-  font-size: 12px;
-  color: #6f7b91;
-  margin: 0px 5px;
-  display: inline-block;
+	font-size: 12px;
+	color: #6f7b91;
+	margin: 0px 5px;
+	display: inline-block;
 }
 
 .form {
-  .form-group {
-    margin-bottom: 10px;
-    .label {
+	.form-group {
+		margin-bottom: 10px;
+		.label {
       display: inline-block;
-      width: 100px;
+			width: 100px;
       height: 37px;
       line-height: 37px;
-      margin-right: 10px;
-      text-align: right;
-    }
-    .txt {
-      display: inline-block;
-      width: 160px;
-      height: 37px;
-      line-height: 37px;
-      border: none;
-      background: #e1e6ef;
-      border-radius: 5px;
-      color: #3a3d42;
-      font-size: 12px;
-      text-indent: 10px;
-      outline: none;
-    }
+			margin-right: 10px;
+			text-align: right;
+		}
+		.txt {
+			display: inline-block;
+			width: 160px;
+			height: 37px;
+			line-height: 37px;
+			border: none;
+			background: #e1e6ef;
+			border-radius: 5px;
+			color: #3a3d42;
+			font-size: 12px;
+			text-indent: 10px;
+			outline: none;
+		}
     .bank-box {
       position: relative;
       margin-left: 114px;
@@ -91,9 +86,9 @@ label {
             width: 30px;
             text-align: right;
             font-size: 17px;
-          }
+	}
 
-        }
+}
         &.add-option {
           margin-right: 5px;
           margin-bottom: 5px;
@@ -108,35 +103,35 @@ label {
   @include clearfix;
   .form-group {
     float: left;
-    margin-bottom: 10px;
+		margin-bottom: 10px;
     margin-right: 20px;
-    .label {
+		.label {
       display: block;
       height: 37px;
       line-height: 37px;
-      width: 100px;
-    }
-    .txt,
+			width: 100px;
+		}
+		.txt,
     .time-picker {
-      display: block;
-      width: 160px;
-      height: 37px;
-      line-height: 37px;
-      border: none;
-      background: #e1e6ef;
-      border-radius: 5px;
-      color: #3a3d42;
-      font-size: 12px;
-      text-indent: 10px;
-      outline: none;
-    }
+			display: block;
+			width: 160px;
+			height: 37px;
+			line-height: 37px;
+			border: none;
+			background: #e1e6ef;
+			border-radius: 5px;
+			color: #3a3d42;
+			font-size: 12px;
+			text-indent: 10px;
+			outline: none;
+		}
     .time-picker {
       display: inline-block;
       background-image: url(../images/diyselect.png);
       background-repeat: no-repeat;
       background-position: right center;
     }
-  }
+	}
 }
 
 .adaptive-query-list {
@@ -309,13 +304,13 @@ label {
             span {
               padding-left: 17px;
               display: block;
-            }
+        }
             &.on {
               color: #ff5776;
               em {
                 color: #ff5776;
 
-              }
+      }
 
             }
 
@@ -331,12 +326,12 @@ label {
           line-height: 35px;
           width: 65px;
           text-align: center;
-          border: 1px solid #3ecacb;
-          color: #3ecacb;
+          border: 1px solid #3f88cc;
+          color: #3f88cc;
           border-radius: 5px;
           font-size: 14px;
-          &.active {
-            background: #3ecacb;
+          &.active{
+            background: #3f88cc;
             color: #fff;
           }
         }
@@ -410,7 +405,7 @@ label {
         &.on {
           background: url(../images/icolist.png) 0px -80px no-repeat;
         }
-      }
+    }
     }
 
   }

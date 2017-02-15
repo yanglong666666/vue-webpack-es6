@@ -1,0 +1,184 @@
+---
+title: 档案审核详情
+layout: default
+class: file-review-check
+---
+<div class="top-back"></div>
+<div id="basic-info" class="info-table info-table-basic">
+  <div class="info-table-title">客户基本信息</div>
+  <div class="info-table-content">
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          客户号
+        </div>
+        <div class="info-table-val">
+          610000173488
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          姓名
+        </div>
+        <div class="info-table-val">
+          乾多多
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          性别
+        </div>
+        <div class="info-table-val">
+          男
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          联系手机
+        </div>
+        <div class="info-table-val">
+          13856930128
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          开户营业部
+        </div>
+        <div class="info-table-val">
+          杭州营业部
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          开户日期
+        </div>
+        <div class="info-table-val">
+          2014-10-12
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          证件类型
+        </div>
+        <div class="info-table-val">
+          身份证
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          证件号码
+        </div>
+        <div class="info-table-val">
+          32055119910128056X
+        </div>
+      </div>
+      <div class="info-table-item">
+        <div class="info-table-key">
+          发证机关
+        </div>
+        <div class="info-table-val">
+          杭州派出所
+        </div>
+      </div>
+    </div>
+    <div class="info-table-colspan">
+      <div class="info-table-item">
+        <div class="info-table-key">
+          证件有效期
+        </div>
+        <div class="info-table-val">
+          2005.09.07～2024.09.01
+        </div>
+      </div>
+      <div class="info-table-item item-long">
+        <div class="info-table-key">
+          证件地址
+        </div>
+        <div class="info-table-val">
+          浙江省杭州市滨江大道
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="review-check-content">
+  <div class="review-check-left">
+    <img src="../../images/video/pre-video.jpg" class="handle-img">
+    <div class="handle-num">2/12</div>
+
+    <div class="handle-btn preview"></div>
+    <div class="handle-btn next"></div>
+    <div class="handle-btn enlarge"></div>
+    <div class="handle-btn narrow"></div>
+    <div class="handle-btn refresh"></div>
+  </div>
+  <div class="review-check-right">
+    <div class="right-top">
+      <div class="top-title">
+        审核档案列表
+      </div>
+      <div class="top-content">
+        <dl class="top-content-item">
+          <dt>创业版开通</dt>
+          <dd>证件类型</dd>
+          <dd>身份证扫描信息</dd>
+          <dd>风险揭示书</dd>
+        </dl>
+      </div>
+      <div class="top-title">
+        审核关键信息
+      </div>
+      <div class="top-content">
+        <p>1. 确认业务关联信息，风险等级、首次交易日期、开通所需时间符合客户事实。</p>
+        <p>2. 确认第二联系人信息与《客户风险揭示书》填写的一致。</p>
+        <p>3.  确认客户头像照片拍摄脸部正面且含公司logo、照片清晰不反光。</p>
+      </div>
+    </div>
+    <div class="right-bottom">
+      <div class="bottom-radio">
+        <div class="radio-item">
+          <input type="radio" class="pass-radio" value="通过" />
+          <span>通过</span>
+        </div>
+        <div class="radio-item">
+          <input type="radio" class="notPass-radio" value="通过" />
+          <span>不通过</span>
+        </div>
+      </div>
+      <div class="bottom-option">
+        <div class="option-top">
+          批注意见
+        </div>
+        <textarea class="option-textarea"></textarea>
+      </div>
+      <div class="button-content">
+        <a class="btn btn-small btn-primary-white ">取消</a>
+        <a class="btn btn-small btn-fill">保存</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $('.top-content-item dt').on('click',function(){
+      var $self = $(this);
+      if($self.hasClass('active')){
+        $self.siblings('dd').slideUp(400,function(){
+          $self.removeClass('active')
+        });
+      }else{
+        $self.siblings('dd').slideDown(400,function(){
+          $self.addClass('active')
+        });
+      }
+    });
+    $('.radio-item').on('click',function(){
+      $(this).find('input').prop('checked',true);
+      $(this).siblings('.radio-item').find('input').prop('checked',false);
+    })
+  })
+</script>

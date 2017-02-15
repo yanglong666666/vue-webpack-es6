@@ -31,7 +31,7 @@
     overflow: hidden;
     margin-bottom: 25px;
     padding: 5px 10px;
-    border: 2px solid #3ecacb;
+    border: 2px solid #3f88cc;
     .method {
       float: left;
     }
@@ -81,37 +81,7 @@
         text-align: center;
         &.active {
           color: #fff;
-          background: #3ecacb;
-        }
-      }
-    }
-  }
-  .ui-video-table {
-    .operation-table {
-      td {
-        &:nth-child(odd) {
-          width: 25%;
-        }
-        &:nth-child(even) {
-          width: 75%;
-        }
-        label {
-          &.w-200 {
-            width: 200px;
-            .txt {
-              width: 100%;
-            }
-          }
-          .txt {
-            background: #fff;
-          }
-        }
-        span.js-select {
-          background-color: #fff;
-        }
-        .js-option {
-          background-color: #fff;
-          border: 1px solid #fff;
+          background: #3f88cc;
         }
       }
     }

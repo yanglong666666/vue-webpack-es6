@@ -11,14 +11,16 @@
   </div>
   <div class="site-nav">
     <ul>
-        <li><a href="#">系统公告<span>（开户）</span><small>123</small></a></li>
-        <!-- <li><a href="#">系统公告<span>（开户）</span><small>123</small></a></li>
-        <li><a href="#">系统公告<span>（开户）</span><small>123</small></a></li>
-        <li><a href="#">系统公告<span>（开户）</span><small>123</small></a></li>
-        <li><a href="#">系统公告<span>（开户）</span><small>123</small></a></li>
-        <li><a href="#">系统公告<span>（开户）</span><small>123</small></a></li> -->
+        <li><a class="nav-on" href="#">快速导航</a></li>
+        <li><a href="#">视频验证</a></li>
+        <li><a href="#">开户审核</a></li>
+        <li><a href="#">网厅复核</a></li>
+        <li><a href="#">开户审核</a></li>
+        <li><a href="#">网厅复核<small>123</small></a></li>
     </ul>
-    <a class="collect" href="javascript:void(0)" id="collect_btn"><i></i>收藏</a>
+    <!-- enable可点 disabled不可点 selected已点 -->
+    <a class="collect" href="javascript:void(0)" id="collect_btn" title="收藏"><i class="enable disabled selected"></i></a>
+    <a class="first-page" href="javascript:void(0)" id="first-page_btn" title="设为首页"><i class="enable disabled selected"></i></a>
   </div>
   <div class="site-menu">
     <a class="selected-menu" href="jacascript:void(0)">开户系统<i></i></a>
@@ -51,7 +53,15 @@
     });
     $('.header-inner').mouseover(function(event) {
       /* Act on the event */
+      if($(this).hasClass("w-37")){
+        $('#user-center').css("top","0px");
+        $('#user-center').css("left","37px")
+      }else {
+        $('#user-center').css("top","58px");
+        $('#user-center').css("left","0px")
+      }
       $('#user-center').show();
+
     });
     $('.header-inner').mouseleave(function(event) {
       /* Act on the event */

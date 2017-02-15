@@ -1,41 +1,113 @@
 /**
  * Wrapper
  */
- .container {
+.container {
   @include clearfix;
   width: 100%;
-  height: auto;
-  min-height: 100%;
+  height: 100%;
   position: relative;
-  margin-top: 76px;
+  padding-top: 62px;
+  @include box-sizing(border-box);
   .credit-inner {
     background: #fff;
+    height: 100%;
+  }
+  .container-inner {
+    height: 100%;
   }
   .ui-wrap {
     position: relative;
-    margin-left: 150px;
+    height: 100%;
+    margin-left: 200px;
+    background-color: #fff;
+    min-width: 1100px;
+    z-index: 99;
+    .nav-cftrade {
+      border-bottom: 4px solid $theme-color;
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left:0;
+      width: 100%;
+      ul {
+        height: 36px;
+        padding: 0 20px;
+        li {
+          cursor: pointer;
+          display: inline-block;
+          text-align: center;
+          height: 36px;
+          padding: 0 10px;
+          box-sizing: border-box;
+          line-height: 36px;
+          border-radius: 4px 4px 0 0;
+          max-width: 104px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          min-width: 76px;
+          .icon-close {
+            background: url("../images/cftrade/close-nav.png") 4px 4px no-repeat;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            display: none;
+          }
+          &.active {
+            background-color: $theme-color;
+            color: white;
+            position: relative;
+            .icon-close {
+              display: inline-block;
+            }
+          }
+
+        }
+      }
+      &.nav-cfrobot {
+        ul {
+          li {
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+}
+.ui-content {
+  height: 100%;
+  padding-top: 40px;
+  @include box-sizing(border-box);
+  .main-content {
+    position: relative;
+    margin-bottom: 20px;
+    height: auto;
+    &.no-back {
+      background: #fff;
+    }
+    &.no-margin-bottom {
+      margin-bottom: 0px;
+    }
+  }
+  .border-content {
+    border: 1px solid #f0f4fb;
     padding: 15px;
-    background: #fff;
+    margin-bottom: 20px;
+    overflow: hidden;
   }
-  .ui-content {
-    .main-content {
-      position: relative;
-      padding: 20px;
-      background: #f0f4fb;
-      margin-bottom: 20px;
-      height: auto;
-      &.no-back {
-        background: #fff;
-      }
-      &.no-margin-bottom {
-        margin-bottom: 0px;
-      }
-    }
-    .border-content {
-      border: 1px solid #f0f4fb;
-      padding: 15px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-  }
+}
+.ui-content-scroll {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 15px;
+  @include box-sizing(border-box);
+}
+.iframepage {
+  width: 100%;
+  height: 100%;
+  border: none;
 }

@@ -1,0 +1,75 @@
+<div class="nav-cftrade">
+  <ul>
+    <!--<li class="active">营业部排名-->
+    <!--<i class="icon-close"></i></li>-->
+  </ul>
+</div>
+<!--<ul class="ul-menu"style="top:100px;left:100px"><li>关闭当前标签</li><li>关闭其他标签</li></ul>-->
+<script type="text/javascript">
+  $(".nav-cftrade ul").on('click', " li", function () {
+    var href = $(this).data("href");
+    $(".nav-cftrade ul li").removeClass("active");
+    $(this).addClass("active");
+
+    $('.iframepage').hide();
+    $(document.getElementById(href)).show();
+
+    $('.leftaside .index a').removeClass('active').each(function(){
+      if(JSON.parse($(this).attr('data-json')).href == href){
+        $(this).addClass('active');
+      }
+    });
+  });
+
+  function close_nav(self) {
+    var $self = $(self);
+    var currentLi = $self.parent();
+    var nextLi;
+    //判断li前后是否有，next>prev>index-home.html
+    if(currentLi.next().length > 0 ){
+      nextLi = currentLi.next();
+    }else if(currentLi.prev().length > 0 ){
+      nextLi = currentLi.prev();
+    }else{
+      nextLi = "";
+    }
+
+    if(nextLi){
+      currentLi.remove();
+      $(document.getElementById(currentLi.data('href'))).remove();
+
+      nextLi.show().addClass('active');
+      $(document.getElementById(nextLi.data('href'))).show();
+    }else{
+      currentLi.remove();
+      $('.leftul li').eq(0).find('a').click().parents('li').addClass('current');
+    }
+  }
+
+  $(".nav-cftrade ul").on("click", ".icon-close", function (event) {
+    event.preventDefault();
+    if (event && event.stopPropagation) {
+      event.stopPropagation();
+    } else {//IE浏览器
+      event.cancelBubble = true;
+    }
+    close_nav(this);
+  });
+
+  var maxNum = 19999;
+  $("body").on("click", '.page-num', function () {
+    $(this).addClass('thisPage').siblings().removeClass('thisPage');
+    $(this).parents("ul").find('li').removeClass('no-page');
+    if ($(this).text() == 1) {
+      $('.page-up').addClass('no-page');
+      $('.page-up').html('<span class="pageUp">< 上一页</span>');
+    }
+    else if ($(this).text() == maxNum) {
+      $('.page-down').html('<span class="pageDown">下一页 ></span>');
+      $('.page-down').addClass('no-page');
+    } else {
+      $('.page-up').html('<a href="javascript:void(0)">< 上一页</a>');
+      $('.page-down').html('<a href="javascript:void(0)">下一页 ></a>');
+    }
+  })
+</script>

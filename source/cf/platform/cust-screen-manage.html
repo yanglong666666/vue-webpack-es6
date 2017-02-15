@@ -1,0 +1,148 @@
+---
+title: 客户屏幕管理
+layout: default-iframe
+---
+
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect();
+    $('#select2').diySelect();
+    $('#dialogSelect1').diySelect({width:222});
+
+    //时间控件
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'1900:2016'
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'1900:2016'
+    });
+
+    $('#addOne').on('click',function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+    $('#finish').on('click',function(){
+      $('.main-content').show();
+      $('.view-content').hide();
+    });
+    $('#cancel').on('click',function(){
+      $('.main-content').show();
+      $('.view-content').hide();
+    });
+
+    //列表内部点击事件需冒泡
+    $('.main-table').on('click','.item-view', function(){
+      $('.main-content').hide();
+      $('.view-content').show();
+    });
+  });
+
+</script>
+<div class="main-content">
+  <div class="task-search clearfix">
+    <button class="btn btn-lg floatleft btn-add" id="addOne">添加</button>
+    <button class="btn btn-fill btn-lg magnifier" href="#"></button>
+    <dl class="search-dl">
+      <dd>
+        <label>
+          <input class="txt begin-time" type="text" placeholder="开始日期" readonly />
+          <i></i>
+        </label>
+        <span class="pre">至</span>
+        <label>
+          <input class="txt end-time" type="text" placeholder="结束日期" readonly />
+          <i></i>
+        </label>
+      </dd>
+    </dl>
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="25%">名称</th>
+        <th width="25%">顺序</th>
+        <th width="40%">时间段</th>
+        <th width="10%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>新三板开通宣传图</td>
+        <td>1</td>
+        <td>2016-12-12 12:12 ~ 2016-12-13 12:12</td>
+        <td>
+          <a class="item-modify">查看</a>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>新三板开通宣传图</td>
+        <td>2</td>
+        <td>2016-12-12 12:12 ~ 2016-12-13 12:12</td>
+        <td>
+          <a class="item-modify">查看</a>
+        </td>
+      </tr>
+      <tr>
+        <td>新三板开通宣传图</td>
+        <td>3</td>
+        <td>2016-12-12 12:12 ~ 2016-12-13 12:12</td>
+        <td>
+          <a class="item-modify">查看</a>
+        </td>
+      </tr>
+      <tr class="even">
+        <td>新三板开通宣传图</td>
+        <td>4</td>
+        <td>2016-12-12 12:12 ~ 2016-12-13 12:12</td>
+        <td>
+          <a class="item-modify">查看</a>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+  {% include component/pagenav-cf.html %}
+</div>
+<div class="view-content" id="edit-content" style="display: none;">
+  <div class="dialog-item-wrap">
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">名称</div>
+      <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-left must-icon">质检范围</div>
+      <div class="dialog-right"><select name="" id="dialogSelect1" class="diy-select" style="display: none;">
+        <option selected="">请选择</option>
+        <option selected="" value="1">111111</option>
+      </select>
+    </div>
+  </div>
+    <div class="dialog-item">
+      <div class="dialog-left">图片</div>
+      <div class="dialog-right">
+        <input type="button" class="btn-file" value="浏览..."><div class="btn-declare" style="width: inherit;">支持jpg,png；图片大小不得大于100K</div>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="dialog-right">
+        <img class="file-pic" src="../../images/license.jpg" style="width: 222px;" />
+      </div>
+    </div>
+
+    <div class="button-content" style="text-align: left;margin-left: 165px;">
+      <button class="btn btn-fill" id="finish" style="margin-right: 10px;">立即创建</button>
+      <button class="btn btn-deny" id="cancel">取消</button>
+    </div>
+
+  </div>
+</div>

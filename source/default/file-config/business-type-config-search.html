@@ -1,0 +1,102 @@
+---
+title: 业务类型配置查询
+layout: default
+class: business-type-config-search
+---
+
+<div class="file-config-top">
+  <div class="file-config-search">
+    <div class="file-config-search-select">
+      <select name="" id="diy-select-1" class="file-config-search-select" style="display: none;">
+        <option selected="" value="1">全部</option>
+        <option value="2">状态1</option>
+        <option value="2">状态1</option>
+      </select>
+    </div>
+    <div class="file-config-search-select">
+      <select name="" id="diy-select-2" class="file-config-search-select" style="display: none;">
+        <option selected="" value="1">全部</option>
+        <option value="2">状态1</option>
+        <option value="2">状态1</option>
+      </select>
+    </div>
+    <input type="text" class="file-config-search-input" placeholder="档案编号/档案名称" />
+    <button class="btn btn-fill btn-small">&nbsp;&nbsp;搜索&nbsp;&nbsp;</button>
+  </div>
+</div>
+
+<div class="main-table">
+  <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+    <thead>
+    <tr>
+      <th width="10%">客户类型</th>
+      <th width="10%">业务类型编码</th>
+      <th width="15%">业务类型名称</th>
+      <th width="45%">档案名称</th>
+      <th width="10%">当前状态</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><input type="checkbox" class="file-config-checkbox" /><span>个人</span></td>
+      <td>CYBKT</td>
+      <td>创业板开通</td>
+      <td>《客户开户申请》《开户客户的身份证》《风险揭示书》《业务受理确认书》</td>
+      <td>有效</td>
+      <td><a class="btn btn-fill btn-small">导出</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="file-config-bottom">
+  <input type="checkbox" class="file-config-checkbox" />
+  <a class="btn btn-fill btn-small btn-remove-all">批量删除</a>
+  <a class="btn btn-fill btn-small">批量导出</a>
+</div>
+{% include component/pagenav.html %}
+<script type="text/javascript">
+  $(function(){
+    $('#diy-select-1').diySelect();
+    $('#diy-select-2').diySelect();
+
+    $('.btn-group').on('click',function(){
+      var $self = $(this);
+      if($self.find('.dropdown').length >0 ){
+        var ul = '<ul class="dropdown-list">'+
+          '<li>修改</li>'+
+          '<li>删除</li>'+
+          '</ul>';
+        if($self.find('.dropdown-list').length <= 0){
+          $self.append(ul);
+        }
+        if($self.hasClass('active')){
+          $self.removeClass('active');
+          $self.find('.dropdown-list').hide();
+        }else{
+          $self.addClass('active');
+          $self.find('.dropdown-list').show();
+        }
+      }
+
+      $('.btn-remove-all').on('click', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        var delete_screen = new Dialog(null,{
+          title: '提示',
+          width: '360',
+          needDestroy: true,
+          hasBtn: true,
+          btnText: ["取消","确定"],
+          btnRole: ['cancel','confirm'],
+          btnCls: ['cancel','confirm'],
+          confirm: function() {
+            //确定按钮事件
+            delete_screen.hide();
+          },
+          content: '<h1 class="h-title">您确定删除此记录？</h1>'
+        });
+      });
+    });
+  });
+</script>

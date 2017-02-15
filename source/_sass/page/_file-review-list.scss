@@ -1,0 +1,28 @@
+.page-file-review-list {
+  .main-content {
+    padding-right: 80px !important;
+    position: relative;
+    .more-condition {
+      position: absolute;
+      top: 55px;
+      right: 30px;
+      text-decoration: underline;
+      color: #3f88cc;
+      cursor: pointer;
+    }
+    .search-group {
+      min-height: 74px;
+      .search-dl {
+        display: none;
+        &.show {
+          display: inline-block;
+        }
+      }
+    }
+    .btn-review {
+      position: relative;
+      padding-right: 20px;
+      background: #3f88cc url(../../images/dropdown.png) no-repeat 95% 50%;
+    }
+  }
+}

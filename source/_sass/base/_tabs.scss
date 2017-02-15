@@ -4,7 +4,7 @@
     display: block;
     float: left;
     &.on {
-      background: #44c1de;
+      background: #3f88cc;
       color: #FFF;
     }
   }
@@ -12,18 +12,18 @@
     overflow: hidden;
     margin-bottom: 5px;
     .tab-option {
-      padding: 7px 0;
+      padding: 7px 30px;
       text-align: center;
       background: #f0f4fb;
       font-size: 16px;
-      width: 50%;
       &.on {
-        background: #44c1de;
+        background: #3f88cc;
         color: #FFF;
       }
     }
   }
   &.add-tabs {
+    background: #f0f4fb;
     overflow: hidden;
     padding: 20px 10px;
     .tab-option {
@@ -31,14 +31,12 @@
       text-align: center;
       background: #FFF;
       font-size: 14px;
-      margin-right: 10px;
-      border-radius: 5px;
-      border: solid 1px #44c1de;
-      color: #44c1de;
-
+      margin-right: 5px;
+      border-radius: 3px;
+      border: solid 1px #cccccc;
       &.on {
-        background: #44c1de;
-        border: solid 1px #44c1de;
+        background: #3f88cc;
+        border: solid 1px #3f88cc;
         color: #FFF;
       }
     }
@@ -46,15 +44,14 @@
       cursor: pointer;
       display: block;
       float: left;
-      padding: 5px 0;
+      padding: 5px 0px;
       width: 87px;
       text-align: center;
       background: #FFF;
       font-size: 14px;
-      margin-right: 20px;
-      border-radius: 5px;
-      border: solid 1px #44c1de;
-      color: #44c1de;
+      margin-right: 5px;
+      border-radius: 3px;
+      border: solid 1px #cccccc;
     }
   }
 
@@ -64,6 +61,62 @@
     display: none;
     &.on {
       display: block;
+    }
+  }
+}
+
+
+
+//财富消息中心
+.main-tab {
+  border-bottom: solid 1px $border-color;
+  margin-bottom: 20px;
+  .main-tab-item {
+    display: inline-block;
+    padding: 0 10px 10px;
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+      content: " ";
+      width: 1px;
+      height: 14px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: $border-color;
+    }
+    &.current {
+      font-weight: 600;
+    }
+    &:nth-child(1) {
+      &:before {
+        width: 0;
+      }
+    }
+    .not-read {
+      background: $theme-color;
+      color: #ffffff;
+      padding: 0 3px;
+      font-size: 12px;
+      line-height: 1;
+      @include border-radius(6px);
+    }
+  }
+}
+.main-filter {
+  margin-bottom: 20px;
+  font-size: 0;
+  .main-filter-item {
+    font-size: 12px;
+    margin: 0 10px 10px 0;
+    &.current {
+      background-color: $btn-fill-bg;
+      color: $btn-fill-color;
+      border: solid 1px $btn-fill-bg;
     }
   }
 }

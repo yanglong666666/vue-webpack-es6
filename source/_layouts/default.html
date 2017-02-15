@@ -2,17 +2,22 @@
 <html>
 {% include head.html %}
 <body {% if page.class %} class="page-{{ page.class }}"{% endif %}>
-{% include header.html %}
-<div class="container">
+{% include header-cftrade.html %}
+<div class="container container-cftrade">
   <div class="container-inner">
-    {% include aside.html %}
-    <div class="ui-wrap">
-      {% include collect.html %}
-      <div class="ui-content">
+    {% include aside-cftrade.html %}
+    <div class="ui-wrap ui-wrap-cftrade">
+      {% include nav-cftrade.html %}
+      <div class="shadow-div">
+        <i class="loading-img"></i>
+      </div>
+      <div class="ui-content" id="iframeWrap">
         {{ content }}
       </div>
     </div>
   </div>
 </div>
+<script src="{{ site.static }}/javascript/platform/comm.js"></script>
+<script src="{{ site.static }}/javascript/common.js"></script>
 </body>
 </html>

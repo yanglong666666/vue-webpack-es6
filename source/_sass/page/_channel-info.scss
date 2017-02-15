@@ -2,7 +2,7 @@
   .channel-content {
     margin: 20px 0 5px;
     .channel-link {
-      border-bottom: 3px solid #3ecacb;
+      border-bottom: 3px solid #3f88cc;
       margin-bottom: 30px;
       a {
         display: inline-block;
@@ -11,15 +11,15 @@
         margin-right: 50px;
         padding-bottom: 10px;
         &.active {
-          color: #3ecacb;
+          color: #3f88cc;
         }
       }
     }
     .channel-info {
       a {
         display: inline-block;
-        color: #3ecacb;
-        border: 1px solid #3ecacb;
+        color: #3f88cc;
+        border: 1px solid #3f88cc;
         border-radius: 5px;
         text-align: center;
         min-width: 50px;
@@ -29,7 +29,7 @@
         margin-right: 15px;
         margin-bottom: 15px;
         &.active {
-          background: #3ecacb;
+          background: #3f88cc;
           color: #fff;
         }
       }

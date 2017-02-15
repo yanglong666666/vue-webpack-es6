@@ -1,27 +1,15 @@
 .ui-configure-content {
   .configure-title {
     font-size: 16px;
-    padding: 10px 0;
+    padding: 15px 0;
     color: #4d4d4d;
     margin: 0 0 15px 0;
     border-bottom: 1px dashed #ccc;
-    line-height: 36px;
   }
   .configure-item {
     @include clearfix;
     overflow: hidden;
-    margin-bottom: 15px;
-    .select-item {
-      margin-bottom: 10px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      .select-link {
-        display: inline-block;
-        margin-left: 5px;
-        color: #3ecacb;
-      }
-    }
+    margin-bottom: 25px;
     .w-300 {
       width: 300px;
       .txt {
@@ -36,12 +24,7 @@
       .status {
         margin-right: 5px;
         vertical-align: middle;
-        width: 16px;
-        height: 16px;
       }
-    }
-    .w-inherit {
-      width: inherit;
     }
     .name {
       float: left;
@@ -51,20 +34,6 @@
     }
     .configure-inner {
       float: left;
-      img{
-          padding: 15px 0 0 0;
-          display: inline-block;
-      }
-      .file{
-          position:absolute;
-          opacity: 0;
-          left: 4px;
-          top: 3px;
-      }
-      .xieyi{
-          margin-left: 10px;
-          vertical-align:middle
-      }
     }
     .query-btn {
       height: 37px;
@@ -73,7 +42,7 @@
       width: 70px;
       text-align: center;
       color: #fff;
-      background: #3ecacb;
+      background: #3f88cc;
       margin-left: 5px;
       border-radius: 5px;
     }
@@ -101,6 +70,10 @@
       .item {
         margin-bottom: 10px;
       }
+      .delete-btn {
+        color: #3f88cc;
+        font-size: 12px;
+      }
     }
     .bank-content {
       @include clearfix;
@@ -113,10 +86,10 @@
     .add-bank,
     .add-commission {
       display: block;
-      color: #3ecacb;
+      color: #3f88cc;
       font-size: 14px;
       border-radius: 5px;
-      border: 1px solid #3ecacb;
+      border: 1px solid #3f88cc;
       height: 28px;
       line-height: 28px;
       width: 300px;
@@ -149,26 +122,49 @@
       outline: none;
     }
   }
-  .configure-option{
-      margin-bottom: 1px;
-  }
-  .configure-list{
-      margin-left: 30px;
-  }
   .commission-item {
     margin-bottom: 10px;
     .delete-btn {
-      color: #3ecacb;
+      color: #3f88cc;
       font-size: 12px;
-      cursor: pointer;
     }
   }
-  .find{
-      line-height: 35px;
-  }
-  .delete-btn {
-    color: #3ecacb;
-    font-size: 12px;
-    cursor: pointer;
-  }
 }
+.ui-timepicker-div{
+    position: relative;
+    height: 50px;
+    .ui_tpicker_time_label{
+        position: absolute;
+        left:19px;            
+    }
+    .ui_tpicker_hour_label{
+        position: absolute;
+        left:100px; 
+        top:0;
+    }
+    .ui_tpicker_minute_label{
+        position: absolute;
+        left:190px; 
+        top:0       
+    }
+    .ui_tpicker_time{
+        position: absolute;
+        left:19px;
+        top:30px;     
+    }
+    .ui_tpicker_hour{
+        position: absolute;
+        left:100px;
+        top:30px;     
+    }
+    .ui_tpicker_minute{
+        position: absolute;
+        left:190px;
+        top:30px;
+        
+    }
+
+
+}
+
+

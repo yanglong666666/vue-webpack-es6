@@ -1,0 +1,67 @@
+.num-wrap {
+  position: relative;
+  max-height: 120px;
+  overflow: hidden;
+  overflow-y: auto;
+  width: 204px;
+  border: solid 1px $border-color;
+  padding: 3px 8px;
+  @include border-radius(3px);
+  .num-item {
+    height: 29px;
+    line-height: 29px;
+    margin: 5px 0;
+    position: relative;
+    text-align: left;
+    .num-input {
+      width: 32px;
+      padding: 0 5px;
+      margin-right: 25px;
+      height: 30px;
+      line-height: 30px;
+      outline: none;
+      text-align: center;
+      @include box-sizing(border-box);
+    }
+    .num-a {
+      line-height: 30px;
+      margin-right: 5px;
+      text-align: center;
+    }
+    .num-up,.num-down {
+      left: 31px;
+      width: 16px;
+      height: 14px;
+      line-height: 14px;
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      border: solid 1px $border-color;
+      &:active {
+        background-color: #f0f0f0;
+      }
+    }
+    .num-up {
+      background: url(../images/ui-icons_222222_256x240.png) no-repeat 0 -18px;
+      top: 0;
+    }
+    .num-down {
+      bottom: -1px;
+      border-width: 0 1px 1px 1px;
+      background: url(../images/ui-icons_222222_256x240.png) no-repeat -65px -16px;
+    }
+    .num-delete-btn {
+      width: 24px;
+      float: right;
+    }
+  }
+  .btn {
+    font-size: 12px;
+  }
+}
+.num-add-btn {
+  width: 30px;
+  position: absolute;
+  right: 5px;
+  top: 8px;
+}
