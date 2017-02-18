@@ -15,7 +15,9 @@
 ## 搭建本地开发环境
 
 1. 将代码 clone 至本地
-1. 安装 gems： bundle install
+2. gem install jekyll
+3. gem install sass
+注意：确保本地有安装 ruby，如果没有，请先安装
 
 ## 开发
 
@@ -28,6 +30,9 @@ jekyll server
 ```
 jekyll s
 ```
+
+ruby环境sass编译中文出现Syntax error: Invalid GBK character错误解决方法：
+http://www.tuicool.com/articles/f2YVRv
 
 ## 预览
 

@@ -1,65 +1,170 @@
 <div class="ui-video-table">
-  <table class="operation-table">
+  <table class="operation-table" id="user_basic_info">
     <tbody>
       <tr>
-        <td class="title">姓名</td>
-        <td class="name">张三<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>姓名</td>
+        <td>张三</td>
       </tr>
       <tr>
-        <td class="title">性别</td>
-        <td class="name">男<a class="edit-name radio" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>性别</td>
+        <td class="modify">
+          <span class="name">男</span>
+          <span class="select-info">
+            <select name="" id="sex_list" class="diy-select" style="display: none;">
+              <option value="0" selected>请选择</option>
+              <option value="1">男</option>
+              <option value="2">女</option>
+            </select>
+          </span>
+          <div class="edit select"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">身份证号</td>
-        <td class="name">620502199109090099<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>身份证号</td>
+        <td>620502199109090099</td>
       </tr>
       <tr>
-        <td class="title">证件期限</td>
-        <td class="name">2013.07.21至2023.07.21<a class="edit-name select" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>证件期限</td>
+        <td class="modify">
+          <span class="name">2010.01.11-2020.01.11</span>
+          <label class="w-200">
+            <input type="text" class="txt">
+          </label>
+          <div class="edit input"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">发证机关</td>
-        <td class="name">浦东新区张江公安局<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>发证机关</td>
+        <td class="modify">
+          <span class="name">滨江西行公安局</span>
+          <label class="w-200">
+            <input type="text" class="txt">
+          </label>
+          <div class="edit input"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">证件地址</td>
-        <td class="name">上海市浦东新区张江公寓14-210上海市浦东新区张江公寓<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>证件地址</td>
+        <td class="modify">
+          <span class="name">滨江西行公安局</span>
+          <label class="w-200">
+            <input type="text" class="txt">
+          </label>
+          <div class="edit input"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">联系地址</td>
-        <td class="name">上海市浦东新区张江公寓14-210<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>联系地址</td>
+        <td class="modify">
+          <span class="name">滨江西行公安局</span>
+          <label class="w-200">
+            <input type="text" class="txt">
+          </label>
+          <div class="edit input"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">邮政编码</td>
-        <td class="name">231321<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>邮政编码</td>
+        <td class="modify">
+          <span class="name">12121</span>
+          <label class="w-200">
+            <input type="text" class="txt">
+          </label>
+          <div class="edit input"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">国籍</td>
-        <td class="name">中国<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>国籍</td>
+        <td class="modify">
+          <span class="name">中国</span>
+          <span class="select-info">
+            <select name="" id="contury_list" class="diy-select" style="display: none;">
+              <option value="0" selected>请选择</option>
+              <option value="1">中国</option>
+              <option value="2">美国</option>
+            </select>
+          </span>
+          <div class="edit select"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">营业部</td>
-        <td class="name">上海南路营业部<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>营业部</td>
+        <td class="modify">
+          <span class="name">上海南路营业部</span>
+          <label class="w-200">
+            <input type="text" class="txt">
+          </label>
+          <div class="edit input"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
-        <td class="title">手机号码</td>
-        <td class="name">189888866666<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>手机号码</td>
+        <td>189888866666</td>
       </tr>
       <tr>
-        <td class="title">民族</td>
-        <td class="name">汉<a class="edit-name input" href="javascript:void(0)" style="display:none;"></a></td>
+        <td>民族</td>
+        <td class="modify">
+          <span class="name">汉族</span>
+          <span class="select-info">
+            <select name="" id="nation_list" class="diy-select" style="display: none;">
+              <option value="1">汉族</option>
+              <option value="2">维吾尔族</option>
+            </select>
+          </span>
+          <div class="edit select"><i class="edit-name"></i></div>
+        </td>
       </tr>
       <tr>
         <td colspan="2">
           <div class="save-btn">
             <button class="btn-hollow btn-lg btn-gray" href="javascript:void(0)">保存</button>
-          <div>
+          </div>
         </td>
       </tr>
       <tr>
-        <td class="title">历史记录</td>
-        <td class="name">基本信息有误</td>
+        <td>历史记录</td>
+        <td>基本信息有误</td>
       </tr>
     </tbody>
   </table>
 </div>
+<script>
+$(function(){
+    $('#user_basic_info').find('label').hide();
+    $('#user_basic_info').find('.select-info').hide();
+    $('.diy-select').diySelect();
+    $('.modify').hover(function(){
+        $(this).find('.edit').css('display','inline-block');
+    },function(){
+        $(this).find('.edit').hide();
+    });
+    $('.modify').on('click','.edit',function(){
+        if($(this).hasClass('input')) {
+          var _string = $(this).siblings('.name').text();
+          $(this).siblings('label').children('.txt').val(_string) ;
+          $(this).siblings('.name').hide();
+          $(this).siblings('label').show();
+          $(this).siblings('label').children('.txt').focus();
+        } else if($(this).hasClass('select')) {
+          $(this).siblings('.name').hide();
+          $(this).siblings('.select-info').show();
+        }
+    });
+    //select 下拉框选择时的效果
+    $('#user_basic_info .diy-select').bind('change', function(event) {
+      /* Act on the event */
+      var _check_text = $(this).find("option:selected").text();
+      $(this).parent().siblings('.name').text(_check_text);
+      $(this).parent().hide();
+      $(this).parent().siblings('.name').show();
+    });
+    //input失去焦点时的样子
+    $('#user_basic_info .txt').blur(function(event) {
+      /* Act on the event */
+      var _value = $(this).val();
+      $(this).parent().siblings('.name').text(_value);
+      $(this).parent().hide();
+      $(this).parent().siblings('.name').show();
+    });
+});
+</script>

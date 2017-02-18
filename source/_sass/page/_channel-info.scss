@@ -42,8 +42,26 @@
       position: absolute;
       top: 0;
       right: 0;
+      z-index: 1;
+      zoom: 1;
     }
     table {
+      .file-content {
+        position: relative;
+        .file {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          cursor: pointer;
+          display: inline-block;
+          width: 140px;
+          height: 36px;
+          line-height: 36px;
+          opacity: 0;
+          filter: alpha(opacity= 0);
+        }
+      }
       .upload-logo,
       .upload-qcode {
         display: block;

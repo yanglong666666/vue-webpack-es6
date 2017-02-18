@@ -138,6 +138,7 @@
 // 业务集中运营平台
 @import "page/verify-list";
 @import "page/verify-info";
+@import "page/contract-detail";
 // 档案管理
 @import "page/_file-collection-scan";
 @import "page/_file-collection-list";
@@ -161,3 +162,4 @@
 
 // Vendor
 @import "jquery-ui";
+@import "select2";

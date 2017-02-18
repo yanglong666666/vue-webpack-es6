@@ -8,6 +8,15 @@
     padding: 10px 0 20px 0px;
     color: #3a3d42;
   }
+  .dialog-content-configure {
+    max-height: 210px;
+    overflow: auto;
+    label {
+      width: auto;
+      display: inline-block;
+      margin-right: 25px;
+    }
+  }
   .dialog-content-channel-select {
     max-height: 400px;
     overflow: auto;
@@ -569,5 +578,66 @@
     .right-img {
       float: right;
     }
+  }
+}
+.dialog-content-photo {
+  .tab {
+    @include clearfix;
+    overflow: hidden;
+    width: 485px;
+    margin: 0 auto;
+    a {
+      text-align: center;
+      border-top: 5px solid #babec7;
+      width: 33.3333%;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      background: #ebeff6;
+      color: #6f7b91;
+      &.active {
+        background: #68D7D8;
+        color: #fff;
+        border-top: 5px solid #3ecacb;
+      }
+    }
+  }
+  .photo-content {
+    width: 485px;
+    margin: 0 auto;
+  }
+  .photo-operate {
+    width: 453px;
+    margin: 0 auto;
+    @include clearfix;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    padding: 5px 15px;
+    border-radius: 0 0 5px 5px;
+    .float-l {
+      float: left;
+      .turn-l,.turn-r {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        width: 21px;
+        height: 23px;
+        margin-right: 15px;
+      }
+      .turn-l {
+        background: url(../images/trans-icon.png) 0 0 no-repeat;
+      }
+      .turn-r {
+        background: url(../images/trans-icon.png) 0px -28px no-repeat;
+      }
+    }
+    .float-r {
+      float: right;
+    }
+  }
+  .info {
+    color: #f00;
+    text-align: center;
+    margin-top: 10px;
   }
 }

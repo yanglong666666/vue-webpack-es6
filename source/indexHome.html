@@ -70,6 +70,11 @@ layout: default-iframe
       </dd>
     </dl>
   </div>
+  <div style="margin-top:10px;">下拉搜索：
+    <select class="js-example-placeholder-single" style="width:250px;line-height: 30px;">
+      <option></option>
+    </select>
+  </div>
   <div class="button-content">
     <button class="btn btn-fill" href="#">查询</button>
   </div>
@@ -250,5 +255,35 @@ layout: default-iframe
     $('#partment_list').diySelect();
     $('#select3').diySelect();
     $('#select4').diySelect();
+    var data = [
+        { id: 0, text: 'enhancement' },
+        { id: 1, text: 'bug' },
+        { id: 2, text: 'duplicate' },
+        { id: 3, text: 'invalid' },
+        { id: 4, text: 'wontfix' },
+        { id: 5, text: 'enhancement' },
+        { id: 6, text: 'bug' },
+        { id: 7, text: 'duplicate' },
+        { id: 8, text: 'invalid' },
+        { id: 9, text: 'wontfix' }
+      ];
+
+      var selt = $(".js-example-placeholder-single").select2({
+        placeholder: "请输入档案名称",
+        data: data,
+        allowClear: true
+      })
+      // 关闭
+      selt.on("select2:close",function(e){
+        console.log("close:" + e);
+      })
+      // 选择（或值有变化时触发）
+      selt.on("select2:select",function(e){
+        console.log(e.params.data.id,e.params.data.text);
+      })
+      // 未选择（清空的时候触发）
+      selt.on("select2:unselect",function(e){
+        // console.log(e.params.data);
+      })
   });
 </script>
