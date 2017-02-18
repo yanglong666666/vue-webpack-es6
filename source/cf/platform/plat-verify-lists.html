@@ -156,44 +156,69 @@ $(function () {
     }
   });
 
+  function PassDialogInit(){
+    var winHtml = $("#js-window1").html();
+    $('.btn-pass').dialog({
+      title: '业务信息审核',
+      content: winHtml,
+      hasBtn: false,
+      width: 900,
+      height: 'auto',
+      padding: '21px 27px 32px 27px',
+      confirm: function (dialog) {
+        dialog.destory();
+      },
+      afterShow: function () {
+
+      }
+    })
+  }
+  function FailedDialogInit(){
+    var winHtml = $("#js-window2").html();
+    $('.btn-fail').dialog({
+      title: '审核项确认',
+      content: winHtml,
+      hasBtn: true,
+      width: 440,
+      height: 'auto',
+      btnText: ['不通过','通过'],
+      padding: '21px 27px 32px 27px',
+      confirm: function (dialog) {
+        dialog.destory();
+      },
+      afterShow: function () {
+
+      }
+    })
+  }
   PassDialogInit();
   FailedDialogInit();
+
+  $('.flip .preview').on('click',function(){
+    var $self = $(this);
+    var $currentItem = $self.siblings('.flip-content').find('.show').eq(0);
+    if($currentItem.length > 0 ){
+      if($currentItem.prev().length > 0){
+        $currentItem.prev().addClass('show');
+      }else {
+        $self.siblings('.flip-content').find('.flip-item').last().addClass('show');
+      }
+      $currentItem.removeClass('show');
+    }
+  });
+  $('.flip .next').on('click',function(){
+    var $self = $(this);
+    var $currentItem = $self.siblings('.flip-content').find('.show').eq(0);
+    if($currentItem.length > 0 ){
+      if($currentItem.next().length > 0){
+        $currentItem.next().addClass('show');
+      }else {
+        $self.siblings('.flip-content').find('.flip-item').eq(0).addClass('show');
+      }
+      $currentItem.removeClass('show');
+    }
+  });
 });
-function PassDialogInit(){
-  var winHtml = $("#js-window1").html();
-  $('.btn-pass').dialog({
-    title: '业务信息审核',
-    content: winHtml,
-    hasBtn: false,
-    width: 900,
-    height: 'auto',
-    padding: '21px 27px 32px 27px',
-    confirm: function (dialog) {
-      dialog.destory();
-    },
-    afterShow: function () {
-
-    }
-  })
-}
-function FailedDialogInit(){
-  var winHtml = $("#js-window2").html();
-  $('.btn-fail').dialog({
-    title: '审核项确认',
-    content: winHtml,
-    hasBtn: true,
-    width: 440,
-    height: 'auto',
-    btnText: ['不通过','通过'],
-    padding: '21px 27px 32px 27px',
-    confirm: function (dialog) {
-      dialog.destory();
-    },
-    afterShow: function () {
-
-    }
-  })
-}
 </script>
 <div class="main-content plat-lists">
   <div class="task-search clearfix">
@@ -293,214 +318,227 @@ function FailedDialogInit(){
 <div class="view-content plat-lists" id="quality-content" style="display: none;">
   <a class="view-back"> << 返回</a>
   <div class="area-wrap">
-    <div class="left-area-wrap">
-      <div class="info-table">
-        <div class="info-table-title">客户基本信息</div>
-        <div class="info-table-content">
+    <div class="flip-wrap">
+      <div class="flip">
+        <i class="preview"></i>
+        <i class="next"></i>
+        <div class="flip-content">
+          <div class="flip-item show">
+            <div class="info-table">
+              <div class="info-table-title">客户基本信息</div>
+              <div class="info-table-content">
 
-          <div class="info-table-colspan">
-            <div class="info-table-item">
-              <div class="info-table-key">
-                客户号
-              </div>
-              <div class="info-table-val">
-                610000173488
-              </div>
-            </div>
-            <div class="info-table-item">
-              <div class="info-table-key">
-                姓名
-              </div>
-              <div class="info-table-val">
-                乾多多
-              </div>
-            </div>
-            <div class="info-table-item">
-              <div class="info-table-key">
-                性别
-              </div>
-              <div class="info-table-val">
-                男
-              </div>
-            </div>
-          </div>
-          <div class="info-table-colspan">
-            <div class="info-table-item">
-              <div class="info-table-key">
-                联系手机
-              </div>
-              <div class="info-table-val">
-                13006312639
-              </div>
-            </div>
-            <div class="info-table-item">
-              <div class="info-table-key">
-                开户营业部
-              </div>
-              <div class="info-table-val">
-                杭州营业部
-              </div>
-            </div>
-            <div class="info-table-item">
-              <div class="info-table-key">
-                开户日期
-              </div>
-              <div class="info-table-val">
-                2016-12-12
-              </div>
-            </div>
-          </div>
-          <div class="info-table-colspan">
-            <div class="info-table-item">
-              <div class="info-table-key">
-                证件号码
-              </div>
-              <div class="info-table-val">
-                420322198809148990
-              </div>
-            </div>
-          </div>
+                <div class="info-table-colspan">
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      客户号
+                    </div>
+                    <div class="info-table-val">
+                      610000173488
+                    </div>
+                  </div>
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      姓名
+                    </div>
+                    <div class="info-table-val">
+                      乾多多
+                    </div>
+                  </div>
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      性别
+                    </div>
+                    <div class="info-table-val">
+                      男
+                    </div>
+                  </div>
+                </div>
+                <div class="info-table-colspan">
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      联系手机
+                    </div>
+                    <div class="info-table-val">
+                      13006312639
+                    </div>
+                  </div>
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      开户营业部
+                    </div>
+                    <div class="info-table-val">
+                      杭州营业部
+                    </div>
+                  </div>
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      开户日期
+                    </div>
+                    <div class="info-table-val">
+                      2016-12-12
+                    </div>
+                  </div>
+                </div>
+                <div class="info-table-colspan">
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      证件号码
+                    </div>
+                    <div class="info-table-val">
+                      420322198809148990
+                    </div>
+                  </div>
+                </div>
 
-        </div>
-      </div>
-      <div class="info-table">
-        <div class="info-table-title">业务操作信息<button class="btn button-null-blue yw-btn" >整改</button><input style="display:none" type="checkbox" name=""></div>
-        <div class="info-table-content">
-          <div class="info-table-colspan clickable">
-            <div class="info-table-item">
-              <div class="info-table-key">
-                <div class="overflow-pop-up">紧急联系人姓名姓名姓名</div>
-              </div>
-              <div class="info-table-val">
-                <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
-              </div>
-            </div>
-            <div class="info-table-item">
-              <div class="info-table-key">
-                紧急联系人电话
-              </div>
-              <div class="info-table-val">
-                费3006312639
-              </div>
-            </div>
-            <div class="info-table-item">
-              <div class="info-table-key">
-                紧急联系人关系
-              </div>
-              <div class="info-table-val">
-                兄弟
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="info-table">
-        <div class="info-table-title">业务信息</div>
-        <div class="info-table-content">
-          <div class="info-table-colspan">
-            <div class="info-table-item item-100p">
-              <div class="info-table-key">结论</div>
-              <div class="info-table-val">
-                新开通创业板，需要五个交易日后开通（或"新开通创业板，需要两个交易日开通"）
+          <div class="flip-item">
+            <div class="info-table">
+              <div class="info-table-title">业务操作信息<button class="btn button-null-blue yw-btn" >整改</button><input style="display:none" type="checkbox" name=""></div>
+              <div class="info-table-content">
+                <div class="info-table-colspan clickable">
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      <div class="overflow-pop-up">紧急联系人姓名姓名姓名</div>
+                    </div>
+                    <div class="info-table-val">
+                      <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                    </div>
+                  </div>
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      紧急联系人电话
+                    </div>
+                    <div class="info-table-val">
+                      费3006312639
+                    </div>
+                  </div>
+                  <div class="info-table-item">
+                    <div class="info-table-key">
+                      紧急联系人关系
+                    </div>
+                    <div class="info-table-val">
+                      兄弟
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="info-table">
+              <div class="info-table-title">业务信息</div>
+              <div class="info-table-content">
+                <div class="info-table-colspan">
+                  <div class="info-table-item item-100p">
+                    <div class="info-table-key">结论</div>
+                    <div class="info-table-val">
+                      新开通创业板，需要五个交易日后开通（或"新开通创业板，需要两个交易日开通"）
+                    </div>
+                  </div>
+                </div>
+                <div class="info-table-colspan">
+                  <div class="info-table-item item-50p">
+                    <div class="info-table-key">风险匹配</div>
+                    <div class="info-table-val">不匹配</div>
+                  </div>
+                  <div class="info-table-item item-50p">
+                    <div class="info-table-key">风险等级</div>
+                    <div class="info-table-val">保守型</div>
+                  </div>
+                </div>
+                <div class="info-table-colspan">
+                  <div class="info-table-item item-50p">
+                    <div class="info-table-key">投资经验</div>
+                    <div class="info-table-val">未满两年</div>
+                  </div>
+                  <div class="info-table-item item-50p">
+                    <div class="info-table-key">首次交易日期</div>
+                    <div class="info-table-val">2015-10-21</div>
+                  </div>
+                </div>
+                <div class="info-table-colspan">
+                  <div class="info-table-item item-100p">
+                    <div class="info-table-key">中等查询原始数据</div>
+                    <div class="info-table-val">
+                      市场类别：深圳 &nbsp;&nbsp;&nbsp;&nbsp;
+                      股东账号：1237564834 &nbsp;&nbsp;&nbsp;&nbsp;
+                      首次交易日期：20150312
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="info-table-colspan">
-            <div class="info-table-item item-50p">
-              <div class="info-table-key">风险匹配</div>
-              <div class="info-table-val">不匹配</div>
-            </div>
-            <div class="info-table-item item-50p">
-              <div class="info-table-key">风险等级</div>
-              <div class="info-table-val">保守型</div>
-            </div>
-          </div>
-          <div class="info-table-colspan">
-            <div class="info-table-item item-50p">
-              <div class="info-table-key">投资经验</div>
-              <div class="info-table-val">未满两年</div>
-            </div>
-            <div class="info-table-item item-50p">
-              <div class="info-table-key">首次交易日期</div>
-              <div class="info-table-val">2015-10-21</div>
-            </div>
-          </div>
-          <div class="info-table-colspan">
-            <div class="info-table-item item-100p">
-              <div class="info-table-key">中等查询原始数据</div>
-              <div class="info-table-val">
-                市场类别：深圳 &nbsp;&nbsp;&nbsp;&nbsp;
-                股东账号：1237564834 &nbsp;&nbsp;&nbsp;&nbsp;
-                首次交易日期：20150312
+          <div class="flip-item">
+            <div class="info-table info-table-file">
+              <div class="info-table-title">业务凭证</div>
+              <div class="info-table-content">
+                <div class="info-table-colspan clickenable">
+                  <div class="info-table-item">
+                    <div class="info-table-key"><span>客户现场头像照片</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
+                    <div class="info-table-val">
+                      <img src="../../images/license.jpg" class="file-obj">
+                    </div>
+                  </div>
+                </div>
+                <div class="info-table-colspan clickenable">
+                  <div class="info-table-item">
+                    <div class="info-table-key"><span>客户身份证扫描件</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
+                    <div class="info-table-val">
+                      <img src="../../images/license.jpg" class="file-obj">
+                    </div>
+                  </div>
+                </div>
+                <div class="info-table-colspan clickenable">
+                  <div class="info-table-item">
+                    <div class="info-table-key"><span>风险评测签字电子档</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
+                    <div class="info-table-val">
+                      <img src="../../images/license.jpg" class="file-obj">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="info-table info-table-file">
-        <div class="info-table-title">业务凭证</div>
-        <div class="info-table-content">
-          <div class="info-table-colspan clickenable">
-            <div class="info-table-item">
-              <div class="info-table-key"><span>客户现场头像照片</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
-              <div class="info-table-val">
-                <img src="../../images/license.jpg" class="file-obj">
-              </div>
-            </div>
-          </div>
-          <div class="info-table-colspan clickenable">
-            <div class="info-table-item">
-              <div class="info-table-key"><span>客户身份证扫描件</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
-              <div class="info-table-val">
-                <img src="../../images/license.jpg" class="file-obj">
-              </div>
-            </div>
-          </div>
-          <div class="info-table-colspan clickenable">
-            <div class="info-table-item">
-              <div class="info-table-key"><span>风险评测签字电子档</span><button class="btn button-null-blue  buttom-modst" href="#">整改</button></div>
-              <div class="info-table-val">
-                <img src="../../images/license.jpg" class="file-obj">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="flip-item">
+            <div class="info-table">
+              <div class="info-table-title">档案流水<button class="btn button-null-blue ls-btn">整改</button></div>
+              <div class="main-table">
+                <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                  <thead>
+                  <tr>
+                    <th width="20%" class="left10">时间</th>
+                    <th width="15%">流水类型</th>
+                    <th width="15%">操作人</th>
+                    <th width="50%">描述</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td class="left10">2015-10-21 10:22</td>
+                    <td>档案禫</td>
+                    <td>王大锤</td>
+                    <td>质检补录审核通过</td>
+                  </tr>
+                  <tr>
+                    <td class="left10">2015-10-21 10:22</td>
+                    <td>档案禫</td>
+                    <td>王大锤</td>
+                    <td>质检补录审核通过</td>
+                  </tr>
+                  <tr>
+                    <td class="left10">2015-10-21 10:22</td>
+                    <td>档案禫</td>
+                    <td>王大锤</td>
+                    <td>[前台费用=1201->默认互换费用属性];[后台费用=默认互换费用属性->0002];[场内基金=默认互换费用属性->2002];[基金盘后折扣=0001->默认互换费用属性];[大宗交易费用=默认互换费用属性->2002];[融资融券后台费用=0000->默认互换费用属性];[融资融券回购费用=0000->默认互换费用属性];[融资融券基金费用=0000->默认互换费用属性];[全国股转费用=1108->2002];[prodswapfare_kind=-</td>
+                  </tr>
 
-      <div class="info-table">
-        <div class="info-table-title">档案流水<button class="btn button-null-blue ls-btn">整改</button></div>
-        <div class="main-table">
-          <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
-            <thead>
-            <tr>
-              <th width="20%" class="left10">时间</th>
-              <th width="15%">流水类型</th>
-              <th width="15%">操作人</th>
-              <th width="50%">描述</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td class="left10">2015-10-21 10:22</td>
-              <td>档案禫</td>
-              <td>王大锤</td>
-              <td>质检补录审核通过</td>
-            </tr>
-            <tr>
-              <td class="left10">2015-10-21 10:22</td>
-              <td>档案禫</td>
-              <td>王大锤</td>
-              <td>质检补录审核通过</td>
-            </tr>
-            <tr>
-              <td class="left10">2015-10-21 10:22</td>
-              <td>档案禫</td>
-              <td>王大锤</td>
-              <td>[前台费用=1201->默认互换费用属性];[后台费用=默认互换费用属性->0002];[场内基金=默认互换费用属性->2002];[基金盘后折扣=0001->默认互换费用属性];[大宗交易费用=默认互换费用属性->2002];[融资融券后台费用=0000->默认互换费用属性];[融资融券回购费用=0000->默认互换费用属性];[融资融券基金费用=0000->默认互换费用属性];[全国股转费用=1108->2002];[prodswapfare_kind=-</td>
-            </tr>
-
-            </tbody>
-          </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
