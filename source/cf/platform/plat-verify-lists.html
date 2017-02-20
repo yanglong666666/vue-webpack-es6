@@ -218,6 +218,12 @@ $(function () {
       $currentItem.removeClass('show');
     }
   });
+
+  //人员信息tab切换
+  $('.tab-wrap .tab').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
+    $(this).parent().siblings('.tab-content').find('.tab-item').hide().eq($(this).index()).show();
+  });
 });
 </script>
 <div class="main-content plat-lists">
@@ -398,29 +404,210 @@ $(function () {
             <div class="info-table">
               <div class="info-table-title">业务操作信息<button class="btn button-null-blue yw-btn" >整改</button><input style="display:none" type="checkbox" name=""></div>
               <div class="info-table-content">
-                <div class="info-table-colspan clickable">
-                  <div class="info-table-item">
-                    <div class="info-table-key">
-                      <div class="overflow-pop-up">紧急联系人姓名姓名姓名</div>
-                    </div>
-                    <div class="info-table-val">
-                      <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                <div class="tab-wrap">
+                  <div class="tab active">法人代表</div>
+                  <div class="tab">联系人</div>
+                  <div class="tab">负责人</div>
+                  <div class="tab">控股股东</div>
+                  <div class="tab">经办人</div>
+                  <div class="tab">合伙人</div>
+                  <div class="tab">代理人</div>
+                </div>
+                <div class="tab-content">
+                  <div class="tab-item">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">姓名姓名姓名姓名姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="info-table-item">
-                    <div class="info-table-key">
-                      紧急联系人电话
-                    </div>
-                    <div class="info-table-val">
-                      费3006312639
+                  <div class="tab-item" style="display: none;">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">联系人姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="info-table-item">
-                    <div class="info-table-key">
-                      紧急联系人关系
+                  <div class="tab-item" style="display: none;">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">负责人姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
                     </div>
-                    <div class="info-table-val">
-                      兄弟
+                  </div>
+                  <div class="tab-item" style="display: none;">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">控股股东姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-item" style="display: none;">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">经办人姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-item" style="display: none;">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">合伙人姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-item" style="display: none;">
+                    <div class="info-table-colspan clickable">
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          <div class="overflow-pop-up">代理人姓名</div>
+                        </div>
+                        <div class="info-table-val">
+                          <div class="overflow-pop-down">王大锤王大锤王大锤王大锤王大锤</div>
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人电话
+                        </div>
+                        <div class="info-table-val">
+                          费3006312639
+                        </div>
+                      </div>
+                      <div class="info-table-item">
+                        <div class="info-table-key">
+                          紧急联系人关系
+                        </div>
+                        <div class="info-table-val">
+                          兄弟
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
