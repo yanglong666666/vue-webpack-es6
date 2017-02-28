@@ -131,6 +131,15 @@
         }
       }
     }
+    .tab-title {
+      line-height: 36px;
+      font-size: 14px;
+      text-align: left;
+      padding: 0 10px;
+      border: solid #ebebeb;
+      border-width: 1px 0;
+      font-weight: 600;
+    }
     .info-table-colspan {
       border-bottom: solid 1px $bg-color;
       .info-table-item {
