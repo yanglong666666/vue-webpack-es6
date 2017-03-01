@@ -209,9 +209,11 @@
       }
       .info-table-val {
         position: relative;
+        padding-right: 40px;
         &:after {
           content: "需整改";
           position: absolute;
+          top: 0;
           right: 5px;
           color: red;
         }
