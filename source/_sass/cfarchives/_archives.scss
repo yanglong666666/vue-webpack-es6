@@ -208,8 +208,8 @@
         background: #ccc;
       }
       .info-table-val {
-        position: relative;
-        padding-right: 40px;
+        position: relative !important;
+        padding-right: 40px !important;
         &:after {
           content: "需整改";
           position: absolute;
