@@ -1475,23 +1475,20 @@ input[type="text"]{
 .flip-wrap {
   margin-right: 250px;
   border: solid 1px #ebebeb;
-  overflow: hidden;
   height: 100%;
   position: relative;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .flip {
   padding: 20px 50px;
   min-height: 56px;
-  height: 100%;
   @include box-sizing(border-box);
-  overflow: hidden;
-  overflow-y: scroll;
   .preview,.next {
     width: 36px;
     height: 36px;
     position: absolute;
-    top: 50%;
-    margin-top: -18px;
+    top: 360px;
     cursor: pointer;
   }
   .preview {
@@ -1500,7 +1497,7 @@ input[type="text"]{
     background-size: 100%;
   }
   .next {
-    right: 24px;
+    right: 7px;
     background: url(../images/sprite/filecheck/file-check.png) no-repeat 0 0;
     background-size: 100%;
   }
