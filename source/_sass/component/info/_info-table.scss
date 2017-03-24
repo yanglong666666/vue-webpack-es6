@@ -218,31 +218,43 @@
   }
   &.info-table-file {
     .info-table-colspan {
-      height: 120px;
+      min-height: 120px;
       &:last-child {
 
       }
       .info-table-item {
-        width: 100% !important;
-        height: 100%;
+        display: block;
+        position: relative;
+        margin: 0;
+        width: inherit;
+        .info-table-key {
+          width: 20%;
+          position: absolute !important;
+          top: 0;
+          bottom: 0;
+          white-space: normal;
+          line-height: 20px;
+          padding: 10px;
+        }
+        .info-table-val {
+          margin: 0 0 0 20%;
+          display: block;
+          width: inherit;
+          white-space: normal;
+          line-height: 1;
+          padding: 0 10px 10px;
+          overflow: hidden;
+        }
+        .file-obj {
+          height: 100px;
+          max-width: 100%;
+          margin: 10px 10px 0 0;
+          padding: 0;
+          display: inline-block;
+          @include box-sizing(border-box);
+        }
       }
-      .info-table-key {
-        width: 20% !important;
-        height: 100%;
-        line-height: 120px !important;;
-      }
-      .info-table-val {
-        height: 100%;
-        line-height: 100px !important;;
-        width: 80% !important;
-      }
-      .file-obj {
-        height: 100%;
-        max-width: 100%;
-        padding: 0;
-        display: inline-block;
-        @include box-sizing(border-box);
-      }
+
     }
   }
 
