@@ -13,11 +13,11 @@ build:
     - public/
     expire_in: 2 weeks
   only:
-    - cf-sbc-background
+    - caitong-financial-product
 
 deploy:
   stage: deploy
   script:
-    - find public -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://192.168.1.211/cf-sbc-background/{} \;
+    - find public -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://192.168.1.211/caitong-financial-product/{} \;
   only:
-    - cf-sbc-background
+    - caitong-financial-product
