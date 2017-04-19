@@ -1,0 +1,54 @@
+.block-container{
+	background:#f5f5f5;
+	padding:30px;
+	width:100%;
+	margin-bottom:15px;
+	.block-items{
+		display:inline-block;
+		.item-name,.item-dec,.item-val{
+			margin-right: 10px;
+			display: inline-block;
+			font-size: 16px;
+		}
+		.item-dec{
+
+		}
+		.item-val{
+			color:#f1374d;
+			font-size: 18px;
+		    font-weight: bold;
+		}
+	}
+	.block-items-50{
+		width:49.5%;
+		li{
+			display:inline-block;
+			&:nth-child(1){
+				width:35%;
+				text-align: left;
+			}
+			&:nth-child(2){
+				width:34%;
+				text-align: left;
+			}
+			&:nth-child(3){
+				width:29%;
+				text-align: center;
+			}
+		}
+	}
+	.block-items-33{
+		width: 33% ;
+		li{
+			display:inline-block;
+			&:nth-child(1){
+				width:55%;
+				text-align: left;
+			}
+			&:nth-child(2){
+				width:44%;
+				text-align: left;
+			}
+		}
+	}
+}

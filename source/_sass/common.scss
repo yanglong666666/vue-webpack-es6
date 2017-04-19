@@ -599,6 +599,9 @@ input[type="text"]{
       outline: none;
       @include border-radius(3px);
     }
+    &.small-input {
+      width:128px;
+    }
   }
 }
 
@@ -962,6 +965,22 @@ input[type="text"]{
   }
 }
 .dialog-item-wrap {
+  .dialog-item-border{
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:0px 20px 30px;
+    margin-bottom:50px;
+    margin-top:10px;
+  }
+  .dialog-item-box-title{
+    margin-bottom:30px;
+    line-height: 36px;
+    background: #e8e9ed;
+    margin-left: -20px;
+    padding-left: 20px;
+    margin-right: -20px;
+    margin-top:-1px;
+  }
   .dialog-item {
     padding-left: 40px;
     margin: 12px 0;

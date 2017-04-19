@@ -1,0 +1,221 @@
+---
+title: 信息发布
+layout: default-iframe
+---
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect();
+
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'1990:2016'
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'1900:2016'
+    });
+
+  });
+</script>
+<div class="main-content">
+  <div class="block-container">
+    <ul class="block-items block-items-33">
+      <li><span class="item-name">近两周开放:</span><span class="item-val">22</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+    <ul class="block-items block-items-33">
+      <li><span class="item-name">近两周销售:</span><span class="item-val">20</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+    <ul class="block-items block-items-33">
+      <li><span class="item-name">近两周到期:</span><span class="item-val">20</span></li>      
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+  </div>
+  <div class="task-search clearfix">
+    <button class="btn  btn-lg btn-float-right" href="#">搜索</button>
+    <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
+    <button class="btn btn-small btn-primary btn-simple btn-float-right" href="#">新增</button>
+    
+     <dl class="search-dl">
+        <dd>
+          <span class="pre"></span>
+          <label>
+            <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+            <i></i>
+          </label>
+          <span class="pre">至</span>
+          <label>
+            <input class="txt end-time" type="text" placeholder="截止时间" readonly />
+            <i></i>
+          </label>
+        </dd>
+      </dl>
+      <dl class="search-dl">
+        <dd>
+          <span>
+            <select id="select1" class="diy-select">
+              <option selected>产品类型</option>
+              <option value="1">基金类</option>
+              <option value="2">股票类</option>
+            </select>
+          </span>
+        </dd>
+      </dl>
+      <input type="text" class="aql-input small-input" placeholder="产品代码">
+
+      <input type="text" class="aql-input small-input" placeholder="产品名称">
+      
+  </div>
+  <div class="main-table clearfix">
+    <div class="scroll-table">
+      <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+        <thead>
+          <tr>
+            <th width="10%">姓名</th>
+            <th width="10%">手机号</th>
+            <th width="10%">任务类型</th>
+            <th width="20%">业绩提成标准(年化)</th>
+            <th width="10%">期限</th>
+            <th width="10%">最新净值</th>
+            <th width="10%">实际管理人</th>
+            <th width="10%">投资经理</th>
+            <th width="10%">认/申购起点(元)</th>
+            <th width="10%">产品特点</th>
+            <th width="10%">发行规模</th>
+            <th width="10%">人数控制</th>
+            <th width="10%">操作柜员姓名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>张三</td>
+            <td>18677777777</td>
+            <td>开户审核</td>
+            <td>这里是一段详细的描述</td>
+            <td>2年</td>
+            <td>1.0332</td>
+            <td>张三</td>
+            <td>李四</td>
+            <td>500万</td>
+            <td>没有特点</td>
+            <td>20000万</td>
+            <td>400人</td>
+            <td>李四</td>
+          </tr>
+          <tr class="even">
+            <td>张三</td>
+            <td>18677777777</td>
+            <td>开户审核</td>
+            <td>这里是一段详细的描述</td>
+            <td>2年</td>
+            <td>1.0332</td>
+            <td>张三</td>
+            <td>李四</td>
+            <td>500万</td>
+            <td>没有特点</td>
+            <td>20000万</td>
+            <td>400人</td>
+            <td>李四</td>
+          </tr>
+          <tr>
+            <td>张三</td>
+            <td>18677777777</td>
+            <td>开户审核</td>
+            <td>这里是一段详细的描述</td>
+            <td>2年</td>
+            <td>1.0332</td>
+            <td>张三</td>
+            <td>李四</td>
+            <td>500万</td>
+            <td>没有特点</td>
+            <td>20000万</td>
+            <td>400人</td>
+            <td>李四</td>
+          </tr>
+          <tr class="even">
+            <td>张三</td>
+            <td>18677777777</td>
+            <td>开户审核</td>
+            <td>这里是一段详细的描述</td>
+            <td>2年</td>
+            <td>1.0332</td>
+            <td>张三</td>
+            <td>李四</td>
+            <td>500万</td>
+            <td>没有特点</td>
+            <td>20000万</td>
+            <td>400人</td>
+            <td>李四</td>
+          </tr>
+          <tr>
+            <td>张三</td>
+            <td>18677777777</td>
+            <td>开户审核</td>
+            <td>这里是一段详细的描述</td>
+            <td>2年</td>
+            <td>1.0332</td>
+            <td>张三</td>
+            <td>李四</td>
+            <td>500万</td>
+            <td>没有特点</td>
+            <td>20000万</td>
+            <td>400人</td>
+            <td>李四</td>
+          </tr>
+          <tr class="even">
+            <td>张三</td>
+            <td>18677777777</td>
+            <td>开户审核</td>
+            <td>这里是一段详细的描述</td>
+            <td>2年</td>
+            <td>1.0332</td>
+            <td>张三</td>
+            <td>李四</td>
+            <td>500万</td>
+            <td>没有特点</td>
+            <td>20000万</td>
+            <td>400人</td>
+            <td>李四</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fixed-table">
+      <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+        <thead>
+          <tr>
+            <th class="text-c">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="even">
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+          </tr>
+          <tr>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+          </tr>
+          <tr class="even">
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+          </tr>
+          <tr>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+          </tr>
+          <tr class="even">
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+          </tr>
+          <tr>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% include component/pagenav-cf.html %}
+</div>

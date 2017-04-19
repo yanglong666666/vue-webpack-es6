@@ -1,0 +1,157 @@
+---
+title: 产品引入
+layout: default-iframe
+---
+<script type="text/javascript">
+  $(function () {
+    $('#select1').diySelect();
+    $('#select2').diySelect();
+
+    $('.begin-time').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time').datepicker( "option", "minDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'1990:2016'
+    });
+    $('.end-time').datepicker({
+      onClose: function( selectedDate ) {
+          $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'1900:2016'
+    });
+
+  });
+</script>
+<div class="main-content">
+  <div class="block-container">
+    <ul class="block-items block-items-50">
+      <li><span class="item-name">产品引入:</span><span class="item-dec">总量</span><span class="item-val">22</span></li>
+      <li><span class="item-name">审核中:</span><span class="item-val">2</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+    <ul class="block-items block-items-50">
+      <li><span class="item-name">产品引入:</span><span class="item-dec">总量</span><span class="item-val">22</span></li>
+      <li><span class="item-name">审核中:</span><span class="item-val">2</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+  </div>
+  <div class="task-search clearfix">
+    <button class="btn btn-small btn-lg btn-float-right" href="#">搜索</button>
+    <button class="btn btn-primary btn-simple btn-float-right" href="#">新增</button>
+    
+     <dl class="search-dl">
+        <dd>
+          <span class="pre"></span>
+          <label>
+            <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+            <i></i>
+          </label>
+          <span class="pre">至</span>
+          <label>
+            <input class="txt end-time" type="text" placeholder="截止时间" readonly />
+            <i></i>
+          </label>
+        </dd>
+      </dl>
+      <dl class="search-dl">
+        <dd>
+          <span>
+            <select id="select2" class="diy-select">
+              <option selected="">审核状态</option>
+              <option value="1">产品资料审核中</option>
+              <option value="2">用印审核中</option>
+              <option value="3">营销方案审核中</option>
+              <option value="4">审核成功</option>
+              <option value="5">审核失效</option>
+            </select>
+          </span>
+        </dd>
+      </dl>
+      <dl class="search-dl">
+        <dd>
+          <span>
+            <select id="select1" class="diy-select">
+              <option selected>发行人</option>
+              <option value="1">发行人1</option>
+            </select>
+          </span>
+        </dd>
+      </dl>
+      <input type="text" class="aql-input small-input" placeholder="产品名称">
+      
+  </div>
+  <div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+      <thead>
+      <tr>
+        <th width="10%">产品序号</th>
+        <th width="20%">登记日期</th>
+        <th width="10%">产品内码</th>
+        <th width="10%">产品代码</th>
+        <th width="10%">产品名称</th>
+        <th width="10%">发行人</th>
+        <th width="10%">操作员</th>
+        <th width="10%">审核状态</th>
+        <th width="10%" class="text-c">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>2017-03-06 10:01</td>
+          <td>CT180008</td>
+          <td>无</td>
+          <td>资管集合计划</td>
+          <td>财通资管</td>
+          <td>大象</td>
+          <td>用印审核中</td>
+          <td class="text-c">
+            <a href="javascript:void(0)" class="btn btn-fill btn-small">处理</a>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>001</td>
+          <td>2017-03-06 10:01</td>
+          <td>CT180008</td>
+          <td>无</td>
+          <td>资管集合计划</td>
+          <td>财通资管</td>
+          <td>大象</td>
+          <td>用印审核中</td>
+          <td class="text-c">
+            <a href="javascript:void(0)" class="btn btn-fill btn-small">处理</a>
+          </td>
+        </tr>
+        <tr class="">
+          <td>001</td>
+          <td>2017-03-06 10:01</td>
+          <td>CT180008</td>
+          <td>无</td>
+          <td>资管集合计划</td>
+          <td>财通资管</td>
+          <td>大象</td>
+          <td>用印审核中</td>
+          <td class="text-c">
+            <a href="javascript:void(0)" class="btn btn-fill btn-small">处理</a>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>001</td>
+          <td>2017-03-06 10:01</td>
+          <td>CT180008</td>
+          <td>无</td>
+          <td>资管集合计划</td>
+          <td>财通资管</td>
+          <td>大象</td>
+          <td>用印审核中</td>
+          <td class="text-c">
+            <a href="javascript:void(0)" class="btn btn-fill btn-small">处理</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {% include component/pagenav-cf.html %}
+</div>

@@ -249,6 +249,11 @@ $table-border-color: #3f88cc !default;
   }
   .fixed-table {
     width: 10%;
+    .data-table{
+       tbody td{
+          padding:9px 7px;
+       }
+    }
   }
   label.table-check{
     width: auto;

@@ -146,8 +146,16 @@ $btn-color-gray: #7d7d7d;
   background-color: $btn-color-gray;
   border: 1px solid $btn-color-gray;
 }
-
-
+.btn-simple{
+  border:none;
+  background:transparent;
+}
+.btn-float-left{
+  float:left;
+}
+.btn-float-right{
+  float:right;
+}
 
 //btn大小
 .btn-more-lg {

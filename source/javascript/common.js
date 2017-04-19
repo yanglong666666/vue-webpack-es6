@@ -42,7 +42,7 @@ var go_url = function (href, param, name) {
     '<div class="form-group">',
     '标签不能超过七个，请关闭其他标签',
     '</div>'].join('');
-  if (li_all.length >= 7) {
+  if (li_all.length >= 100) {
     var dailog = new Dialog(null, {
       title: '提示',
       content: contentHtml,
