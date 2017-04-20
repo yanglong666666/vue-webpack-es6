@@ -144,7 +144,13 @@
     min-width: 70px;
   }
 }
-
+.page-footer-button-container{
+  text-align: left;
+  margin-left: 165px;
+  .btn{
+    margin-right:10px;
+  }
+}
 .ui-reason-content {
   border: 1px solid #f0f5fb;
   padding: 10px 0;
@@ -966,20 +972,32 @@ input[type="text"]{
 }
 .dialog-item-wrap {
   .dialog-item-border{
-    border:1px solid #ccc;
+    border:1px solid #e5e5e5;
     border-radius:3px;
-    padding:0px 20px 30px;
     margin-bottom:50px;
     margin-top:10px;
   }
   .dialog-item-box-title{
-    margin-bottom:30px;
     line-height: 36px;
     background: #e8e9ed;
-    margin-left: -20px;
     padding-left: 20px;
-    margin-right: -20px;
     margin-top:-1px;
+  }
+  .dialog-item-box-body{
+    margin:30px 0;
+    .dialog-item{
+      .dialog-left{
+        width:180px;
+      }
+      .dialog-right{
+          margin-left:184px;
+        }
+      .w50p{
+        .dialog-right{
+          margin-left:204px;
+        }
+      }
+    }
   }
   .dialog-item {
     padding-left: 40px;
@@ -1211,6 +1229,12 @@ input[type="text"]{
         padding: 4px 0;
         &.checkAll-item {
           display: block;
+        }
+      }
+      .checkout-block{
+        display:block;
+        .checkbox-declare{
+          width:auto;
         }
       }
       .btn-declare {

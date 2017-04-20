@@ -56,6 +56,31 @@
   }
 
 }
+// 新tab 
+// write by ws 2017-04-19
+.tabs-items{
+  display: table;
+  .tab-option{
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    border-right: 1px solid #e5e5e5;
+    &.on{
+      color:#f1374d;
+      border-bottom: 1px solid #fff;
+      font-weight:bold;
+    }
+  }
+}
+.option-space{
+    position: absolute;
+    border-bottom: 1px solid #e5e5e5;
+    left: 0;
+    top: 14px;
+    z-index: -1;
+    width: 100%;
+  }
 .tabs-body {
   .tabs-content {
     display: none;
