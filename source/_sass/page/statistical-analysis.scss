@@ -1,0 +1,14 @@
+.topTitle {
+    padding: 10px 20px;
+    line-height: 1;
+    border-bottom: solid 1px $border-color;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+        color: #999;
+    }
+}

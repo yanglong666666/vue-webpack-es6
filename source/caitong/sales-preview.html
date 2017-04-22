@@ -1,0 +1,466 @@
+---
+title: 产品预告
+layout: default-iframe
+class: sales-preview
+---
+<script type="text/javascript">
+    $(function () {
+        $('#select1').diySelect();
+        $('#select2').diySelect();
+        $('#select01').diySelect();
+        $('#select02').diySelect();
+        $('#select03').diySelect();
+        $('#select04').diySelect();
+        $('#select05').diySelect();
+        $('#select06').diySelect();
+        $('#select11').diySelect();
+
+        $('.begin-time').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            yearRange: '1990:2016'
+        });
+
+        $('.btn-group').on('mouseover', function() {
+            $(this).find('.sub-group').show();
+        }).on('mouseout', function() {
+            $(this).find('.sub-group').hide();
+        });
+
+        $('#btnImport').on('click', function () {
+            var btnImportDialog = new Dialog(null, {
+                content: '<div style="padding: 20px 0;text-align: center;">导入成功</div>',
+                title: '温馨提示',
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["确定"],
+                btnRole: ['confirm'],
+                btnCls: ['confirm'],
+                confirm: function () {
+                    //确定按钮事件
+                    btnImportDialog.destroy();
+                }
+            });
+        });
+
+
+        $('#btnAdd').on('click',function(){
+            $('.add-wrap').show();
+            $('.main-content').hide();
+        });
+        $('#addBtnCancel').on('click',function(){
+            $('.add-wrap').hide();
+            $('.main-content').show();
+        });
+
+        $('.tableBtnCheck').on('click',function(){
+            $('.details-wrap').show();
+            $('.main-content').hide();
+        });
+        $('#detailsBtnCancel').on('click',function(){
+            $('.details-wrap').hide();
+            $('.main-content').show();
+        });
+
+
+
+    });
+</script>
+<div class="page-sales-preview">
+    <div class="main-content">
+        <div class="block-container">
+            <ul class="block-items block-items-33">
+                <li><span class="item-name">近两周开放:</span><span class="item-val">22</span></li>
+                <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+            </ul>
+            <ul class="block-items block-items-33">
+                <li><span class="item-name">近两周销售:</span><span class="item-val">20</span></li>
+                <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+            </ul>
+            <ul class="block-items block-items-33">
+                <li><span class="item-name">近两周到期:</span><span class="item-val">20</span></li>
+                <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+            </ul>
+        </div>
+        <div class="task-search clearfix">
+            <button class="btn btn-float-right" href="#">搜索</button>
+            <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnExport" href="#">导出</button>
+            <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnImport" href="#">导入产品模板</button>
+            <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd" href="#">新增</button>
+            <dl class="search-dl">
+                <dd>
+          <span>
+            <select id="select2" class="diy-select">
+                <option selected>产品状态</option>
+                <option value="1">基金类</option>
+                <option value="2">股票类</option>
+            </select>
+          </span>
+                </dd>
+            </dl>
+            <dl class="search-dl">
+                <dd>
+                    <span class="pre"></span>
+                    <label>
+                        <input class="txt begin-time" type="text" placeholder="选择日期" readonly/>
+                        <i></i>
+                    </label>
+                </dd>
+            </dl>
+            <dl class="search-dl">
+                <dd>
+          <span>
+            <select id="select1" class="diy-select">
+                <option selected>产品类型</option>
+                <option value="1">基金类</option>
+                <option value="2">股票类</option>
+            </select>
+          </span>
+                </dd>
+            </dl>
+            <input type="text" class="aql-input small-input" placeholder="产品代码">
+
+            <input type="text" class="aql-input small-input" placeholder="产品名称">
+
+        </div>
+        <div class="main-table clearfix">
+            <div class="scroll-table">
+                <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                    <thead>
+                    <tr>
+                        <th width="10%">序号</th>
+                        <th width="10%">日期</th>
+                        <th width="10%">产品类型</th>
+                        <th width="10%">产品名称</th>
+                        <th width="10%">产品代码</th>
+                        <th width="10%">产品风险等级</th>
+                        <th width="10%">销售日期</th>
+                        <th width="10%">最近开放日期</th>
+
+                        <th width="20%">业绩提成标准(年化)</th>
+                        <th width="10%">期限</th>
+                        <th width="10%">最新净值</th>
+                        <th width="10%">实际管理人</th>
+                        <th width="10%">投资经理</th>
+                        <th width="10%">认/申购起点(元)</th>
+                        <th width="10%">产品特点</th>
+                        <th width="10%">发行规模</th>
+                        <th width="10%">人数控制</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="red">
+                        <td>001</td>
+                        <td>2017-03-24</td>
+                        <td>货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2017-03-24</td>
+                        <td>2017-03-24</td>
+
+                        <td>这里是一段话描述业绩提成基准</td>
+                        <td>2年</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>刘黎敏</td>
+                        <td>100万</td>
+                        <td>特点</td>
+                        <td>2000万</td>
+                        <td>2000万300人</td>
+                    </tr>
+                    <tr class="even">
+                        <td>001</td>
+                        <td>2017-03-24</td>
+                        <td>货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2017-03-24</td>
+                        <td>2017-03-24</td>
+
+                        <td>这里是一段话描述业绩提成基准</td>
+                        <td>2年</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>刘黎敏</td>
+                        <td>100万</td>
+                        <td>特点</td>
+                        <td>2000万</td>
+                        <td>2000万300人</td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>2017-03-24</td>
+                        <td>货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2017-03-24</td>
+                        <td>2017-03-24</td>
+
+                        <td>这里是一段话描述业绩提成基准</td>
+                        <td>2年</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>刘黎敏</td>
+                        <td>100万</td>
+                        <td>特点</td>
+                        <td>2000万</td>
+                        <td>2000万300人</td>
+                    </tr>
+                    <tr class="even">
+                        <td>001</td>
+                        <td>2017-03-24</td>
+                        <td>货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2017-03-24</td>
+                        <td>2017-03-24</td>
+
+                        <td>这里是一段话描述业绩提成基准</td>
+                        <td>2年</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>刘黎敏</td>
+                        <td>100万</td>
+                        <td>特点</td>
+                        <td>2000万</td>
+                        <td>2000万300人</td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>2017-03-24</td>
+                        <td>货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2017-03-24</td>
+                        <td>2017-03-24</td>
+
+                        <td>这里是一段话描述业绩提成基准</td>
+                        <td>2年</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>刘黎敏</td>
+                        <td>100万</td>
+                        <td>特点</td>
+                        <td>2000万</td>
+                        <td>2000万300人</td>
+                    </tr>
+                    <tr class="even">
+                        <td>001</td>
+                        <td>2017-03-24</td>
+                        <td>货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2017-03-24</td>
+                        <td>2017-03-24</td>
+
+                        <td>这里是一段话描述业绩提成基准</td>
+                        <td>2年</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>刘黎敏</td>
+                        <td>100万</td>
+                        <td>特点</td>
+                        <td>2000万</td>
+                        <td>2000万300人</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="fixed-table">
+                <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                    <thead>
+                    <tr>
+                        <th class="text-c">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a></td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a></td>
+                    </tr>
+                    <tr>
+                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a></td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a></td>
+                    </tr>
+                    <tr>
+                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a></td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% include component/pagenav-cf.html %}
+    </div>
+    <div class="dialog-item-wrap add-wrap" style="display: none;">
+        <div class="dialog-item-border">
+            <div class="dialog-item-box-title">
+                选择登记的产品类型
+            </div>
+            <div class="dialog-item-box-body">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">按产品发行方或产品管理人分</div>
+                        <div class="dialog-right">
+                            <select id="select01" class="diy-select">
+                                <option value="" selected>请选择</option>
+                                <option value="1">收益凭证</option>
+                                <option value="2">信托产品</option>
+                                <option value="3">信托产品</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">按产品风险等级分</div>
+                        <div class="dialog-right">
+                            <select id="select02" class="diy-select">
+                                <option value="" selected>请选择</option>
+                                <option value="1">高风险</option>
+                                <option value="2">中高风险</option>
+                                <option value="3">中风险</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">按产品类型分</div>
+                        <div class="dialog-right">
+                            <select id="select03" class="diy-select">
+                                <option value="" selected>请选择</option>
+                                <option value="1">货币类</option>
+                                <option value="2">权益基金类</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">按产品系列分</div>
+                        <div class="dialog-right">
+                            <select id="select04" class="diy-select">
+                                <option value="" selected>请选择</option>
+                                <option value="1">创新</option>
+                                <option value="2">定增</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">按产品来源分</div>
+                        <div class="dialog-right">
+                            <select id="select05" class="diy-select">
+                                <option value="" selected>请选择</option>
+                                <option value="1">内部1</option>
+                                <option value="2">内部2</option>
+                                <option value="3">财通资管公募</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">按投资方向分</div>
+                        <div class="dialog-right">
+                            <select id="select06" class="diy-select">
+                                <option value="" selected>请选择</option>
+                                <option value="1">债券</option>
+                                <option value="2">货币</option>
+                                <option value="3">财指数</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-content page-footer-button-container">
+            <button class="btn btn-fill">下一步</button>
+            <button class="btn btn-gray" id="addBtnCancel">取消</button>
+        </div>
+    </div>
+    <div class="dialog-item-wrap details-wrap" style="display: none;">
+        <div class="dialog-item-border" style="position: relative">
+            <div class="dialog-item-box-body">
+                <div class="tabs-body">
+                    <div class="tabs-content on">
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品代码</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品名称</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品风险等级</div>
+                                <div class="dialog-right">
+                                    <select name="" id="select11" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">高级</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">业绩提成基准(年化)</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">最新净值</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">期限</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">最近开放日期</div>
+                                <div class="dialog-right">
+                                    <input class="dialog-input" placeholder="系统先根据期限算，可修改" value="">
+                                    <a>等待计算</a>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">销售日期</div>
+                                <div class="dialog-right">
+                                    <input class="dialog-input" type="text" placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-content page-footer-button-container">
+            <button class="btn btn-fill">下一步</button>
+            <button class="btn btn-gray" id="detailsBtnCancel">取消</button>
+        </div>
+    </div>
+
+
+</div>

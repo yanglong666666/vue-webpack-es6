@@ -56,7 +56,7 @@
   }
 
 }
-// 新tab 
+// 新tab
 // write by ws 2017-04-19
 .tabs-items{
   display: table;
@@ -84,6 +84,7 @@
 .tabs-body {
   .tabs-content {
     display: none;
+    position: relative;
     &.on {
       display: block;
     }

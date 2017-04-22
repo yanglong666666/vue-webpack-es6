@@ -28,7 +28,6 @@ $table-border-color: #3f88cc !default;
 
 .main-table {
   position: relative;
-  width: 100%;
   margin-bottom: 20px;
   // overflow: hidden;
   //@include clearfix;
@@ -105,6 +104,13 @@ $table-border-color: #3f88cc !default;
         &.num-th {
           padding-left: 35px;
         }
+          &.red {
+              color: $color-red;
+          }
+          &.green {
+              color: $color-green;
+          }
+
       }
       tr.has-details {
         td {
@@ -122,6 +128,11 @@ $table-border-color: #3f88cc !default;
       }
       tr.even {
         background-color: #f7f9fd;
+      }
+      tr.red {
+          td {
+              color: $color-red;
+          }
       }
     }
     .btn-group {
@@ -143,7 +154,7 @@ $table-border-color: #3f88cc !default;
         z-index: 10;
         background-image: url(../images/dropdown.png);
         background-repeat: no-repeat;
-        background-position: 1px 7px;
+        background-position: 1px 50%;
         cursor: pointer;
       }
       .dropdown-list {
@@ -222,6 +233,24 @@ $table-border-color: #3f88cc !default;
         display: run-in;
       }
     }
+  }
+  .textLeft {
+      text-align: left !important;
+  }
+  .textRight {
+      text-align: right !important;
+  }
+  .textCenter {
+      text-align: center !important;
+  }
+  .bgGrey {
+      background-color: $bg-color !important;
+  }
+  .borderRight {
+      border-right: 1px solid #f1f5f8 !important;
+  }
+  .borderBottom {
+      border-bottom: 1px solid #f1f5f8 !important;
   }
   .scroll-table,
   .fixed-table {
