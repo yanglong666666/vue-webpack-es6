@@ -1,0 +1,291 @@
+---
+title: 统计分析
+layout: default-iframe
+class: statistical-analysis
+---
+<script src="../javascript/highcharts.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        // Build the chart
+        $('#features_sex1').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '2016年12月当月销售产品构成情况如下',
+                style: {
+                    fontFamily: 'Microsoft YaHei',
+                    color: '#333333',
+                    fontSize: '16px'
+                }
+            },
+            tooltip: {
+                pointFormat: '111111111'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '#FFFFFF',
+                reversed: true,
+                verticalAlign: 'bottom',
+                align: 'center'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        distance: -35,
+                        format: '{point.percentage:.1f} %',
+                        style: {
+                            fontFamily: 'Microsoft YaHei',
+                            fontWeight: 'normal',
+                            color: 'white',
+                            fontSize: 18,
+                            textShadow: 0
+                        }
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '销售构成',
+                innerSize: '40%',
+                data: [
+                    {
+                        name: '基金专线',
+                        y: 40.0,
+                        color: '#5EAEE3'
+                    },
+                    {
+                        name: '收益凭证',
+                        y: 20.0,
+                        color: '#FD744A'
+                    },
+                    {
+                        name: '资管',
+                        y: 40.0,
+                        color: '#F8A20F'
+                    }
+                ]
+            }]
+        });
+        $('#features_sex2').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '累计销售产品构成情况如下',
+                style: {
+                    fontFamily: 'Microsoft YaHei',
+                    color: '#333333',
+                    fontSize: '16px'
+                }
+            },
+            tooltip: {
+                pointFormat: '111111111'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '#FFFFFF',
+                reversed: true,
+                verticalAlign: 'bottom',
+                align: 'center'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        distance: -35,
+                        format: '{point.percentage:.1f} %',
+                        style: {
+                            fontFamily: 'Microsoft YaHei',
+                            fontWeight: 'normal',
+                            color: 'white',
+                            fontSize: 18,
+                            textShadow: 0
+                        }
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '累计销售构成',
+                innerSize: '40%',
+                data: [
+                    {
+                        name: '基金专线',
+                        y: 50.0,
+                        color: '#5EAEE3'
+                    },
+                    {
+                        name: '收益凭证',
+                        y: 20.0,
+                        color: '#FD744A'
+                    },
+                    {
+                        name: '资管',
+                        y: 30.0,
+                        color: '#F8A20F'
+                    }
+                ]
+            }]
+        });
+
+        $('#chart1').highcharts({
+            chart: {
+                backgroundColor: '#fff',
+                type: 'line',
+                marginTop: 30
+            },
+            title: {
+                text: ''
+            },
+            legend: {
+                backgroundColor: '#FFFFFF',
+                reversed: false,
+                verticalAlign: 'bottom',
+                align: 'center'
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        fontSize: 12,
+                        color: '#c0c5ce'
+                    }
+                },
+                categories: ['12-14', '12-15', '12-16', '12-17', '12-18', '12-19']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: null
+                },
+                gridLineColor: '#dedede',
+                gridLineWidth: 1,
+                lineWidth: 1,
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            series: [{
+                name: '销售量',
+                color: '#5FAEE3',
+                data: [10,25,35,35,40,45]
+            }, {
+                name: '销售金额(亿元)',
+                color: '#f8a20f',
+                data: [5,15,20,23,26,30]
+            }]
+        });
+    });
+</script>
+<div class="page-sales-preview">
+    <div class="task-search clearfix">
+        <button class="btn btn-float-right">搜索</button>
+        <button class="btn btn-small btn-primary btn-simple btn-float-right">导出</button>
+        <button class="btn btn-small btn-primary btn-simple btn-float-right">近三月</button>
+        <button class="btn btn-small btn-primary btn-simple btn-float-right">近一月</button>
+        <button class="btn btn-small btn-primary btn-simple btn-float-right">近一周</button>
+        <dl class="search-dl">
+            <dd>
+                <span class="pre"></span>
+                <label>
+                    <input class="txt begin-time hasDatepicker" type="text" placeholder="开始时间" readonly=""
+                           id="dp1492851968175">
+                    <i></i>
+                </label>
+                <span class="pre">至</span>
+                <label>
+                    <input class="txt end-time hasDatepicker" type="text" placeholder="截止时间" readonly=""
+                           id="dp1492851968176">
+                    <i></i>
+                </label>
+            </dd>
+        </dl>
+        <input type="text" class="aql-input small-input" placeholder="产品代码">
+        <input type="text" class="aql-input small-input" placeholder="产品名称">
+        <dl class="search-dl">
+            <dd>
+            <span>
+            <select id="select1" class="diy-select" style="display: none;">
+                <option selected="">产品类型</option>
+                <option value="1">基金类</option>
+                <option value="2">股票类</option>
+            </select>
+            </span>
+            </dd>
+        </dl>
+    </div>
+    <div class="topTitle">
+        <div class="left">销售走势</div>
+        <div class="right">截至2016年12月</div>
+    </div>
+    <div style="overflow: hidden;">
+        <div class="w50p fl">
+            <div id="features_sex1" style="height:350px;"></div>
+        </div>
+        <div class="w50p fl">
+            <div id="features_sex2" style="height:350px;"></div>
+        </div>
+    </div>
+    <div class="topTitle">
+        <div class="left">销售走势图</div>
+        <div class="right">截至2016年12月</div>
+    </div>
+    <div id="chart1" style="width: 800px;margin: 0 auto;"></div>
+    <div class="topTitle">
+        <div class="left">泪飙详情</div>
+        <div class="right">截至2016年12月</div>
+    </div>
+    <div class="main-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+            <thead>
+            <tr>
+                <th>日期</th>
+                <th>产品类型</th>
+                <th>销售量(期)</th>
+                <th>销售金额(亿元)</th>
+                <th>累计销售量(期)</th>
+                <th>累计销售金额(亿元)</th>
+                <th class="text-c">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2017-03-06</td>
+                <td>OTC</td>
+                <td>45</td>
+                <td>34.78</td>
+                <td>200</td>
+                <td>82.04</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">处理</a>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>2017-03-06</td>
+                <td>OTC</td>
+                <td>45</td>
+                <td>34.78</td>
+                <td>200</td>
+                <td>82.04</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">处理</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

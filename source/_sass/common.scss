@@ -984,7 +984,7 @@ input[type="text"]{
     margin-top:-1px;
   }
   .dialog-item-box-body{
-    margin:30px 0;
+    margin:30px 20px;
     .dialog-item{
       .dialog-left{
         width:180px;
@@ -995,19 +995,14 @@ input[type="text"]{
               color: #000000;
               font-weight: 600;
           }
+
       }
       .dialog-right{
-          margin-left:184px;
+          margin-left: 190px;
         }
-      .w50p{
-        .dialog-right{
-          margin-left:204px;
-        }
-      }
     }
   }
   .dialog-item {
-    padding-left: 40px;
     margin: 12px 0;
     font-size: 0;
     white-space: nowrap;
@@ -1031,7 +1026,7 @@ input[type="text"]{
     .dialog-left {
       display: inline-block;
       line-height: 20px;
-      padding: 5px 24px 5px 20px;
+      padding: 5px 24px 5px 0;
       color: #666;
       width: 120px;
       text-align: right;
@@ -1058,7 +1053,7 @@ input[type="text"]{
       color: #333;
       min-width: 222px;
       white-space: normal;
-      margin: 0 40px 0 124px;
+      margin: 0 20px 0 124px;
       display: block;
         .list-add{
             padding: 10px;
