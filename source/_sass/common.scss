@@ -988,6 +988,13 @@ input[type="text"]{
     .dialog-item{
       .dialog-left{
         width:180px;
+          &.dialog-left-diff{
+              padding-top: 20px;
+          }
+          &.dialog-left-black{
+              color: #000000;
+              font-weight: 600;
+          }
       }
       .dialog-right{
           margin-left:184px;
@@ -1005,8 +1012,18 @@ input[type="text"]{
     font-size: 0;
     white-space: nowrap;
     position: relative;
+      .special-item{
+          height: 30px !important;
+
+      }
     .w50p {
       position: relative;
+        &.w50p-change{
+            position: absolute;
+        }
+        &.w50p-changes{
+           left: 50%;
+        }
       .dialog-left {
         padding-left: 0;
       }
@@ -1043,6 +1060,13 @@ input[type="text"]{
       white-space: normal;
       margin: 0 40px 0 124px;
       display: block;
+        .list-add{
+            padding: 10px;
+            li{
+                color: #2385ea;
+                line-height: 20px;
+            }
+        }
       .dialog-wrap {
         width: 100%;
         .dialog-top {
@@ -1235,6 +1259,10 @@ input[type="text"]{
         display:block;
         .checkbox-declare{
           width:auto;
+            &.checkbox-declare-black{
+                color: #000;
+                font-weight: 600 ;
+            }
         }
       }
       .btn-declare {
@@ -1755,4 +1783,171 @@ input[type="text"]{
       @include border-radius(0);
       padding-left: 7px;
     }
+}
+
+//首页搜索样式
+.lists{
+    color:#007aff;
+}
+.main-content-wrap{
+    height:auto;
+    .main-content-wrap-top{
+        height: 14px;
+        line-height: 14px;
+        padding: 10px 0px;
+        border-bottom: 1px solid #e5e5e5;
+        .tab-options{
+            display: inline-block;
+            font-size: 14px;
+            padding: 0 10px;
+            border-right: 1px solid #e5e5e5;
+           &.on{
+               color: #f1374d;
+               font-weight: bold;
+           }
+
+        }
+        }
+    .main-content-wrap-list{
+        .search-content{
+            display: none;
+            &.on{
+                display: block;
+            }
+            .task-search1{
+                margin-top: 20px;
+                .list-left{
+                    .txt-none{
+                        display: none;
+                    }
+                    #ui-datepicker-div{
+                        display: block !important;
+                    }
+                }
+
+            }
+            .search-content-wrap{
+               position: relative;
+                .tab-wrap{
+                    position: absolute;
+                    right: 0px;
+                    .tab-red{
+                        display: inline-block;
+                        float: left;
+                        padding: 5px 10px;
+                        border: 1px solid rgb(242,54,78);
+                        color: rgb(242,54,78);
+                        height: 30px;
+                        @include box-sizing(border-box);
+                        &.on{
+                            background:rgb(242,54,78) ;
+                            border: none;
+                            color: #fff;
+                        }
+                    }
+                }
+                .tab-list{
+                    margin-top: 20px;
+                    width: 100%;
+                    .tab-list-content{
+                        display: none;
+                        &.on{
+                            display: block;
+                        };
+                        .tab-list-top{
+                            width: 100%;
+                            height: 200px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+}
+
+.content-list{
+    width: 100%;
+    padding: 10px;
+    background: #ededed;
+    .start{
+        padding: 5px 10px;
+        height: 30px;
+        display: inline-block;
+        line-height: 20px;
+        @include box-sizing(border-box);
+        &.on{
+            color:#fff;
+            background:rgb(242,54,78) ;
+            @include border-radius(5px);
+        }
+    }
+}
+.list-detail{
+    padding: 18px;
+    background: #fbfbfd;
+    @include clearfix;
+    font-size: 12px;
+    dl{
+        display: inline-block;
+        float: left;
+        width: 212px;
+        height: 86px;
+        border: 1px solid #ccc;
+        margin: 0px 16px 16px 16px;
+        @include box-sizing(border-box);
+        @include border-radius(5px);
+        @include clearfix;
+        dt{
+            display: inline-block;
+            width: 66px;
+            height: 100%;
+            float: left;
+            border-right: 1px solid #ccc;
+            @include box-sizing(border-box);
+        }
+        dd{
+            display: inline-block;
+            float: left;
+            height: 100%;
+            @include box-sizing(border-box);
+            padding: 9px 8px 6px 8px;
+            p{
+                text-align: left;
+                &.p-right-top{
+                    margin-bottom: 13px;
+                    .col-red{
+                        display: inline-block;
+                        float: right;
+                        color:rgb(242,54,78);
+                    }
+                };
+                &.p-right-center{
+                    margin-bottom: 3px;
+                }
+            }
+        }
+
+        p{
+            line-height: 18px;
+            text-align: center;
+            color:#808080;
+            @include box-sizing(border-box);
+            &.p-top{
+                border-bottom: 1px solid #ccc;
+                padding: 9px 12px;
+            };
+            &.p-bot{
+                line-height: 30px;
+
+            }
+        }
+    }
+
+}
+.task-search2{
+    padding-top: 50px;
 }
