@@ -1,0 +1,1278 @@
+---
+title: 产品管理-产品查询-首页
+layout: default-iframe
+---
+
+<script type="text/javascript">
+  $(function () {
+    // tab切换
+    $(".main-content-wrap-top").on("click",".tab-options",function () {
+          var _this = $(this);
+          var tabs_head = _this.parent();
+          var tabs_body = tabs_head.siblings(".main-content-wrap-list");
+          _this.addClass("on").siblings(".tab-options").removeClass("on");
+          var index = tabs_head.find(".tab-options").index(_this);
+          tabs_body.find(".search-content").eq(index).addClass("on").siblings(".search-content").removeClass("on");
+    });
+
+      $(".tab-wrap").on("click",".tab-red",function () {
+          var _this = $(this);
+          var tabs_head = _this.parent();
+          var tabs_body = tabs_head.siblings(".tab-list");
+          _this.addClass("on").siblings(".tab-red").removeClass("on");
+          var index = tabs_head.find(".tab-red").index(_this);
+          tabs_body.find(".tab-list-content").eq(index).addClass("on").siblings(".tab-list-content").removeClass("on");
+      });
+
+      $(".tabs-items").on("click",".tab-option",function () {
+          var _this = $(this);
+          var tabs_head = _this.parent();
+          var tabs_body = tabs_head.nextAll(".dialog-item-box-body").children(".tabs-body");
+          _this.addClass("on").siblings(".tab-option").removeClass("on");
+          var index = tabs_head.find(".tab-option").index(_this);
+          tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
+      });
+
+      $('.begin-time').datepicker({
+          onClose: function( selectedDate ) {
+              $('.begin-time').datepicker( "option", "minDate", selectedDate );
+          },
+          changeYear: true,
+          yearRange:'2000:2030'
+      });
+
+    $('.begin-time_0').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time_0').datepicker( "option", "minDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'2000:2030'
+    });
+
+    $('.end-time_0').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time_0').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'2000:2030'
+    });
+    $('.begin-time_1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.end-time_1').datepicker( "option", "minDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'2000:2030'
+    });
+    $('.end-time_1').datepicker({
+      onClose: function( selectedDate ) {
+        $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'2000:2030'
+    });
+    $('.end-time_2').datepicker({
+      onClose: function( selectedDate ) {
+        // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'2000:2030'
+    });
+
+     // page
+    $('.diy-select').diySelect();
+
+
+    $('.begin-time_3').datepicker({
+      onClose: function( selectedDate ) {
+        // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
+      },
+      changeYear: true,
+      yearRange:'2000:2030'
+    });
+
+      $('.btn-group').on('mouseover', function() {
+          $(this).find('.sub-group').show();
+      }).on('mouseout', function() {
+          $(this).find('.sub-group').hide();
+      });
+
+  });
+
+</script>
+<div class="main-content">
+  <div class="main-content-wrap">
+      <div class="main-content-wrap-top">
+        <span class="tab-options on">首页</span>
+        <span class="tab-options">产品搜索</span>
+        <span class="tab-options">产品日历</span>
+        <span class="tab-options">产品净值</span>
+        <span class="tab-options">专题产品</span>
+        <span class="tab-options">标签产品</span>
+      </div>
+      <div class="main-content-wrap-list">
+          <div class="search-content on">
+              <div class="task-search clearfix task-search1">
+                  <button class="btn  btn-lg btn-float-right" href="#">搜索</button>
+                  <input type="text" class="aql-input " placeholder="输入产品代码或产品名称进行搜索">
+              </div>
+              <h2 class="col-block">产品日历</h2>
+              <div class="list-content">
+                  <div class="list-left">
+                      <dl class="search-dl">
+                          <dd>
+                              <span class="pre"></span>
+                              <label>
+                                  <input class="txt txt-none begin-time" type="text" placeholder="" readonly />
+                                  <i></i>
+                              </label>
+                          </dd>
+                      </dl>
+                  </div>
+              </div>
+          </div>
+          <div class="search-content ">
+              <div class="dialog-item-wrap">
+                  <div class="dialog-item-border" style="position: relative">
+                      <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
+                          <span class="tab-option on">第一页</span>
+                          <span class="tab-option">第二页</span>
+                          <span class="tab-option">第三页</span>
+                          <span class="tab-option">第四页</span>
+                          <span class="tab-option">第五页</span>
+
+                      </div>
+                      <span class="option-space">&nbsp;</span>
+                      <div class="dialog-item-box-body">
+                          <div class="tabs-body">
+                              <div class="tabs-content on">
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品代码</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品内码</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品名称</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品别名</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">拼音代码</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品公司</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">托管银行</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品TA</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_ta" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">已结束</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品发起人</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品管理人</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品托管人</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品类别</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_tp" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">已结束</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品状态</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_zt" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">已结束</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">风险等级</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_fx" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">高风险</option>
+                                                  <option value="1">中风险</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">允许客户风险等级</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_khfx" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">高风险</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">货币类型</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_hb" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">美元</option>
+                                                  <option value="1">人民币</option>
+
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">募集开始日期</div>
+                                          <div class="dialog-right">
+                                              <div class="special-item">
+                                                  <label>
+                                                      <input class="dialog-input begin-time_0" type="text" placeholder="开始日期" readonly />
+                                                      <i></i>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="w50p">
+                                          <div class="dialog-left">募集结束日期</div>
+                                          <div class="dialog-right">
+                                              <div class="special-item">
+                                                  <label>
+                                                      <input class="dialog-input end-time_0" type="text" placeholder="截止日期" readonly />
+                                                      <i></i>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品成立日期</div>
+                                          <div class="dialog-right">
+                                              <div class="special-item">
+                                                  <label>
+                                                      <input class="dialog-input begin-time_1" type="text" placeholder="成立日期" readonly />
+                                                      <i></i>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="w50p">
+                                          <div class="dialog-left">预计产品结束日期</div>
+                                          <div class="dialog-right">
+                                              <div class="special-item">
+                                                  <label>
+                                                      <input class="dialog-input end-time_1" type="text" placeholder="结束日期" readonly />
+                                                      <i></i>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">计息结束日期</div>
+                                          <div class="dialog-right">
+                                              <div class="special-item">
+                                                  <label>
+                                                      <input class="dialog-input end-time_2" type="text" placeholder="结束日期" readonly />
+                                                      <i></i>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="w50p"></div>
+                                  </div>
+                                  <div class="button-content page-footer-button-container">
+                                      <button class="btn btn-fill">下一步</button>
+                                      <button class="btn btn-gray">取消</button>
+                                      <span><i></i>15秒自动保存</span>
+                                  </div>
+                              </div>
+                              <div class="tabs-content">
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">预计年化收益</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">投资类别</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_tz" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">基金型</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">收益类型</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_sy" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">激进</option>
+                                                  <option value="1">稳健</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">付息频率</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">评估等级</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_pg" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">高风险</option>
+                                                  <option value="1">中风险</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">发行价</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p ">
+                                          <div class="dialog-left">面值</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p w50p-change">
+                                          <div class="dialog-left">发行日期</div>
+                                          <div class="dialog-right">
+                                              <div class="special-item">
+                                                  <label>
+                                                      <input class="dialog-input begin-time_3" type="text" placeholder="发行日期" readonly />
+                                                      <i></i>
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p w50p-change">
+                                          <div class="dialog-left">使用可取资金</div>
+                                          <div class="dialog-right">
+                                              <label><input type="radio" checked>是</label>
+                                              <label><input type="radio" class="">否</label>
+                                          </div>
+                                      </div>
+                                      <div class="w50p w50p-changes">
+                                          <div class="dialog-left">净值</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p w50p-change">
+                                          <div class="dialog-left">赎回资金可用标志</div>
+                                          <div class="dialog-right">
+                                              <label><input type="radio" checked>是</label>
+                                              <label><input type="radio" class="">否</label>
+                                          </div>
+                                      </div>
+                                      <div class="w50p w50p-changes">
+                                          <div class="dialog-left">产品收费方式</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_sf" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">每日收费</option>
+                                                  <option value="2">每周收费</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">风险揭示书连接地址</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">产品期限(天)</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">认购/申购的单位</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p"></div>
+                                  </div>
+                                  <div class="button-content page-footer-button-container">
+                                      <button class="btn btn-fill">上一步</button>
+                                      <button class="btn btn-gray">下一步</button>
+                                      <button class="btn btn-gray">取消</button>
+                                      <span><i></i>15秒自动保存</span>
+                                  </div>
+                              </div>
+                              <div class="tabs-content">
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">小号下限金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">小号上限金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">个人首次最低金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">机构首次最低金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">个人最低认购金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">机构最低认购金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">个人认购追加金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">机构认购追加金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">个人最低申购金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">机构最低申购金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">个人追加申购金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">机构追加申购金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">客户单日认购/申购最高金额</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">认购人数上限</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">每次最大可申购比例</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">赎回最小单位</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">允许委托比例</div>
+                                          <div class="dialog-right">
+                                              <select name="" id="sel_wt" class="diy-select" style="display: none;">
+                                                  <option selected="">请选择</option>
+                                                  <option value="1">半仓</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="w50p">
+                                          <div class="dialog-left">额度申领有效期限(天)</div>
+                                          <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
+                                      </div>
+                                  </div>
+
+                                  <div class="dialog-item">
+                                      <div class="w50p">
+                                          <div class="dialog-left">支付超时时间</div>
+                                          <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                                      </div>
+                                      <div class="w50p"></div>
+                                  </div>
+                                  <div class="button-content page-footer-button-container">
+                                      <button class="btn btn-fill">上一步</button>
+                                      <button class="btn btn-gray">下一步</button>
+                                      <button class="btn btn-gray">取消</button>
+                                      <span><i></i>15秒自动保存</span>
+                                  </div>
+                              </div>
+                              <div class="tabs-content">
+                                  <div class="dialog-item">
+                                      <div class="dialog-left dialog-left-black">控制串选项</div>
+                                      <div class="dialog-right">
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare checkbox-declare-black">认购是否检查额度控制</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">风险等级不匹配是否禁止下委托</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">认购确认是否减扣资金</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">认购申购是否检查电子合同</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">全部赎回或卖出后是否保存0份额记录</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">产品预约业务是否冻结客户资金</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">产品预约业务是否冻结客户额度</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">允许个人购买</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">允许机构购买</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">是否为分销业务</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">认购确认和减扣资金是否计算利息</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">是否需要签署纸质合同</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">是否为开放式产品</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">允许部分赎回</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">产品风险等级是否不转入</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">产品状态是否以产品是以产品设置为准</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">是否根据行情文件更新产品代码控制信息</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">风险揭示书是否需要单笔单签</span>
+                                          </div>
+                                          <div class="checkbox-item checkout-block">
+                                              <span class="param-checkbox"></span>
+                                              <span class="checkbox-declare">风险等级不匹配是否允许柜台下委托</span>
+                                          </div>
+                                      </div>
+                                      <div class="button-content page-footer-button-container">
+                                          <button class="btn btn-fill">上一步</button>
+                                          <button class="btn btn-gray">下一步</button>
+                                          <button class="btn btn-gray">取消</button>
+                                          <span><i></i>15秒自动保存</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="tabs-content">
+                                  <div class="main-table">
+                                      <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                          <thead>
+                                          <tr>
+                                              <th width="10%">序号</th>
+                                              <th width="20%">文档名称</th>
+                                              <th width="10%">支持格式</th>
+                                              <th width="10%">文件状态</th>
+                                              <th width="10%">版本号</th>
+                                              <th width="20%">上传时间</th>
+                                              <th width="20%" class="text-c">操作</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <tr>
+                                              <td>001</td>
+                                              <td><a href="">《产品说明书》</a></td>
+                                              <td>word/pdf/纯文本</td>
+                                              <td>正常</td>
+                                              <td>V1.0</td>
+                                              <td>2017-03-06 10:01</td>
+                                              <td class="text-c">
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+                                              </td>
+                                          </tr>
+                                          <tr class="even">
+                                              <td>001</td>
+                                              <td><a href="">《产品说明书》</a></td>
+                                              <td>word/pdf/纯文本</td>
+                                              <td>未上传</td>
+                                              <td>未上传</td>
+                                              <td>未上传</td>
+                                              <td class="text-c">
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+                                              </td>
+                                          </tr>
+                                          <tr class="">
+                                              <td>001</td>
+                                              <td><a href="">《风险揭示书》</a></td>
+                                              <td>word/pdf/纯文本</td>
+                                              <td>未上传</td>
+                                              <td>未上传</td>
+                                              <td>未上传</td>
+                                              <td class="text-c">
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+                                              </td>
+                                          </tr>
+                                          <tr class="even">
+                                              <td>001</td>
+                                              <td><a href="">《电子合同》</a></td>
+                                              <td>word/pdf/纯文本</td>
+                                              <td>正常</td>
+                                              <td>V1.0</td>
+                                              <td>2017-03-06 10:01</td>
+                                              <td class="text-c">
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                                  <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+                                              </td>
+                                          </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <div class="button-content">
+                                      <button class="btn btn-fill btn-long">确认提交审核</button>
+                                      <button class="btn btn-gray">暂不审核</button>
+                                      <button class="btn btn-gray">上一步</button>
+                                      <button class="btn btn-gray">取消</button>
+                                      <span><i></i>15秒自动保存</span>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="search-content ">
+              <div class="search-content-wrap">
+                  <div class="tab-wrap">
+                      <span class="tab-red on">日历展示</span>
+                      <span class="tab-red ">列表展示</span>
+                  </div>
+                  <div class="tab-list">
+                      <div class="tab-list-content on">
+                          <div class="tab-list-top"></div>
+                          <div class="content-list">
+                              <span class="start on">开始引入（10）</span>
+                              <span class="start">开始认购（6）</span>
+                              <span class="start">开始申购（6）</span>
+                              <span class="start">开始计算收益（10）</span>
+                              <span class="start">开始到期赎回（10）</span>
+                              <span class="start">结束认购（10）</span>
+                              <span class="start">结束申购（10）</span>
+                              <span class="start">可接受的赎回（10）</span>
+                              <span class="start">赎回资金到账（10）</span>
+                          </div>
+                          <div class="list-detail">
+                              <dl>
+                                  <dt>
+                                      <p class="p-top">月月福1号</p>
+                                      <p class="p-bot">中</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                      <p class="p-right-center">起购金额 ：5万元</p>
+                                      <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                  </dd>
+                              </dl>
+                              <dl>
+                                  <dt>
+                                  <p class="p-top">月月福1号</p>
+                                  <p class="p-bot">中</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                      <p class="p-right-center">起购金额 ：5万元</p>
+                                      <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                  </dd>
+                              </dl>
+                              <dl>
+                                  <dt>
+                                  <p class="p-top">月月福1号</p>
+                                  <p class="p-bot">中</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                      <p class="p-right-center">起购金额 ：5万元</p>
+                                      <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                  </dd>
+                              </dl>
+                              <dl>
+                                  <dt>
+                                  <p class="p-top">月月福1号</p>
+                                  <p class="p-bot">中</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                      <p class="p-right-center">起购金额 ：5万元</p>
+                                      <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                  </dd>
+                              </dl>
+                              <dl>
+                                  <dt>
+                                  <p class="p-top">月月福1号</p>
+                                  <p class="p-bot">中</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                      <p class="p-right-center">起购金额 ：5万元</p>
+                                      <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                  </dd>
+                              </dl>
+                              <dl>
+                                  <dt>
+                                  <p class="p-top">月月福1号</p>
+                                  <p class="p-bot">中</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                      <p class="p-right-center">起购金额 ：5万元</p>
+                                      <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                  </dd>
+                              </dl>
+                          </div>
+                      </div>
+                      <div class="tab-list-content ">
+                          <a class="view-back"> &lt;&lt; 返回</a>
+                          <div class="task-search clearfix task-search2">
+                              <button class="btn btn-small btn-lg btn-float-right" href="#">搜索</button>
+                              <button class="btn btn-primary btn-simple btn-float-right" href="#">新增</button>
+
+                              <dl class="search-dl">
+                                  <dd>
+                                      <span class="pre"></span>
+                                      <label>
+                                          <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+                                          <i></i>
+                                      </label>
+                                      <span class="pre">至</span>
+                                      <label>
+                                          <input class="txt end-time" type="text" placeholder="截止时间" readonly />
+                                          <i></i>
+                                      </label>
+                                  </dd>
+                              </dl>
+                              <dl class="search-dl">
+                                  <dd>
+                                      <span>
+                                        <select id="select2" class="diy-select">
+                                            <option selected="">审核状态</option>
+                                            <option value="1">产品资料审核中</option>
+                                            <option value="2">用印审核中</option>
+                                            <option value="3">营销方案审核中</option>
+                                            <option value="4">审核成功</option>
+                                            <option value="5">审核失效</option>
+                                        </select>
+                                      </span>
+                                  </dd>
+                              </dl>
+                              <dl class="search-dl">
+                                  <dd>
+                                      <span>
+                                        <select id="select3" class="diy-select">
+                                            <option selected>发行人</option>
+                                            <option value="1">发行人1</option>
+                                        </select>
+                                      </span>
+                                  </dd>
+                              </dl>
+                              <input type="text" class="aql-input small-input" placeholder="产品名称">
+
+                          </div>
+                          <div class="main-table">
+                              <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                  <thead>
+                                  <tr>
+                                      <th width="10%">产品名称</th>
+                                      <th width="15%">产品类型</th>
+                                      <th width="10%">产品期限</th>
+                                      <th width="10%">风险等级</th>
+                                      <th width="15%">认购起点</th>
+                                      <th width="10%">预期收益率</th>
+                                      <th width="10%">产品阶段</th>
+                                      <th width="10%">产品状态</th>
+                                      <th width="10%" class="text-c">操作</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td>银华货币</td>
+                                      <td>货币基金 </td>
+                                      <td>持续开放</td>
+                                      <td>中低</td>
+                                      <td>1000</td>
+                                      <td>2.3</td>
+                                      <td>预热</td>
+                                      <td>产品引入</td>
+                                      <td class="text-c">
+                                          <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                      </td>
+                                  </tr>
+                                  <tr class="even">
+                                      <td>银华货币</td>
+                                      <td>货币基金 </td>
+                                      <td>持续开放</td>
+                                      <td>中低</td>
+                                      <td>1000</td>
+                                      <td>2.3</td>
+                                      <td>预热</td>
+                                      <td>产品引入</td>
+                                      <td class="text-c">
+                                          <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                      </td>
+                                  </tr>
+                                  <tr >
+                                      <td>银华货币</td>
+                                      <td>货币基金 </td>
+                                      <td>持续开放</td>
+                                      <td>中低</td>
+                                      <td>1000</td>
+                                      <td>2.3</td>
+                                      <td>预热</td>
+                                      <td>产品引入</td>
+                                      <td class="text-c">
+                                          <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                      </td>
+                                  </tr>
+                                  <tr class="even">
+                                      <td>银华货币</td>
+                                      <td>货币基金 </td>
+                                      <td>持续开放</td>
+                                      <td>中低</td>
+                                      <td>1000</td>
+                                      <td>2.3</td>
+                                      <td>预热</td>
+                                      <td>产品引入</td>
+                                      <td class="text-c">
+                                          <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                      </td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                          {% include component/pagenav-cf.html %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="search-content ">
+              <div class="task-search clearfix task-search1">
+                  <button class="btn btn-small btn-lg btn-float-right" href="#">搜索</button>
+                  <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
+                  <button class="btn btn-primary btn-simple btn-float-right" href="#">进一年</button>
+                  <button class="btn btn-primary btn-simple btn-float-right" href="#">进半年</button>
+                  <button class="btn btn-primary btn-simple btn-float-right" href="#">进三月</button>
+                  <button class="btn btn-primary btn-simple btn-float-right" href="#">进一月</button>
+                  <input type="text" class="aql-input small-input" placeholder="产品名称">
+                  <input type="text" class="aql-input small-input" placeholder="产品内码">
+                  <input type="text" class="aql-input small-input" placeholder="产品代码">
+
+              </div>
+              <div class="main-table">
+                  <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                      <thead>
+                      <tr>
+                          <th width="10%">序号</th>
+                          <th width="10%">日期</th>
+                          <th width="10%">产品代码</th>
+                          <th width="10%">产品名称</th>
+                          <th width="10%">产品类型</th>
+                          <th width="10%">单位净值</th>
+                          <th width="10%">累计净值</th>
+                          <th width="10%">近一月</th>
+                          <th width="10%">近三月</th>
+                          <th width="10%" class="text-c">操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>001</td>
+                          <td>2017-03-06</td>
+                          <td>CT180008</td>
+                          <td>华夏蓝筹混合</td>
+                          <td>混合型</td>
+                          <td>1.3080</td>
+                          <td>4.5540</td>
+                          <td class="col-red">1.48%</td>
+                          <td class="col-red">2.48%</td>
+                          <td class="text-c">
+                              <div class="btn-group">
+                                  <a href="#" class="btn btn-fill btn-small">查看</a>
+                                  <i class="dropdown"></i>
+                                  <ul class="sub-group" style="width: 64px; display: none;">
+                                      <li><a href="#">修改</a></li>
+                                      <li><a href="#">删除</a></li>
+                                  </ul>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr class="even">
+                          <td>001</td>
+                          <td>2017-03-06</td>
+                          <td>CT180008</td>
+                          <td>华夏蓝筹混合</td>
+                          <td>混合型</td>
+                          <td>1.3080</td>
+                          <td>4.5540</td>
+                          <td class="col-red">1.48%</td>
+                          <td class="col-red">2.48%</td>
+
+                          <td class="text-c">
+                              <div class="btn-group">
+                                  <a href="#" class="btn btn-fill btn-small">查看</a>
+                                  <i class="dropdown"></i>
+                                  <ul class="sub-group" style="width: 64px; display: none;">
+                                      <li><a href="#">修改</a></li>
+                                      <li><a href="#">删除</a></li>
+                                  </ul>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>001</td>
+                          <td>2017-03-06</td>
+                          <td>CT180008</td>
+                          <td>华夏蓝筹混合</td>
+                          <td>混合型</td>
+                          <td>1.3080</td>
+                          <td>4.5540</td>
+                          <td class="col-red">1.48%</td>
+                          <td class="col-red">2.48%</td>
+                          <td class="text-c">
+                              <div class="btn-group">
+                                  <a href="#" class="btn btn-fill btn-small">查看</a>
+                                  <i class="dropdown"></i>
+                                  <ul class="sub-group" style="width: 64px; display: none;">
+                                      <li><a href="#">修改</a></li>
+                                      <li><a href="#">删除</a></li>
+                                  </ul>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr class="even">
+                          <td>001</td>
+                          <td>2017-03-06</td>
+                          <td>CT180008</td>
+                          <td>华夏蓝筹混合</td>
+                          <td>混合型</td>
+                          <td>1.3080</td>
+                          <td>4.5540</td>
+                          <td class="col-red">1.48%</td>
+                          <td class="col-red">2.48%</td>
+                          <td class="text-c">
+                              <div class="btn-group">
+                                  <a href="#" class="btn btn-fill btn-small">查看</a>
+                                  <i class="dropdown"></i>
+                                  <ul class="sub-group" style="width: 64px; display: none;">
+                                      <li><a href="#">修改</a></li>
+                                      <li><a href="#">删除</a></li>
+                                  </ul>
+                              </div>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+              {% include component/pagenav-cf.html %}
+          </div>
+          <div class="search-content ">
+              <div class="task-search clearfix task-search1">
+                  <button class="btn btn-small btn-lg btn-float-right" href="#">搜索</button>
+                  <dl class="search-dl">
+                      <dd>
+          <span>
+            <select id="select1" class="diy-select">
+                <option selected>专题类型</option>
+                <option value="1">专题名称</option>
+            </select>
+          </span>
+                      </dd>
+                  </dl>
+                  <input type="text" class="aql-input small-input" placeholder="产品名称">
+
+              </div>
+              <div class="main-table">
+                  <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                      <thead>
+                      <tr>
+                          <th width="10%">序号</th>
+                          <th width="15%">专题类型</th>
+                          <th width="15%">专题名称</th>
+                          <th width="50%">关联产品</th>
+                          <th width="10%" class="text-c">操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      <tr class="even">
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9、</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      <tr class="even">
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+              {% include component/pagenav-cf.html %}
+          </div>
+          <div class="search-content ">
+              <div class="task-search clearfix task-search1">
+                  <button class="btn btn-small btn-lg btn-float-right" href="#">搜索</button>
+                  <dl class="search-dl">
+                      <dd>
+          <span>
+            <select id="select1" class="diy-select">
+                <option selected>专题类型</option>
+                <option value="1">专题名称</option>
+            </select>
+          </span>
+                      </dd>
+                  </dl>
+                  <input type="text" class="aql-input small-input" placeholder="产品名称">
+
+              </div>
+              <div class="main-table">
+                  <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                      <thead>
+                      <tr>
+                          <th width="10%">序号</th>
+                          <th width="15%">专题类型</th>
+                          <th width="15%">专题名称</th>
+                          <th width="50%">关联产品</th>
+                          <th width="10%" class="text-c">操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      <tr class="even">
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9、</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      <tr class="even">
+                          <td>001</td>
+                          <td>月月福大集合</td>
+                          <td>月月福1</td>
+                          <td><span class="lists">月月福1、</span>
+                              <span class="lists">月月福2、</span>
+                              <span class="lists">月月福3、</span>
+                              <span class="lists">月月福4、</span>
+                              <span class="lists">月月福5、</span>
+                              <span class="lists">月月福6、</span>
+                              <span class="lists">月月福7、</span>
+                              <span class="lists">月月福8、</span>
+                              <span class="lists">月月福9</span>
+                          </td>
+                          <td class="text-c">
+                              <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+              {% include component/pagenav-cf.html %}
+          </div>
+      </div>
+
+  </div>
+</div>
+
