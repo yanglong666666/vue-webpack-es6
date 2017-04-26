@@ -11,14 +11,16 @@
 			display: inline-block;
 			font-size: 16px;
 		}
-		.item-dec{
-
-		}
 		.item-val{
 			color:#f1374d;
 			font-size: 18px;
 		    font-weight: bold;
 		}
+        .item-name{
+            .item-name-inner{
+                margin-left: 20px;
+            }
+        }
 	}
 	.block-items-50{
 		width:49.5%;
@@ -39,7 +41,11 @@
 		}
 	}
 	.block-items-33{
-		width: 33% ;
+        @include box-sizing(border-box);
+        border-right: 1px solid #ccc;
+        padding-right:13px ;
+        margin-right: 20px;
+		width: calc(33% - 20px) ;
 		li{
 			display:inline-block;
 			&:nth-child(1){
@@ -49,7 +55,17 @@
 			&:nth-child(2){
 				width:48%;
 				text-align: left;
+				/*width:55%;*/
+			}
+			&:nth-child(2){
+				/*width:44%;*/
+                float: right;
+				text-align: right;
 			}
 		}
+        &:last-child{
+            border: none;
+            padding-right: 0;
+        }
 	}
 }

@@ -56,6 +56,13 @@ $table-border-color: #3f88cc !default;
             color: #e4788c;
           }
         }
+         .icon-tab{
+             display: inline-block;
+             width: 8px;
+             height: 11px;
+             background-image: url(../images/caitong/grey-tab.png);
+
+         }
       }
     }
     tbody {
@@ -66,6 +73,9 @@ $table-border-color: #3f88cc !default;
         &.col-red{
             color: #f1374d;
         }
+       &.col-green{
+            color:#51b615;
+       }
         &.text-c {
           text-align: center;
           span.do-none{
