@@ -1,10 +1,11 @@
 ---
-title: 信息发布-首页
+title: 信息发布-产品引入
 layout: default-iframe
 ---
 <script type="text/javascript">
   $(function () {
     $('#select1').diySelect();
+    $('#select2').diySelect();
 
     $('.begin-time').datepicker({
       onClose: function( selectedDate ) {
@@ -25,22 +26,21 @@ layout: default-iframe
 </script>
 <div class="main-content">
   <div class="block-container">
-      <ul class="block-items block-items-33">
-          <li><span class="item-name">产品引入:<span class="item-name-inner">总量</span></span><span class="item-val">22</span></li>
-          <li><a class="btn btn-primary btn-simple">查看明细</a></li>
-      </ul>
-      <ul class="block-items block-items-33">
-          <li><span class="item-name">昨日产品引入:<span class="item-name-inner">总量</span></span><span class="item-val">3</span></li>
-          <li><a class="btn btn-primary btn-simple">查看明细</a></li>
-      </ul>
-      <ul class="block-items block-items-33">
-          <li><span class="item-name">审核中:</span><span class="item-val">20</span></li>
-          <li><a class="btn btn-primary btn-simple">查看明细</a></li>
-      </ul>
+    <ul class="block-items block-items-33">
+      <li><span class="item-name">产品引入:<span class="item-name-inner">总量</span></span><span class="item-val">22</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+    <ul class="block-items block-items-33">
+      <li><span class="item-name">昨日产品引入:<span class="item-name-inner">总量</span></span><span class="item-val">3</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
+    <ul class="block-items block-items-33">
+      <li><span class="item-name">审核中:</span><span class="item-val">20</span></li>
+      <li><a class="btn btn-primary btn-simple">查看明细</a></li>
+    </ul>
   </div>
   <div class="task-search clearfix">
     <button class="btn  btn-lg btn-float-right" href="#">搜索</button>
-    <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
     <button class="btn btn-small btn-primary btn-simple btn-float-right" href="#">新增</button>
 
      <dl class="search-dl">
@@ -60,15 +60,29 @@ layout: default-iframe
       <dl class="search-dl">
         <dd>
           <span>
-            <select id="select1" class="diy-select">
-              <option selected>产品类型</option>
-              <option value="1">基金类</option>
-              <option value="2">股票类</option>
+            <select id="select2" class="diy-select">
+              <option selected>用印审核中</option>
+              <option value="1">审核状态</option>
+              <option value="2">产品资料审核中</option>
+              <option value="2">用印审核中</option>
+              <option value="2">营销方案审核中</option>
+              <option value="2">审核成功</option>
+              <option value="2">审核失败</option>
             </select>
           </span>
         </dd>
       </dl>
-      <input type="text" class="aql-input small-input" placeholder="产品代码">
+      <dl class="search-dl">
+          <dd>
+          <span>
+            <select id="select1" class="diy-select">
+                <option selected>产品类型</option>
+                <option value="1">基金类</option>
+                <option value="2">股票类</option>
+            </select>
+          </span>
+          </dd>
+      </dl>
 
       <input type="text" class="aql-input small-input" placeholder="产品名称">
 

@@ -150,6 +150,25 @@
   .btn{
     margin-right:10px;
   }
+    span{
+        display: inline-block;
+        height: 16px;
+        line-height: 16px;
+        margin-left: 20px;
+        position: relative;
+        color: #7d7d7d;
+        text-indent: 20px;
+        i{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url(../images/caitong/loading.png);
+            position: absolute;
+            left: 0px;
+            top: 0;
+        }
+
+    }
 }
 .ui-reason-content {
   border: 1px solid #f0f5fb;
@@ -568,6 +587,9 @@ input[type="text"]{
 .task-search {
   font-size: 12px;
   margin-bottom: 15px;
+  &.task-center{
+      text-align: center;
+  }
   .search-dl {
     float: right;
     margin-right: 10px;
@@ -976,18 +998,41 @@ input[type="text"]{
     border-radius:3px;
     margin-bottom:50px;
     margin-top:10px;
+      .txt-right{
+          float: right;
+          color: #007aff;
+          font-size: 12px;
+          margin-right: 18px;
+          line-height: 36px;
+
+      }
   }
   .dialog-item-box-title{
     line-height: 36px;
+    height: 36px;
     background: #e8e9ed;
     padding-left: 20px;
     margin-top:-1px;
+      .dia-col-blue{
+          display: inline-block;
+          width: 270px;
+          line-height: 36px;
+          color: #007aff;
+          @include text-overflow;
+      }
+      .txt-right{
+          float: right;
+          margin-right: 20px;
+      }
   }
   .dialog-item-box-body{
-    margin:30px 20px;
+    margin:30px 0px;
     .dialog-item{
       .dialog-left{
         width:180px;
+          &.dialog-left-short{
+              width:80px
+          }
           &.dialog-left-diff{
               padding-top: 20px;
           }
@@ -999,6 +1044,21 @@ input[type="text"]{
       }
       .dialog-right{
           margin-left: 190px;
+          &.dialog-right-short{
+              margin-left: 90px;
+              ul{
+                  @include clearfix();
+                  li{
+                      display: inline-block;
+                      float: left;
+                      margin-right: 20px;
+                      line-height: 30px;
+                     &.on{
+                         color: #007aff;
+                     }
+                  }
+              }
+          }
         }
     }
   }
@@ -1270,6 +1330,9 @@ input[type="text"]{
         vertical-align: top;
         display: inline-block;
         line-height: 30px;
+          .grey-add{
+              padding-top: 7px;
+          }
       }
       .checkbox-declare {
         margin-left: 5px;
@@ -1786,6 +1849,9 @@ input[type="text"]{
 }
 .main-content-wrap{
     height:auto;
+    &.main-content-wrap-mt{
+        margin-top: 20px;
+    }
     .main-content-wrap-top{
         height: 14px;
         line-height: 14px;
@@ -1809,16 +1875,13 @@ input[type="text"]{
             &.on{
                 display: block;
             }
+            .tab-option{
+                &.on{
+                    color: #000 !important;
+                }
+            }
             .task-search1{
                 margin-top: 20px;
-                .list-left{
-                    .txt-none{
-                        display: none;
-                    }
-                    #ui-datepicker-div{
-                        display: block !important;
-                    }
-                }
 
             }
             .search-content-wrap{
@@ -1858,6 +1921,13 @@ input[type="text"]{
 
                 }
             }
+            .col-block{
+                margin-top: 10px;
+                line-height: 30px;
+                border-bottom: 1px solid #ccc;
+                color: black;
+                padding-left: 15px;
+            }
         }
     }
 
@@ -1884,65 +1954,248 @@ input[type="text"]{
 .list-detail{
     padding: 18px;
     background: #fbfbfd;
+    position: relative;
     @include clearfix;
     font-size: 12px;
-    dl{
-        display: inline-block;
-        float: left;
-        width: 212px;
-        height: 86px;
-        border: 1px solid #ccc;
-        margin: 0px 16px 16px 16px;
-        @include box-sizing(border-box);
-        @include border-radius(5px);
-        @include clearfix;
-        dt{
-            display: inline-block;
-            width: 66px;
-            height: 100%;
-            float: left;
-            border-right: 1px solid #ccc;
-            @include box-sizing(border-box);
-        }
-        dd{
-            display: inline-block;
-            float: left;
-            height: 100%;
-            @include box-sizing(border-box);
-            padding: 9px 8px 6px 8px;
-            p{
-                text-align: left;
-                &.p-right-top{
-                    margin-bottom: 13px;
-                    .col-red{
-                        display: inline-block;
-                        float: right;
-                        color:rgb(242,54,78);
-                    }
-                };
-                &.p-right-center{
-                    margin-bottom: 3px;
-                }
-            }
-        }
-
-        p{
-            line-height: 18px;
-            text-align: center;
-            color:#808080;
-            @include box-sizing(border-box);
-            &.p-top{
-                border-bottom: 1px solid #ccc;
-                padding: 9px 12px;
-            };
-            &.p-bot{
-                line-height: 30px;
-
-            }
-        }
+    .col-blue{
+        text-align: right;
+        line-height: 20px;
+        height: 20px;
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        color: #007aff;
     }
 
 }
 .task-search2{
     padding-top: 50px;
+}
+
+.wrap-list{
+    li{
+        width: 100%;
+        line-height: 30px;
+        @include clearfix;
+        h3{
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            min-width: 120px;
+            float: left;
+        }
+        .inner-list{
+            display: inline-block;
+            float: left;
+            li{
+                display: inline-block;
+                width: auto;
+                float: left;
+                margin-right:20px ;
+                line-height: 30px;
+            }
+        }
+    }
+}
+
+.param-checkbox{
+    &.param-checkbox-small{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-top: 3px;
+        margin-right: 5px;
+        vertical-align: top;
+        cursor: pointer;
+        background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
+        background-size: 14px 14px;
+    }
+}
+.p-left{
+    margin-left: 20px;
+}
+.dialog-item-small{
+    margin: 0 !important;
+    .col-blue{
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px;
+        color: #007aff;
+        padding-left: 40px;
+
+    }
+}
+
+.list-content{
+    min-width: 1000px;
+    height: auto;
+    overflow: hidden;
+    padding: 15px 0px;
+    position: relative;
+    .list-left{
+        display: inline-block;
+        width: 200px;
+        height: 320px;
+        float: left;
+    }
+    .list-center{
+        display: inline-block;
+        float: left;
+        width: 23px;
+        height: 320px;
+        padding-top: 148px;
+        @include box-sizing(border-box);
+    }
+    .list-right{
+        min-width: 768px;
+        display: block;
+        margin-left: 223px;
+    }
+    .prev{
+        position: absolute;
+        top: calc(50% - 11px);
+       left: 0px;
+    }
+    .next{
+        position: absolute;
+        top: calc(50% - 11px);
+        right: 0px;
+        -webkit-transform: rotateZ(180deg);
+        -moz-transform: rotateZ(180deg);
+        -o-transform: rotateZ(180deg);
+        -ms-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+
+    }
+    .ul-list-wrap{
+        width: 976px;
+        padding: 0 12px;
+        height:86px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        .ul-list{
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+    .ul-list1-wrap{
+        width: 976px;
+        padding: 0 12px;
+        height:192px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        .ul-list1{
+            width: 100%;
+            height: 100%;
+
+            li{
+                display: inline-block;
+                float: left;
+                margin: 0 12px;
+                position: relative;
+                .list-title{
+                    position: absolute;
+                    bottom: 30px;
+                    padding-left: 20px;
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+                .list-title1{
+                    position: absolute;
+                    bottom: 10px;
+                    padding-left: 20px;
+                    color: #fff;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+}
+
+.dl-list{
+    display: inline-block;
+    float: left;
+    width: 212px;
+    height: 86px;
+    border: 1px solid #ccc;
+    margin: 0px 16px 16px 16px;
+    font-size: 12px;
+    @include box-sizing(border-box);
+    @include border-radius(5px);
+    @include clearfix;
+    dt{
+        display: inline-block;
+        width: 66px;
+        height: 100%;
+        float: left;
+        border-right: 1px solid #ccc;
+        @include box-sizing(border-box);
+    }
+    dd{
+        display: inline-block;
+        float: left;
+        height: 100%;
+        width: 140px;
+        @include box-sizing(border-box);
+        padding: 9px 8px 6px 8px;
+        p{
+            text-align: left;
+            &.p-right-top{
+                margin-bottom: 13px;
+                .col-red{
+                    display: inline-block;
+                    float: right;
+                    color:rgb(242,54,78);
+                }
+            };
+            &.p-right-center{
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    p{
+        line-height: 18px;
+        text-align: center;
+        color:#808080;
+        @include box-sizing(border-box);
+        &.p-top{
+            border-bottom: 1px solid #ccc;
+            padding: 9px 12px;
+        };
+        &.p-bot{
+            line-height: 30px;
+
+        }
+    }
+}
+.view-back-one{
+    top: 0px !important;
+}
+
+.system-notice{
+    width: 700px;
+    margin: 20px auto;
+    h2{
+        font-size: 16px;
+        color: #343434;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 40px;
+
+    }
+    .txt-center{
+        text-align: center;
+        line-height: 30px;
+    }
+    .txt-right{
+        text-align: right;
+        line-height: 30px;
+    }
 }
