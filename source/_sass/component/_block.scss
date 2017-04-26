@@ -3,6 +3,7 @@
 	padding:30px;
 	width:100%;
 	margin-bottom:15px;
+    @include box-sizing(border-box);
 	.block-items{
 		display:inline-block;
 		.item-name,.item-dec,.item-val{
@@ -48,8 +49,13 @@
 		li{
 			display:inline-block;
 			&:nth-child(1){
-				/*width:55%;*/
+				width:50%;
 				text-align: left;
+			}
+			&:nth-child(2){
+				width:48%;
+				text-align: left;
+				/*width:55%;*/
 			}
 			&:nth-child(2){
 				/*width:44%;*/

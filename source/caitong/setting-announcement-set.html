@@ -1,0 +1,95 @@
+---
+title: 公告设置
+layout: default-iframe
+class: setting-announcement-set
+---
+
+<script type="text/javascript">
+    $(function () {
+        $('.begin-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.end-time').datepicker( "option", "minDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1900:2017'
+        });
+        $('.end-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1900:2017'
+        });
+        $('#btnAdd').on('click',function(){
+            $('.main-content').hide();
+            $('#add-wrap').show();
+        });
+        $('.cancel').on('click',function(){
+            $('.main-content').show();
+            $('#add-wrap').hide();
+        });
+
+    });
+</script>
+
+<div class="main-content">
+    <div class="task-search clearfix">
+        <button class="btn btn-float-right" id="btnAdd">发公告</button>
+    </div>
+    <div class="main-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>公告名称</th>
+                <th>发送人</th>
+                <th>首页显示时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {% include component/pagenav-cf.html %}
+</div>
+<div class="dialog-item-wrap" id="add-wrap" style="display: none;">
+    <div class="dialog-item">
+        <div class="dialog-left must-icon">公告名称</div>
+        <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+    </div>
+
+    <div class="dialog-item">
+        <div class="dialog-left must-icon">登录密码</div>
+        <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+    </div>
+
+    <div class="dialog-item">
+        <div class="dialog-left must-icon">首页显示时间</div>
+        <div class="dialog-right">
+            <label>
+                <input class="dialog-input begin-time" type="text" placeholder="开始时间" readonly />
+                <i></i>
+            </label>
+            <span style="margin-right: 10px;vertical-align: top;line-height: 30px;">至</span>
+            <label>
+                <input class="dialog-input end-time" type="text" placeholder="截止时间" readonly />
+                <i></i>
+            </label>
+        </div>
+    </div>
+
+    <div class="button-content" style="text-align: left;margin-left: 165px;">
+        <button class="btn btn-fill finish" style="margin-right: 10px;">确定</button>
+        <button class="btn btn-deny cancel">取消</button>
+    </div>
+</div>
