@@ -86,6 +86,7 @@
   .tabs-content {
     display: none;
     position: relative;
+      padding: 0 15px;
     &.on {
       display: block;
     }

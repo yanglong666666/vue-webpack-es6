@@ -12,38 +12,23 @@
   &.cftrade-header {
     background-color: #fbfbfb;
     height: 62px;
+    line-height: 60px;
     padding-left: 20px;
-    padding-top:10px;
     box-sizing: border-box;
     .header-logo {
       position: relative;
-      width: 179px;
-      float: left;
-      .company {
-        float: left;
-        font-size: 18px;
-        border-left: 1px solid white;
-        padding-left: 20px;
-      }
-      .icon-imgcftrade {
-        height: 42px;
-        width: 42px;
+      vertical-align: middle;
         display: inline-block;
-        background: url("../images/cftrade/imgcftrade.png") no-repeat;
-      }
-      .icon-imgcftradetext {
-        height: 42px;
-        width: 109px;
-        display: inline-block;
-        background: url("../images/cftrade/imgcftradetext.png") no-repeat;
-      }
     }
     .company {
       font-size: 19px;
       border-left: 1px solid #d8d8d8;
       padding-left: 10px;
-      line-height: 40px;
+        line-height: 24px;
+        margin-left: 5px;
       color: #4a4a4a;
+        display: inline-block;
+      vertical-align: middle;
     }
     .btn-right {
       float: right;

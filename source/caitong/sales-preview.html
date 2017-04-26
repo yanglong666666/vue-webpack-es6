@@ -5,9 +5,9 @@ class: sales-preview
 ---
 <script type="text/javascript">
     $(function () {
-        $('#select1').diySelect();
-        $('#select2').diySelect();
-        $('#select3').diySelect();
+        $('#select1').diySelect({width: 100});
+        $('#select2').diySelect({width: 100});
+        $('#select3').diySelect({width: 100});
         $('#select01').diySelect({width: 222});
         $('#select02').diySelect({width: 222});
         $('#select03').diySelect({width: 222});
@@ -26,7 +26,13 @@ class: sales-preview
             changeYear: true,
             yearRange: '1990:2016'
         });
-
+        $('.end-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1900:2017'
+        });
         $('.btn-group').on('mouseover', function() {
             $(this).find('.sub-group').show();
         }).on('mouseout', function() {
@@ -107,7 +113,7 @@ class: sales-preview
             <dl class="search-dl">
                 <dd>
           <span>
-            <select id="select2" class="diy-select">
+            <select id="select1" class="diy-select">
                 <option selected>产品状态</option>
                 <option value="1">基金类</option>
                 <option value="2">股票类</option>
@@ -117,14 +123,13 @@ class: sales-preview
             </dl>
             <dl class="search-dl">
                 <dd>
-                    <span class="pre"></span>
                     <label>
-                        <input class="txt begin-time" type="text" placeholder="开始时间" readonly/>
+                        <input class="txt begin-time" type="text" placeholder="开始时间" readonly style="width: 100px;"/>
                         <i></i>
                     </label>
                     <span class="pre">至</span>
                     <label>
-                        <input class="txt end-time" type="text" placeholder="结束时间" readonly/>
+                        <input class="txt end-time" type="text" placeholder="结束时间" readonly style="width: 100px;"/>
                         <i></i>
                     </label>
                 </dd>
@@ -132,7 +137,7 @@ class: sales-preview
             <dl class="search-dl">
                 <dd>
                   <span>
-                    <select id="select1" class="diy-select">
+                    <select id="select2" class="diy-select">
                         <option selected>产品类型</option>
                         <option value="1">基金类</option>
                         <option value="2">股票类</option>
@@ -151,9 +156,9 @@ class: sales-preview
                   </span>
                 </dd>
             </dl>
-            <input type="text" class="aql-input small-input" placeholder="产品代码">
+            <input type="text" class="aql-input small-input" placeholder="产品代码" style="width: 100px;">
 
-            <input type="text" class="aql-input small-input" placeholder="产品名称">
+            <input type="text" class="aql-input small-input" placeholder="产品名称" style="width: 100px;">
 
         </div>
         <div class="main-table clearfix">

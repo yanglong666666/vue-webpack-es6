@@ -4,11 +4,11 @@
 
 @charset "utf-8";
 
-// Setting
-@import "setting";
-
 // Mixin
 @import "mixin";
+
+// Setting
+@import "setting";
 
 // Global
 @import "reset";
@@ -168,3 +168,4 @@
 @import "component/_block";
 @import "page/_product-details";
 @import "page/statistical-analysis";
+@import "page/login";

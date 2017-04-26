@@ -4,6 +4,11 @@
 // }
 
 // 加载
+
+* {
+    @include box-sizing(border-box);
+}
+
 .shadow-div {
   width: 100%;
   height: 100%;
@@ -1026,7 +1031,7 @@ input[type="text"]{
       }
   }
   .dialog-item-box-body{
-    margin:30px 0px;
+    margin:20px 0;
     .dialog-item{
       .dialog-left{
         width:180px;
@@ -1121,6 +1126,32 @@ input[type="text"]{
             li{
                 color: #2385ea;
                 line-height: 20px;
+            }
+        }
+        .upload-item {
+            line-height: 40px;
+            .upload-title {
+                width: 100px;
+                display: inline-block;
+                text-align: right;
+                margin-right: 20px;
+                line-height: 20px;
+                vertical-align: middle;
+                position: relative;
+                &:after {
+                    content: "：";
+                    position: absolute;
+                    line-height: 20px;
+                    top: 50%;
+                    margin-top: -10px;
+                    right: -10px;
+                }
+
+            }
+            .grey-add {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 10px;
             }
         }
       .dialog-wrap {

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/main.css" media="screen">
+    <!--[if lt IE 9]>
+    <script src="/javascripts/lib/html5shiv.js"></script>
+    <![endif]-->
+    <script src="/javascript/lib/jquery.js"></script>
+    <script type="text/javascript" src="/javascript/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascript/select2.full.min.js"></script>
+</head>
+<body>
+<div class="page-login">
+    <header>
+        <div class="header"><img src="/images/logo.png" class="logo"><div class="title">欢迎登录</div>
+        </div>
+    </header>
+    <div class="main-wrap">
+        <div class="system-name">金融产品销售服务系统</div>
+        <img class="system-img" src="../images/login-bg.png" />
+        <div class="login-wrap">
+            <div class="home-banner kh-banner">
+                <div id="inner">
+                    <!--|       <div class="ui-login-box"></div>-->      <div class="ui-login">
+                    <div class="ui-loginerr">
+                        <span class="tip-icon"></span><p>业务集中运营平台</p>
+                    </div>
+                    <div class="kh-content active">
+                        <div class="input-group">
+                            <label>
+                                <i class="mobile-icon"></i><input type="text" class="input" id="account_content" name="account_content" maxlength="8" placeholder="账号">
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <i class="password-icon"></i><input type="password" class="input" id="password" name="password" maxlength="10" placeholder="密码">
+                            </label>
+                        </div>
+                        <div class="input-group clearfix">
+                            <label style="padding: 0;">
+                                <input type="text" id="verifycode" name="verifycode" class="input verifycode" maxlength="4" placeholder="验证码">
+                            </label>
+                            <div class="getcode">
+                                <img id="imageCode" src="/imageCode.img" paras="{&quot;width&quot;:&quot;100&quot;,&quot;height&quot;:&quot;45&quot;}/">
+                            </div>
+                        </div>
+                        <label id="error-text" class="error" style="display:none;">这里是统一提示</label>
+                    </div>
+                    <div class="btn-content">
+                        <input type="button" class="btn" id="btn_login" value="登&nbsp;&nbsp;录">
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function(){
+                var $errorText = $('#error-text');
+                var $account_content = $('#account_content'), $password = $('#password'), $verifycode = $('#verifycode');
+
+                $('.input-group .input').on('input',function(){
+                    if($(this).parents('.input-group').hasClass('current-error')){
+                        $(this).parents('.input-group').removeClass('current-error');
+                        $errorText.hide();
+                    }
+                });
+                $("#btn_login").on('click',function(){
+                    $('.input-group').removeClass('current-error');
+                    if(!$account_content.val()){
+                        $errorText.text('账号不能为空').show();
+                        $account_content.parents('.input-group').addClass('current-error');
+                        return;
+                    }
+                    if(!$password.val()){
+                        $errorText.text('密码不能为空').show();
+                        $password.parents('.input-group').addClass('current-error');
+                        return;
+                    }
+                    if(!$verifycode.val()){
+                        $errorText.text('验证码不能为空').show();
+                        $verifycode.parents('.input-group').addClass('current-error');
+                        return;
+                    }
+                    //ajax 或者 手动提交表单form.submit();
+                });
+            })
+        </script>
+    </div>
+    <div class="login-footer">Copyright © 财富证券版权所有</div>
+</div>
+</body>
+</html>
+
+
+

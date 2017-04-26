@@ -1,0 +1,408 @@
+---
+title: 文档管理
+layout: default-iframe
+class: product-document
+---
+
+<script type="text/javascript">
+    $(function () {
+        $('#select1').diySelect();
+        $('#select2').diySelect();
+        $('#select11').diySelect();
+        $('#select21').diySelect();
+
+        // tab切换
+        $(".main-content-wrap-top").on("click", ".tab-options", function () {
+            var _this = $(this);
+            var tabs_head = _this.parent();
+            var tabs_body = tabs_head.siblings(".main-content-wrap-list");
+            _this.addClass("on").siblings(".tab-options").removeClass("on");
+            var index = tabs_head.find(".tab-options").index(_this);
+            tabs_body.find(".search-content").eq(index).addClass("on").siblings(".search-content").removeClass("on");
+        });
+
+        $('.btnDocumentCheck').on('click', function () {
+            $('.main-content').hide();
+            $('.document-details-wrap').show();
+        });
+
+        $('#btnDocumentAdd').on('click', function () {
+            $('.main-content').hide();
+            $('.document-add-wrap').show();
+        });
+
+        $('#btnDisclosureAdd').on('click', function () {
+            $('.main-content').hide();
+            $('.disclosure-add-wrap').show();
+        });
+
+        $('.view-back,.btnCancel').on('click', function () {
+            $(this).parents('.view-content').hide();
+            $('.main-content').show();
+        });
+
+    });
+</script>
+<div class="main-content">
+    <div class="main-content-wrap">
+        <div class="main-content-wrap-top">
+            <span class="tab-options on">文档库</span>
+            <span class="tab-options">信息披露</span>
+        </div>
+        <div class="main-content-wrap-list">
+            <div class="search-content on">
+                <div class="task-search clearfix task-search1">
+                    <button class="btn btn-float-right">搜索</button>
+                    <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnDocumentAdd">新增</button>
+                    <dl class="search-dl">
+                        <dd>
+                        <span>
+                        <select id="select1" class="diy-select" style="display: none;">
+                            <option selected="">文档类型</option>
+                            <option value="1">基金类</option>
+                            <option value="2">股票类</option>
+                        </select>
+                        </span>
+                        </dd>
+                    </dl>
+                    <input type="text" class="aql-input small-input" placeholder="产品名称">
+                    <input type="text" class="aql-input small-input" placeholder="产品代码">
+                </div>
+                <div class="main-table">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>产品代码</th>
+                            <th>产品名称</th>
+                            <th>文档类型</th>
+                            <th width="300px">文档内容</th>
+                            <th>最近创建人</th>
+                            <th>最近创建人最近创建时间</th>
+                            <th class="text-c">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>产品代码</td>
+                            <td>月月福</td>
+                            <td>资管文档</td>
+                            <td class="blue">《招募书》、《合同》、《协议》、《批复》、《参数文件》、《销售合同》</td>
+                            <td>李小青</td>
+                            <td>2017-04-04 12:00</td>
+                            <td class="text-c">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDocumentCheck">查看</a>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>002</td>
+                            <td>产品代码</td>
+                            <td>月月福</td>
+                            <td>资管文档</td>
+                            <td class="blue">《招募书》、《合同》、《协议》、《批复》、《参数文件》、《销售合同》</td>
+                            <td>李小青</td>
+                            <td>2017-04-04 12:00</td>
+                            <td class="text-c">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDocumentCheck">查看</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {% include component/pagenav-cf.html %}
+            </div>
+            <div class="search-content">
+                <div class="task-search clearfix task-search1">
+                    <button class="btn btn-float-right">搜索</button>
+                    <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnDisclosureAdd">新增</button>
+                    <dl class="search-dl">
+                        <dd>
+                        <span>
+                        <select id="select2" class="diy-select" style="display: none;">
+                            <option selected="">全部</option>
+                            <option value="1">111</option>
+                            <option value="2">222</option>
+                        </select>
+                        </span>
+                        </dd>
+                    </dl>
+                    <input type="text" class="aql-input small-input" placeholder="产品名称">
+                    <input type="text" class="aql-input small-input" placeholder="产品代码">
+                </div>
+                <div class="main-table">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>产品代码</th>
+                            <th>产品名称</th>
+                            <th>时间</th>
+                            <th width="300px">文档内容</th>
+                            <th>公告类型</th>
+                            <th class="text-c">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>产品代码</td>
+                            <td>广发基金</td>
+                            <td>2017-04-04 12:00</td>
+                            <td class="blue">广发基金管理有限公司关于增加邮储银行为旗下部分基金代销机构的公告</td>
+                            <td>其他公告</td>
+                            <td class="text-c">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>001</td>
+                            <td>产品代码</td>
+                            <td>广发基金</td>
+                            <td>2017-04-04 12:00</td>
+                            <td class="blue">广发大盘成长混合型证券投资基金更新的招募说明摘要</td>
+                            <td>发行运作</td>
+                            <td class="text-c">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>产品代码</td>
+                            <td>广发基金</td>
+                            <td>2017-04-04 12:00</td>
+                            <td class="blue">广发大盘成长混合型证券投资基金2016年年度说明书摘要</td>
+                            <td>其他公告</td>
+                            <td class="text-c">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {% include component/pagenav-cf.html %}
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="view-content document-details-wrap" style="display: none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="main-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>产品名称</th>
+                <th>文档类型</th>
+                <th>文档内容</th>
+                <th>最近创建人</th>
+                <th>最近创建人最近创建时间</th>
+                <th>状态</th>
+                <th class="text-c">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">《招募书》</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>002</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">《《合同》</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">《协议》</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>004</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">《批复》</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr>
+                <td>005</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">《参数文件》</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>006</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">《销售合同》</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr>
+                <td>007</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">其他</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>008</td>
+                <td>公募1</td>
+                <td>公募基金</td>
+                <td class="blue">其他</td>
+                <td>李小青</td>
+                <td>2017-04-04 12:00</td>
+                <td>有效</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-small">下载</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {% include component/pagenav-cf.html %}
+</div>
+<div class="view-content document-add-wrap" style="display: none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-wrap">
+        <div class="dialog-item-border">
+            <div class="dialog-item-box-title"></div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品代码</div>
+                <div class="dialog-right">
+                    <select name="" id="select11" class="diy-select" style="display: none;">
+                        <option selected="">请选择</option>
+                        <option value="1">111</option>
+                        <option value="2">222</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品名称</div>
+                <div class="dialog-right">自动出现产品名称</div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">选择文件</div>
+                <div class="dialog-right">
+                    <div class="upload-item">
+                        <div class="upload-title">《招募书》</div>
+                        <input type="button" class="btn-file" value="点击上传">
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-title">《合同》</div>
+                        <input type="button" class="btn-file" value="点击上传">
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-title">《托管协议》</div>
+                        <input type="button" class="btn-file" value="点击上传">
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-title">《皮肤》</div>
+                        <span class="font-blue">文件名字</span>
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-title">《参数文件》</div>
+                        <span class="font-blue">文件名字</span>
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-title">《销售合同》</div>
+                        <input type="button" class="btn-file" value="点击上传">
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-title">其他</div>
+                        <input type="button" class="btn-file" value="点击上传">
+
+                        <img src="../images/caitong/grey-add.png" class="grey-add"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-content" style="text-align: left;margin-left: 165px;">
+        <button class="btn btn-fill" style="margin-right: 10px;">确定</button>
+        <button class="btn btn-gray btnCancel">取消</button>
+    </div>
+
+</div>
+<div class="view-content disclosure-add-wrap" style="display: none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-wrap">
+        <div class="dialog-item-border">
+            <div class="dialog-item-box-title"></div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品代码</div>
+                <div class="dialog-right"><input class="dialog-input" value=""></div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品名称</div>
+                <div class="dialog-right">自动出现产品名称</div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">选择类型</div>
+                <div class="dialog-right">
+                    <select name="" id="select21" class="diy-select" style="display: none;">
+                        <option selected="">请选择</option>
+                        <option value="1">引入</option>
+                        <option value="2">引入2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">选择文件</div>
+                <div class="dialog-right">
+                    <div class="upload-item">
+                        <input type="button" class="btn-file" value="点击上传">
+                        <img src="../images/caitong/grey-add.png" class="grey-add"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-content" style="text-align: left;margin-left: 165px;">
+        <button class="btn btn-fill" style="margin-right: 10px;">确定</button>
+        <button class="btn btn-gray btnCancel">取消</button>
+    </div>
+
+</div>

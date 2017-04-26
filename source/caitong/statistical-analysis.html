@@ -6,6 +6,21 @@ class: statistical-analysis
 <script src="../javascript/highcharts.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
+        $('.begin-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.end-time').datepicker( "option", "minDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1900:2017'
+        });
+        $('.end-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1900:2017'
+        });
+
         // Build the chart
         $('#features_sex1').highcharts({
             chart: {
