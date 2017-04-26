@@ -1650,6 +1650,9 @@ input[type="text"]{
   position: relative;
   padding-top: 20px;
   @include box-sizing(border-box);
+    &.plat-list-short{
+        height: 500px;
+    }
 }
 
 .view-back {
@@ -1668,11 +1671,17 @@ input[type="text"]{
   position: relative;
   overflow: hidden;
   overflow-y: scroll;
+    &.flip-wrap-big{
+        margin-right: 0;
+    }
 }
 .flip {
   padding: 20px 50px;
   min-height: 56px;
   @include box-sizing(border-box);
+  &.flip-big{
+      padding: 20px;
+  }
   .preview,.next {
     width: 36px;
     height: 36px;
@@ -1738,6 +1747,16 @@ input[type="text"]{
     font-size: 16px;
     color: $theme-color;
     margin: 5px 0 15px 0;
+      span:before{
+          content:'';
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          background: $theme-color;
+          border-radius: 3px;
+          margin-right: 10px;
+          vertical-align: middle;
+      }
   }
   .tip-panel-content {
     font-size: 13px;
@@ -1787,6 +1806,29 @@ input[type="text"]{
   }
   .tip-panel-footer {
     text-align: center;
+  }
+  .tip-panel-content-top{
+      .tip-panel-inner{
+          margin-bottom: 15px;
+          h3{
+              line-height: 24px;
+          }
+          label{
+              height: 30px;
+              line-height: 30px;
+              width: 80px;
+              padding-left: 34px;
+             @include box-sizing(border-box);
+              input[type='radio']{
+                  display: inline-block;
+                  margin-right: 15px;
+                  position: absolute;
+                  top: 8px;
+                  left: 11px;
+              }
+          }
+      }
+
   }
 }
 
@@ -1984,19 +2026,18 @@ input[type="text"]{
 
                 }
             }
-            .col-block{
-                margin-top: 10px;
-                line-height: 30px;
-                border-bottom: 1px solid #ccc;
-                color: black;
-                padding-left: 15px;
-            }
         }
     }
 
 
 }
-
+.col-block{
+    margin-top: 10px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    color: black;
+    padding-left: 15px;
+}
 .content-list{
     width: 100%;
     padding: 10px;
@@ -2177,7 +2218,44 @@ input[type="text"]{
             }
         }
     }
+    .my-work{
+        margin: auto;
+        width: 1000px;
+        li{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            float: left;
+            a{
+                height: 100%;
+                display: block;
+                .my-work-list{
+                    height: 100%;
+                    dt{
+                        height: 90px;
+                        box-sizing: border-box;
+                        padding-top: 38px;
+                        @include box-sizing(border-box);
+                        img{
+                            margin: auto;
+                        }
 
+                    }
+                    dd{
+                        height: 70px;
+                        padding-top:10px ;
+                        @include box-sizing(border-box);
+                        .txt-center{
+                            text-align: center;
+                            font-size: 16px;
+                            line-height: 16px;
+                            color: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .dl-list{
@@ -2260,5 +2338,36 @@ input[type="text"]{
     .txt-right{
         text-align: right;
         line-height: 30px;
+    }
+}
+
+.waiting-message{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 0 8px 21px;
+    position: relative;
+    margin-bottom: 20px;
+    .icon-waiting {
+        float: left;
+        width: 24px;
+        height: 24px;
+        background-size: 100%;
+        background-image: url(../images/caitong/warn-32.png);
+
+    }
+    .waiting-node {
+        margin-left: 10px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .icon-closeMessage {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        width: 12px;
+        height: 12px;
+        background-image: url(../images/caitong/close-3.png);
+        cursor: pointer;
+        background-size: 100%;
     }
 }

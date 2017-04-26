@@ -166,10 +166,7 @@
     margin-top: 5px;
   }
   .item-wrap {
-    background: rgba(200, 210, 250, .4);
-    border-radius: 5px;
     padding: 8px 5px;
-    margin-top: 5px;
     .item-top {
       margin-bottom: 0 !important;
     }
@@ -181,13 +178,14 @@
   }
   .text-area {
     .item-bottom {
-      margin-bottom: 0 !important;
+        margin-bottom: 0 !important;
+        background: rgba(200, 210, 250, 0.4);
+        border-radius: 5px;
+        padding: 8px 5px;
+        margin-top: 5px;
     }
     position: relative;
     .item-top {
-      position: absolute;
-      top: 8px;
-      left: 5px;
       line-height: 24px;
     }
     textarea {
