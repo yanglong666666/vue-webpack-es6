@@ -48,19 +48,21 @@ class: setting-cust-manage
             $(this).parents('.dialog-item-wrap').hide().siblings('.main-content-wrap-list').show();
         });
 
+        $('.dialog-right label').on('click',function(){
+            $(this).siblings('label').find('input[type=radio]').prop('checked',false);
+            if($(this).hasClass('termOfValidity')){
+                if($(this).hasClass('temporary')){
+                    $(this).siblings('.time-wrap').show();
+                }else{
+                    $(this).siblings('.time-wrap').hide();
+                }
+            }
+        })
     });
 </script>
 
 <div class="main-content">
     <div class="main-content-wrap">
-        <div class="main-content-wrap-top">
-            <span class="tab-options on">发起人设置</span>
-            <span class="tab-options">产品路径设置</span>
-            <span class="tab-options">专题设置</span>
-            <span class="tab-options">分类设置</span>
-            <span class="tab-options">统计参数</span>
-            <span class="tab-options">产品文档管理</span>
-        </div>
         <div class="main-content-wrap-list">
             <div class="search-content on">
                 <div class="task-search clearfix">
@@ -84,8 +86,10 @@ class: setting-cust-manage
                             <span>
                             <select id="select2" class="diy-select" style="display: none;">
                                 <option selected="">状态</option>
-                                <option value="1">1111</option>
-                                <option value="2">22222</option>
+                                <option value="1">全部</option>
+                                <option value="2">冻结</option>
+                                <option value="3">正常</option>
+                                <option value="4">销户</option>
                             </select>
                             </span>
                         </dd>
@@ -148,9 +152,10 @@ class: setting-cust-manage
                             <td>正常</td>
                             <td class="text-c">
                                 <div class="btn-group">
-                                    <a href="#" class="btn btn-fill btn-small">查看</a>
+                                    <a href="#" class="btn btn-fill btn-small">操作</a>
                                     <i class="dropdown"></i>
                                     <ul class="sub-group" style="width: 64px; display: none;">
+                                        <li><a href="#">查看</a></li>
                                         <li><a href="#">解锁</a></li>
                                         <li><a href="#">冻结</a></li>
                                         <li><a href="#">注销</a></li>
@@ -168,11 +173,11 @@ class: setting-cust-manage
         <div class="dialog-item-wrap" id="add-wrap" style="display: none;">
             <div class="dialog-item">
                 <div class="dialog-left must-icon">员工号</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder=""><span class="tips">请输入至少6位密码，必须包含数字、字母、特殊字符（不含4位连续数字）</span></div>
+                <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
             </div>
             <div class="dialog-item">
                 <div class="dialog-left must-icon">登录密码</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+                <div class="dialog-right"><input class="dialog-input" placeholder=""><span class="tips">请输入至少6位密码，必须包含数字、字母、特殊字符（不含4位连续数字）</span></div>
             </div>
             <div class="dialog-item">
                 <div class="dialog-left must-icon">员工姓名</div>
@@ -230,8 +235,19 @@ class: setting-cust-manage
             <div class="dialog-item">
                 <div class="dialog-left must-icon">有效期</div>
                 <div class="dialog-right">
-                    <label><input type="radio" checked="">永久</label>
-                    <label><input type="radio" class="">临时</label>
+                    <label class="termOfValidity"><input type="radio">永久</label>
+                    <label class="termOfValidity temporary"><input type="radio" >临时</label>
+                    <div class="time-wrap" style="display: none;">
+                        <label>
+                            <input class="dialog-input begin-time hasDatepicker" type="text" placeholder="开始时间" readonly="" id="dp1493173860845">
+                            <i></i>
+                        </label>
+                        <span style="margin-right: 10px;vertical-align: top;line-height: 30px;">至</span>
+                        <label>
+                            <input class="dialog-input end-time hasDatepicker" type="text" placeholder="截止时间" readonly="" id="dp1493173860846">
+                            <i></i>
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="dialog-item">
@@ -244,7 +260,7 @@ class: setting-cust-manage
                 </div>
             </div>
             <div class="button-content" style="text-align: left;margin-left: 165px;">
-                <button class="btn btn-fill finish"style="margin-right: 10px;">立即创建</button>
+                <button class="btn btn-fill finish" style="margin-right: 10px;">去顶</button>
                 <button class="btn btn-deny cancel">取消</button>
             </div>
         </div>
@@ -317,6 +333,7 @@ class: setting-cust-manage
                     <label><input type="checkbox">产品管理</label>
                     <label><input type="checkbox">网络联系人</label>
                     <label><input type="checkbox">分公司领导</label>
+                    <label><input type="checkbox">系统管理员</label>
                 </div>
             </div>
             <div class="button-content" style="text-align: left;margin-left: 165px;">

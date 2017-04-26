@@ -81,12 +81,12 @@ class: setting-role-permission
 
         $('#addBtn').on('click',function(){
             $('#add-content').show();
-            $('#main-content').hide();
+            $('.main-content').hide();
         })
 
         $('.cancel').on('click',function(){
             $('#add-content').hide();
-            $('#main-content').show();
+            $('.main-content').show();
         })
 
 
@@ -113,7 +113,8 @@ class: setting-role-permission
                 <td>产品管理</td>
                 <td>产品引入;产品预热、产品登记、产品审核、查看统计</td>
                 <td class="text-c">
-                    <a href="javascript:void(0)" class="btn btn-fill btn-small btnCheck">删除</a>
+                    <a href="javascript:void(0)" class="btn btn-fill btn-small btnCheck">修改</a>
+                    <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete">删除</a>
                 </td>
             </tr>
             <tr>
@@ -121,15 +122,8 @@ class: setting-role-permission
                 <td>产品管理</td>
                 <td>产品引入;产品预热、产品登记、产品审核、查看统计</td>
                 <td class="text-c">
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-fill btn-small">修改</a>
-                        <i class="dropdown"></i>
-                        <ul class="sub-group" style="width: 64px; display: none;">
-                            <li><a href="#">解锁</a></li>
-                            <li><a href="#">冻结</a></li>
-                            <li><a href="#">注销</a></li>
-                        </ul>
-                    </div>
+                    <a href="javascript:void(0)" class="btn btn-fill btn-small btnCheck">修改</a>
+                    <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete">删除</a>
                 </td>
             </tr>
             </tbody>
