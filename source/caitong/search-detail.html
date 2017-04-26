@@ -1,0 +1,232 @@
+---
+title: 首页-查看详情
+layout: default-iframe
+---
+
+
+<script type="text/javascript">
+    $(function () {
+        $(".info-table-title").on('click','.icon-show',function(){
+            if($(this).hasClass('icon-hide')){
+                $(this).removeClass('icon-hide');
+                $(this).parent().parent().find(".info-table-content").show();
+            }else{
+                $(this).addClass('icon-hide');
+                $(this).parent().parent().find(".info-table-content").hide();
+            }
+        })
+    });
+
+
+
+</script>
+<div class="info-table">
+    <div class="info-table-title">业务信息</div>
+    <div class="info-table-content">
+        <div class="info-table-colspan">
+            <div class="info-table-item item-50p">
+                <div class="info-table-key">风险匹配</div>
+                <div class="info-table-val">不匹配</div>
+            </div>
+            <div class="info-table-item item-50p">
+                <div class="info-table-key">风险等级</div>
+                <div class="info-table-val">保守型</div>
+            </div>
+        </div>
+        <div class="info-table-colspan">
+            <div class="info-table-item item-50p">
+                <div class="info-table-key">投资经验</div>
+                <div class="info-table-val">未满两年</div>
+            </div>
+            <div class="info-table-item item-50p">
+                <div class="info-table-key">首次交易日期</div>
+                <div class="info-table-val">2015-10-21</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="view-content plat-lists plat-list-short" id="quality-content" style="">
+    <div class="area-wrap">
+        <div class="flip-wrap flip-wrap-big">
+            <div class="flip flip-big">
+
+                    <div class="flip-item show">
+                        <div class="info-table">
+                            <div class="info-table-title">客户基本信息   <i class="icon-show"></i></div>
+                            <div class="info-table-content">
+
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item item-50p">
+                                        <div class="info-table-key">产品代码</div>
+                                        <div class="info-table-val">160311</div>
+                                    </div>
+                                    <div class="info-table-item item-50p">
+                                        <div class="info-table-key">产品名称</div>
+                                        <div class="info-table-val">华夏蓝筹混合</div>
+                                    </div>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item item-50p">
+                                        <div class="info-table-key">状态</div>
+                                        <div class="info-table-val">代售</div>
+                                    </div>
+                                    <div class="info-table-item item-50p">
+                                        <div class="info-table-key">产品期限</div>
+                                        <div class="info-table-val">长期</div>
+                                    </div>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item item-50p">
+                                        <div class="info-table-key">成立日期</div>
+                                        <div class="info-table-val">2007-04-24</div>
+                                    </div>
+                                    <div class="info-table-item item-50p">
+                                        <div class="info-table-key">到期日期</div>
+                                        <div class="info-table-val">2017-04-24</div>
+                                    </div>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            管理人
+                                        </div>
+                                        <div class="info-table-val">
+                                            王重阳
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="info-table">
+                            <div class="info-table-title">交易属性   <i class="icon-show icon-hide"></i></div>
+                            <div class="info-table-content" style="display: none">
+
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            客户号
+                                        </div>
+                                        <div class="info-table-val">
+                                            610000173488
+                                        </div>
+                                    </div>
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            姓名
+                                        </div>
+                                        <div class="info-table-val">
+                                            乾多多
+                                        </div>
+                                    </div>
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            性别
+                                        </div>
+                                        <div class="info-table-val">
+                                            男
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            联系手机
+                                        </div>
+                                        <div class="info-table-val">
+                                            13006312639
+                                        </div>
+                                    </div>
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            开户营业部
+                                        </div>
+                                        <div class="info-table-val">
+                                            杭州营业部
+                                        </div>
+                                    </div>
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            开户日期
+                                        </div>
+                                        <div class="info-table-val">
+                                            2016-12-12
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <div class="info-table-item">
+                                        <div class="info-table-key">
+                                            证件号码
+                                        </div>
+                                        <div class="info-table-val">
+                                            420322198809148990
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="info-table">
+                            <div class="info-table-title">其它   <i class="icon-show"></i></div>
+                            <div class="info-table-content">
+
+                                <div class="info-table-colspan">
+                                    <a class="col-blue"> 《风险揭示书》 </a>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <a class="col-blue"> 《产品说明书》 </a>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <a class="col-blue"> 《产品合同》 </a>
+                                </div>
+                                <div class="info-table-colspan">
+                                    <a class="col-blue"> 《参数表》 </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="info-table " style="margin-top: 20px">
+  <div class="main-table">
+    <div class="info-table-title">档案流水</div>
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding15">
+        <thead>
+        <tr>
+            <th width="20%" class="left10">时间</th>
+            <th width="20%">流水类型</th>
+            <th width="h20%&quot;">操作人</th>
+            <th width="40%">描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2016-12-12 12:12:12</td>
+            <td>档案审核</td>
+            <td>管理员</td>
+            <td>档案审核通过</td>
+        </tr>
+        <tr>
+            <td>2016-12-12 12:12:12</td>
+            <td>档案审核</td>
+            <td>管理员</td>
+            <td>档案审核通过</td>
+        </tr>
+        <tr>
+            <td>2016-12-12 12:12:12</td>
+            <td>档案审核</td>
+            <td>管理员</td>
+            <td>档案审核通过</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

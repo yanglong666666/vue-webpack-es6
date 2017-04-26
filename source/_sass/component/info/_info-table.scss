@@ -102,6 +102,22 @@
     padding: 0 15px;
     color: #555;
     font-weight: 600;
+      position: relative;
+      .icon-show{
+          width: 16px;
+          height: 10px;
+          position: absolute;
+          right: 15px;
+          top: 11px;
+          background-image: url(../images/caitong/cf-show.png);
+          &.icon-hide{
+              -webkit-transform: rotateZ(180deg);
+              -moz-transform: rotateZ(180deg);
+              -o-transform: rotateZ(180deg);
+              -ms-transform: rotateZ(180deg);
+              transform: rotateZ(180deg);
+          }
+      }
   }
   .info-table-content {
     font-size: 0;
@@ -214,6 +230,12 @@
       &:last-child {
         border-bottom: none;
       }
+        .col-blue{
+            display: inline-block;
+            line-height: 36px;
+            width: 100%;
+            font-size: 14px;
+        }
     }
   }
   &.info-table-file {
