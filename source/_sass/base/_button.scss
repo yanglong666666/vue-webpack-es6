@@ -10,11 +10,11 @@ $btn-font-weight: normal !default;
 
 
 $btn-primary-bg: $color-blue !default;
-$btn-primary-color: $color-blue !default;
+$btn-primary-color:#f1374d !default;
 
 $btn-hollow-color: #3f88cc !default;
 $btn-hollow-bg: #fff !default;
-
+$btn-blue-color:#007aff !default;
 // color
 $btn-color-gray: #7d7d7d;
 
@@ -82,8 +82,12 @@ $btn-color-gray: #7d7d7d;
 //btn颜色变化
 .btn-primary {
   background-color: #ffffff;
-  color: $btn-primary-color;
-  border-color: $btn-primary-color;
+  color: $btn-blue-color;
+  border-color: $btn-blue-color;
+}
+.btn-blue{
+    border: none !important;
+    color: #007aff !important;
 }
 .btn-primary-white {
   background-color: #ffffff;

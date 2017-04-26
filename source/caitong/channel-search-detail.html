@@ -1,0 +1,192 @@
+---
+title: 产品管理—产品净值-详情
+layout: default-iframe
+class: statistical-analysis
+---
+<script src="../javascript/highcharts.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#select1').diySelect();
+
+        $('.begin-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.end-time').datepicker( "option", "minDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1990:2016'
+        });
+        $('.end-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            yearRange:'1900:2016'
+        });
+
+        $('#chart1').highcharts({
+            chart: {
+                backgroundColor: '#fff',
+                type: 'line',
+                /*marginTop: 30*/
+            },
+            title: {
+                text: ''
+            },
+            legend: {
+                backgroundColor: '#FFFFFF',
+                reversed: false,
+                verticalAlign: 'top',
+                align: 'center'
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        fontSize: 12,
+                        color: '#c0c5ce'
+                    }
+                },
+                categories: ['12-14', '12-15', '12-16', '12-17', '12-18', '12-19','12-20','12-21']
+            },
+            yAxis: {
+                min: 1,
+                title: {
+                    text: null
+                },
+                gridLineColor: '#dedede',
+                gridLineWidth: 1,
+                lineWidth: 1,
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            series: [{
+                name: '单位净值',
+                color: '#5FAEE3',
+                data: [2,3.5,4.5,4.5,4,5,4,4]
+            }, {
+                name: '累计净值',
+                color: '#f8a20f',
+                data: [1.5,2.5,3,2,3.2,3,5,3],
+
+            }]
+        });
+        $('.btn-group').on('mouseover', function() {
+            $(this).find('.sub-group').show();
+        }).on('mouseout', function() {
+            $(this).find('.sub-group').hide();
+        });
+
+    });
+</script>
+<div class="view-content" id="edit-content">
+  <a class="view-back"> &lt;&lt; 返回</a>
+  <div class="top-list " >
+      <img src="../images/caitong/ct-product.png" class="ct-pic" />
+      <span class="ct-dis">财通产品</span>
+      <dl class="search-dl search-dl-bg">
+          <dd>
+              <span class="pre"></span>
+              <label>
+                  <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+                  <i></i>
+              </label>
+              <span class="pre">至</span>
+              <label>
+                  <input class="txt end-time" type="text" placeholder="截止时间" readonly />
+                  <i></i>
+              </label>
+          </dd>
+      </dl>
+      <dl class="search-dl search-dl-small">
+          <dd>
+          <span>
+            <select id="select1" class="diy-select">
+                <option selected>产品类型</option>
+                <option value="1">基金类</option>
+                <option value="2">股票类</option>
+            </select>
+          </span>
+          </dd>
+      </dl>
+  </div>
+    <div id="chart1" style="width:100%"></div>
+    <div class="main-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+            <thead>
+            <tr>
+
+                <th width="25%">日期</th>
+                <th width="25%">单位净值 </th>
+                <th width="25%">累计净值 </th>
+                <th width="25%" class="text-c">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td>2017-03-06</td>
+                <td >1.48%</td>
+                <td >2.48%</td>
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small">查看</a>
+                        <i class="dropdown"></i>
+                        <ul class="sub-group" style="width: 64px; display: none;">
+                            <li><a href="#">修改</a></li>
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>2017-03-06</td>
+                <td >1.48%</td>
+                <td >2.48%</td>
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small">查看</a>
+                        <i class="dropdown"></i>
+                        <ul class="sub-group" style="width: 64px; display: none;">
+                            <li><a href="#">修改</a></li>
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2017-03-06</td>
+                <td >1.48%</td>
+                <td >2.48%</td>
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small">查看</a>
+                        <i class="dropdown"></i>
+                        <ul class="sub-group" style="width: 64px; display: none;">
+                            <li><a href="#">修改</a></li>
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr class="even">
+                <td>2017-03-06</td>
+                <td >1.48%</td>
+                <td >2.48%</td>
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small">查看</a>
+                        <i class="dropdown"></i>
+                        <ul class="sub-group" style="width: 64px; display: none;">
+                            <li><a href="#">修改</a></li>
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {% include component/pagenav-cf.html %}
+</div>

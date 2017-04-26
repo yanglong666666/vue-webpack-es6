@@ -12,3 +12,35 @@
         color: #999;
     }
 }
+
+.top-list {
+    position: relative;
+    padding: 5px;
+    height: 50px;
+    line-height: 40px;
+    background: #ccc;
+    @include clearfix();
+    @include box-sizing(border-box);
+    .ct-pic{
+        display: inline-block;
+        float: left;
+        margin-right: 20px;
+    }
+    .search-dl-bg{
+        display: inline-block;
+        float: right;
+        i{
+            top:20px !important;
+        }
+    }
+    .search-dl-small{
+        display: inline-block;
+        float: right;
+        .js-select {
+            border: none;
+            background: none;
+            min-width: 80px;
+            width: auto;
+        }
+    }
+}
