@@ -1,0 +1,161 @@
+---
+title: 角色权限
+layout: default-iframe
+class: setting-role-permission
+---
+
+<script src="../javascript/jquery.ztree.all-3.5.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.btn-group').on('mouseover', function() {
+            $(this).find('.sub-group').show();
+        }).on('mouseout', function() {
+            $(this).find('.sub-group').hide();
+        });
+
+
+        var setting = {
+            check: {
+                enable: true
+            },
+        };
+        var zNodes = [
+            {
+                name: "产品管理", open: true,
+                children: [
+                    {name: "产品引入"},
+                    {name: "产品预热"},
+                    {name: "产品编辑"},
+                    {name: "产品审核"},
+                    {name: "产品查询"},
+                    {name: "营销属性设置"}
+                ]
+            },
+            {
+                name: "精准营销", open: true,
+                children: [
+                    {name: "查看名单"},
+                    {name: "修改名当"}
+                ]
+            },
+            {
+                name: "销售管理", open: true,
+                children: [
+                    {name: "任务分解查看"},
+                    {name: "任务分解调整"},
+                    {name: "产品预约录入"},
+                    {name: "产品预约审批"},
+                    {name: "任务查询"},
+                    {name: "任务提醒"}
+                ]
+            },
+            {
+                name: "统计查询", open: true,
+                children: [
+                    {name: "全部销售额统计"},
+                    {name: "分支机构销售额统计"},
+                    {name: "全部销售费用统计"},
+                    {name: "分支机构销售费用统计"},
+                    {name: "产品统计"},
+                    {name: "协会报表"}
+                ]
+            },
+            {
+                name: "系统设置", open: true,
+                children: [
+                    {name: "用户管理"},
+                    {name: "组织管理"},
+                    {name: "角色权限"},
+                    {name: "公告设置"}
+                ]
+            },
+            {
+                name: "参数设置", open: true,
+                children: [
+                    {name: "07文件配置"}
+                ]
+            }
+
+        ];
+        $.fn.zTree.init($("#tree"), setting, zNodes);
+
+        $('#addBtn').on('click',function(){
+            $('#add-content').show();
+            $('#main-content').hide();
+        })
+
+        $('.cancel').on('click',function(){
+            $('#add-content').hide();
+            $('#main-content').show();
+        })
+
+
+    });
+</script>
+
+<div class="main-content">
+    <div class="task-search clearfix">
+        <button class="btn btn-float-right" id="addBtn">新增</button>
+    </div>
+    <div class="main-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+            <thead>
+            <tr>
+                <th>角色代码</th>
+                <th>角色名称</th>
+                <th>功能权限</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td>产品管理</td>
+                <td>产品引入;产品预热、产品登记、产品审核、查看统计</td>
+                <td class="text-c">
+                    <a href="javascript:void(0)" class="btn btn-fill btn-small btnCheck">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>产品管理</td>
+                <td>产品引入;产品预热、产品登记、产品审核、查看统计</td>
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small">修改</a>
+                        <i class="dropdown"></i>
+                        <ul class="sub-group" style="width: 64px; display: none;">
+                            <li><a href="#">解锁</a></li>
+                            <li><a href="#">冻结</a></li>
+                            <li><a href="#">注销</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {% include component/pagenav-cf.html %}
+</div>
+<div id="add-content" style="display: none;">
+    <div class="dialog-item-wrap" style="">
+        <div class="dialog-item">
+            <div class="dialog-left must-icon">角色代码</div>
+            <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+        </div>
+        <div class="dialog-item">
+            <div class="dialog-left must-icon">角色名称</div>
+            <div class="dialog-right"><input class="dialog-input" placeholder=""><span class="tips">请输入至少6位密码，必须包含数字、字母、特殊字符（不含4位连续数字）</span></div>
+        </div>
+        <div class="dialog-item">
+            <div class="dialog-left must-icon">权限设置</div>
+            <div class="dialog-right">
+                <div id="tree" class="ztree"></div>
+            </div>
+        </div>
+        <div class="button-content" style="text-align: left;margin-left: 165px;">
+            <button class="btn btn-fill finish" style="margin-right: 10px;">确定</button>
+            <button class="btn btn-deny cancel">取消</button>
+        </div>
+    </div>
+</div>

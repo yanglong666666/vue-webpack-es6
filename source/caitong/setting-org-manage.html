@@ -1,0 +1,135 @@
+---
+title: 组织管理
+layout: default-iframe
+class: setting-org-manage
+---
+<script src="../javascript/jquery.ztree.all-3.5.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#btnAdd').on('click',function(){
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">新增分类</div>' +
+                '   <div class="dialog-right">' +
+                '       <label><input type="radio" checked="">分公司</label>' +
+                '       <label><input type="radio" class="">营业部</label>' +
+                '   </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">名称</div>' +
+                '   <div class="dialog-right">' +
+                '       <input class="dialog-input" placeholder="">' +
+                '   </div>' +
+                '</div>' +
+                '</div></div>';
+            var dialog = new Dialog(null,{
+                title: '标题',
+                content: content,
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["取消","确定"],
+                btnRole: ['cancel','confirm'],
+                btnCls: ['cancel','confirm'],
+                confirm: function() {
+                    dialog.destroy();
+                },
+                afterShow: function(){
+
+                }
+            });
+        });
+        $('#btnEdit').on('click',function(){
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">名称</div>' +
+                '   <div class="dialog-right">' +
+                '       <input class="dialog-input" placeholder="宁波北路">' +
+                '   </div>' +
+                '</div>' +
+                '</div></div>';
+            var dialog = new Dialog(null,{
+                title: '标题',
+                content: content,
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["取消","确定"],
+                btnRole: ['cancel','confirm'],
+                btnCls: ['cancel','confirm'],
+                confirm: function() {
+                    dialog.destroy();
+                },
+                afterShow: function(){
+
+                }
+            });
+        });
+
+
+        var setting = {};
+        var zNodes = [
+            {
+                name: "总部", open: true,
+                children: [
+                    {
+                        name: "宁波分公司",open: true,
+                        children: [
+                            {
+                                name: "宁波天童北路证券营业部", open: true,
+                                children: [
+                                    {name: "B级营业部1"},
+                                    {name: "B级营业部2"}
+                                ]
+                            },
+                            {name: "宁海金融中心营业部"},
+                            {name: "慈禧开发大道营业部"},
+                            {name: "宁波范江岸路营业部"},
+                            {name: "宁波镇海营业部"},
+                            {name: "余姚撕明西路营业部"}
+                        ]
+                    },
+                    {
+                        name: "湖州分公司",open: true,
+                        children: [
+                            {name: "湖州红旗路营业部"},
+                            {name: "安吉体育场营业部"},
+                            {name: "长兴金陵北路营业部"},
+                            {name: "德清中兴南路营业部"},
+                            {name: "临海靖江中路营业部"}
+                        ]
+                    },
+                    {
+                        name: "台州分公司", open: true,
+                        children: [
+                            {name: "台州解放南路营业部"},
+                            {name: "温岭东辉北路营业部"},
+                            {name: "玉环广灵路营业部"},
+                            {name: "黄岩天长南路营业部"},
+                            {name: "湖州纸里商西路营业部"}
+                        ]
+                    }
+                ]
+            }
+        ];
+        $.fn.zTree.init($("#tree"), setting, zNodes);
+    });
+</script>
+
+<div class="main-content">
+    <div class="simple-content-table">
+        <div class="title">
+            <button class="btn" id="btnAdd">新增</button>
+            <button class="btn" id="btnEdit">修改</button>
+            <button class="btn">删除</button>
+            <button class="btn">升级</button>
+            <button class="btn">降级</button>
+            <button class="btn">上移</button>
+            <button class="btn">下移</button>
+            <button class="btn">启用</button>
+        </div>
+        <div class="content">
+            <div id="tree" class="ztree"></div>
+        </div>
+    </div>
+</div>
