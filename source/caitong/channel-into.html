@@ -4,8 +4,8 @@ layout: default-iframe
 ---
 <script type="text/javascript">
   $(function () {
-    $('#select1').diySelect();
-    $('#select2').diySelect();
+    $('.diy-select').diySelect();
+
 
     $('.begin-time').datepicker({
       onClose: function( selectedDate ) {
@@ -21,6 +21,43 @@ layout: default-iframe
       changeYear: true,
       yearRange:'1900:2016'
     });
+
+      $(".view-content").on('click','.view-back',function(){
+          $(this).parent('.view-content').hide();
+          $(this).parents('.main-content').show();
+      })
+
+
+      $(".task-search").on('click','.btn-add',function(){
+          $(this).parent().parent('.main-content').hide();
+          $('#edit-content').show();
+      })
+
+      $(".btn-change").on('click',function(){
+          $('.main-content').hide();
+          $('#edit-content1').show();
+      })
+
+
+    /*  $('.btnDocumentCheck').on('click', function () {
+          $('.main-content').hide();
+          $('.document-details-wrap').show();
+      });
+
+      $('#btnDocumentAdd').on('click', function () {
+          $('.main-content').hide();
+          $('.document-add-wrap').show();
+      });
+
+      $('#btnDisclosureAdd').on('click', function () {
+          $('.main-content').hide();
+          $('.disclosure-add-wrap').show();
+      });*/
+
+      $('.view-back,.btnCancel').on('click', function () {
+          $(this).parents('.view-content').hide();
+          $('.main-content').show();
+      });
 
   });
 </script>
@@ -40,8 +77,8 @@ layout: default-iframe
     </ul>
   </div>
   <div class="task-search clearfix">
-    <button class="btn  btn-lg btn-float-right" href="#">搜索</button>
-    <button class="btn btn-small btn-primary btn-simple btn-float-right" href="#">新增</button>
+    <button class="btn  btn-lg btn-float-right " >搜索</button>
+    <button class="btn btn-small btn-primary btn-simple btn-float-right btn-add" >新增</button>
 
      <dl class="search-dl">
         <dd>
@@ -210,26 +247,117 @@ layout: default-iframe
         </thead>
         <tbody>
           <tr class="even">
-            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small btn-change">编辑</a></td>
           </tr>
           <tr>
-            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small btn-change">编辑</a></td>
           </tr>
           <tr class="even">
-            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small btn-change">编辑</a></td>
           </tr>
           <tr>
-            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small btn-change">编辑</a></td>
           </tr>
           <tr class="even">
-            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small btn-change">编辑</a></td>
           </tr>
           <tr>
-            <td class="text-c"><a href="#" class="btn btn-primary btn-small">编辑</a></td>
+            <td class="text-c"><a href="#" class="btn btn-primary btn-small btn-change">编辑</a></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
   {% include component/pagenav-cf.html %}
+</div>
+
+<div class="view-content" id="edit-content" style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-wrap">
+        <div class="dialog-item-border">
+            <div class="dialog-item-box-title"></div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品名称</div>
+                <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">发行人</div>
+                <div class="dialog-right">
+                    <select name="" id="dialogSelect3" class="diy-select" style="display: none;">
+                        <option selected="">请选择</option>
+                        <option selected="" value="1">财通资管</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">上传文件</div>
+                <div class="dialog-right">
+                    <input type="button" class="btn-file" value="点击上传"><div class="btn-declare" style="width: inherit;">
+                    <img src="../images/caitong/grey-add.png" class="grey-add" />
+                </div>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品状态</div>
+                <div class="dialog-right"><span style="height: 28px;line-height: 28px;">引入</span></div>
+            </div>
+        </div>
+        <div class="button-content" style="text-align: left;margin-left: 165px;">
+            <button class="btn btn-fill"  style="margin-right: 10px;">确定</button>
+            <button class="btn btn-gray btnCancel" >取消</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="view-content" id="edit-content1" style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-wrap">
+        <div class="dialog-item-border">
+            <div class="dialog-item-box-title"></div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品名称</div>
+                <div class="dialog-right">
+                    <span class="txt">产品名称 </span>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">发行人</div>
+                <div class="dialog-right">
+                    <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
+                        <option selected="">请选择</option>
+                        <option selected="" value="1">财通资管</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">上传文件</div>
+                <div class="dialog-right">
+                    <input type="button" class="btn-file" value="点击上传">
+                    <div class="btn-declare" style="width: inherit;">
+                        <img src="../images/caitong/grey-add.png" class="grey-add" />
+                    </div>
+                    <ul class="list-add">
+                        <li>文件1</li>
+                        <li>文件2</li>
+                        <li>文件3</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="dialog-left">产品状态</div>
+                <div class="dialog-right">
+                    <select name="" id="dialogSelect2" class="diy-select" style="display: none;">
+                        <option selected="">请选择</option>
+                        <option selected="" value="1">上架</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="button-content" style="text-align: left;margin-left: 165px;">
+            <button class="btn btn-fill"  style="margin-right: 10px;">确定</button>
+            <button class="btn btn-gray btnCancel" >取消</button>
+        </div>
+
+    </div>
 </div>
