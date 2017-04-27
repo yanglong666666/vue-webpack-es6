@@ -5,7 +5,17 @@ layout: default-iframe
 
 <script type="text/javascript">
   $(function () {
-
+      $('#datepicker').datepicker({
+          onSelect : function( selectedDate ) {
+              console.log(selectedDate);
+          },
+          changeYear: true,
+          currentText: "Now",
+          changeMonth: true,
+          showMonthAfterYear: true,
+          dateFormat: "yy-mm-dd",
+          yearRange:'1990:2017'
+      });
   });
 
 
@@ -92,6 +102,7 @@ layout: default-iframe
 <h2 class="col-block">产品日历</h2>
 <div class="list-content">
     <div class="list-left">
+        <div id="datepicker" style="position:relative;"></div>
     </div>
     <div class="list-center">
         <img src="../images/caitong/daochu.png">
