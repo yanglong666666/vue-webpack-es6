@@ -1036,7 +1036,7 @@ input[type="text"]{
       .dialog-left{
         width:180px;
           &.dialog-left-short{
-              width:80px
+              width:105px
           }
           &.dialog-left-diff{
               padding-top: 20px;
@@ -1058,6 +1058,7 @@ input[type="text"]{
                       float: left;
                       margin-right: 20px;
                       line-height: 30px;
+                      cursor: pointer;
                      &.on{
                          color: #007aff;
                      }
@@ -1152,6 +1153,7 @@ input[type="text"]{
                 display: inline-block;
                 vertical-align: middle;
                 margin: 0 10px;
+                cursor: pointer;
             }
         }
       .dialog-wrap {
@@ -1419,7 +1421,7 @@ input[type="text"]{
     .dialog-item-wrap {
         .dialog-item {
             .dialog-left {
-                width: 80px;
+                width: 130px;
             }
             .dialog-right {
                 margin-left: 100px;
@@ -2046,6 +2048,7 @@ input[type="text"]{
         height: 30px;
         display: inline-block;
         line-height: 20px;
+        cursor: pointer;
         @include box-sizing(border-box);
         &.on{
             color:#fff;
