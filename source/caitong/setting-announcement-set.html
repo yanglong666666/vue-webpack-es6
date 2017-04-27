@@ -11,14 +11,20 @@ class: setting-announcement-set
                 $('.end-time').datepicker( "option", "minDate", selectedDate );
             },
             changeYear: true,
-            yearRange:'1900:2017'
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
         });
         $('.end-time').datepicker({
             onClose: function( selectedDate ) {
                 $('.begin-time').datepicker( "option", "maxDate", selectedDate );
             },
             changeYear: true,
-            yearRange:'1900:2017'
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
         });
         $('#btnAdd').on('click',function(){
             $('.main-content').hide();

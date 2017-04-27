@@ -1999,12 +1999,14 @@ input[type="text"]{
                         display: inline-block;
                         float: left;
                         padding: 5px 10px;
-                        border: 1px solid rgb(242,54,78);
-                        color: rgb(242,54,78);
+                        border: 1px solid $theme-color;
+                        color: $theme-color;
                         height: 30px;
+                        line-height: 18px;
+                        cursor: pointer;
                         @include box-sizing(border-box);
                         &.on{
-                            background:rgb(242,54,78) ;
+                            background:$theme-color ;
                             border: none;
                             color: #fff;
                         }
@@ -2020,11 +2022,15 @@ input[type="text"]{
                         };
                         .tab-list-top{
                             width: 100%;
-                            height: 200px;
+                            margin-bottom: 20px;
+                            text-align: center;
+                            .time-item {
+                                display: inline-block;
+                                vertical-align: top;
+                                margin: 0 20px;
+                            }
                         }
                     }
-
-
                 }
             }
         }
@@ -2052,7 +2058,7 @@ input[type="text"]{
         @include box-sizing(border-box);
         &.on{
             color:#fff;
-            background:rgb(242,54,78) ;
+            background:$theme-color ;
             @include border-radius(5px);
         }
     }
@@ -2140,7 +2146,7 @@ input[type="text"]{
     position: relative;
     .list-left{
         display: inline-block;
-        width: 200px;
+        width: 270px;
         height: 320px;
         float: left;
     }
@@ -2148,14 +2154,17 @@ input[type="text"]{
         display: inline-block;
         float: left;
         width: 23px;
-        height: 320px;
-        padding-top: 148px;
+        height: 262px;
+        line-height: 262px;
         @include box-sizing(border-box);
+        img {
+            vertical-align: middle;
+            display: inline-block;
+        }
     }
     .list-right{
-        min-width: 768px;
         display: block;
-        margin-left: 223px;
+        margin-left: 305px;
     }
     .prev{
         position: absolute;
@@ -2226,7 +2235,6 @@ input[type="text"]{
         li{
             display: inline-block;
             width: 200px;
-            height: 200px;
             float: left;
             a{
                 height: 100%;
@@ -2293,7 +2301,7 @@ input[type="text"]{
                 .col-red{
                     display: inline-block;
                     float: right;
-                    color:rgb(242,54,78);
+                    color:$theme-color;
                 }
             };
             &.p-right-center{

@@ -9,18 +9,24 @@ class: statistical-analysis
         $('#select1').diySelect();
 
         $('.begin-time').datepicker({
-            onClose: function( selectedDate ) {
-                $('.end-time').datepicker( "option", "minDate", selectedDate );
+            onClose: function (selectedDate) {
+                $('.end-time').datepicker("option", "minDate", selectedDate);
             },
             changeYear: true,
-            yearRange:'1990:2016'
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
         });
         $('.end-time').datepicker({
-            onClose: function( selectedDate ) {
-                $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+            onClose: function (selectedDate) {
+                $('.begin-time').datepicker("option", "maxDate", selectedDate);
             },
             changeYear: true,
-            yearRange:'1900:2016'
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
         });
 
         $('#chart1').highcharts({
@@ -45,7 +51,7 @@ class: statistical-analysis
                         color: '#c0c5ce'
                     }
                 },
-                categories: ['12-14', '12-15', '12-16', '12-17', '12-18', '12-19','12-20','12-21']
+                categories: ['12-14', '12-15', '12-16', '12-17', '12-18', '12-19', '12-20', '12-21']
             },
             yAxis: {
                 min: 1,
@@ -64,17 +70,17 @@ class: statistical-analysis
             series: [{
                 name: '单位净值',
                 color: '#5FAEE3',
-                data: [2,3.5,4.5,4.5,4,5,4,4]
+                data: [2, 3.5, 4.5, 4.5, 4, 5, 4, 4]
             }, {
                 name: '累计净值',
                 color: '#f8a20f',
-                data: [1.5,2.5,3,2,3.2,3,5,3],
+                data: [1.5, 2.5, 3, 2, 3.2, 3, 5, 3],
 
             }]
         });
-        $('.btn-group').on('mouseover', function() {
+        $('.btn-group').on('mouseover', function () {
             $(this).find('.sub-group').show();
-        }).on('mouseout', function() {
+        }).on('mouseout', function () {
             $(this).find('.sub-group').hide();
         });
 
@@ -85,18 +91,18 @@ class: statistical-analysis
     <div class="simple-content-table">
         <div class="title">
             <div class="top-list">
-                <img src="../images/caitong/ct-product.png" class="ct-pic" />
+                <img src="../images/caitong/ct-product.png" class="ct-pic"/>
                 <span class="ct-dis">财通产品</span>
                 <dl class="search-dl search-dl-bg">
                     <dd>
                         <span class="pre"></span>
                         <label>
-                            <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+                            <input class="txt begin-time" type="text" placeholder="开始时间" readonly/>
                             <i></i>
                         </label>
                         <span class="pre">至</span>
                         <label>
-                            <input class="txt end-time" type="text" placeholder="截止时间" readonly />
+                            <input class="txt end-time" type="text" placeholder="截止时间" readonly/>
                             <i></i>
                         </label>
                     </dd>

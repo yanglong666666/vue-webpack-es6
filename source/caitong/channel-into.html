@@ -11,15 +11,21 @@ layout: default-iframe
       onClose: function( selectedDate ) {
         $('.end-time').datepicker( "option", "minDate", selectedDate );
       },
-      changeYear: true,
-      yearRange:'1990:2016'
+        changeYear: true,
+        changeMonth: true,
+        showMonthAfterYear: true,
+        dateFormat: "yy-mm-dd",
+        yearRange: '1990:2017'
     });
     $('.end-time').datepicker({
       onClose: function( selectedDate ) {
           $('.begin-time').datepicker( "option", "maxDate", selectedDate );
       },
-      changeYear: true,
-      yearRange:'1900:2016'
+        changeYear: true,
+        changeMonth: true,
+        showMonthAfterYear: true,
+        dateFormat: "yy-mm-dd",
+        yearRange: '1990:2017'
     });
 
       $(".view-content").on('click','.view-back',function(){

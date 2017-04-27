@@ -4,957 +4,1019 @@ layout: default-iframe
 ---
 
 <script type="text/javascript">
-  $(function () {
-    // tab切换
-    $(".tabs-items").on("click",".tab-option",function () {
-          var _this = $(this);
-          var tabs_head = _this.parent();
-          var tabs_body = tabs_head.nextAll(".dialog-item-box-body").children(".tabs-body");
-          _this.addClass("on").siblings(".tab-option").removeClass("on");
-          var index = tabs_head.find(".tab-option").index(_this);
-          tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
-    })
+    $(function () {
+        // tab切换
+        $(".tabs-items").on("click", ".tab-option", function () {
+            var _this = $(this);
+            var tabs_head = _this.parent();
+            var tabs_body = tabs_head.nextAll(".dialog-item-box-body").children(".tabs-body");
+            _this.addClass("on").siblings(".tab-option").removeClass("on");
+            var index = tabs_head.find(".tab-option").index(_this);
+            tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
+        })
 
 
+        $('.begin-time_0').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time_0').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.end-time_0').datepicker({
+            onClose: function (selectedDate) {
+                $('.begin-time_0').datepicker("option", "maxDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.begin-time_1').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time_1').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.end-time_1').datepicker({
+            onClose: function (selectedDate) {
+                $('.begin-time_1').datepicker("option", "maxDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.end-time_2').datepicker({
+            onClose: function (selectedDate) {
+                // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
 
-    $('.begin-time_0').datepicker({
-      onClose: function( selectedDate ) {
-        $('.end-time_0').datepicker( "option", "minDate", selectedDate );
-      },
-      changeYear: true,
-      yearRange:'2000:2030'
+        // page
+        $('.diy-select').diySelect({width: 222});
+
+
+        $('.begin-time_3').datepicker({
+            onClose: function (selectedDate) {
+                // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+
+
     });
-    $('.end-time_0').datepicker({
-      onClose: function( selectedDate ) {
-        $('.begin-time_0').datepicker( "option", "maxDate", selectedDate );
-      },
-      changeYear: true,
-      yearRange:'2000:2030'
-    });
-    $('.begin-time_1').datepicker({
-      onClose: function( selectedDate ) {
-        $('.end-time_1').datepicker( "option", "minDate", selectedDate );
-      },
-      changeYear: true,
-      yearRange:'2000:2030'
-    });
-    $('.end-time_1').datepicker({
-      onClose: function( selectedDate ) {
-        $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
-      },
-      changeYear: true,
-      yearRange:'2000:2030'
-    });
-    $('.end-time_2').datepicker({
-      onClose: function( selectedDate ) {
-        // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
-      },
-      changeYear: true,
-      yearRange:'2000:2030'
-    });
-
-     // page
-    $('.diy-select').diySelect({width:222});
-
-
-    $('.begin-time_3').datepicker({
-      onClose: function( selectedDate ) {
-        // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
-      },
-      changeYear: true,
-      yearRange:'2000:2030'
-    });
-
-
-  });
 
 </script>
 <div class="view-content">
-  <a class="view-back" href="message-send.html"> &lt;&lt; 返回</a>
+    <a class="view-back" href="message-send.html"> &lt;&lt; 返回</a>
 
-  <div class="dialog-item-wrap">
-    <div class="dialog-item-border" style="position: relative">
-      <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
-        <span class="tab-option on">第一页</span>
-        <span class="tab-option">第二页</span>
-        <span class="tab-option">第三页</span>
-        <span class="tab-option">第四页</span>
-        <span class="tab-option">第五页</span>
-        <span class="tab-option">第六页</span>
-
-      </div>
-      <span class="option-space">&nbsp;</span>
-      <div class="dialog-item-box-body">
-        <div class="tabs-body">
-          <div class="tabs-content on">
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品代码</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">产品内码</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品名称</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">产品别名</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">拼音代码</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">产品相关代码</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品TA编号</div>
-                <div class="dialog-right">
-                  <select name="" id="sel_ta" class="diy-select" style="display: none;">
-                    <option selected="">请选择</option>
-                    <option value="1">已结束</option>
-                  </select>
-                </div>
-              </div>
-              <div class="w50p">
-                    <div class="dialog-left">更新日期</div>
-                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品公司</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">产品发起人</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品托管人</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-                <div class="w50p">
-                    <div class="dialog-left">托管银行</div>
-                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                </div>
+    <div class="dialog-item-wrap">
+        <div class="dialog-item-border" style="position: relative">
+            <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
+                <span class="tab-option on">第一页</span>
+                <span class="tab-option">第二页</span>
+                <span class="tab-option">第三页</span>
+                <span class="tab-option">第四页</span>
+                <span class="tab-option">第五页</span>
+                <span class="tab-option">第六页</span>
 
             </div>
-            <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">产品管理人</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                <div class="w50p">
-                    <div class="dialog-left">货币类型</div>
-                    <div class="dialog-right">
-                        <select name="" id="sel_zt1" class="diy-select" style="display: none;">
-                            <option selected="">请选择</option>
-                            <option value="1">基金</option>
-                        </select>
-                    </div>
-                </div>
-
-              </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品类别</div>
-                <div class="dialog-right">
-                  <select name="" id="sel_zt" class="diy-select" style="display: none;">
-                    <option selected="">请选择</option>
-                    <option value="1">股票</option>
-                  </select>
-                </div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">产品辅助类别</div>
-                <div class="dialog-right">
-                  <select name="" id="sel_fx" class="diy-select" style="display: none;">
-                    <option selected="">请选择</option>
-                    <option value="1">高风险</option>
-                    <option value="1">中风险</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">产品代码种类</div>
-                <div class="dialog-right">
-                  <select name="" id="sel_khfx1" class="diy-select" style="display: none;">
-                    <option selected="">请选择</option>
-                    <option value="1">XX类</option>
-                  </select>
-                </div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">产品代码类型</div>
-                <div class="dialog-right">
-                  <select name="" id="sel_hb1" class="diy-select" style="display: none;">
-                    <option selected="">请选择</option>
-                    <option value="1">XX类</option>
-                    <option value="1">XX类</option>
-
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">产品状态</div>
-                      <div class="dialog-right">
-                          <select name="" id="sel_khfx" class="diy-select" style="display: none;">
-                              <option selected="">请选择</option>
-                              <option value="1">下线</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">风险等级</div>
-                      <div class="dialog-right">
-                          <select name="" id="sel_hb" class="diy-select" style="display: none;">
-                              <option selected="">请选择</option>
-                              <option value="1">一级</option>
-                              <option value="1">二级</option>
-
-                          </select>
-                      </div>
-                  </div>
-              </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                  <div class="dialog-left">允许客户风险等级</div>
-                  <div class="dialog-right">
-                      <select name="" id="sel_yxkufxdj" class="diy-select" style="display: none;">
-                          <option selected="">请选择</option>
-                          <option value="1">一级</option>
-                      </select>
-                  </div>
-              </div>
-              <div class="w50p">
-                  <div class="dialog-left">产品收费方式</div>
-                  <div class="dialog-right">
-                      <select name="" id="sel_sffs" class="diy-select" style="display: none;">
-                          <option selected="">请选择</option>
-                          <option value="1">银行卡</option>
-                          <option value="1">支付宝</option>
-
-                      </select>
-                  </div>
-              </div>
-          </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                  <div class="dialog-left">分红方式</div>
-                  <div class="dialog-right">
-                      <select name="" id="sel_fhfs" class="diy-select" style="display: none;">
-                          <option selected="">请选择</option>
-                          <option value="1">现金</option>
-                      </select>
-                  </div>
-              </div>
-              <div class="w50p">
-                  <div class="dialog-left">投资类别</div>
-                  <div class="dialog-right">
-                      <select name="" id="sel_tzlb" class="diy-select" style="display: none;">
-                          <option selected="">请选择</option>
-                          <option value="1">基金</option>
-                          <option value="1">股票</option>
-
-                      </select>
-                  </div>
-              </div>
-          </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                  <div class="dialog-left">收益类别</div>
-                  <div class="dialog-right">
-                      <select name="" id="sel_sylb" class="diy-select" style="display: none;">
-                          <option selected="">请选择</option>
-                          <option value="1">XX类</option>
-                      </select>
-                  </div>
-              </div>
-          </div>
-
-            <div class="button-content page-footer-button-container">
-              <button class="btn btn-fill">下一步</button>
-              <button class="btn btn-gray">取消</button>
-              <span><i></i>15秒自动保存</span>
-            </div>
-          </div>
-          <div class="tabs-content">
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">募集开始日期</div>
-                      <div class="dialog-right">
-                          <div class="special-item">
-                              <label>
-                                  <input class="dialog-input begin-time_0" type="text" placeholder="开始日期" readonly />
-                                  <i></i>
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="w50p">
-                      <div class="dialog-left">募集结束日期</div>
-                      <div class="dialog-right">
-                          <div class="special-item">
-                              <label>
-                                  <input class="dialog-input end-time_0" type="text" placeholder="截止日期" readonly />
-                                  <i></i>
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">产品成立日期</div>
-                      <div class="dialog-right">
-                          <div class="special-item">
-                              <label>
-                                  <input class="dialog-input begin-time_0" type="text" placeholder="开始日期" readonly />
-                                  <i></i>
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="w50p">
-                      <div class="dialog-left">产品结束日期</div>
-                      <div class="dialog-right">
-                          <div class="special-item">
-                              <label>
-                                  <input class="dialog-input end-time_0" type="text" placeholder="截止日期" readonly />
-                                  <i></i>
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p w50p-change">
-                      <div class="dialog-left">发行日期</div>
-                      <div class="dialog-right">
-                          <div class="special-item">
-                              <label>
-                                  <input class="dialog-input end-time_0" type="text" placeholder="发行日期" readonly />
-                                  <i></i>
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="w50p w50p-changes">
-                      <div class="dialog-left">发行份</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p w50p-change">
-                      <div class="dialog-left">产品起息日期</div>
-                      <div class="dialog-right">
-                          <div class="special-item">
-                              <label>
-                                  <input class="dialog-input end-time_0" type="text" placeholder="产品起息日期" readonly />
-                                  <i></i>
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="w50p w50p-changes">
-                      <div class="dialog-left">产品周期（天）</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-              </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">评价等级</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                    <div class="dialog-left">付息频率</div>
-                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                </div>
-            </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">预期年收益率</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">产品收益信息</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">年华天数</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">7日年华收益率</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">万份单位收益</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">应计利息</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-              </div>
-
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">回售价格</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">面值</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">净值</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-                <div class="w50p">
-                    <div class="dialog-left">累计净值</div>
-                    <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                </div>
-
-            </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">允许委托方式</div>
-                      <div class="dialog-right">
-                          <select name="" id="sel_yxwt" class="diy-select" style="display: none;">
-                              <option selected="">请选择</option>
-                              <option value="1">基金公司</option>
-                              <option value="1">银行</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">允许支付方式</div>
-                      <div class="dialog-right">
-                          <select name="" id="sel_yxzf" class="diy-select" style="display: none;">
-                              <option selected="">请选择</option>
-                              <option value="1">支付宝</option>
-                              <option value="1">银行卡</option>
-                          </select>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">电子合同版本</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">投资者冷静期（24）</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">风险揭示书连接地址</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">额度申请有效期限（天）</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">允许转换代码</div>
-                      <div class="dialog-right">
-                          <select name="" id="sel_yxzh" class="diy-select" style="display: none;">
-                              <option selected="">请选择</option>
-                              <option value="1">允许</option>
-                              <option value="1">不允许</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">允许分成的代码</div>
-                      <div class="dialog-right">
-                          <select name="" id="sel_yxfc" class="diy-select" style="display: none;">
-                              <option selected="">请选择</option>
-                              <option value="1">XX码</option>
-                              <option value="1">XXX码</option>
-                          </select>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">支付超时时间（秒）</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-
-
-              </div>
-            <div class="button-content page-footer-button-container">
-              <button class="btn btn-fill">上一步</button>
-              <button class="btn btn-gray">下一步</button>
-              <button class="btn btn-gray">取消</button>
-              <span><i></i>15秒自动保存</span>
-            </div>
-          </div>
-          <div class="tabs-content">
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">个人首次最低申购金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">机构首次最低申购金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">个人首次最低认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">机构首次最低认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">客户单日认购申购最高金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">个人认购累计最高金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">个人单笔最低认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">机构单笔最低认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">个人单笔最高认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">机构单笔最高认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">个人单笔追加认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">机构单笔追加认购金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">个人单笔最低申购金额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                <div class="dialog-left">机构单笔最低申购金额</div>
-                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-              </div>
-            </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">个人单笔最高申购金额</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">机构单笔最高申购金额</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">个人最高申购金额</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">机构最高申购金额</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-              </div>
-              <div class="dialog-item">
-                  <div class="w50p">
-                      <div class="dialog-left">个人最高申赎回份额</div>
-                      <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                  </div>
-                  <div class="w50p">
-                      <div class="dialog-left">机构最高赎回份额</div>
-                      <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                  </div>
-              </div>
-
-
-            <div class="dialog-item">
-              <div class="w50p">
-                <div class="dialog-left">单笔赎回最低份额</div>
-                <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-              </div>
-              <div class="w50p">
-                    <div class="dialog-left">赎回最小单位</div>
-                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                </div>
-            </div>
-            <div class="button-content page-footer-button-container">
-              <button class="btn btn-blue">上一步</button>
-              <button class="btn btn-fill">下一步</button>
-              <button class="btn btn-gray">取消</button>
-              <span><i></i>15秒自动保存</span>
-            </div>
-          </div>
-          <div class="tabs-content">
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人认购单位</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构认购单位</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构首金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">客户单日认购申购最高金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">个人认购累计最高金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人单笔最低认购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构单笔最低认购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人单笔最高认购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构单笔最高认购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人单笔追加认购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构单笔追加认购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人单笔最低申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构单笔最低申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人单笔最高申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构单笔最高申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人最高申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构最高申购金额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">个人最高申赎回份额</div>
-                        <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">机构最高赎回份额</div>
-                        <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value="" ></div>
-                    </div>
-                </div>
-
-
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left dialog-left-diff">延迟交收设置</div>
-                        <div class="dialog-right">
-                            <div class="dialog-item">
-                                <div class="w50p">
-                                    <div class="dialog-left">证券理财确认赎回（天）</div>
-                                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+            <span class="option-space">&nbsp;</span>
+            <div class="dialog-item-box-body">
+                <div class="tabs-body">
+                    <div class="tabs-content on">
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品代码</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品内码</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品名称</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品别名</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">拼音代码</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品相关代码</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品TA编号</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_ta" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">已结束</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="dialog-item">
-                                <div class="w50p">
-                                    <div class="dialog-left">证券理财强行赎回（天）</div>
-                                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                            <div class="w50p">
+                                <div class="dialog-left">更新日期</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品公司</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品发起人</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品托管人</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">托管银行</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品管理人</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">货币类型</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_zt1" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">基金</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="dialog-item">
-                                <div class="w50p">
-                                    <div class="dialog-left">证券理财红利发放（天）</div>
-                                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品类别</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_zt" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">股票</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="dialog-item">
-                                <div class="w50p">
-                                    <div class="dialog-left">证券理财清盘（天）</div>
-                                    <div class="dialog-right"><input class="dialog-input" placeholder="" value="" ></div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品辅助类别</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_fx" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">高风险</option>
+                                        <option value="1">中风险</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品代码种类</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_khfx1" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">XX类</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品代码类型</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_hb1" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">XX类</option>
+                                        <option value="1">XX类</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品状态</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_khfx" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">下线</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">风险等级</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_hb" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">一级</option>
+                                        <option value="1">二级</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">允许客户风险等级</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_yxkufxdj" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">一级</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品收费方式</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_sffs" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">银行卡</option>
+                                        <option value="1">支付宝</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">分红方式</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_fhfs" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">现金</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">投资类别</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_tzlb" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">基金</option>
+                                        <option value="1">股票</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">收益类别</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_sylb" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">XX类</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-content page-footer-button-container">
+                            <button class="btn btn-fill">下一步</button>
+                            <button class="btn btn-gray">取消</button>
+                            <span><i></i>15秒自动保存</span>
+                        </div>
                     </div>
+                    <div class="tabs-content">
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">募集开始日期</div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label>
+                                            <input class="dialog-input begin-time_0" type="text" placeholder="开始日期"
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w50p">
+                                <div class="dialog-left">募集结束日期</div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label>
+                                            <input class="dialog-input end-time_0" type="text" placeholder="截止日期"
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品成立日期</div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label>
+                                            <input class="dialog-input begin-time_0" type="text" placeholder="开始日期"
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w50p">
+                                <div class="dialog-left">产品结束日期</div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label>
+                                            <input class="dialog-input end-time_0" type="text" placeholder="截止日期"
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p w50p-change">
+                                <div class="dialog-left">发行日期</div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label>
+                                            <input class="dialog-input end-time_0" type="text" placeholder="发行日期"
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w50p w50p-changes">
+                                <div class="dialog-left">发行份</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p w50p-change">
+                                <div class="dialog-left">产品起息日期</div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label>
+                                            <input class="dialog-input end-time_0" type="text" placeholder="产品起息日期"
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w50p w50p-changes">
+                                <div class="dialog-left">产品周期（天）</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">评价等级</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">付息频率</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">预期年收益率</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">产品收益信息</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">年华天数</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">7日年华收益率</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">万份单位收益</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">应计利息</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                        </div>
+
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">回售价格</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">面值</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">净值</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">累计净值</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">允许委托方式</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_yxwt" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">基金公司</option>
+                                        <option value="1">银行</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">允许支付方式</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_yxzf" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">支付宝</option>
+                                        <option value="1">银行卡</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">电子合同版本</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">投资者冷静期（24）</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">风险揭示书连接地址</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">额度申请有效期限（天）</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">允许转换代码</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_yxzh" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">允许</option>
+                                        <option value="1">不允许</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">允许分成的代码</div>
+                                <div class="dialog-right">
+                                    <select name="" id="sel_yxfc" class="diy-select" style="display: none;">
+                                        <option selected="">请选择</option>
+                                        <option value="1">XX码</option>
+                                        <option value="1">XXX码</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">支付超时时间（秒）</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+
+
+                        </div>
+                        <div class="button-content page-footer-button-container">
+                            <button class="btn btn-fill">上一步</button>
+                            <button class="btn btn-gray">下一步</button>
+                            <button class="btn btn-gray">取消</button>
+                            <span><i></i>15秒自动保存</span>
+                        </div>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人首次最低申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构首次最低申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人首次最低认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构首次最低认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">客户单日认购申购最高金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">个人认购累计最高金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最低认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最低认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最高认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最高认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔追加认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔追加认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最低申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最低申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人最高申赎回份额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构最高赎回份额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+
+
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">单笔赎回最低份额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">赎回最小单位</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                        </div>
+                        <div class="button-content page-footer-button-container">
+                            <button class="btn btn-blue">上一步</button>
+                            <button class="btn btn-fill">下一步</button>
+                            <button class="btn btn-gray">取消</button>
+                            <span><i></i>15秒自动保存</span>
+                        </div>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人认购单位</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构认购单位</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构首金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">客户单日认购申购最高金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">个人认购累计最高金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最低认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最低认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最高认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最高认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔追加认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔追加认购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最低申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最低申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人单笔最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构最高申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">个人最高申赎回份额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构最高赎回份额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+
+
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left dialog-left-diff">延迟交收设置</div>
+                                <div class="dialog-right">
+                                    <div class="dialog-item">
+                                        <div class="w50p">
+                                            <div class="dialog-left">证券理财确认赎回（天）</div>
+                                            <div class="dialog-right"><input class="dialog-input" placeholder=""
+                                                                             value=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="dialog-item">
+                                        <div class="w50p">
+                                            <div class="dialog-left">证券理财强行赎回（天）</div>
+                                            <div class="dialog-right"><input class="dialog-input" placeholder=""
+                                                                             value=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="dialog-item">
+                                        <div class="w50p">
+                                            <div class="dialog-left">证券理财红利发放（天）</div>
+                                            <div class="dialog-right"><input class="dialog-input" placeholder=""
+                                                                             value=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="dialog-item">
+                                        <div class="w50p">
+                                            <div class="dialog-left">证券理财清盘（天）</div>
+                                            <div class="dialog-right"><input class="dialog-input" placeholder=""
+                                                                             value=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-content page-footer-button-container">
+                            <button class="btn btn-blue">上一步</button>
+                            <button class="btn btn-fill">下一步</button>
+                            <button class="btn btn-gray">取消</button>
+                            <span><i></i>15秒自动保存</span>
+                        </div>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="dialog-item">
+                            <div class="dialog-left dialog-left-black">控制串选项</div>
+                            <div class="dialog-right">
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare checkbox-declare-black">认购收费模式是否为固定收费</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">风险等级不匹配是否禁止下委托</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认购确认是否减扣资金</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认购申购是否检查电子合同</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">全部赎回或卖出后是否保存0份额记录</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品预约业务是否冻结客户资金</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品预约业务是否冻结客户额度</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">允许个人购买</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">允许机构购买</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否为分销业务</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认购确认和减扣资金是否计算利息</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否需要签署纸质合同</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否为开放式产品</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">允许部分赎回</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品风险等级是否不转入</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品状态是否以产品是以产品设置为准</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否根据行情文件更新产品代码控制信息</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">风险揭示书是否需要单笔单签</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">风险等级不匹配是否允许柜台下委托</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-content page-footer-button-container">
+                            <button class="btn btn-blue">上一步</button>
+                            <button class="btn btn-fill">下一步</button>
+                            <button class="btn btn-gray">取消</button>
+                            <span><i></i>15秒自动保存</span>
+                        </div>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="main-table">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                <thead>
+                                <tr>
+                                    <th width="10%">序号</th>
+                                    <th width="15%">文档名称</th>
+                                    <th width="15%">支持格式</th>
+                                    <th width="10%">文件状态</th>
+                                    <th width="10%">版本号</th>
+                                    <th width="20%">上传时间</th>
+                                    <th width="20%" class="text-c">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td><a href="">《产品说明书》</a></td>
+                                    <td>word/pdf/纯文本</td>
+                                    <td>正常</td>
+                                    <td>V1.0</td>
+                                    <td>2017-03-06 10:01</td>
+                                    <td class="text-c">
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+                                    </td>
+                                </tr>
+                                <tr class="even">
+                                    <td>001</td>
+                                    <td><a href="">《风险揭示书》</a></td>
+                                    <td>word/pdf/纯文本</td>
+                                    <td>未上传</td>
+                                    <td>未上传</td>
+                                    <td>未上传</td>
+                                    <td class="text-c">
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>001</td>
+                                    <td><a href="">《电子合同》</a></td>
+                                    <td>word/pdf/纯文本</td>
+                                    <td>未上传</td>
+                                    <td>未上传</td>
+                                    <td>未上传</td>
+                                    <td class="text-c">
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+                                    </td>
+                                </tr>
+                                <tr class="even">
+                                    <td>001</td>
+                                    <td><a href="">《参数文件》</a></td>
+                                    <td>word/pdf/纯文本</td>
+                                    <td>正常</td>
+                                    <td>V1.0</td>
+                                    <td>2017-03-06 10:01</td>
+                                    <td class="text-c">
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="button-content page-footer-button-container">
+                            <button class="btn btn-blue">上一步</button>
+                            <button class="btn btn-fill btn-long">确认提交审核</button>
+                            <button class="btn btn-gray">暂不审核</button>
+                            <button class="btn btn-gray">取消</button>
+                            <span><i></i>15秒自动保存</span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="button-content page-footer-button-container">
-                    <button class="btn btn-blue">上一步</button>
-                    <button class="btn btn-fill">下一步</button>
-                    <button class="btn btn-gray">取消</button>
-                    <span><i></i>15秒自动保存</span>
-                </div>
-            </div>
-          <div class="tabs-content">
-            <div class="dialog-item">
-                <div class="dialog-left dialog-left-black">控制串选项</div>
-                <div class="dialog-right">
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare checkbox-declare-black">认购收费模式是否为固定收费</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">风险等级不匹配是否禁止下委托</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">认购确认是否减扣资金</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">认购申购是否检查电子合同</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">全部赎回或卖出后是否保存0份额记录</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">产品预约业务是否冻结客户资金</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">产品预约业务是否冻结客户额度</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">允许个人购买</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">允许机构购买</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">是否为分销业务</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">认购确认和减扣资金是否计算利息</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">是否需要签署纸质合同</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">是否为开放式产品</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">允许部分赎回</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">产品风险等级是否不转入</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">产品状态是否以产品是以产品设置为准</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">是否根据行情文件更新产品代码控制信息</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">风险揭示书是否需要单笔单签</span>
-                    </div>
-                    <div class="checkbox-item checkout-block">
-                      <span class="param-checkbox"></span>
-                      <span class="checkbox-declare">风险等级不匹配是否允许柜台下委托</span>
-                    </div>
-               </div>
-            </div>
-            <div class="button-content page-footer-button-container">
-                <button class="btn btn-blue">上一步</button>
-                <button class="btn btn-fill">下一步</button>
-                <button class="btn btn-gray">取消</button>
-                <span><i></i>15秒自动保存</span>
             </div>
         </div>
-          <div class="tabs-content">
-                <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
-                        <thead>
-                        <tr>
-                            <th width="10%">序号</th>
-                            <th width="15%">文档名称</th>
-                            <th width="15%">支持格式</th>
-                            <th width="10%">文件状态</th>
-                            <th width="10%">版本号</th>
-                            <th width="20%">上传时间</th>
-                            <th width="20%" class="text-c">操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td><a href="">《产品说明书》</a></td>
-                            <td>word/pdf/纯文本</td>
-                            <td>正常</td>
-                            <td>V1.0</td>
-                            <td>2017-03-06 10:01</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
-                            </td>
-                        </tr>
-                        <tr class="even">
-                            <td>001</td>
-                            <td><a href="">《风险揭示书》</a></td>
-                            <td>word/pdf/纯文本</td>
-                            <td>未上传</td>
-                            <td>未上传</td>
-                            <td>未上传</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
-                            </td>
-                        </tr>
-                        <tr class="">
-                            <td>001</td>
-                            <td><a href="">《电子合同》</a></td>
-                            <td>word/pdf/纯文本</td>
-                            <td>未上传</td>
-                            <td>未上传</td>
-                            <td>未上传</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
-                            </td>
-                        </tr>
-                        <tr class="even">
-                            <td>001</td>
-                            <td><a href="">《参数文件》</a></td>
-                            <td>word/pdf/纯文本</td>
-                            <td>正常</td>
-                            <td>V1.0</td>
-                            <td>2017-03-06 10:01</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="button-content page-footer-button-container">
-                    <button class="btn btn-blue">上一步</button>
-                    <button class="btn btn-fill btn-long">确认提交审核</button>
-                    <button class="btn btn-gray">暂不审核</button>
-                    <button class="btn btn-gray">取消</button>
-                    <span><i></i>15秒自动保存</span>
-                </div>
-            </div>
-
-      </div>
     </div>
-  </div>
-</div>
 
 </div>
 
