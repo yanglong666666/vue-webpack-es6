@@ -5,9 +5,8 @@ class: sales-preview
 ---
 <script type="text/javascript">
     $(function () {
-        $('#select1').diySelect({width: 100});
-        $('#select2').diySelect({width: 100});
-        $('#select3').diySelect({width: 100});
+        $('#select2').diySelect({width: 120});
+        $('#select3').diySelect({width: 120});
         $('#select01').diySelect({width: 222});
         $('#select02').diySelect({width: 222});
         $('#select03').diySelect({width: 222});
@@ -112,24 +111,13 @@ class: sales-preview
             <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd" href="#">新增</button>
             <dl class="search-dl">
                 <dd>
-          <span>
-            <select id="select1" class="diy-select">
-                <option selected>产品状态</option>
-                <option value="1">基金类</option>
-                <option value="2">股票类</option>
-            </select>
-          </span>
-                </dd>
-            </dl>
-            <dl class="search-dl">
-                <dd>
                     <label>
-                        <input class="txt begin-time" type="text" placeholder="开始时间" readonly style="width: 100px;"/>
+                        <input class="txt begin-time" type="text" placeholder="开始时间" readonly style="width: 120px;"/>
                         <i></i>
                     </label>
                     <span class="pre">至</span>
                     <label>
-                        <input class="txt end-time" type="text" placeholder="结束时间" readonly style="width: 100px;"/>
+                        <input class="txt end-time" type="text" placeholder="结束时间" readonly style="width: 120px;"/>
                         <i></i>
                     </label>
                 </dd>
@@ -156,9 +144,9 @@ class: sales-preview
                   </span>
                 </dd>
             </dl>
-            <input type="text" class="aql-input small-input" placeholder="产品代码" style="width: 100px;">
+            <input type="text" class="aql-input small-input" placeholder="产品代码" style="width: 120px;">
 
-            <input type="text" class="aql-input small-input" placeholder="产品名称" style="width: 100px;">
+            <input type="text" class="aql-input small-input" placeholder="产品名称" style="width: 120px;">
 
         </div>
         <div class="main-table clearfix">
@@ -178,11 +166,8 @@ class: sales-preview
                         <th width="20%">业绩提成标准(年化)</th>
                         <th width="10%">期限</th>
                         <th width="10%">最新净值</th>
-                        <th width="10%">实际管理人</th>
-                        <th width="10%">投资经理</th>
-                        <th width="10%">认/申购起点(元)</th>
-                        <th width="10%">产品特点</th>
-                        <th width="10%">发行规模</th>
+                        <th width="10%">管理人</th>
+                        <th width="10%">引入状态</th>
                         <th width="10%">人数控制</th>
                     </tr>
                     </thead>
@@ -201,10 +186,7 @@ class: sales-preview
                         <td>2年</td>
                         <td>1.0323</td>
                         <td>张德华</td>
-                        <td>刘黎敏</td>
-                        <td>100万</td>
-                        <td>特点</td>
-                        <td>2000万</td>
+                        <td>引入状态</td>
                         <td>2000万300人</td>
                     </tr>
                     <tr class="even">
@@ -221,10 +203,7 @@ class: sales-preview
                         <td>2年</td>
                         <td>1.0323</td>
                         <td>张德华</td>
-                        <td>刘黎敏</td>
-                        <td>100万</td>
-                        <td>特点</td>
-                        <td>2000万</td>
+                        <td>引入状态</td>
                         <td>2000万300人</td>
                     </tr>
                     <tr>
@@ -241,10 +220,7 @@ class: sales-preview
                         <td>2年</td>
                         <td>1.0323</td>
                         <td>张德华</td>
-                        <td>刘黎敏</td>
-                        <td>100万</td>
-                        <td>特点</td>
-                        <td>2000万</td>
+                        <td>引入状态</td>
                         <td>2000万300人</td>
                     </tr>
                     <tr class="even">
@@ -261,10 +237,7 @@ class: sales-preview
                         <td>2年</td>
                         <td>1.0323</td>
                         <td>张德华</td>
-                        <td>刘黎敏</td>
-                        <td>100万</td>
-                        <td>特点</td>
-                        <td>2000万</td>
+                        <td>引入状态</td>
                         <td>2000万300人</td>
                     </tr>
                     <tr>
@@ -281,10 +254,7 @@ class: sales-preview
                         <td>2年</td>
                         <td>1.0323</td>
                         <td>张德华</td>
-                        <td>刘黎敏</td>
-                        <td>100万</td>
-                        <td>特点</td>
-                        <td>2000万</td>
+                        <td>引入状态</td>
                         <td>2000万300人</td>
                     </tr>
                     <tr class="even">
@@ -301,10 +271,7 @@ class: sales-preview
                         <td>2年</td>
                         <td>1.0323</td>
                         <td>张德华</td>
-                        <td>刘黎敏</td>
-                        <td>100万</td>
-                        <td>特点</td>
-                        <td>2000万</td>
+                        <td>引入状态</td>
                         <td>2000万300人</td>
                     </tr>
                     </tbody>
@@ -319,22 +286,22 @@ class: sales-preview
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-fill btn-small tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary tableBtnEdit">修改</a></td>
                     </tr>
                     <tr class="even">
-                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-fill btn-small tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary tableBtnEdit">修改</a></td>
                     </tr>
                     <tr>
-                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-fill btn-small tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary tableBtnEdit">修改</a></td>
                     </tr>
                     <tr class="even">
-                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-fill btn-small tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary tableBtnEdit">修改</a></td>
                     </tr>
                     <tr>
-                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-fill btn-small tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary tableBtnEdit">修改</a></td>
                     </tr>
                     <tr class="even">
-                        <td class="text-c"><a href="#" class="btn btn-fill btn-small tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-fill btn-small tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-primary tableBtnEdit">修改</a></td>
                     </tr>
                     </tbody>
                 </table>
