@@ -27,6 +27,9 @@
 .main-table {
   position: relative;
   margin-bottom: 20px;
+  .tab-scroll{
+      min-width: 1300px;
+  }
   // overflow: hidden;
   //@include clearfix;
   .data-table {
