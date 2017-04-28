@@ -1,387 +1,359 @@
 .simple-table {
-  margin: 0px 0px 50px 20px;
-  thead {
-    tr {
-      td {
-        color: #5a5d63;
-        font-size: 14px;
-      }
+    margin: 0px 0px 50px 20px;
+    thead {
+        tr {
+            td {
+                color: #5a5d63;
+                font-size: 14px;
+            }
+        }
     }
-  }
-  tbody {
-    td {
-      padding: 10px 0px;
-      font-size: 14px;
-      color: #3a3d42;
-      &.title {
-        color: #6f7b91;
-      }
-      &.data-rate {
-        color: #3f88cc;
-        font-size: 18px;
-      }
+    tbody {
+        td {
+            padding: 10px 0px;
+            font-size: 14px;
+            color: #3a3d42;
+            &.title {
+                color: #6f7b91;
+            }
+            &.data-rate {
+                color: #3f88cc;
+                font-size: 18px;
+            }
+        }
     }
-  }
 }
 
 .main-table {
-  position: relative;
-  margin-bottom: 20px;
-  // overflow: hidden;
-  //@include clearfix;
-  .data-table {
-    font-size: 13px;
-    border: 1px solid $border-color;
-    text-align: center;
-    thead {
-      th {
-        font-size: 14px;
-        height: 26px;
-        box-sizing: border-box;
-        background-color: $bg-color;
-        color: $font-color;
-        font-weight: 600;
-        padding: 5px 7px;
-        border-bottom: 1px solid $border-color;
-        &.num-th {
-          padding-left: 35px;
-        }
-        &.text-c {
-          text-align: center;
-        }
-        a {
-          color: #3a3d42;
-          &.current {
-            color: #e4788c;
-          }
-        }
-         .icon-tab{
-             display: inline-block;
-             width: 8px;
-             height: 11px;
-             background-image: url(../images/caitong/grey-tab.png);
-
-         }
-      }
-    }
-    tbody {
-      td {
-        color: #444;
-        border-bottom: 1px solid $border-color;
-        padding: 10px 7px;
-        &.col-red{
-            color: $color-red;
-        }
-       &.col-green{
-            color: $color-green;
-       }
-        &.text-c {
-          text-align: center;
-          span.do-none{
-            display: inline-block;
-            line-height: 28px;
-          }
-        }
-        .link {
-          color: #3f88cc;
-        }
-        &.active {
-          background-color: #e1e6ef;
-          font-weight: bold;
-        }
-        input[type="text"] {
-          margin: 0;
-          width: 73px;
-          &.edit-input {
-            width: initial;
-          }
-          &.active {
-            border: none;
-            text-align: right;
-          }
-        }
-        .complete-btn {
-          display: none;
-        }
-        .text-time {
-          color: #b3b3b3;
-        }
-        img {
-          float: left;
-        }
-        .img-text {
-          float: left;
-          margin-left: 10px;
-        }
-        &.num-th {
-          padding-left: 35px;
-        }
-          &.red {
-              color: $color-red;
-          }
-          &.green {
-              color: $color-green;
-          }
-
-      }
-      tr.has-details {
-        td {
-          border-bottom: none;
-          padding-bottom: 0;
-        }
-      }
-      tr.details {
-        td {
-          border-top: none;
-          padding-top: 0;
-          color: #999999;
-          line-height: 30px;
-        }
-      }
-      tr.even {
-        background-color: #f7f9fd;
-      }
-      tr.red {
-          td {
-              color: $color-red;
-          }
-      }
-    }
-    .btn-group {
-      position: relative;
-      display: inline-block;
-      .btn {
-        position: relative;
-        padding-right: 30px;
-        // z-index: 9;
-      }
-      .dropdown {
-        display: block;
-        width: 17px;
-        height: 13px;
-        padding: 8px 8px 8px 0;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 10;
-        background-image: url(../images/dropdown.png);
-        background-repeat: no-repeat;
-        background-position: 1px 50%;
-        cursor: pointer;
-      }
-      .dropdown-list {
-        display: inline-block;
-        width: 100%;
-        left:0;
-        position: absolute;
-        top: 28px;
-        padding: 2px 0 0;
-        @include box-sizing(border-box);
-        border-color: #3f88cc;
-        >div,>li {
-          display: block;
-          padding: 0 10px;
-          text-align: center;
-          cursor: pointer;
-          font-size: 12px;
-          line-height: 24px;
-          &:hover {
-            background-color:rgba(63, 136, 204, 0.4);
-          }
-        }
-      }
-      ul {
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 28px;
-        z-index: 10;
-        border: 1px solid #3f88cc;
-        border-top: 0;
-        background-color: #fff;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        margin-top: -3px;
-        padding-top: 5px;
-        padding-bottom: 4px;
-        li {
-          a {
-            display: block;
-            font-size: 12px;
-            color: #3f88cc;
-          }
-        }
-      }
-    }
-    &.border-lr{
-      border-left: 1px solid $border-color;
-      border-right: 1px solid $border-color;
-    }
-    &.table-padding20 {
-      thead th {
-        padding: 5px 20px;
-      }
-      tbody td {
-        padding: 10px 20px;
-      }
-    }
-    .list-detail{
-      .td-box{
-        padding-top: 0;
-        .data-table{
-          border:none;
-        }
-        thead th{
-          background:$bg-color;
-        }
-        tbody  td{
-          border-bottom: none;
-        }
-      }
-      &.details-hide{
-        display: none;
-      }
-      &.details-show{
-        display: run-in;
-      }
-    }
-  }
-  .textLeft {
-      text-align: left !important;
-  }
-  .textRight {
-      text-align: right !important;
-  }
-  .textCenter {
-      text-align: center !important;
-  }
-  .bgGrey {
-      background-color: $bg-color-sub !important;
-  }
-  .borderRight {
-      border-right: 1px solid $border-color !important;
-  }
-  .borderBottom {
-      border-bottom: 1px solid $border-color !important;
-  }
-  .scroll-table,
-  .fixed-table {
-    float: left;
-  }
-  .scroll-table {
-    width: 90%;
-    overflow-y: hidden;
-    overflow-x: auto;
+    position: relative;
+    margin-bottom: 20px;
+    // overflow: hidden;
+    //@include clearfix;
     .data-table {
-      table-layout: fixed;
-      th,
-      td {
-        // overflow: hidden;
-        // text-overflow : ellipsis;
-        white-space : nowrap;
-        min-width: 50px;
-      }
-      td {
-        height: 28px;
-        line-height: 28px;
-      }
-    }
+        font-size: 13px;
+        border: 1px solid $border-color;
+        text-align: center;
+        thead {
+            th {
+                font-size: 14px;
+                height: 26px;
+                box-sizing: border-box;
+                background-color: $bg-color;
+                color: $font-color;
+                padding: 5px 7px;
+                border-bottom: 1px solid $border-color;
+                &.num-th {
+                    padding-left: 35px;
+                }
+                &.text-c {
+                    text-align: center;
+                }
+                a {
+                    color: $font-color;
+                    &.current {
+                        color: $theme-color;
+                    }
+                }
+                .icon-tab {
+                    display: inline-block;
+                    width: 8px;
+                    height: 11px;
+                    background-image: url(../images/caitong/grey-tab.png);
 
-  }
-  .fixed-table {
-    width: 10%;
-    .data-table{
-       tbody td{
-          padding:9px 7px;
-       }
+                }
+            }
+        }
+        tbody {
+            td {
+                color: $font-color-sub;
+                border-bottom: 1px solid $border-color;
+                padding: 10px 7px;
+                &.col-red {
+                    color: $color-red;
+                }
+                &.col-green {
+                    color: $color-green;
+                }
+                &.text-c {
+                    text-align: center;
+                    span.do-none {
+                        display: inline-block;
+                        line-height: 28px;
+                    }
+                }
+                .link {
+                    color: $color-blue;
+                }
+                &.active {
+                    background-color: #e1e6ef;
+                    font-weight: bold;
+                }
+                input[type="text"] {
+                    margin: 0;
+                    width: 73px;
+                    &.edit-input {
+                        width: initial;
+                    }
+                    &.active {
+                        border: none;
+                        text-align: right;
+                    }
+                }
+                .complete-btn {
+                    display: none;
+                }
+                .text-time {
+                    color: #b3b3b3;
+                }
+                img {
+                    float: left;
+                }
+                .img-text {
+                    float: left;
+                    margin-left: 10px;
+                }
+                &.num-th {
+                    padding-left: 35px;
+                }
+                &.red {
+                    color: $color-red;
+                }
+                &.green {
+                    color: $color-green;
+                }
+            }
+            tr.has-details {
+                td {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+            }
+            tr.details {
+                td {
+                    border-top: none;
+                    padding-top: 0;
+                    color: #999999;
+                    line-height: 30px;
+                }
+            }
+            tr.even {
+                background-color: #f7f9fd;
+            }
+            tr.red {
+                td {
+                    color: $color-red;
+                }
+            }
+        }
+        .btn-group {
+            position: relative;
+            display: inline-block;
+            .btn {
+                position: relative;
+                padding-right: 30px;
+                background-image: url(../images/dropdown.png);
+                background-repeat: no-repeat;
+                background-position: 90% 50%;
+                background-size: 17px 13px;
+                // z-index: 9;
+            }
+            ul {
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 28px;
+                z-index: 10;
+                border: 1px solid #3f88cc;
+                border-top: 0;
+                background-color: #fff;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                margin-top: -3px;
+                padding-top: 5px;
+                padding-bottom: 4px;
+                width: 100%;
+                @include box-sizing(border-box);
+                li {
+                    a {
+                        display: block;
+                        font-size: 12px;
+                        color: #3f88cc;
+                    }
+                }
+            }
+        }
+        &.border-lr {
+            border-left: 1px solid $border-color;
+            border-right: 1px solid $border-color;
+        }
+        &.table-padding20 {
+            thead th {
+                padding: 5px 20px;
+            }
+            tbody td {
+                padding: 10px 20px;
+            }
+        }
+        .list-detail {
+            .td-box {
+                padding-top: 0;
+                .data-table {
+                    border: none;
+                }
+                thead th {
+                    background: $bg-color;
+                }
+                tbody td {
+                    border-bottom: none;
+                }
+            }
+            &.details-hide {
+                display: none;
+            }
+            &.details-show {
+                display: run-in;
+            }
+        }
     }
-  }
-  label.table-check{
-    width: auto;
-    height: auto;
-    line-height: normal;
-    cursor: pointer;
-    input[type="checkbox"]{
-      display: none;
+    .textLeft {
+        text-align: left !important;
     }
-    span.checkbox{
-      display: inline-block;
-      font-size: 12px;
-      border: solid 1px #868686;
-      color: #3f88cc;
-      height: 10px;
-      width: 10px;
-      line-height: 6px;
-      overflow: hidden;
-      position: relative;
-      top: 1px;
-      margin-right: 5px;
-      border-radius: 2px;
+    .textRight {
+        text-align: right !important;
     }
-  }
-  span.nochecked{
-    padding-left: 17px;
-  }
-  .table-foot{
-    width: 100%;
-    padding-left: 16px;
-    label{
-      margin-right: 10px;
+    .textCenter {
+        text-align: center !important;
     }
-    &:before{
-      content: "";
-      clear: both;
-      width: 100%;
-      display: block;
-      height: 10px;
+    .bgGrey {
+        background-color: $bg-color-sub !important;
     }
+    .borderRight {
+        border-right: 1px solid $border-color !important;
+    }
+    .borderBottom {
+        border-bottom: 1px solid $border-color !important;
+    }
+    .scroll-table,
+    .fixed-table {
+        float: left;
+    }
+    .scroll-table {
+        width: 90%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        .data-table {
+            table-layout: fixed;
+            th,
+            td {
+                // overflow: hidden;
+                // text-overflow : ellipsis;
+                white-space: nowrap;
+                min-width: 50px;
+            }
+            td {
+                height: 28px;
+                line-height: 28px;
+            }
+        }
 
-  }
+    }
+    .fixed-table {
+        width: 10%;
+        .data-table {
+            tbody td {
+                padding: 9px 7px;
+            }
+        }
+    }
+    label.table-check {
+        width: auto;
+        height: auto;
+        line-height: normal;
+        cursor: pointer;
+        input[type="checkbox"] {
+            display: none;
+        }
+        span.checkbox {
+            display: inline-block;
+            font-size: 12px;
+            border: solid 1px #868686;
+            color: #3f88cc;
+            height: 10px;
+            width: 10px;
+            line-height: 6px;
+            overflow: hidden;
+            position: relative;
+            top: 1px;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+    }
+    span.nochecked {
+        padding-left: 17px;
+    }
+    .table-foot {
+        width: 100%;
+        padding-left: 16px;
+        label {
+            margin-right: 10px;
+        }
+        &:before {
+            content: "";
+            clear: both;
+            width: 100%;
+            display: block;
+            height: 10px;
+        }
+
+    }
 }
+
 .table-warning {
-  margin-top: 10px;
-  .table-warning {
-    color: #f1374d;
-  }
-  .table-message {
-    color: #737373;
-  }
+    margin-top: 10px;
+    .table-warning {
+        color: #f1374d;
+    }
+    .table-message {
+        color: #737373;
+    }
 }
+
 td {
-  word-wrap: break-word;
-  word-break: break-all;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 td.nowrap-ellipsis {
-  display: block;
-  /* width: 31em; */
-  word-break: keep-all;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    display: block;
+    /* width: 31em; */
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .report-title {
-  font-size: 20px;
-  text-align: center;
-  margin: 10px 0 20px;
-  font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0 20px;
+    font-weight: 600;
 }
+
 .report-tips {
-  font-size: 13px;
-  margin-bottom: 10px;
-  .tips-item {
-    display: inline-block;
-    margin-right: 30px;
-    .tips-title {
-      display: inline-block;
-      color: #111;
+    font-size: 13px;
+    margin-bottom: 10px;
+    .tips-item {
+        display: inline-block;
+        margin-right: 30px;
+        .tips-title {
+            display: inline-block;
+            color: #111;
+        }
+        .tips-text {
+            display: inline-block;
+            color: #999999;
+        }
     }
-    .tips-text {
-      display: inline-block;
-      color: #999999;
-    }
-  }
 }
 
 .simple-content-table {

@@ -39,10 +39,9 @@
 			.pro-info{
 				display: flex;
 				padding:10px 0;
-				div{
+				>div{
 					width: 25%;
 					text-align: center;
-					height: 120px;
 					background:#f6f6f6;
 					padding:15px 0;
 					&:nth-child(1){
@@ -55,6 +54,7 @@
 					.p-name{
 						height: 40px;
 						line-height: 40px;
+                        color: $font-color-sub;
 					}
 					.p-val{
 						height: 65px;
@@ -62,13 +62,13 @@
                         font-weight: bold;
 					}
 					.p-strong{
-						font-size: 56px;
+						font-size: 38px;
 					}
 				}
 			}
 			.pro-limit{
 				display: flex;
-				div{
+				>div{
 					width:25%;
 					height: 36px;
 					line-height: 36px;
@@ -76,6 +76,9 @@
 					span{
 						display: inline-block;
 						margin-right: 5px;
+                        &:last-child {
+                            color: $font-color-sub;
+                        }
 					}
 				}
 			}

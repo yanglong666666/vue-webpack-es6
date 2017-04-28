@@ -1,140 +1,179 @@
 .leftaside {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  overflow: hidden;
-  overflow-y: scroll;
-  margin-top: 62px;
-  width: 217px;
-  background: #fbfbfb;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 62px;
+    width: 217px;
+    background: #fbfbfb;
 
-  .leftul {
-    >li {
-      position: relative;
-      a {
-        font-size: 14px;
-        display: block;
-        margin: 0 10px 0 0;
-        line-height: 20px;
-        color: #737373;
-        padding: 10px 0 10px 55px;
-        &.active {
-          color: #e33448;
-        }
-      }
-      >a {
-        margin: 5px 0;
-      }
-      p {
-        position: relative;
-        z-index: 10;
-        cursor: pointer;
-        color: #64696c;
-        padding-left: 55px;
-        line-height: 40px;
-        margin: 5px 0;
-      }
-      .inner-ul {
-        background-color: #E8E9ED;
-        display: none;
-        li {
-          text-align: left;
-          a {
-            margin: 0;
-            &.active {
-              background: #e33448;
-              color: #fff;
+    .leftul {
+        > li {
+            position: relative;
+            a {
+                font-size: 14px;
+                display: block;
+                margin: 0 10px 0 0;
+                line-height: 20px;
+                color: #737373;
+                padding: 10px 0 10px 55px;
+                &.active {
+                    color: #e33448;
+                }
             }
-          }
-        }
-      }
-      b {
-        position: absolute;
-        right: 20px;
-        width: 9px;
-        height: 5px;
-        vertical-align: middle;
-        background: url("../images/icolist.png") -60px -50px no-repeat;
-        top: 18px;
-      }
-      .icon {
-        height: 24px;
-        width: 24px;
-        top: 8px;
-        left: 15px;
-        position: absolute;
-        display: inline-block;
-      }
-      &.current {
-        &:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 40px;
-          width: 5px;
-          background-color: $theme-color;
-        }
-        b {
-          background: url("../images/cftrade/show-ul.png") no-repeat;
-        }
-        >a,>p {
-          color: $theme-color
-        }
-      }
-      &.index-home {
-        .icon {
-          background: url(../images/aside/aside-cf.png) no-repeat 0 -48px;
-        }
-        &.current {
-          .icon {
-            background: url(../images/aside/aside-cf.png) no-repeat 0 -72px;
-          }
-        }
-      }
-      &.index-archive-manage {
-        .icon {
-          background: url(../images/aside/aside-cf.png) no-repeat 0 0;
-        }
-        &.current {
-          .icon {
-            background: url(../images/aside/aside-cf.png) no-repeat 0 -24px;
-          }
+            > a {
+                margin: 5px 0;
+            }
+            p {
+                position: relative;
+                z-index: 10;
+                cursor: pointer;
+                color: #64696c;
+                padding-left: 55px;
+                line-height: 40px;
+                margin: 5px 0;
+            }
+            .inner-ul {
+                background-color: #E8E9ED;
+                display: none;
+                li {
+                    text-align: left;
+                    a {
+                        margin: 0;
+                        &.active {
+                            background: #e33448;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            b {
+                position: absolute;
+                right: 20px;
+                width: 9px;
+                height: 5px;
+                vertical-align: middle;
+                background: url("../images/icolist.png") -60px -50px no-repeat;
+                top: 18px;
+            }
+            .icon {
+                height: 24px;
+                width: 24px;
+                top: 8px;
+                left: 15px;
+                position: absolute;
+                display: inline-block;
+            }
+            &.current {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 40px;
+                    width: 5px;
+                    background-color: $theme-color;
+                }
+                b {
+                    background: url("../images/cftrade/show-ul.png") no-repeat;
+                }
+                > a, > p {
+                    color: $theme-color
+                }
+            }
+            &.index-home {
+                .icon {
+                    background: url(../images/aside/aside-cf.png) no-repeat 0 -48px;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/aside-cf.png) no-repeat 0 -72px;
+                    }
+                }
+            }
+            &.index-archive-manage {
+                .icon {
+                    background: url(../images/aside/aside-cf.png) no-repeat 0 0;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/aside-cf.png) no-repeat 0 -24px;
+                    }
 
-        }
-      }
-      &.index-platform-manage {
-        .icon {
-          background: url(../images/aside/aside-cf.png) no-repeat 0 -96px;
-        }
-        &.current {
-          .icon {
-            background: url(../images/aside/aside-cf.png) no-repeat 0 -120px;
-          }
+                }
+            }
+            &.index-platform-manage {
+                .icon {
+                    background: url(../images/aside/aside-cf.png) no-repeat 0 -96px;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/aside-cf.png) no-repeat 0 -120px;
+                    }
 
+                }
+            }
+            &.index-quality-system {
+                .icon {
+                    background: url(../images/aside/aside-cf.png) no-repeat 0 -144px;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/aside-cf.png) no-repeat 0 -168px;
+                    }
+                }
+            }
+            &.index-Arch {
+                .icon {
+                    background-image: url(../images/aside/icon-people.png);
+                }
+                &.current {
+                    .icon {
+                        background-image: url(../images/aside/icon-people-current.png);
+                    }
+                }
+            }
+            &.index-product-manage {
+                .icon {
+                    background: url(../images/aside/product-manage.png) no-repeat;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/product-manage-active.png) no-repeat;
+                    }
+                }
+            }
+            &.index-sales {
+                .icon {
+                    background: url(../images/aside/sales.png) no-repeat;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/sales-active.png) no-repeat;
+                    }
+                }
+            }
+            &.index-sales-manage {
+                .icon {
+                    background: url(../images/aside/sales-manage.png) no-repeat;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/sales-manage-active.png) no-repeat;
+                    }
+                }
+            }
+            &.index-statistical {
+                .icon {
+                    background: url(../images/aside/statistical.png) no-repeat;
+                }
+                &.current {
+                    .icon {
+                        background: url(../images/aside/statistical-active.png) no-repeat;
+                    }
+                }
+            }
         }
-      }
-      &.index-quality-system {
-        .icon {
-          background: url(../images/aside/aside-cf.png) no-repeat 0 -144px;
-        }
-        &.current {
-          .icon {
-            background: url(../images/aside/aside-cf.png) no-repeat 0 -168px;
-          }
-        }
-      }
-      &.index-Arch {
-        .icon {
-          background-image: url(../images/aside/icon-people.png);
-        }
-        &.current {
-          .icon {
-            background-image: url(../images/aside/icon-people-current.png);
-          }
-        }
-      }
-
     }
-  }
 }

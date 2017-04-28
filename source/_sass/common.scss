@@ -151,7 +151,7 @@
 }
 .page-footer-button-container{
   text-align: left;
-  margin-left: 165px;
+  margin-left: 140px;
   .btn{
     margin-right:10px;
   }
@@ -999,7 +999,7 @@ input[type="text"]{
 }
 .dialog-item-wrap {
   .dialog-item-border{
-    border:1px solid #e5e5e5;
+    border:1px solid $border-color;
     border-radius:3px;
     margin-bottom:50px;
     margin-top:10px;
@@ -1015,14 +1015,15 @@ input[type="text"]{
   .dialog-item-box-title{
     line-height: 36px;
     height: 36px;
-    background: #e8e9ed;
+    background: $bg-color-light;
+      border-bottom:1px solid $border-color;
+      border-radius:3px 3px 0 0;
     padding-left: 20px;
-    margin-top:-1px;
       .dia-col-blue{
           display: inline-block;
           width: 270px;
           line-height: 36px;
-          color: #007aff;
+          color: $color-blue;
           @include text-overflow;
       }
       .txt-right{
@@ -1034,7 +1035,6 @@ input[type="text"]{
     margin:20px 0;
     .dialog-item{
       .dialog-left{
-        width:180px;
           &.dialog-left-short{
               width:105px
           }
@@ -1048,9 +1048,7 @@ input[type="text"]{
 
       }
       .dialog-right{
-          margin-left: 190px;
           &.dialog-right-short{
-              margin-left: 90px;
               ul{
                   @include clearfix();
                   li{
@@ -1071,7 +1069,7 @@ input[type="text"]{
   .dialog-item {
     margin: 12px 0;
     font-size: 0;
-    white-space: nowrap;
+    line-height: 32px;
     position: relative;
       .special-item{
           height: 30px !important;
@@ -1091,17 +1089,13 @@ input[type="text"]{
     }
     .dialog-left {
       display: inline-block;
-      line-height: 20px;
-      padding: 5px 24px 5px 0;
+      line-height: 16px;
+      padding: 0 24px 0 24px;
       color: #666;
-      width: 120px;
+      width: 15%;
       text-align: right;
-      vertical-align: top;
+      vertical-align: middle;
       font-size: 13px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      white-space: normal;
       &.must-icon:before {
         content: "*";
         position: absolute;
@@ -1116,17 +1110,18 @@ input[type="text"]{
     }
     .dialog-right {
       font-size: 13px;
-      color: #333;
-      min-width: 222px;
+      color: $font-color;
+        width: 85%;
       white-space: normal;
-      margin: 0 20px 0 140px;
+      margin: 0;
       line-height: 30px;
-      display: block;
+      display: inline-block;
+      vertical-align: middle;
         .list-add{
             padding: 10px;
             li{
                 color: #2385ea;
-                line-height: 20px;
+                line-height: 30px;
             }
         }
         .upload-item {
@@ -1424,8 +1419,6 @@ input[type="text"]{
                 width: 130px;
             }
             .dialog-right {
-                margin-left: 100px;
-                min-width: 182px;
                 .dialog-input {
                     width: 180px;
                 }
@@ -1968,9 +1961,11 @@ input[type="text"]{
             min-width: 70px;
             text-align: center;
             cursor: pointer;
+            color: $font-color-sub;
            &.on{
-               color: #f1374d;
+               color: $theme-color;
                font-weight: bold;
+               background: #fff;
            }
 
         }
@@ -1980,11 +1975,6 @@ input[type="text"]{
             display: none;
             &.on{
                 display: block;
-            }
-            .tab-option{
-                &.on{
-                    color: #000 !important;
-                }
             }
             .task-search1{
                 margin-top: 20px;
@@ -2048,7 +2038,7 @@ input[type="text"]{
 .content-list{
     width: 100%;
     padding: 10px;
-    background: #ededed;
+    background: #E8E8E8;
     .start{
         padding: 5px 10px;
         height: 30px;
@@ -2065,7 +2055,7 @@ input[type="text"]{
 }
 .list-detail{
     padding: 18px;
-    background: #fbfbfd;
+    background: $bg-color-light;
     position: relative;
     @include clearfix;
     font-size: 12px;
@@ -2235,7 +2225,13 @@ input[type="text"]{
         li{
             display: inline-block;
             width: 200px;
+            border: solid 1px #ffffff;
             float: left;
+            &:hover {
+                background: #F7F7F7;
+                border: solid 1px $border-color;
+                @include border-radius(5px);
+            }
             a{
                 height: 100%;
                 display: block;
@@ -2273,7 +2269,8 @@ input[type="text"]{
     float: left;
     width: 212px;
     height: 86px;
-    border: 1px solid #ccc;
+    border: 1px solid $border-color;
+    background: #FFFFFF;
     margin: 0px 16px 16px 16px;
     font-size: 12px;
     @include box-sizing(border-box);
@@ -2284,8 +2281,11 @@ input[type="text"]{
         width: 66px;
         height: 100%;
         float: left;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid $border-color;
+        background: $bg-color-sub;
+        color: $font-color;
         @include box-sizing(border-box);
+        @include border-radius(5px 0 0 5px);
     }
     dd{
         display: inline-block;
@@ -2294,6 +2294,7 @@ input[type="text"]{
         width: 140px;
         @include box-sizing(border-box);
         padding: 9px 8px 6px 8px;
+        color: $font-color-sub;
         p{
             text-align: left;
             &.p-right-top{
@@ -2313,15 +2314,13 @@ input[type="text"]{
     p{
         line-height: 18px;
         text-align: center;
-        color:#808080;
         @include box-sizing(border-box);
         &.p-top{
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid $border-color;
             padding: 9px 12px;
         };
         &.p-bot{
             line-height: 30px;
-
         }
     }
 }

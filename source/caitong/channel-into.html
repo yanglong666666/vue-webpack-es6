@@ -31,34 +31,18 @@ layout: default-iframe
       $(".view-content").on('click','.view-back',function(){
           $(this).parent('.view-content').hide();
           $(this).parents('.main-content').show();
-      })
+      });
 
 
-      $(".task-search").on('click','.btn-add',function(){
-          $(this).parent().parent('.main-content').hide();
+      $(".btn-add").on('click',function(){
+          $('.main-content').hide();
           $('#edit-content').show();
-      })
-
-      $(".btn-change").on('click',function(){
+      });
+      $('.btn-change').on('click',function(){
           $('.main-content').hide();
           $('#edit-content1').show();
-      })
-
-
-    /*  $('.btnDocumentCheck').on('click', function () {
-          $('.main-content').hide();
-          $('.document-details-wrap').show();
       });
 
-      $('#btnDocumentAdd').on('click', function () {
-          $('.main-content').hide();
-          $('.document-add-wrap').show();
-      });
-
-      $('#btnDisclosureAdd').on('click', function () {
-          $('.main-content').hide();
-          $('.disclosure-add-wrap').show();
-      });*/
 
       $('.view-back,.btnCancel').on('click', function () {
           $(this).parents('.view-content').hide();
@@ -84,7 +68,7 @@ layout: default-iframe
   </div>
   <div class="task-search clearfix">
     <button class="btn btn-float-right" href="#">搜索</button>
-    <button class="btn btn-small btn-primary btn-simple btn-float-right" href="#">新增</button>
+    <button class="btn btn-small btn-primary btn-simple btn-float-right btn-add" href="#">新增</button>
      <dl class="search-dl">
         <dd>
           <span class="pre"></span>
@@ -297,9 +281,10 @@ layout: default-iframe
             <div class="dialog-item">
                 <div class="dialog-left">上传文件</div>
                 <div class="dialog-right">
-                    <input type="button" class="btn-file" value="点击上传"><div class="btn-declare" style="width: inherit;">
-                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                </div>
+                    <input type="button" class="btn-file" value="请上传文件">
+                    <div class="btn-declare" style="width: inherit;">
+                        <img src="../images/caitong/grey-add.png" class="grey-add" />
+                    </div>
                 </div>
             </div>
             <div class="dialog-item">
@@ -307,7 +292,7 @@ layout: default-iframe
                 <div class="dialog-right"><span style="height: 28px;line-height: 28px;">引入</span></div>
             </div>
         </div>
-        <div class="button-content" style="text-align: left;margin-left: 165px;">
+        <div class="button-content" style="text-align: left;margin-left: 140px;">
             <button class="btn btn-fill"  style="margin-right: 10px;">确定</button>
             <button class="btn btn-gray btnCancel" >取消</button>
         </div>
@@ -338,14 +323,32 @@ layout: default-iframe
             <div class="dialog-item">
                 <div class="dialog-left">上传文件</div>
                 <div class="dialog-right">
-                    <input type="button" class="btn-file" value="点击上传">
+                    <input type="button" class="btn-file" value="请上传文件">
                     <div class="btn-declare" style="width: inherit;">
                         <img src="../images/caitong/grey-add.png" class="grey-add" />
                     </div>
                     <ul class="list-add">
-                        <li>文件1</li>
-                        <li>文件2</li>
-                        <li>文件3</li>
+                        <li>
+                            文件1
+                            <div class="btn-declare" style="width: inherit;">
+                                <img src="../images/caitong/grey-add.png" class="grey-add" />
+                                <img src="../images/caitong/grey-add.png" class="grey-add" />
+                            </div>
+                        </li>
+                        <li>
+                            文件2
+                            <div class="btn-declare" style="width: inherit;">
+                                <img src="../images/caitong/grey-add.png" class="grey-add" />
+                                <img src="../images/caitong/grey-add.png" class="grey-add" />
+                            </div>
+                        </li>
+                        <li>
+                            文件3
+                            <div class="btn-declare" style="width: inherit;">
+                                <img src="../images/caitong/grey-add.png" class="grey-add" />
+                                <img src="../images/caitong/grey-add.png" class="grey-add" />
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -359,7 +362,7 @@ layout: default-iframe
                 </div>
             </div>
         </div>
-        <div class="button-content" style="text-align: left;margin-left: 165px;">
+        <div class="button-content" style="text-align: left;margin-left: 140px;">
             <button class="btn btn-fill"  style="margin-right: 10px;">确定</button>
             <button class="btn btn-gray btnCancel" >取消</button>
         </div>

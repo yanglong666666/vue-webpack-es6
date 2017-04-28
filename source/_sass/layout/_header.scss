@@ -34,11 +34,12 @@
       float: right;
       width: 500px;
       color: #1c466c;
-      margin-top: 15px;
       .btn-nav {
         text-align: right;
         ul {
           font-size: 12px;
+            vertical-align: middle;
+            display: inline-block;
           li {
             float: right;
             line-height:12px;
@@ -247,11 +248,9 @@
     }
   }
   .site-menu {
-    position: relative;
-    float: right;
-    width: 130px;
-    margin: 18px 15px 0 0;
-    padding-bottom: 5px;
+      width: 130px;
+      padding-bottom: 5px;
+      display: inline-block;
     .selected-menu {
       display: block;
       text-align: center;
