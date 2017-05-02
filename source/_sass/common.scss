@@ -1016,9 +1016,10 @@ input[type="text"]{
     line-height: 36px;
     height: 36px;
     background: $bg-color-light;
-      border-bottom:1px solid $border-color;
-      border-radius:3px 3px 0 0;
+    border-radius:3px 3px 0 0;
+      border-bottom: solid 1px $border-color;
     padding-left: 20px;
+      display: block;
       .dia-col-blue{
           display: inline-block;
           width: 270px;
@@ -1164,7 +1165,7 @@ input[type="text"]{
             text-align: center;
             @include box-sizing(border-box);
             &:nth-child(1) {
-              border-right: solid 1px #E1E6EF;
+              border-right: solid 1px $border-color;
             }
           }
         }
@@ -1251,7 +1252,7 @@ input[type="text"]{
         padding: 10px;
         overflow: hidden;
         white-space: normal;
-        border: 1px solid #e5e5e5;
+        border: 1px solid $border-color;
         @include border-radius(3px);
         position: relative;
         .item-btn {
@@ -1326,7 +1327,7 @@ input[type="text"]{
         min-width: 455px;
         max-width: 455px;
         @include border-radius(3px);
-        border: 1px solid #e5e5e5;
+        border: 1px solid $border-color;
         margin-bottom: 7px;
         display: block;
         &:disabled {
@@ -1397,6 +1398,7 @@ input[type="text"]{
         margin-right: 10px;
         overflow: hidden;
         cursor: pointer;
+          vertical-align: middle;
         input[type="radio"],input[type="checkbox"] {
           width: 16px;
           height: 16px;
@@ -1416,9 +1418,11 @@ input[type="text"]{
     .dialog-item-wrap {
         .dialog-item {
             .dialog-left {
-                width: 130px;
+                width: 100px;
+                padding: 0 15px;
             }
             .dialog-right {
+                width: 180px;
                 .dialog-input {
                     width: 180px;
                 }

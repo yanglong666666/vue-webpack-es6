@@ -67,21 +67,14 @@
     display: inline-block;
     text-align: center;
     border-right: 1px solid #e5e5e5;
+    float: left;
     &.on{
       color:#f1374d;
-      border-bottom: 1px solid #fff;
+      background: #ffffff;
       font-weight:bold;
     }
   }
 }
-.option-space{
-    position: absolute;
-    border-bottom: 1px solid #e5e5e5;
-    left: 0;
-    top: 14px;
-    z-index: -1;
-    width: 100%;
-  }
 .tabs-body {
   .tabs-content {
     display: none;
