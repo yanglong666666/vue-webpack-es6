@@ -3,7 +3,6 @@
   <span class="company">金融产品销售服务系统</span>
   <div class="btn-right">
     <div class="btn-nav">
-
       <ul>
         <li class="header-exit">
           <a href="caitong/login.html">退出</a>
@@ -56,6 +55,15 @@
               '</div>'
             });
           });
+
+            $('.site-menu').mouseover(function(event) {
+                /* Act on the event */
+                $('.menu-inner').show();
+            });
+            $('.site-menu').mouseleave(function(event) {
+                /* Act on the event */
+                $('.menu-inner').hide();
+            });
         });
       </script>
     </div>
