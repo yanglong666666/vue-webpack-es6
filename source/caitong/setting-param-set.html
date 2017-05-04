@@ -372,8 +372,7 @@ class: setting-param-set
 <div class="main-content">
     <div class="main-content-wrap">
         <div class="main-content-wrap-top">
-            <span class="tab-options on">管理人设置</span>
-            <span class="tab-options">TA设置</span>
+            <span class="tab-options on">管理人设置/TA设置</span>
             <span class="tab-options">产品路径设置</span>
             <span class="tab-options">专题设置</span>
             <span class="tab-options">分类设置</span>
@@ -397,17 +396,17 @@ class: setting-param-set
                         </dd>
                     </dl>
 
-                    <input type="text" class="aql-input small-input" placeholder="管理人名称">
+                    <input type="text" class="aql-input small-input" placeholder="名称">
 
-                    <input type="text" class="aql-input small-input" placeholder="管理人编号">
+                    <input type="text" class="aql-input small-input" placeholder="编号">
 
                 </div>
                 <div class="main-table">
                     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
                         <thead>
                         <tr>
-                            <th>管理人编号</th>
-                            <th>管理人名称</th>
+                            <th>编号</th>
+                            <th>名称</th>
                             <th>TA状态</th>
                             <th>操作</th>
                         </tr>
@@ -418,8 +417,8 @@ class: setting-param-set
                             <td>华夏基金</td>
                             <td>正常</td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit1">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete1">删除</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
                             </td>
                         </tr>
                         <tr>
@@ -427,8 +426,8 @@ class: setting-param-set
                             <td>华夏基金</td>
                             <td>正常</td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit1">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete1">删除</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
                             </td>
                         </tr>
                         </tbody>
@@ -437,62 +436,6 @@ class: setting-param-set
                 {% include component/pagenav-cf.html %}
             </div>
             <div class="search-content search-content-2">
-                <div class="task-search clearfix">
-                    <button class="btn btn-float-right" href="#">搜索</button>
-                    <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd2" href="#">新增
-                    </button>
-                    <dl class="search-dl">
-                        <dd>
-                          <span>
-                            <select id="select1" class="diy-select" style="display: none;">
-                                <option selected="">TA状态</option>
-                                <option value="1">正常</option>
-                                <option value="2">停止</option>
-                            </select>
-                          </span>
-                        </dd>
-                    </dl>
-
-                    <input type="text" class="aql-input small-input" placeholder="TA名称">
-
-                    <input type="text" class="aql-input small-input" placeholder="TA编号">
-
-                </div>
-                <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-                        <thead>
-                        <tr>
-                            <th>TA编号</th>
-                            <th>TA名称</th>
-                            <th>TA状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>华夏基金</td>
-                            <td>正常</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit2">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete2">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>华夏基金</td>
-                            <td>正常</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit2">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete2">删除</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                {% include component/pagenav-cf.html %}
-            </div>
-            <div class="search-content search-content-3">
                 <div class="task-search clearfix">
                     <button class="btn btn-float-right" href="#">搜索</button>
                     <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd3" href="#">新增
@@ -529,8 +472,8 @@ class: setting-param-set
                             <td>d:\\</td>
                             <td></td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit3">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete">删除</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit3">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete">删除</a>
                             </td>
                         </tr>
                         <tr>
@@ -539,8 +482,8 @@ class: setting-param-set
                             <td>d:\\</td>
                             <td></td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit3">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete">删除</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit3">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete">删除</a>
                             </td>
                         </tr>
                         </tbody>
@@ -548,7 +491,7 @@ class: setting-param-set
                 </div>
                 {% include component/pagenav-cf.html %}
             </div>
-            <div class="search-content search-content-4">
+            <div class="search-content search-content-3">
                 <div class="simple-content-table">
                     <div class="title">
                         <button class="btn">新增</button>
@@ -565,7 +508,7 @@ class: setting-param-set
                     </div>
                 </div>
             </div>
-            <div class="search-content search-content-5">
+            <div class="search-content search-content-4">
                 <div class="simple-content-table">
                     <div class="title">
                         <button class="btn">新增</button>
@@ -582,10 +525,10 @@ class: setting-param-set
                     </div>
                 </div>
             </div>
-            <div class="search-content search-content-6">
+            <div class="search-content search-content-5">
                 哪些产品为非标、各算法的原始数据
             </div>
-            <div class="search-content search-content-7">
+            <div class="search-content search-content-6">
                 <div class="task-search clearfix">
                     <button class="btn btn-float-right" href="#">搜索</button>
                     <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd7">新建</button>
@@ -632,7 +575,7 @@ class: setting-param-set
                             <td>2016-12-12 00：00</td>
                             <td>正常</td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit7">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit7">修改</a>
                             </td>
                         </tr>
                         <tr>
@@ -644,7 +587,7 @@ class: setting-param-set
                             <td>2016-12-12 00：00</td>
                             <td>正常</td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit7">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit7">修改</a>
                             </td>
                         </tr>
                         </tbody>
