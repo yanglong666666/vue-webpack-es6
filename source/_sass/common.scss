@@ -2242,9 +2242,9 @@ input[type="text"]{
                 .my-work-list{
                     height: 100%;
                     dt{
-                        height: 90px;
+                        height: 80px;
                         box-sizing: border-box;
-                        padding-top: 43px;
+                        padding-top: 34px;
                         @include box-sizing(border-box);
                         img{
                             margin: auto;
@@ -2252,7 +2252,7 @@ input[type="text"]{
 
                     }
                     dd{
-                        height: 40px;
+                        height: 60px;
                         padding-top:10px ;
                         @include box-sizing(border-box);
                         .txt-center{
