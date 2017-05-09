@@ -7,7 +7,7 @@ class: setting-param-set
 <script src="../javascript/jquery.ztree.all-3.5.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
-        $('#select0,#select1,#select2,#select71').diySelect();
+        $('#select0,#select1,#select71,#select72').diySelect();
 
         $('.btn-group').on('mouseover', function () {
             $(this).find('.sub-group').show();
@@ -16,7 +16,17 @@ class: setting-param-set
         });
 
         // tab切换
-        $(".main-content-wrap-top").on("click", ".tab-options", function () {
+        $(".tabs-items").on("click", ".tab-option", function () {
+            var _this = $(this);
+            var tabs_head = _this.parent();
+            var tabs_body = tabs_head.nextAll(".dialog-item-box-body").children(".tabs-body");
+            _this.addClass("on").siblings(".tab-option").removeClass("on");
+            var index = tabs_head.find(".tab-option").index(_this);
+            tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
+        });
+
+        // tab切换
+        $(".main-content-wrap").on("click", ".tab-options", function () {
             var _this = $(this);
             var tabs_head = _this.parent();
             var tabs_body = tabs_head.siblings(".main-content-wrap-list");
@@ -372,8 +382,7 @@ class: setting-param-set
 <div class="main-content">
     <div class="main-content-wrap">
         <div class="main-content-wrap-top">
-            <span class="tab-options on">管理人设置</span>
-            <span class="tab-options">TA设置</span>
+            <span class="tab-options on">基金机构设置</span>
             <span class="tab-options">产品路径设置</span>
             <span class="tab-options">专题设置</span>
             <span class="tab-options">分类设置</span>
@@ -382,134 +391,135 @@ class: setting-param-set
         </div>
         <div class="main-content-wrap-list">
             <div class="search-content search-content-1 on">
-                <div class="task-search clearfix">
-                    <button class="btn btn-float-right" href="#">搜索</button>
-                    <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd1" href="#">新增</button>
-                    <dl class="search-dl">
-                        <dd>
-                          <span>
-                            <select id="select0" class="diy-select" style="display: none;">
-                                <option selected="">全部状态</option>
-                                <option value="1">正常</option>
-                                <option value="2">停止</option>
-                            </select>
-                          </span>
-                        </dd>
-                    </dl>
+                <div class="dialog-item-wrap">
+                    <div class="dialog-item-border" style="position: relative">
+                        <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
+                            <span class="tab-option on">管理人设置</span>
+                            <span class="tab-option">TA设置</span>
+                        </div>
+                        <div class="dialog-item-box-body">
+                            <div class="tabs-body">
+                                <div class="tabs-content on">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+                                        <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd1" href="#">新增</button>
+                                        <dl class="search-dl">
+                                            <dd>
+                                              <span>
+                                                <select id="select0" class="diy-select" style="display: none;">
+                                                    <option selected="">全部状态</option>
+                                                    <option value="1">正常</option>
+                                                    <option value="2">停止</option>
+                                                </select>
+                                              </span>
+                                            </dd>
+                                        </dl>
 
-                    <input type="text" class="aql-input small-input" placeholder="管理人名称">
+                                        <input type="text" class="aql-input small-input" placeholder="管理人名称">
 
-                    <input type="text" class="aql-input small-input" placeholder="管理人编号">
+                                        <input type="text" class="aql-input small-input" placeholder="管理人编号">
 
+                                    </div>
+                                    <div class="main-table">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>管理人编号</th>
+                                                <th>管理人名称</th>
+                                                <th>TA状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>华夏基金</td>
+                                                <td>正常</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>002</td>
+                                                <td>华夏基金</td>
+                                                <td>正常</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {% include component/pagenav-cf.html %}
+                                </div>
+                                <div class="tabs-content">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+                                        <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd2" href="#">新增</button>
+                                        <dl class="search-dl">
+                                            <dd>
+                                              <span>
+                                                <select id="select1" class="diy-select" style="display: none;">
+                                                    <option selected="">全部状态</option>
+                                                    <option value="1">正常</option>
+                                                    <option value="2">停止</option>
+                                                </select>
+                                              </span>
+                                            </dd>
+                                        </dl>
+
+                                        <input type="text" class="aql-input small-input" placeholder="TA名称">
+
+                                        <input type="text" class="aql-input small-input" placeholder="TA编号">
+
+                                    </div>
+                                    <div class="main-table">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>管理人编号</th>
+                                                <th>TA名称</th>
+                                                <th>TA状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>华夏基金</td>
+                                                <td>正常</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>002</td>
+                                                <td>华夏基金</td>
+                                                <td>正常</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {% include component/pagenav-cf.html %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-                        <thead>
-                        <tr>
-                            <th>管理人编号</th>
-                            <th>管理人名称</th>
-                            <th>TA状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>华夏基金</td>
-                            <td>正常</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit1">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete1">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>华夏基金</td>
-                            <td>正常</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit1">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete1">删除</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                {% include component/pagenav-cf.html %}
             </div>
             <div class="search-content search-content-2">
                 <div class="task-search clearfix">
                     <button class="btn btn-float-right" href="#">搜索</button>
-                    <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd2" href="#">新增
-                    </button>
-                    <dl class="search-dl">
-                        <dd>
-                          <span>
-                            <select id="select1" class="diy-select" style="display: none;">
-                                <option selected="">TA状态</option>
-                                <option value="1">正常</option>
-                                <option value="2">停止</option>
-                            </select>
-                          </span>
-                        </dd>
-                    </dl>
-
-                    <input type="text" class="aql-input small-input" placeholder="TA名称">
-
-                    <input type="text" class="aql-input small-input" placeholder="TA编号">
-
-                </div>
-                <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-                        <thead>
-                        <tr>
-                            <th>TA编号</th>
-                            <th>TA名称</th>
-                            <th>TA状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>华夏基金</td>
-                            <td>正常</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit2">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete2">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>华夏基金</td>
-                            <td>正常</td>
-                            <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit2">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete2">删除</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                {% include component/pagenav-cf.html %}
-            </div>
-            <div class="search-content search-content-3">
-                <div class="task-search clearfix">
-                    <button class="btn btn-float-right" href="#">搜索</button>
                     <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd3" href="#">新增
                     </button>
-                    <dl class="search-dl">
-                        <dd>
-                          <span>
-                            <select id="select2" class="diy-select" style="display: none;">
-                                <option selected="">TA状态</option>
-                                <option value="1">正常</option>
-                                <option value="2">停止</option>
-                            </select>
-                          </span>
-                        </dd>
-                    </dl>
                     <input type="text" class="aql-input small-input" placeholder="TA编号">
-
                 </div>
                 <div class="main-table">
                     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
@@ -529,8 +539,8 @@ class: setting-param-set
                             <td>d:\\</td>
                             <td></td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit3">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete">删除</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit3">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete">删除</a>
                             </td>
                         </tr>
                         <tr>
@@ -539,8 +549,8 @@ class: setting-param-set
                             <td>d:\\</td>
                             <td></td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit3">修改</a>
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnDelete">删除</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit3">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete">删除</a>
                             </td>
                         </tr>
                         </tbody>
@@ -548,7 +558,7 @@ class: setting-param-set
                 </div>
                 {% include component/pagenav-cf.html %}
             </div>
-            <div class="search-content search-content-4">
+            <div class="search-content search-content-3">
                 <div class="simple-content-table">
                     <div class="title">
                         <button class="btn">新增</button>
@@ -565,7 +575,7 @@ class: setting-param-set
                     </div>
                 </div>
             </div>
-            <div class="search-content search-content-5">
+            <div class="search-content search-content-4">
                 <div class="simple-content-table">
                     <div class="title">
                         <button class="btn">新增</button>
@@ -582,10 +592,137 @@ class: setting-param-set
                     </div>
                 </div>
             </div>
-            <div class="search-content search-content-6">
-                哪些产品为非标、各算法的原始数据
+            <div class="search-content search-content-5">
+                <div class="dialog-item-wrap">
+                    <div class="dialog-item-border" style="position: relative">
+                        <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
+                            <span class="tab-option on">产品统计参数</span>
+                            <span class="tab-option">机构客户分类</span>
+                        </div>
+                        <div class="dialog-item-box-body">
+                            <div class="tabs-body">
+                                <div class="tabs-content on">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+                                        <button class="btn btn-small btn-primary btn-simple btn-float-right" href="#">批量导入</button>
+                                        <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd51" href="#">新增</button>
+                                        <input type="text" class="aql-input small-input" placeholder="产品代码">
+                                        <input type="text" class="aql-input small-input" placeholder="产品名称">
+
+                                    </div>
+                                    <div class="main-table">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>产品代码</th>
+                                                <th>产品名称</th>
+                                                <th>产品类型</th>
+                                                <th>产品来源</th>
+                                                <th>标准销售量折算系数</th>
+                                                <th>托管费</th>
+                                                <th>管理费</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>180008</td>
+                                                <td>银华货币</td>
+                                                <td>货币型</td>
+                                                <td>持续开放</td>
+                                                <td>1.2</td>
+                                                <td>托管费</td>
+                                                <td>管理费</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>001</td>
+                                                <td>630010</td>
+                                                <td>华商价值精选</td>
+                                                <td>混合型</td>
+                                                <td>持续开放</td>
+                                                <td>1.2</td>
+                                                <td>托管费</td>
+                                                <td>管理费</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {% include component/pagenav-cf.html %}
+                                </div>
+                                <div class="tabs-content">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+                                        <button class="btn btn-small btn-primary btn-simple btn-float-right" href="#">批量导入</button>
+                                        <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd52" href="#">新增</button>
+                                        <input type="text" class="aql-input small-input" placeholder="机构代码">
+                                        <input type="text" class="aql-input small-input" placeholder="机构名称">
+
+                                    </div>
+                                    <div class="main-table">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>机构代码</th>
+                                                <th>机构名称</th>
+                                                <th>机构类型</th>
+                                                <th>机构来源</th>
+                                                <th>标准销售量折算系数</th>
+                                                <th>托管费</th>
+                                                <th>管理费</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>180008</td>
+                                                <td>银华货币</td>
+                                                <td>货币型</td>
+                                                <td>持续开放</td>
+                                                <td>1.2</td>
+                                                <td>托管费</td>
+                                                <td>管理费</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>001</td>
+                                                <td>630010</td>
+                                                <td>华商价值精选</td>
+                                                <td>混合型</td>
+                                                <td>持续开放</td>
+                                                <td>1.2</td>
+                                                <td>托管费</td>
+                                                <td>管理费</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {% include component/pagenav-cf.html %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="search-content search-content-7">
+            <div class="search-content search-content-6">
                 <div class="task-search clearfix">
                     <button class="btn btn-float-right" href="#">搜索</button>
                     <button class="btn btn-small btn-primary btn-simple btn-float-right" id="btnAdd7">新建</button>
@@ -593,7 +730,7 @@ class: setting-param-set
                         <dd>
                           <span>
                             <select id="select71" class="diy-select" style="display: none;">
-                                <option selected="">文档类型</option>
+                                <option selected="">模板状态</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -601,12 +738,19 @@ class: setting-param-set
                         </dd>
                     </dl>
 
-                    <input type="text" class="aql-input small-input" placeholder="产品名称">
+                    <input type="text" class="aql-input small-input" placeholder="模块名称">
 
-                    <input type="text" class="aql-input small-input" placeholder="产品内码">
-
-                    <input type="text" class="aql-input small-input" placeholder="产品代码">
-
+                    <dl class="search-dl">
+                        <dd>
+                          <span>
+                            <select id="select72" class="diy-select" style="display: none;">
+                                <option selected="">产品类型</option>
+                                <option value="1">111</option>
+                                <option value="2">222</option>
+                            </select>
+                          </span>
+                        </dd>
+                    </dl>
                 </div>
                 <div class="main-table">
                     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
@@ -632,7 +776,7 @@ class: setting-param-set
                             <td>2016-12-12 00：00</td>
                             <td>正常</td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit7">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit7">修改</a>
                             </td>
                         </tr>
                         <tr>
@@ -644,7 +788,7 @@ class: setting-param-set
                             <td>2016-12-12 00：00</td>
                             <td>正常</td>
                             <td class="text-c">
-                                <a href="javascript:void(0)" class="btn btn-fill btn-small btnEdit7">修改</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit7">修改</a>
                             </td>
                         </tr>
                         </tbody>
