@@ -2244,7 +2244,7 @@ input[type="text"]{
                     dt{
                         height: 90px;
                         box-sizing: border-box;
-                        padding-top: 38px;
+                        padding-top: 43px;
                         @include box-sizing(border-box);
                         img{
                             margin: auto;
@@ -2252,7 +2252,7 @@ input[type="text"]{
 
                     }
                     dd{
-                        height: 70px;
+                        height: 40px;
                         padding-top:10px ;
                         @include box-sizing(border-box);
                         .txt-center{
