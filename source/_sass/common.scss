@@ -1119,6 +1119,11 @@ input[type="text"]{
       line-height: 30px;
       display: inline-block;
       vertical-align: middle;
+        .ztree{
+            a{
+                color: #333 !important;
+            }
+        }
         .list-add{
             padding: 10px;
             li{

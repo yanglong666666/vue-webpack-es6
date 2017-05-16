@@ -80,12 +80,12 @@ class: setting-role-permission
         $.fn.zTree.init($("#tree"), setting, zNodes);
 
         $('#addBtn').on('click',function(){
-            $('#add-content').show();
+            $('#view-content').show();
             $('.main-content').hide();
         })
 
-        $('.cancel').on('click',function(){
-            $('#add-content').hide();
+        $('.cancel,.btn-back').on('click',function(){
+            $('#view-content').hide();
             $('.main-content').show();
         })
 
@@ -131,7 +131,8 @@ class: setting-role-permission
     </div>
     {% include component/pagenav-cf.html %}
 </div>
-<div id="add-content" style="display: none;">
+<div id="view-content" style="display: none;">
+    <a class="btn-back"> &lt;&lt; 返回</a>
     <div class="dialog-item-wrap" style="">
         <div class="dialog-item">
             <div class="dialog-left must-icon">角色代码</div>
