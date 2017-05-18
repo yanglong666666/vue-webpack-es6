@@ -2,7 +2,7 @@
 title: 产品管理-信息发布-银行理财
 layout: default-iframe
 ---
-
+<script src="../../javascript/select2.full.min.js"></script>
 <script type="text/javascript">
     $(function () {
         // tab切换
@@ -15,13 +15,14 @@ layout: default-iframe
             tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
         })
         // page1
-        $('#sel_ta').diySelect({width: 222});
+        //$('#sel_ta').diySelect({width: 222});
         $('#sel_fx').diySelect({width: 222});
         $('#sel_khfx').diySelect({width: 222});
         $('#sel_hb').diySelect({width: 222});
         $('#sel_zt').diySelect({width: 222});
         $('#sel_tp').diySelect({width: 222});
 
+        $(".js-example-basic-multiple").select2({width: 222});
 
         $('.begin-time_0').datepicker({
             onClose: function (selectedDate) {
@@ -150,10 +151,17 @@ layout: default-iframe
                             <div class="w50p">
                                 <div class="dialog-left">产品TA</div>
                                 <div class="dialog-right">
-                                    <select name="" id="sel_ta" class="diy-select" style="display: none;">
+                                    <!--<select name="" id="sel_ta" class="diy-select" style="display: none;">
                                         <option selected="">请选择</option>
                                         <option value="1">已结束</option>
+                                    </select>-->
+                                    <div class="je-select2-wrap">
+                                    <select class="js-example-basic-multiple " multiple="multiple">
+                                        <option value="1" selected>请选择</option>
+                                        <option value="2">已结束</option>
                                     </select>
+                                      <i class="icon-select2"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
