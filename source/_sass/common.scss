@@ -1050,18 +1050,18 @@ input[type="text"]{
 
       }
       .dialog-right{
-          &.dialog-right-short{
-              ul{
+          &.dialog-right-short {
+              ul {
                   @include clearfix();
-                  li{
+                  li {
                       display: inline-block;
                       float: left;
                       margin-right: 20px;
                       line-height: 30px;
                       cursor: pointer;
-                     &.on{
-                         color: #007aff;
-                     }
+                      &.on {
+                          color: #007aff;
+                      }
                   }
               }
           }
@@ -1079,6 +1079,12 @@ input[type="text"]{
       }
     .w50p {
       position: relative;
+        .dialog-left{
+            width: 30%;
+        }
+        .dialog-right{
+            width: 70%;
+        }
         &.w50p-change{
             position: absolute;
         }
