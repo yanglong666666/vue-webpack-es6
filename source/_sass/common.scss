@@ -2072,11 +2072,20 @@ input[type="text"]{
     }
 }
 .list-detail{
-    padding: 18px;
+    padding: 24px 18px;
     background: $bg-color-light;
     position: relative;
     @include clearfix;
     font-size: 12px;
+    text-align: center;
+    .loading-small {
+        height: 240px;
+        background: url(../images/loading-small.gif) no-repeat 50% 50%;
+    }
+    .list-wrap {
+        display: inline-block;
+        text-align: left;
+    }
     .col-blue{
         text-align: right;
         line-height: 20px;
@@ -2284,39 +2293,40 @@ input[type="text"]{
 
 .dl-list{
     display: inline-block;
-    float: left;
-    width: 212px;
-    height: 86px;
+    width: 220px;
     border: 1px solid $border-color;
     background: #FFFFFF;
-    margin: 0px 16px 16px 16px;
+    margin: 0px 5px 10px 5px;
     font-size: 12px;
     @include box-sizing(border-box);
     @include border-radius(5px);
     @include clearfix;
     dt{
-        display: inline-block;
-        width: 66px;
-        height: 100%;
-        float: left;
-        border-right: 1px solid $border-color;
         background: $bg-color-sub;
         color: $font-color;
+        border-bottom: 1px solid $border-color;
         @include box-sizing(border-box);
         @include border-radius(5px 0 0 5px);
+        height: 54px;
+        line-height: 50px;
+        text-align: center;
     }
     dd{
-        display: inline-block;
-        float: left;
-        height: 100%;
-        width: 140px;
-        @include box-sizing(border-box);
-        padding: 9px 8px 6px 8px;
-        color: $font-color-sub;
+        height: 90px;
+        .right {
+            display: inline-block;
+            float: right;
+            height: 100%;
+            width: 156px;
+            @include box-sizing(border-box);
+            padding: 14px 10px;
+            color: $font-color-sub;
+            position: relative;
+        }
         p{
             text-align: left;
             &.p-right-top{
-                margin-bottom: 13px;
+                margin-bottom: 3px;
                 .col-red{
                     display: inline-block;
                     float: right;
@@ -2324,7 +2334,22 @@ input[type="text"]{
                 }
             };
             &.p-right-center{
-                margin-bottom: 3px;
+                margin-bottom: 4px;
+            }
+        }
+        .left {
+            float: left;
+            width: 60px;
+            height: 90px;
+            line-height: 65px;
+            border-right: solid 1px $border-color;
+            padding: 10px 15px;
+            .level {
+                font-size: 14px;
+                line-height: 20px;
+                text-align: center;
+                display: inline-block;
+                vertical-align: middle;
             }
         }
     }
@@ -2334,11 +2359,10 @@ input[type="text"]{
         text-align: center;
         @include box-sizing(border-box);
         &.p-top{
-            border-bottom: 1px solid $border-color;
-            padding: 9px 12px;
-        };
-        &.p-bot{
-            line-height: 30px;
+            padding: 0 20px;
+            line-height: 20px;
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 }
