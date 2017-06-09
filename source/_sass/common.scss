@@ -592,10 +592,14 @@ input[type="text"]{
 .task-search {
   font-size: 12px;
   margin-bottom: 15px;
-    display: inline-block;
+  display: inline-block;
   &.task-center{
       text-align: center;
   }
+    >a,>button {
+        margin-left: 20px;
+        width: inherit;
+    }
   .search-dl {
     float: right;
     margin-right: 10px;
@@ -2293,11 +2297,12 @@ input[type="text"]{
 
 .dl-list{
     display: inline-block;
-    width: 220px;
+    width: 237px;
     border: 1px solid $border-color;
     background: #FFFFFF;
     margin: 0px 5px 10px 5px;
     font-size: 12px;
+    vertical-align: top;
     @include box-sizing(border-box);
     @include border-radius(5px);
     @include clearfix;
@@ -2308,8 +2313,9 @@ input[type="text"]{
         @include box-sizing(border-box);
         @include border-radius(5px 0 0 5px);
         height: 54px;
-        line-height: 50px;
+        line-height: 36px;
         text-align: center;
+        padding: 6px 10px;
     }
     dd{
         height: 90px;
@@ -2317,7 +2323,7 @@ input[type="text"]{
             display: inline-block;
             float: right;
             height: 100%;
-            width: 156px;
+            width: 174px;
             @include box-sizing(border-box);
             padding: 14px 10px;
             color: $font-color-sub;
@@ -2350,6 +2356,7 @@ input[type="text"]{
                 text-align: center;
                 display: inline-block;
                 vertical-align: middle;
+                max-width: 99%;
             }
         }
     }
@@ -2363,6 +2370,7 @@ input[type="text"]{
             line-height: 20px;
             display: inline-block;
             vertical-align: middle;
+            max-width: 99%;
         }
     }
 }
