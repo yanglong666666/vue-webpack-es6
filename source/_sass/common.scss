@@ -175,6 +175,24 @@
 
     }
 }
+
+.loading-small {
+    height: 100%;
+    min-height: 200px;
+    position: relative;
+    .loading-small-text {
+        position: absolute;
+        top: 50%;
+        margin-top: -16px;
+        left: 50%;
+        margin-left: -66px;
+        line-height: 16px;
+        padding-left: 30px;
+        font-size: 14px;
+        color: #999999;
+        background: url(../images/loading-small.gif) no-repeat 5px 50%;
+    }
+}
 .ui-reason-content {
   border: 1px solid #f0f5fb;
   padding: 10px 0;
@@ -2082,10 +2100,6 @@ input[type="text"]{
     @include clearfix;
     font-size: 12px;
     text-align: center;
-    .loading-small {
-        height: 240px;
-        background: url(../images/loading-small.gif) no-repeat 50% 50%;
-    }
     .list-wrap {
         display: inline-block;
         text-align: left;
@@ -2096,7 +2110,7 @@ input[type="text"]{
         height: 20px;
         position: absolute;
         right: 18px;
-        bottom: 18px;
+        bottom: 8px;
         color: #007aff;
     }
 
@@ -2206,7 +2220,7 @@ input[type="text"]{
     .ul-list-wrap{
         width: 1000px;
         padding: 0 12px;
-        height:86px;
+        height: 146px;
         margin: auto;
         overflow: hidden;
         position: relative;

@@ -19,7 +19,7 @@ layout: default-iframe
         setTimeout(function(){
             $('.loading-small').hide();
             $('.list-wrap').show();
-        },5000)
+        },5000);
     });
 
 
@@ -123,7 +123,9 @@ layout: default-iframe
             <span class="start">赎回资金到账（10）</span>
         </div>
         <div class="list-detail">
-            <div class="loading-small"></div>
+            <div class="loading-small">
+                <div class="loading-small-text">数据加载中,请稍后...</div>
+            </div>
             <div class="list-wrap" style="display: none;">
                 <dl class="dl-list">
                     <dt>

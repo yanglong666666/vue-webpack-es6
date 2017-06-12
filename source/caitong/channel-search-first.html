@@ -233,6 +233,11 @@ layout: default-iframe
                 $('.btn-imgs.prev').hide();
             }
         });
+
+        setTimeout(function(){
+            $('.loading-small').hide();
+            $('.list-wrap').show();
+        },5000);
     }
 </script>
 <div class="main-content">
@@ -272,102 +277,105 @@ layout: default-iframe
                             <span class="start">赎回资金到账（10）</span>
                         </div>
                         <div class="list-detail">
-                            <dl class="dl-list">
-                                <dt>
-                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                </dt>
-                                <dd>
-                                    <div class="left">
-                                        <div class="level">中低风险等级</div>
-                                    </div>
-                                    <div class="right">
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <dl class="dl-list">
-                                <dt>
-                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                </dt>
-                                <dd>
-                                    <div class="left">
-                                        <div class="level">中低风险等级</div>
-                                    </div>
-                                    <div class="right">
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <dl class="dl-list">
-                                <dt>
-                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                </dt>
-                                <dd>
-                                    <div class="left">
-                                        <div class="level">中低风险等级</div>
-                                    </div>
-                                    <div class="right">
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <dl class="dl-list">
-                                <dt>
-                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                </dt>
-                                <dd>
-                                    <div class="left">
-                                        <div class="level">中低风险等级</div>
-                                    </div>
-                                    <div class="right">
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <dl class="dl-list">
-                                <dt>
-                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                </dt>
-                                <dd>
-                                    <div class="left">
-                                        <div class="level">中低风险等级</div>
-                                    </div>
-                                    <div class="right">
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                    </div>
-                                </dd>
-                            </dl>
-                            <dl class="dl-list">
-                                <dt>
-                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                </dt>
-                                <dd>
-                                    <div class="left">
-                                        <div class="level">中低风险等级</div>
-                                    </div>
-                                    <div class="right">
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                    </div>
-                                </dd>
-                            </dl>
-
+                            <div class="loading-small">
+                                <div class="loading-small-text">数据加载中,请稍后...</div>
+                            </div>
+                            <div class="list-wrap" style="display: none;">
+                                <dl class="dl-list">
+                                    <dt>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                    </dt>
+                                    <dd>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="dl-list">
+                                    <dt>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                    </dt>
+                                    <dd>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="dl-list">
+                                    <dt>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                    </dt>
+                                    <dd>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="dl-list">
+                                    <dt>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                    </dt>
+                                    <dd>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="dl-list">
+                                    <dt>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                    </dt>
+                                    <dd>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="dl-list">
+                                    <dt>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                    </dt>
+                                    <dd>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
                             <p class="col-blue">更多 >></p>
                         </div>
                     </div>
                 </div>
-
                 <div class="dialog-item-wrap">
                     <div class="dialog-item-border" style="position: relative">
                         <span class="txt-right">更多 >></span>
@@ -394,7 +402,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -411,7 +420,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -428,7 +438,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -445,7 +456,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -462,7 +474,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -479,7 +492,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -496,136 +510,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tabs-content ">
-                                    <div class="list-content">
-                                        <div class="ul-list-wrap">
-                                            <img src="../images/caitong/prev.png" class="btn-img prev">
-                                            <img src="../images/caitong/prev.png" class="btn-img next">
-                                            <ul class="ul-list">
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -652,7 +538,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -669,7 +556,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -686,7 +574,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -703,7 +592,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -720,7 +610,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -737,7 +628,8 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -754,7 +646,144 @@ layout: default-iframe
                                                                 <div class="level">中低风险等级</div>
                                                             </div>
                                                             <div class="right">
-                                                                <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tabs-content ">
+                                    <div class="list-content">
+                                        <div class="ul-list-wrap">
+                                            <img src="../images/caitong/prev.png" class="btn-img prev">
+                                            <img src="../images/caitong/prev.png" class="btn-img next">
+                                            <ul class="ul-list">
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
+                                                                <p class="p-right-center">起购金额 ：5万元</p>
+                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl class="dl-list">
+                                                        <dt>
+                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                        </dt>
+                                                        <dd>
+                                                            <div class="left">
+                                                                <div class="level">中低风险等级</div>
+                                                            </div>
+                                                            <div class="right">
+                                                                <p class="p-right-top">年化 <span
+                                                                    class="col-red">3.5%</span></p>
                                                                 <p class="p-right-center">起购金额 ：5万元</p>
                                                                 <p class="p-right-botton">产品阶段 ：持续开放中</p>
                                                             </div>
@@ -1313,68 +1342,92 @@ layout: default-iframe
                             <div class="list-detail">
                                 <dl class="dl-list">
                                     <dt>
-                                    <p class="p-top">月月福1号</p>
-                                    <p class="p-bot">中</p>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
                                     </dt>
                                     <dd>
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
                                     </dd>
                                 </dl>
                                 <dl class="dl-list">
                                     <dt>
-                                    <p class="p-top">月月福1号</p>
-                                    <p class="p-bot">中</p>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
                                     </dt>
                                     <dd>
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
                                     </dd>
                                 </dl>
                                 <dl class="dl-list">
                                     <dt>
-                                    <p class="p-top">月月福1号</p>
-                                    <p class="p-bot">中</p>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
                                     </dt>
                                     <dd>
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
                                     </dd>
                                 </dl>
                                 <dl class="dl-list">
                                     <dt>
-                                    <p class="p-top">月月福1号</p>
-                                    <p class="p-bot">中</p>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
                                     </dt>
                                     <dd>
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
                                     </dd>
                                 </dl>
                                 <dl class="dl-list">
                                     <dt>
-                                    <p class="p-top">月月福1号</p>
-                                    <p class="p-bot">中</p>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
                                     </dt>
                                     <dd>
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
                                     </dd>
                                 </dl>
                                 <dl class="dl-list">
                                     <dt>
-                                    <p class="p-top">月月福1号</p>
-                                    <p class="p-bot">中</p>
+                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
                                     </dt>
                                     <dd>
-                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        <div class="left">
+                                            <div class="level">中低风险等级</div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                            <p class="p-right-center">起购金额 ：5万元</p>
+                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                        </div>
                                     </dd>
                                 </dl>
                             </div>
@@ -1562,22 +1615,34 @@ layout: default-iframe
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                                            <td class="text-c"><a href="#"
+                                                                  class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a
+                                                href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
                                         </tr>
                                         <tr class="even">
-                                            <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                                            <td class="text-c"><a href="#"
+                                                                  class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a
+                                                href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
                                         </tr>
                                         <tr>
-                                            <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                                            <td class="text-c"><a href="#"
+                                                                  class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a
+                                                href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
                                         </tr>
                                         <tr class="even">
-                                            <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                                            <td class="text-c"><a href="#"
+                                                                  class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a
+                                                href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
                                         </tr>
                                         <tr>
-                                            <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                                            <td class="text-c"><a href="#"
+                                                                  class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a
+                                                href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
                                         </tr>
                                         <tr class="even">
-                                            <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                                            <td class="text-c"><a href="#"
+                                                                  class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a
+                                                href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
                                         </tr>
                                         </tbody>
                                     </table>
