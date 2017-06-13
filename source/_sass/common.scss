@@ -2450,3 +2450,8 @@ input[type="text"]{
 .select2-container .select2-selection--multiple{
     min-height: 30px !important;
 }
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    vertical-align: top;
+    height: 24px;
+}
