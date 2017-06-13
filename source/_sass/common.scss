@@ -1986,7 +1986,7 @@ input[type="text"]{
 .main-content-wrap{
     height:auto;
     &.main-content-wrap-mt{
-        margin-top: 20px;
+        margin: 20px 20px 5px;
     }
     .main-content-wrap-top{
         line-height: 14px;
@@ -2010,6 +2010,17 @@ input[type="text"]{
 
         }
         }
+    .main-content-box {
+        border: solid 1px $border-color;
+        padding: 20px;
+        margin-bottom: 20px;
+        p {
+            margin: 0 0 5px 0;
+        }
+        .task-search {
+            margin-bottom: 10px;
+        }
+    }
     .main-content-wrap-list{
         .search-content{
             display: none;

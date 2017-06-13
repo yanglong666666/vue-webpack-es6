@@ -41,7 +41,7 @@
         background-color: $bg-color;
         color: $font-color;
         font-weight: 600;
-        padding: 5px 7px;
+        padding: 5px 10px;
         border-bottom: 1px solid $border-color;
         &.num-th {
           padding-left: 35px;
@@ -67,7 +67,7 @@
             td {
                 color: $font-color-sub;
                 border-bottom: 1px solid $border-color;
-                padding: 10px 7px;
+                padding: 10px 10px;
                 &.col-red {
                     color: $color-red;
                 }
@@ -121,6 +121,25 @@
                 &.green {
                     color: $color-green;
                 }
+                &.full-select {
+                    padding: 0;
+                    vertical-align: top;
+                    .js-select {
+                        width: 100% !important;
+                        border: 0;
+                        border-bottom: solid 1px $border-color;
+                        @include border-radius(0);
+                        line-height: 32px;
+                        text-align: left;
+                        .arrow {
+                            top: 14px;
+                        }
+                    }
+                    .js-option {
+                        margin-left: 1px;
+                        @include border-radius(0);
+                    }
+                }
             }
             tr.has-details {
                 td {
@@ -155,13 +174,14 @@
                 background-repeat: no-repeat;
                 background-position: 90% 50%;
                 background-size: 17px 13px;
+                line-height: 26px;
                 // z-index: 9;
             }
             ul {
                 display: none;
                 position: absolute;
                 left: 0;
-                top: 28px;
+                top: 30px;
                 z-index: 10;
                 border: 1px solid #3f88cc;
                 border-top: 0;
@@ -178,6 +198,10 @@
                         display: block;
                         font-size: 12px;
                         color: #3f88cc;
+                        line-height: 20px;
+                        &:hover {
+                            background: #f7f7f7;
+                        }
                     }
                 }
             }
@@ -242,7 +266,6 @@
         overflow-y: hidden;
         overflow-x: auto;
         .data-table {
-            table-layout: fixed;
             th,
             td {
                 // overflow: hidden;
@@ -371,5 +394,21 @@ td.nowrap-ellipsis {
     }
     .content {
         padding: 15px 20px;
+    }
+}
+
+.condition-wrap {
+    .item {
+        text-align: left;
+        line-height: 24px;
+        i {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-left: 15px;
+            background: url(../images/caitong/condition-delete.png) no-repeat;
+            cursor: pointer;
+        }
     }
 }
