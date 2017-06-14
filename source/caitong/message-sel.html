@@ -5,6 +5,7 @@ layout: default-iframe
 
 <script type="text/javascript">
   $(function () {
+    $('#dialogSelect0').diySelect({width:222});
     $('#dialogSelect1').diySelect({width:222});
     $('#dialogSelect2').diySelect({width:222});
 
@@ -22,6 +23,15 @@ layout: default-iframe
         选择登记的产品类型
  		</div>
 	    <div class="dialog-item-box-body">
+		    <div class="dialog-item">
+		      <div class="dialog-left">选择产品</div>
+		      <div class="dialog-right">
+			      <select name="" id="dialogSelect0" class="diy-select" style="display: none;">
+			        <option selected="">选择产品</option>
+			        <option selected="" value="1">11111</option>
+			      </select>
+		    	</div>
+		  	</div>
 		    <div class="dialog-item">
 		      <div class="dialog-left">按产品发行方或产品管理人分</div>
 		      <div class="dialog-right">

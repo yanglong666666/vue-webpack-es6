@@ -7,6 +7,7 @@ class: sales-preview
     $(function () {
         $('#select2').diySelect({width: 120});
         $('#select3').diySelect({width: 120});
+        $('#select00').diySelect({width: 222});
         $('#select01').diySelect({width: 222});
         $('#select02').diySelect({width: 222});
         $('#select03').diySelect({width: 222});
@@ -323,6 +324,17 @@ class: sales-preview
                 选择登记的产品类型
             </div>
             <div class="dialog-item-box-body">
+                <div class="dialog-item">
+                    <div class="dialog-left">选择产品</div>
+                    <div class="dialog-right">
+                        <select id="select00" class="diy-select">
+                            <option value="" selected>选择产品</option>
+                            <option value="1">111</option>
+                            <option value="2">222</option>
+                            <option value="3">333</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="dialog-item">
                     <div class="dialog-left">按产品发行方或产品管理人分</div>
                     <div class="dialog-right">
