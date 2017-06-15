@@ -274,3 +274,74 @@ $('body').on('mouseover', '.overflow-pop-up', function () {
 }).on('mouseout','.overflow-pop-scroll',function(){
   $(this).parents('.scroll-table').find('.float-tip-scroll').remove();
 });
+
+//diySelect 设置
+$.fn.extend({
+    diySelectSet: function (val) {
+        var $self = $(this);
+        if (val) {
+            $self.siblings('.js-option').find('li').each(function () {
+                if ($(this).attr('data-select-val') == val) {
+                    $(this).click();
+                }
+            });
+        } else if (val == "") {
+            $self.siblings('.js-option').find('li').each(function () {
+                if (!$(this).attr('data-select-val')) {
+                    $(this).click();
+                }
+            });
+        }
+    }
+});
+
+$.fn.extend({
+    diySlider: function(param){
+        var $self = $(this);
+        var $ul = $(this).children('ul');
+        var $ballotItem = $ul.find('li');
+        var itemNumber = $ballotItem.length;
+        var itemWidth = $ballotItem.width() + parseInt($ballotItem.eq(0).css('margin-left')) + parseInt($ballotItem.eq(0).css('margin-right'));
+        var nowIndex = 0;
+        var $btnNext = $ul.siblings('.btn-img.next');
+        var $btnPrev = $ul.siblings('.btn-img.prev');
+        var showItemNum;
+        param = param || {};
+        showItemNum = param.showItemNum || 4;
+        $ul.width(itemWidth * $ballotItem.length);
+        $self.width(itemWidth * showItemNum + 30);
+
+        if ($ballotItem.length <= 4) {
+            $btnNext.hide();
+        }
+        //点击右切换
+        $btnNext.on('click', function () {
+            if($(this).hasClass('invalid')) return;
+            nowIndex++;
+            $ul.animate({
+                'margin-left': -itemWidth * nowIndex + 'px'
+            });
+            if (nowIndex === itemNumber - showItemNum) {
+                $(this).addClass('invalid');
+            }
+            if (nowIndex > 0) {
+                $btnPrev.removeClass('invalid');
+            }
+        });
+
+        $btnPrev.on('click', function () {
+            if(nowIndex == 0) $(this).addClass('invalid')
+            if($(this).hasClass('invalid')) return;
+            nowIndex--;
+            $ul.animate({
+                'margin-left': -itemWidth * nowIndex + 'px'
+            });
+            if (nowIndex < itemNumber - showItemNum) {
+                $btnNext.removeClass('invalid');
+            }
+            if (nowIndex <= 0) {
+                $btnPrev.addClass('invalid');
+            }
+        });
+    }
+});

@@ -159,7 +159,7 @@ layout: default-iframe
             $(this).find('.sub-group').hide();
         });
 
-        ModDialongInit()
+        ModDialongInit();
         function ModDialongInit() {
             var contentHtml = '<div class="dialog-item-wrap">' +
                 '<div class="dialog-item dialog-item-small">' +
@@ -174,71 +174,37 @@ layout: default-iframe
                 '<p class="col-blue">自定义搜索组合</p> ' +
                 '</div>' +
                 '</div>';
-            $('.tab-option-dialog').dialog({
-                title: '历史搜索',
-                content: contentHtml,
-                hasBtn: true,
-                width: 400,
-                height: 'auto',
-                btnText: ['保存', '取消'],
-                padding: '21px 27px 32px 27px',
-                confirm: function (dialog) {
-                    dialog.destory();
-                },
-                afterShow: function () {
+            $('.tab-option-dialog').on('click',function(){
+                var dialog = new Dialog(undefined,{
+                    title: '历史搜索',
+                    content: contentHtml,
+                    hasBtn: true,
+                    width: 400,
+                    needDestroy: 400,
+                    height: 'auto',
+                    btnText: ['保存', '取消'],
+                    padding: '21px 27px 32px 27px',
+                    confirm: function () {
+                        dialog.destroy();
+                    },
+                    afterShow: function () {
 
-                }
+                    }
+                })
             })
         }
 
-
-        /*slideBallot();*/
-        slideBallot1();
-
-
-    });
-
-    function slideBallot1() {
-        var $ballotList1 = $('.ul-list1');
-        var $ballotItem1 = $ballotList1.find('li');
-        var allIndex1 = $ballotItem1.length;
-        $ballotList1.width(244 * $ballotItem1.length);
-        var nowIndex = 0;
-        if ($ballotItem1.length <= 4) {
-            $('.btn-imgs.next').hide();
-        }
-        //点击右切换
-        $('.btn-imgs.next').on('click', function () {
-            nowIndex++;
-            $ballotList1.animate({
-                'margin-left': -244 * nowIndex + 'px'
-            });
-            if (nowIndex === allIndex1 - 4) {
-                $(this).hide();
-            }
-            if (nowIndex > 0) {
-                $('.btn-imgs.prev').show();
-            }
-        });
-
-        $('.btn-imgs.prev').on('click', function () {
-            nowIndex--;
-            $ballotList1.animate({
-                'margin-left': -244 * nowIndex + 'px'
-            });
-            if (nowIndex < allIndex1 - 4) {
-                $('.btn-imgs.next').show();
-            }
-            if (nowIndex <= 0) {
-                $('.btn-imgs.prev').hide();
-            }
-        });
+        $('#diy-slider-1').diySlider();
+        $('#diy-slider-2').diySlider({showItemNum:3});
+        $('#diy-slider-3').diySlider({showItemNum:2});
+        $('#diy-slider-4').diySlider({showItemNum:5});
 
         setTimeout(function(){
             $('.loading-small').hide();
             $('.list-wrap').show();
         },5000);
-    }
+    });
+
 </script>
 <div class="main-content">
     <div class="main-content-wrap">
@@ -388,10 +354,10 @@ layout: default-iframe
                             <div class="tabs-body">
                                 <div class="tabs-content on">
                                     <div class="list-content">
-                                        <div class="ul-list-wrap">
+                                        <div class="diy-slider" id="diy-slider-1">
                                             <img src="../images/caitong/prev.png" class="btn-img prev">
                                             <img src="../images/caitong/prev.png" class="btn-img next">
-                                            <ul class="ul-list">
+                                            <ul>
                                                 <li>
                                                     <dl class="dl-list">
                                                         <dt>
@@ -524,10 +490,10 @@ layout: default-iframe
                                 </div>
                                 <div class="tabs-content ">
                                     <div class="list-content">
-                                        <div class="ul-list-wrap">
+                                        <div class="diy-slider" id="diy-slider-2">
                                             <img src="../images/caitong/prev.png" class="btn-img prev">
                                             <img src="../images/caitong/prev.png" class="btn-img next">
-                                            <ul class="ul-list">
+                                            <ul>
                                                 <li>
                                                     <dl class="dl-list">
                                                         <dt>
@@ -660,10 +626,10 @@ layout: default-iframe
                                 </div>
                                 <div class="tabs-content ">
                                     <div class="list-content">
-                                        <div class="ul-list-wrap">
+                                        <div class="diy-slider" id="diy-slider-3">
                                             <img src="../images/caitong/prev.png" class="btn-img prev">
                                             <img src="../images/caitong/prev.png" class="btn-img next">
-                                            <ul class="ul-list">
+                                            <ul>
                                                 <li>
                                                     <dl class="dl-list">
                                                         <dt>
@@ -800,10 +766,10 @@ layout: default-iframe
                 </div>
                 <h2 class="col-block">产品专题</h2>
                 <div class="list-content">
-                    <div class="ul-list1-wrap">
-                        <img src="../images/caitong/prev.png" class="btn-imgs prev">
-                        <img src="../images/caitong/prev.png" class="btn-imgs next">
-                        <ul class="ul-list1">
+                    <div class="diy-slider"  id="diy-slider-4">
+                        <img src="../images/caitong/prev.png" class="btn-img prev">
+                        <img src="../images/caitong/prev.png" class="btn-img next">
+                        <ul>
                             <li>
                                 <img src="../images/caitong/list-yyf.png">
                                 <p class="list-title">月月福</p>

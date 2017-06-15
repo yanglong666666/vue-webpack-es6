@@ -77,11 +77,13 @@
 }
 .tabs-body {
   .tabs-content {
-    display: none;
     position: relative;
-      padding: 0 15px;
+    padding: 0 15px;
+      height: 0;
+      overflow: hidden;
     &.on {
       display: block;
+        height: inherit;
     }
   }
 }
