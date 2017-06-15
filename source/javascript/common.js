@@ -307,7 +307,7 @@ $.fn.extend({
         var $btnPrev = $ul.siblings('.btn-img.prev');
         var showItemNum;
         param = param || {};
-        showItemNum = param.showItemNum || 4;
+        showItemNum = param.showItemNum || parseInt(($self.width() +30) / (itemWidth+30));
         $ul.width(itemWidth * $ballotItem.length);
         $self.width(itemWidth * showItemNum + 30);
 

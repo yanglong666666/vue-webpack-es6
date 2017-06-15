@@ -2202,7 +2202,6 @@ input[type="text"] {
 }
 
 .list-content {
-    min-width: 1000px;
     height: auto;
     overflow: hidden;
     padding: 15px 0px;
@@ -2274,6 +2273,7 @@ input[type="text"] {
     }
 }
 .diy-slider {
+    width: 100%;
     padding: 0 15px;
     margin: 0 auto;
     overflow: hidden;
@@ -2313,6 +2313,7 @@ input[type="text"] {
             vertical-align: middle;
             margin: 0 15px;
             font-size: 14px;
+            min-width: 220px;
             position: relative;
             .list-title {
                 position: absolute;
