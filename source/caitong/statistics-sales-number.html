@@ -16,6 +16,24 @@ layout: default-iframe
             var index = tabs_head.find(".tab-options").index(_this);
             tabs_body.find(".search-content").eq(index).addClass("on").siblings(".search-content").removeClass("on");
         });
+
+        $('.detailsBtn-1').on('click',function(){
+            $('.main-content').hide();
+            $('#view-content-1').show();
+        });
+        $('.detailsBtn-2').on('click',function(){
+            $('.main-content').hide();
+            $('#view-content-2').show();
+        });
+        $('.detailsBtn-3').on('click',function(){
+            $('.main-content').hide();
+            $('#view-content-3').show();
+        });
+        $('.view-back').on('click',function(){
+            $(this).parents('.view-content').hide();
+            $('.main-content').show();
+        });
+
     });
 
 </script>
@@ -57,61 +75,82 @@ layout: default-iframe
                 </div>
                 <div class="main-content-box" style="padding: 0;">
                     <div class="main-table clearfix" style="margin: -1px;">
-                        <div class="scroll-table" style="width: 100%;">
+                        <div class="scroll-table">
                             <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
                                 <thead>
                                 <tr>
-                                    <th width="60px">序号</th>
-                                    <th width="60px">营业部名称</th>
-                                    <th width="60px">2017年1月</th>
-                                    <th width="60px">2月</th>
-                                    <th width="60px">3月</th>
-                                    <th width="60px">4月</th>
-                                    <th width="60px">5月</th>
-                                    <th width="60px">6月</th>
-                                    <th width="60px">7月</th>
-                                    <th width="60px">8月</th>
-                                    <th width="60px">9月</th>
-                                    <th width="60px">10月</th>
-                                    <th width="60px">11月</th>
-                                    <th width="60px">12月</th>
-                                    <th width="60px">合计</th>
+                                    <th width="10%">序号</th>
+                                    <th width="10%">营业部名称</th>
+                                    <th width="10%">2017年1月</th>
+                                    <th width="10%">2月</th>
+                                    <th width="10%">3月</th>
+                                    <th width="10%">4月</th>
+                                    <th width="10%">5月</th>
+                                    <th width="10%">6月</th>
+                                    <th width="10%">7月</th>
+                                    <th width="10%">8月</th>
+                                    <th width="10%">9月</th>
+                                    <th width="10%">10月</th>
+                                    <th width="10%">11月</th>
+                                    <th width="10%">12月</th>
+                                    <th width="10%">合计</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>001</td>
                                     <td>营业部名称</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                    <td>13</td>
-                                    <td>14</td>
-                                    <td>15</td>
-                                    <td>16</td>
-                                    <td>17</td>
-                                    <td>18</td>
-                                    <td>19</td>
-                                    <td>20</td>
-                                    <td>21</td>
-                                    <td>22</td>
-                                    <td>65</td>
+                                    <td>11000</td>
+                                    <td>12000</td>
+                                    <td>13000</td>
+                                    <td>14000</td>
+                                    <td>15000</td>
+                                    <td>16000</td>
+                                    <td>17000</td>
+                                    <td>18000</td>
+                                    <td>19000</td>
+                                    <td>20000</td>
+                                    <td>21000</td>
+                                    <td>22000</td>
+                                    <td>65000</td>
                                 </tr>
                                 <tr class="even">
                                     <td>001</td>
                                     <td>营业部名称</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                    <td>13</td>
-                                    <td>14</td>
-                                    <td>15</td>
-                                    <td>16</td>
-                                    <td>17</td>
-                                    <td>18</td>
-                                    <td>19</td>
-                                    <td>20</td>
-                                    <td>21</td>
-                                    <td>22</td>
-                                    <td>65</td>
+                                    <td>11000</td>
+                                    <td>12000</td>
+                                    <td>13000</td>
+                                    <td>14000</td>
+                                    <td>15000</td>
+                                    <td>16000</td>
+                                    <td>17000</td>
+                                    <td>18000</td>
+                                    <td>19000</td>
+                                    <td>20000</td>
+                                    <td>21000</td>
+                                    <td>22000</td>
+                                    <td>65000</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="fixed-table">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <thead>
+                                <tr>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="text-c">
+                                        <a class="btn btn-primary btn-small detailsBtn-1">查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="text-c">
+                                        <a class="btn btn-primary btn-small detailsBtn-1">查看详情</a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -142,26 +181,637 @@ layout: default-iframe
                         <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
                             <tbody>
                             <tr class="bgGrey">
-                                <td class="textRight" width="100px">营业部合计:</td>
-                                <td class="textLeft">10</td>
+                                <td class="textRight" width="100px">营业部合计：</td>
+                                <td class="textLeft">10000</td>
                             </tr>
                             <tr class="bgGrey textLeft">
                                 <td class="textRight">电商合计：</td>
-                                <td class="textLeft">11</td>
+                                <td class="textLeft">11000</td>
                             </tr>
                             <tr class="bgGrey textLeft">
                                 <td class="textRight">直销合计：</td>
-                                <td class="textLeft">44</td>
+                                <td class="textLeft">44000</td>
                             </tr>
                             <tr class="bgGrey textLeft">
                                 <td class="textRight">合计：</td>
-                                <td class="textLeft">65</td>
+                                <td class="textLeft">65000</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            <div class="search-content">
+                <div class="task-search clearfix">
+                    <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
+                    <button class="btn btn-float-right" href="#">搜索</button>
+                    <dl class="search-dl">
+                        <dd>
+                          <span>
+                            <select id="select2_1" class="diy-select" style="display: none;">
+                                <option value="" selected>选择年份</option>
+                                <option value="1">111</option>
+                                <option value="2">222</option>
+                            </select>
+                          </span>
+                        </dd>
+                    </dl>
+                    <dl class="search-dl">
+                        <dd>
+                          <span>
+                            <select id="select2_2" class="diy-select" style="display: none;">
+                                <option value="" selected>选择产品来源</option>
+                                <option value="1">111</option>
+                                <option value="2">222</option>
+                            </select>
+                          </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="main-content-box" style="padding: 0;">
+                    <div class="main-table clearfix" style="margin: -1px;">
+                        <div class="scroll-table">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <thead>
+                                <tr>
+                                    <th width="10%">序号</th>
+                                    <th width="10%">产品来源</th>
+                                    <th width="10%">2015年销售金额(亿元)</th>
+                                    <th width="10%">2016年销售金额(亿元)</th>
+                                    <th width="10%">销售金额变动(%)</th>
+                                    <th width="10%">保有金额变动(%)</th>
+                                    <th width="10%">2015年销售收入(亿元)</th>
+                                    <th width="10%">2016年销售收入(亿元)</th>
+                                    <th width="10%">收入变动(%)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>财通资管公募</td>
+                                    <td>10000</td>
+                                    <td>11000</td>
+                                    <td>10%</td>
+                                    <td>10%</td>
+                                    <td>1000</td>
+                                    <td>1100</td>
+                                    <td>10%</td>
+                                </tr>
+                                <tr class="even">
+                                    <td>001</td>
+                                    <td>财通资管公募</td>
+                                    <td>10000</td>
+                                    <td>11000</td>
+                                    <td>10%</td>
+                                    <td>10%</td>
+                                    <td>1000</td>
+                                    <td>1100</td>
+                                    <td>10%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="fixed-table">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <thead>
+                                <tr>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="text-c">
+                                        <a class="btn btn-primary btn-small detailsBtn-2">查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="text-c">
+                                        <a class="btn btn-primary btn-small detailsBtn-2">查看详情</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="ui-pagenav">
+                        <div class="page">
+                            <ul class="clearfix">
+                                <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                                <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                                <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                                <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                                <li>...</li>
+                                <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                                <li>...</li>
+                                <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                                <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                                <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                                <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                                <li>共20页，到第</li>
+                                <li><input class="page-go" type="text"></li>
+                                <li>页</li>
+                                <li class="page-go-sure"><a href="">确定</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="main-table clearfix" style="margin: -1px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                            <tbody>
+                            <tr class="bgGrey">
+                                <td class="textRight" width="100px">营业部合计：</td>
+                                <td class="textLeft">10000</td>
+                            </tr>
+                            <tr class="bgGrey textLeft">
+                                <td class="textRight">电商合计：</td>
+                                <td class="textLeft">11000</td>
+                            </tr>
+                            <tr class="bgGrey textLeft">
+                                <td class="textRight">直销合计：</td>
+                                <td class="textLeft">44000</td>
+                            </tr>
+                            <tr class="bgGrey textLeft">
+                                <td class="textRight">合计：</td>
+                                <td class="textLeft">65000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="search-content">
+                <div class="task-search clearfix">
+                    <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
+                    <button class="btn btn-float-right" href="#">搜索</button>
+                    <dl class="search-dl">
+                        <dd>
+                          <span>
+                            <select id="select3_1" class="diy-select" style="display: none;">
+                                <option value="" selected>选择营业部</option>
+                                <option value="1">111</option>
+                                <option value="2">222</option>
+                            </select>
+                          </span>
+                        </dd>
+                    </dl>
+                    <dl class="search-dl">
+                        <dd>
+                          <span>
+                            <select id="select3_2" class="diy-select" style="display: none;">
+                                <option value="" selected>选择年份</option>
+                                <option value="1">111</option>
+                                <option value="2">222</option>
+                            </select>
+                          </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="main-content-box" style="padding: 0;">
+                    <div class="main-table clearfix" style="margin: -1px;">
+                        <div class="scroll-table">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <thead>
+                                <tr>
+                                    <th width="10%">序号</th>
+                                    <th width="10%">营业部名称</th>
+                                    <th width="10%">
+                                        <div>1月标准销售合计</div>
+                                        <div>(按系数折算)</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>1月100万以下</div>
+                                        <div>产品销售量合计</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>2月标准销售合计</div>
+                                        <div>(按系数折算)</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>2月100万以下</div>
+                                        <div>产品销售量合计</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>3月标准销售合计</div>
+                                        <div>(按系数折算)</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>3月100万以下</div>
+                                        <div>产品销售量合计</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>4月标准销售合计</div>
+                                        <div>(按系数折算)</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>5月100万以下</div>
+                                        <div>产品销售量合计</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>5月标准销售合计</div>
+                                        <div>(按系数折算)</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div>5月100万以下</div>
+                                        <div>产品销售量合计</div>
+                                    </th>
+                                    <th width="10%">合计</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>营业部名称</td>
+                                    <td>10000</td>
+                                    <td>1000</td>
+                                    <td>20000</td>
+                                    <td>2000</td>
+                                    <td>30000</td>
+                                    <td>3000</td>
+                                    <td>40000</td>
+                                    <td>4000</td>
+                                    <td>50000</td>
+                                    <td>5000</td>
+                                    <td>111111</td>
+                                </tr>
+                                <tr class="even">
+                                    <td>001</td>
+                                    <td>营业部名称</td>
+                                    <td>10000</td>
+                                    <td>1000</td>
+                                    <td>20000</td>
+                                    <td>2000</td>
+                                    <td>30000</td>
+                                    <td>3000</td>
+                                    <td>40000</td>
+                                    <td>4000</td>
+                                    <td>50000</td>
+                                    <td>5000</td>
+                                    <td>111111</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="fixed-table">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <thead>
+                                <tr>
+                                    <th style="line-height: 42px;">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="text-c">
+                                        <a class="btn btn-primary btn-small detailsBtn-3">查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr class="even">
+                                    <td class="text-c">
+                                        <a class="btn btn-primary btn-small detailsBtn-3">查看详情</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="ui-pagenav">
+                        <div class="page">
+                            <ul class="clearfix">
+                                <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                                <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                                <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                                <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                                <li>...</li>
+                                <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                                <li>...</li>
+                                <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                                <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                                <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                                <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                                <li>共20页，到第</li>
+                                <li><input class="page-go" type="text"></li>
+                                <li>页</li>
+                                <li class="page-go-sure"><a href="">确定</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="main-table clearfix" style="margin: -1px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                            <tbody>
+                            <tr class="bgGrey">
+                                <td class="textRight" width="100px">营业部合计：</td>
+                                <td class="textLeft">10000</td>
+                            </tr>
+                            <tr class="bgGrey textLeft">
+                                <td class="textRight">直销合计：</td>
+                                <td class="textLeft">44000</td>
+                            </tr>
+                            <tr class="bgGrey textLeft">
+                                <td class="textRight">合计：</td>
+                                <td class="textLeft">65000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="view-content" id="view-content-1" style="display:none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="task-search clearfix">
+        <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
+        <button class="btn btn-float-right" href="#">搜索</button>
+        <dl class="search-dl">
+            <dd>
+              <span>
+                <select id="select1_3" class="diy-select" style="display: none;">
+                    <option value="" selected>选择产品代码</option>
+                    <option value="1">111</option>
+                    <option value="2">222</option>
+                </select>
+              </span>
+            </dd>
+        </dl>
+        <dl class="search-dl">
+            <dd>
+              <span>
+                <select id="select1_4" class="diy-select" style="display: none;">
+                    <option value="" selected>选择产品名称</option>
+                    <option value="1">111</option>
+                    <option value="2">222</option>
+                </select>
+              </span>
+            </dd>
+        </dl>
+    </div>
+    <div class="main-table clearfix">
+        <div class="scroll-table" style="width: 100%;">
+            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                <thead>
+                <tr>
+                    <th width="10%">序号</th>
+                    <th width="10%">营业部名称</th>
+                    <th width="10%">产品代码</th>
+                    <th width="10%">产品名称</th>
+                    <th width="10%">2017年1月</th>
+                    <th width="10%">2月</th>
+                    <th width="10%">3月</th>
+                    <th width="10%">4月</th>
+                    <th width="10%">5月</th>
+                    <th width="10%">6月</th>
+                    <th width="10%">7月</th>
+                    <th width="10%">8月</th>
+                    <th width="10%">9月</th>
+                    <th width="10%">10月</th>
+                    <th width="10%">11月</th>
+                    <th width="10%">12月</th>
+                    <th width="10%">合计</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>产品代码</td>
+                    <td>产品名称</td>
+                    <td>11000</td>
+                    <td>12000</td>
+                    <td>13000</td>
+                    <td>14000</td>
+                    <td>15000</td>
+                    <td>16000</td>
+                    <td>17000</td>
+                    <td>18000</td>
+                    <td>19000</td>
+                    <td>20000</td>
+                    <td>21000</td>
+                    <td>22000</td>
+                    <td>65000</td>
+                </tr>
+                <tr class="even">
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>产品代码</td>
+                    <td>产品名称</td>
+                    <td>11000</td>
+                    <td>12000</td>
+                    <td>13000</td>
+                    <td>14000</td>
+                    <td>15000</td>
+                    <td>16000</td>
+                    <td>17000</td>
+                    <td>18000</td>
+                    <td>19000</td>
+                    <td>20000</td>
+                    <td>21000</td>
+                    <td>22000</td>
+                    <td>65000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="ui-pagenav">
+        <div class="page">
+            <ul class="clearfix">
+                <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                <li>...</li>
+                <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                <li>...</li>
+                <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                <li>共20页，到第</li>
+                <li><input class="page-go" type="text"></li>
+                <li>页</li>
+                <li class="page-go-sure"><a href="">确定</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="view-content" id="view-content-2" style="display:none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="main-table clearfix">
+        <div class="scroll-table" style="width: 100%;">
+            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                <thead>
+                <tr>
+                    <th width="10%">序号</th>
+                    <th width="10%">产品来源</th>
+                    <th width="10%">2015年销售金额(亿元)</th>
+                    <th width="10%">2016年销售金额(亿元)</th>
+                    <th width="10%">销售金额变动(%)</th>
+                    <th width="10%">保有金额变动(%)</th>
+                    <th width="10%">2015年销售收入(亿元)</th>
+                    <th width="10%">2016年销售收入(亿元)</th>
+                    <th width="10%">收入变动(%)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>财通资管公募</td>
+                    <td>10000</td>
+                    <td>11000</td>
+                    <td>10%</td>
+                    <td>10%</td>
+                    <td>1000</td>
+                    <td>1100</td>
+                    <td>10%</td>
+                </tr>
+                <tr class="even">
+                    <td>001</td>
+                    <td>财通资管公募</td>
+                    <td>10000</td>
+                    <td>11000</td>
+                    <td>10%</td>
+                    <td>10%</td>
+                    <td>1000</td>
+                    <td>1100</td>
+                    <td>10%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="ui-pagenav">
+        <div class="page">
+            <ul class="clearfix">
+                <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                <li>...</li>
+                <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                <li>...</li>
+                <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                <li>共20页，到第</li>
+                <li><input class="page-go" type="text"></li>
+                <li>页</li>
+                <li class="page-go-sure"><a href="">确定</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="view-content" id="view-content-3" style="display:none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="main-table clearfix">
+        <div class="scroll-table" style="width: 100%;">
+            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                <thead>
+                <tr>
+                    <th width="10%">序号</th>
+                    <th width="10%">营业部名称</th>
+                    <th width="10%">产品代码</th>
+                    <th width="10%">产品名称</th>
+                    <th width="10%">
+                        <div>1月标准销售合计</div>
+                        <div>(按系数折算)</div>
+                    </th>
+                    <th width="10%">
+                        <div>1月100万以下</div>
+                        <div>产品销售量合计</div>
+                    </th>
+                    <th width="10%">
+                        <div>2月标准销售合计</div>
+                        <div>(按系数折算)</div>
+                    </th>
+                    <th width="10%">
+                        <div>2月100万以下</div>
+                        <div>产品销售量合计</div>
+                    </th>
+                    <th width="10%">
+                        <div>3月标准销售合计</div>
+                        <div>(按系数折算)</div>
+                    </th>
+                    <th width="10%">
+                        <div>3月100万以下</div>
+                        <div>产品销售量合计</div>
+                    </th>
+                    <th width="10%">
+                        <div>4月标准销售合计</div>
+                        <div>(按系数折算)</div>
+                    </th>
+                    <th width="10%">
+                        <div>5月100万以下</div>
+                        <div>产品销售量合计</div>
+                    </th>
+                    <th width="10%">
+                        <div>5月标准销售合计</div>
+                        <div>(按系数折算)</div>
+                    </th>
+                    <th width="10%">
+                        <div>5月100万以下</div>
+                        <div>产品销售量合计</div>
+                    </th>
+                    <th width="10%">合计</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>产品代码</td>
+                    <td>产品名称</td>
+                    <td>10000</td>
+                    <td>1000</td>
+                    <td>20000</td>
+                    <td>2000</td>
+                    <td>30000</td>
+                    <td>3000</td>
+                    <td>40000</td>
+                    <td>4000</td>
+                    <td>50000</td>
+                    <td>5000</td>
+                    <td>111111</td>
+                </tr>
+                <tr class="even">
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>产品代码</td>
+                    <td>产品名称</td>
+                    <td>10000</td>
+                    <td>1000</td>
+                    <td>20000</td>
+                    <td>2000</td>
+                    <td>30000</td>
+                    <td>3000</td>
+                    <td>40000</td>
+                    <td>4000</td>
+                    <td>50000</td>
+                    <td>5000</td>
+                    <td>111111</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="ui-pagenav">
+        <div class="page">
+            <ul class="clearfix">
+                <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                <li>...</li>
+                <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                <li>...</li>
+                <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                <li>共20页，到第</li>
+                <li><input class="page-go" type="text"></li>
+                <li>页</li>
+                <li class="page-go-sure"><a href="">确定</a></li>
+            </ul>
         </div>
     </div>
 </div>
