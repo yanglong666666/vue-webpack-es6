@@ -2203,7 +2203,7 @@ input[type="text"] {
 .list-content {
     height: auto;
     overflow: hidden;
-    padding: 15px 0px;
+    padding: 15px;
     position: relative;
     .list-left {
         display: inline-block;
@@ -2229,10 +2229,9 @@ input[type="text"] {
     }
     .my-work {
         margin: auto;
-        width: 1000px;
         li {
             display: inline-block;
-            width: 200px;
+            width: 20%;
             border: solid 1px #ffffff;
             float: left;
             &:hover {

@@ -23,7 +23,7 @@
 		width: 100%;
         position: relative;
 		.base-info{
-            padding-right: 420px;
+            padding-right: 380px;
 			.pro-flag{
 				height: 30px;
 				line-height: 30px;
@@ -69,10 +69,10 @@
 			.pro-limit{
 				display: flex;
 				>div{
-					width:25%;
 					height: 36px;
 					line-height: 36px;
 					text-align: left;
+                    margin-right: 15px;
 					span{
 						display: inline-block;
 						margin-right: 5px;
@@ -87,7 +87,7 @@
             position: absolute;
             bottom: 8px;
             right: 0;
-			width: 400px;
+			width: 360px;
 			img{
 				width: 100%;
 			}
