@@ -1,0 +1,107 @@
+.big-calendar {
+    width: 600px;
+    margin: 0 auto 10px;
+    .fc-toolbar.fc-header-toolbar {
+        background-color: #F1374E;
+        margin-bottom: 0;
+        color: #ffffff;
+        height: 36px;
+        line-height: 36px;
+    }
+    .fc-toolbar {
+        text-align: center;
+        padding: 0 36%;
+        .ui-icon {
+            background-image: url(../images/ui-icons_ffffff_256x240.png);
+        }
+        button {
+            background-color: transparent;
+            background: none;
+            border: solid 1px transparent;
+            outline: none;
+        }
+        .fc-left,.fc-right {
+            margin-top: 3px;
+        }
+    }
+    .fc-view, .fc-view > table {
+        >.fc-head {
+            border: solid #eeeeee;
+            border-width: 0 1px;
+        }
+        .ui-widget-header {
+            background-color: #fff;
+            color: #F1374E;
+            border: 0;
+            height: 26px;
+            line-height: 26px;
+        }
+    }
+    .fc-row .fc-content-skeleton thead td {
+        line-height: 14px;
+    }
+    .fc-day-grid-event .fc-content {
+        line-height: 12px;
+        padding: 0;
+    }
+}
+.calendar-legend {
+    text-align: center;
+    .calendar-legend-item-wrap {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .calendar-legend-item {
+        width: 20%;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 16px;
+        padding: 15px 0;
+        cursor: default;
+        position: relative;
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            @include border-radius(8px);
+        }
+    }
+    &.calendar-legend-tab {
+        border-bottom: solid 1px #F1374E;
+        .calendar-legend-item {
+            cursor: pointer;
+            &.active {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -8px;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-bottom: 12px solid #F1374E;
+                }
+            }
+        }
+    }
+}
+.calendar-content-wrap {
+    .calendar-content-item {
+        .calendar-task-wrap {
+            background-color: #fafafa;
+        }
+        .border-left-right {
+            border: solid $border-color;
+            border-width: 0 1px;
+        }
+        .task-search {
+            padding: 20px;
+            margin: 0;
+            float: left;
+        }
+    }
+}

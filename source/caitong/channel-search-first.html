@@ -177,8 +177,8 @@ layout: default-iframe
                 '<p class="col-blue">自定义搜索组合</p> ' +
                 '</div>' +
                 '</div>';
-            $('.tab-option-dialog').on('click',function(){
-                var dialog = new Dialog(undefined,{
+            $('.tab-option-dialog').on('click', function () {
+                var dialog = new Dialog(undefined, {
                     title: '历史搜索',
                     content: contentHtml,
                     hasBtn: true,
@@ -198,85 +198,176 @@ layout: default-iframe
         }
 
         $('#diy-slider-1').diySlider();
-        $('#diy-slider-2').diySlider({showItemNum:3});
-        $('#diy-slider-3').diySlider({showItemNum:2});
+        $('#diy-slider-2').diySlider({showItemNum: 3});
+        $('#diy-slider-3').diySlider({showItemNum: 2});
         $('#diy-slider-4').diySlider();
 
-        setTimeout(function(){
+        setTimeout(function () {
             $('.loading-small').hide();
             $('.list-wrap').show();
-        },5000);
+        }, 5000);
 
-        /**
-            https://fullcalendar.io/docs/
-        */
-        $('#calendar').fullCalendar({
-            theme: true,
-            buttonText: {today: '今天', month: '月', week: '周', day: '日', list: 'list'},
-            monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
-            monthNamesShort: ['一','二','三','四','五','六','七','八','九','十','十一','十二'],
-            dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
-            dayNamesShort: ['日','一','二','三','四','五','六'],
-            displayEventTime: false,
-            eventLimit: false, // for all non-agenda views
-            views: {
-                agenda: {
-                    eventLimit: 2 // adjust to 6 only for agendaWeek/agendaDay
-                }
+
+
+        var calendar_setting_legends = [
+            {color: "#FE734A",text: "引入"},
+            {color: "#F8A20F",text: "开放"},
+            {color: "#5EAEE3",text: "销售"},
+            {color: "#B3B3B3",text: "到期"}
+        ];
+        var calendar_setting_events = [
+            {
+                id: 0,
+                num: 7,
+                title: '7个',
+                start: '2017-06-12',
+                end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
             },
-            header: {
-                left: 'today prev',
-                center: 'title',
-                right: 'next month'
+            {
+                id: 0,
+                num: 1,
+                title: '1个',
+                start: '2017-06-27',
+                end: '2017-06-27',
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
             },
-            //contentHeight: 800,
-            defaultDate:'2017-05-15',
-            titleFormat:'YYYY MMMM',
-            navLinks: true, // can click day/week names to navigate views
-            editable: true,
-            events: [
-                {
-                    id: 'id1',
-                    title: '6个',
-                    start: '2017-05-01',
-                    end: '2017-05-08',
-                    color: "white",
-                    backgroundColor: "red",
-                    borderColor: "red",
-                    //textColor: "white",
-                    editable: false
-                },
-                {
-                    id: 'id2',
-                    title: '2个',
-                    start: '2017-05-04',
-                    end: '2017-05-10',
-                    color: "white",
-                    backgroundColor: "green",
-                    borderColor: "green",
-                    //textColor: "white",
-                    editable: false
-                },
-                {
-                    id: 'id3',
-                    title: '3个',
-                    start: '2017-05-05',
-                    end: '2017-05-12',
-                    color: "white",
-                    backgroundColor: "yellow",
-                    borderColor: "yellow",
-                    //textColor: "white",
-                    editable: false
-                },
-                {
-                    title: 'Meeting',
-                    start: '2017-05-12T10:30:00',
-                    end: '2017-05-12T12:30:00'
-                }
-            ]
+            {
+                id: 1,
+                num: 3,
+                title: '3个',
+                start: '2017-06-25',
+                end: '2017-06-28',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 2,
+                num: 3,
+                title: '3个',
+                start: '2017-06-27',
+                end: '2017-06-30',
+                color: "white",
+                backgroundColor: calendar_setting_legends[2].color,
+                borderColor: calendar_setting_legends[2].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 3,
+                num: 1,
+                title: '1个',
+                start: '2017-06-27',
+                color: "white",
+                backgroundColor: calendar_setting_legends[3].color,
+                borderColor: calendar_setting_legends[3].color,
+                //textColor: "white",
+                editable: false
+            }
+        ];
+        $('#big-calendar-1').diyFullCalendar({
+            width: "42%",
+            legends: calendar_setting_legends,
+            events:  calendar_setting_events,
+            onSelected: function(start,end){
+                end.setDate(end.getDate() - 1);
+
+                console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
+                console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
+            }
+        });
+
+
+        var calendar_setting_legends_2 = [
+            {color: "#FE734A",text: "引入"},
+            {color: "#F8A20F",text: "开放"},
+            {color: "#5EAEE3",text: "销售"},
+            {color: "#B3B3B3",text: "到期"}
+        ];
+        var calendar_setting_events_2 = [
+            {
+                id: 0,
+                num: 7,
+                title: '7个',
+                start: '2017-06-12',
+                end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
+                color: "white",
+                backgroundColor: calendar_setting_legends_2[0].color,
+                borderColor: calendar_setting_legends_2[0].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 0,
+                num: 1,
+                title: '1个',
+                start: '2017-06-27',
+                end: '2017-06-27',
+                color: "white",
+                backgroundColor: calendar_setting_legends_2[0].color,
+                borderColor: calendar_setting_legends_2[0].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 1,
+                num: 3,
+                title: '3个',
+                start: '2017-06-25',
+                end: '2017-06-28',
+                color: "white",
+                backgroundColor: calendar_setting_legends_2[1].color,
+                borderColor: calendar_setting_legends_2[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 2,
+                num: 3,
+                title: '3个',
+                start: '2017-06-27',
+                end: '2017-06-30',
+                color: "white",
+                backgroundColor: calendar_setting_legends_2[2].color,
+                borderColor: calendar_setting_legends_2[2].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 3,
+                num: 1,
+                title: '1个',
+                start: '2017-06-27',
+                color: "white",
+                backgroundColor: calendar_setting_legends_2[3].color,
+                borderColor: calendar_setting_legends_2[3].color,
+                //textColor: "white",
+                editable: false
+            }
+        ];
+        $('#big-calendar-2').diyFullCalendar({
+            width: "42%",
+            legends: calendar_setting_legends_2,
+            events:  calendar_setting_events_2,
+            onSelected: function(start,end){
+                end.setDate(end.getDate() - 1);
+
+                console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
+                console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
+            }
         });
     });
-
 </script>
 <div class="main-content">
     <div class="main-content-wrap">
@@ -292,130 +383,10 @@ layout: default-iframe
         <div class="main-content-wrap-list">
             <div class="search-content on">
 
-                <div id="calendar" style="width: 600px;margin: 0 auto;"></div>
-
-                <div class="task-search clearfix task-search1">
-                    <button class="btn btn-float-right" href="#">搜索</button>
-                    <input type="text" class="aql-input " placeholder="输入产品代码或产品名称进行搜索" style="width: 240px;">
-                </div>
-                <h2 class="col-block">产品日历</h2>
-                <div class="list-content">
-                    <div class="list-left">
-                        <div id="datepicker-index" style="position:relative;"></div>
-                    </div>
-                    <div class="list-center">
-                        <img src="../images/caitong/daochu.png">
-                    </div>
-                    <div class="list-right">
-                        <div class="content-list">
-                            <span class="start on">开始引入（10）</span>
-                            <span class="start">开始认购（6）</span>
-                            <span class="start">开始申购（6）</span>
-                            <span class="start">开始计算收益（10）</span>
-                            <span class="start">开始到期赎回（10）</span>
-                            <span class="start">结束认购（10）</span>
-                            <span class="start">结束申购（10）</span>
-                            <span class="start">可接受的赎回（10）</span>
-                            <span class="start">赎回资金到账（10）</span>
-                        </div>
-                        <div class="list-detail">
-                            <div class="loading-small">
-                                <div class="loading-small-text">数据加载中,请稍后...</div>
-                            </div>
-                            <div class="list-wrap" style="display: none;">
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </div>
-                            <p class="col-blue">更多 >></p>
-                        </div>
+                <div id="big-calendar-1">
+                    <div class="big-calendar"></div>
+                    <div class="calendar-legend">
+                        <div class="calendar-legend-item-wrap"></div>
                     </div>
                 </div>
                 <div class="dialog-item-wrap">
@@ -842,7 +813,7 @@ layout: default-iframe
                 </div>
                 <h2 class="col-block">产品专题</h2>
                 <div class="list-content">
-                    <div class="diy-slider"  id="diy-slider-4">
+                    <div class="diy-slider" id="diy-slider-4">
                         <img src="../images/caitong/prev.png" class="btn-img prev">
                         <img src="../images/caitong/prev.png" class="btn-img next">
                         <ul>
@@ -1366,112 +1337,389 @@ layout: default-iframe
                     </div>
                     <div class="tab-list">
                         <div class="tab-list-content on">
-                            <div class="tab-list-top">
-                                <div class="time-item" id="beginTime1"></div>
-                                <div class="time-item" id="endTime1"></div>
-                            </div>
-                            <div class="content-list">
-                                <span class="start on">开始引入（10）</span>
-                                <span class="start">开始认购（6）</span>
-                                <span class="start">开始申购（6）</span>
-                                <span class="start">开始计算收益（10）</span>
-                                <span class="start">开始到期赎回（10）</span>
-                                <span class="start">结束认购（10）</span>
-                                <span class="start">结束申购（10）</span>
-                                <span class="start">可接受的赎回（10）</span>
-                                <span class="start">赎回资金到账（10）</span>
-                            </div>
-                            <div class="list-detail">
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
+                            <div id="big-calendar-2">
+                                <div class="big-calendar"></div>
+                                <div class="calendar-legend calendar-legend-tab">
+                                    <div class="calendar-legend-item-wrap"></div>
+                                </div>
+                                <div class="calendar-content-wrap">
+                                    <div class="calendar-content-item">
+                                        <div class="list-detail">
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
                                         </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                    </div>
+                                    <div class="calendar-content-item" style="display: none;">
+                                        <div class="list-detail">
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
                                         </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
+                                    </div>
+                                    <div class="calendar-content-item" style="display: none;">
+                                        <div class="list-detail">
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
                                         </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                    </div>
+                                    <div class="calendar-content-item" style="display: none;">
+                                        <div class="list-detail">
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-list">
+                                                <dt>
+                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
+                                                </dt>
+                                                <dd>
+                                                    <div class="left">
+                                                        <div class="level">中低风险等级</div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
+                                                        <p class="p-right-center">起购金额 ：5万元</p>
+                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    </div>
+                                                </dd>
+                                            </dl>
                                         </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
-                                <dl class="dl-list">
-                                    <dt>
-                                    <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                    </dt>
-                                    <dd>
-                                        <div class="left">
-                                            <div class="level">中低风险等级</div>
-                                        </div>
-                                        <div class="right">
-                                            <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                            <p class="p-right-center">起购金额 ：5万元</p>
-                                            <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                        </div>
-                                    </dd>
-                                </dl>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-list-content ">

@@ -29,14 +29,11 @@ var go_url = function (href, param, name) {
     if (href == li_all.eq(i).data("href")) {
       $(".leftul .index a").removeClass('active');
       $self.addClass('active');
-      li_all.removeClass("active");
-      li_all.eq(i).addClass("active");
       $('.iframepage').hide();
-      $(document.getElementById(href)).show();
-      tabHasThis = true;
+      li_all.eq(i).remove();
+      $(document.getElementById(li_all.eq(i).data('href'))).remove();
     }
   }
-  if(tabHasThis) return;
 
   var contentHtml = ['<div class="form form-add">',
     '<div class="form-group">',
@@ -343,5 +340,57 @@ $.fn.extend({
                 $btnPrev.addClass('invalid');
             }
         });
+    }
+});
+/**
+ https://fullcalendar.io/docs/
+ */
+$.fn.extend({
+    diyFullCalendar: function(param){
+        var $self = $(this);
+
+        if(param.width){
+            $self.find('.big-calendar').css('width',param.width);
+            $self.find('.calendar-legend-item-wrap').css('width',param.width);
+        }
+        $self.find('.big-calendar').fullCalendar({
+            theme: true,
+            buttonText: {today: '今天', month: '月', week: '周', day: '日', list: 'list'},
+            monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+            monthNamesShort: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+            dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            dayNamesShort: ['日','一','二','三','四','五','六'],
+            displayEventTime: false,
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            defaultDate: param.defaultDate || new Date().getFullYear() + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate(),
+            titleFormat:'YYYY MMMM',
+            editable: true,
+            allDayDefault: false,
+            selectable: true,
+            select: function(start, end, jsEvent, view ) {
+                if(param.onSelected && typeof(param.onSelected) == "function"){
+                    param.onSelected(start._d,end._d);
+                }
+            },
+            events: param.events
+        });
+        param.legends.forEach(function(item1,index1){
+            var num = 0;
+            param.events.forEach(function(item2){
+                if(item2.id == index1){
+                    num += item2.num;
+                }
+            });
+            $self.find('.calendar-legend-item-wrap').append('<div class="calendar-legend-item"><i style="background-color: ' + item1.color + ' "></i> ' + item1.text + '(' + num + '个) </div>')
+        });
+        $self.find('.calendar-legend-item').on('click',function(){
+            var $self2 = $(this);
+            $self2.addClass('active').siblings('.calendar-legend-item').removeClass('active');
+            $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
+        }).eq(0).click();
     }
 });

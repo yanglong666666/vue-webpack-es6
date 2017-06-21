@@ -3,6 +3,8 @@ title: 销售管理-排期日历-日历展示
 layout: default-iframe
 ---
 
+<script src="../javascript/moment.js"></script>
+<script src="../javascript/fullcalendar.js"></script>
 <script type="text/javascript">
     $(function () {
         // tab切换
@@ -150,6 +152,72 @@ layout: default-iframe
         });
 
 
+
+        var calendar_setting_legends = [
+            {color: "#F8A20F",text: "开放"},
+            {color: "#5EAEE3",text: "销售"},
+            {color: "#B3B3B3",text: "到期"}
+        ];
+        var calendar_setting_events = [
+            {
+                id: 0,
+                num: 7,
+                title: '7个',
+                start: '2017-06-12',
+                end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 0,
+                num: 1,
+                title: '1个',
+                start: '2017-06-27',
+                end: '2017-06-27',
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 1,
+                num: 3,
+                title: '3个',
+                start: '2017-06-27',
+                end: '2017-06-30',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 2,
+                num: 1,
+                title: '1个',
+                start: '2017-06-27',
+                color: "white",
+                backgroundColor: calendar_setting_legends[2].color,
+                borderColor: calendar_setting_legends[2].color,
+                //textColor: "white",
+                editable: false
+            }
+        ];
+        $('#big-calendar-1').diyFullCalendar({
+            width: "42%",
+            legends: calendar_setting_legends,
+            events:  calendar_setting_events,
+            onSelected: function(start,end){
+                end.setDate(end.getDate() - 1);
+
+                console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
+                console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
+            }
+        });
     });
 
 </script>
@@ -164,28 +232,22 @@ layout: default-iframe
                     </div>
                     <div class="tab-list">
                         <div class="tab-list-content on">
-                            <div class="tab-list-top">
-                                <div class="time-item" id="beginTime1"></div>
-                                <div class="time-item" id="endTime1"></div>
-                            </div>
-                            <div class="dialog-item-wrap">
-                                <div class="dialog-item-border" style="position: relative">
-                                    <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
-                                        <span class="tab-option on">开放</span>
-                                        <span class="tab-option">销售</span>
-                                        <span class="tab-option">赎回</span>
-                                    </div>
-                                    <div class="dialog-item-box-body">
-                                        <div class="tabs-body">
-                                            <div class="tabs-content on">
-                                                <div class="task-search clearfix task-search2">
+                            <div id="big-calendar-1">
+                                <div class="big-calendar"></div>
+                                <div class="calendar-legend calendar-legend-tab">
+                                    <div class="calendar-legend-item-wrap"></div>
+                                </div>
+                                <div class="calendar-content-wrap">
+                                    <div class="calendar-content-item">
+                                        <div class="calendar-task-wrap calendar-legend-tab clearfix">
+                                            <div class="task-search clearfix task-search2">
                                                 <button class="btn btn-float-right" href="#">搜索</button>
 
                                                 <dl class="search-dl">
                                                     <dd>
                                       <span>
                                         <select id="select5" class="diy-select">
-                                            <option selected>产品类型</option>
+                                            <option selected>产品类型1</option>
                                             <option value="1">发行人1</option>
                                         </select>
                                       </span>
@@ -193,322 +255,321 @@ layout: default-iframe
                                                 </dl>
 
                                             </div>
-                                                <div class="main-table">
-                                                <table cellpadding="0" cellspacing="0" class="data-table table-padding7" style="width: 100%">
-                                                    <thead>
-                                                    <tr>
-                                                        <th width="10%">序号</th>
-                                                        <th width="10%">产品代码</th>
-                                                        <th width="15%">产品名称</th>
-                                                        <th width="15%">产品类型</th>
-                                                        <th width="10%">风险等级 </th>
-                                                        <th width="15%">认购起点（元） </th>
-                                                        <th width="15%">预期收益（%） </th>
-                                                        <th width="10%">操作</th>
+                                        </div>
+                                        <div class="main-table">
+                                            <table cellpadding="0" cellspacing="0" class="data-table table-padding7" style="width: 100%">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">序号</th>
+                                                    <th width="10%">产品代码</th>
+                                                    <th width="15%">产品名称</th>
+                                                    <th width="15%">产品类型</th>
+                                                    <th width="10%">风险等级 </th>
+                                                    <th width="15%">认购起点（元） </th>
+                                                    <th width="15%">预期收益（%） </th>
+                                                    <th width="10%">操作</th>
 
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr class="red">
-                                                        <td>001</td>
-                                                        <td>180008</td>
-                                                        <td>银华货币</td>
-                                                        <td>货币型</td>
-                                                        <td>中低</td>
-                                                        <td>1000</td>
-                                                        <td>3.4</td>
-                                                        <td class="text-c">
-                                                            <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="even">
-                                                        <td>001</td>
-                                                        <td>180008</td>
-                                                        <td>银华货币</td>
-                                                        <td>货币型</td>
-                                                        <td>中低</td>
-                                                        <td>1000</td>
-                                                        <td>3.4</td>
-                                                        <td class="text-c">
-                                                            <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>180008</td>
-                                                        <td>银华货币</td>
-                                                        <td>货币型</td>
-                                                        <td>中低</td>
-                                                        <td>1000</td>
-                                                        <td>3.4</td>
-                                                        <td class="text-c">
-                                                            <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="even">
-                                                        <td>001</td>
-                                                        <td>180008</td>
-                                                        <td>银华货币</td>
-                                                        <td>货币型</td>
-                                                        <td>中低</td>
-                                                        <td>1000</td>
-                                                        <td>3.4</td>
-                                                        <td class="text-c">
-                                                            <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>180008</td>
-                                                        <td>银华货币</td>
-                                                        <td>货币型</td>
-                                                        <td>中低</td>
-                                                        <td>1000</td>
-                                                        <td>3.4</td>
-                                                        <td class="text-c">
-                                                            <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="even">
-                                                        <td>001</td>
-                                                        <td>180008</td>
-                                                        <td>银华货币</td>
-                                                        <td>货币型</td>
-                                                        <td>中低</td>
-                                                        <td>1000</td>
-                                                        <td>3.4</td>
-                                                        <td class="text-c">
-                                                            <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                                {% include component/pagenav-cf.html %}
-                                            </div>
-                                            <div class="tabs-content ">
-                                                <div class="task-search clearfix task-search2">
-                                                    <button class="btn btn-float-right" href="#">搜索</button>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="red">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        {% include component/pagenav-cf.html %}
+                                    </div>
+                                    <div class="calendar-content-item" style="display: none;">
+                                        <div class="calendar-task-wrap calendar-legend-tab clearfix">
+                                            <div class="task-search clearfix task-search2">
+                                                <button class="btn btn-float-right" href="#">搜索</button>
 
-                                                    <dl class="search-dl">
-                                                        <dd>
+                                                <dl class="search-dl">
+                                                    <dd>
                                       <span>
                                         <select id="select6" class="diy-select">
-                                            <option selected>产品类型</option>
+                                            <option selected>产品类型2</option>
                                             <option value="1">发行人1</option>
                                         </select>
                                       </span>
-                                                        </dd>
-                                                    </dl>
-
-                                                </div>
-                                                <div class="main-table">
-                                                    <table cellpadding="0" cellspacing="0" class="data-table table-padding7" style="width: 100%">
-                                                        <thead>
-                                                        <tr>
-                                                            <th width="10%">序号</th>
-                                                            <th width="10%">产品代码</th>
-                                                            <th width="15%">产品名称</th>
-                                                            <th width="15%">产品类型</th>
-                                                            <th width="10%">风险等级 </th>
-                                                            <th width="15%">认购起点（元） </th>
-                                                            <th width="15%">预期收益（%） </th>
-                                                            <th width="10%">操作</th>
-
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr class="red">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="even">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="even">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="even">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                {% include component/pagenav-cf.html %}
+                                                    </dd>
+                                                </dl>
 
                                             </div>
-                                            <div class="tabs-content ">
-                                                <div class="task-search clearfix task-search2">
-                                                    <button class="btn btn-float-right" href="#">搜索</button>
+                                        </div>
+                                        <div class="main-table">
+                                            <table cellpadding="0" cellspacing="0" class="data-table table-padding7" style="width: 100%">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">序号</th>
+                                                    <th width="10%">产品代码</th>
+                                                    <th width="15%">产品名称</th>
+                                                    <th width="15%">产品类型</th>
+                                                    <th width="10%">风险等级 </th>
+                                                    <th width="15%">认购起点（元） </th>
+                                                    <th width="15%">预期收益（%） </th>
+                                                    <th width="10%">操作</th>
 
-                                                    <dl class="search-dl">
-                                                        <dd>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="red">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        {% include component/pagenav-cf.html %}
+                                    </div>
+                                    <div class="calendar-content-item" style="display: none;">
+                                        <div class="calendar-task-wrap calendar-legend-tab clearfix">
+                                            <div class="task-search clearfix task-search2">
+                                                <button class="btn btn-float-right" href="#">搜索</button>
+
+                                                <dl class="search-dl">
+                                                    <dd>
                                       <span>
                                         <select id="select4" class="diy-select">
-                                            <option selected>产品类型</option>
+                                            <option selected>产品类型3</option>
                                             <option value="1">发行人1</option>
                                         </select>
                                       </span>
-                                                        </dd>
-                                                    </dl>
-
-                                                </div>
-                                                <div class="main-table">
-                                                    <table cellpadding="0" cellspacing="0" class="data-table table-padding7" style="width: 100%">
-                                                        <thead>
-                                                        <tr>
-                                                            <th width="10%">序号</th>
-                                                            <th width="10%">产品代码</th>
-                                                            <th width="15%">产品名称</th>
-                                                            <th width="15%">产品类型</th>
-                                                            <th width="10%">风险等级 </th>
-                                                            <th width="15%">认购起点（元） </th>
-                                                            <th width="15%">预期收益（%） </th>
-                                                            <th width="10%">操作</th>
-
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr class="red">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="even">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="even">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="even">
-                                                            <td>001</td>
-                                                            <td>180008</td>
-                                                            <td>银华货币</td>
-                                                            <td>货币型</td>
-                                                            <td>中低</td>
-                                                            <td>1000</td>
-                                                            <td>3.4</td>
-                                                            <td class="text-c">
-                                                                <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                {% include component/pagenav-cf.html %}
+                                                    </dd>
+                                                </dl>
 
                                             </div>
-
-
                                         </div>
+                                        <div class="main-table">
+                                            <table cellpadding="0" cellspacing="0" class="data-table table-padding7" style="width: 100%">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">序号</th>
+                                                    <th width="10%">产品代码</th>
+                                                    <th width="15%">产品名称</th>
+                                                    <th width="15%">产品类型</th>
+                                                    <th width="10%">风险等级 </th>
+                                                    <th width="15%">认购起点（元） </th>
+                                                    <th width="15%">预期收益（%） </th>
+                                                    <th width="10%">操作</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="red">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>180008</td>
+                                                    <td>银华货币</td>
+                                                    <td>货币型</td>
+                                                    <td>中低</td>
+                                                    <td>1000</td>
+                                                    <td>3.4</td>
+                                                    <td class="text-c">
+                                                        <a href="channel-search-detail.html" class="btn btn-primary btn-small">查看</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        {% include component/pagenav-cf.html %}
                                     </div>
                                 </div>
                             </div>
