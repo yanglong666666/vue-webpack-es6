@@ -81,6 +81,16 @@
     padding: 0 15px;
       height: 0;
       overflow: hidden;
+      &.tabs-content-padding{
+          padding: 0;
+          .bg-grey{
+              height: 30px;
+              line-height: 30px;
+              background: #e8e9ed;
+              padding-left: 20px;
+          }
+      }
+
     &.on {
       display: block;
         height: inherit;
@@ -88,7 +98,374 @@
   }
 }
 
+.dialog-item-box-body-change{
+    .tabs-body{
+        .tabs-content{
+            overflow: visible;
+        }
+    }
+}
 
+
+//财通新增 2017-06-20
+.dialog-right-change{
+    width: 640px;
+    height: 360px;
+    border:1px solid #ccc;
+    padding: 10px 15px;
+    *{
+        @include  box-sizing(border-box)
+    }
+    @include clearfix;
+    .left-contents{
+        display: inline-block;
+        float: left;
+        width: 290px;
+        height: 100%;
+        .header-search{
+            height: 30px;
+            line-height: 30px;
+            vertical-align: middle;
+            .search-box{
+                position: relative;
+                height: 30px;
+                width: 250px;
+                margin: 0 auto;
+                border-radius: 2px;
+                float: left;
+                input{
+                    width: 100%;
+                    vertical-align: top;
+                    outline: none;
+                    @include border-radius(3px);
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                    &.fill-input {
+                        @include inline-block;
+                        width: 250px;
+                        font-size: 14px;
+                        line-height: 34px;
+                        height: 36px;
+                        border: 1px solid #E8E8E8;
+                        padding: 0;
+                        outline: none;
+                        text-indent: 8px;
+                        &:hover {
+                            border: 1px solid #A3A3A3;
+                        }
+                        &:focus {
+                            border: 1px solid #66afe9;
+                            box-shadow: 0 0 4px rgba(102, 175, 233, 0.4);
+                        }
+                        &.small {
+                            line-height: 28px;
+                            height: 30px;
+                        }
+
+                    }
+                }
+                .search-list{
+                    display:none;
+                    text-align: left;
+                    z-index:1;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 30px;
+                    left: 0;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    background-color:#FFFFFF;
+                    ul{
+                        line-height: 36px;
+                        li{
+                            padding: 0 15px;
+                            &:hover {
+                                background-color: #ccc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .header-contents{
+            width: 290px;
+            height: 290px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            margin-top: 10px;
+            background: #f5f5f5;
+            padding: 10px 0;
+            .header-contents-title{
+                padding-left: 25px;
+            }
+            .header-content-list{
+                position: relative;
+
+                .header-list-top{
+                    position: relative;
+                    padding-left: 25px;
+                    &:hover{
+                        background: #d4d5da;
+                        .icon-add{
+                            display: block;
+                        }
+                    }
+                    .arrow-show{
+                        position: absolute;
+                        top: 13px;
+                        left: 10px;
+                        display: inline-block;
+                        width: 9px;
+                        height: 5px;
+                        background: url(../images/icolist.png) -60px -50px no-repeat;
+                    };
+                    .icon-add{
+                        position: absolute;
+                        top: 7px;
+                        right: 15px;
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        background: url(../images/caitong/grey-add.png) ;
+                        display: none;
+                    }
+
+                }
+                .list-title{
+                    line-height: 24px;
+                    position: relative;
+                    li{
+                        padding-left: 40px;
+                        position: relative;
+                        .icon-add{
+                            position: absolute;
+                            top: 4px;
+                            right: 15px;
+                            display: inline-block;
+                            width: 16px;
+                            height: 16px;
+                            background: url(../images/caitong/grey-add.png) ;
+                            display: none;
+                        }
+                        &:hover{
+                            background: #d4d5da;
+                            .icon-add{
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .center-contents{
+        display:inline-block;
+        width: 60px;
+        float: left;
+        padding: 136px 0;
+        .center-content-img{
+            width: 48px;
+            margin: auto;
+        }
+    }
+    .right-contents{
+        width: 258px;
+        height: 100%;
+        display:inline-block;
+        float: left;
+        .right-list-wrap{
+            width: 100%;
+            height: 290px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: #f5f5f5;
+            margin-top: 10px;
+            padding: 10px 0;
+            .right-list{
+                line-height: 30px;
+                width: 100%;
+                display: inline-block;
+                position: relative;
+                li{
+                    position: relative;
+                    padding-left: 15px;
+                    &:hover{
+                        background: #d4d5da;
+                        .icon-delect{
+                            display: block;
+                        }
+                    }
+                    .icon-delect{
+                        position: absolute;
+                        top: 7px;
+                        right: 15px;
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        background: url(../images/caitong/grey-delect.png) ;
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+//财通新建列表
+.separate-content{
+    padding: 15px 20px;
+    .dialog-input{
+        line-height: 28px;
+        height: 28px;
+        padding: 0;
+        outline: none;
+        background: transparent;
+        width: 130px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        border: 1px solid #e5e5e5;
+        text-indent: 8px;
+    };
+    .tips{
+        margin-left: 10px;
+    }
+    .content-inner{
+        position: relative;
+        .content-inner-top{
+            position: relative;
+            line-height: 30px;
+            margin-bottom: 10px;
+            padding-left: 40px;
+            .txt-w1{
+                display: inline-block;
+                width: 60px;
+                color: #000;
+                font-weight: bold;
+            }
+            .arrow-show1{
+                position: absolute;
+                top: 13px;
+                left: 10px;
+                display: inline-block;
+                width: 9px;
+                height: 5px;
+                background: url(../images/icolist.png) -60px -50px no-repeat;
+            };
+        }
+        .content-list-wrap{
+            padding-left: 25px;
+            .content-lists{
+                margin-bottom: 10px;
+                .txt-w2{
+                    display: inline-block;
+                    width: 80px;
+                }
+
+            }
+
+        }
+        .content-list-change{
+            margin-bottom: 10px;
+            position: relative;
+            .content-list-change-top{
+                position: relative;
+                margin-bottom: 10px;
+                .arrow-show1{
+                    position: absolute;
+                    top: 13px;
+                    left: -14px;
+                    display: inline-block;
+                    width: 9px;
+                    height: 5px;
+                    background: url(../images/icolist.png) -60px -50px no-repeat;
+                };
+                .txt-w2{
+                    display: inline-block;
+                    width: 80px;
+                }
+            }
+            .content-list-change-content{
+                padding-left: 20px;
+                .content-list-change-list{
+                    margin-bottom: 10px;
+                    .txt-w3{
+                        display: inline-block;
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//财通左右结构表格
+.content-wraps{
+    width: 100%;
+    height: 260px;
+    margin-bottom: 20px;
+    @include clearfix;
+    .content-wraps-title{
+        padding-left: 15px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    .content-wraps-left{
+        float: left;
+        width: 49%;
+        width:-moz-calc(50% - 10px);
+        width:-webkit-calc(50% - 10px);
+        width: calc(50% - 10px);
+
+        height:100% ;
+        .left-content-border{
+            width: 100%;
+            height: 233px;
+            border:1px solid #E7E7E7;
+            padding: 20px;
+            .left-content-title{
+                line-height: 40px;
+            }
+            .width-container{
+                width: 100%;
+                height: 40px;
+                background: #e8e9ed;
+                border-radius: 10px;
+                position: relative;
+                margin-bottom: 20px;
+                .percent{
+                    position: absolute;
+                    left: 0;
+                    height:100%;
+                    background: #f2364e;
+                    border-radius: 10px;
+                }
+                .width-container-tips{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    color: #fff;
+                    line-height: 40px;
+                }
+            }
+            .left-dis1{
+                line-height: 40px;
+                text-align: center;
+            }
+        }
+    }
+    .content-wraps-right{
+        float: right;
+        width:49%;
+        width:-moz-calc(50% - 10px);
+        width:-webkit-calc(50% - 10px);
+        width: calc(50% - 10px);
+        height:100% ;
+    }
+}
 
 //财富消息中心
 .main-tab {

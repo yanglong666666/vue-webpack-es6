@@ -1,0 +1,347 @@
+---
+title: 销售管理-任务查询
+layout: default-iframe
+---
+
+<script type="text/javascript">
+    $(function () {
+        // tab切换
+
+        $('#select1').diySelect();
+        $('#select2').diySelect();
+        $('#select3').diySelect();
+        $('#select4').diySelect();
+
+
+        $(".btn-see").click(function(){
+            $(".main-content").hide();
+            $(".edit-see").show();
+        })
+        $(".edit-see .view-back").click(function(){
+            $(".main-content").show();
+            $(".edit-see").hide();
+        })
+
+        var width0=$($(".width-container")[0]).width();
+        var num1=$(".left-dis1-total").html();
+        var num2=$(".left-dis1-num").html();
+        $(".percent").eq(0).css({"width":num2/num1*width0 + "px"})
+        $(".percent").eq(1).css({"width":num2/num1*width0 + "px"})
+        $(".width-container-tips").html(num2 + '亿')
+
+    });
+
+</script>
+<div class="page-sales-preview">
+    <div class="main-content"  >
+        <div class="main-content-wrap">
+            <div class="main-content-wrap-list">
+                <div class="search-content on">
+                    <div class="task-search clearfix">
+                        <button class="btn btn-float-right" href="#">搜索</button>
+                        <dl class="search-dl">
+                            <dd>
+          <span>
+            <select id="select1" class="diy-select">
+                <option selected>完成率</option>
+                <option value="1">完成率1</option>
+                <option value="2">完成率2</option>
+            </select>
+          </span>
+                            </dd>
+                        </dl>
+                        <dl class="search-dl">
+                            <dd>
+          <span>
+            <select id="select2" class="diy-select">
+                <option selected>选择营业部</option>
+                <option value="1">营业部1</option>
+                <option value="2">营业部2</option>
+            </select>
+          </span>
+                            </dd>
+                        </dl>
+                        <dl class="search-dl">
+                            <dd>
+          <span>
+            <select id="select3" class="diy-select">
+                <option selected>选择产品</option>
+                <option value="1">产品1</option>
+                <option value="2">产品2</option>
+            </select>
+          </span>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div class="content-wraps">
+                        <div class="content-wraps-left">
+                            <p class="content-wraps-title">总业绩完成情况</p>
+                            <div class="left-content-border">
+                                <p class="left-content-title">已完成：</p>
+                                <div class="width-container">
+                                    <p class="percent"></p>
+                                    <p class="width-container-tips"></p>
+                                </div>
+                                <p class="left-dis1">总目标金额：<span class="left-dis1-total">10</span>亿元</p>
+                                <p class="left-dis1">已完成金额：<span class="left-dis1-num">8</span>亿元</p>
+                            </div>
+                        </div>
+                        <div class="content-wraps-right">
+                            <p class="content-wraps-title">已完成排名(TOP5)</p>
+                            <div class="main-table">
+                                <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">序号</th>
+                                        <th width="15%">营业部名称 </th>
+                                        <th width="15%">同比率完成率 </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>营业部名称</td>
+                                        <td>90%</td>
+
+                                    </tr>
+                                    <tr >
+                                        <td>2</td>
+                                        <td>营业部名称</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>营业部名称</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    <tr >
+                                        <td>4</td>
+                                        <td>营业部名称</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    <tr >
+                                        <td>5</td>
+                                        <td>营业部名称</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-table">
+                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                            <thead>
+                            <tr>
+                                <th width="10%">序号</th>
+                                <th width="10%">产品名称 </th>
+                                <th width="10%">产品代码 </th>
+                                <th width="10%">总任务量（万元）</th>
+                                <th width="30%">任务分解</th>
+                                <th width="10%">已完成</th>
+                                <th width="10%">完成率</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>产品名称</td>
+                                <td>产品代码</td>
+                                <td>10000</td>
+                                <td class="td-ellipsis"><p class="txt-ellipsis">
+                                                            分公司1:1000万元；营业部2:150万元；
+                                                            营业部3:100万元；营业部4:80万元；
+                                                            营业部5:100万元；营业部6:200万元</p>
+                                </td>
+                                <td>800</td>
+                                <td>80%</td>
+                                <td class="text-c">
+                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-see">查看</a>
+                                </td>
+
+                            </tr>
+                            <tr class="even">
+                                <td>001</td>
+                                <td>产品名称</td>
+                                <td>产品代码</td>
+                                <td>10000</td>
+                                <td class="td-ellipsis"><p class="txt-ellipsis">
+                                    分公司1:1000万元；营业部2:150万元；
+                                    营业部3:100万元；营业部4:80万元；
+                                    营业部5:100万元；营业部6:200万元</p>
+                                </td>
+                                <td>800</td>
+                                <td>80%</td>
+                                <td class="text-c">
+                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-see">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>产品名称</td>
+                                <td>产品代码</td>
+                                <td>10000</td>
+                                <td class="td-ellipsis"><p class="txt-ellipsis">
+                                    分公司1:1000万元；营业部2:150万元；
+                                    营业部3:100万元；营业部4:80万元；
+                                    营业部5:100万元；营业部6:200万元</p>
+                                </td>
+                                <td>800</td>
+                                <td>80%</td>
+                                <td class="text-c">
+                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-see">查看</a>
+                                </td>
+                            </tr>
+                            <tr class="even">
+                                <td>001</td>
+                                <td>产品名称</td>
+                                <td>产品代码</td>
+                                <td>10000</td>
+                                <td class="td-ellipsis"><p class="txt-ellipsis">
+                                    分公司1:1000万元；营业部2:150万元；
+                                    营业部3:100万元；营业部4:80万元；
+                                    营业部5:100万元；营业部6:200万元</p>
+                                </td>
+                                <td>800</td>
+                                <td>80%</td>
+                                <td class="text-c">
+                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-see">查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% include component/pagenav-cf.html %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="dialog-item-wrap edit-wrap edit-see" style="display: none" >
+        <a class="view-back"> &lt;&lt; 返回</a>
+        <div class="content-wraps">
+            <div class="content-wraps-left">
+                <p class="content-wraps-title">总业绩完成情况</p>
+                <div class="left-content-border">
+                    <p class="left-content-title">已完成：</p>
+                    <div class="width-container">
+                        <p class="percent"></p>
+                        <p class="width-container-tips"></p>
+                    </div>
+                    <p class="left-dis1">总目标金额：<span class="left-dis1-total">10</span>亿元</p>
+                    <p class="left-dis1">已完成金额：<span class="left-dis1-num">8</span>亿元</p>
+                </div>
+            </div>
+            <div class="content-wraps-right">
+                <p class="content-wraps-title">已完成排名(TOP5)</p>
+                <div class="main-table">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                        <thead>
+                        <tr>
+                            <th width="10%">序号</th>
+                            <th width="15%">营业部名称 </th>
+                            <th width="15%">同比率完成率 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>营业部名称</td>
+                            <td>90%</td>
+
+                        </tr>
+                        <tr >
+                            <td>2</td>
+                            <td>营业部名称</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>营业部名称</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr >
+                            <td>4</td>
+                            <td>营业部名称</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr >
+                            <td>5</td>
+                            <td>营业部名称</td>
+                            <td>90%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="main-table">
+            <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                <thead>
+                <tr>
+                    <th width="15%">序号</th>
+                    <th width="20%">营业部名称 </th>
+                    <th width="15%">销售任务 </th>
+                    <th width="15%">已完成</th>
+                    <th width="15%">完成率</th>
+                    <th width="20%">操作</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>销售任务</td>
+                    <td>已完成</td>
+                    <td>完成率</td>
+                    <td class="text-c">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">查看</a>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">发送提醒</a>
+                    </td>
+
+                </tr>
+                <tr class="even">
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>销售任务</td>
+                    <td>已完成</td>
+                    <td>完成率</td>
+                    <td class="text-c">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">查看</a>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">发送提醒</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>销售任务</td>
+                    <td>已完成</td>
+                    <td>完成率</td>
+                    <td class="text-c">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">查看</a>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">发送提醒</a>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>001</td>
+                    <td>营业部名称</td>
+                    <td>销售任务</td>
+                    <td>已完成</td>
+                    <td>完成率</td>
+                    <td class="text-c">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">查看</a>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-small ">发送提醒</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {% include component/pagenav-cf.html %}
+    </div>
+
+</div>
+
+

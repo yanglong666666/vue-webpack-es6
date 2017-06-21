@@ -68,6 +68,22 @@
                 color: $font-color-sub;
                 border-bottom: 1px solid $border-color;
                 padding: 10px 10px;
+                &.td-ellipsis{
+                    .txt-ellipsis{
+                        width: 240px;
+                        word-break: break-all;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        &:hover{
+                            display: block;
+                            overflow: visible;
+                            white-spacing: pre-line;
+                        }
+                    }
+
+                }
                 &.col-red {
                     color: $color-red;
                 }
@@ -175,6 +191,9 @@
                 background-position: 90% 50%;
                 background-size: 17px 13px;
                 line-height: 26px;
+                &.btn-change-big{
+                    line-height: 28px;
+                }
                 // z-index: 9;
             }
             ul {

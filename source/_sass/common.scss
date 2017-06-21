@@ -1027,6 +1027,10 @@ input[type="text"] {
 }
 
 .dialog-item-wrap {
+    .view-back{
+        margin-top: 10px;
+        margin-right: 20px;
+    }
     .dialog-item-border {
         border: 1px solid $border-color;
         border-radius: 3px;
@@ -1065,6 +1069,10 @@ input[type="text"] {
         margin: 20px 0;
         .dialog-item {
             .dialog-left {
+                &.dialog-left-top{
+                    vertical-align: top;
+                    padding-top: 10px;
+                }
                 &.dialog-left-short {
                     width: 105px
                 }
@@ -1092,8 +1100,18 @@ input[type="text"] {
                             }
                         }
                     }
+                };
+                .dialog-right-wrap{
+                    margin-bottom: 5px;
+                    .txt-name{
+                        width: 120px;
+                        display: inline-block;
+                        color: #999;
+                    }
+
                 }
             }
+
         }
     }
     .dialog-item {
@@ -1163,6 +1181,42 @@ input[type="text"] {
                 li {
                     color: #2385ea;
                     line-height: 30px;
+                    &.col-blocks{
+                        color: #666;
+                        margin-bottom: 15px;
+                        margin-left: 10px;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        ul{
+                            li{
+                                color: #666;
+                            }
+                        }
+                        .list-change{
+                            background: #e8e9ed;
+                            padding: 15px 10px;
+                            margin: 15px 20px 0px;
+                            .ul-list-wrap{
+                                margin-bottom: 20px;
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                                .dialog-input-height{
+                                    background: #fff;
+                                }
+                            }
+                        }
+                    }
+                    .ul-list{
+                        color: #333;
+                        margin-right: 10px;
+                    }
+                    .ul-money{
+                        color: #333;
+                        margin-left: 10px;
+                    }
+
                 }
             }
             .upload-item {
@@ -1339,6 +1393,10 @@ input[type="text"] {
                 @include border-radius(3px);
                 border: 1px solid #e5e5e5;
                 text-indent: 8px;
+                &.dialog-input-height{
+                    height: 30px;
+                    line-height: 30px;
+                }
                 &:disabled {
                     color: #a6a6a6;
                 }
