@@ -16,6 +16,12 @@
 
 @import "iconfont";
 
+
+// Vendor
+@import "jquery-ui";
+@import "select2";
+@import "fullcalendar";
+
 // Base
 @import "base/button";
 @import "base/form";
@@ -159,10 +165,6 @@
 @import "page/_online-click";
 // @import "common";
 @import "cfarchives/_archives";
-
-// Vendor
-@import "jquery-ui";
-@import "select2";
 
 // caitong.ws-add
 @import "component/_block";

@@ -1749,7 +1749,7 @@ input[type="text"] {
 .view-content {
     height: 100%;
     position: relative;
-    padding-top: 20px;
+    padding-top: 30px;
     @include box-sizing(border-box);
     &.plat-list-short {
         height: 500px;
@@ -2079,17 +2079,6 @@ input[type="text"] {
 
         }
     }
-    .main-content-box {
-        border: solid 1px $border-color;
-        padding: 20px;
-        margin-bottom: 20px;
-        p {
-            margin: 0 0 5px 0;
-        }
-        .task-search {
-            margin-bottom: 10px;
-        }
-    }
     .main-content-wrap-list {
         .search-content {
             display: none;
@@ -2148,7 +2137,17 @@ input[type="text"] {
     }
 
 }
-
+.main-content-box {
+    border: solid 1px $border-color;
+    padding: 20px;
+    margin-bottom: 20px;
+    p {
+        margin: 0 0 5px 0;
+    }
+    .task-search {
+        margin-bottom: 10px;
+    }
+}
 .col-block {
     margin-top: 10px;
     line-height: 30px;
@@ -2262,7 +2261,7 @@ input[type="text"] {
 .list-content {
     height: auto;
     overflow: hidden;
-    padding: 15px 0px;
+    padding: 15px;
     position: relative;
     .list-left {
         display: inline-block;
@@ -2288,10 +2287,9 @@ input[type="text"] {
     }
     .my-work {
         margin: auto;
-        width: 1000px;
         li {
             display: inline-block;
-            width: 200px;
+            width: 20%;
             border: solid 1px #ffffff;
             float: left;
             &:hover {

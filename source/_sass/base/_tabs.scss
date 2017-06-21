@@ -63,7 +63,8 @@
     position: relative;
   .tab-option{
     cursor: pointer;
-    width: 100px;
+    min-width: 100px;
+    padding: 0 10px;
     display: inline-block;
     text-align: center;
     border-right: 1px solid #e5e5e5;

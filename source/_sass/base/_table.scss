@@ -33,6 +33,7 @@
     font-size: 13px;
     border: 1px solid $border-color;
     text-align: center;
+    width: 100%;
     thead {
       th {
         font-size: 14px;
@@ -194,7 +195,8 @@
                 &.btn-change-big{
                     line-height: 28px;
                 }
-                // z-index: 9;
+
+
             }
             ul {
                 display: none;
