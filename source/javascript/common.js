@@ -351,7 +351,6 @@ $.fn.extend({
 
         if(param.width){
             $self.find('.big-calendar').css('width',param.width);
-            $self.find('.calendar-legend-item-wrap').css('width',param.width);
         }
         $self.find('.big-calendar').fullCalendar({
             theme: true,

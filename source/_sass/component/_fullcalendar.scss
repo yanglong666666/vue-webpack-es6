@@ -10,7 +10,7 @@
     }
     .fc-toolbar {
         text-align: center;
-        padding: 0 36%;
+        padding: 0 33%;
         .ui-icon {
             background-image: url(../images/ui-icons_ffffff_256x240.png);
         }
@@ -52,11 +52,10 @@
         margin: 0 auto;
     }
     .calendar-legend-item {
-        width: 20%;
         display: inline-block;
         vertical-align: top;
         line-height: 16px;
-        padding: 15px 0;
+        padding: 15px;
         cursor: default;
         position: relative;
         i {

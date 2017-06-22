@@ -22,6 +22,91 @@ layout: default-iframe
             } else {
                 $('.search-content-change').parent('.main-content-wrap-list').siblings('.main-content-wrap-top').css({borderBottom: '1px solid #e5e5e5'})
             }
+
+            var flag = true;
+            if(_this.attr('id') == "product-calendar-tab"){
+                if(flag) {
+                    var calendar_setting_legends_2 = [
+                        {color: "#FE734A",text: "引入"},
+                        {color: "#F8A20F",text: "开放"},
+                        {color: "#5EAEE3",text: "销售"},
+                        {color: "#B3B3B3",text: "到期"}
+                    ];
+                    var calendar_setting_events_2 = [
+                        {
+                            id: 0,
+                            num: 7,
+                            title: '7个',
+                            start: '2017-06-12',
+                            end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
+                            color: "white",
+                            backgroundColor: calendar_setting_legends_2[0].color,
+                            borderColor: calendar_setting_legends_2[0].color,
+                            //textColor: "white",
+                            editable: false
+                        },
+                        {
+                            id: 0,
+                            num: 1,
+                            title: '1个',
+                            start: '2017-06-27',
+                            end: '2017-06-27',
+                            color: "white",
+                            backgroundColor: calendar_setting_legends_2[0].color,
+                            borderColor: calendar_setting_legends_2[0].color,
+                            //textColor: "white",
+                            editable: false
+                        },
+                        {
+                            id: 1,
+                            num: 3,
+                            title: '3个',
+                            start: '2017-06-25',
+                            end: '2017-06-28',
+                            color: "white",
+                            backgroundColor: calendar_setting_legends_2[1].color,
+                            borderColor: calendar_setting_legends_2[1].color,
+                            //textColor: "white",
+                            editable: false
+                        },
+                        {
+                            id: 2,
+                            num: 3,
+                            title: '3个',
+                            start: '2017-06-27',
+                            end: '2017-06-30',
+                            color: "white",
+                            backgroundColor: calendar_setting_legends_2[2].color,
+                            borderColor: calendar_setting_legends_2[2].color,
+                            //textColor: "white",
+                            editable: false
+                        },
+                        {
+                            id: 3,
+                            num: 1,
+                            title: '1个',
+                            start: '2017-06-27',
+                            color: "white",
+                            backgroundColor: calendar_setting_legends_2[3].color,
+                            borderColor: calendar_setting_legends_2[3].color,
+                            //textColor: "white",
+                            editable: false
+                        }
+                    ];
+                    $('#big-calendar-2').diyFullCalendar({
+                        width: "45%",
+                        legends: calendar_setting_legends_2,
+                        events:  calendar_setting_events_2,
+                        onSelected: function(start,end){
+                            end.setDate(end.getDate() - 1);
+
+                            console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
+                            console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
+                        }
+                    });
+                    flag = false;
+                }
+            }
         });
         $('#datepicker-index').datepicker({
             onSelect: function (selectedDate) {
@@ -277,7 +362,7 @@ layout: default-iframe
             }
         ];
         $('#big-calendar-1').diyFullCalendar({
-            width: "42%",
+            width: "45%",
             legends: calendar_setting_legends,
             events:  calendar_setting_events,
             onSelected: function(start,end){
@@ -288,85 +373,6 @@ layout: default-iframe
             }
         });
 
-
-        var calendar_setting_legends_2 = [
-            {color: "#FE734A",text: "引入"},
-            {color: "#F8A20F",text: "开放"},
-            {color: "#5EAEE3",text: "销售"},
-            {color: "#B3B3B3",text: "到期"}
-        ];
-        var calendar_setting_events_2 = [
-            {
-                id: 0,
-                num: 7,
-                title: '7个',
-                start: '2017-06-12',
-                end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
-                color: "white",
-                backgroundColor: calendar_setting_legends_2[0].color,
-                borderColor: calendar_setting_legends_2[0].color,
-                //textColor: "white",
-                editable: false
-            },
-            {
-                id: 0,
-                num: 1,
-                title: '1个',
-                start: '2017-06-27',
-                end: '2017-06-27',
-                color: "white",
-                backgroundColor: calendar_setting_legends_2[0].color,
-                borderColor: calendar_setting_legends_2[0].color,
-                //textColor: "white",
-                editable: false
-            },
-            {
-                id: 1,
-                num: 3,
-                title: '3个',
-                start: '2017-06-25',
-                end: '2017-06-28',
-                color: "white",
-                backgroundColor: calendar_setting_legends_2[1].color,
-                borderColor: calendar_setting_legends_2[1].color,
-                //textColor: "white",
-                editable: false
-            },
-            {
-                id: 2,
-                num: 3,
-                title: '3个',
-                start: '2017-06-27',
-                end: '2017-06-30',
-                color: "white",
-                backgroundColor: calendar_setting_legends_2[2].color,
-                borderColor: calendar_setting_legends_2[2].color,
-                //textColor: "white",
-                editable: false
-            },
-            {
-                id: 3,
-                num: 1,
-                title: '1个',
-                start: '2017-06-27',
-                color: "white",
-                backgroundColor: calendar_setting_legends_2[3].color,
-                borderColor: calendar_setting_legends_2[3].color,
-                //textColor: "white",
-                editable: false
-            }
-        ];
-        $('#big-calendar-2').diyFullCalendar({
-            width: "42%",
-            legends: calendar_setting_legends_2,
-            events:  calendar_setting_events_2,
-            onSelected: function(start,end){
-                end.setDate(end.getDate() - 1);
-
-                console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
-                console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
-            }
-        });
     });
 </script>
 <div class="main-content">
@@ -374,7 +380,7 @@ layout: default-iframe
         <div class="main-content-wrap-top">
             <span class="tab-options on">首页</span>
             <span class="tab-options">产品搜索</span>
-            <span class="tab-options">产品日历</span>
+            <span class="tab-options" id="product-calendar-tab">产品日历</span>
             <span class="tab-options">产品净值</span>
             <span class="tab-options">专题产品</span>
             <span class="tab-options">标签产品</span>
@@ -1329,7 +1335,7 @@ layout: default-iframe
                     </div>
                 </div>
             </div>
-            <div class="search-content ">
+            <div class="search-content">
                 <div class="search-content-wrap">
                     <div class="tab-wrap">
                         <span class="tab-red on">日历展示</span>
