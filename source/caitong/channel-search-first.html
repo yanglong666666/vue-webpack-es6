@@ -8,6 +8,7 @@ layout: default-iframe
 <script src="../javascript/fullcalendar.js"></script>
 <script type="text/javascript">
     $(function () {
+        var product_calendar_tab_click_flag = true;
         // tab切换
         $(".main-content-wrap-top").on("click", ".tab-options", function () {
             var _this = $(this);
@@ -22,10 +23,8 @@ layout: default-iframe
             } else {
                 $('.search-content-change').parent('.main-content-wrap-list').siblings('.main-content-wrap-top').css({borderBottom: '1px solid #e5e5e5'})
             }
-
-            var flag = true;
             if(_this.attr('id') == "product-calendar-tab"){
-                if(flag) {
+                if(product_calendar_tab_click_flag) {
                     var calendar_setting_legends_2 = [
                         {color: "#FE734A",text: "引入"},
                         {color: "#F8A20F",text: "开放"},
@@ -104,7 +103,7 @@ layout: default-iframe
                             console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
                         }
                     });
-                    flag = false;
+                    product_calendar_tab_click_flag = false;
                 }
             }
         });
