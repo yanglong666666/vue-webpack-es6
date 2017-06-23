@@ -365,7 +365,6 @@ $.fn.extend({
                 center: 'title',
                 right: 'next'
             },
-            defaultDate: param.defaultDate || new Date().getFullYear() + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate(),
             titleFormat:'YYYY MMMM',
             editable: true,
             allDayDefault: false,
