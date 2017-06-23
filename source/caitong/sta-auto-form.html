@@ -1,0 +1,147 @@
+---
+title: 自动生成报表
+layout: default-iframe
+---
+
+<script type="text/javascript">
+    $(function () {
+        // tab切换
+        $(".main-content-wrap-top").on("click", ".tab-options", function () {
+            var _this = $(this);
+            var tabs_head = _this.parent();
+            var tabs_body = tabs_head.siblings(".main-content-wrap-list");
+            _this.addClass("on").siblings(".tab-options").removeClass("on");
+            var index = tabs_head.find(".tab-options").index(_this);
+            tabs_body.find(".search-content").eq(index).addClass("on").siblings(".search-content").removeClass("on");
+            if ($('.search-content-change').hasClass('on')) {
+                $('.search-content-change').parent('.main-content-wrap-list').siblings('.main-content-wrap-top').css({border: 'none'})
+
+            } else {
+                $('.search-content-change').parent('.main-content-wrap-list').siblings('.main-content-wrap-top').css({borderBottom: '1px solid #e5e5e5'})
+            }
+        });
+
+        $('.detailsBtn-1-1').on('click',function(){
+            $('.main-content').hide();
+            $('#view-content-1-1').show();
+        });
+
+        $('#view-content-1-1 .view-back').on('click',function(){
+            $('.main-content').show();
+            $('#view-content-1-1').hide();
+        });
+
+
+
+    });
+
+</script>
+<div class="page-sales-preview">
+  <div class="main-content" >
+    <div class="main-content-wrap">
+        <div class="main-content-wrap-top">
+            <span class="tab-options on">报表查看</span>
+            <span class="tab-options tab-options-change">报表设置</span>
+        </div>
+        <div class="main-content-wrap-list">
+            <div class="search-content on">
+                <div class="main-table clearfix" >
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                        <thead>
+                        <tr>
+                            <th width="10%">序号</th>
+                            <th width="20%">生成时间</th>
+                            <th width="15%">报表名称</th>
+                            <th width="10%">报表类型</th>
+                            <th width="10%">报表目的</th>
+                            <th width="20%">报表内容</th>
+                            <th width="15%">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>2017-3-10</td>
+                            <td>名称</td>
+                            <td>类型</td>
+                            <td>目的</td>
+                            <td>内容1111111111111111111111</td>
+                            <td class="text-c">
+                                <a class="btn btn-primary btn-small detailsBtn-1-1">查看详情</a>
+                                <a class="btn btn-primary btn-small ">导出</a>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>001</td>
+                            <td>2017-3-10</td>
+                            <td>名称</td>
+                            <td>类型</td>
+                            <td>目的</td>
+                            <td>内容1111111111111111111111</td>
+                            <td class="text-c">
+                                <a class="btn btn-primary btn-small detailsBtn-1-1">查看详情</a>
+                                <a class="btn btn-primary btn-small ">导出</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {% include component/pagenav-cf.html %}
+            </div>
+            <div class="search-content ">
+                <div class="simple-content-table">
+                    <div class="title">
+                        <button class="btn" >新增</button>
+                        <button class="btn">删除</button>
+                        <button class="btn">确定保存</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <div class="view-content" id="view-content-1-1"  style="display: none">
+        <a class="view-back"> &lt;&lt; 返回</a>
+
+        <div class="main-table clearfix" >
+            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                <thead>
+                <tr>
+                    <th width="10%">序号</th>
+                    <th width="15%">合同编号</th>
+                    <th width="20%">查看时间</th>
+                    <th width="20%">到期日</th>
+                    <th width="20%">结束时间</th>
+                    <th width="15%">收付款</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>编号</td>
+                    <td>2017-3-10</td>
+                    <td>2017-3-10</td>
+                    <td>2017-3-10</td>
+                    <td>编号</td>
+
+                </tr>
+                <tr class="even">
+                    <td>001</td>
+                    <td>编号</td>
+                    <td>2017-3-10</td>
+                    <td>2017-3-10</td>
+                    <td>2017-3-10</td>
+                    <td>编号</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {% include component/pagenav-cf.html %}
+
+    </div>
+</div>
+
+

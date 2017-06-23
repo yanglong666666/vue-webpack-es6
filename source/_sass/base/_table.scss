@@ -34,6 +34,18 @@
     border: 1px solid $border-color;
     text-align: center;
     width: 100%;
+      &.date-table-border{
+          tbody{
+              tr{
+                  td{
+                      border-right:1px solid $border-color;
+                      &:last-child{
+                          border-right: none;
+                      }
+                  }
+              }
+          }
+      }
     thead {
       th {
         font-size: 14px;
