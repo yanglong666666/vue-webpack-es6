@@ -2335,13 +2335,8 @@ input[type="text"] {
     .next {
         position: absolute;
         top: calc(50% - 11px);
-        right: 0px;
+        right: 0px;;
         z-index: 10;
-        -webkit-transform: rotateZ(180deg);
-        -moz-transform: rotateZ(180deg);
-        -o-transform: rotateZ(180deg);
-        -ms-transform: rotateZ(180deg);
-        transform: rotateZ(180deg);
         cursor: pointer;
     }
     >ul {
