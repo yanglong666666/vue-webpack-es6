@@ -12,7 +12,6 @@
 
 // Global
 @import "reset";
-@import "common";
 
 @import "iconfont";
 
@@ -26,6 +25,8 @@
 @import "base/button";
 @import "base/table";
 @import "base/tabs";
+
+@import "common";
 
 // Layouts
 @import "layout/aside";

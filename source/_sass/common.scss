@@ -1373,7 +1373,7 @@ input[type="text"] {
                 padding: 0;
                 outline: none;
                 background: transparent;
-                width: 220px;
+                width: 222px;
                 @include border-radius(3px);
                 border: 1px solid #e5e5e5;
                 text-indent: 8px;
@@ -2532,25 +2532,26 @@ input[type="text"] {
 
     }
 }
-
+select.js-example-basic-multiple,select.select2 {
+    display: none;
+}
 .select2-container {
     .selection {
         .select2-selection--multiple {
             width: 222px;
-            border: 1px solid #e5e5e5 !important;
-            line-height: 28px;
-            height: 28px;
-            color: #4D4D4D !important;
+            border: 1px solid $border-color !important;
+            line-height: 27px;
+            color: #333;
+            @include border-radius(3px);
+            &.active {
+                border: 1px solid $border-color;
+            }
             .select2-selection__rendered {
+                vertical-align: middle;
+                margin-right: 13px;
                 .select2-selection__choice {
-                    line-height: 28px;
-                    background: #fff;
-                    border: none;
-                    margin-top: 0;
-
-                    .select2-selection__choice__remove {
-                        display: none;
-                    }
+                    line-height: 19px;
+                    margin: 2px 3px 0 0 ;
                 }
             }
         }
@@ -2573,4 +2574,24 @@ input[type="text"] {
 .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
     vertical-align: top;
     height: 24px;
+}
+.select2-container--default {
+    .select2-selection--single {
+        outline: none;
+        .select2-selection__rendered {
+            line-height: 28px;
+        }
+        .select2-selection__arrow {
+            right: 6px;
+            b {
+                border-color: #707A86 transparent transparent transparent;
+                border-width: 5px 5px 0 5px;
+            }
+        }
+    }
+
+    &.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: #707A86 transparent transparent transparent;
+        border-width: 5px 5px 0 5px;
+    }
 }
