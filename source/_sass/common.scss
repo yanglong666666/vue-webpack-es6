@@ -1307,20 +1307,21 @@ input[type="text"] {
                 display: inline-block;
                 height: 80px;
                 width: 222px;
+                max-width: 100%;
                 box-sizing: border-box;
                 outline: none;
                 padding: 5px 10px;
                 font-size: 13px;
                 overflow: hidden;
-                // overflow-y: scroll;
-                resize: none;
                 line-height: 24px;
-                // background: #e1e6ef;
                 background: transparent;
                 border: 1px solid #e5e5e5;
                 text-indent: 0;
                 @include border-radius(3px);
                 overflow-y: scroll;
+                &.no-resize {
+                    resize: none;
+                }
             }
             .dialog-divbox {
                 display: inline-block;
