@@ -342,8 +342,8 @@ $.fn.extend({
         });
     }
 });
-/**
- https://fullcalendar.io/docs/
+/*
+ * https://fullcalendar.io/docs/
  */
 $.fn.extend({
     diyFullCalendar: function(param){
@@ -391,4 +391,53 @@ $.fn.extend({
             $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
         }).eq(0).click();
     }
+});
+
+/*
+ * jQuery placeholder, fix for IE6,7,8,9
+ */
+var JPlaceHolder = {
+    //检测
+    _check : function(){
+        return 'placeholder' in document.createElement('input');
+    },
+    //初始化
+    init : function(){
+        if(!this._check()){
+            this.fix();
+        }
+    },
+    //修复
+    fix : function(){
+        jQuery(':input[placeholder]').each(function(index, element) {
+            var self = $(this), txt = self.attr('placeholder');
+            self.wrap($('<div></div>').css({position:'relative', zoom:'1', border:'none', background:'none', padding:'none', margin:'none'}));
+            var pos = self.position(), h = self.outerHeight(true)+ "px", paddingleft = self.css('padding-left');
+            var holder = $('<span></span>').text(txt).css({position:'absolute', left:pos.left, top:pos.top, height:"30px", "line-height":"30px", "padding-left":paddingleft, color:'#aaa'}).appendTo(self.parent());
+            self.focusin(function(e) {
+                holder.hide();
+            }).focusout(function(e) {
+                if(!self.val()){
+                    holder.show();
+                }
+            }).on('change',function(){
+                if(self.val()){
+                    holder.hide();
+                }else{
+                    holder.show();
+                }
+            });
+            holder.click(function(e) {
+                holder.hide();
+                self.focus();
+            });
+            console.log(self.val());
+            if(self.val()){
+                holder.hide();
+            }
+        });
+    }
+};
+$(function(){
+    JPlaceHolder.init();
 });

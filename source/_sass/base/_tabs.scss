@@ -147,7 +147,7 @@
                         font-size: 14px;
                         line-height: 34px;
                         height: 36px;
-                        border: 1px solid #E8E8E8;
+                        border: 1px solid $border-color;
                         padding: 0;
                         outline: none;
                         text-indent: 8px;
@@ -319,7 +319,7 @@
     .dialog-input{
         line-height: 28px;
         height: 28px;
-        padding: 0;
+        padding: 0 0 0 8px;
         outline: none;
         background: transparent;
         width: 130px;
@@ -328,7 +328,6 @@
         -moz-border-radius: 3px;
         -o-border-radius: 3px;
         border: 1px solid #e5e5e5;
-        text-indent: 8px;
     };
     .tips{
         margin-left: 10px;
