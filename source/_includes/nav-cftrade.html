@@ -42,6 +42,7 @@
       $(document.getElementById(nextLi.data('href'))).show();
     }else{
       currentLi.remove();
+      $(document.getElementById(currentLi.data('href'))).remove();
       $('.leftul li').eq(0).find('a').click().parents('li').addClass('current');
     }
   }
