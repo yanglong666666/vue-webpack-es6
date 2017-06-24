@@ -226,52 +226,40 @@ var strlen = function(str){
   }
   return len/2;
 };
+/**
+ *overflowPop
+ * */
 $('body').on('mouseover', '.overflow-pop-up', function () {
-  var parent = $(this).parent();
-  var self = $(this);
-  if(parseInt(self.css('font-size').replace('px','')) * strlen(self.text()) >= self.width()){
-    parent.css('position', 'relative');
-    parent.append('<div class="float-tip-up">' + self.text() + '<em></em><span></span></div>');
-    var left = self.offset().left - parent.offset().left;
-    var bottom = parseInt(parent.css('padding-bottom').replace('px','')) +
-      parseInt(self.css('padding-bottom').replace('px','')) +
-      parseInt(self.css('margin-bottom').replace('px','')) +
-      self.height() +
-      5;
-    parent.find('.float-tip-up').css('left',left).css('bottom',bottom);
-  }
-}).on('mouseout', '.overflow-pop-up', function () {
-  $(this).siblings('.float-tip-up').remove();
+    var parent = $(this).parent();
+    var self = $(this);
+    if (self[0].scrollWidth > self.width()) {
+        parent.css('position', 'relative');
+        parent.append('<div class="float-tip-up">' + self.text() + '<em></em><span></span></div>');
+        var left = self.offset().left - parent.offset().left;
+        var bottom = parseInt(parent.css('padding-bottom').replace('px', '')) +
+            parseInt(self.css('padding-bottom').replace('px', '')) +
+            parseInt(self.css('margin-bottom').replace('px', '')) +
+            self.height() +
+            5;
+        parent.find('.float-tip-up').css('left', left).css('bottom', bottom);
+    }
 }).on('mouseover', '.overflow-pop-down', function () {
-  var parent = $(this).parent();
-  var self = $(this);
-  if(parseInt(self.css('font-size').replace('px','')) * strlen(self.text()) >= self.width()){
-    parent.css('position', 'relative');
-    parent.append('<div class="float-tip-down">' + self.text() + '<em></em><span></span></div>');
-    var left = self.offset().left - parent.offset().left;
-    var top = parseInt(parent.css('padding-top').replace('px','')) +
-      parseInt(self.css('padding-top').replace('px','')) +
-      parseInt(self.css('margin-top').replace('px','')) +
-      self.height() +
-      5;
-    parent.find('.float-tip-down').css('left',left).css('top',top);
-  }
-}).on('mouseout', '.overflow-pop-down', function () {
-  $(this).siblings('.float-tip-down').remove();
-}).on('mouseover','.overflow-pop-scroll',function(){
-  var parent = $(this).parents('.scroll-table');
-  var self = $(this);
-  if(parseInt(self.css('font-size').replace('px','')) * strlen(self.text()) >= self.width()){
-    parent.css('position', 'relative');
-    parent.append('<div class="float-tip-scroll">' + self.text() + '<em></em><span></span></div>');
-    var left = self.offset().left - parent.offset().left;
-    var bottom =  (self.parent().siblings().length + 1 - self.parent().index()) * 48 - 5;
-    parent.find('.float-tip-scroll').css('left',left).css('bottom',bottom);
-  }
-}).on('mouseout','.overflow-pop-scroll',function(){
-  $(this).parents('.scroll-table').find('.float-tip-scroll').remove();
+    var parent = $(this).parent();
+    var self = $(this);
+    if (self[0].scrollWidth > self.width()) {
+        parent.css('position', 'relative');
+        parent.append('<div class="float-tip-down">' + self.text() + '<em></em><span></span></div>');
+        var left = self.offset().left - parent.offset().left;
+        var top = parseInt(parent.css('padding-top').replace('px', '')) +
+            parseInt(self.css('padding-top').replace('px', '')) +
+            parseInt(self.css('margin-top').replace('px', '')) +
+            self.height() +
+            5;
+        parent.find('.float-tip-down').css('left', left).css('top', top);
+    }
+}).on('mouseout', '.overflow-pop-up,.overflow-pop-down', function () {
+    $(this).siblings('.float-tip-up,.float-tip-down').remove();
 });
-
 //diySelect 设置
 $.fn.extend({
     diySelectSet: function (val) {
@@ -342,8 +330,8 @@ $.fn.extend({
         });
     }
 });
-/**
- https://fullcalendar.io/docs/
+/*
+ * https://fullcalendar.io/docs/
  */
 $.fn.extend({
     diyFullCalendar: function(param){
@@ -391,4 +379,53 @@ $.fn.extend({
             $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
         }).eq(0).click();
     }
+});
+
+/*
+ * jQuery placeholder, fix for IE6,7,8,9
+ */
+var JPlaceHolder = {
+    //检测
+    _check : function(){
+        return 'placeholder' in document.createElement('input');
+    },
+    //初始化
+    init : function(){
+        if(!this._check()){
+            this.fix();
+        }
+    },
+    //修复
+    fix : function(){
+        jQuery(':input[placeholder]').each(function(index, element) {
+            var self = $(this), txt = self.attr('placeholder');
+            self.wrap($('<div></div>').css({position:'relative', zoom:'1', border:'none', background:'none', padding:'none', margin:'none'}));
+            var pos = self.position(), h = self.outerHeight(true)+ "px", paddingleft = self.css('padding-left');
+            var holder = $('<span></span>').text(txt).css({position:'absolute', left:pos.left, top:pos.top, height:"30px", "line-height":"30px", "padding-left":paddingleft, color:'#aaa'}).appendTo(self.parent());
+            self.focusin(function(e) {
+                holder.hide();
+            }).focusout(function(e) {
+                if(!self.val()){
+                    holder.show();
+                }
+            }).on('change',function(){
+                if(self.val()){
+                    holder.hide();
+                }else{
+                    holder.show();
+                }
+            });
+            holder.click(function(e) {
+                holder.hide();
+                self.focus();
+            });
+            console.log(self.val());
+            if(self.val()){
+                holder.hide();
+            }
+        });
+    }
+};
+$(function(){
+    JPlaceHolder.init();
 });

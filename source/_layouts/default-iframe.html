@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 {% include head.html %}
-<body {% if page.class %} class="page-{{ page.class }}"{% endif %}>
-  <div class="ui-content-scroll">
+<body {% if page.class %} class="page-{{ page.class }}" {% endif %}>
+<script src="{{ site.static }}/javascript/platform/comm.js"></script>
+<script src="{{ site.static }}/javascript/common.js"></script>
+<div class="ui-content-scroll">
     {{ content }}
-  </div>
-  <div class="shadow-div">
+</div>
+<div class="shadow-div">
     <i class="loading-img"></i>
-  </div>
-  <script src="{{ site.static }}/javascript/platform/comm.js"></script>
-  <script src="{{ site.static }}/javascript/common.js"></script>
+</div>
 </body>
 </html>

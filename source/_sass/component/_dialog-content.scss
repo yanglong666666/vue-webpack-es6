@@ -610,7 +610,7 @@
     width: 453px;
     margin: 0 auto;
     @include clearfix;
-    border: 1px solid #e8e8e8;
+    border: 1px solid $border-color;
     border-top: none;
     padding: 5px 15px;
     border-radius: 0 0 5px 5px;

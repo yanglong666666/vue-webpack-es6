@@ -235,6 +235,24 @@
     color: $color-red;
 }
 
+.nowrap-hover {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    &:hover {
+        white-space: inherit;
+        overflow: visible;
+        text-overflow: inherit;
+        width: auto !important;
+    }
+    &.w200 {
+        width: 200px;
+    }
+}
+
 tbody {
     tr {
         .modify {
@@ -460,9 +478,9 @@ input[type="text"] {
     width: 106px;
     line-height: 28px;
     background-color: white;
-    border: 1px solid #e8e8e8;
-    @include border-radius(0);
-    padding-left: 7px;
+    border: 1px solid $border-color;
+    @include border-radius(3px);
+    padding-left: 8px;
 }
 
 /*下面是下拉选择框修改*/
@@ -610,6 +628,17 @@ input[type="text"] {
         float: right;
         margin-right: 10px;
         position: relative;
+        dd {
+            >label {
+                display: inline-block;
+                vertical-align: top;
+            }
+            >span.pre {
+                display: inline-block;
+                vertical-align: top;
+                line-height: 30px;
+            }
+        }
         input[type="text"] {
             width: 128px;
         }
@@ -791,7 +820,7 @@ input[type="text"] {
                         width: 260px;
                         height: 79px;
                         padding: 7px 13px;
-                        border: 1px solid #e8e8e8;
+                        border: 1px solid $border-color;
                         &.long-textarea {
                             width: 381px;
                         }
@@ -880,7 +909,7 @@ input[type="text"] {
                 height: 30px;
                 line-height: 30px;
                 @include box-sizing(border-box);
-                border: 1px solid #e8e8e8;
+                border: 1px solid $border-color;
                 color: #646e7c;
                 margin: 0 9px;
                 font-size: 14px;
@@ -1225,7 +1254,6 @@ input[type="text"] {
                         margin-top: -10px;
                         right: -10px;
                     }
-
                 }
                 .grey-add {
                     display: inline-block;
@@ -1311,20 +1339,21 @@ input[type="text"] {
                 display: inline-block;
                 height: 80px;
                 width: 222px;
+                max-width: 100%;
                 box-sizing: border-box;
                 outline: none;
-                padding: 5px 10px;
+                padding: 3px 10px;
                 font-size: 13px;
                 overflow: hidden;
-                // overflow-y: scroll;
-                resize: none;
                 line-height: 24px;
-                // background: #e1e6ef;
                 background: transparent;
                 border: 1px solid #e5e5e5;
                 text-indent: 0;
                 @include border-radius(3px);
                 overflow-y: scroll;
+                &.no-resize {
+                    resize: none;
+                }
             }
             .dialog-divbox {
                 display: inline-block;
@@ -1380,7 +1409,7 @@ input[type="text"] {
                 width: 222px;
                 @include border-radius(3px);
                 border: 1px solid #e5e5e5;
-                text-indent: 8px;
+                padding-left: 8px;
                 &.dialog-input-height{
                     height: 30px;
                     line-height: 30px;
@@ -1672,7 +1701,7 @@ input[type="text"] {
                         height: 120px;
                         float: left;
                         width: 165px;
-                        border: 1px solid #e8e8e8;
+                        border: 1px solid $border-color;
                         background-color: white;
                         overflow-y: auto;
                         li {
@@ -1910,11 +1939,13 @@ input[type="text"] {
                 width: 80px;
                 padding-left: 34px;
                 @include box-sizing(border-box);
+                position: relative;
                 input[type='radio'] {
                     display: inline-block;
                     margin-right: 15px;
                     position: absolute;
-                    top: 8px;
+                    top: 50%;
+                    margin-top: -6px;
                     left: 11px;
                 }
             }
@@ -2029,9 +2060,9 @@ input[type="text"] {
         width: 220px;
         line-height: 28px;
         background-color: white;
-        border: 1px solid #e8e8e8;
+        border: 1px solid $border-color;
         @include border-radius(0);
-        padding-left: 7px;
+        padding-left: 8px;
     }
 }
 
@@ -2147,7 +2178,7 @@ input[type="text"] {
 .content-list {
     width: 100%;
     padding: 10px;
-    background: #E8E8E8;
+    background: $border-color;
     .start {
         padding: 5px 10px;
         height: 30px;
