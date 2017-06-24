@@ -235,6 +235,24 @@
     color: $color-red;
 }
 
+.nowrap-hover {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    &:hover {
+        white-space: inherit;
+        overflow: visible;
+        text-overflow: inherit;
+        width: auto !important;
+    }
+    &.w200 {
+        width: 200px;
+    }
+}
+
 tbody {
     tr {
         .modify {
@@ -1232,7 +1250,6 @@ input[type="text"] {
                         margin-top: -10px;
                         right: -10px;
                     }
-
                 }
                 .grey-add {
                     display: inline-block;
