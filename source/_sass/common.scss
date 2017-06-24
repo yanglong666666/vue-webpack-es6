@@ -946,7 +946,7 @@ input[type="text"] {
         right: 13px;
         height: 16px;
         width: 16px;
-        background: url(../images/cf/close-black.png) no-repeat
+        background: url(../images/caitong/close-3.png) no-repeat
     }
     .ui-pagenav {
         margin: 110px 0 0 0;
@@ -1014,6 +1014,10 @@ input[type="text"] {
     .view-back{
         margin-top: 10px;
         margin-right: 20px;
+    }
+    .p-center{
+        text-align: center;
+        line-height: 60px;
     }
     .dialog-item-border {
         border: 1px solid $border-color;

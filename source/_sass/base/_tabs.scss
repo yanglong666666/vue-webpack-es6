@@ -468,6 +468,77 @@
     }
 }
 
+.ruler{
+    width: 100%;
+    height: 550px;
+    background: #fff;
+    position: relative;
+    @include clearfix;
+    .left-ruler{
+        display: inline-block;
+        width: 770px;
+        height: 550px;
+        overflow: hidden;
+        float: left;
+        position: relative;
+        .leftTop-ruler{
+            position: absolute;
+            width: 100%;
+            height: 17px;
+            top:0;
+            left: 0;
+            background: #f0f0f0;
+            .top-ruler{
+                margin-left: 17px;
+            }
+        };
+        .leftLeft-ruler{
+            position: inherit;
+            width: 17px;
+            top: 17px;
+            left: 0;
+            height: -webkit-calc(100% - 17px);
+            height: -moz-calc(100% - 17px);
+            height: calc(100% - 17px);
+            background: #f0f0f0;
+        };
+        .left-content-ruler{
+            width: -webkit-calc(100% - 17px);
+            width: -moz-calc(100% - 17px);
+            width: calc(100% - 17px);
+            height: -webkit-calc(100% - 17px);
+            height: -moz-calc(100% - 17px);
+            height: calc(100% - 17px);
+            position: absolute;
+            left: 17px;
+            top:17px;
+            overflow: scroll;
+            padding: 30px;
+        }
+    }
+    .right-ruler{
+        display: inline-block;
+        float: left;
+        margin-left: 15px;
+        margin-top: 15px;
+        width: -webkit-calc(100% - 770px - 15px);
+        height: 535px;
+        background: #f5f6f8;
+        .right-top{
+            padding: 20px;
+            background: #e8e9ed;
+
+        }
+        .right-list{
+            margin-top: 10px;
+            li{
+                line-height: 36px;
+                padding: 0 20px;
+            }
+        }
+    }
+}
+
 //财富消息中心
 .main-tab {
   border-bottom: solid 1px $border-color;
