@@ -15,7 +15,6 @@ layout: default-iframe
             tabs_body.find(".search-content").eq(index).addClass("on").siblings(".search-content").removeClass("on");
             if ($('.search-content-change').hasClass('on')) {
                 $('.search-content-change').parent('.main-content-wrap-list').siblings('.main-content-wrap-top').css({border: 'none'})
-
             } else {
                 $('.search-content-change').parent('.main-content-wrap-list').siblings('.main-content-wrap-top').css({borderBottom: '1px solid #e5e5e5'})
             }
@@ -95,6 +94,47 @@ layout: default-iframe
                         <button class="btn">删除</button>
                         <button class="btn">确定保存</button>
 
+                    </div>
+                </div>
+                <div class="ruler">
+                    <div class="left-ruler">
+                        <div class="leftTop-ruler">
+                            <img src="../images/caitong/top-ruler.png" class="top-ruler">
+                        </div>
+                        <div class="leftLeft-ruler">
+                            <img src="../images/caitong/left-ruler.png" class="left-ruler-img">
+                        </div>
+                        <div class="left-content-ruler">
+                            <div class="main-table">
+                                <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7 date-table-border">
+                                    <tbody>
+                                    <tr>
+                                        <td width="20%">字段1</td>
+                                        <td width="80%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">字段2</td>
+                                        <td width="80%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">字段3</td>
+                                        <td width="80%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">字段4</td>
+                                        <td width="80%"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-ruler">
+                        <div class="right-top">字段如下：</div>
+                        <ul class="right-list">
+                            <li>字段1</li>
+                            <li>字段2</li>
+                        </ul>
                     </div>
                 </div>
             </div>

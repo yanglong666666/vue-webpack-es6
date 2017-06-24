@@ -7,7 +7,20 @@ class: setting-param-set
 <script src="../javascript/jquery.ztree.all-3.5.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
-        $('#select0,#select1,#select71,#select72').diySelect();
+        $('#select0,#select1,#select71,#select72,#select4,#select5').diySelect();
+        $('#select20,#select21,#select22,#select24,#select25,#select27,#select28,#select29,#select30,#select31').diySelect({width: 222});
+
+        $('.begin-time').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.begin-time').css({"width":"222px"});
 
         $('.btn-group').on('mouseover', function () {
             $(this).find('.sub-group').show();
@@ -230,6 +243,26 @@ class: setting-param-set
                 }
             });
         });
+
+        $('.btnDelete1').on('click', function () {
+            var num = $(this).parents('tr').find('td').eq(0).text();
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+               '<p class="p-center">删除成功</p>'
+                '</div></div>';
+            var dialog = new Dialog(null, {
+                title: '新增',
+                content: content,
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["确定"],
+                btnRole: ['confirm'],
+                btnCls: ['confirm'],
+                confirm: function () {
+                    dialog.destroy();
+                }
+            });
+        });
         $('.btnEdit3').on('click', function () {
             var num = $(this).parents('tr').find('td').eq(0).text();
             var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
@@ -303,6 +336,53 @@ class: setting-param-set
                 }
             });
         });
+
+        $("#btnAdd51").click(function(){
+            $(".main-content").hide();
+            $(".edit-add51").show();
+        })
+        $(".edit-add51 .view-back,#detailsBtnCancel").click(function(){
+            $(".main-content").show();
+            $(".edit-add51").hide();
+        })
+
+
+
+        $(".btn-change").click(function(){
+            $(".main-content").hide();
+            $(".edit-change52").show();
+        })
+        $(".edit-change52 .view-back,#detailsBtnCancel2").click(function(){
+            $(".main-content").show();
+            $(".edit-change52").hide();
+        })
+
+        $("#btnChange52").click(function(){
+            $(".main-content").hide();
+            $(".edit-Change52").show();
+        })
+        $(".edit-Change52 .view-back").click(function(){
+            $(".main-content").show();
+            $(".edit-Change52").hide();
+        })
+
+        $("#btnAdd52").click(function(){
+            $(".main-content").hide();
+            $(".edit-add52").show();
+        })
+        $(".edit-add52 .view-back,#detailsBtnCancel1").click(function(){
+            $(".main-content").show();
+            $(".edit-add52").hide();
+        })
+
+        $(".btn-change53").click(function(){
+            $(".main-content").hide();
+            $(".edit-change53").show();
+        })
+        $(".edit-change53 .view-back,#detailsBtnCancel3").click(function(){
+            $(".main-content").show();
+            $(".edit-change53").hide();
+        })
 
         $('.cancel').on('click', function () {
             $(this).parents('.dialog-item-wrap').hide().siblings('.main-content-wrap-list').show();
@@ -598,6 +678,7 @@ class: setting-param-set
                         <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
                             <span class="tab-option on">产品统计参数</span>
                             <span class="tab-option">机构客户分类</span>
+                            <span class="tab-option">奖励参数</span>
                         </div>
                         <div class="dialog-item-box-body">
                             <div class="tabs-body">
@@ -637,7 +718,7 @@ class: setting-param-set
                                                 <td>管理费</td>
                                                 <td class="text-c">
                                                     <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
                                                 </td>
                                             </tr>
                                             <tr class="even">
@@ -651,7 +732,7 @@ class: setting-param-set
                                                 <td>管理费</td>
                                                 <td class="text-c">
                                                     <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -661,9 +742,20 @@ class: setting-param-set
                                 </div>
                                 <div class="tabs-content">
                                     <div class="task-search clearfix">
-                                        <button class="btn btn-primary btn-simple btn-float-right" href="#">批量导入</button>
+                                        <button class="btn btn-primary btn-simple btn-float-right" id="btnChange52">修改分类</button>
                                         <button class="btn btn-primary btn-simple btn-float-right" id="btnAdd52" href="#">新增</button>
                                         <button class="btn btn-float-right" href="#">搜索</button>
+                                        <dl class="search-dl">
+                                            <dd>
+                                              <span>
+                                                <select id="select5" class="diy-select" style="display: none;">
+                                                    <option selected="">企业类别</option>
+                                                    <option value="1">正常</option>
+                                                    <option value="2">停止</option>
+                                                </select>
+                                              </span>
+                                            </dd>
+                                        </dl>
                                         <input type="text" class="aql-input small-input" placeholder="机构代码">
                                         <input type="text" class="aql-input small-input" placeholder="机构名称">
 
@@ -694,8 +786,8 @@ class: setting-param-set
                                                 <td>托管费</td>
                                                 <td>管理费</td>
                                                 <td class="text-c">
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-change">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
                                                 </td>
                                             </tr>
                                             <tr class="even">
@@ -708,8 +800,80 @@ class: setting-param-set
                                                 <td>托管费</td>
                                                 <td>管理费</td>
                                                 <td class="text-c">
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">修改</a>
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">产看</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-change">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {% include component/pagenav-cf.html %}
+                                </div>
+                                <div class="tabs-content">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-primary btn-simple btn-float-right" href="#">批量导入</button>
+                                        <button class="btn btn-primary btn-simple btn-float-right" id="btnAdd53" href="#">新增</button>
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+                                        <dl class="search-dl">
+                                            <dd>
+                                              <span>
+                                                <select id="select4" class="diy-select" style="display: none;">
+                                                    <option selected="">选择时间段</option>
+                                                    <option value="1">正常</option>
+                                                    <option value="2">停止</option>
+                                                </select>
+                                              </span>
+                                            </dd>
+                                        </dl>
+                                        <input type="text" class="aql-input small-input" placeholder="机构代码">
+                                        <input type="text" class="aql-input small-input" placeholder="机构名称">
+
+                                    </div>
+                                    <div class="main-table">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>日期</th>
+                                                <th>产品代码</th>
+                                                <th>产品名称</th>
+                                                <th>产品类型</th>
+                                                <th>前端收益（元）</th>
+                                                <th>后端收益</th>
+                                                <th>认购费</th>
+                                                <th>尾佣</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>2017年4月</td>
+                                                <td>180008</td>
+                                                <td>银华货币</td>
+                                                <td>货币型</td>
+                                                <td>无</td>
+                                                <td>无</td>
+                                                <td>无</td>
+                                                <td>无</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-change53">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>001</td>
+                                                <td>2017年4月</td>
+                                                <td>180008</td>
+                                                <td>银华货币</td>
+                                                <td>混合型</td>
+                                                <td>2098</td>
+                                                <td>2098</td>
+                                                <td>2098</td>
+                                                <td>2098</td>
+                                                <td class="text-c">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btn-change53">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -797,5 +961,420 @@ class: setting-param-set
                 {% include component/pagenav-cf.html %}
             </div>
         </div>
+    </div>
+</div>
+
+<div class="dialog-item-wrap edit-wrap edit-add51"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-border" style="position: relative">
+        <div class="dialog-item-box-body">
+            <div class="tabs-body">
+                <div class="tabs-content on">
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">产品代码</div>
+                            <div class="dialog-right">
+                                <select name="" id="select20" class="diy-select" style="display: none;">
+                                    <option value="1">111</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">产品名称</div>
+                            <div class="dialog-right">根据代码自动出现名称</div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">产品类别</div>
+                            <div class="dialog-right">
+                                <select name="" id="select22" class="diy-select" style="display: none;">
+                                    <option selected="">默认</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">产品来源</div>
+                            <div class="dialog-right">
+                                <select name="" id="select24" class="diy-select" style="display: none;">
+                                    <option selected="">默认</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">标准销售折算系数</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p ">
+                            <div class="dialog-left">是否计入标准销量报表</div>
+                            <div class="dialog-right">
+                                <label><input type="radio" checked="checked">是</label>
+                                <label><input type="radio" class="">否</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">标准销量报表统计类别</div>
+                            <div class="dialog-right">
+                                <label><input type="checkbox" checked="checked">认购成立</label>
+                                <label><input type="checkbox" class="">申购成立</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">收益分配</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">管理费</div>
+                            <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">托管费</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">认购费</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" type="text" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">申购费</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">赎回费</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">销售服务费<br/>(固定销售页服务费)</div>
+                            <div class="dialog-right">
+                                <select name="" id="select25" class="diy-select" style="display: none;">
+                                    <option value="1">111</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">浮动销售服务费</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" type="text" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">服务费兑换频率</div>
+                            <div class="dialog-right">
+                                <select name="" id="select26" class="diy-select" style="display: none;">
+                                    <option value="1">111</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">客户维护费</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" type="text" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">客户维护费兑换频率</div>
+                            <div class="dialog-right">
+                                <select name="" id="select27" class="diy-select" style="display: none;">
+                                    <option value="1">111</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w50p">
+                            <div class="dialog-left">业绩报酬</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" type="text" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">业绩报酬分成</div>
+                        <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                    </div>
+                    <div class="w50p">
+                        <div class="dialog-left">业绩提成</div>
+                        <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                    </div>
+                </div>
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">业绩提成兑付频率</div>
+                            <div class="dialog-right">
+                                <select name="" id="select21" class="diy-select" style="display: none;">
+                                    <option value="1">111</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-content page-footer-button-container">
+        <button class="btn btn-fill">确定</button>
+        <button class="btn btn-gray" id="detailsBtnCancel">取消</button>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-add52"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-border" style="position: relative">
+        <div class="dialog-item-box-body">
+            <div class="tabs-body">
+                <div class="tabs-content on">
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">输入企业名称</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">产品名称</div>
+                            <div class="dialog-right">根据代码自动出现名称</div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">产品代码</div>
+                            <div class="dialog-right">
+                                <select name="" id="select28" class="diy-select" style="display: none;">
+                                    <option selected="">类别</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-content page-footer-button-container">
+        <button class="btn btn-fill">确定</button>
+        <button class="btn btn-gray" id="detailsBtnCancel1">取消</button>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-change52"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-border" style="position: relative">
+        <div class="dialog-item-box-body">
+            <div class="tabs-body">
+                <div class="tabs-content on">
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">序号</div>
+                            <div class="dialog-right">自动生成的不得修改</div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">输入企业名称</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="显示企业名字" value=""></div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">企业资金账号</div>
+                            <div class="dialog-right">根据名称看看能否自己判断</div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">选择类别</div>
+                            <div class="dialog-right">
+                                <select name="" id="select29" class="diy-select" style="display: none;">
+                                    <option selected="">类别</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-content page-footer-button-container">
+        <button class="btn btn-fill">确定</button>
+        <button class="btn btn-gray" id="detailsBtnCancel2">取消</button>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-Change52"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="simple-content-table">
+        <div class="title">
+            <button class="btn" id="btnAdd">新增</button>
+            <button class="btn" id="btnEdit">修改</button>
+            <button class="btn">删除</button>
+            <button class="btn">升级</button>
+            <button class="btn">降级</button>
+            <button class="btn">上移</button>
+            <button class="btn">下移</button>
+            <button class="btn">启用</button>
+        </div>
+      <div class="content">
+          <ul class="content-Ulist" style="margin-left: 10px">
+              <li>金融租赁公司</li>
+              <li>投资公司/小贷公司/资产管理公司</li>
+              <li>保险产品</li>
+              <li>制造企业</li>
+              <li>房地产企业</li>
+              <li>私募产品</li>
+              <li>控股公司</li>
+              <li>政府平台</li>
+              <li>运输企业</li>
+              <li>信息技术</li>
+              <li>食品行业</li>
+              <li>服务业</li>
+              <li>建筑企业</li>
+              <li>无</li>
+              <li>其他</li>
+
+          </ul>
+      </div>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-change53"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-border" style="position: relative">
+        <div class="dialog-item-box-body">
+            <div class="tabs-body">
+                <div class="tabs-content on">
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">选择产品</div>
+                            <div class="dialog-right">
+                                <select name="" id="select30" class="diy-select" style="display: none;">
+                                    <option selected="">产品代码+产品名称</option>
+                                    <option value="2">222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">选择时间</div>
+                            <div class="dialog-right">
+                                <dl class="search-dl">
+                                    <dd>
+                                        <span class="pre"></span>
+                                        <label>
+                                            <input class="txt begin-time " type="text" placeholder="" >
+                                            <i></i>
+                                        </label>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">前端收益</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">后端收益</div>
+                            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+                        <div class="w50p ">
+                            <div class="dialog-left">分配原则</div>
+                            <div class="dialog-right">
+                                <label><input type="radio" checked="checked">按销售量</label>
+                                <label><input type="radio" class="">保有量</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">薪酬发放比例</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" placeholder="" value="">
+                                <span class="tips">%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-item">
+
+                        <div class="w50p">
+                            <div class="dialog-left">税收比例</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" placeholder="" value="">
+                                <span class="tips">%</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-content page-footer-button-container">
+        <button class="btn btn-fill">确定</button>
+        <button class="btn btn-gray" id="detailsBtnCancel3">取消</button>
     </div>
 </div>
