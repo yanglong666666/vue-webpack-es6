@@ -20,7 +20,7 @@
     height: 100%;
     margin-left: 200px;
     background-color: #fff;
-    min-width: 900px;
+    min-width: 1079px;
     z-index: 99;
     .nav-cftrade {
       border-bottom: 4px solid $theme-color;
@@ -80,6 +80,7 @@
 .ui-content {
   height: 100%;
   padding-top: 40px;
+  min-width: 1079px;
   @include box-sizing(border-box);
   .main-content {
     position: relative;
