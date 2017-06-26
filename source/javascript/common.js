@@ -232,9 +232,10 @@ var strlen = function(str){
 $('body').on('mouseover', '.overflow-pop-up', function () {
     var parent = $(this).parent();
     var self = $(this);
-    if (self[0].scrollWidth > self.width()) {
+    if (self[0].scrollWidth > self.innerWidth()) {
         parent.css('position', 'relative');
-        parent.append('<div class="float-tip-up">' + self.text() + '<em></em><span></span></div>');
+        var text = self.text() || self.val();
+        parent.append('<div class="float-tip-up">' + text + '<em></em><span></span></div>');
         var left = self.offset().left - parent.offset().left;
         var bottom = parseInt(parent.css('padding-bottom').replace('px', '')) +
             parseInt(self.css('padding-bottom').replace('px', '')) +
@@ -246,9 +247,10 @@ $('body').on('mouseover', '.overflow-pop-up', function () {
 }).on('mouseover', '.overflow-pop-down', function () {
     var parent = $(this).parent();
     var self = $(this);
-    if (self[0].scrollWidth > self.width()) {
+    if (self[0].scrollWidth > self.innerWidth()) {
         parent.css('position', 'relative');
-        parent.append('<div class="float-tip-down">' + self.text() + '<em></em><span></span></div>');
+        var text = self.text() || self.val();
+        parent.append('<div class="float-tip-down">' + text + '<em></em><span></span></div>');
         var left = self.offset().left - parent.offset().left;
         var top = parseInt(parent.css('padding-top').replace('px', '')) +
             parseInt(self.css('padding-top').replace('px', '')) +

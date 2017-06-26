@@ -1410,6 +1410,7 @@ input[type="text"] {
                 @include border-radius(3px);
                 border: 1px solid #e5e5e5;
                 padding-left: 8px;
+                @include box-sizing(border-box);
                 &.dialog-input-height{
                     height: 30px;
                     line-height: 30px;
