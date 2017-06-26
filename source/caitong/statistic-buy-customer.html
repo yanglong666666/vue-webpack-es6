@@ -87,131 +87,156 @@ layout: default-iframe
             $('.main-content').show();
         });
 
-       /* $('#sell_wrap').highcharts({
+        $('#sell_wrap').highcharts({
             chart: {
-                type: 'column'
+                type: 'column',
+                marginLeft: 120
             },
             title: {
                 text: ''
+
             },
             xAxis: {
-                categories: ['N<20万', '20万<=N<50万', '50万<=N<100万', '100万<=N<500万', '500万<=N<1000万', 'N>=5000万'],
-               // crosshair: true
+                lineColor:'#f0f0f0',
+                gridLineColor: '#f3f3f3',
+                gridLineWidth: 1,
+                tickWidth: 0,
+                labels: {
+                    rotation: -45
+                },
+                categories: [
+                    'N<20万',
+                    '20万≤N≤50万',
+                    '50万≤N<100万',
+                    '100万≤N<500万',
+                    '500万≤N<1000万',
+                    'N≥1000万'
+                ]
             },
             yAxis: {
+                title:'',
                 min: 0,
-                gridLineColor: '#dedede',
+                lineColor:'#f0f0f0',
+                gridLineColor: '#f3f3f3',
                 gridLineWidth: 1,
-                lineWidth: 1,
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            plotOptions: {
-                column: [{
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }]
-            },
-            series: [ {
-                type: "column",
-                name: 'XX1',
-                color: '#5faee3',
-                pointWidth: 15,
-                data: [43.12,30.25,38.75,35.24,30.25,45.15]
-            }, {
-                type: "column",
-                name: 'XX2',
-                color: '#f8a20f',
-                pointWidth: 15,
-                data: [17.23,15.23,20.26,23.53,26.22,30.33]
-            }]
-        });*/
-
-
-        /*function drawSigleColumn(ele,dataXarea,dataYarea){
-
-            var chart = $(ele).highcharts({
-                chart: {
-                    type: 'column',
-                    backgroundColor:'#f0f4fb'
-                },
-                title: {
-                    text: null
-                },
-                legend: {
-                    enabled: false
-                },
-                xAxis: {
-                    categories: dataXarea,
-                    tickLength:0,
-                    lineWidth: 1,
-                    lineColor: '#e3e3e3',
-
-                    labels: {
-                        style: {
-                            fontSize: 10,
-                            color: '#c0c5ce'
-                        }
-                    }
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: null
-                    },
-                    labels:{
-                        x:-10
-                    },
-                    gridLineColor: '#e3e3e3',
-                    gridLineWidth: 1,
-                    lineColor: '#e3e3e3',
-                    lineWidth: 1,
-
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#808080'
-                    }]
-                },
-                plotOptions: {
-                    column: {
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                fontFamily: 'Microsoft YaHei',
-                                color: '#ccc',
-                                display:'none',
-                                fontSize: 14,
-                                fontWeight: 'normal',
-                                textShadow: 0
-                            },
-                            formatter: function() {
-                                return this.y;
-                            }
-                        }
-                    }
-                },
-                tooltip: {
+                labels: {//格式化纵坐标的显示风格
                     formatter: function() {
-                        var point = this.point,
-                            s = this.x +':<b>'+ this.y +'</b><br/>';
-                        return s;
+                        return this.value ;
                     }
                 },
-                series: [{
-                    name: "",
-                    data: dataYarea,
-                    color: '#3ecacb',
-                    pointWidth: 15
-                }],
-                exporting: {
-                    enabled: false
+                opposite: false//反转
+            },
+            legend: {//是否显示底注
+                enabled:true,
+                align: 'left',
+                verticalAlign: 'center',
+                layout:"vertical",
+                x: 0,
+                y: 150,
+                itemStyle:{
+                    color:'#666',
+                    fontWeight:500,
+                    fontFamily:'Arial, sans-serif'
+                },
+                itemDistance: 40
+            },
+            colors:["#5faee3","#f8a20f"],
+            tooltip: {
+                shared: true,
+                useHTML: true
+            },
+            series: [{
+                name: 'XX1',
+                data: [42.25, 31.25, 37.38, 42.32, 31.25, 42.32],
+                marker: {
+                    symbol: 'circle'
                 }
-            }).highcharts();
-        }*/
+            },
+
+                {
+                    name: 'XX2',
+                    data: [15.23, 15.23, 15.23, 15.23, 15.23, 15.23 ],
+                    marker: {
+                        symbol: 'circle'
+                    },
+                }
+            ]
+        });
+        $('#sell_wrap1').highcharts({
+            chart: {
+                type: 'column',
+                marginLeft: 120
+            },
+            title: {
+                text: ''
+
+            },
+            xAxis: {
+                lineColor:'#f0f0f0',
+                gridLineColor: '#f3f3f3',
+                gridLineWidth: 1,
+                tickWidth: 0,
+                labels: {
+                    rotation: -45
+                },
+                categories: [
+                    'N<20万',
+                    '20万≤N≤50万',
+                    '50万≤N<100万',
+                    '100万≤N<500万',
+                    '500万≤N<1000万',
+                    'N≥1000万'
+                ]
+            },
+            yAxis: {
+                title:'',
+                min: 0,
+                lineColor:'#f0f0f0',
+                gridLineColor: '#f3f3f3',
+                gridLineWidth: 1,
+                labels: {//格式化纵坐标的显示风格
+                    formatter: function() {
+                        return this.value ;
+                    }
+                },
+                opposite: false//反转
+            },
+            legend: {//是否显示底注
+                enabled:true,
+                align: 'left',
+                verticalAlign: 'center',
+                layout:"vertical",
+                x: 0,
+                y: 150,
+                itemStyle:{
+                    color:'#666',
+                    fontWeight:500,
+                    fontFamily:'Arial, sans-serif'
+                },
+                itemDistance: 40
+            },
+            colors:["#5faee3","#f8a20f"],
+            tooltip: {
+                shared: true,
+                useHTML: true
+            },
+            series: [{
+                name: 'XX1',
+                data: [42.25, 31.25, 37.38, 42.32, 31.25, 42.32],
+                marker: {
+                    symbol: 'circle'
+                }
+            },
+
+                {
+                    name: 'XX2',
+                    data: [15.23, 15.23, 15.23, 15.23, 15.23, 15.23 ],
+                    marker: {
+                        symbol: 'circle'
+                    },
+                }
+            ]
+        });
     });
 
 </script>
@@ -431,7 +456,7 @@ layout: default-iframe
                                         </table>
                                     </div>
                                     <div class="sell-wrap" style="width: 800px;margin: 0 auto;">
-                                        <div id="sell_wrap" style="width: 100%;height: 400px"></div>
+                                        <div id="sell_wrap" style="width: 800px;height: 400px;"></div>
                                     </div>
                                     <div class="main-table clearfix" style="margin: 20px 40px">
                                         <table width="100%" cellpadding="0" cellspacing="0" class="data-table date-table-border">
@@ -615,7 +640,7 @@ layout: default-iframe
                     </table>
                 </div>
                 <div class="sell-wrap" style="width: 800px;margin: 0 auto;">
-                    <div id="sell_wrap" style="width: 100%;height: 400px"></div>
+                    <div id="sell_wrap1" style="width: 800px;height: 400px"></div>
                 </div>
                 <div class="main-table clearfix" style="margin: 20px 40px">
                     <table width="100%" cellpadding="0" cellspacing="0" class="data-table date-table-border">

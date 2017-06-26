@@ -2,7 +2,7 @@
 title: 销售管理-产品预约
 layout: default-iframe
 ---
-
+<script src="../../javascript/select2.full.min.js"></script>
 <script type="text/javascript">
     $(function () {
         // tab切换
@@ -32,6 +32,8 @@ layout: default-iframe
         $('#select3').diySelect();
         $('#select4').diySelect();
         $('#select21').diySelect({width: 222});
+
+        $(".select2").select2({width: 222});
 
 
 
@@ -125,6 +127,24 @@ layout: default-iframe
                 }
             });
         });
+
+        $(".content-inner-top").on("click",".arrow-first",function(){
+
+            $(".content-list-wrap").hasClass("content-list-wrap-show") ? $(".content-list-wrap").removeClass("content-list-wrap-show") : $(".content-list-wrap").addClass("content-list-wrap-show")
+
+        })
+        $(".content-list-change").on("click",".arrow-show1",function(){
+          console.log( this )
+            $(this).parent().siblings(".content-list-change-content").hasClass("content-list-change-content-show") ? $(this).parent().siblings(".content-list-change-content").removeClass("content-list-change-content-show") : $(this).parent().siblings(".content-list-change-content").addClass("content-list-change-content-show")
+
+        })
+
+        $(".header-content-list").on("click",".arrow-show",function(){
+
+            $(this).parent().siblings(".list-title").hasClass("list-title-show") ? $(this).parent().siblings(".list-title").removeClass("list-title-show") : $(this).parent().siblings(".list-title").addClass("list-title-show");
+
+        })
+
     });
 
 </script>
@@ -249,12 +269,12 @@ layout: default-iframe
                                 <div class="separate-content">
                                      <div class="content-inner">
                                          <div class="content-inner-top">
-                                             <i class="arrow-show1"></i>
+                                             <i class="arrow-show1 arrow-first"></i>
                                              <span class="txt-w1">总金额</span>
                                              <input class="dialog-input" placeholder="" value="1000">
                                              <span class="tips">万元</span>
                                          </div>
-                                         <div class="content-list-wrap">
+                                         <div class="content-list-wrap content-list-wrap-show">
                                              <div class="content-lists">
                                                  <span class="txt-w2">直销部门1</span>
                                                  <input class="dialog-input" placeholder="" value="1000">
@@ -272,7 +292,7 @@ layout: default-iframe
                                                      <input class="dialog-input" placeholder="" value="1000">
                                                      <span class="tips">万元</span>
                                                  </div>
-                                                 <div class="content-list-change-content">
+                                                 <div class="content-list-change-content content-list-change-content-show">
                                                      <div class="content-list-change-list">
                                                          <span class="txt-w3">宁海金融中心营业部</span>
                                                          <input class="dialog-input" placeholder="" value="150">
@@ -307,7 +327,7 @@ layout: default-iframe
                                                      <input class="dialog-input" placeholder="" value="150">
                                                      <span class="tips">万元</span>
                                                  </div>
-                                                 <div class="content-list-change-content">
+                                                 <div class="content-list-change-content content-list-change-content-show">
                                                      <div class="content-list-change-list">
                                                          <span class="txt-w3">A级营业厅1</span>
                                                          <input class="dialog-input" placeholder="" value="150">
@@ -328,7 +348,7 @@ layout: default-iframe
                                                      <input class="dialog-input" placeholder="" value="1000">
                                                      <span class="tips">万元</span>
                                                  </div>
-                                                 <div class="content-list-change-content">
+                                                 <div class="content-list-change-content content-list-change-content-show">
                                                      <div class="content-list-change-list">
                                                          <span class="txt-w3">潮州红旗路营业部</span>
                                                          <input class="dialog-input" placeholder="" value="150">
@@ -363,7 +383,7 @@ layout: default-iframe
                                                      <input class="dialog-input" placeholder="" value="1000">
                                                      <span class="tips">万元</span>
                                                  </div>
-                                                 <div class="content-list-change-content">
+                                                 <div class="content-list-change-content content-list-change-content-show">
                                                      <div class="content-list-change-list">
                                                          <span class="txt-w3">台州解放南路营业部</span>
                                                          <input class="dialog-input" placeholder="" value="150">
@@ -414,12 +434,20 @@ layout: default-iframe
                             <div class="w50p">
                                 <div class="dialog-left">选择产品</div>
                                 <div class="dialog-right">
-                                    <select name="" id="select21" class="diy-select" style="display: none;">
-                                        <option selected="">产品代码+产品名称</option>
-                                        <option value="1">111</option>
-                                    </select>
+                                    <div class="je-select2-wrap">
+                                        <select class="select2 " multiple="multiple">
+                                            <option value="1">产品代码+产品名称</option>
+                                            <option value="2">222</option>
+                                            <option value="3">333</option>
+                                            <option value="4">444</option>
+                                            <option value="5">555</option>
+                                            <option value="6">666</option>
+                                        </select>
+                                        <i class="icon-select2"></i>
+                                    </div>
                                     <span class="tips">(可多选)</span>
                                 </div>
+
                             </div>
                         </div>
                         <div class="dialog-item">
@@ -545,14 +573,14 @@ layout: default-iframe
                                             <p class="header-contents-title">全部</p>
                                             <div class="header-content-list">
                                                 <div class="header-list-top"><i class="arrow-show"></i>中心营业部<i class="icon-add"></i></div>
-                                                <ul class="list-title">
+                                                <ul class="list-title list-title-show">
                                                     <li>杭州湖墅南路证券营业部 150万元 <i class="icon-add"></i></li>
                                                     <li>杭州庆春路证券营业部 150万元 <i class="icon-add"></i></li>
                                                 </ul>
                                             </div>
                                             <div class="header-content-list">
                                                 <div class="header-list-top"><i class="arrow-show"></i>A类营业部<i class="icon-add"></i></div>
-                                                <ul class="list-title">
+                                                <ul class="list-title list-title-show">
                                                     <li>杭州西大街证券营业部 100万元 <i class="icon-add"></i></li>
                                                     <li>杭州环城西路证券营业部 100万元 <i class="icon-add"></i></li>
                                                 </ul>

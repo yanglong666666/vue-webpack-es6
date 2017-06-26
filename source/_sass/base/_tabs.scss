@@ -235,6 +235,10 @@
                 .list-title{
                     line-height: 24px;
                     position: relative;
+                    display: none;
+                    &.list-title-show{
+                        display: block;
+                    }
                     li{
                         padding-left: 40px;
                         position: relative;
@@ -357,6 +361,10 @@
         }
         .content-list-wrap{
             padding-left: 25px;
+            display: none;
+            &.content-list-wrap-show{
+                display: block;
+            }
             .content-lists{
                 margin-bottom: 10px;
                 .txt-w2{
@@ -389,6 +397,10 @@
             }
             .content-list-change-content{
                 padding-left: 20px;
+                display: none;
+                &.content-list-change-content-show{
+                    display: block;
+                }
                 .content-list-change-list{
                     margin-bottom: 10px;
                     .txt-w3{
