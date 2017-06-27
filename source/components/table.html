@@ -1,0 +1,254 @@
+---
+title: table
+layout: default-iframe
+---
+
+<script type="text/javascript">
+    $(function () {
+        $('.btn-group').on('mouseover', function () {
+            $(this).find('.sub-group').show();
+        }).on('mouseout', function () {
+            $(this).find('.sub-group').hide();
+        });
+    });
+
+</script>
+<br/>
+<h2>th不定宽，不加width——自适应，除非撑满才会换行</h2>
+<div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>文档名称</th>
+            <th>支持格式</th>
+            <th>文件状态</th>
+            <th>版本号</th>
+            <th>上传时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td><a href="">《产品说明书》</a></td>
+            <td>word/pdf/纯文本</td>
+            <td>正常</td>
+            <td>V1.0</td>
+            <td>2017-03-06 10:01</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>001</td>
+            <td><a href="">《风险揭示书》</a></td>
+            <td>word/pdf/纯文本</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<h2>th定宽，加width——layout-fixed——自适应，换行的td必须加width</h2>
+<div class="main-table layout-fixed">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>文档名称</th>
+            <th width="15%">支持格式</th>
+            <th>文件状态</th>
+            <th>版本号</th>
+            <th>上传时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td><a href="">《产品说明书》</a></td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>正常</td>
+            <td>V1.0</td>
+            <td>2017-03-06 10:01</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>001</td>
+            <td><a href="">《风险揭示书》</a></td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<h2>省略号——overflow-pop标签默认width=200px，也可以在style上设置width</h2>
+<div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>文档名称</th>
+            <th>支持格式</th>
+            <th>文件状态</th>
+            <th>版本号</th>
+            <th>上传时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td><a href="">《产品说明书》</a></td>
+            <td>
+                <div class="overflow-pop-up" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
+            </td>
+            <td>正常</td>
+            <td>V1.0</td>
+            <td>2017-03-06 10:01</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>001</td>
+            <td><a href="">《风险揭示书》</a></td>
+            <td>
+                <div class="overflow-pop-up" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
+            </td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<h2>td太多——scroll-table——不允许换行、可以放overflow-pop</h2>
+<div class="main-table clearfix">
+    <div class="scroll-table">
+        <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+            <thead>
+            <tr>
+                <th width="10%">序号</th>
+                <th width="10%">产品名称</th>
+                <th width="10%">产品代码</th>
+                <th width="10%">计息期限</th>
+                <th width="20%">业绩提成基（年华）</th>
+                <th width="15%">申购日期</th>
+                <th width="15%">起息日</th>
+                <th width="15%">到期日</th>
+                <th width="10%">提成</th>
+                <th width="20%">总预约金额（万元）</th>
+                <th width="20%">已预约金额（万元）</th>
+                <th width="15%">总预约人数</th>
+                <th width="15%">已预约人数</th>
+                <th width="20%">预约开始时间</th>
+                <th width="20%">预约结束时间</th>
+                <th width="15%">预约状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td>银华货币</td>
+                <td>180008</td>
+                <td>180</td>
+                <td>5%</td>
+                <td>2017-05-02</td>
+                <td>2017-05-03</td>
+                <td>2017-06-06</td>
+                <td>
+                    <div class="overflow-pop-down" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
+                </td>
+                <td>7000</td>
+                <td>1000</td>
+                <td>200</td>
+                <td>100</td>
+                <td>2017-05-17 09:30</td>
+                <td>2017-05-17 09:30</td>
+                <td>预约中</td>
+            </tr>
+            <tr class="even">
+                <td>001</td>
+                <td>银华货币</td>
+                <td>180008</td>
+                <td>180</td>
+                <td>5%</td>
+                <td>2017-05-02</td>
+                <td>2017-05-03</td>
+                <td>2017-06-06</td>
+                <td>
+                    <div class="overflow-pop-up" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
+                </td>
+                <td>7000</td>
+                <td>1000</td>
+                <td>200</td>
+                <td>100</td>
+                <td>2017-05-17 09:30</td>
+                <td>2017-05-17 09:30</td>
+                <td>已结束</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="fixed-table">
+        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+            <thead>
+            <tr>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="even">
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small btn-change-big">预约</a>
+                        <ul class="sub-group" style="display: none;">
+                            <li><a class="btn-search-change">查看预约</a></li>
+                            <li><a>产品详情</a></li>
+                            <li><a>删除预约</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-c">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-fill btn-small btn-change-big">预约</a>
+                        <ul class="sub-group" style="display: none;">
+                            <li><a class="btn-search-change">查看预约</a></li>
+                            <li><a>产品详情</a></li>
+                            <li><a>删除预约</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br/>
