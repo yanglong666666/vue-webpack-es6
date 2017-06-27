@@ -1,0 +1,149 @@
+---
+title: form
+layout: default-iframe
+---
+
+<script type="text/javascript">
+    $(function () {
+        $('.diy-select').diySelect({width: 222});
+        $(".select2").select2({width: 222});
+
+        $('.begin-time_0').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time_0').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.end-time_0').datepicker({
+            onClose: function (selectedDate) {
+                $('.begin-time_0').datepicker("option", "maxDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+    });
+
+</script>
+<div class="dialog-item-wrap">
+    <div class="dialog-item">
+        <div class="w50p">
+            <div class="dialog-left">产品代码</div>
+            <div class="dialog-right"><span class="txt">产品代码</span></div>
+        </div>
+        <div class="w50p">
+            <div class="dialog-left">产品内码</div>
+            <div class="dialog-right"><span class="txt">产品内码</span>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-item">
+        <div class="w50p">
+            <div class="dialog-left">产品代码</div>
+            <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+        </div>
+        <div class="w50p">
+            <div class="dialog-left">产品内码</div>
+            <div class="dialog-right">
+                <select name="" id="diySelect-1" class="diy-select" style="display: none;">
+                    <option selected="">请选择</option>
+                    <option value="1">已结束</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-item">
+        <div class="w50p">
+            <div class="dialog-left">产品TA</div>
+            <div class="dialog-right">
+                <div class="je-select2-wrap">
+                    <select class="select2 " multiple="multiple">
+                        <option value="1">111</option>
+                        <option value="2">222</option>
+                        <option value="3">333</option>
+                        <option value="4">444</option>
+                        <option value="5">555</option>
+                        <option value="6">666</option>
+                    </select>
+                    <i class="icon-select2"></i>
+                </div>
+            </div>
+        </div>
+        <div class="w50p">
+            <div class="dialog-left">产品类别</div>
+            <div class="dialog-right">
+                <select class="select2">
+                    <option value="1">111</option>
+                    <option value="2">222</option>
+                    <option value="3">333</option>
+                    <option value="4">444</option>
+                    <option value="5">555</option>
+                    <option value="6">666</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-item">
+        <div class="w50p">
+            <div class="dialog-left">募集开始日期</div>
+            <div class="dialog-right">
+                <div class="special-item">
+                    <label>
+                        <input class="dialog-input begin-time_0" type="text" placeholder="开始日期" readonly/>
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="w50p">
+            <div class="dialog-left">募集结束日期</div>
+            <div class="dialog-right">
+                <div class="special-item">
+                    <label>
+                        <input class="dialog-input end-time_0" type="text" placeholder="截止日期" readonly/>
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-item">
+        <div class="w50p">
+            <div class="dialog-left">使用可取资金</div>
+            <div class="dialog-right">
+                <label><input type="radio" checked="">是</label>
+                <label><input type="radio" class="">否</label>
+            </div>
+        </div>
+        <div class="w50p">
+            <div class="dialog-left">使用可取资金</div>
+            <div class="dialog-right">
+                <label><input type="checkbox" checked="">是</label>
+                <label><input type="checkbox" class="">否</label>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-item">
+        <div class="w50p">
+            <div class="dialog-left">产品特点</div>
+            <div class="dialog-right">
+                <textarea class="dialog-textarea" placeholder="111">我是文本域</textarea>
+            </div>
+        </div>
+        <div class="w50p">
+            <div class="dialog-left">发行规模</div>
+            <div class="dialog-right">
+                <textarea class="dialog-textarea no-resize" placeholder="111"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+

@@ -1,140 +1,146 @@
 .tabs-head {
-  .tab-option {
-    cursor: pointer;
-    display: block;
-    float: left;
-    &.on {
-      background: #3f88cc;
-      color: #FFF;
-    }
-  }
-  &.normal-tabs {
-    overflow: hidden;
-    margin-bottom: 5px;
     .tab-option {
-      padding: 7px 30px;
-      text-align: center;
-      background: #f0f4fb;
-      font-size: 16px;
-      &.on {
-        background: #3f88cc;
-        color: #FFF;
-      }
+        cursor: pointer;
+        display: block;
+        float: left;
+        &.on {
+            background: #3f88cc;
+            color: #FFF;
+        }
     }
-  }
-  &.add-tabs {
-    background: #f0f4fb;
-    overflow: hidden;
-    padding: 20px 10px;
-    .tab-option {
-      padding: 5px 22px;
-      text-align: center;
-      background: #FFF;
-      font-size: 14px;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: solid 1px #cccccc;
-      &.on {
-        background: #3f88cc;
-        border: solid 1px #3f88cc;
-        color: #FFF;
-      }
+    &.normal-tabs {
+        overflow: hidden;
+        margin-bottom: 5px;
+        .tab-option {
+            padding: 7px 30px;
+            text-align: center;
+            background: #f0f4fb;
+            font-size: 16px;
+            &.on {
+                background: #3f88cc;
+                color: #FFF;
+            }
+        }
     }
-    .tab-add {
-      cursor: pointer;
-      display: block;
-      float: left;
-      padding: 5px 0px;
-      width: 87px;
-      text-align: center;
-      background: #FFF;
-      font-size: 14px;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: solid 1px #cccccc;
+    &.add-tabs {
+        background: #f0f4fb;
+        overflow: hidden;
+        padding: 20px 10px;
+        .tab-option {
+            padding: 5px 22px;
+            text-align: center;
+            background: #FFF;
+            font-size: 14px;
+            margin-right: 5px;
+            border-radius: 3px;
+            border: solid 1px #cccccc;
+            &.on {
+                background: #3f88cc;
+                border: solid 1px #3f88cc;
+                color: #FFF;
+            }
+        }
+        .tab-add {
+            cursor: pointer;
+            display: block;
+            float: left;
+            padding: 5px 0px;
+            width: 87px;
+            text-align: center;
+            background: #FFF;
+            font-size: 14px;
+            margin-right: 5px;
+            border-radius: 3px;
+            border: solid 1px #cccccc;
+        }
     }
-  }
 
 }
+
 // 新tab
 // write by ws 2017-04-19
-.tabs-items{
-  display: table;
+.tabs-items {
+    display: table;
     position: relative;
-  .tab-option{
-    cursor: pointer;
-    min-width: 100px;
-    padding: 0 10px;
-    display: inline-block;
-    text-align: center;
-    border-right: 1px solid #e5e5e5;
-    float: left;
-    &.on{
-      color:#f1374d;
-      background: #ffffff;
-      font-weight:bold;
+    .tab-option {
+        cursor: pointer;
+        min-width: 100px;
+        padding: 0 10px;
+        display: inline-block;
+        text-align: center;
+        border-right: 1px solid #e5e5e5;
+        float: left;
+        &.on {
+            color: #f1374d;
+            background: #ffffff;
+            font-weight: bold;
+        }
     }
-  }
 }
+
 .tabs-body {
-  .tabs-content {
-    position: relative;
-    padding: 0 15px;
-      height: 0;
-      overflow: hidden;
-      &.tabs-content-padding{
-          padding: 0;
-          .bg-grey{
-              height: 30px;
-              line-height: 30px;
-              background: #e8e9ed;
-              padding-left: 20px;
-          }
-      }
-
-    &.on {
-      display: block;
-        height: inherit;
+    .tabs-content {
+        position: relative;
+        padding: 0 15px;
+        display: none;
+        &.tabs-content-padding {
+            padding: 0;
+            .bg-grey {
+                height: 30px;
+                line-height: 30px;
+                background: #e8e9ed;
+                padding-left: 20px;
+            }
+        }
+        &.on {
+            display: block;
+        }
+        &.tabs-content-card-wrap {
+            overflow:hidden;
+            display: block;
+            height: 0;
+            &.on {
+                height: inherit;
+            }
+        }
     }
-  }
 }
 
-.dialog-item-box-body-change{
-    .tabs-body{
-        .tabs-content{
+.dialog-item-box-body-change {
+    .tabs-body {
+        .tabs-content {
             overflow: visible;
         }
     }
 }
 
-
 //财通新增 2017-06-20
-.dialog-right-change{
+.dialog-right-change {
     width: 640px;
     height: 360px;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     padding: 10px 15px;
-    *{
-        @include  box-sizing(border-box)
+    * {
+        @include box-sizing(border-box)
     }
     @include clearfix;
-    .left-contents{
+    .left-contents {
         display: inline-block;
         float: left;
         width: 290px;
         height: 100%;
-        .header-search{
+        .header-search {
             height: 30px;
             line-height: 30px;
             vertical-align: middle;
-            .search-box{
+            .search-box {
                 position: relative;
                 height: 30px;
                 width: 250px;
                 margin: 0 auto;
                 border-radius: 2px;
                 float: left;
-                input{
+                input {
                     width: 100%;
                     vertical-align: top;
                     outline: none;
@@ -165,20 +171,20 @@
 
                     }
                 }
-                .search-list{
-                    display:none;
+                .search-list {
+                    display: none;
                     text-align: left;
-                    z-index:1;
+                    z-index: 1;
                     cursor: pointer;
                     position: absolute;
                     top: 30px;
                     left: 0;
                     width: 100%;
                     border: 1px solid #ccc;
-                    background-color:#FFFFFF;
-                    ul{
+                    background-color: #FFFFFF;
+                    ul {
                         line-height: 36px;
-                        li{
+                        li {
                             padding: 0 15px;
                             &:hover {
                                 background-color: #ccc;
@@ -188,7 +194,7 @@
                 }
             }
         }
-        .header-contents{
+        .header-contents {
             width: 290px;
             height: 290px;
             overflow-x: hidden;
@@ -196,22 +202,22 @@
             margin-top: 10px;
             background: #f5f5f5;
             padding: 10px 0;
-            .header-contents-title{
+            .header-contents-title {
                 padding-left: 25px;
             }
-            .header-content-list{
+            .header-content-list {
                 position: relative;
 
-                .header-list-top{
+                .header-list-top {
                     position: relative;
                     padding-left: 25px;
-                    &:hover{
+                    &:hover {
                         background: #d4d5da;
-                        .icon-add{
+                        .icon-add {
                             display: block;
                         }
                     }
-                    .arrow-show{
+                    .arrow-show {
                         position: absolute;
                         top: 13px;
                         left: 10px;
@@ -219,42 +225,43 @@
                         width: 9px;
                         height: 5px;
                         background: url(../images/icolist.png) -60px -50px no-repeat;
-                    };
-                    .icon-add{
+                    }
+                ;
+                    .icon-add {
                         position: absolute;
                         top: 7px;
                         right: 15px;
                         display: inline-block;
                         width: 16px;
                         height: 16px;
-                        background: url(../images/caitong/grey-add.png) ;
+                        background: url(../images/caitong/grey-add.png);
                         display: none;
                     }
 
                 }
-                .list-title{
+                .list-title {
                     line-height: 24px;
                     position: relative;
                     display: none;
-                    &.list-title-show{
+                    &.list-title-show {
                         display: block;
                     }
-                    li{
+                    li {
                         padding-left: 40px;
                         position: relative;
-                        .icon-add{
+                        .icon-add {
                             position: absolute;
                             top: 4px;
                             right: 15px;
                             display: inline-block;
                             width: 16px;
                             height: 16px;
-                            background: url(../images/caitong/grey-add.png) ;
+                            background: url(../images/caitong/grey-add.png);
                             display: none;
                         }
-                        &:hover{
+                        &:hover {
                             background: #d4d5da;
-                            .icon-add{
+                            .icon-add {
                                 display: block;
                             }
                         }
@@ -263,22 +270,22 @@
             }
         }
     }
-    .center-contents{
-        display:inline-block;
+    .center-contents {
+        display: inline-block;
         width: 60px;
         float: left;
         padding: 136px 0;
-        .center-content-img{
+        .center-content-img {
             width: 48px;
             margin: auto;
         }
     }
-    .right-contents{
+    .right-contents {
         width: 258px;
         height: 100%;
-        display:inline-block;
+        display: inline-block;
         float: left;
-        .right-list-wrap{
+        .right-list-wrap {
             width: 100%;
             height: 290px;
             overflow-x: hidden;
@@ -286,28 +293,28 @@
             background: #f5f5f5;
             margin-top: 10px;
             padding: 10px 0;
-            .right-list{
+            .right-list {
                 line-height: 30px;
                 width: 100%;
                 display: inline-block;
                 position: relative;
-                li{
+                li {
                     position: relative;
                     padding-left: 15px;
-                    &:hover{
+                    &:hover {
                         background: #d4d5da;
-                        .icon-delect{
+                        .icon-delect {
                             display: block;
                         }
                     }
-                    .icon-delect{
+                    .icon-delect {
                         position: absolute;
                         top: 7px;
                         right: 15px;
                         display: inline-block;
                         width: 16px;
                         height: 16px;
-                        background: url(../images/caitong/grey-delect.png) ;
+                        background: url(../images/caitong/grey-delect.png);
                         display: none;
                     }
                 }
@@ -318,9 +325,9 @@
 }
 
 //财通新建列表
-.separate-content{
+.separate-content {
     padding: 15px 20px;
-    .dialog-input{
+    .dialog-input {
         line-height: 28px;
         height: 28px;
         padding: 0 0 0 8px;
@@ -332,24 +339,25 @@
         -moz-border-radius: 3px;
         -o-border-radius: 3px;
         border: 1px solid #e5e5e5;
-    };
-    .tips{
+    }
+;
+    .tips {
         margin-left: 10px;
     }
-    .content-inner{
+    .content-inner {
         position: relative;
-        .content-inner-top{
+        .content-inner-top {
             position: relative;
             line-height: 30px;
             margin-bottom: 10px;
             padding-left: 40px;
-            .txt-w1{
+            .txt-w1 {
                 display: inline-block;
                 width: 60px;
                 color: #000;
                 font-weight: bold;
             }
-            .arrow-show1{
+            .arrow-show1 {
                 position: absolute;
                 top: 13px;
                 left: 10px;
@@ -357,17 +365,18 @@
                 width: 9px;
                 height: 5px;
                 background: url(../images/icolist.png) -60px -50px no-repeat;
-            };
+            }
+        ;
         }
-        .content-list-wrap{
+        .content-list-wrap {
             padding-left: 25px;
             display: none;
-            &.content-list-wrap-show{
+            &.content-list-wrap-show {
                 display: block;
             }
-            .content-lists{
+            .content-lists {
                 margin-bottom: 10px;
-                .txt-w2{
+                .txt-w2 {
                     display: inline-block;
                     width: 80px;
                 }
@@ -375,13 +384,13 @@
             }
 
         }
-        .content-list-change{
+        .content-list-change {
             margin-bottom: 10px;
             position: relative;
-            .content-list-change-top{
+            .content-list-change-top {
                 position: relative;
                 margin-bottom: 10px;
-                .arrow-show1{
+                .arrow-show1 {
                     position: absolute;
                     top: 13px;
                     left: -14px;
@@ -389,21 +398,22 @@
                     width: 9px;
                     height: 5px;
                     background: url(../images/icolist.png) -60px -50px no-repeat;
-                };
-                .txt-w2{
+                }
+            ;
+                .txt-w2 {
                     display: inline-block;
                     width: 80px;
                 }
             }
-            .content-list-change-content{
+            .content-list-change-content {
                 padding-left: 20px;
                 display: none;
-                &.content-list-change-content-show{
+                &.content-list-change-content-show {
                     display: block;
                 }
-                .content-list-change-list{
+                .content-list-change-list {
                     margin-bottom: 10px;
-                    .txt-w3{
+                    .txt-w3 {
                         display: inline-block;
                         width: 150px;
                     }
@@ -414,47 +424,47 @@
 }
 
 //财通左右结构表格
-.content-wraps{
+.content-wraps {
     width: 100%;
     height: 260px;
     margin-bottom: 20px;
     @include clearfix;
-    .content-wraps-title{
+    .content-wraps-title {
         padding-left: 15px;
         margin-bottom: 10px;
         color: #333;
     }
-    .content-wraps-left{
+    .content-wraps-left {
         float: left;
         width: 49%;
-        width:-moz-calc(50% - 10px);
-        width:-webkit-calc(50% - 10px);
+        width: -moz-calc(50% - 10px);
+        width: -webkit-calc(50% - 10px);
         width: calc(50% - 10px);
 
-        height:100% ;
-        .left-content-border{
+        height: 100%;
+        .left-content-border {
             width: 100%;
             height: 233px;
-            border:1px solid #E7E7E7;
+            border: 1px solid #E7E7E7;
             padding: 20px;
-            .left-content-title{
+            .left-content-title {
                 line-height: 40px;
             }
-            .width-container{
+            .width-container {
                 width: 100%;
                 height: 40px;
                 background: #e8e9ed;
                 border-radius: 10px;
                 position: relative;
                 margin-bottom: 20px;
-                .percent{
+                .percent {
                     position: absolute;
                     left: 0;
-                    height:100%;
+                    height: 100%;
                     background: #f2364e;
                     border-radius: 10px;
                 }
-                .width-container-tips{
+                .width-container-tips {
                     position: absolute;
                     width: 100%;
                     height: 100%;
@@ -463,47 +473,48 @@
                     line-height: 40px;
                 }
             }
-            .left-dis1{
+            .left-dis1 {
                 line-height: 40px;
                 text-align: center;
             }
         }
     }
-    .content-wraps-right{
+    .content-wraps-right {
         float: right;
-        width:49%;
-        width:-moz-calc(50% - 10px);
-        width:-webkit-calc(50% - 10px);
+        width: 49%;
+        width: -moz-calc(50% - 10px);
+        width: -webkit-calc(50% - 10px);
         width: calc(50% - 10px);
-        height:100% ;
+        height: 100%;
     }
 }
 
-.ruler{
+.ruler {
     width: 100%;
     height: 550px;
     background: #fff;
     position: relative;
     @include clearfix;
-    .left-ruler{
+    .left-ruler {
         display: inline-block;
         width: 770px;
         height: 550px;
         overflow: hidden;
         float: left;
         position: relative;
-        .leftTop-ruler{
+        .leftTop-ruler {
             position: absolute;
             width: 100%;
             height: 17px;
-            top:0;
+            top: 0;
             left: 0;
             background: #f0f0f0;
-            .top-ruler{
+            .top-ruler {
                 margin-left: 17px;
             }
-        };
-        .leftLeft-ruler{
+        }
+    ;
+        .leftLeft-ruler {
             position: inherit;
             width: 17px;
             top: 17px;
@@ -512,8 +523,9 @@
             height: -moz-calc(100% - 17px);
             height: calc(100% - 17px);
             background: #f0f0f0;
-        };
-        .left-content-ruler{
+        }
+    ;
+        .left-content-ruler {
             width: -webkit-calc(100% - 17px);
             width: -moz-calc(100% - 17px);
             width: calc(100% - 17px);
@@ -522,12 +534,12 @@
             height: calc(100% - 17px);
             position: absolute;
             left: 17px;
-            top:17px;
+            top: 17px;
             overflow: scroll;
             padding: 30px;
         }
     }
-    .right-ruler{
+    .right-ruler {
         display: inline-block;
         float: left;
         margin-left: 15px;
@@ -535,14 +547,14 @@
         width: -webkit-calc(100% - 770px - 15px);
         height: 535px;
         background: #f5f6f8;
-        .right-top{
+        .right-top {
             padding: 20px;
             background: #e8e9ed;
 
         }
-        .right-list{
+        .right-list {
             margin-top: 10px;
-            li{
+            li {
                 line-height: 36px;
                 padding: 0 20px;
             }
@@ -552,54 +564,55 @@
 
 //财富消息中心
 .main-tab {
-  border-bottom: solid 1px $border-color;
-  margin-bottom: 20px;
-  .main-tab-item {
-    display: inline-block;
-    padding: 0 10px 10px;
-    font-size: 14px;
-    line-height: 1;
-    position: relative;
-    min-width: 60px;
-    text-align: center;
-    cursor: pointer;
-    &:before {
-      content: " ";
-      width: 1px;
-      height: 14px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      background: $border-color;
+    border-bottom: solid 1px $border-color;
+    margin-bottom: 20px;
+    .main-tab-item {
+        display: inline-block;
+        padding: 0 10px 10px;
+        font-size: 14px;
+        line-height: 1;
+        position: relative;
+        min-width: 60px;
+        text-align: center;
+        cursor: pointer;
+        &:before {
+            content: " ";
+            width: 1px;
+            height: 14px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: $border-color;
+        }
+        &.current {
+            font-weight: 600;
+        }
+        &:nth-child(1) {
+            &:before {
+                width: 0;
+            }
+        }
+        .not-read {
+            background: $theme-color;
+            color: #ffffff;
+            padding: 0 3px;
+            font-size: 12px;
+            line-height: 1;
+            @include border-radius(6px);
+        }
     }
-    &.current {
-      font-weight: 600;
-    }
-    &:nth-child(1) {
-      &:before {
-        width: 0;
-      }
-    }
-    .not-read {
-      background: $theme-color;
-      color: #ffffff;
-      padding: 0 3px;
-      font-size: 12px;
-      line-height: 1;
-      @include border-radius(6px);
-    }
-  }
 }
+
 .main-filter {
-  margin-bottom: 20px;
-  font-size: 0;
-  .main-filter-item {
-    font-size: 12px;
-    margin: 0 10px 10px 0;
-    &.current {
-      background-color: $btn-fill-bg;
-      color: $btn-fill-color;
-      border: solid 1px $btn-fill-bg;
+    margin-bottom: 20px;
+    font-size: 0;
+    .main-filter-item {
+        font-size: 12px;
+        margin: 0 10px 10px 0;
+        &.current {
+            background-color: $btn-fill-bg;
+            color: $btn-fill-color;
+            border: solid 1px $btn-fill-bg;
+        }
     }
-  }
 }
