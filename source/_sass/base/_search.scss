@@ -1,0 +1,82 @@
+.search-group {
+    position: relative;
+    .search-dl {
+        display: inline-block;
+        margin: 10px 5px 0 0;
+        vertical-align: top;
+        position: relative;
+        dt {
+            font-size: 14px;
+            color: #6f7b91;
+            display: block;
+            line-height: 20px;
+            margin-bottom: 5px;
+        }
+    }
+}
+/*表格上面的工具栏样式*/
+.task-search {
+    font-size: 12px;
+    margin-bottom: 15px;
+    display: inline-block;
+    &.task-center {
+        text-align: center;
+    }
+    > a, > button {
+        margin-left: 20px;
+        width: inherit;
+    }
+    .search-dl {
+        float: right;
+        margin-right: 10px;
+        position: relative;
+        dd {
+            >label {
+                display: inline-block;
+                vertical-align: top;
+            }
+            >span.pre {
+                display: inline-block;
+                vertical-align: top;
+                line-height: 30px;
+            }
+        }
+        input[type="text"] {
+            width: 128px;
+        }
+    }
+    .upload-span {
+        color: $color-blue;
+        cursor: pointer;
+        margin-left: 45px;
+        float: left;
+        line-height: 32px;
+    }
+    .download-span {
+        color: $color-blue;
+        cursor: pointer;
+        margin-left: 45px;
+        float: left;
+        line-height: 32px;
+    }
+    .more-btn {
+        color: #007bff;
+        float: right;
+        line-height: 30px;
+        cursor: pointer;
+        margin-left: 13px;
+    }
+    input[type="text"] {
+        font-size: 12px;
+        width: 180px;
+        &.aql-input {
+            float: right;
+            margin-right: 10px;
+            outline: none;
+            @include border-radius(3px);
+        }
+        &.small-input {
+            width: 128px;
+        }
+    }
+}

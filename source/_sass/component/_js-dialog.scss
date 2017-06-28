@@ -165,3 +165,283 @@ iframe.anyChatIframe {
     }
   }
 }
+
+/*下面是弹窗的补充*/
+.js-dialog {
+    .js-dialog-bd {
+        color: $font-color;
+        padding-bottom: 20px;
+        div {
+            // line-height: 24px;
+        }
+        span.js-select {
+            background: transparent;
+            border: 1px solid $gaplinecolor;
+            width: 222px;
+        }
+        .form-add {
+            .form-group {
+                color: #9e9e9e;
+                text-align: left;
+                .important-label {
+                    font-weight: bold;
+                    color: $font-color;
+                }
+                input {
+                    width: 200px;
+                    margin-left: 5px;
+                }
+                textarea {
+                    width: 270px;
+                    margin-left: 5px;
+                }
+                .select-label {
+                    width: auto;
+                }
+                .time-last {
+                    padding: 5px;
+                }
+                .label {
+                    width: 95px;
+                }
+                &.time-group {
+                    .aql-label {
+                        width: 135px;
+                        .aql-input {
+                            width: 108px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+                &.textarea-group {
+                    .label {
+                        vertical-align: top;
+                    }
+                    .aql-label {
+                        width: 320px;
+                        .attr-panl {
+                            line-height: 37px;
+                        }
+                    }
+                    textarea {
+                        width: 260px;
+                        height: 79px;
+                        padding: 7px 13px;
+                        border: 1px solid $border-color;
+                        &.long-textarea {
+                            width: 381px;
+                        }
+                    }
+                }
+                .warin-message {
+                    width: 290px;
+                    display: inline-block;
+                    text-align: left;
+                }
+                .set-time {
+                    width: 410px;
+                    line-height: 47px;
+                    background-color: $bg-color;
+                    font-size: 12px;
+                    color: $font-color;
+                    .reset-div {
+                        display: inline-block;
+                        margin-left: 5px;
+                        input {
+                            width: 64px;
+                        }
+                        .reset-btn {
+                            cursor: pointer;
+                            color: $color-blue;
+                            margin-left: 20px;
+                        }
+                    }
+                    .time-title {
+                        display: inline-block;
+                        width: 57px;
+                        text-align: right;
+                    }
+                    .hour-div {
+                        display: inline-block;
+                        height: 39px;
+                        width: 200px;
+                        margin-left: 10px;
+                        margin-right: 8px;
+                        vertical-align: inherit;
+                        input {
+                            width: 74px;
+                            padding: 0 5px;
+                            margin: 0;
+                        }
+                    }
+                    .refresh-time {
+                        height: 28px;
+                        width: 25px;
+                        margin: 8px;
+                        padding: 0 5px;
+                    }
+                }
+            }
+            .btn-wrap {
+                padding-top: 21px;
+            }
+        }
+        .form-delete {
+            .form-group {
+                line-height: 30px;
+                font-size: 16px;
+                text-align: center;
+            }
+            .btn-wrap {
+                .btn-confirm, .btn-cancel {
+                    margin: 0 36px;
+                }
+            }
+        }
+        .btn-wrap {
+            padding-top: 31px;
+            .btn-confirm {
+                width: 72px;
+                line-height: 28px;
+                background-color: $theme-color;
+                @include box-sizing(border-box);
+                border: 1px solid $theme-color;
+                margin: 0 9px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .btn-cancel {
+                width: auto;
+                min-width: 72px;
+                height: 30px;
+                line-height: 30px;
+                @include box-sizing(border-box);
+                border: 1px solid $border-color;
+                color: #646e7c;
+                margin: 0 9px;
+                font-size: 14px;
+            }
+        }
+        .small-table {
+            width: 100%;
+            border: 1px solid $bg-color;
+            thead {
+                tr {
+                    th {
+                        background-color: $bg-color;
+                        padding: 5px 25px;
+                        color: #646e7c;
+                        text-align: right;
+                        border-bottom: 1px solid $bg-color;
+                    }
+                    th:first-child {
+                        text-align: right;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        padding: 10px 25px;
+                        color: $font-color;
+                        text-align: right;
+                        border-bottom: 1px solid $bg-color;
+                        .small-input {
+                            width: 46px;
+                            height: 16px;
+                            padding: 0;
+                            text-align: center;
+                            margin-right: 5px;
+                        }
+                        .insert-data {
+                            color: #007aff;
+                            cursor: pointer;
+                        }
+                    }
+                    td:first-child {
+                        text-align: left;
+                    }
+                }
+            }
+            &.big-table {
+                thead {
+                    tr {
+                        th {
+                            padding: 5px 20px 5px 25px;
+                        }
+                        th:first-child {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .js-dialog-close {
+        top: 11px;
+        right: 13px;
+        height: 16px;
+        width: 16px;
+        background: url(../images/caitong/close-3.png) no-repeat
+    }
+    .ui-pagenav {
+        margin: 110px 0 0 0;
+        .page-cf {
+            width: 640px;
+            .page-go {
+                padding: 0;
+            }
+        }
+    }
+
+    //档案记录
+    .dialog-file {
+        position: relative;
+        height: 300px;
+        .dialog-file-aside {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 150px;
+            overflow: hidden;
+            .file-name {
+                line-height: 1.2;
+                margin: 0 0 15px 0;
+                font-size: 13px;
+                color: #999999;
+            }
+            .current {
+                color: #000000;
+            }
+        }
+        .dialog-file-content {
+            margin: 0 0 0 165px;
+            height: 100%;
+            background: #ffffff;
+            padding: 0 15px;
+            border-left: solid 1px $border-color;
+            overflow: hidden;
+            overflow-y: auto;
+            .file-item-wrap {
+                height: 100%;
+                overflow: hidden;
+                overflow-y: auto;
+            }
+            .file-item {
+                margin-bottom: 10px;
+                font-size: 0;
+                .file-item-date {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+                .file-item-pic {
+                    display: inline-block;
+                    width: 50%;
+                    padding: 0 10px;
+                    @include box-sizing(border-box);
+                }
+            }
+        }
+    }
+}

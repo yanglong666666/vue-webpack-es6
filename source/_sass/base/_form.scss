@@ -1,0 +1,593 @@
+
+.dialog-item-wrap {
+    .view-back{
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+    .p-center{
+        text-align: center;
+        line-height: 60px;
+    }
+    .dialog-item-border {
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        margin-bottom: 50px;
+        margin-top: 10px;
+        .txt-right {
+            float: right;
+            color: #007aff;
+            font-size: 12px;
+            margin-right: 18px;
+            line-height: 36px;
+
+        }
+    }
+    .dialog-item-box-title {
+        line-height: 36px;
+        height: 36px;
+        background: $bg-color-light;
+        border-radius: 3px 3px 0 0;
+        border-bottom: solid 1px $border-color;
+        padding-left: 20px;
+        display: block;
+        .dia-col-blue {
+            display: inline-block;
+            width: 270px;
+            line-height: 36px;
+            color: $color-blue;
+            @include text-overflow;
+        }
+        .txt-right {
+            float: right;
+            margin-right: 20px;
+        }
+    }
+    .dialog-item-box-body {
+        margin: 20px 0;
+        .dialog-item {
+            .dialog-left {
+                &.dialog-left-top{
+                    vertical-align: top;
+                    padding-top: 10px;
+                }
+                &.dialog-left-short {
+                    width: 115px
+                }
+                &.dialog-left-diff {
+                    padding-top: 20px;
+                }
+                &.dialog-left-black {
+                    color: #000000;
+                    font-weight: 600;
+                }
+
+            }
+            .dialog-right {
+                &.dialog-right-short {
+                    ul {
+                        @include clearfix();
+                        li {
+                            display: inline-block;
+                            float: left;
+                            margin-right: 20px;
+                            line-height: 30px;
+                            cursor: pointer;
+                            &.on {
+                                color: #007aff;
+                            }
+                        }
+                    }
+                };
+                .dialog-right-wrap{
+                    margin-bottom: 5px;
+                    .txt-name{
+                        width: 120px;
+                        display: inline-block;
+                        color: #999;
+                    }
+
+                }
+            }
+
+        }
+    }
+    .dialog-item {
+        margin: 0 0 15px 0;
+        font-size: 0;
+        line-height: 32px;
+        position: relative;
+        .special-item {
+            height: 30px !important;
+
+        }
+        .w50p {
+            position: relative;
+            .dialog-left {
+                width: 30%;
+            }
+            .dialog-right {
+                width: 70%;
+            }
+            &.w50p-change {
+                position: absolute;
+            }
+            &.w50p-changes {
+                left: 50%;
+            }
+            .dialog-left {
+                padding-left: 0;
+            }
+        }
+        .dialog-left {
+            display: inline-block;
+            line-height: 16px;
+            padding: 0 24px 0 24px;
+            color: #666;
+            width: 15%;
+            text-align: right;
+            vertical-align: middle;
+            font-size: 13px;
+            &.must-icon:before {
+                content: "*";
+                position: absolute;
+                color: red;
+                top: 0;
+                margin-left: -12px;
+                line-height: 16px;
+                font-size: 16px;
+                vertical-align: top;
+                margin-top: 10px;
+            }
+        }
+        .dialog-right {
+            font-size: 13px;
+            color: $font-color;
+            width: 85%;
+            white-space: normal;
+            margin: 0;
+            line-height: 30px;
+            display: inline-block;
+            vertical-align: middle;
+            .ztree {
+                a {
+                    color: #333 !important;
+                }
+            }
+            .list-add {
+                padding: 10px;
+                li {
+                    color: #2385ea;
+                    line-height: 30px;
+                    &.col-blocks{
+                        color: #666;
+                        margin-bottom: 15px;
+                        margin-left: 10px;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        ul{
+                            li{
+                                color: #666;
+                            }
+                        }
+                        .list-change{
+                            background: #e8e9ed;
+                            padding: 15px 10px;
+                            margin: 15px 20px 0px;
+                            .ul-list-wrap{
+                                margin-bottom: 20px;
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                                .dialog-input-height{
+                                    background: #fff;
+                                }
+                            }
+                        }
+                    }
+                    .ul-list{
+                        color: #333;
+                        margin-right: 10px;
+                    }
+                    .ul-money{
+                        color: #333;
+                        margin-left: 10px;
+                    }
+
+                }
+            }
+            .upload-item {
+                line-height: 40px;
+                .upload-title {
+                    width: 100px;
+                    display: inline-block;
+                    text-align: right;
+                    margin-right: 20px;
+                    line-height: 20px;
+                    vertical-align: middle;
+                    position: relative;
+                    &:after {
+                        content: "：";
+                        position: absolute;
+                        line-height: 20px;
+                        top: 50%;
+                        margin-top: -10px;
+                        right: -10px;
+                    }
+                }
+                .grey-add {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+            }
+            .dialog-wrap {
+                width: 100%;
+                .dialog-top {
+                    width: 100%;
+                    .dialog {
+                        display: inline-block;
+                        width: 50%;
+                        background-color: #C9D1DF;
+                        color: #333;
+                        line-height: 30px;
+                        text-align: center;
+                        @include box-sizing(border-box);
+                        &:nth-child(1) {
+                            border-right: solid 1px $border-color;
+                        }
+                    }
+                }
+                .dialog-content {
+                    width: 100%;
+                    background-color: #E1E6EF;
+                    height: 140px;
+                    overflow: hidden;
+                    overflow-y: auto;
+                    padding: 5px 10px 0;
+                    cursor: default;
+                    @include box-sizing(border-box);
+                    .dialog-content-item {
+                        line-height: 20px;
+                        position: relative;
+                        margin-bottom: 5px;
+                        padding-left: 17px;
+                        .content-left, .content-right {
+                            width: 50%;
+                            display: inline-block;
+                        }
+                        .content-left {
+                            position: relative;
+                            padding-right: 5px;
+                            @include box-sizing(border-box);
+                            .content-input {
+                                position: absolute;
+                                top: 3px;
+                                left: -17px;
+                                width: 16px;
+                                height: 16px;
+                                vertical-align: top;
+                                cursor: pointer;
+                            }
+                        }
+                        .content-right {
+                            vertical-align: top;
+                            text-align: center;
+                            line-height: 20px;
+                            .content-radio {
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 5px;
+                                margin-top: 3px;
+                                vertical-align: top;
+                                cursor: pointer;
+                            }
+                            .content-space {
+                                display: inline-block;
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+            .dialog-span {
+                color: #666;
+                margin-left: 5px;
+            }
+            .dialog-textarea {
+                display: inline-block;
+                height: 80px;
+                width: 222px;
+                max-width: 100%;
+                box-sizing: border-box;
+                outline: none;
+                padding: 3px 10px;
+                font-size: 13px;
+                overflow: hidden;
+                line-height: 24px;
+                background: transparent;
+                border: 1px solid #e5e5e5;
+                text-indent: 0;
+                @include border-radius(3px);
+                overflow-y: scroll;
+                &.no-resize {
+                    resize: none;
+                }
+            }
+            .dialog-divbox {
+                display: inline-block;
+                min-height: 80px;
+                width: 220px;
+                box-sizing: border-box;
+                padding: 10px;
+                overflow: hidden;
+                white-space: normal;
+                border: 1px solid $border-color;
+                @include border-radius(3px);
+                position: relative;
+                .item-btn {
+                    display: table;
+                    padding: 2px 30px 2px 8px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    border: 1px solid #3c95e9;
+                    color: #3c95e9;
+                    @include border-radius(3px);
+                    margin-bottom: 8px;
+                    position: relative;
+                    &:after {
+                        cursor: pointer;
+                        position: absolute;
+                        content: '';
+                        background: url(../images/cfarchives/delete-ico.png) 0 0 no-repeat;
+                        right: 8px;
+                        top: 4px;
+                        height: 12px;
+                        width: 10px;
+                    }
+                }
+                .add-item-btn {
+                    position: absolute;
+                    right: 10px;
+                    cursor: pointer;
+                }
+            }
+            .dialog-divbox2 {
+                .log-tl {
+                    color: #3c95e9;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+            .dialog-input {
+                line-height: 28px;
+                height: 28px;
+                padding: 0;
+                outline: none;
+                background: transparent;
+                width: 222px;
+                @include border-radius(3px);
+                border: 1px solid #e5e5e5;
+                padding-left: 8px;
+                @include box-sizing(border-box);
+                &.dialog-input-height{
+                    height: 30px;
+                    line-height: 30px;
+                }
+                &:disabled {
+                    color: #a6a6a6;
+                }
+                &.not-all {
+                    width: 150px;
+                    margin-right: 10px;
+                }
+            }
+            .tips {
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 12px;
+                color: #999999;
+            }
+            a {
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 12px;
+                color: #007aff;
+            }
+            .dialog-input-long {
+                line-height: 20px;
+                padding: 5px 10px;
+                outline: none;
+                background: transparent;
+                min-width: 455px;
+                max-width: 455px;
+                @include border-radius(3px);
+                border: 1px solid $border-color;
+                margin-bottom: 7px;
+                display: block;
+                &:disabled {
+                    color: #a6a6a6;
+                }
+            }
+            .textarea-add {
+                position: absolute;
+                top: 5px;
+                left: 650px;
+            }
+            .textarea-delete {
+                position: absolute;
+                top: 5px;
+                left: 695px;
+            }
+            .checkbox-item {
+                display: inline-block;
+                margin-right: 40px;
+                padding: 4px 0;
+                &.checkAll-item {
+                    display: block;
+                }
+            }
+            .checkout-block {
+                display: block;
+                .checkbox-declare {
+                    width: auto;
+                    &.checkbox-declare-black {
+                        color: #000;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .btn-declare {
+                margin-left: 10px;
+                width: 120px;
+                height: 30px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                vertical-align: top;
+                display: inline-block;
+                line-height: 30px;
+                .grey-add {
+                    padding-top: 7px;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+            .checkbox-declare {
+                margin-left: 5px;
+                width: 120px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                vertical-align: top;
+                display: inline-block;
+                line-height: 24px;
+            }
+            &.small-item {
+                span.js-select {
+                    width: 120px;
+                    margin-right: 10px;
+                }
+            }
+            > label {
+                height: 30px;
+                line-height: 30px;
+                margin-right: 10px;
+                overflow: hidden;
+                cursor: pointer;
+                vertical-align: middle;
+                input[type="radio"], input[type="checkbox"] {
+                    width: 16px;
+                    height: 16px;
+                    vertical-align: top;
+                    margin: 7px 5px 0 0;
+                }
+            }
+        }
+        .dialog-item-tips {
+            color: $color-red;
+            font-size: $small-font-size;
+            margin-left: 105px;
+        }
+    }
+}
+
+.js-dialog {
+    .dialog-item-wrap {
+        .dialog-item {
+            .dialog-left {
+                width: 100px;
+                padding: 0 15px;
+            }
+            .dialog-right {
+                width: 180px;
+                .dialog-input {
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+
+
+
+//修改select2样式
+.je-select2-wrap {
+    position: relative;
+    display: inline-block;
+    .icon-select2 {
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        display: inline-block;
+        width: 9px;
+        height: 5px;
+        vertical-align: middle;
+        background: url(../images/icolist.png) -60px -50px no-repeat;
+
+    }
+}
+select.js-example-basic-multiple,select.select2 {
+    display: none;
+}
+.select2-container {
+    .selection {
+        .select2-selection--multiple {
+            width: 222px;
+            border: 1px solid $border-color !important;
+            line-height: 27px;
+            color: #333;
+            @include border-radius(3px);
+            &.active {
+                border: 1px solid $border-color;
+            }
+            .select2-selection__rendered {
+                vertical-align: middle;
+                margin-right: 13px;
+                .select2-selection__choice {
+                    line-height: 19px;
+                    margin: 2px 3px 0 0 ;
+                }
+            }
+        }
+    }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #f0efee !important;
+    color: #4D4D4D !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"] {
+    background-color: #f0efee !important;
+}
+
+.select2-container .select2-selection--multiple {
+    min-height: 30px !important;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    vertical-align: top;
+    height: 24px;
+}
+.select2-container--default {
+    .select2-selection--single {
+        outline: none;
+        .select2-selection__rendered {
+            line-height: 28px;
+        }
+        .select2-selection__arrow {
+            right: 6px;
+            b {
+                border-color: #707A86 transparent transparent transparent;
+                border-width: 5px 5px 0 5px;
+            }
+        }
+    }
+
+    &.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: #707A86 transparent transparent transparent;
+        border-width: 5px 5px 0 5px;
+    }
+}

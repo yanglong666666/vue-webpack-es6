@@ -6,17 +6,17 @@ $btn-fill-color: #fff !default;
 //灰色背景
 $btn-deny-color: $color-grey !default;
 
+// color
+$btn-blue-color:#007aff !default;
+$btn-color-gray: #7d7d7d;
 $btn-font-weight: normal !default;
 
 
-$btn-primary-bg: $color-blue !default;
-$btn-primary-color:#f1374d !default;
+$btn-primary-bg: $btn-blue-color !default;
+$btn-primary-color:$btn-blue-color !default;
 
 $btn-hollow-color: #3f88cc !default;
 $btn-hollow-bg: #fff !default;
-$btn-blue-color:#007aff !default;
-// color
-$btn-color-gray: #7d7d7d;
 
 
 .btn-lg {
@@ -56,7 +56,7 @@ $btn-color-gray: #7d7d7d;
   cursor: pointer;
   @include button-size(0, 7px, 14px, 28px, 3px);
   white-space: nowrap;
-  width: 72px;
+  min-width: 72px;
   background-color: #ffffff;
   color: $theme-color;
   border: solid 1px $theme-color;
@@ -89,11 +89,6 @@ $btn-color-gray: #7d7d7d;
     border: none !important;
     color: #007aff !important;
 }
-.btn-primary-white {
-  background-color: #ffffff;
-  color: $btn-primary-color;
-  border-color: $btn-primary-color;
-}
 .btn-primary-fill {
   background-color: $btn-primary-color;
   color: #ffffff;
@@ -116,7 +111,7 @@ $btn-color-gray: #7d7d7d;
 }
 
 .btn-hollow {
-  width: 115px;
+    min-width: 115px;
   @extend %btn;
   background-color: transparent;
   color: $btn-hollow-color;
@@ -164,7 +159,7 @@ $btn-color-gray: #7d7d7d;
 
 .btn-lg {
   @include button-size(0, 7px, 16px, 28px, 3px);
-  width: 88px;
+  min-width: 88px;
 }
 
 .btn-medium {
@@ -173,21 +168,54 @@ $btn-color-gray: #7d7d7d;
 
 .btn-small {
   @include button-size(0, 6px, 12px, 28px, 3px);
-  width: inherit;
+  min-width: inherit;
 }
 .btn-long {
   @include button-size(0, 7px, 14px, 28px, 3px);
-  width: inherit;
+  min-width: inherit;
 }
 .btn-file {
   height: 30px;
-  width: 82px;
+    min-width: 82px;
     cursor: pointer;
   outline: none;
 }
 
-.btn-simple{
+.btn-simple {
     border:none;
     background:transparent;
-    padding:0;
+    min-width: inherit;
+}
+
+.button-content {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page-footer-button-container {
+    text-align: left;
+    margin-left: 140px;
+    .btn {
+        margin: 0 5px;
+    }
+    span {
+        display: inline-block;
+        height: 16px;
+        line-height: 16px;
+        margin-left: 20px;
+        position: relative;
+        color: #7d7d7d;
+        text-indent: 20px;
+        i {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url(../images/caitong/loading.png);
+            position: absolute;
+            left: 0px;
+            top: 0;
+        }
+
+    }
 }
