@@ -10,65 +10,27 @@ layout: default-iframe
         }).on('mouseout', function () {
             $(this).find('.sub-group').hide();
         });
+
+        $('.overflow-show-title').find('td').each(function(){
+            $(this).attr('title',$(this).text());
+            $('.text-c').removeAttr('title');
+        });
     });
 
 </script>
 <br/>
-<h2>th不定宽，不加width——自适应，除非撑满才会换行</h2>
+<h2>普通table<span class="font-green">（定width，换行，推荐）</span></h2>
 <div class="main-table">
     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
         <thead>
         <tr>
-            <th>序号</th>
-            <th>文档名称</th>
-            <th>支持格式</th>
-            <th>文件状态</th>
-            <th>版本号</th>
-            <th>上传时间</th>
-            <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>001</td>
-            <td><a href="">《产品说明书》</a></td>
-            <td>word/pdf/纯文本</td>
-            <td>正常</td>
-            <td>V1.0</td>
-            <td>2017-03-06 10:01</td>
-            <td class="text-c">
-                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
-            </td>
-        </tr>
-        <tr class="even">
-            <td>001</td>
-            <td><a href="">《风险揭示书》</a></td>
-            <td>word/pdf/纯文本</td>
-            <td>未上传</td>
-            <td>未上传</td>
-            <td>未上传</td>
-            <td class="text-c">
-                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<br/>
-<h2>th定宽，加width——layout-fixed——自适应，换行的td必须加width</h2>
-<div class="main-table layout-fixed">
-    <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-        <thead>
-        <tr>
-            <th>序号</th>
-            <th>文档名称</th>
-            <th width="15%">支持格式</th>
-            <th>文件状态</th>
-            <th>版本号</th>
-            <th>上传时间</th>
-            <th>操作</th>
+            <th width="10%">序号</th>
+            <th width="10%">文档名称</th>
+            <th width="20%">支持格式</th>
+            <th width="10%">文件状态</th>
+            <th width="10%">版本号</th>
+            <th width="20%">上传时间</th>
+            <th width="10%">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -100,7 +62,7 @@ layout: default-iframe
     </table>
 </div>
 <br/>
-<h2>省略号——overflow-pop标签默认width=200px，也可以在style上设置width</h2>
+<h2>overflow-pop标签默认width=200px，也可以在style上设置width<span class="font-red">（比较麻烦，可能会出现问题，不推荐）</span></h2>
 <div class="main-table">
     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
         <thead>
@@ -119,7 +81,7 @@ layout: default-iframe
             <td>001</td>
             <td><a href="">《产品说明书》</a></td>
             <td>
-                <div class="overflow-pop-up" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
+                <div class="overflow-pop-up" style="width: 200px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
             </td>
             <td>正常</td>
             <td>V1.0</td>
@@ -131,13 +93,56 @@ layout: default-iframe
         </tr>
         <tr class="even">
             <td>001</td>
-            <td><a href="">《风险揭示书》</a></td>
+            <td><a href="">《产品说明书》</a></td>
             <td>
-                <div class="overflow-pop-up" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
+                <div class="overflow-pop-down" style="width: 200px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
             </td>
-            <td>未上传</td>
-            <td>未上传</td>
-            <td>未上传</td>
+            <td>正常</td>
+            <td>V1.0</td>
+            <td>2017-03-06 10:01</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<h2>overflow-show-title，使用title方式<span class="font-green">（简单，兼容性强，推荐）</span></h2>
+<div class="main-table">
+    <table width="100%" cellpadding="0" cellspacing="0" class="data-table overflow-show-title">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>文档名称</th>
+            <th>支持格式</th>
+            <th>文件状态</th>
+            <th>版本号</th>
+            <th>上传时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td><a href="">《产品说明书》</a></td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>正常</td>
+            <td>V1.02</td>
+            <td>2017-03-06 10:01</td>
+            <td class="text-c">
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
+                <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>002</td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
+            <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
             <td class="text-c">
                 <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
                 <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
@@ -147,28 +152,28 @@ layout: default-iframe
     </table>
 </div>
 <br/>
-<h2>td太多——scroll-table——不允许换行、可以放overflow-pop</h2>
+<h2>scroll-table——不允许换行、<span class="font-green">（可以使用overflow-show-title，推荐）</span></h2>
 <div class="main-table clearfix">
     <div class="scroll-table">
-        <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+        <table cellpadding="0" cellspacing="0" class="data-table overflow-show-title">
             <thead>
             <tr>
-                <th width="10%">序号</th>
-                <th width="10%">产品名称</th>
-                <th width="10%">产品代码</th>
-                <th width="10%">计息期限</th>
-                <th width="20%">业绩提成基（年华）</th>
-                <th width="15%">申购日期</th>
-                <th width="15%">起息日</th>
-                <th width="15%">到期日</th>
-                <th width="10%">提成</th>
-                <th width="20%">总预约金额（万元）</th>
-                <th width="20%">已预约金额（万元）</th>
-                <th width="15%">总预约人数</th>
-                <th width="15%">已预约人数</th>
-                <th width="20%">预约开始时间</th>
-                <th width="20%">预约结束时间</th>
-                <th width="15%">预约状态</th>
+                <th>序号</th>
+                <th>产品名称</th>
+                <th>产品代码</th>
+                <th>计息期限</th>
+                <th>业绩提成基（年华）</th>
+                <th>申购日期</th>
+                <th>起息日</th>
+                <th>到期日</th>
+                <th>提成</th>
+                <th>总预约金额（万元）</th>
+                <th>已预约金额（万元）</th>
+                <th>总预约人数</th>
+                <th>已预约人数</th>
+                <th>预约开始时间</th>
+                <th>预约结束时间</th>
+                <th>预约状态</th>
             </tr>
             </thead>
             <tbody>
@@ -181,9 +186,7 @@ layout: default-iframe
                 <td>2017-05-02</td>
                 <td>2017-05-03</td>
                 <td>2017-06-06</td>
-                <td>
-                    <div class="overflow-pop-down" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
-                </td>
+                <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
                 <td>7000</td>
                 <td>1000</td>
                 <td>200</td>
@@ -201,16 +204,14 @@ layout: default-iframe
                 <td>2017-05-02</td>
                 <td>2017-05-03</td>
                 <td>2017-06-06</td>
-                <td>
-                    <div class="overflow-pop-up" style="width: 300px;">word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</div>
-                </td>
+                <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
                 <td>7000</td>
                 <td>1000</td>
                 <td>200</td>
                 <td>100</td>
                 <td>2017-05-17 09:30</td>
                 <td>2017-05-17 09:30</td>
-                <td>已结束</td>
+                <td>预约中</td>
             </tr>
             </tbody>
         </table>
