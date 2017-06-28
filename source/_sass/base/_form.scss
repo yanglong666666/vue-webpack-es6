@@ -314,6 +314,9 @@
                 &.no-resize {
                     resize: none;
                 }
+                &.error{
+                    border-color: $color-red;
+                }
             }
             .dialog-divbox {
                 display: inline-block;
@@ -381,6 +384,9 @@
                 &.not-all {
                     width: 150px;
                     margin-right: 10px;
+                }
+                &.error {
+                    border-color: $color-red;
                 }
             }
             .tips {
@@ -484,6 +490,17 @@
                     margin: 7px 5px 0 0;
                 }
             }
+            label.error {
+                overflow: visible;
+            }
+            select.error {
+                & + label.error + span.js-select{
+                    border-color: $color-red;
+                }
+                & + label.error + span.select2 .select2-selection {
+                    border-color: $color-red;
+                }
+            }
         }
         .dialog-item-tips {
             color: $color-red;
@@ -509,7 +526,31 @@
         }
     }
 }
-
+label.error {
+    display: block;
+    color: #ff1717 !important;
+    text-align: left;
+    text-indent: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: 0 !important;
+    height: 0!important;
+    line-height: 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+    padding-left: 18px;
+    position: absolute;
+    bottom: 0;
+    &:before {
+        content: " ";
+        width: 16px;
+        height: 16px;
+        background: url(../images/icon/delete-on.png) no-repeat;
+        position: absolute;
+        top: -1px;
+        left: 0;
+    }
+}
 
 
 //修改select2样式
@@ -534,10 +575,8 @@ select.js-example-basic-multiple,select.select2 {
 .select2-container {
     .selection {
         .select2-selection--multiple {
-            width: 222px;
-            border: 1px solid $border-color !important;
+            border: 1px solid $border-color;
             line-height: 27px;
-            color: #333;
             @include border-radius(3px);
             &.active {
                 border: 1px solid $border-color;

@@ -14,6 +14,7 @@ span.js-select {
   word-wrap: normal;
   width: 128px;
   box-sizing: border-box;
+  height: 28px;
   line-height: 28px;
   background-color: white;
   border: 1px solid $border-color;
@@ -41,6 +42,7 @@ span.js-select {
   zoom: 1;
   margin-top: 2px;
   li {
+    min-height: 35px;
     line-height: 35px;
     padding: 0 10px;
     white-space: nowrap;
