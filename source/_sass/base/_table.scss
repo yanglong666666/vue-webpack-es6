@@ -31,11 +31,16 @@
                         color: #e4788c;
                     }
                 }
-                .icon-tab {
-                    display: inline-block;
-                    width: 8px;
-                    height: 11px;
-                    background-image: url(../images/caitong/grey-tab.png);
+                &.icon-tab {
+                    cursor: pointer;
+                    &:after {
+                        content: "";
+                        display: inline-block;
+                        width: 8px;
+                        height: 11px;
+                        background: url(../images/caitong/grey-tab.png) no-repeat;
+                        margin: 0 0 0 2px;
+                    }
                 }
             }
         }

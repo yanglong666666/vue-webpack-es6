@@ -1,0 +1,88 @@
+---
+title: search
+layout: default-iframe
+---
+
+<script type="text/javascript">
+    $(function () {
+        $('.diy-select').diySelect();
+        $('.begin-time-1').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time-1').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.end-time-1').datepicker({
+            onClose: function (selectedDate) {
+                $('.begin-time-1').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+
+
+        $('.search-more-btn').on('click',function(){
+            $(this).toggleClass('opened');
+            $(this).parents('.task-search-new').find('.more').toggleClass('on');
+            if($(this).hasClass('opened')){
+                $(this).text('收起');
+            }else{
+                $(this).text('更多');
+            }
+        });
+    });
+
+</script>
+<br/>
+<div class="task-search task-search-new clearfix">
+    <div class="left">
+        <dl class="search-dl on">
+            <dd>
+                <label>
+                    <input class="txt begin-time-1" type="text" placeholder="开始时间" readonly/>
+                    <i></i>
+                </label>
+                <span class="pre">至</span>
+                <label>
+                    <input class="txt end-time-1" type="text" placeholder="截止时间" readonly/>
+                    <i></i>
+                </label>
+            </dd>
+        </dl>
+        <dl class="search-dl on">
+            <dd>
+              <span>
+                <select id="select_1_1" class="diy-select" style="display: none;">
+                    <option value="" selected="">选择营业部</option>
+                    <option value="1">111</option>
+                    <option value="2">222</option>
+                </select>
+              </span>
+            </dd>
+        </dl>
+        <input type="text" class="aql-input small-input on" placeholder="产品代码">
+        <input type="text" class="aql-input small-input on" placeholder="产品代码">
+        <input type="text" class="aql-input small-input on" placeholder="产品代码">
+        <input type="text" class="aql-input small-input more" placeholder="产品代码">
+        <input type="text" class="aql-input small-input more" placeholder="产品代码">
+        <input type="text" class="aql-input small-input more" placeholder="产品代码">
+        <input type="text" class="aql-input small-input more" placeholder="产品代码">
+        <input type="text" class="aql-input small-input more" placeholder="产品代码">
+    </div>
+    <div class="right">
+        <div class="search-more-btn">更多<i></i></div>
+        <button class="btn search-btn">搜索</button>
+    </div>
+    <div class="handle-wrap">
+        <a class="btn btn-primary btn-simple">导出</a>
+        <a class="btn btn-primary btn-simple">导出</a>
+        <a class="btn btn-primary btn-simple">导出</a>
+    </div>
+</div>

@@ -15,7 +15,32 @@ layout: default-iframe
             $(this).attr('title',$(this).text());
             $('.text-c').removeAttr('title');
         });
+
+
+        $('.icon-tab').on('click',function(){
+            var $tbody = $(this).parents('table').find('tbody');
+            $tbody.html('');
+            var data = [{},{}];
+            data.forEach(function(){
+                var item = this;
+                $tbody.append(
+                    '<tr>'+
+                    '<td>001</td>'+
+                    '<td><a href="">《产品说明书》</a></td>'+
+                    '<td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>'+
+                    '<td>正常</td>'+
+                    '<td>V1.0</td>'+
+                    '<td>2017-03-06 10:01</td>'+
+                    '<td class="text-c">'+
+                    '<a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>\n'+
+                    '<a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>'+
+                    '</td>'+
+                    '</tr>'
+                );
+            });
+        });
     });
+
 
 </script>
 <br/>
@@ -28,7 +53,7 @@ layout: default-iframe
             <th width="10%">文档名称</th>
             <th width="20%">支持格式</th>
             <th width="10%">文件状态</th>
-            <th width="10%">版本号</th>
+            <th width="10%" class="icon-tab">版本号</th>
             <th width="20%">上传时间</th>
             <th width="10%">操作</th>
         </tr>
@@ -51,8 +76,8 @@ layout: default-iframe
             <td><a href="">《风险揭示书》</a></td>
             <td>word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本word/pdf/纯文本</td>
             <td>未上传</td>
-            <td>未上传</td>
-            <td>未上传</td>
+            <td>v1.1</td>
+            <td>2017-03-06 10:02</td>
             <td class="text-c">
                 <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
                 <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
