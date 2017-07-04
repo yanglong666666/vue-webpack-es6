@@ -79,10 +79,13 @@ layout: default-iframe
     <div class="right">
         <div class="search-more-btn">更多<i></i></div>
         <button class="btn search-btn">搜索</button>
-    </div>
-    <div class="handle-wrap">
         <a class="btn btn-primary btn-simple">导出</a>
         <a class="btn btn-primary btn-simple">导出</a>
         <a class="btn btn-primary btn-simple">导出</a>
     </div>
+    <script type="text/javascript">
+        $(function(){
+            $('.task-search-new .left').css('margin-right',$('.task-search-new .right').width() + 15);
+        });
+    </script>
 </div>
