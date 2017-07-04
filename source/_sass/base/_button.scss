@@ -111,7 +111,6 @@ $btn-hollow-bg: #fff !default;
 }
 
 .btn-hollow {
-    min-width: 115px;
   @extend %btn;
   background-color: transparent;
   color: $btn-hollow-color;
