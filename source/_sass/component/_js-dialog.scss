@@ -89,8 +89,10 @@
 .js-mask {
   display: block;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   background-color: #000;
   @include opacity(.15);
 }
