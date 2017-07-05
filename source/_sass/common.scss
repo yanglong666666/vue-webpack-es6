@@ -705,7 +705,7 @@ input[type="text"] {
 
 .dl-list {
     display: inline-block;
-    width: 237px;
+    width: 280px;
     border: 1px solid $border-color;
     background: #FFFFFF;
     margin: 0px 5px 10px 5px;
@@ -726,12 +726,12 @@ input[type="text"] {
         padding: 6px 10px;
     }
     dd {
-        height: 90px;
+        height: 110px;
         .right {
             display: inline-block;
             float: right;
             height: 100%;
-            width: 174px;
+            width: 216px;
             @include box-sizing(border-box);
             padding: 14px 10px;
             color: $font-color-sub;
@@ -741,13 +741,15 @@ input[type="text"] {
             text-align: left;
             &.p-right-top {
                 margin-bottom: 3px;
+                position: relative;
                 .col-red {
-                    display: inline-block;
-                    float: right;
                     color: $theme-color;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    max-width: 90px;
                 }
             }
-        ;
             &.p-right-center {
                 margin-bottom: 4px;
             }
@@ -755,13 +757,13 @@ input[type="text"] {
         .left {
             float: left;
             width: 60px;
-            height: 90px;
-            line-height: 65px;
+            height: 110px;
+            line-height: 85px;
             border-right: solid 1px $border-color;
             padding: 10px 15px;
             .level {
                 font-size: 14px;
-                line-height: 20px;
+                line-height: 24px;
                 text-align: center;
                 display: inline-block;
                 vertical-align: middle;
