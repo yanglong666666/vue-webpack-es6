@@ -18,25 +18,26 @@ layout: default-iframe
             yearRange: '1990:2017'
         });
 
-        setTimeout(function(){
+        setTimeout(function () {
             $('.loading-small').hide();
             $('.list-wrap').show();
-        },5000);
+        }, 5000);
 
 
+        var currentYear = 2017;
+        var currentMonth = 7;
         var calendar_setting_legends = [
-            {color: "#FE734A",text: "引入"},
-            {color: "#F8A20F",text: "开放"},
-            {color: "#5EAEE3",text: "销售"},
-            {color: "#B3B3B3",text: "到期"}
+            {color: "#FE734A", text: "引入",total:"2"},
+            {color: "#F8A20F", text: "开放",total:"3"},
+            {color: "#5EAEE3", text: "销售",total:"4"},
+            {color: "#B3B3B3", text: "到期",total:"5"}
         ];
         var calendar_setting_events = [
             {
                 id: 0,
-                num: 7,
-                title: '7个',
-                start: '2017-06-12',
-                end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
+                title: '2个',
+                start: '20170612',
+                end: '20170619',  //end要多加1天。这里会选中2017-06-12至2017-06-17
                 color: "white",
                 backgroundColor: calendar_setting_legends[0].color,
                 borderColor: calendar_setting_legends[0].color,
@@ -45,10 +46,9 @@ layout: default-iframe
             },
             {
                 id: 0,
-                num: 1,
-                title: '1个',
-                start: '2017-06-27',
-                end: '2017-06-27',
+                title: '2个',
+                start: '20170627',
+                end: '20170627',
                 color: "white",
                 backgroundColor: calendar_setting_legends[0].color,
                 borderColor: calendar_setting_legends[0].color,
@@ -57,10 +57,9 @@ layout: default-iframe
             },
             {
                 id: 1,
-                num: 3,
                 title: '3个',
-                start: '2017-06-25',
-                end: '2017-06-28',
+                start: '20170625',
+                end: '20170628',
                 color: "white",
                 backgroundColor: calendar_setting_legends[1].color,
                 borderColor: calendar_setting_legends[1].color,
@@ -69,10 +68,9 @@ layout: default-iframe
             },
             {
                 id: 2,
-                num: 3,
-                title: '3个',
-                start: '2017-06-27',
-                end: '2017-06-30',
+                title: '4个',
+                start: '20170627',
+                end: '20170630',
                 color: "white",
                 backgroundColor: calendar_setting_legends[2].color,
                 borderColor: calendar_setting_legends[2].color,
@@ -81,9 +79,8 @@ layout: default-iframe
             },
             {
                 id: 3,
-                num: 1,
-                title: '1个',
-                start: '2017-06-27',
+                title: '5个',
+                start: '20170627',
                 color: "white",
                 backgroundColor: calendar_setting_legends[3].color,
                 borderColor: calendar_setting_legends[3].color,
@@ -91,17 +88,72 @@ layout: default-iframe
                 editable: false
             }
         ];
-        $('#big-calendar-1').diyFullCalendar({
-            width: "45%",
-            legends: calendar_setting_legends,
-            events:  calendar_setting_events,
-            onSelected: function(start,end){
-                end.setDate(end.getDate() - 1);
 
+        var $calendarWrap = $('#big-calendar-1');
+        $calendarWrap.diyFullCalendar({
+            width: "540px",
+            legends: calendar_setting_legends,
+            events: calendar_setting_events,
+            onSelected: function (start, end) {
+                end.setDate(end.getDate() - 1);
                 console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
                 console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
+            },
+            eventAfterAllRender: function (view) {
+                currentMonth = view.end._d.getMonth();
+                updateLegend();
             }
         });
+
+        $calendarWrap.find('.fc-next-button,.fc-prev-button').on('click', function () {
+            console.log(currentYear + '-' + currentMonth);
+            //先去掉所有数据
+            $calendarWrap.find('.big-calendar').fullCalendar('removeEvents');
+            //根据currentYear，currentMonth来调接口，返回数据放入calendar_setting_legends，calendar_setting_events
+            //模拟ajax返回后的数据
+            calendar_setting_legends = [
+                {color: "#FE734A", text: "引入",total:"2"},
+                {color: "#F8A20F", text: "开放",total:"3"}
+            ];
+            calendar_setting_events = [{
+                id: 0,
+                num: 30,
+                title: '30个',
+                start: '20170801',
+                end: '20170830',
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
+            }, {
+                id: 1,
+                num: 2,
+                title: '2个',
+                start: '20170827',
+                end: '20170829',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            }];
+            //渲染数据
+            $calendarWrap.find('.big-calendar').fullCalendar('renderEvents', calendar_setting_events);
+            updateLegend();
+        });
+
+        function updateLegend() {
+            $calendarWrap.find('.calendar-legend-item-wrap').html('');
+            calendar_setting_legends.forEach(function (item1) {
+                $calendarWrap.find('.calendar-legend-item-wrap').append('<div class="calendar-legend-item"><i style="background-color: ' + item1.color + ' "></i> ' + item1.text + '(' + item1.total + '个) </div>')
+            });
+            $calendarWrap.find('.calendar-legend-item').on('click', function () {
+                var $self2 = $(this);
+                $self2.addClass('active').siblings('.calendar-legend-item').removeClass('active');
+                $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
+            }).eq(0).click();
+        }
     });
 </script>
 
@@ -186,8 +238,56 @@ layout: default-iframe
 <div class="list-content">
     <div id="big-calendar-1">
         <div class="big-calendar"></div>
-        <div class="calendar-legend">
+        <div class="calendar-legend calendar-legend-tab">
             <div class="calendar-legend-item-wrap"></div>
+        </div>
+        <div class="calendar-content-wrap">
+            <div class="calendar-content-item">
+                <div class="list-detail">
+                    <div class="loading-small">
+                        <div class="loading-small-text">正在加载..</div>
+                    </div>
+                    <div class="list-wrap" style="display:none;">
+                        {% include component/card.html %}
+                        {% include component/card.html %}
+                        {% include component/card.html %}
+                        {% include component/card.html %}
+                        {% include component/card.html %}
+                        {% include component/card.html %}
+                    </div>
+                    {% include component/pagenav-cf.html %}
+                </div>
+            </div>
+            <div class="calendar-content-item" style="display: none;">
+                <div class="list-detail">
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                </div>
+            </div>
+            <div class="calendar-content-item" style="display: none;">
+                <div class="list-detail">
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                </div>
+            </div>
+            <div class="calendar-content-item" style="display: none;">
+                <div class="list-detail">
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                    {% include component/card.html %}
+                </div>
+            </div>
         </div>
     </div>
 </div>

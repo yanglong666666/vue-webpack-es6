@@ -359,27 +359,18 @@ $.fn.extend({
             editable: true,
             allDayDefault: false,
             selectable: true,
+            events: param.events,
             select: function(start, end, jsEvent, view ) {
                 if(param.onSelected && typeof(param.onSelected) == "function"){
                     param.onSelected(start._d,end._d);
                 }
             },
-            events: param.events
-        });
-        param.legends.forEach(function(item1,index1){
-            var num = 0;
-            param.events.forEach(function(item2){
-                if(item2.id == index1){
-                    num += item2.num;
+            eventAfterAllRender: function(view){
+                if(param.eventAfterAllRender && typeof(param.eventAfterAllRender) == "function"){
+                    param.eventAfterAllRender(view);
                 }
-            });
-            $self.find('.calendar-legend-item-wrap').append('<div class="calendar-legend-item"><i style="background-color: ' + item1.color + ' "></i> ' + item1.text + '(' + num + '个) </div>')
+            }
         });
-        $self.find('.calendar-legend-item').on('click',function(){
-            var $self2 = $(this);
-            $self2.addClass('active').siblings('.calendar-legend-item').removeClass('active');
-            $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
-        }).eq(0).click();
     }
 });
 
