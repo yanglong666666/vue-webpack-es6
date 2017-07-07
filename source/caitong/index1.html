@@ -101,10 +101,9 @@ layout: default-iframe
             },
             eventAfterAllRender: function (view) {
                 currentMonth = view.end._d.getMonth();
-                updateLegend();
             }
         });
-
+        updateLegend();
         $calendarWrap.find('.fc-next-button,.fc-prev-button').on('click', function () {
             console.log(currentYear + '-' + currentMonth);
             //先去掉所有数据

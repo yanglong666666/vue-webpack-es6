@@ -359,6 +359,7 @@ $.fn.extend({
             editable: true,
             allDayDefault: false,
             selectable: true,
+            unselectAuto: false,
             events: param.events,
             select: function(start, end, jsEvent, view ) {
                 if(param.onSelected && typeof(param.onSelected) == "function"){
