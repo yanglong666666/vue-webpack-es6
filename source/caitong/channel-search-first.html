@@ -372,6 +372,14 @@ layout: default-iframe
             }
         });
 
+        var listTitle=$('.list-title1');
+        //var htmls=$(listTitle).eq(0).html();
+        for(i=0;i<listTitle.length;i++){
+             var htmls=$(listTitle).eq(i).html();
+            $('.list-title1').eq(i).attr({'title': htmls})
+
+        }
+
     });
 </script>
 <div class="main-content">
@@ -510,7 +518,9 @@ layout: default-iframe
                             <li>
                                 <img src="../images/caitong/list-yyf.png">
                                 <p class="list-title">月月福</p>
-                                <p class="list-title1">专题说明专题说明专题说明</p>
+                                <p class="list-title1" >
+                                    专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明专题说明
+                                </p>
                             </li>
                             <li>
                                 <img src="../images/caitong/list-cx.png">
@@ -530,12 +540,12 @@ layout: default-iframe
                             <li>
                                 <img src="../images/caitong/list-yyf.png">
                                 <p class="list-title">月月福</p>
-                                <p class="list-title1">专题说明专题说明专题说明</p>
+                                <p class="list-title1">专题说明专题说明专题说明5</p>
                             </li>
                             <li>
                                 <img src="../images/caitong/list-cx.png">
                                 <p class="list-title">创信系列</p>
-                                <p class="list-title1">专题说明专题说明专题说明</p>
+                                <p class="list-title1">专题说明专题说明专题说明6</p>
                             </li>
                         </ul>
                     </div>

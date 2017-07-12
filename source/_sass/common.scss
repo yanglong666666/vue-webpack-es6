@@ -692,6 +692,10 @@ input[type="text"] {
                 position: absolute;
                 bottom: 10px;
                 padding-left: 20px;
+                width: 200px;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
                 color: #fff;
                 font-size: 12px;
             }

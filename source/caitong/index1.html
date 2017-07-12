@@ -32,6 +32,9 @@ layout: default-iframe
             {color: "#5EAEE3", text: "销售",total:"4"},
             {color: "#B3B3B3", text: "到期",total:"5"}
         ];
+        //排序问题，事件排序同一天内我已经修改为按id值的大小排序的，id值越小越在上面；
+        // 跨天的按起始时间排序，开始时间早的排在上面；
+       // 开始时间相同的跨天的则按结束时间排序，结束时间越晚越排在上面
         var calendar_setting_events = [
             {
                 id: 0,
@@ -68,6 +71,17 @@ layout: default-iframe
             },
             {
                 id: 2,
+                title: '3个',
+                start: '20170626',
+                end: '20170628',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 3,
                 title: '4个',
                 start: '20170627',
                 end: '20170630',
@@ -78,7 +92,18 @@ layout: default-iframe
                 editable: false
             },
             {
-                id: 3,
+                id: 4,
+                title: '4个',
+                start: '20170627',
+                end: '20170629',
+                color: "white",
+                backgroundColor: calendar_setting_legends[2].color,
+                borderColor: calendar_setting_legends[2].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 5,
                 title: '5个',
                 start: '20170627',
                 color: "white",
@@ -86,7 +111,53 @@ layout: default-iframe
                 borderColor: calendar_setting_legends[3].color,
                 //textColor: "white",
                 editable: false
-            }
+            },
+            {
+                id: 6,
+                title: '5个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 7,
+                title: '4个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 8,
+                title: '3个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[2].color,
+                borderColor: calendar_setting_legends[2].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 9,
+                title: '2个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[3].color,
+                borderColor: calendar_setting_legends[3].color,
+                //textColor: "white",
+                editable: false
+            },
+
+
         ];
 
         var $calendarWrap = $('#big-calendar-1');

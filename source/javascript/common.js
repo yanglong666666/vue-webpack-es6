@@ -361,6 +361,8 @@ $.fn.extend({
             selectable: true,
             unselectAuto: false,
             events: param.events,
+            eventOrder: "id",
+
             select: function(start, end, jsEvent, view ) {
                 if(param.onSelected && typeof(param.onSelected) == "function"){
                     param.onSelected(start._d,end._d);
