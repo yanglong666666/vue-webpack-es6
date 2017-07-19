@@ -616,3 +616,46 @@
         }
     }
 }
+
+
+.dialog-right{
+    &.dialog-right-more-hidden{
+        max-height: 30px;
+        position: relative;
+        padding-right: 50px;
+        overflow: hidden;
+    }
+    &.dialog-right-more-show{
+        position: relative;
+        padding-right: 50px;
+        max-height: 1000px;
+    }
+    .btn-wraps{
+        position: absolute;
+        right: 0px;
+        top: calc(50% - 15px);
+        background: none;
+        outline: none;
+        width: 70px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #f1374d;
+        i{
+            display: inline-block;
+            width: 9px;
+            height: 5px;
+            background: url(../images/icolist.png) -60px -50px no-repeat;
+            vertical-align: middle;
+            margin-left: 8px;
+            margin-top: -2px;
+            &.btn-show{
+                transform:rotate(180deg);
+                -ms-transform:rotate(180deg);
+                -moz-transform:rotate(180deg);
+                -webkit-transform:rotate(180deg);
+                -o-transform:rotate(180deg);
+            }
+        }
+    }
+
+}
