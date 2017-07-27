@@ -162,9 +162,9 @@ input[type="text"] {
     margin-top: 3px;
     vertical-align: top;
     cursor: pointer;
-    background: url(../images/cftrade/checkbox-check.png) 0 0 no-repeat;
+    background: url(../images/caitong/checkbox-check.png) 0 0 no-repeat;
     &.checkbox-checked {
-        background: url(../images/cftrade/checkbox-checked.png) 0 0 no-repeat;
+        background: url(../images/caitong/checkbox-checked.png) 0 0 no-repeat;
         background-size: 100%;
     }
 }
@@ -560,13 +560,22 @@ input[type="text"] {
 
 .dialog-item-small {
     margin: 0 !important;
+    height: 35px !important;
     .col-blue {
         height: 35px;
         line-height: 35px;
         font-size: 14px;
         color: #007aff;
         padding-left: 40px;
+        margin-top: 20px;
 
+    }
+    .dialog-left{
+        width: 120px !important;
+        padding: 0 !important;
+    }
+    .dialog-right{
+        width: 210px !important;
     }
 }
 
@@ -601,7 +610,7 @@ input[type="text"] {
         margin: auto;
         li {
             display: inline-block;
-            width: 20%;
+            width: 16.66%;
             border: solid 1px #ffffff;
             float: left;
             &:hover {
