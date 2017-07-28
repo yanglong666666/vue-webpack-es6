@@ -42,6 +42,25 @@
                         margin: 0 0 0 2px;
                     }
                 }
+
+                &.full-select {
+                    padding: 0;
+                    vertical-align: top;
+                    .js-select {
+                        border: 0;
+                        border-bottom: solid 1px $border-color;
+                        @include border-radius(0);
+                        line-height: 32px;
+                        text-align: left;
+                        .arrow {
+                            top: 14px;
+                        }
+                    }
+                    .js-option {
+                        margin-left: 1px;
+                        @include border-radius(0);
+                    }
+                }
             }
         }
         tbody {

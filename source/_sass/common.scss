@@ -865,3 +865,30 @@ input[type="text"] {
     height: 242px;
     margin: 120px auto 0px;
 }
+
+.channel-add-new{
+    height: auto;
+    overflow: hidden;
+    .left-new{
+        display: inline-block;
+        width: 60%;
+        height: 400px;
+        overflow: auto;
+        border: 1px solid #ccc;
+        float: left;
+    }
+    .center-new{
+        display: inline-block;
+        width: 60px;
+        height: 400px;
+        float: left;
+    }
+    .right-new{
+        width: calc(40% - 60px);
+        width: -webkit-calc(40% - 60px);
+        width: -moz-calc(40% - 60px);
+        height: 400px;
+        float: left;
+        border: 1px solid #ccc;
+    }
+}
