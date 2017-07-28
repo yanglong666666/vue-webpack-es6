@@ -421,6 +421,25 @@ var JPlaceHolder = {
         });
     }
 };
+
+var Dloading = function (param) {
+    param = param || {};
+    var timeout = parseInt(param.timeout);
+    var time = timeout ? timeout : timeout == 0 ? timeout : 10000;
+    var html = param.text? '<div class="Dloading"><img src="../images/loading.gif"><div>'+ param.text +'</div></div>' : '<div class="Dloading"><img src="../images/loading.png"></div>';
+    $('body').append(html);
+    var $currentDloading = $('.Dloading');
+    $currentDloading.find('img').css('margin-top',$currentDloading.height()/2 - 48 + "px");
+    if(param.callback) param.callback();
+    setTimeout(function () {
+        $currentDloading.remove();
+    }, time*1000);
+};
+var hideDloading = function(){
+    $('.Dloading').remove();
+};
+
+
 $(function(){
     JPlaceHolder.init();
 });
