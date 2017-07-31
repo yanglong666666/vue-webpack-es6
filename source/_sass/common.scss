@@ -871,24 +871,55 @@ input[type="text"] {
     overflow: hidden;
     .left-new{
         display: inline-block;
-        width: 60%;
+        width: 70%;
         height: 400px;
-        overflow: auto;
+        overflow: hidden;
         border: 1px solid #ccc;
         float: left;
     }
     .center-new{
         display: inline-block;
-        width: 60px;
+        width: 40px;
         height: 400px;
         float: left;
+        .icon-jt{
+            width: 23px;
+            height: 23px;
+            display: block;
+            margin: 189px auto;
+        }
     }
     .right-new{
-        width: calc(40% - 60px);
-        width: -webkit-calc(40% - 60px);
-        width: -moz-calc(40% - 60px);
+        width: calc(30% - 40px);
+        width: -webkit-calc(30% - 40px);
+        width: -moz-calc(30% - 40px);
         height: 400px;
         float: left;
         border: 1px solid #ccc;
+        .dialog-item-border{
+            border: none;
+            margin-top: 0;
+            .dialog-item-box-title{
+                margin-bottom: 20px;
+                background: #f0f0f0;
+            }
+            .dialog-item{
+                .dialog-left{
+                    width: 120px;
+                    padding: 0 10px;
+                }
+                .dialog-right{
+                    width: calc(100% - 140px);
+                    width: -webkit-calc(100% - 140px);
+                    width: -moz-calc(100% - 140px);
+                    .dialog-input{
+                        width: 130px;
+                    }
+
+
+                }
+            }
+        }
+
     }
 }

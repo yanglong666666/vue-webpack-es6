@@ -129,9 +129,18 @@ layout: default-iframe
 
        $("#btn_add").click(function(){
            $(".main-content").hide();
-           $(".edit-add").show();
+           $(".edit-add-new").show();
        })
-        $(".edit-add .view-back,#editBtnCancel").click(function(){
+        $(".edit-add-new .view-back,#btnCancel").click(function(){
+            $(".main-content").show();
+            $(".edit-add-new").hide();
+        })
+
+        $(".btn-next").click(function(){
+            $(".edit-add-new").hide();
+            $(".edit-add").show();
+        })
+        $(".edit-add .view-back,#btnCancel").click(function(){
             $(".main-content").show();
             $(".edit-add").hide();
         })
@@ -166,6 +175,15 @@ layout: default-iframe
             $(".tab-options-change").addClass('on').siblings('.tab-options').removeClass('on');
             $(".tab-option-change").addClass('on').siblings('.tab-option').removeClass('on');
             $(".edit-department").hide();
+        })
+
+
+        $(".table-choice .btn-change").click(function(){
+            var vCode=$(this).parent().siblings('.channel-code').html();
+            var vName=$(this).parent().siblings('.channel-name').html();
+            console.log(vName);
+            $(".input-code").val(vCode);
+            $(".input-name").val(vName);
         })
     });
 
@@ -629,21 +647,6 @@ layout: default-iframe
                     <div class="tabs-content on">
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">预约产品代码</div>
-                                <div class="dialog-right">
-                                    <select name="" id="select21" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
-                                        <option value="1">111</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">预约产品名称</div>
-                                <div class="dialog-right">根据代码自动出现名称</div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
                                 <div class="dialog-left">期限</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="能计算的默认计算，可修改" value=""></div>
                             </div>
@@ -1042,13 +1045,13 @@ layout: default-iframe
         </div>
     </div>
 
-    <div class="dialog-item-wrap edit-wrap edit-add-new"  >
+    <div class="dialog-item-wrap edit-wrap edit-add-new"  style="display: none" >
         <a class="view-back"> &lt;&lt; 返回</a>
         <div class="channel-add-new">
             <div class="left-new">
                 <div class="main-table clearfix">
                     <div class="scroll-table" style="width: 100%;height: 327px;overflow: auto">
-                        <table cellpadding="0" cellspacing="0" class="data-table table-padding7" >
+                        <table cellpadding="0" cellspacing="0" class="data-table table-padding7 table-choice" style="border-width:1px 0px 0px 0px">
                             <thead>
                             <tr>
                                 <th width="10%">序号</th>
@@ -1063,106 +1066,131 @@ layout: default-iframe
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
+                                <td>001</td>
                                 <td>2017-03-06 10:01</td>
-                                <td>无</td>
-                                <td>资管集合计划1</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
                                 <td>财通资管</td>
-                                <td>1.0332</td>
-                                <td>张三</td>
-                                <td>李四</td>
-                                <td>500万</td>
-                                <td>没有特点</td>
-                                <td>20000万</td>
-                                <td>400人</td>
-                                <td>李四</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+
                             </tr>
                             <tr class="even">
-                                <td>张三</td>
-                                <td>18677777777</td>
-                                <td>开户审核</td>
-                                <td>这里是一段详细的描述</td>
-                                <td>2年</td>
-                                <td>1.0332</td>
-                                <td>张三</td>
-                                <td>李四</td>
-                                <td>500万</td>
-                                <td>没有特点</td>
-                                <td>20000万</td>
-                                <td>400人</td>
-                                <td>李四</td>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
                             </tr>
                             <tr>
-                                <td>张三</td>
-                                <td>18677777777</td>
-                                <td>开户审核</td>
-                                <td>这里是一段详细的描述</td>
-                                <td>2年</td>
-                                <td>1.0332</td>
-                                <td>张三</td>
-                                <td>李四</td>
-                                <td>500万</td>
-                                <td>没有特点</td>
-                                <td>20000万</td>
-                                <td>400人</td>
-                                <td>李四</td>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
                             </tr>
                             <tr class="even">
-                                <td>张三</td>
-                                <td>18677777777</td>
-                                <td>开户审核</td>
-                                <td>这里是一段详细的描述</td>
-                                <td>2年</td>
-                                <td>1.0332</td>
-                                <td>张三</td>
-                                <td>李四</td>
-                                <td>500万</td>
-                                <td>没有特点</td>
-                                <td>20000万</td>
-                                <td>400人</td>
-                                <td>李四</td>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
                             </tr>
                             <tr>
-                                <td>张三</td>
-                                <td>18677777777</td>
-                                <td>开户审核</td>
-                                <td>这里是一段详细的描述</td>
-                                <td>2年</td>
-                                <td>1.0332</td>
-                                <td>张三</td>
-                                <td>李四</td>
-                                <td>500万</td>
-                                <td>没有特点</td>
-                                <td>20000万</td>
-                                <td>400人</td>
-                                <td>李四</td>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
                             </tr>
                             <tr class="even">
-                                <td>张三</td>
-                                <td>18677777777</td>
-                                <td>开户审核</td>
-                                <td>这里是一段详细的描述</td>
-                                <td>2年</td>
-                                <td>1.0332</td>
-                                <td>张三</td>
-                                <td>李四</td>
-                                <td>500万</td>
-                                <td>没有特点</td>
-                                <td>20000万</td>
-                                <td>400人</td>
-                                <td>李四</td>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
 
                 </div>
+                <div class="ui-pagenav">
+                    <div class="page">
+                        <ul class="clearfix">
+                            <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                            <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                            <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                            <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                            <li>...</li>
+                            <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                            <li>...</li>
+                            <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                            <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                            <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                            <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                            <li>共20页，到第</li>
+                            <li><input class="page-go" type="text"></li>
+                            <li>页</li>
+                            <li class="page-go-sure"><a href="">确定</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="center-new">
-                22
+               <img src="../images/caitong/btn-jt.png" class="icon-jt">
             </div>
             <div class="right-new">
-                33
+                <div class="dialog-item-wrap">
+                    <div class="dialog-item-border" >
+                        <div class="dialog-item-box-title" >选择产品信息</div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">预约产品代码</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input input-code" placeholder="" value="">
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">预约产品名称</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input input-name" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="button-content" style="text-align: center;margin-top: 30px;float: left;width: 100%">
+                <button class="btn btn-fill btn-next" style="margin-right: 10px;">下一步</button>
+                <button class="btn btn-gray btnCancel">取消</button>
             </div>
         </div>
     </div>
