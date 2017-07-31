@@ -91,6 +91,21 @@
 			img{
 				width: 100%;
 			}
+            .base-content{
+                position: absolute;
+                left: 40px;
+                top: 20px;
+                width: 180px;
+                font-size: 24px;
+                line-height: 30px;
+                color: #d7b03d;
+            }
+            .tips-name{
+                color: #FFFFFF;
+                font-size: 14px;
+                line-height: 14px;
+                margin-top: 15px;
+            }
 		}
 	}
 }

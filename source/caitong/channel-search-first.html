@@ -303,19 +303,23 @@ class: channel-search-first
 
 
 
+        var currentYear = 2017;
+        var currentMonth = 7;
         var calendar_setting_legends = [
-            {color: "#FE734A",text: "引入"},
-            {color: "#F8A20F",text: "开放"},
-            {color: "#5EAEE3",text: "销售"},
-            {color: "#B3B3B3",text: "到期"}
+            {color: "#FE734A", text: "引入",total:"2"},
+            {color: "#F8A20F", text: "开放",total:"3"},
+            {color: "#5EAEE3", text: "销售",total:"4"},
+            {color: "#B3B3B3", text: "到期",total:"5"}
         ];
+        //排序问题，事件排序同一天内我已经修改为按id值的大小排序的，id值越小越在上面；
+        // 跨天的按起始时间排序，开始时间早的排在上面；
+        // 开始时间相同的跨天的则按结束时间排序，结束时间越晚越排在上面
         var calendar_setting_events = [
             {
                 id: 0,
-                num: 7,
-                title: '7个',
-                start: '2017-06-12',
-                end: '2017-06-19',  //end要多加1天。这里会选中2017-06-12至2017-06-17
+                title: '2个',
+                start: '20170612',
+                end: '20170619',  //end要多加1天。这里会选中2017-06-12至2017-06-17
                 color: "white",
                 backgroundColor: calendar_setting_legends[0].color,
                 borderColor: calendar_setting_legends[0].color,
@@ -324,10 +328,9 @@ class: channel-search-first
             },
             {
                 id: 0,
-                num: 1,
-                title: '1个',
-                start: '2017-06-27',
-                end: '2017-06-27',
+                title: '2个',
+                start: '20170627',
+                end: '20170627',
                 color: "white",
                 backgroundColor: calendar_setting_legends[0].color,
                 borderColor: calendar_setting_legends[0].color,
@@ -336,10 +339,9 @@ class: channel-search-first
             },
             {
                 id: 1,
-                num: 3,
                 title: '3个',
-                start: '2017-06-25',
-                end: '2017-06-28',
+                start: '20170625',
+                end: '20170628',
                 color: "white",
                 backgroundColor: calendar_setting_legends[1].color,
                 borderColor: calendar_setting_legends[1].color,
@@ -348,10 +350,20 @@ class: channel-search-first
             },
             {
                 id: 2,
-                num: 3,
                 title: '3个',
-                start: '2017-06-27',
-                end: '2017-06-30',
+                start: '20170626',
+                end: '20170628',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 3,
+                title: '4个',
+                start: '20170627',
+                end: '20170630',
                 color: "white",
                 backgroundColor: calendar_setting_legends[2].color,
                 borderColor: calendar_setting_legends[2].color,
@@ -359,30 +371,179 @@ class: channel-search-first
                 editable: false
             },
             {
-                id: 3,
-                num: 1,
-                title: '1个',
-                start: '2017-06-27',
+                id: 4,
+                title: '4个',
+                start: '20170627',
+                end: '20170629',
+                color: "white",
+                backgroundColor: calendar_setting_legends[2].color,
+                borderColor: calendar_setting_legends[2].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 5,
+                title: '5个',
+                start: '20170627',
                 color: "white",
                 backgroundColor: calendar_setting_legends[3].color,
                 borderColor: calendar_setting_legends[3].color,
                 //textColor: "white",
                 editable: false
-            }
-        ];
-        $('#big-calendar-1').diyFullCalendar({
-            width: "45%",
-            legends: calendar_setting_legends,
-            events:  calendar_setting_events,
-            onSelected: function(start,end){
-                end.setDate(end.getDate() - 1);
+            },
+            {
+                id: 6,
+                title: '5个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 7,
+                title: '4个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 8,
+                title: '3个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[2].color,
+                borderColor: calendar_setting_legends[2].color,
+                //textColor: "white",
+                editable: false
+            },
+            {
+                id: 9,
+                title: '2个',
+                start: '20170703',
+                end: '20170703',
+                color: "white",
+                backgroundColor: calendar_setting_legends[3].color,
+                borderColor: calendar_setting_legends[3].color,
+                //textColor: "white",
+                editable: false
+            },
 
+
+        ];
+
+        var $calendarWrap = $('#big-calendar-1');
+        $calendarWrap.diyFullCalendar({
+            width: "540px",
+            legends: calendar_setting_legends,
+            events: calendar_setting_events,
+            onSelected: function (start, end) {
+                end.setDate(end.getDate() - 1);
                 console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
                 console.log('end:' + end.getFullYear() + '-' + (end.getMonth() + 1) + '-' + end.getDate());
+            },
+            eventAfterAllRender: function (view) {
+                currentMonth = view.end._d.getMonth();
             }
         });
+        updateLegend();
+        $calendarWrap.find('.fc-next-button,.fc-prev-button').on('click', function () {
+            console.log(currentYear + '-' + currentMonth);
+            //先去掉所有数据
+            $calendarWrap.find('.big-calendar').fullCalendar('removeEvents');
+            //根据currentYear，currentMonth来调接口，返回数据放入calendar_setting_legends，calendar_setting_events
+            //模拟ajax返回后的数据
+            calendar_setting_legends = [
+                {color: "#FE734A", text: "引入",total:"2"},
+                {color: "#F8A20F", text: "开放",total:"3"}
+            ];
+            calendar_setting_events = [{
+                id: 0,
+                num: 30,
+                title: '30个',
+                start: '20170801',
+                end: '20170830',
+                color: "white",
+                backgroundColor: calendar_setting_legends[0].color,
+                borderColor: calendar_setting_legends[0].color,
+                //textColor: "white",
+                editable: false
+            }, {
+                id: 1,
+                num: 2,
+                title: '2个',
+                start: '20170827',
+                end: '20170829',
+                color: "white",
+                backgroundColor: calendar_setting_legends[1].color,
+                borderColor: calendar_setting_legends[1].color,
+                //textColor: "white",
+                editable: false
+            }];
+            //渲染数据
+            $calendarWrap.find('.big-calendar').fullCalendar('renderEvents', calendar_setting_events);
+            updateLegend();
+        });
 
+        function updateLegend() {
+            $calendarWrap.find('.calendar-legend-item-wrap').html('');
+            calendar_setting_legends.forEach(function (item1) {
+                $calendarWrap.find('.calendar-legend-item-wrap').append('<div class="calendar-legend-item"><i style="background-color: ' + item1.color + ' "></i> ' + item1.text + '(' + item1.total + '个) </div>')
+            });
+            $calendarWrap.find('.calendar-legend-item').on('click', function () {
+                var $self2 = $(this);
+                $self2.addClass('active').siblings('.calendar-legend-item').removeClass('active');
+                $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
+            }).eq(0).click();
+        }
+
+
+
+        var str=['1.2573','1.3248','1.3024','1.3555'];
+        var tdList=$("tbody td.td-num");
+        for(i=0;i<tdList.length;i++){
+            $(tdList[i]).html(str[i]);
+        }
+
+        let n=0;
+        $(".icon-sort").click(function(){
+            n++;
+            var str1=[];
+            for(j=0;j<tdList.length;j++){
+                str1[j]=$(".table-sort tbody")[0].rows[j]
+            }
+            if(n%2 != 0){
+                str1.sort(function (tr1,tr2) {
+                    var n1=tr1.cells[5].innerHTML;
+                    var n2=tr2.cells[5].innerHTML;
+                    return n1-n2;
+                });
+
+                for(i=0;i<str1.length;i++){
+                    $(".table-sort tbody")[0].appendChild(str1[i])
+                }
+
+            }else{
+               str1.reverse(function (tr1, tr2) {
+                       var n1=tr1.cells[5].innerHTML;
+                       var n2=tr2.cells[5].innerHTML;
+                       return n1-n2;
+                   })
+                for(i=0;i<str1.length;i++){
+                    $(".table-sort tbody")[0].appendChild(str1[i])
+                }
+            }
+        })
     });
+
+
 </script>
 <div class="main-content">
     <div class="main-content-wrap">
@@ -397,10 +558,16 @@ class: channel-search-first
 
         <div class="main-content-wrap-list">
             <div class="search-content on">
+                <div class="task-search clearfix">
+                    <button class="btn btn-float-right" href="#">搜索</button>
 
-                <div id="big-calendar-1">
+                    <input type="text" class="aql-input big-input" placeholder="输入产品代码或产品名称进行搜索">
+
+                </div>
+                <h2 class="col-block" style="margin-top: 0">产品日历</h2>
+                <div id="big-calendar-1" style="margin-top: 20px">
                     <div class="big-calendar"></div>
-                    <div class="calendar-legend">
+                    <div class="calendar-legend calendar-legend-tab">
                         <div class="calendar-legend-item-wrap"></div>
                     </div>
                 </div>
@@ -2141,7 +2308,7 @@ class: channel-search-first
 
                 </div>
                 <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7 table-sort">
                         <thead>
                         <tr>
                             <th>序号</th>
@@ -2149,7 +2316,7 @@ class: channel-search-first
                             <th>产品代码</th>
                             <th>产品名称</th>
                             <th>产品类型</th>
-                            <th>单位净值 <i class="icon-tab"></i></th>
+                            <th>单位净值 <i class="icon-tab icon-sort"></i></th>
                             <th>累计净值 <i class="icon-tab"></i></th>
                             <th>近一月</th>
                             <th>近三月</th>
@@ -2163,7 +2330,7 @@ class: channel-search-first
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-red">1.48%</td>
                             <td class="col-red">2.48%</td>
@@ -2173,13 +2340,13 @@ class: channel-search-first
                                 <a class="btn btn-primary btn-small">删除</a>
                             </td>
                         </tr>
-                        <tr class="even">
+                        <tr >
                             <td>001</td>
                             <td>2017-03-06</td>
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-green">1.48%</td>
                             <td class="col-green">2.48%</td>
@@ -2195,7 +2362,7 @@ class: channel-search-first
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-red">1.48%</td>
                             <td class="col-red">2.48%</td>
@@ -2205,13 +2372,13 @@ class: channel-search-first
                                 <a class="btn btn-primary btn-small">删除</a>
                             </td>
                         </tr>
-                        <tr class="even">
+                        <tr >
                             <td>001</td>
                             <td>2017-03-06</td>
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-red">1.48%</td>
                             <td class="col-red">2.48%</td>

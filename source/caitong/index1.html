@@ -211,6 +211,16 @@ layout: default-iframe
             //渲染数据
             $calendarWrap.find('.big-calendar').fullCalendar('renderEvents', calendar_setting_events);
             updateLegend();
+            Dloading({
+                text: "正在加载...", //非必需，加载图标下方文字
+                timeout: 1000, //非必需, 设置加载失败的超时时间，范围： 0 - ~
+                callback: function(){  //执行的跳转、调接口、表单提交
+                    //模拟ajax请求
+                    setTimeout(function(){
+                        hideDloading();
+                    },6000);
+                }
+            });
         });
 
         function updateLegend() {
@@ -224,6 +234,7 @@ layout: default-iframe
                 $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
             }).eq(0).click();
         }
+
     });
 </script>
 
@@ -297,6 +308,18 @@ layout: default-iframe
                     </dt>
                     <dd>
                         <p class="txt-center">信息发布</p>
+                    </dd>
+                </dl>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <dl class="my-work-list">
+                    <dt>
+                        <img src="../images/caitong/icon-6.png"/>
+                    </dt>
+                    <dd>
+                        <p class="txt-center">产品预告</p>
                     </dd>
                 </dl>
             </a>

@@ -24,6 +24,18 @@
             line-height: 36px;
             z-index: 11;
         }
+        .dialog-right-left-top{
+            display: flex;
+            .left-span{
+                width: 15px;
+                line-height: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                color: #666;
+            }
+        }
     }
     .dialog-item-box-title {
         line-height: 36px;
