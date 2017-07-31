@@ -82,7 +82,7 @@ class: sales-preview
             $('.details-wrap').show();
             $('.main-content').hide();
         });
-        $('#detailsBtnCancel').on('click',function(){
+        $('.details-wrap .view-back,#detailsBtnCancel').on('click',function(){
             $('.details-wrap').hide();
             $('.main-content').show();
         });
@@ -91,7 +91,7 @@ class: sales-preview
             $('.edit-wrap').show();
             $('.main-content').hide();
         });
-        $('#editBtnCancel').on('click',function(){
+        $('.edit-wrap .view-back,#editBtnCancel').on('click',function(){
             $('.edit-wrap').hide();
             $('.main-content').show();
         });
@@ -433,6 +433,7 @@ class: sales-preview
         </div>
     </div>
     <div class="dialog-item-wrap details-wrap" style="display: none;">
+        <a class="view-back"> &lt;&lt; 返回</a>
         <div class="dialog-item-border" style="position: relative">
             <div class="dialog-item-box-body">
                 <div class="tabs-body">
@@ -555,6 +556,7 @@ class: sales-preview
         </div>
     </div>
     <div class="dialog-item-wrap edit-wrap" style="display: none;">
+        <a class="view-back"> &lt;&lt; 返回</a>
         <div class="dialog-item-border" style="position: relative">
             <div class="dialog-item-box-body">
                 <div class="tabs-body">
@@ -625,7 +627,7 @@ class: sales-preview
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                         </div>
-                        <<div class="dialog-item">
+                        <div class="dialog-item">
                             <div class="w50p">
                                 <div class="dialog-left">机构认购起点</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
