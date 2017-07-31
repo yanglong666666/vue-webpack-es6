@@ -520,7 +520,46 @@
             }).eq(0).click();
         }
 
+
+
+        var str=['1.2573','1.3248','1.3024','1.3555'];
+        var tdList=$("tbody td.td-num");
+        for(i=0;i<tdList.length;i++){
+            $(tdList[i]).html(str[i]);
+        }
+
+        let n=0;
+        $(".icon-sort").click(function(){
+            n++;
+            var str1=[];
+            for(j=0;j<tdList.length;j++){
+                str1[j]=$(".table-sort tbody")[0].rows[j]
+            }
+            if(n%2 != 0){
+                str1.sort(function (tr1,tr2) {
+                    var n1=tr1.cells[5].innerHTML;
+                    var n2=tr2.cells[5].innerHTML;
+                    return n1-n2;
+                });
+
+                for(i=0;i<str1.length;i++){
+                    $(".table-sort tbody")[0].appendChild(str1[i])
+                }
+
+            }else{
+               str1.reverse(function (tr1, tr2) {
+                       var n1=tr1.cells[5].innerHTML;
+                       var n2=tr2.cells[5].innerHTML;
+                       return n1-n2;
+                   })
+                for(i=0;i<str1.length;i++){
+                    $(".table-sort tbody")[0].appendChild(str1[i])
+                }
+            }
+        })
     });
+
+
 </script>
 <div class="main-content">
     <div class="main-content-wrap">
@@ -2285,7 +2324,7 @@
 
                 </div>
                 <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7 table-sort">
                         <thead>
                         <tr>
                             <th>序号</th>
@@ -2293,7 +2332,7 @@
                             <th>产品代码</th>
                             <th>产品名称</th>
                             <th>产品类型</th>
-                            <th>单位净值 <i class="icon-tab"></i></th>
+                            <th>单位净值 <i class="icon-tab icon-sort"></i></th>
                             <th>累计净值 <i class="icon-tab"></i></th>
                             <th>近一月</th>
                             <th>近三月</th>
@@ -2307,7 +2346,7 @@
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-red">1.48%</td>
                             <td class="col-red">2.48%</td>
@@ -2317,13 +2356,13 @@
                                 <a class="btn btn-primary btn-small">删除</a>
                             </td>
                         </tr>
-                        <tr class="even">
+                        <tr >
                             <td>001</td>
                             <td>2017-03-06</td>
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-green">1.48%</td>
                             <td class="col-green">2.48%</td>
@@ -2339,7 +2378,7 @@
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-red">1.48%</td>
                             <td class="col-red">2.48%</td>
@@ -2349,13 +2388,13 @@
                                 <a class="btn btn-primary btn-small">删除</a>
                             </td>
                         </tr>
-                        <tr class="even">
+                        <tr >
                             <td>001</td>
                             <td>2017-03-06</td>
                             <td>CT180008</td>
                             <td>华夏蓝筹混合</td>
                             <td>混合型</td>
-                            <td>1.3080</td>
+                            <td class="td-num"></td>
                             <td>4.5540</td>
                             <td class="col-red">1.48%</td>
                             <td class="col-red">2.48%</td>
