@@ -1,7 +1,11 @@
+
 .page-login {
-    height: 80%;
+    height: calc(100% - 120px);
+    height: -webkit-calc(100% - 120px);
+    height: -moz-calc(100% - 140px);
     position: relative;
     margin-top: 60px;
+    margin-bottom: 60px;
     background: #4F91DF;
     header {
         height: 60px;
@@ -22,11 +26,8 @@
             position: relative;
         }
         .logo {
+            display: inline-block;
             vertical-align: middle;
-            float: left;
-            position: relative;
-            top: 50%;
-            margin-top: -25px;
         }
         .title {
             display: inline-block;
@@ -60,7 +61,10 @@
         position: absolute;
         display: block;
         width: 380px;
-        top: 80px;
+        top: calc(50% - 200px);
+        top:-webkit-calc(50% - 200px);
+        top:-moz-calc(50% - 200px);
+        height: 400px;
         right: 120px;
         padding: 30px;
         text-align: center;
@@ -180,12 +184,21 @@
     }
     .login-footer {
         text-align: center;
-        margin-top: 20px;
+        //margin-top: 20px;
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
     }
     .btn-content {
         padding-top: 20px;
         .btn {
             width: 100%;
+        }
+        .p-tips{
+            text-align: left;
+            color: #666;
+            margin-top: 10px;
         }
     }
     .error {
