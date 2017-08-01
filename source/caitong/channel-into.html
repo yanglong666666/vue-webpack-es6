@@ -49,6 +49,20 @@ layout: default-iframe
           $('.main-content').show();
       });
 
+       var b='<li>'+
+               '<span class="keys-file">文件类型1</span>'+
+               '<div class="btn-declare" style="width: inherit;">'+
+               '<img src="../images/caitong/grey-delect.png" class="grey-delect">'+
+               '</div>'+
+               '</li>';
+      $(".btn-declare .grey-add").click(function(){
+          $(this).parent().parent('.dialog-right').find('.list-add').eq(0).append(b);
+      })
+
+      $(".list-add").delegate('.grey-delect','click',function(){
+          $(this).parent().parent('li').remove();
+      })
+
   });
 </script>
 <div class="main-content">
@@ -276,7 +290,7 @@ layout: default-iframe
                 <div class="dialog-right"><input class="dialog-input overflow-pop-up" placeholder=""></div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">发行人</div>
+                <div class="dialog-left">管理人</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect3" class="diy-select" style="display: none;">
                         <option selected="">请选择</option>
@@ -291,24 +305,21 @@ layout: default-iframe
                         <span class="left-span">文件大类1</span>
                         <ul class="list-add list-add1">
                             <li>
-                                文件类型1
+                               <span class="keys-file">文件类型1</span>
                                 <div class="btn-declare" style="width: inherit;">
-                                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                    <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                    <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                                 </div>
                             </li>
                             <li>
-                                文件类型2
+                                <span class="keys-file">文件类型2</span>
                                 <div class="btn-declare" style="width: inherit;">
-                                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                    <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                    <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                                 </div>
                             </li>
                             <li>
-                                文件类型3
+                                <span class="keys-file">文件类型3</span>
                                 <div class="btn-declare" style="width: inherit;">
-                                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                    <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                    <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                                 </div>
                             </li>
                         </ul>
@@ -317,24 +328,21 @@ layout: default-iframe
                         <span class="left-span">文件大类2</span>
                         <ul class="list-add list-add2">
                             <li>
-                                文件类型1
+                                <span class="keys-file">文件类型1</span>
                                 <div class="btn-declare" style="width: inherit;">
-                                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                    <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                    <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                                 </div>
                             </li>
                             <li>
-                                文件类型2
+                                <span class="keys-file">文件类型2</span>
                                 <div class="btn-declare" style="width: inherit;">
-                                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                    <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                    <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                                 </div>
                             </li>
                             <li>
-                                文件类型3
+                                <span class="keys-file">文件类型3</span>
                                 <div class="btn-declare" style="width: inherit;">
-                                    <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                    <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                    <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                                 </div>
                             </li>
                         </ul>
@@ -370,7 +378,7 @@ layout: default-iframe
                 </div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">发行人</div>
+                <div class="dialog-left">管理人</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
                         <option selected="">请选择</option>
@@ -383,24 +391,21 @@ layout: default-iframe
                 <div class="dialog-right">
                     <ul class="list-add">
                         <li>
-                            文件1
+                            <span class="">文件1</span>
                             <div class="btn-declare" style="width: inherit;">
-                                <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                             </div>
                         </li>
                         <li>
-                            文件2
+                            <span>文件2</span>
                             <div class="btn-declare" style="width: inherit;">
-                                <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                             </div>
                         </li>
                         <li>
-                            文件3
+                            <span>文件2</span>
                             <div class="btn-declare" style="width: inherit;">
-                                <img src="../images/caitong/grey-add.png" class="grey-add" />
-                                <img src="../images/caitong/grey-delect.png" class="grey-add" />
+                                <img src="../images/caitong/grey-delect.png" class="grey-delect" />
                             </div>
                         </li>
                     </ul>
