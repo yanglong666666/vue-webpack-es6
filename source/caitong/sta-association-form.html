@@ -40,6 +40,7 @@ layout: default-iframe
         $('#select15').diySelect();
         $('#select16').diySelect();
         $('#select17').diySelect();
+        $('#select40').diySelect();
 
 
         $(".tabs-items").on("click", ".tab-option", function () {
@@ -51,6 +52,94 @@ layout: default-iframe
             tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
             tabs_body.find(".tabs-content").eq(index).css({"display":"block"}).siblings('.tabs-content').css({"display":"none"})
         })
+
+
+        $('.btn-changed').on('click', function () {
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">产品名称</div>' +
+                '   <div class="dialog-right"> 名称 </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">产品代码</div>' +
+                '   <div class="dialog-right"> 代码</div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">备案批号</div>' +
+                '   <div class="dialog-right">' +
+                '       <input class="dialog-input" placeholder="">' +
+                '   </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">报备状态</div>' +
+                '   <div class="dialog-right">' +
+                '   <select id="select31" class="diy-select" style="display: none;">' +
+                '       <option value="1">未报备</option>' +
+                '       <option value="2">已报备</option>' +
+                '   </select>' +
+                '   </div>' +
+                '</div>' +
+                '</div></div>';
+            var dialog = new Dialog(null, {
+                title: '修改备案批号',
+                content: content,
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["取消", "确定"],
+                btnRole: ['cancel', 'confirm'],
+                btnCls: ['cancel', 'confirm'],
+                confirm: function () {
+                    dialog.destroy();
+                },
+                afterShow: function () {
+                    $('#select31').diySelect({width: 180});
+                }
+            });
+        });
+        $('.btn-no-changed').on('click', function () {
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">产品名称</div>' +
+                '   <div class="dialog-right"> 名称 </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">产品代码</div>' +
+                '   <div class="dialog-right"> 代码</div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">备案批号</div>' +
+                '   <div class="dialog-right">' +
+                '       <input class="dialog-input" placeholder="">' +
+                '   </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">报备状态</div>' +
+                '   <div class="dialog-right">' +
+                '   <select id="select31" class="diy-select" style="display: none;">' +
+                '       <option value="1">未报备</option>' +
+                '       <option value="2">已报备</option>' +
+                '   </select>' +
+                '   </div>' +
+                '</div>' +
+                '</div></div>';
+            var dialog = new Dialog(null, {
+                title: '报备',
+                content: content,
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["取消", "确定"],
+                btnRole: ['cancel', 'confirm'],
+                btnCls: ['cancel', 'confirm'],
+                confirm: function () {
+                    dialog.destroy();
+                },
+                afterShow: function () {
+                    $('#select31').diySelect({width: 180});
+                }
+            });
+        });
 
     });
 
@@ -194,7 +283,7 @@ layout: default-iframe
                                 <td>2012-12-06</td>
                                 <td>中国证监会</td>
                                 <td>B000614</td>
-                                <td>未报</td>
+                                <td>已报备</td>
                             </tr>
                             </tbody>
                         </table>
@@ -209,32 +298,32 @@ layout: default-iframe
                             <tbody>
                             <tr class="even">
                                 <td class="text-c">
-                                    <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                    <a href="javascript:void(0);" class="btn btn-small btn-primary btn-checked btn-no-changed">报备</a>
                                 </td>
                             </tr>
                             <tr >
                                 <td class="text-c">
-                                    <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                    <a href="javascript:void(0);" class="btn btn-small btn-primary btn-checked btn-no-changed">报备</a>
                                 </td>
                             </tr>
                             <tr class="even">
                                 <td class="text-c">
-                                    <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                    <a href="javascript:void(0);" class="btn btn-small btn-primary btn-checked btn-no-changed">报备</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="text-c">
-                                    <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                    <a href="javascript:void(0);" class="btn btn-small btn-primary btn-checked btn-no-changed">报备</a>
                                 </td>
                             </tr>
                             <tr class="even">
                                 <td class="text-c">
-                                    <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                    <a href="javascript:void(0);" class="btn btn-small btn-primary btn-checked btn-no-changed">报备</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="text-c">
-                                    <a href="#" class="btn btn-small btn-primary btn-no-checked">已报备</a>
+                                    <a href="javascript:void(0);" class="btn btn-small btn-primary btn-changed">修改备案批号</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -423,7 +512,7 @@ layout: default-iframe
                                                     <td>数字</td>
                                                     <td>数字</td>
                                                     <td>数字</td>
-                                                    <td>未报</td>
+                                                    <td>已报备</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -491,7 +580,7 @@ layout: default-iframe
                                         <dl class="search-dl">
                                             <dd>
           <span>
-            <select id="select6" class="diy-select">
+            <select id="select40" class="diy-select">
                 <option selected>销售方式</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
@@ -643,7 +732,7 @@ layout: default-iframe
                                                     <td>数字</td>
                                                     <td>数字</td>
                                                     <td>数字</td>
-                                                    <td>未报</td>
+                                                    <td>已报备</td>
                                                 </tr>
                                                 </tbody>
                                             </table>

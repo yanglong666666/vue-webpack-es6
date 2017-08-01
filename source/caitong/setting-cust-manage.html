@@ -44,7 +44,7 @@ class: setting-cust-manage
             $(this).parents('.main-content-wrap-list').hide().siblings('#view-wrap').show();
         });
 
-        $('.cancel').on('click',function(){
+        $('.dialog-item-wrap .view-back,.cancel').on('click',function(){
             $(this).parents('.dialog-item-wrap').hide().siblings('.main-content-wrap-list').show();
         });
 
@@ -190,6 +190,7 @@ class: setting-cust-manage
             </div>
         </div>
         <div class="dialog-item-wrap" id="add-wrap" style="display: none;">
+            <a class="view-back"> &lt;&lt; 返回</a>
             <div class="dialog-item">
                 <div class="dialog-left must-icon">员工号</div>
                 <div class="dialog-right"><input class="dialog-input" placeholder=""></div>
@@ -284,6 +285,7 @@ class: setting-cust-manage
             </div>
         </div>
         <div class="dialog-item-wrap" id="view-wrap" style="display: none;">
+            <a class="view-back"> &lt;&lt; 返回</a>
             <div class="dialog-item">
                 <div class="dialog-left must-icon">员工号</div>
                 <div class="dialog-right">不能修改</div>

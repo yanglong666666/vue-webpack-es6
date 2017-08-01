@@ -68,6 +68,27 @@ layout: default-iframe
             yearRange: '1990:2017'
         });
 
+        $('.begin-time-1-3').datepicker({
+            onClose: function (selectedDate) {
+                $('.end-time-1-3').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+        $('.end-time-1-3').datepicker({
+            onClose: function (selectedDate) {
+                $('.begin-time-1-3').datepicker("option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
+
         $('.begin-time-2-1').datepicker({
             onClose: function (selectedDate) {
                 $('.end-time-2-1').datepicker("option", "minDate", selectedDate);
@@ -97,6 +118,10 @@ layout: default-iframe
         $('.detailsBtn-1-2').on('click',function(){
             $('.main-content').hide();
             $('#view-content-1-2').show();
+        });
+        $('.detailsBtn-1-3').on('click',function(){
+            $('#view-content-1-2').hide();
+            $('#view-content-1-3').show();
         });
         $('.detailsBtn-2-1').on('click',function(){
             $('.main-content').hide();
@@ -490,18 +515,33 @@ layout: default-iframe
         xx营业部在2017年2月-2017年4月的收入表现明细
         <button class="btn btn-primary btn-simple">导出</button>
     </h5>
+    <div class="task-search clearfix">
+        <button class="btn btn-float-right" href="#">搜索</button>
+        <dl class="search-dl">
+            <dd>
+                          <span>
+                            <select id="select-2-3" class="diy-select" style="display: none;">
+                                <option value="" selected>选择产品</option>
+                                <option value="1">111</option>
+                                <option value="2">222</option>
+                            </select>
+                          </span>
+            </dd>
+        </dl>
+    </div>
     <div class="main-content-box" style="padding: 0;">
         <div class="main-table clearfix" style="margin: -1px;">
             <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
                 <thead>
                 <tr>
                     <th width="10%">序号</th>
-                    <th width="10%">2017年4月</th>
-                    <th width="10%">月月福</th>
+                    <th width="10%">时间</th>
+                    <th width="10%">选择产品</th>
                     <th width="10%">前端收益</th>
                     <th width="10%">后端收益</th>
                     <th width="10%">认购费</th>
                     <th width="10%">尾佣</th>
+                    <th width="10%">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -513,6 +553,9 @@ layout: default-iframe
                     <td>15000</td>
                     <td>16000</td>
                     <td>17000</td>
+                    <td class="text-c">
+                        <a class="btn btn-primary btn-small ">详情</a>
+                    </td>
                 </tr>
                 <tr class="even">
                     <td>001</td>
@@ -522,6 +565,9 @@ layout: default-iframe
                     <td>15000</td>
                     <td>16000</td>
                     <td>17000</td>
+                    <td class="text-c">
+                        <a class="btn btn-primary btn-small ">详情</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -563,9 +609,9 @@ layout: default-iframe
     <a class="view-back"> &lt;&lt; 返回</a>
     <h5 style="margin-bottom: 10px;">
         xx营业部在2017年2月-2017年4月的交易佣金明细表现明细
-        <button class="btn btn-primary btn-simple">导出</button>
     </h5>
     <div class="task-search clearfix" style="margin-bottom: 10px;">
+        <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
         <button class="btn btn-float-right" href="#">搜索</button>
         <dl class="search-dl">
             <dd>
@@ -578,45 +624,415 @@ layout: default-iframe
               </span>
             </dd>
         </dl>
+        <dl class="search-dl ">
+            <dd>
+                <span class="pre"></span>
+                <label>
+                    <input class="txt begin-time-1-3" type="text" placeholder="开始时间" readonly/>
+                    <i></i>
+                </label>
+                <span class="pre">至</span>
+                <label>
+                    <input class="txt end-time-1-3" type="text" placeholder="截止时间" readonly/>
+                    <i></i>
+                </label>
+            </dd>
+        </dl>
     </div>
     <div class="main-content-box" style="padding: 0;">
+        <div class="main-table clearfix" style="margin-left: -1px;width: calc(100% + 2px)">
+            <div class="scroll-table">
+                <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                    <thead>
+                    <tr>
+                        <th width="10%">选择时间</th>
+                        <th width="10%">选择产品</th>
+                        <th width="10%">经纪人姓名</th>
+                        <th width="20%">部门类别</th>
+                        <th width="10%">经纪人类别</th>
+                        <th width="10%">经纪人级别</th>
+                        <th width="10%">年佣金费率</th>
+                        <th width="10%">年保有量金额</th>
+                        <th width="10%">年度交易量金额</th>
+                        <th width="10%">年度佣金金额</th>
+                        <th width="10%">年保有量份额</th>
+                        <th width="10%">年度交易量份额</th>
+                        <th width="10%">年度佣金份额</th>
+                        <th width="10%">本期日均保有量金额</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr class="even">
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr>
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr class="even">
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr>
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr class="even">
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="fixed-table">
+                <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                    <thead>
+                    <tr>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="even">
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small detailsBtn-1-3">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small detailsBtn-1-3">详情</a>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small detailsBtn-1-3">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small detailsBtn-1-3">详情</a>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small detailsBtn-1-3">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small detailsBtn-1-3">详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ui-pagenav">
+            <div class="page">
+                <ul class="clearfix">
+                    <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                    <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                    <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                    <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                    <li>...</li>
+                    <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                    <li>...</li>
+                    <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                    <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                    <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                    <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                    <li>共20页，到第</li>
+                    <li><input class="page-go" type="text"></li>
+                    <li>页</li>
+                    <li class="page-go-sure"><a href="">确定</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="main-table clearfix" style="margin: -1px;">
             <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
-                <thead>
-                <tr>
-                    <th width="10%">年佣金费率</th>
-                    <th width="10%">年保有量金额</th>
-                    <th width="10%">年度交易量金额</th>
-                    <th width="10%">年度佣金金额</th>
-                    <th width="10%">年保有量份额</th>
-                    <th width="10%">年度交易份额</th>
-                    <th width="10%">年度佣金份额</th>
-                    <th width="10%">本期日均保有量金额</th>
-                </tr>
-                </thead>
                 <tbody>
-                <tr>
-                    <td>11000</td>
-                    <td>12000</td>
-                    <td>13000</td>
-                    <td>14000</td>
-                    <td>15000</td>
-                    <td>16000</td>
-                    <td>17000</td>
-                    <td>18000</td>
-                </tr>
-                <tr class="even">
-                    <td>11000</td>
-                    <td>12000</td>
-                    <td>13000</td>
-                    <td>14000</td>
-                    <td>15000</td>
-                    <td>16000</td>
-                    <td>17000</td>
-                    <td>18000</td>
+                <tr class="bgGrey textLeft">
+                    <td class="textRight" width="100px">合计：</td>
+                    <td class="textLeft">65000</td>
                 </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+<div class="view-content" id="view-content-1-3" style="display:none;">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <h5 style="margin-bottom: 10px;">
+        经纪人在2017年2月-2017年4月的交易佣金明细表现明细
+    </h5>
+    <div class="task-search clearfix" style="margin-bottom: 10px;">
+        <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
+        <button class="btn btn-float-right" href="#">搜索</button>
+        <dl class="search-dl">
+            <dd>
+              <span>
+                <select id="select-1-5" class="diy-select" style="display: none;">
+                    <option value="" selected>选择产品</option>
+                    <option value="1">111</option>
+                    <option value="2">222</option>
+                </select>
+              </span>
+            </dd>
+        </dl>
+        <dl class="search-dl ">
+            <dd>
+                <span class="pre"></span>
+                <label>
+                    <input class="txt begin-time-1-3" type="text" placeholder="开始时间" readonly/>
+                    <i></i>
+                </label>
+                <span class="pre">至</span>
+                <label>
+                    <input class="txt end-time-1-3" type="text" placeholder="截止时间" readonly/>
+                    <i></i>
+                </label>
+            </dd>
+        </dl>
+    </div>
+    <div class="main-content-box" style="padding: 0;">
+        <div class="main-table clearfix" style="margin-left: -1px;width: calc(100% + 2px)">
+            <div class="scroll-table">
+                <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                    <thead>
+                    <tr>
+                        <th width="10%">选择时间</th>
+                        <th width="10%">选择产品</th>
+                        <th width="10%">经纪人姓名</th>
+                        <th width="20%">部门类别</th>
+                        <th width="10%">经纪人类别</th>
+                        <th width="10%">经纪人级别</th>
+                        <th width="10%">年佣金费率</th>
+                        <th width="10%">年保有量金额</th>
+                        <th width="10%">年度交易量金额</th>
+                        <th width="10%">年度佣金金额</th>
+                        <th width="10%">年保有量份额</th>
+                        <th width="10%">年度交易量份额</th>
+                        <th width="10%">年度佣金份额</th>
+                        <th width="10%">本期日均保有量金额</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr class="even">
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr>
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr class="even">
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr>
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    <tr class="even">
+                        <td>2017-03-04</td>
+                        <td>月月福</td>
+                        <td>姓名</td>
+                        <td>类别</td>
+                        <td>类别</td>
+                        <td>级别</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                        <td>数字</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="fixed-table">
+                <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                    <thead>
+                    <tr>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="even">
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small ">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small ">详情</a>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small ">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small ">详情</a>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small ">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-c">
+                            <a class="btn btn-primary btn-small ">详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="ui-pagenav">
             <div class="page">
