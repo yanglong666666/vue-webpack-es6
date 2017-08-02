@@ -30,7 +30,36 @@ layout: default-iframe
             $('#view-content-1-1').hide();
         });
 
+        $(".right-list li").on('mouseover',function(){
+            $(this).find(".icon-delect").show();
+            $(this).find(".icon-delect").click(function(){
+                $(this).parent('li').remove();
+            })
+        }).on('mouseout',function(){
+            $(this).find(".icon-delect").hide()
+        })
 
+
+
+
+
+        $('.title ').delegate('.btn-add','click',function(){
+            var str=[];
+            for(i=0;i<$(".ava-txt").length;i++){
+                if($(".ava-txt").eq(i).val() != ''){
+                    str.push($(".ava-txt").eq(i).val())
+                }
+            }
+
+            for(i=0;i<str.length;i++){
+                var b='<li>' + str[i] + '<i class="icon-delect" style="display: none;"></i></li>';
+                $('.right-list').append(b)
+            }
+
+
+
+
+        })
 
     });
 
@@ -90,7 +119,7 @@ layout: default-iframe
             <div class="search-content ">
                 <div class="simple-content-table">
                     <div class="title">
-                        <button class="btn" >新增</button>
+                        <button class="btn btn-add" >新增</button>
                         <button class="btn">删除</button>
                         <button class="btn">确定保存</button>
 
@@ -110,19 +139,27 @@ layout: default-iframe
                                     <tbody>
                                     <tr>
                                         <td width="20%">字段1</td>
-                                        <td width="80%"></td>
+                                        <td width="80%">
+                                            <input type="text" class="ava-txt">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="20%">字段2</td>
-                                        <td width="80%"></td>
+                                        <td width="80%">
+                                            <input type="text" class="ava-txt">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="20%">字段3</td>
-                                        <td width="80%"></td>
+                                        <td width="80%">
+                                            <input type="text" class="ava-txt">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="20%">字段4</td>
-                                        <td width="80%"></td>
+                                        <td width="80%">
+                                            <input type="text" class="ava-txt">
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -132,8 +169,8 @@ layout: default-iframe
                     <div class="right-ruler">
                         <div class="right-top">字段如下：</div>
                         <ul class="right-list">
-                            <li>字段1</li>
-                            <li>字段2</li>
+                            <li>字段1 <i class="icon-delect"></i></li>
+                            <li>字段2 <i class="icon-delect"></i></li>
                         </ul>
                     </div>
                 </div>

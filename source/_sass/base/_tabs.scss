@@ -557,6 +557,16 @@
             li {
                 line-height: 36px;
                 padding: 0 20px;
+                position: relative;
+                .icon-delect{
+                    position: absolute;
+                    top: 7px;
+                    right: 15px;
+                    width: 16px;
+                    height: 16px;
+                    background: url(../images/caitong/grey-delect.png);
+                    display: none;
+                }
             }
         }
     }
