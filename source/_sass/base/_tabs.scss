@@ -544,7 +544,9 @@
         float: left;
         margin-left: 15px;
         margin-top: 15px;
-        width: -webkit-calc(100% - 770px - 15px);
+        width: -webkit-calc(100% - 785px);
+        width: -moz-calc(100% - 785px);
+        width: calc(100% - 785px);
         height: 535px;
         background: #f5f6f8;
         .right-top {
@@ -560,7 +562,7 @@
                 position: relative;
                 .icon-delect{
                     position: absolute;
-                    top: 7px;
+                    top: 10px;
                     right: 15px;
                     width: 16px;
                     height: 16px;

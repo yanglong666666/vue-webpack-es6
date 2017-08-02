@@ -30,12 +30,12 @@ layout: default-iframe
             $('#view-content-1-1').hide();
         });
 
-        $(".right-list li").on('mouseover',function(){
+        $(".right-list").delegate('li','mouseover',function(){
             $(this).find(".icon-delect").show();
-            $(this).find(".icon-delect").click(function(){
+            $(this).delegate('.icon-delect','click',function(){
                 $(this).parent('li').remove();
             })
-        }).on('mouseout',function(){
+        }).delegate('li','mouseout',function(){
             $(this).find(".icon-delect").hide()
         })
 
@@ -52,7 +52,7 @@ layout: default-iframe
             }
 
             for(i=0;i<str.length;i++){
-                var b='<li>' + str[i] + '<i class="icon-delect" style="display: none;"></i></li>';
+                var b='<li>' + str[i] + '<i class="icon-delect"></i></li>';
                 $('.right-list').append(b)
             }
 
