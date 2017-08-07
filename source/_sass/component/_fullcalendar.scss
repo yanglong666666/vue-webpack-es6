@@ -146,7 +146,7 @@
             color: #f1374d;
             border-radius: 50%;
             box-sizing: border-box;
-            border: 1px solid #f1374d;
+            border: 2px solid #f1374d;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
         }
@@ -194,4 +194,18 @@
 
 .fc-highlight{
     border-radius: 25px;
+    background: #f1374d;
+}
+
+.hasproduct{
+    .fc-day-number{
+        background: #ffdfe1;
+        border-radius: 50%;
+    }
+}
+.fc-center{
+    h2{
+        color: #444444;
+        font-size: 18px;
+    }
 }

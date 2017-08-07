@@ -452,6 +452,19 @@ class: channel-search-first
             },
             eventAfterAllRender: function (view) {
                 currentMonth = view.end._d.getMonth();
+                var hasProcductDays= [9,10,11];
+                var len=$(".fc-day-top").length;
+                for(j=0;j<hasProcductDays.length;j++){
+                    for(i=0;i<len;i++){
+                        if($(".fc-day-top").eq(i).find(".fc-day-number").html() == hasProcductDays[j]){
+                            $(".fc-day-top").eq(i).addClass('hasproduct');
+                        }
+                    }
+                }
+                $(".hasproduct").click(function(){
+                    alert("111");
+                })
+
             }
         });
        // updateLegend();
@@ -545,6 +558,13 @@ class: channel-search-first
                     $(".table-sort tbody")[0].appendChild(str1[i])
                 }
             }
+        })
+
+
+        $(".tab-left .tab-left-options").click(function(){
+            var indexs=$(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            $(".list-wraps").eq(indexs).addClass("active").siblings().removeClass('active');
         })
     });
 

@@ -85,6 +85,20 @@
                 color: $font-color-sub;
                 border-bottom: 1px solid $border-color;
                 padding: 10px 10px;
+                .icon-star{
+                    display: inline-block;
+                    width: 21px;
+                    height: 20px;
+                    background: url(../images/caitong/icon-hidden.png);
+                    vertical-align: middle;
+                    &.icon-show{
+                        display: inline-block;
+                        width: 21px;
+                        height: 20px;
+                        background: url(../images/caitong/icon-show.png);
+                        vertical-align: middle;
+                    }
+                }
                 &.td-ellipsis {
                     .txt-ellipsis {
                         width: 240px;
@@ -240,10 +254,10 @@
             .btn {
                 position: relative;
                 padding-right: 30px;
-                background-image: url(../images/dropdown.png);
+                background-image: url(../images/caitong/icon-blue-more.png);
                 background-repeat: no-repeat;
                 background-position: 90% 50%;
-                background-size: 17px 13px;
+                background-size: 10px 6px;
                 line-height: 28px;
                 &.btn-change-big {
                     line-height: 28px;

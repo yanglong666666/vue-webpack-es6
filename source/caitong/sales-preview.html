@@ -6,7 +6,9 @@ class: sales-preview
 <script type="text/javascript">
     $(function () {
         $('#select2').diySelect({width: 120});
-        $('#select3').diySelect({width: 120});
+        $('#select3').diySelect({width: 150});
+        $('#select4').diySelect({width: 120});
+        $('#select5').diySelect({width: 120});
         $('#select00').diySelect({width: 222});
         $('#select01').diySelect({width: 222});
         $('#select02').diySelect({width: 222});
@@ -20,6 +22,12 @@ class: sales-preview
         $('#select22').diySelect({width: 222});
         $('#select23').diySelect({width: 222});
         $('#select24').diySelect({width: 222});
+        $('#select1_1').diySelect({width: 150});
+        $('#select1_2').diySelect({width: 150});
+        $('#select1_3').diySelect({width: 150});
+        $('#select1_4').diySelect({width: 150});
+        $('#select1_5').diySelect({width: 150});
+        $('#select1_6').diySelect({width: 150});
 
         $('.begin-time').datepicker({
             onClose: function (selectedDate) {
@@ -47,7 +55,7 @@ class: sales-preview
             $(this).find('.sub-group').hide();
         });
 
-        $('#btnImport').on('click', function () {
+        /*$('#btnImport').on('click', function () {
             var btnImportDialog = new Dialog(null, {
                 content: '<div style="padding: 20px 0;text-align: center;">导入成功</div>',
                 title: '温馨提示',
@@ -62,11 +70,112 @@ class: sales-preview
                     btnImportDialog.destroy();
                 }
             });
+        });*/
+
+
+        $('.btn-dates').on('click', function () {
+            var btnImportDialog = new Dialog(null, {
+                content: '<div style="padding: 20px 0;text-align: center;">共发布‘重点’'+'<span class="channel-import">10</span>个、‘开放’'+ '<span class="channel-open">5</span>个、“到期”'+'<span class="channel-times">5</span>个'+'</div>',
+                title: '温馨提示',
+                width: '360',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["取消", "确认"],
+                btnRole: ['cancel', 'confirm'],
+                btnCls: ['cancel', 'confirm'],
+                cancel: function () {
+                    btnImportDialog.destroy();
+                },
+                afterShow: function () {
+                    //确定按钮事件
+                   // btnImportDialog.destroy();
+                }
+            });
         });
 
 
+        $('.btn-date-change').on('click', function () {
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon">文件路径</div>' +
+                '   <div class="dialog-right" style="width: 240px">风禾财通创新1号私募证券投资基金</div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon" style="width: 122px">日期类型</div>' +
+                '   <div class="dialog-right">' +
+                '   <select id="select31" class="diy-select" style="display: none;">' +
+                '       <option selected="">1-开放日期</option>' +
+                '       <option value="1">11111</option>' +
+                '       <option value="2">22222</option>' +
+                '   </select>' +
+                '   </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon" style="width: 122px">开放开始日期</div>' +
+                '   <div class="dialog-right" style="width: 240px">' +
+                '        <label> <input class="txt begin-time-1" type="text" placeholder="2017-07-25" readonly="" style="width: 240px;height: 30px"> <i></i> </label>' +
+                '   </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon" style="width: 122px">开放结束日期</div>' +
+                '   <div class="dialog-right" style="width: 240px">' +
+                '        <label> <input class="txt end-time-1" type="text" placeholder="2017-07-29" readonly="" style="width: 240px;height: 30px"> <i></i> </label>' +
+                '   </div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left must-icon" style="width: 122px">上一次开放日期</div>' +
+                '   <div class="dialog-right" style="width: 240px">--</div>' +
+                '</div>' +
+                '</div></div>';
+            var dialog = new Dialog(null, {
+                title: '标题',
+                content: content,
+                width: '450',
+                needDestroy: true,
+                hasBtn: true,
+                btnText: ["取消", "保存"],
+                btnRole: ['cancel', 'confirm'],
+                btnCls: ['cancel', 'confirm'],
+                confirm: function () {
+                    dialog.destroy();
+                },
+                afterShow: function () {
+                    $('#select31').diySelect({width: 240});
+                    $('.begin-time-1').datepicker({
+                        onClose: function (selectedDate) {
+                            $('.end-time-1').datepicker("option", "minDate", selectedDate);
+                        },
+                        changeYear: true,
+                        changeMonth: true,
+                        showMonthAfterYear: true,
+                        dateFormat: "yy-mm-dd",
+                        yearRange: '1990:2017'
+                    });
+                    $('.end-time-1').datepicker({
+                        onClose: function( selectedDate ) {
+                            $('.begin-time-1').datepicker( "option", "maxDate", selectedDate );
+                        },
+                        changeYear: true,
+                        changeMonth: true,
+                        showMonthAfterYear: true,
+                        dateFormat: "yy-mm-dd",
+                        yearRange: '1990:2017'
+                    });
+                }
+            });
+        });
+        $('#btnImport').on('click',function(){
+            $('.edit-add-date').show();
+            $('.main-content').hide();
+        });
+
+        $('.edit-add-date .view-back').on('click',function(){
+            $('.edit-add-date').hide();
+            $('.main-content').show();
+        });
+
         $('#btnAdd').on('click',function(){
-            $('.add-wrap').show();
+            $('.edit-add-new').show();
             $('.main-content').hide();
         });
         $('#btnNext').on('click',function(){
@@ -91,8 +200,8 @@ class: sales-preview
             $('.edit-wrap').show();
             $('.main-content').hide();
         });
-        $('.edit-wrap .view-back,#editBtnCancel').on('click',function(){
-            $('.edit-wrap').hide();
+        $('.edit-add-new .view-back').on('click',function(){
+            $('.edit-add-new').hide();
             $('.main-content').show();
         });
     });
@@ -115,9 +224,33 @@ class: sales-preview
         </div>
         <div class="task-search clearfix">
             <button class="btn btn-primary btn-simple btn-float-right" id="btnExport" href="#">导出</button>
-            <button class="btn btn-primary btn-simple btn-float-right" id="btnImport" href="#">导入产品模板</button>
+            <button class="btn btn-primary btn-simple btn-float-right" id="btnImport" href="#">发布到日历</button>
             <button class="btn btn-primary btn-simple btn-float-right" id="btnAdd" href="#">新增</button>
             <button class="btn btn-float-right" href="#">搜索</button>
+            <dl class="search-dl">
+                <dd>
+                  <span>
+                    <select id="select3" class="diy-select">
+                        <option selected>发布到日历状态</option>
+                        <option value="1">111</option>
+                        <option value="2">222</option>
+                    </select>
+                  </span>
+                </dd>
+            </dl>
+            <dl class="search-dl">
+                <dd>
+                  <span>
+                    <select id="select2" class="diy-select">
+                        <option selected>产品类型</option>
+                        <option value="1">基金类</option>
+                        <option value="2">股票类</option>
+                    </select>
+                  </span>
+                </dd>
+            </dl>
+            <input type="text" class="aql-input small-input" placeholder="产品代码" style="width: 120px;">
+            <input type="text" class="aql-input small-input" placeholder="产品名称" style="width: 120px;">
             <dl class="search-dl">
                 <dd>
                     <label>
@@ -134,10 +267,10 @@ class: sales-preview
             <dl class="search-dl">
                 <dd>
                   <span>
-                    <select id="select2" class="diy-select">
-                        <option selected>产品类型</option>
-                        <option value="1">基金类</option>
-                        <option value="2">股票类</option>
+                    <select id="select5" class="diy-select">
+                        <option selected>时间段选择</option>
+                        <option value="1">111</option>
+                        <option value="2">222</option>
                     </select>
                   </span>
                 </dd>
@@ -145,17 +278,14 @@ class: sales-preview
             <dl class="search-dl">
                 <dd>
                   <span>
-                    <select id="select3" class="diy-select">
-                        <option selected>近两周开放</option>
+                    <select id="select4" class="diy-select">
+                        <option selected>开放</option>
                         <option value="1">111</option>
                         <option value="2">222</option>
                     </select>
                   </span>
                 </dd>
             </dl>
-            <input type="text" class="aql-input small-input" placeholder="产品代码" style="width: 120px;">
-
-            <input type="text" class="aql-input small-input" placeholder="产品名称" style="width: 120px;">
 
         </div>
         <div class="main-table clearfix">
@@ -295,22 +425,30 @@ class: sales-preview
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                        <td class="text-c">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary btn-small">发布</a>
+                                <ul class="sub-group" style="display: none;">
+                                    <li><a >信息修改</a></li>
+                                    <li><a class="btn-date-change">日期修改</a></li>
+                                </ul>
+                            </div>
+                        </td>
                     </tr>
                     <tr class="even">
-                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a></td>
                     </tr>
                     <tr>
-                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a></td>
                     </tr>
                     <tr class="even">
-                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a></td>
                     </tr>
                     <tr>
-                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a></td>
                     </tr>
                     <tr class="even">
-                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a>&nbsp;&nbsp;<a href="#" class="btn btn-small btn-primary tableBtnEdit">修改</a></td>
+                        <td class="text-c"><a href="#" class="btn btn-small btn-primary tableBtnCheck">查看</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -676,6 +814,371 @@ class: sales-preview
         <div class="button-content page-footer-button-container">
             <button class="btn btn-fill">确定</button>
             <button class="btn btn-gray" id="editBtnCancel">取消</button>
+        </div>
+    </div>
+    <div class="dialog-item-wrap edit-wrap edit-add-new"  style="display: none" >
+        <a class="view-back"> &lt;&lt; 返回</a>
+        <div class="channel-add-new">
+            <div class="left-new">
+                <div class="main-table clearfix">
+                    <div class="scroll-table" style="width: 100%;height: 327px;overflow: auto">
+                        <table cellpadding="0" cellspacing="0" class="data-table table-padding7 table-choice" style="border-width:1px 0px 0px 0px">
+                            <thead>
+                            <tr>
+                                <th width="10%">序号</th>
+                                <th width="20%">登记日期</th>
+                                <th width="10%">产品代码</th>
+                                <th width="20%">产品名称</th>
+                                <th width="10%">管理人</th>
+                                <th width="10%">操作员</th>
+                                <th width="10%">审核状态</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+
+                            </tr>
+                            <tr class="even">
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+                            </tr>
+                            <tr class="even">
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+                            </tr>
+                            <tr class="even">
+                                <td>001</td>
+                                <td>2017-03-06 10:01</td>
+                                <td class="channel-code">无</td>
+                                <td class="channel-name">资管集合计划1</td>
+                                <td>财通资管</td>
+                                <td>大康</td>
+                                <td>用印审核中</td>
+                                <td class="text-c">
+                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="ui-pagenav">
+                    <div class="page">
+                        <ul class="clearfix">
+                            <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                            <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                            <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                            <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                            <li>...</li>
+                            <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                            <li>...</li>
+                            <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                            <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                            <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                            <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                            <li>共20页，到第</li>
+                            <li><input class="page-go" type="text"></li>
+                            <li>页</li>
+                            <li class="page-go-sure"><a href="">确定</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="center-new">
+                <img src="../images/caitong/btn-jt.png" class="icon-jt">
+            </div>
+            <div class="right-new">
+                <div class="dialog-item-wrap">
+                    <div class="dialog-item-border" >
+                        <div class="dialog-item-box-title" >选择产品信息</div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">产品代码</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input input-code" placeholder="" value="" style="width: 150px">
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">按产品发行</div>
+                            <div class="dialog-right">
+                                <select id="select1_1" class="diy-select" style="display: none;">
+                                    <option value="" selected>私募基金产品</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">选择二级</div>
+                            <div class="dialog-right">
+                                <select id="select1_2" class="diy-select" style="display: none;">
+                                    <option value="" selected>基金专户</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">按产品系列</div>
+                            <div class="dialog-right">
+                                <select id="select1_3" class="diy-select" style="display: none;">
+                                    <option value="" selected>私募基金产品</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">风险等级</div>
+                            <div class="dialog-right">
+                                <select id="select1_4" class="diy-select" style="display: none;">
+                                    <option value="" selected>风险等级1</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="dialog-left">产品来源</div>
+                            <div class="dialog-right">
+                                <select id="select1_6" class="diy-select" style="display: none;">
+                                    <option value="" selected>私募基金产品</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="button-content" style="text-align: center;margin-top: 30px;float: left;width: 100%">
+                <button class="btn btn-fill btn-next" style="margin-right: 10px;">下一步</button>
+                <button class="btn btn-gray btnCancel">取消</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dialog-item-wrap edit-wrap edit-add-date"  style="display: none;" >
+        <a class="view-back"> &lt;&lt; 返回</a>
+
+        <div class="task-search clearfix">
+            <button class="btn btn-float-right btn-dates" href="#">发布到日历</button>
+            <button class="btn btn-float-right btn-import" href="#">设置为重点</button>
+
+        </div>
+
+        <div class="main-table clearfix">
+            <div class="scroll-table" style="width: 100%;">
+                <table cellpadding="0" cellspacing="0" class="data-table table-padding7 " >
+                    <thead>
+                    <tr>
+                        <th width="16%"><span class="param-checkbox checkAll"></span>全选</th>
+                        <th width="20%">重点标识</th>
+                        <th width="10%">日期类型</th>
+                        <th width="20%">产品类型</th>
+                        <th width="10%">产品名称</th>
+                        <th width="10%">产品代码</th>
+                        <th width="20%">产品风险等级</th>
+                        <th width="20%">销售开始日期</th>
+                        <th width="20%">销售结束日期</th>
+                        <th width="20%">开放开始日期</th>
+                        <th width="20%">开放结束日期</th>
+                        <th width="20%">产品到期日期</th>
+                        <th width="20%">业绩提成基准（年化）</th>
+                        <th width="10%">最新净值</th>
+                        <th width="10%">管理人</th>
+                        <th width="10%">发布状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><span class="param-checkbox checkbox-checked" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                        <td><i class=" icon-star icon-show "></i></td>
+                        <td class="channel-code">销售</td>
+                        <td class="channel-name">货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-19</td>
+                        <td>4.7</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>未发布</td>
+
+
+                    </tr>
+                    <tr class="even">
+                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                        <td><i class="icon-star  "></i></td>
+                        <td class="channel-code">销售</td>
+                        <td class="channel-name">货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-19</td>
+                        <td>4.7</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>未发布</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                        <td><i class="icon-star  "></i></td>
+                        <td class="channel-code">销售</td>
+                        <td class="channel-name">货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-19</td>
+                        <td>4.7</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>未发布</td>
+                    </tr>
+                    <tr class="even">
+                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                        <td><i class="icon-star  "></i></td>
+                        <td class="channel-code">销售</td>
+                        <td class="channel-name">货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-19</td>
+                        <td>4.7</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>未发布</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                        <td><i class="icon-star  "></i></td>
+                        <td class="channel-code">销售</td>
+                        <td class="channel-name">货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-19</td>
+                        <td>4.7</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>未发布</td>
+                    </tr>
+                    <tr class="even">
+                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                        <td><i class="icon-star "></i></td>
+                        <td class="channel-code">销售</td>
+                        <td class="channel-name">货币型</td>
+                        <td>银华货币</td>
+                        <td>180008</td>
+                        <td>中低</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-12</td>
+                        <td>2014-7-19</td>
+                        <td>2014-7-19</td>
+                        <td>4.7</td>
+                        <td>1.0323</td>
+                        <td>张德华</td>
+                        <td>未发布</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="ui-pagenav">
+            <div class="page">
+                <ul class="clearfix">
+                    <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                    <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                    <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                    <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                    <li>...</li>
+                    <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                    <li>...</li>
+                    <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                    <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                    <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                    <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                    <li>共20页，到第</li>
+                    <li><input class="page-go" type="text"></li>
+                    <li>页</li>
+                    <li class="page-go-sure"><a href="">确定</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
