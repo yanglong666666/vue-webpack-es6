@@ -36,10 +36,27 @@
                     &:after {
                         content: "";
                         display: inline-block;
-                        width: 8px;
-                        height: 11px;
-                        background: url(../images/caitong/grey-tab.png) no-repeat;
+                        width: 9px;
+                        height: 7px;
+                        background: url(../images/icolist.png) -60px -50px no-repeat;
                         margin: 0 0 0 2px;
+                    }
+                }
+
+                .icon-high {
+                    cursor: pointer;
+                    &:after {
+                        content: "";
+                        display: inline-block;
+                        width: 9px;
+                        height: 7px;
+                        background: url(../images/icolist.png) -60px -50px no-repeat;
+                        margin: 0 0 2px 2px;
+                        transform:rotate(180deg);
+                        -ms-transform:rotate(180deg);
+                        -moz-transform:rotate(180deg);
+                        -webkit-transform:rotate(180deg);
+                        -o-transform:rotate(180deg);
                     }
                 }
 

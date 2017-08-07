@@ -103,9 +103,9 @@ class: channel-search-first
                         }
                     ];
                     $('#big-calendar-2').diyFullCalendar({
-                        width: "45%",
-                        legends: calendar_setting_legends_2,
-                        events:  calendar_setting_events_2,
+                        width: "352px",
+                        //legends: calendar_setting_legends_2,
+                        //events:  calendar_setting_events_2,
                         onSelected: function(start,end){
                             end.setDate(end.getDate() - 1);
 
@@ -298,7 +298,8 @@ class: channel-search-first
 
         setTimeout(function () {
             $('.loading-small').hide();
-            $('.list-wrap').show();
+            $('.right-contents-top').show();
+            $('.right-list-wraps').show();
         }, 5000);
 
 
@@ -441,9 +442,9 @@ class: channel-search-first
 
         var $calendarWrap = $('#big-calendar-1');
         $calendarWrap.diyFullCalendar({
-            width: "540px",
-            legends: calendar_setting_legends,
-            events: calendar_setting_events,
+            width: "352px",
+            //legends: calendar_setting_legends,
+            //events: calendar_setting_events,
             onSelected: function (start, end) {
                 end.setDate(end.getDate() - 1);
                 console.log('start:' + start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate());
@@ -453,8 +454,8 @@ class: channel-search-first
                 currentMonth = view.end._d.getMonth();
             }
         });
-        updateLegend();
-        $calendarWrap.find('.fc-next-button,.fc-prev-button').on('click', function () {
+       // updateLegend();
+      /*  $calendarWrap.find('.fc-next-button,.fc-prev-button').on('click', function () {
             console.log(currentYear + '-' + currentMonth);
             //先去掉所有数据
             $calendarWrap.find('.big-calendar').fullCalendar('removeEvents');
@@ -490,9 +491,9 @@ class: channel-search-first
             //渲染数据
             $calendarWrap.find('.big-calendar').fullCalendar('renderEvents', calendar_setting_events);
             updateLegend();
-        });
+        });*/
 
-        function updateLegend() {
+        /*function updateLegend() {
             $calendarWrap.find('.calendar-legend-item-wrap').html('');
             calendar_setting_legends.forEach(function (item1) {
                 $calendarWrap.find('.calendar-legend-item-wrap').append('<div class="calendar-legend-item"><i style="background-color: ' + item1.color + ' "></i> ' + item1.text + '(' + item1.total + '个) </div>')
@@ -502,7 +503,7 @@ class: channel-search-first
                 $self2.addClass('active').siblings('.calendar-legend-item').removeClass('active');
                 $self2.parents('.calendar-legend').siblings('.calendar-content-wrap').find('.calendar-content-item').eq($self2.index()).show().siblings('.calendar-content-item').hide();
             }).eq(0).click();
-        }
+        }*/
 
 
 
@@ -519,7 +520,9 @@ class: channel-search-first
             for(j=0;j<tdList.length;j++){
                 str1[j]=$(".table-sort tbody")[0].rows[j]
             }
-            if(n%2 != 0){
+            if($(this).hasClass('icon-high')){
+                //降序
+                $(this).removeClass('icon-high').addClass('icon-tab');
                 str1.sort(function (tr1,tr2) {
                     var n1=tr1.cells[5].innerHTML;
                     var n2=tr2.cells[5].innerHTML;
@@ -531,6 +534,8 @@ class: channel-search-first
                 }
 
             }else{
+                //升序
+                $(this).addClass('icon-high').removeClass('icon-tab');
                str1.reverse(function (tr1, tr2) {
                        var n1=tr1.cells[5].innerHTML;
                        var n2=tr2.cells[5].innerHTML;
@@ -565,434 +570,712 @@ class: channel-search-first
 
                 </div>
                 <h2 class="col-block" style="margin-top: 0">产品日历</h2>
-                <div id="big-calendar-1" style="margin-top: 20px">
-                    <div class="big-calendar"></div>
-                    <div class="calendar-legend calendar-legend-tab">
-                        <div class="calendar-legend-item-wrap"></div>
-                    </div>
-                </div>
-                <div class="dialog-item-wrap">
-                    <div class="dialog-item-border" style="position: relative">
-                        <span class="txt-right">更多 >></span>
-                        <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
-                            <span class="tab-option on">近两周销售</span>
-                            <span class="tab-option">近两周开放</span>
-                            <span class="tab-option">近两周赎回</span>
+                <div class="list-content">
+                    <div id="big-calendar-1">
+                        <div class="big-calendar"></div>
+                        <div class="center-contents">
+                            <img src="../images/caitong/btn-jt.png" class="icon-jt">
                         </div>
-                        <div class="dialog-item-box-body">
-                            <div class="tabs-body">
-                                <div class="tabs-content tabs-content-card-wrap on">
-                                    <div class="list-content">
-                                        <div class="diy-slider" id="diy-slider-1">
-                                            <img src="../images/caitong/prev.png" class="btn-img prev">
-                                            <img src="../images/caitong/next.png" class="btn-img next">
-                                            <ul>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                        <div class="right-contents">
+                            <div class="loading-small">
+                                <div class="loading-small-text">正在加载..</div>
+                            </div>
+                            <div class="right-contents-top" style="display: none">
+                                <div class="tab-left">
+                                    <span class="tab-left-options">重点金融产品（<span class="tab-num">10</span>）</span>
+                                    <span class="tab-left-options active">销售（<span class="tab-num">4</span>）</span>
+                                    <span class="tab-left-options">到期（<span class="tab-num">10</span>）</span>
                                 </div>
-                                <div class="tabs-content tabs-content-card-wrap">
-                                    <div class="list-content">
-                                        <div class="diy-slider" id="diy-slider-2">
-                                            <img src="../images/caitong/prev.png" class="btn-img prev">
-                                            <img src="../images/caitong/next.png" class="btn-img next">
-                                            <ul>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <div class="tab-right btn-mores">
+                                    更多 >>
                                 </div>
-                                <div class="tabs-content tabs-content-card-wrap">
-                                    <div class="list-content">
-                                        <div class="diy-slider" id="diy-slider-3">
-                                            <img src="../images/caitong/prev.png" class="btn-img prev">
-                                            <img src="../images/caitong/next.png" class="btn-img next">
-                                            <ul>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                                <li>
-                                                    <dl class="dl-list">
-                                                        <dt>
-                                                        <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                        </dt>
-                                                        <dd>
-                                                            <div class="left">
-                                                                <div class="level">中低风险等级</div>
-                                                            </div>
-                                                            <div class="right">
-                                                                <p class="p-right-top">年化 <span
-                                                                    class="col-red">3.5%</span></p>
-                                                                <p class="p-right-center">起购金额 ：5万元</p>
-                                                                <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                            </div>
-                                                        </dd>
-                                                    </dl>
-                                                </li>
-                                            </ul>
+                            </div>
+                            <div class="right-list-wraps" style="display: none">
+                                <div class="list-wraps">
+
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
                                         </div>
-                                    </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="list-wraps active">
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+
+                                </div>
+                                <div class="list-wraps">
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="list-date">
+                                        <dt>
+                                        <div class="dt-top">
+                                            <p class="channel-name">财达证券基金</p>
+                                            <span class="channel-dis">基金代码：</span>
+                                            <span class="channel-dis">41001</span>
+                                        </div>
+                                        <div class="dt-center clearfix">
+                                            <div class="dt-list">
+                                                <p class="channel-rate">业绩提成基准(年化)</p>
+                                                <span class="channel-rate-val">0.9673</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-personal">个人起购金额</p>
+                                                <span class="channel-personal-val">1000</span>
+                                            </div>
+                                            <div class="dt-list">
+                                                <p class="channel-organ">机构机构金额</p>
+                                                <span class="channel-organ-val">1000</span>
+                                            </div>
+                                        </div>
+
+                                        </dt>
+                                        <dd>
+                                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                        </dd>
+                                    </dl>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <h2 class="col-block">产品专题</h2>
                 <div class="list-content">
                     <div class="diy-slider" id="diy-slider-4">
@@ -1640,388 +1923,726 @@ class: channel-search-first
                         <span class="tab-red on">日历展示</span>
                         <span class="tab-red ">列表展示</span>
                     </div>
-                    <div class="tab-list">
-                        <div class="tab-list-content on">
-                            <div id="big-calendar-2">
-                                <div class="big-calendar"></div>
-                                <div class="calendar-legend calendar-legend-tab">
-                                    <div class="calendar-legend-item-wrap"></div>
-                                </div>
-                                <div class="calendar-content-wrap">
-                                    <div class="calendar-content-item">
-                                        <div class="list-detail">
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
+                    <div class="tab-list" >
+                        <div class="tab-list-content on" >
+                            <div class="list-content" style="top: 28px">
+                                <div id="big-calendar-2">
+                                    <div class="big-calendar"></div>
+                                    <div class="center-contents">
+                                        <img src="../images/caitong/btn-jt.png" class="icon-jt">
+                                    </div>
+                                    <div class="right-contents">
+                                        <div class="loading-small">
+                                            <div class="loading-small-text">正在加载..</div>
+                                        </div>
+                                        <div class="right-contents-top" style="display: none">
+                                            <div class="tab-left">
+                                                <span class="tab-left-options">重点金融产品（<span class="tab-num">10</span>）</span>
+                                                <span class="tab-left-options active">销售（<span class="tab-num">4</span>）</span>
+                                                <span class="tab-left-options">到期（<span class="tab-num">10</span>）</span>
+                                            </div>
+                                            <div class="tab-right btn-mores">
+                                                更多 >>
+                                            </div>
+                                        </div>
+                                        <div class="right-list-wraps" style="display: none">
+                                            <div class="list-wraps">
+
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
                                                     </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
                                                     </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
                                                     </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
                                                     </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
                                                     </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
                                                     </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
                                                     </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
                                                     </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
                                                     </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
                                                     </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
                                                     </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
                                                     </div>
-                                                </dd>
-                                            </dl>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="list-wraps active">
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+
+                                            </div>
+                                            <div class="list-wraps">
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="list-date">
+                                                    <dt>
+                                                    <div class="dt-top">
+                                                        <p class="channel-name">财达证券基金</p>
+                                                        <span class="channel-dis">基金代码：</span>
+                                                        <span class="channel-dis">41001</span>
+                                                    </div>
+                                                    <div class="dt-center clearfix">
+                                                        <div class="dt-list">
+                                                            <p class="channel-rate">业绩提成基准(年化)</p>
+                                                            <span class="channel-rate-val">0.9673</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-personal">个人起购金额</p>
+                                                            <span class="channel-personal-val">1000</span>
+                                                        </div>
+                                                        <div class="dt-list">
+                                                            <p class="channel-organ">机构机构金额</p>
+                                                            <span class="channel-organ-val">1000</span>
+                                                        </div>
+                                                    </div>
+
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                                        <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="calendar-content-item" style="display: none;">
-                                        <div class="list-detail">
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="calendar-content-item" style="display: none;">
-                                        <div class="list-detail">
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="calendar-content-item" style="display: none;">
-                                        <div class="list-detail">
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            <dl class="dl-list">
-                                                <dt>
-                                                <p class="p-top">2017年第19期天天万利宝A款天天天天万利宝</p>
-                                                </dt>
-                                                <dd>
-                                                    <div class="left">
-                                                        <div class="level">中低风险等级</div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="p-right-top">年化 <span class="col-red">3.5%</span></p>
-                                                        <p class="p-right-center">起购金额 ：5万元</p>
-                                                        <p class="p-right-botton">产品阶段 ：持续开放中</p>
-                                                    </div>
-                                                </dd>
-                                            </dl>
+                                    <div class="ui-pagenav" style="width: calc(100% - 392px);width: -webkit-calc(100% - 392px);width: -moz-calc(100% - 392px);float: right">
+                                        <div class="page">
+                                            <ul class="clearfix">
+                                                <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                                                <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                                                <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                                                <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                                                <li>...</li>
+                                                <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                                                <li>共20页，到第</li>
+                                                <li><input class="page-go" type="text"></li>
+                                                <li>页</li>
+                                                <li class="page-go-sure"><a href="">确定</a></li>
+                                                <li class="total-num">共10条记录</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -2316,7 +2937,7 @@ class: channel-search-first
                             <th>产品代码</th>
                             <th>产品名称</th>
                             <th>产品类型</th>
-                            <th>单位净值 <i class="icon-tab icon-sort"></i></th>
+                            <th>单位净值 <i class="icon-sort icon-high"></i></th>
                             <th>累计净值 <i class="icon-tab"></i></th>
                             <th>近一月</th>
                             <th>近三月</th>

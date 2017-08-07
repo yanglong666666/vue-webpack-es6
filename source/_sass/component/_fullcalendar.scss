@@ -1,12 +1,15 @@
 .big-calendar {
     width: 600px;
-    margin: 0 auto 10px;
+    display: inline-block;
+    float: left;
     .fc-toolbar.fc-header-toolbar {
-        background-color: #F1374E;
+        background-color: #dfe0e4;
         margin-bottom: 0;
-        color: #ffffff;
-        height: 36px;
-        line-height: 36px;
+        color: #666;
+        height: 84px;
+        line-height: 84px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
     }
     .fc-toolbar {
         text-align: center;
@@ -21,7 +24,13 @@
             outline: none;
         }
         .fc-left,.fc-right {
-            margin-top: 3px;
+            margin-top: 27px;
+        }
+        .fc-left{
+            margin-left: -50px;
+        }
+        .fc-right{
+            margin-right: -50px;
         }
     }
     .fc-view, .fc-view > table {
@@ -30,11 +39,31 @@
             border-width: 0 1px;
         }
         .ui-widget-header {
-            background-color: #fff;
+            background-color: #fbfbfb;
             color: #F1374E;
             border: 0;
-            height: 26px;
-            line-height: 26px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .fc-body{
+            border: 1px solid #eeeeee;
+            border-top: none;
+            .ui-widget-content{
+                padding: 0;
+                vertical-align: top;
+                border: none !important;
+                background: #fbfbfb;
+                .fc-scroller{
+                    height:330px !important;
+                    overflow: auto !important;
+                    .fc-day-grid{
+                        padding: 15px 0;
+                    }
+                    .fc-row{
+                        min-height: 50px
+                    }
+                }
+            }
         }
     }
     .fc-row .fc-content-skeleton thead td {
@@ -103,4 +132,66 @@
             float: left;
         }
     }
+}
+
+.fc-day-top{
+    line-height: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+   // background: #fff !important;
+    position: relative;
+    &.fc-today{
+        border: none !important;
+        .fc-day-number{
+            color: #f1374d;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 1px solid #f1374d;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+    }
+
+    .fc-day-number{
+        width: 50px !important;
+        height: 50px !important;
+        padding: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+
+    }
+}
+.fc td{
+    border: none !important;
+}
+.fc-content-skeleton {
+    padding-bottom: 0 !important;
+}
+.fc-other-month.ui-state-highlight{
+    background: transparent !important;
+}
+.big-calendar .ui-icon{
+    width: 30px;
+    height: 30px;
+}
+.big-calendar .fc-prev-button .ui-icon{
+    background: url(../images/caitong/icon-pre.png) !important;
+}
+.fc-next-button .ui-icon{
+    background: url(../images/caitong/icon-pre.png) !important;
+    transform:rotateX(180deg);
+    -ms-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    background: transparent !important;
+    color: #f1374d;
+}
+
+.fc-highlight{
+    border-radius: 25px;
 }

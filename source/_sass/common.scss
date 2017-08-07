@@ -923,3 +923,129 @@ input[type="text"] {
 
     }
 }
+
+.center-contents{
+    display: inline-block;
+    width: 40px;
+    height: 465px;
+    margin-top: 0;
+    float: left;
+    line-height: 465px;
+    text-align: center;
+    .icon-jt{
+        display: inline-block;
+    }
+}
+.right-contents{
+    display: inline-block;
+    width: calc(100% - 392px);
+    width: -webkit-calc(100% - 392px);
+    width: -moz-calc(100% - 392px);
+    height: 465px;
+    overflow: hidden;
+
+}
+.right-contents-top{
+    width: 100%;
+    height: 50px;
+    padding: 10px 15px;
+    position: relative;
+    background: #e2e3e7;
+    margin-bottom: 5px;
+    .tab-left-options{
+        display: inline-block;
+        line-height: 30px;
+        height: 30px;
+        padding: 0 15px;
+        border-radius: 5px;
+        color:#555;
+        &.active{
+            background:$color-red;
+            color: #fff;
+        }
+
+    }
+    .tab-right{
+        position: absolute;
+        right: 15px;
+        top: 0;
+        line-height: 50px;
+        color:  $color-blue ;
+    }
+}
+.right-list-wraps{
+    width: 100%;
+    height: 410px;
+    .list-wraps{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: none;
+        &.active{
+            display: block;
+        }
+        .list-date{
+            width: calc(50% - 5px);
+            width: -webkit-calc(50% - 5px);
+            width: -moz-calc(50% - 5px);
+            height: 195px;
+            color: #666;
+            display: inline-block;
+            float: left;
+            margin-top: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box ;
+            -moz-box-sizing: border-box;
+            padding: 10px;
+            background: #fbfbfb;
+            &:nth-child(2n){
+                float: right;
+            }
+            dt{
+                border-bottom:1px solid #cccccc ;
+                .dt-top{
+                    margin-bottom: 20px;
+                    line-height: 26px;
+                    font-size: 12px;
+                    .channel-name{
+                        display: inline-block;
+                        font-size: 16px;
+                        color: #333;
+                        font-weight: 600;
+                        margin-right: 10px;
+                    }
+                }
+                .dt-center{
+                    margin-bottom: 20px;
+                    font-size: 12px;
+                    .dt-list{
+                        display: inline-block;
+                        width: 31%;
+                        float: left;
+                        &:nth-child(1){
+                            width: 38%;
+                        }
+                        .channel-rate,.channel-personal,.channel-organ{
+                            line-height: 12px;
+                            margin-bottom: 6px;
+                        }
+                        .channel-rate-val{
+                            font-size: 14px;
+                            color: red;
+                        }
+                        .channel-personal-val,.channel-organ-val{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            dd{
+                padding-top: 15px;
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+    }
+}
