@@ -53,8 +53,7 @@ layout: default-iframe
 
         setTimeout(function () {
             $('.loading-small').hide();
-            $('.right-contents-top').show();
-            $('.right-list-wraps').show();
+            $('.right-changes-wrap.active').show();
         }, 5000);
 
 
@@ -204,6 +203,29 @@ layout: default-iframe
             },
             eventAfterAllRender: function (view) {
                 currentMonth = view.end._d.getMonth();
+                var hasProcductDays= [9,10,11];
+                var len=$(".fc-day-top").length;
+                for(j=0;j<hasProcductDays.length;j++){
+                    for(i=0;i<len;i++){
+                        if($(".fc-day-top").eq(i).find(".fc-day-number").html() == hasProcductDays[j]){
+                            $(".fc-day-top").eq(i).addClass('hasproduct');
+                        }
+                    }
+                }
+                $(".hasproduct").click(function(){
+                    $(this).find(".fc-day-number").css({"background":"#f1374d"});
+                    $(this).siblings('.hasproduct').find(".fc-day-number").css({"background":"#ffdfe1"});
+                    var days=$(this).find(".fc-day-number").html();
+                    var len=$("#big-calendar-1 .right-contents .right-changes-wrap ").length;
+                    for(i=0;i<len;i++){
+                        var titles=$("#big-calendar-1 .right-contents .right-changes-wrap ").eq(i).attr("title");
+                        if( titles == days ){
+                            $("#big-calendar-1 .right-contents .right-changes-wrap ").eq(i).show().siblings('.right-changes-wrap').hide();
+                            break;
+                        }
+                    }
+                })
+
             }
         });
        //updateLegend();
@@ -367,696 +389,1918 @@ layout: default-iframe
             <div class="loading-small">
                 <div class="loading-small-text">正在加载..</div>
             </div>
-           <div class="right-contents-top" style="display: none">
-               <div class="tab-left">
-                   <span class="tab-left-options">重点金融产品（<span class="tab-num">10</span>）</span>
-                   <span class="tab-left-options active">销售（<span class="tab-num">4</span>）</span>
-                   <span class="tab-left-options">到期（<span class="tab-num">10</span>）</span>
-               </div>
-               <div class="tab-right btn-mores">
-                   更多 >>
-               </div>
-           </div>
-            <div class="right-list-wraps" style="display: none">
-                <div class="list-wraps">
-
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
-
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
+            <div class="right-changes-wrap  active " title="9"  style="display: none">
+                <div class="right-contents-top" >
+                    <div class="tab-left">
+                        <span class="tab-left-options">重点金融产品（<span class="tab-num">8</span>）</span>
+                        <span class="tab-left-options active">销售（<span class="tab-num">4</span>）</span>
+                        <span class="tab-left-options">到期（<span class="tab-num">6</span>）</span>
+                    </div>
+                    <div class="tab-right btn-mores">
+                        更多 >>
+                    </div>
                 </div>
-                <div class="list-wraps active">
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
+                <div class="right-list-wraps">
+                    <div class="list-wraps">
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
 
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="list-wraps active">
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金1</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金1</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金1</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金1</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div class="list-wraps">
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                    </div>
                 </div>
-                <div class="list-wraps">
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
-                            </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
+            </div>
+            <div class="right-changes-wrap"  title="10" style="display: none">
+                <div class="right-contents-top" >
+                    <div class="tab-left">
+                        <span class="tab-left-options">重点金融产品（<span class="tab-num">10</span>）</span>
+                        <span class="tab-left-options active">销售（<span class="tab-num">4</span>）</span>
+                        <span class="tab-left-options">到期（<span class="tab-num">10</span>）</span>
+                    </div>
+                    <div class="tab-right btn-mores">
+                        更多 >>
+                    </div>
+                </div>
+                <div class="right-list-wraps">
+                    <div class="list-wraps">
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
-                    <dl class="list-date">
-                        <dt>
-                        <div class="dt-top">
-                            <p class="channel-name">财达证券基金</p>
-                            <span class="channel-dis">基金代码：</span>
-                            <span class="channel-dis">41001</span>
-                        </div>
-                        <div class="dt-center clearfix">
-                            <div class="dt-list">
-                                <p class="channel-rate">业绩提成基准(年化)</p>
-                                <span class="channel-rate-val">0.9673</span>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-personal">个人起购金额</p>
-                                <span class="channel-personal-val">1000</span>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
                             </div>
-                            <div class="dt-list">
-                                <p class="channel-organ">机构机构金额</p>
-                                <span class="channel-organ-val">1000</span>
-                            </div>
-                        </div>
 
-                        </dt>
-                        <dd>
-                            <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
-                            <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
-                        </dd>
-                    </dl>
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="list-wraps active">
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金2</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金2</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金2</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金2</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div class="list-wraps">
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="right-changes-wrap " title="11" style="display: none">
+                <div class="right-contents-top" >
+                    <div class="tab-left">
+                        <span class="tab-left-options">重点金融产品（<span class="tab-num">10</span>）</span>
+                        <span class="tab-left-options active">销售（<span class="tab-num">4</span>）</span>
+                        <span class="tab-left-options">到期（<span class="tab-num">10</span>）</span>
+                    </div>
+                    <div class="tab-right btn-mores">
+                        更多 >>
+                    </div>
+                </div>
+                <div class="right-list-wraps">
+                    <div class="list-wraps">
+
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="list-wraps active">
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金3</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金3</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金3</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金3</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div class="list-wraps">
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                        <dl class="list-date">
+                            <dt>
+                            <div class="dt-top">
+                                <p class="channel-name">财达证券基金</p>
+                                <span class="channel-dis">基金代码：</span>
+                                <span class="channel-dis">41001</span>
+                            </div>
+                            <div class="dt-center clearfix">
+                                <div class="dt-list">
+                                    <p class="channel-rate">业绩提成基准(年化)</p>
+                                    <span class="channel-rate-val">0.9673</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-personal">个人起购金额</p>
+                                    <span class="channel-personal-val">1000</span>
+                                </div>
+                                <div class="dt-list">
+                                    <p class="channel-organ">机构机构金额</p>
+                                    <span class="channel-organ-val">1000</span>
+                                </div>
+                            </div>
+
+                            </dt>
+                            <dd>
+                                <p class="channel-why">推荐理由：<span class="why-content">历年销售最好的</span></p>
+                                <p class="channel-reward">销售奖励：<span class="reward-content">保有量的20%</span></p>
+                            </dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>
