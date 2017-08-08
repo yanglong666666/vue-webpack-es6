@@ -80,18 +80,14 @@ $('body').on('click','.param-checkbox',function(){
   if($self.hasClass('checkAll')){
     if($self.hasClass('checkbox-checked')){
       $('.param-checkbox').removeClass('checkbox-checked');
-      $('.param-checkbox').parent().sibling().find('.icon-star').removeClass('icon-show');
     }else{
       $('.param-checkbox').addClass('checkbox-checked');
-    $('.param-checkbox').parent().sibling().find('.icon-star').addClass('icon-show');
     }
   }else{
     if($self.hasClass('checkbox-checked')){
          $self.removeClass('checkbox-checked');
-        $self.parent().siblings().find('.icon-star').removeClass('icon-show');
     }else{
         $self.addClass('checkbox-checked');
-        $self.parent().siblings().find('.icon-star').addClass('icon-show');
     }
     if($('table .param-checkbox').length == $('table .param-checkbox.checkbox-checked').length){
       $('.param-checkbox.checkAll').addClass('checkbox-checked');

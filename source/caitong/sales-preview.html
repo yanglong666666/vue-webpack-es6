@@ -72,6 +72,13 @@ class: sales-preview
             });
         });*/
 
+        $(".icon-star").click(function(){
+            if($(this).hasClass('icon-show')){
+                $(this).removeClass('icon-show')
+            }else{
+                $(this).addClass('icon-show')
+            }
+        })
 
         $('.btn-dates').on('click', function () {
             var btnImportDialog = new Dialog(null, {
