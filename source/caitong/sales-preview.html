@@ -72,13 +72,7 @@ class: sales-preview
             });
         });*/
 
-        $(".icon-star").click(function(){
-            if($(this).hasClass('icon-show')){
-                $(this).removeClass('icon-show')
-            }else{
-                $(this).addClass('icon-show')
-            }
-        })
+
 
         $('.btn-dates').on('click', function () {
             var btnImportDialog = new Dialog(null, {
@@ -230,10 +224,7 @@ class: sales-preview
             </ul>
         </div>
         <div class="task-search clearfix">
-            <button class="btn btn-primary btn-simple btn-float-right" id="btnExport" href="#">导出</button>
-            <button class="btn btn-primary btn-simple btn-float-right" id="btnImport" href="#">发布到日历</button>
-            <button class="btn btn-primary btn-simple btn-float-right" id="btnAdd" href="#">新增</button>
-            <button class="btn btn-float-right" href="#">搜索</button>
+
             <dl class="search-dl">
                 <dd>
                   <span>
@@ -293,6 +284,15 @@ class: sales-preview
                   </span>
                 </dd>
             </dl>
+
+            <br/>
+            <div class="float-left-wrap" style="float: left;margin-top: 10px">
+                <button class="btn btn-primary btn-simple btn-float-right" id="btnExport" href="#">导出</button>
+                <button class="btn btn-primary btn-simple btn-float-right" id="btnImport" href="#">发布到日历</button>
+                <button class="btn btn-primary btn-simple btn-float-right" id="btnAdd" href="#">新增</button>
+                <button class="btn btn-float-right" href="#">搜索</button>
+            </div>
+
 
         </div>
         <div class="main-table clearfix">
@@ -1008,18 +1008,49 @@ class: sales-preview
     <div class="dialog-item-wrap edit-wrap edit-add-date"  style="display: none;" >
         <a class="view-back"> &lt;&lt; 返回</a>
 
-        <div class="task-search clearfix">
+        <div class="task-search clearfix" style="margin-top: 10px">
             <button class="btn btn-float-right btn-dates" href="#">发布到日历</button>
+            <button class="btn btn-float-right btn-no-import" href="#">取消重点</button>
             <button class="btn btn-float-right btn-import" href="#">设置为重点</button>
+
+
 
         </div>
 
         <div class="main-table clearfix">
-            <div class="scroll-table" style="width: 100%;">
+            <div class="fixed-table" style="margin-right: -1px">
+                <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                    <thead>
+                    <tr>
+                        <th><span class="param-checkbox checkAll"></span>全选</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="even">
+                        <td style="line-height: 30px"><span class="param-checkbox checkbox-checked" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="scroll-table" style="width: 90%;">
                 <table cellpadding="0" cellspacing="0" class="data-table table-padding7 " >
                     <thead>
                     <tr>
-                        <th width="16%"><span class="param-checkbox checkAll"></span>全选</th>
                         <th width="20%">重点标识</th>
                         <th width="10%">日期类型</th>
                         <th width="20%">产品类型</th>
@@ -1039,7 +1070,6 @@ class: sales-preview
                     </thead>
                     <tbody>
                     <tr>
-                        <td><span class="param-checkbox checkbox-checked" style="margin-top: 6px;margin-right: 8px"></span>001</td>
                         <td><i class=" icon-star icon-show "></i></td>
                         <td class="channel-code">销售</td>
                         <td class="channel-name">货币型</td>
@@ -1059,7 +1089,6 @@ class: sales-preview
 
                     </tr>
                     <tr class="even">
-                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
                         <td><i class="icon-star  "></i></td>
                         <td class="channel-code">销售</td>
                         <td class="channel-name">货币型</td>
@@ -1077,7 +1106,6 @@ class: sales-preview
                         <td>未发布</td>
                     </tr>
                     <tr>
-                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
                         <td><i class="icon-star  "></i></td>
                         <td class="channel-code">销售</td>
                         <td class="channel-name">货币型</td>
@@ -1095,7 +1123,6 @@ class: sales-preview
                         <td>未发布</td>
                     </tr>
                     <tr class="even">
-                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
                         <td><i class="icon-star  "></i></td>
                         <td class="channel-code">销售</td>
                         <td class="channel-name">货币型</td>
@@ -1113,7 +1140,6 @@ class: sales-preview
                         <td>未发布</td>
                     </tr>
                     <tr>
-                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
                         <td><i class="icon-star  "></i></td>
                         <td class="channel-code">销售</td>
                         <td class="channel-name">货币型</td>
@@ -1131,7 +1157,6 @@ class: sales-preview
                         <td>未发布</td>
                     </tr>
                     <tr class="even">
-                        <td><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
                         <td><i class="icon-star "></i></td>
                         <td class="channel-code">销售</td>
                         <td class="channel-name">货币型</td>
