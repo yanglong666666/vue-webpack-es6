@@ -194,13 +194,23 @@
 
 .fc-highlight{
     border-radius: 25px;
-    background: #f1374d;
+    background: #ffdfe1;
 }
 
 .hasproduct{
+    position: relative;
     .fc-day-number{
-        background: #ffdfe1;
         border-radius: 50%;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 6px;
+        height: 6px;
+        background: #f1374d;
+        @include border-radius(4px);
     }
 }
 .fc-center{
