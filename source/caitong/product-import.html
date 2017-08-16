@@ -22,6 +22,15 @@ layout: default-iframe
       yearRange:'1900:2016'
     });
 
+      var title = $('.js-select');//the element I want to monitor
+      var title1 = $('.select2-selection__rendered');
+      title.bind('DOMNodeInserted', function(e) {
+          $(this).css({'color':'#333'})
+      });
+      title1.bind('DOMNodeInserted', function(e) {
+          $(this).css({'color':'#333'})
+      });
+
   });
 </script>
 <div class="main-content">

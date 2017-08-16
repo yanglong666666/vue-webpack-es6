@@ -39,6 +39,15 @@ class: sale-template-manage
         });
         $('#select2_1,#select2_2,#select2_3,#select2_4').diySelect();
         $(".js-select").css({'border':'none','width':'100%','textAlign':'left'})
+
+        var title = $('.js-select');//the element I want to monitor
+        var title1 = $('.select2-selection__rendered');
+        title.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
+        title1.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
     });
 </script>
 <div class="main-content">

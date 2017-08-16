@@ -209,6 +209,16 @@ class: statistical-analysis
                 data: [5,15,20,23,26,30]
             }]
         });
+
+
+        var title = $('.js-select');//the element I want to monitor
+        var title1 = $('.select2-selection__rendered');
+        title.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
+        title1.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
     });
 </script>
 <div class="page-sales-preview">

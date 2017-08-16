@@ -144,6 +144,14 @@ layout: default-iframe
             $(this).parent().siblings(".list-title").hasClass("list-title-show") ? $(this).parent().siblings(".list-title").removeClass("list-title-show") : $(this).parent().siblings(".list-title").addClass("list-title-show");
 
         })
+        var title = $('.js-select');//the element I want to monitor
+        var title1 = $('.select2-selection__rendered');
+        title.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
+        title1.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
 
     });
 

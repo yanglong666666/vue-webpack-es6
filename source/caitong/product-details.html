@@ -61,6 +61,15 @@ class: product-details
                 data: [1.5, 2.5, 3, 2, 3, 3, 5, 3]
             }]
         });
+
+        var title = $('.js-select');//the element I want to monitor
+        var title1 = $('.select2-selection__rendered');
+        title.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
+        title1.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
     });
 </script>
 <div class="view-content page-product-details">

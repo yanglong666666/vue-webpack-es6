@@ -225,7 +225,14 @@ class: setting-param-set
 
         let dates = ''+'<i class="arrow"></i>';
         $('#select31-select,#select73-select,#select74-select,#select20-select,#select21-select,#select22-select,#select24-select,#select25-select,#select26-select,#select27-select,#select28-select,#select29-select,#select30-select,#select31-select').html(dates);
-
+        var title = $('.js-select');//the element I want to monitor
+        var title1 = $('.select2-selection__rendered');
+        title.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
+        title1.bind('DOMNodeInserted', function(e) {
+            $(this).css({'color':'#333'})
+        });
         var setting = {};
         var zNodes1 = [
             {name: "创信系列"},

@@ -10,7 +10,14 @@ layout: default-iframe
     let dates = ''+'<i class="arrow"></i>';
     $('#dialogSelect3-select').html(dates);
 
-
+      var title = $('.js-select');//the element I want to monitor
+      var title1 = $('.select2-selection__rendered');
+      title.bind('DOMNodeInserted', function(e) {
+          $(this).css({'color':'#333'})
+      });
+      title1.bind('DOMNodeInserted', function(e) {
+          $(this).css({'color':'#333'})
+      });
 
       $('.begin-time').datepicker({
       onClose: function( selectedDate ) {
@@ -32,6 +39,8 @@ layout: default-iframe
         dateFormat: "yy-mm-dd",
         yearRange: '1990:2017'
     });
+
+
 
       $(".view-content").on('click','.view-back',function(){
           $(this).parent('.view-content').hide();
@@ -106,10 +115,9 @@ layout: default-iframe
         <dd>
           <span>
             <select id="select2" class="diy-select">
-              <option selected>用印审核中</option>
+              <option value="">用印审核中</option>
               <option value="1">审核状态</option>
               <option value="2">产品资料审核中</option>
-              <option value="2">用印审核中</option>
               <option value="2">营销方案审核中</option>
               <option value="2">审核成功</option>
               <option value="2">审核失败</option>
