@@ -214,6 +214,19 @@
                 }
             }
         }
+        &.date-table-color{
+            .big-txt{
+                font-size: 24px;
+                color: #333;
+            }
+            th{
+                color: #666;
+                font-weight: 200 !important;
+            }
+        }
+        &.data-table-borders{
+            border-width:1px 0 0 0 ;
+        }
         &.overflow-show-title {
             tbody tr td {
                 white-space: nowrap;

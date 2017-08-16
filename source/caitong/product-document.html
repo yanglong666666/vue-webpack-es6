@@ -8,9 +8,9 @@ class: product-document
     $(function () {
         $('#select1').diySelect();
         $('#select2').diySelect();
-        $('#select11').diySelect();
-        $('#select12').diySelect();
-        $('#select21').diySelect();
+        $('#select11').diySelect({width:222});
+        $('#select12').diySelect({width:222});
+        $('#select21').diySelect({width:222});
 
         // tab切换
         $(".main-content-wrap-top").on("click", ".tab-options", function () {
@@ -41,6 +41,9 @@ class: product-document
             $(this).parents('.view-content').hide();
             $('.main-content').show();
         });
+
+        let dates = ''+'<i class="arrow"></i>';
+        $('#select11-select,#select21-select').html(dates);
 
     });
 </script>
@@ -309,10 +312,9 @@ class: product-document
 <div class="view-content document-add-wrap" style="display: none;">
     <a class="view-back"> &lt;&lt; 返回</a>
     <div class="dialog-item-wrap">
-        <div class="dialog-item-border">
-            <div class="dialog-item-box-title"></div>
+        <div class="dialog-item-border dialog-item-border-padding">
             <div class="dialog-item">
-                <div class="dialog-left">产品分类</div>
+                <div class="dialog-left dialog-left-short">产品分类</div>
                 <div class="dialog-right">
                     <select name="" id="select11" class="diy-select" style="display: none;">
                         <option selected="">请选择</option>
@@ -322,21 +324,17 @@ class: product-document
                 </div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">产品代码</div>
+                <div class="dialog-left dialog-left-short">产品代码</div>
                 <div class="dialog-right">
-                    <select name="" id="select12" class="diy-select" style="display: none;">
-                        <option selected="">请选择</option>
-                        <option value="1">111</option>
-                        <option value="2">222</option>
-                    </select>
+                    <input type="text" class="dialog-input" placeholder="">
                 </div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">产品名称</div>
-                <div class="dialog-right">自动出现产品名称</div>
+                <div class="dialog-left dialog-left-short">产品名称</div>
+                <div class="dialog-right" style="color: #e4e4e4">自动出现产品名称</div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">选择文件</div>
+                <div class="dialog-left dialog-left-short">选择文件</div>
                 <div class="dialog-right">
                     <div class="upload-item">
                         <div class="upload-title">《招募书》</div>
@@ -381,18 +379,17 @@ class: product-document
 <div class="view-content disclosure-add-wrap" style="display: none;">
     <a class="view-back"> &lt;&lt; 返回</a>
     <div class="dialog-item-wrap">
-        <div class="dialog-item-border">
-            <div class="dialog-item-box-title"></div>
+        <div class="dialog-item-border dialog-item-border-padding">
             <div class="dialog-item">
-                <div class="dialog-left">产品代码</div>
+                <div class="dialog-left dialog-left-short">产品代码</div>
                 <div class="dialog-right"><input class="dialog-input" value=""></div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">产品名称</div>
-                <div class="dialog-right">自动出现产品名称</div>
+                <div class="dialog-left dialog-left-short">产品名称</div>
+                <div class="dialog-right" style="color: #e4e4e4">自动出现产品名称</div>
             </div>
             <div class="dialog-item">
-                <div class="dialog-left">选择类型</div>
+                <div class="dialog-left dialog-left-short">选择类型</div>
                 <div class="dialog-right">
                     <select name="" id="select21" class="diy-select" style="display: none;">
                         <option selected="">请选择</option>

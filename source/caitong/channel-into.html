@@ -5,9 +5,14 @@ layout: default-iframe
 <script type="text/javascript">
   $(function () {
     $('.diy-select').diySelect();
+    $('#dialogSelect3,#dialogSelect1,#dialogSelect2').diySelect({width:222});
     $('.select2').select2({width: 130});
+    let dates = ''+'<i class="arrow"></i>';
+    $('#dialogSelect3-select').html(dates);
 
-    $('.begin-time').datepicker({
+
+
+      $('.begin-time').datepicker({
       onClose: function( selectedDate ) {
         $('.end-time').datepicker( "option", "minDate", selectedDate).click();
       },
@@ -283,8 +288,7 @@ layout: default-iframe
 <div class="view-content" id="edit-content" style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
     <div class="dialog-item-wrap">
-        <div class="dialog-item-border">
-            <div class="dialog-item-box-title"></div>
+        <div class="dialog-item-border" style="padding-top: 20px">
             <div class="dialog-item">
                 <div class="dialog-left">产品名称</div>
                 <div class="dialog-right"><input class="dialog-input overflow-pop-up" placeholder=""></div>
@@ -355,7 +359,7 @@ layout: default-iframe
             </div>
             <div class="dialog-item">
                 <div class="dialog-left">产品状态</div>
-                <div class="dialog-right"><span style="height: 28px;line-height: 28px;">引入</span></div>
+                <div class="dialog-right"><span style="height: 28px;line-height: 28px;color: #e4e4e4" >引入</span></div>
             </div>
         </div>
         <div class="button-content" style="text-align: left;margin-left: 140px;">
@@ -369,19 +373,18 @@ layout: default-iframe
 <div class="view-content" id="edit-content1" style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
     <div class="dialog-item-wrap">
-        <div class="dialog-item-border">
-            <div class="dialog-item-box-title"></div>
+        <div class="dialog-item-border" style="padding-top: 20px">
             <div class="dialog-item">
                 <div class="dialog-left">产品名称</div>
                 <div class="dialog-right">
-                    <span class="txt">产品名称 </span>
+                    <span class="txt" style="color: #e4e4e4;">产品名称 </span>
                 </div>
             </div>
             <div class="dialog-item">
                 <div class="dialog-left">管理人</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
-                        <option selected="">请选择</option>
+                        <option selected="">华夏基金</option>
                         <option selected="" value="1">财通资管</option>
                     </select>
                 </div>
@@ -420,7 +423,7 @@ layout: default-iframe
                 <div class="dialog-left">产品状态</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect2" class="diy-select" style="display: none;">
-                        <option selected="">请选择</option>
+                        <option selected="">用印审核中</option>
                         <option selected="" value="1">上架</option>
                     </select>
                 </div>

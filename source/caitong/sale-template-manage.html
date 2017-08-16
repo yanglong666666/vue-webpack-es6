@@ -37,6 +37,8 @@ class: sale-template-manage
             $('.main-content').show();
             $('#backtracking-content').hide();
         });
+        $('#select2_1,#select2_2,#select2_3,#select2_4').diySelect();
+        $(".js-select").css({'border':'none','width':'100%','textAlign':'left'})
     });
 </script>
 <div class="main-content">
@@ -156,43 +158,53 @@ class: sale-template-manage
                     <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
                         <tbody>
                         <tr>
-                            <td width="16%" class="bgGrey borderRight">选择方案</td>
-                            <td width="21%" class="borderRight full-select">
-                                <select id="select2_1" class="diy-select" style="display: none;">
+                            <td class="borderRight bgGrey" rowspan="2">模板类型</td>
+                            <td class="borderRight" style="padding: 0">
+                                <select id="select2_1" class="diy-select diy-select-border">
                                     <option value="" selected>找客户</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
+                            </td>
+                            <td class="borderRight" style="padding: 0">
+                                <select id="select2_2" class="diy-select diy-select-border">
+                                    <option value="" selected>选择方案</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </td>
+                            <td class="borderRight" style="padding: 0">
+                                <select id="select2_3" class="diy-select diy-select-border" >
+                                    <option value="" selected>选择模板</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </td>
+                            <td style="padding: 0">
+                                <select id="select2_4" class="diy-select diy-select-border">
+                                    <option value="" selected>选择模板</option>
+                                    <option value="1">1111</option>
+                                    <option value="2">2222</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="21%" class="borderRight full-select">
                                 <div class="text-center" style="line-height: 40px;">
                                     <a>风险测评为高的客户模板一</a>
                                 </div>
                             </td>
                             <td width="21%" class="borderRight full-select">
-                                <select id="select2_2" class="diy-select" style="display: none;">
-                                    <option value="" selected>选择方案</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
                                 <div class="text-center" style="line-height: 40px;">
                                     <a>客户资金范围来选择模板</a>
                                 </div>
                             </td>
                             <td width="21%" class="borderRight full-select">
-                                <select id="select2_3" class="diy-select" style="display: none;">
-                                    <option value="" selected>选择模板</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
                                 <div class="text-center" style="line-height: 40px;">
                                     待选择对比模板
                                 </div>
                             </td>
                             <td width="21%" class="full-select">
-                                <select id="select2_4" class="diy-select" style="display: none;">
-                                    <option value="" selected>选择模板</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
                                 <div class="text-center" style="line-height: 40px;">
                                     待选择对比模板
                                 </div>

@@ -22,6 +22,12 @@
     &.task-center {
         text-align: center;
     }
+    &.task-100 {
+        width: 100%;
+        .btn{
+            width: auto;
+        }
+    }
     > a, > button {
         margin-left: 10px;
         width: inherit;

@@ -6,13 +6,22 @@ layout: default-iframe
 <script type="text/javascript">
     $(function () {
         // tab切换
+        var str=[];
         $(".tabs-items").on("click", ".tab-option", function () {
             var _this = $(this);
             var tabs_head = _this.parent();
             var tabs_body = tabs_head.nextAll(".dialog-item-box-body").children(".tabs-body");
             _this.addClass("on").siblings(".tab-option").removeClass("on");
             var index = tabs_head.find(".tab-option").index(_this);
+
             tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
+
+            if(index !=0 && str.indexOf(index) == -1){
+                str.push(index);
+                let dates = ''+'<i class="arrow"></i>';
+                tabs_body.find(".tabs-content").eq(index).find('.js-select').html(dates);
+            }
+
         })
 
 
@@ -81,7 +90,20 @@ layout: default-iframe
             dateFormat: "yy-mm-dd",
             yearRange: '1990:2017'
         });
+        $('.begin-time_4').datepicker({
+            onClose: function (selectedDate) {
+                // $('.begin-time_1').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
 
+
+        let dates = ''+'<i class="arrow"></i>';
+        $('.js-select').html(dates);
 
     });
 
@@ -92,12 +114,12 @@ layout: default-iframe
     <div class="dialog-item-wrap">
         <div class="dialog-item-border" style="position: relative">
             <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
-                <span class="tab-option on">第一页</span>
-                <span class="tab-option">第二页</span>
-                <span class="tab-option">第三页</span>
-                <span class="tab-option">第四页</span>
-                <span class="tab-option">第五页</span>
-                <span class="tab-option">第六页</span>
+                <span class="tab-option on">通用属性第一页</span>
+                <span class="tab-option">通用属性第二页</span>
+                <span class="tab-option">交易属性第一页</span>
+                <span class="tab-option">交易属性第二页</span>
+                <span class="tab-option">多金控制串</span>
+                <span class="tab-option">文档属性</span>
 
             </div>
             <div class="dialog-item-box-body">
@@ -148,7 +170,15 @@ layout: default-iframe
                             </div>
                             <div class="w50p">
                                 <div class="dialog-left">更新日期</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                                <div class="dialog-right">
+                                    <div class="special-item">
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_4" type="text" placeholder=""
+                                                   readonly/>
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="dialog-item">
@@ -322,8 +352,8 @@ layout: default-iframe
                                 <div class="dialog-left">募集开始日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input begin-time_0" type="text" placeholder="开始日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_0" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -335,8 +365,8 @@ layout: default-iframe
                                 <div class="dialog-left">募集结束日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_0" type="text" placeholder="截止日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input end-time_0" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -349,8 +379,8 @@ layout: default-iframe
                                 <div class="dialog-left">产品成立日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input begin-time_0" type="text" placeholder="开始日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_1" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -362,8 +392,8 @@ layout: default-iframe
                                 <div class="dialog-left">产品结束日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_0" type="text" placeholder="截止日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input end-time_1" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -376,8 +406,8 @@ layout: default-iframe
                                 <div class="dialog-left">发行日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_0" type="text" placeholder="发行日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_3" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -395,8 +425,8 @@ layout: default-iframe
                                 <div class="dialog-left">产品起息日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_0" type="text" placeholder="产品起息日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_4" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -411,7 +441,7 @@ layout: default-iframe
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">评价等级</div>
+                                <div class="dialog-left">评估等级</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
@@ -431,11 +461,11 @@ layout: default-iframe
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">年华天数</div>
+                                <div class="dialog-left">年化天数</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">7日年华收益率</div>
+                                <div class="dialog-left">7日年化收益率</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                         </div>
@@ -518,7 +548,7 @@ layout: default-iframe
                                                                  value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">额度申请有效期限（天）</div>
+                                <div class="dialog-left">额度申领有效期限（天）</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
@@ -654,6 +684,17 @@ layout: default-iframe
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
+                                <div class="dialog-left">个人单笔追加申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">机构单笔追加申购金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
                                 <div class="dialog-left">个人最高申购金额</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
@@ -711,103 +752,123 @@ layout: default-iframe
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构首金额</div>
+                                <div class="dialog-left">机构申购金额</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">客户单日认购申购最高金额</div>
+                                <div class="dialog-left">最低募集金额</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">个人认购累计最高金额</div>
+                                <div class="dialog-left">最高募集金额</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人单笔最低认购金额</div>
+                                <div class="dialog-left">份额精确小数位数</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构单笔最低认购金额</div>
+                                <div class="dialog-left">个人累计持仓上限</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人单笔最高认购金额</div>
+                                <div class="dialog-left">持仓量的最低值</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构单笔最高认购金额</div>
+                                <div class="dialog-left">最低资产要求</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人单笔追加认购金额</div>
+                                <div class="dialog-left">每次最大的可申购比例</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构单笔追加认购金额</div>
+                                <div class="dialog-left">巨额比例</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人单笔最低申购金额</div>
+                                <div class="dialog-left">认购总额度</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构单笔最低申购金额</div>
+                                <div class="dialog-left">转换单位</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人单笔最高申购金额</div>
+                                <div class="dialog-left">最少转换份额</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构单笔最高申购金额</div>
+                                <div class="dialog-left">最低转换入金额</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人最高申购金额</div>
+                                <div class="dialog-left">最低拆分数量</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构最高申购金额</div>
+                                <div class="dialog-left">最低合并数量</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">个人最高申赎回份额</div>
+                                <div class="dialog-left">最小定投金额</div>
                                 <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">机构最高赎回份额</div>
+                                <div class="dialog-left">最大定投金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">允许拆分成的代码</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">小号下限金额</div>
+                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
+                                                                 value=""></div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">小号上限金额</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">认购人数上限</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder=""
                                                                  value=""></div>
                             </div>
                         </div>
 
-
                         <div class="dialog-item">
-                            <div class="w50p">
                                 <div class="dialog-left dialog-left-diff">延迟交收设置</div>
                                 <div class="dialog-right">
                                     <div class="dialog-item">
@@ -839,7 +900,6 @@ layout: default-iframe
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         <div class="button-content page-footer-button-container">
                             <button class="btn btn-blue">上一步</button>
@@ -850,11 +910,15 @@ layout: default-iframe
                     </div>
                     <div class="tabs-content">
                         <div class="dialog-item">
-                            <div class="dialog-left dialog-left-black">控制串选项</div>
+                            <div class="dialog-left dialog-left-black" style="vertical-align: top;padding-top: 7px">控制串选项</div>
                             <div class="dialog-right">
                                 <div class="checkbox-item checkout-block">
-                                    <span class="param-checkbox"></span>
+                                    <span class="param-checkbox checkbox-checked"></span>
                                     <span class="checkbox-declare checkbox-declare-black">认购收费模式是否为固定收费</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认购是否检查额度控制</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
@@ -870,7 +934,11 @@ layout: default-iframe
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">全部赎回或卖出后是否保存0份额记录</span>
+                                    <span class="checkbox-declare">赎回后是否保存0份额记录</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">首次交易订单是否转成整笔转让类型</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
@@ -878,23 +946,19 @@ layout: default-iframe
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">产品预约业务是否冻结客户额度</span>
+                                    <span class="checkbox-declare">产品预约业务是否冻结客户份额</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">允许个人购买</span>
+                                    <span class="checkbox-declare">产品预约业务是否冻结产品份额</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">允许机构购买</span>
+                                    <span class="checkbox-declare">已开通定投业务</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">是否为分销业务</span>
-                                </div>
-                                <div class="checkbox-item checkout-block">
-                                    <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">认购确认和减扣资金是否计算利息</span>
+                                    <span class="checkbox-declare">是否启用定向销售</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
@@ -902,19 +966,39 @@ layout: default-iframe
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">是否为开放式产品</span>
+                                    <span class="checkbox-declare">赎回是否影响净申购</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">允许部分赎回</span>
+                                    <span class="checkbox-declare">转换是否影响净申购</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">产品风险等级是否不转入</span>
+                                    <span class="checkbox-declare">认申购是否报撮合系统</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">产品状态是否以产品是以产品设置为准</span>
+                                    <span class="checkbox-declare">电子合同是否不导出</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">赎回委托是否禁止撤单</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">申购失效是否补单</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认购申赎走撮合是否为T+0清算</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否支持线下支付模式</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品状态是否已产品日历设置为准</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
@@ -922,11 +1006,43 @@ layout: default-iframe
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否是名义持有事件</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">高风险复杂产品是否需要专项测评</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">文件模式T+0确认是否允许内部确认</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
                                     <span class="checkbox-declare">风险揭示书是否需要单笔单签</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">多金融是否接收由TA系统发起的申购委托</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">是否需要签署私募合同</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认申购是否收取比例费用</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
                                     <span class="checkbox-declare">风险等级不匹配是否允许柜台下委托</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">认申购委托前是否需要预约</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品委托是否需要回访确认</span>
                                 </div>
                             </div>
                         </div>

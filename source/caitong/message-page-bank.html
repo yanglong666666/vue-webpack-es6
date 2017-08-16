@@ -6,14 +6,25 @@ layout: default-iframe
 <script type="text/javascript">
     $(function () {
         // tab切换
+        var str=[];
         $(".tabs-items").on("click", ".tab-option", function () {
             var _this = $(this);
             var tabs_head = _this.parent();
             var tabs_body = tabs_head.nextAll(".dialog-item-box-body").children(".tabs-body");
             _this.addClass("on").siblings(".tab-option").removeClass("on");
             var index = tabs_head.find(".tab-option").index(_this);
+
             tabs_body.find(".tabs-content").eq(index).addClass("on").siblings(".tabs-content").removeClass("on");
+
+            if(index !=0 && str.indexOf(index) == -1){
+                str.push(index);
+                let dates = ''+'<i class="arrow"></i>';
+                tabs_body.find(".tabs-content").eq(index).find('.js-select').html(dates);
+            }
+
         })
+
+
         // page1
         //$('#sel_ta').diySelect({width: 222});
         $('#sel_fx').diySelect({width: 222});
@@ -22,7 +33,12 @@ layout: default-iframe
         $('#sel_zt').diySelect({width: 222});
         $('#sel_tp').diySelect({width: 222});
 
+
+
         $(".select2").select2({width: 222});
+         let dates = ''+'<i class="arrow"></i>';
+         $('#sel_zt-select,#sel_khfx-select,#sel_fx-select,#sel_hb-select').html(dates);
+
 
         $('.begin-time_0').datepicker({
             onClose: function (selectedDate) {
@@ -91,7 +107,12 @@ layout: default-iframe
         // page3
         $('#sel_wt').diySelect({width: 222});
 
+        let date1 = '';
+         $("#select2-select_2-container").html(date1);
+
+
     });
+
 
 </script>
 <div class="view-content">
@@ -100,11 +121,11 @@ layout: default-iframe
     <div class="dialog-item-wrap">
         <div class="dialog-item-border" style="position: relative">
             <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
-                <span class="tab-option on">第一页</span>
-                <span class="tab-option">第二页</span>
-                <span class="tab-option">第三页</span>
-                <span class="tab-option">第四页</span>
-                <span class="tab-option">第五页</span>
+                <span class="tab-option on">通用属性第一页</span>
+                <span class="tab-option">通用属性第二页</span>
+                <span class="tab-option">交易属性</span>
+                <span class="tab-option">多金控制串</span>
+                <span class="tab-option">文档属性</span>
 
             </div>
             <div class="dialog-item-box-body">
@@ -184,7 +205,7 @@ layout: default-iframe
                             <div class="w50p">
                                 <div class="dialog-left">产品类别</div>
                                 <div class="dialog-right">
-                                    <select class="select2">
+                                    <select class="select2" id="select_2">
                                         <option value="1">111</option>
                                         <option value="2">222</option>
                                         <option value="3">333</option>
@@ -200,8 +221,8 @@ layout: default-iframe
                                 <div class="dialog-left">产品状态</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_zt" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
-                                        <option value="1">已结束</option>
+                                        <option value="1">开始</option>
+                                        <option value="2">已结束</option>
                                     </select>
                                 </div>
                             </div>
@@ -243,8 +264,8 @@ layout: default-iframe
                                 <div class="dialog-left">募集开始日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input begin-time_0" type="text" placeholder="开始日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_0" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -256,8 +277,8 @@ layout: default-iframe
                                 <div class="dialog-left">募集结束日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_0" type="text" placeholder="截止日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input end-time_0" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -270,8 +291,8 @@ layout: default-iframe
                                 <div class="dialog-left">产品成立日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input begin-time_1" type="text" placeholder="成立日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input begin-time_1" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -283,8 +304,8 @@ layout: default-iframe
                                 <div class="dialog-left">预计产品结束日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_1" type="text" placeholder="结束日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input end-time_1" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -297,8 +318,8 @@ layout: default-iframe
                                 <div class="dialog-left">计息结束日期</div>
                                 <div class="dialog-right">
                                     <div class="special-item">
-                                        <label>
-                                            <input class="dialog-input end-time_2" type="text" placeholder="结束日期"
+                                        <label class="icon-tria">
+                                            <input class="dialog-input end-time_2" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -373,7 +394,7 @@ layout: default-iframe
                                 <div class="dialog-right">
                                     <div class="special-item">
                                         <label>
-                                            <input class="dialog-input begin-time_3" type="text" placeholder="发行日期"
+                                            <input class="dialog-input begin-time_3" type="text" placeholder=""
                                                    readonly/>
                                             <i></i>
                                         </label>
@@ -563,10 +584,10 @@ layout: default-iframe
                     </div>
                     <div class="tabs-content">
                         <div class="dialog-item">
-                            <div class="dialog-left dialog-left-black">控制串选项</div>
+                            <div class="dialog-left dialog-left-black" style="vertical-align: top;padding-top: 7px">控制串选项</div>
                             <div class="dialog-right">
                                 <div class="checkbox-item checkout-block">
-                                    <span class="param-checkbox"></span>
+                                    <span class="param-checkbox checkbox-checked"></span>
                                     <span class="checkbox-declare checkbox-declare-black">认购是否检查额度控制</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
@@ -592,6 +613,10 @@ layout: default-iframe
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
                                     <span class="checkbox-declare">产品预约业务是否冻结客户额度</span>
+                                </div>
+                                <div class="checkbox-item checkout-block">
+                                    <span class="param-checkbox"></span>
+                                    <span class="checkbox-declare">产品预约业务是否冻结产品额度</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
@@ -627,7 +652,7 @@ layout: default-iframe
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
-                                    <span class="checkbox-declare">产品状态是否以产品是以产品设置为准</span>
+                                    <span class="checkbox-declare">产品状态是否以产品是以产品日历设置为准</span>
                                 </div>
                                 <div class="checkbox-item checkout-block">
                                     <span class="param-checkbox"></span>
@@ -680,7 +705,7 @@ layout: default-iframe
                                 </tr>
                                 <tr class="even">
                                     <td>001</td>
-                                    <td><a href="">《产品说明书》</a></td>
+                                    <td><a href="">《风险揭示书》</a></td>
                                     <td>word/pdf/纯文本</td>
                                     <td>未上传</td>
                                     <td>未上传</td>
@@ -692,7 +717,7 @@ layout: default-iframe
                                 </tr>
                                 <tr class="">
                                     <td>001</td>
-                                    <td><a href="">《风险揭示书》</a></td>
+                                    <td><a href="">《电子合同》</a></td>
                                     <td>word/pdf/纯文本</td>
                                     <td>未上传</td>
                                     <td>未上传</td>
@@ -704,14 +729,14 @@ layout: default-iframe
                                 </tr>
                                 <tr class="even">
                                     <td>001</td>
-                                    <td><a href="">《电子合同》</a></td>
+                                    <td><a href="">《参数文件》</a></td>
                                     <td>word/pdf/纯文本</td>
                                     <td>正常</td>
                                     <td>V1.0</td>
                                     <td>2017-03-06 10:01</td>
                                     <td class="text-c">
                                         <a href="javascript:void(0)" class="btn btn-primary btn-small">查看</a>
-                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">重传</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-small">上传</a>
                                     </td>
                                 </tr>
                                 </tbody>

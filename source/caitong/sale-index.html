@@ -36,7 +36,7 @@ class: sale-index
                 content: '<div class="dialog-item-wrap">'+
                 '<div class="dialog-item">'+
                     '<div class="dialog-left">模板类型</div>'+
-                    '<div class="dialog-right">按产品搜索</div>'+
+                    '<div class="dialog-right" style="color: #e4e4e4">按产品搜索</div>'+
                 '</div>'+
                 '<div class="dialog-item">'+
                     '<div class="dialog-left">模板名称</div>'+
@@ -55,6 +55,7 @@ class: sale-index
                 }
             });
         });
+
     });
 </script>
 <div class="main-content">
@@ -143,13 +144,13 @@ class: sale-index
                     </div>
                 </div>
                 <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table text-left">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table text-left date-table-color">
                         <thead>
                         <tr>
-                            <th width="25%" class="borderRight">选择产品条件如下：</th>
+                            <th width="25%" class="borderRight ">选择产品条件如下：</th>
                             <th width="25%" class="borderRight">选择客户条件如下：</th>
-                            <th width="25%" class="text-center borderRight">符合条件的客户名单：</th>
-                            <th width="25%" class="text-center">设计到的营业部数量：</th>
+                            <th width="25%" class=" borderRight">符合条件的客户名单：</th>
+                            <th width="25%" >设计到的营业部数量：</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -167,8 +168,8 @@ class: sale-index
                                     <div class="item">投资类型：回收<i></i></div>
                                 </div>
                             </td>
-                            <td class="text-center borderRight">2000个</td>
-                            <td class="text-center">10个</td>
+                            <td class="text-center borderRight"><span class="big-txt">2000</span>个</td>
+                            <td class="text-center"><span class="big-txt">10</span>个</td>
                         </tr>
                         </tbody>
                     </table>
@@ -185,9 +186,9 @@ class: sale-index
                         </div>
                         <div class="dialog-item-box-body">
                             <div class="tabs-body">
-                                <div class="tabs-content on">
-                                    <div class="main-table">
-                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <div class="tabs-content on tabs-content-padding">
+                                    <div class="main-table ">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table data-table-borders">
                                             <thead>
                                             <tr>
                                                 <th>序号</th>
@@ -245,7 +246,7 @@ class: sale-index
                                     </div>
                                 </div>
 
-                                <div class="tabs-content">
+                                <div class="tabs-content tabs-content-padding">
                                     <div class="task-search clearfix">
                                         <button class="btn btn-primary btn-simple btn-float-right" href="#">导出</button>
                                         <button class="btn btn-float-right" href="#">搜索</button>
@@ -307,7 +308,7 @@ class: sale-index
                                     </div>
                                     <div class="main-table clearfix">
                                         <div class="scroll-table">
-                                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table data-table-borders">
                                                 <thead>
                                                 <tr>
                                                     <th width="15%">序号</th>
@@ -479,12 +480,12 @@ class: sale-index
                     </div>
                 </div>
                 <div class="main-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table text-left">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table text-left date-table-color">
                         <thead>
                         <tr>
                             <th width="30%" class="borderRight">选择客户条件如下：</th>
                             <th width="30%" class="borderRight">选择产品条件如下：</th>
-                            <th width="40%" class="text-center borderRight">符合条件的产品数量：</th>
+                            <th width="40%" class=" borderRight">符合条件的产品数量：</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -502,22 +503,22 @@ class: sale-index
                                     <div class="item">产品风险等级：中低<i></i></div>
                                 </div>
                             </td>
-                            <td class="text-center">10个</td>
+                            <td class="text-center"><span class="big-txt">10</span>个</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="dialog-item-wrap">
                     <div class="dialog-item-border" style="position: relative">
-                        <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
+                        <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;border-bottom: 0">
                             <div class="fl" style="margin-left:10px;">明细如下</div>
                             <button class="btn fr" id="saveBtn2" style="margin: 2px 10px 0 0;">保存模板</button>
                         </div>
-                        <div class="dialog-item-box-body">
+                        <div class="dialog-item-box-body" style="margin-top: 0">
                             <div class="tabs-body">
-                                <div class="tabs-content on">
-                                    <div class="main-table">
-                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                <div class="tabs-content on tabs-content-padding">
+                                    <div class="main-table ">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table data-table-borders">
                                             <thead>
                                             <tr>
                                                 <th>序号</th>

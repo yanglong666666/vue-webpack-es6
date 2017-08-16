@@ -85,6 +85,9 @@
         display: none;
         &.tabs-content-padding {
             padding: 0;
+            .task-search{
+                padding-left: 21px;
+            }
             .bg-grey {
                 height: 30px;
                 line-height: 30px;
@@ -670,4 +673,16 @@
         }
     }
 
+}
+
+.dialog-item-wrap{
+    .dialog-item{
+        .dialog-left{
+            &.dialog-left-short {
+                width: 90px;
+                padding: 0 0 0 21px;
+                text-align: left;
+            }
+        }
+    }
 }

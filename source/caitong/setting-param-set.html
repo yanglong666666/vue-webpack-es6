@@ -8,7 +8,7 @@ class: setting-param-set
 <script type="text/javascript">
     $(function () {
         $('#select0,#select1,#select71,#select72,#select4,#select5').diySelect();
-        $('#select20,#select21,#select22,#select24,#select25,#select26,#select27,#select28,#select29,#select30,#select31').diySelect({width: 222});
+        $('#select20,#select21,#select22,#select24,#select25,#select26,#select27,#select28,#select29,#select30,#select31,#select73,#select74').diySelect({width: 222});
 
         $('.begin-time').datepicker({
             onClose: function (selectedDate) {
@@ -49,172 +49,79 @@ class: setting-param-set
         });
 
         $('#btnAdd1').on('click', function () {
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">管理人名称</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '新增',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                }
-            });
+           $(".main-content").hide();
+           $(".edit-add11").show()
+        });
+        $(".edit-add11 .view-back,#detailsBtnCancel_1").on('click', function () {
+            $(".main-content").show();
+            $(".edit-add11").hide()
         });
         $('#btnAdd2').on('click', function () {
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">TA名称</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '标题',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                },
-                afterShow: function () {
-
-                }
-            });
+            $(".main-content").hide();
+            $(".edit-add21").show()
+        });
+        $(".edit-add21 .view-back,#detailsBtnCance2_1").on('click', function () {
+            $(".main-content").show();
+            $(".edit-add21").hide()
         });
         $('#btnAdd3').on('click', function () {
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">TA代码</div>' +
-                '   <div class="dialog-right">' +
-                '   <select id="select31" class="diy-select" style="display: none;">' +
-                '       <option selected="">请选择</option>' +
-                '       <option value="1">11111</option>' +
-                '       <option value="2">22222</option>' +
-                '   </select>' +
-                '   </div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">文件路径</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">文件说明</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '标题',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                },
-                afterShow: function () {
-                    $('#select31').diySelect({width: 180});
-                }
-            });
+            $(".main-content").hide();
+            $(".edit-add31").show()
         });
-        $('#btnAdd7').on('click', function () {
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">产品类型</div>' +
-                '   <div class="dialog-right">' +
-                '   <select id="select72" class="diy-select" style="display: none;">' +
-                '       <option selected="">请选择</option>' +
-                '       <option value="1">11111</option>' +
-                '       <option value="2">22222</option>' +
-                '   </select>' +
-                '   </div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">模板名称</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">模板内容</div>' +
-                '   <div class="dialog-right">' +
-                '       <label style="display: block;"><input type="checkbox">《招募书》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《合同》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《托管协议》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《批复》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《参数文件》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《销售合同》</label>' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '标题',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                },
-                afterShow: function () {
-                    $('#select72').diySelect({width: 180});
-                }
-            });
+        $(".edit-add31 .view-back,#detailsBtnCance3_1").on('click', function () {
+            $(".main-content").show();
+            $(".edit-add31").hide()
         });
 
-        $('.btnEdit1').on('click', function () {
-            var num = $(this).parents('tr').find('td').eq(0).text();
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">管理人编号</div>' +
-                '   <div class="dialog-right">'+ num +'</div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">管理人名称</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '新增',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                }
-            });
+        $('#btnAdd7').on('click', function () {
+            $(".main-content").hide();
+            $(".edit-add71").show()
         });
+        $(".edit-add71 .view-back,#detailsBtnCance7_1").on('click', function () {
+            $(".main-content").show();
+            $(".edit-add71").hide()
+        });
+
+
+        $('.btnEdit1').on('click', function () {
+            $(".main-content").hide();
+            $(".edit-change11").show()
+        });
+        $(".edit-change11 .view-back,#detailsBtnCancel_2").on('click', function () {
+            $(".main-content").show();
+            $(".edit-change11").hide()
+        });
+
+        $('.btnEdit2_1').on('click', function () {
+            $(".main-content").hide();
+            $(".edit-change21").show()
+        });
+        $(".edit-change21 .view-back,#detailsBtnCance2_2").on('click', function () {
+            $(".main-content").show();
+            $(".edit-change21").hide()
+        });
+
+
+        $('.btnEdit3').on('click', function () {
+            $(".main-content").hide();
+            $(".edit-change31").show()
+        });
+        $(".edit-change31 .view-back,#detailsBtnCance3_2").on('click', function () {
+            $(".main-content").show();
+            $(".edit-change31").hide()
+        });
+
+        $('.btnEdit7').on('click', function () {
+            $(".main-content").hide();
+            $(".edit-change71").show()
+        });
+        $(".edit-change71 .view-back,#detailsBtnCance7_2").on('click', function () {
+            $(".main-content").show();
+            $(".edit-change71").hide()
+        });
+
+
+
         $('.btnEdit2').on('click', function () {
             var num = $(this).parents('tr').find('td').eq(0).text();
             var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
@@ -263,79 +170,7 @@ class: setting-param-set
                 }
             });
         });
-        $('.btnEdit3').on('click', function () {
-            var num = $(this).parents('tr').find('td').eq(0).text();
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">TA代码</div>' +
-                '   <div class="dialog-right">'+ num +'</div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">文件路径</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">文件说明</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '新增',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                }
-            });
-        });
-        $('.btnEdit7').on('click', function () {
-            var type = $(this).parents('tr').find('td').eq(0).text();
-            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">产品类型</div>' +
-                '   <div class="dialog-right">'+ type +'</div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">模板名称</div>' +
-                '   <div class="dialog-right">' +
-                '       <input class="dialog-input" placeholder="">' +
-                '   </div>' +
-                '</div>' +
-                '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">模板内容</div>' +
-                '   <div class="dialog-right">' +
-                '       <label style="display: block;"><input type="checkbox">《招募书》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《合同》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《托管协议》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《批复》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《参数文件》</label>' +
-                '       <label style="display: block;"><input type="checkbox">《销售合同》</label>' +
-                '   </div>' +
-                '</div>' +
-                '</div></div>';
-            var dialog = new Dialog(null, {
-                title: '新增',
-                content: content,
-                width: '360',
-                needDestroy: true,
-                hasBtn: true,
-                btnText: ["取消", "确定"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel', 'confirm'],
-                confirm: function () {
-                    dialog.destroy();
-                }
-            });
-        });
+
 
         $("#btnAdd51").click(function(){
             $(".main-content").hide();
@@ -387,6 +222,9 @@ class: setting-param-set
         $('.cancel').on('click', function () {
             $(this).parents('.dialog-item-wrap').hide().siblings('.main-content-wrap-list').show();
         });
+
+        let dates = ''+'<i class="arrow"></i>';
+        $('#select31-select,#select73-select,#select74-select,#select20-select,#select21-select,#select22-select,#select24-select,#select25-select,#select26-select,#select27-select,#select28-select,#select29-select,#select30-select,#select31-select').html(dates);
 
         var setting = {};
         var zNodes1 = [
@@ -571,7 +409,7 @@ class: setting-param-set
                                                 <td>华夏基金</td>
                                                 <td>正常</td>
                                                 <td class="text-c">
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit2_1">修改</a>
                                                     <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
                                                 </td>
                                             </tr>
@@ -580,7 +418,7 @@ class: setting-param-set
                                                 <td>华夏基金</td>
                                                 <td>正常</td>
                                                 <td class="text-c">
-                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit1">修改</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-small btnEdit2_1">修改</a>
                                                     <a href="javascript:void(0)" class="btn btn-primary btn-small btnDelete1">删除</a>
                                                 </td>
                                             </tr>
@@ -964,9 +802,284 @@ class: setting-param-set
     </div>
 </div>
 
+
+<div class="dialog-item-wrap edit-wrap edit-add11"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+            <div class="tabs-body">
+                <div class="tabs-content on">
+                    <div class="dialog-item">
+                        <div class="w50p">
+                            <div class="dialog-left">管理人名称</div>
+                            <div class="dialog-right">
+                                <input class="dialog-input" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                        <button class="btn btn-fill" style="margin: 0">确定</button>
+                        <button class="btn btn-gray" id="detailsBtnCancel_1" >取消</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-change11"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">管理人编号</div>
+                        <div class="dialog-right">
+                            001
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">管理人名称</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCancel_2" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-add21"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">TA名称</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCance2_1" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-change21"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                <div class="w50p">
+                    <div class="dialog-left">TA代码</div>
+                    <div class="dialog-right">
+                       001
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-item">
+                <div class="w50p">
+                    <div class="dialog-left">TA名称</div>
+                    <div class="dialog-right">
+                        <input class="dialog-input" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCance2_2" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="dialog-item-wrap edit-wrap edit-add31"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">TA代码</div>
+                        <div class="dialog-right">
+                            <select name="" id="select31" class="diy-select" >
+                                <option selected="">11</option>
+                                <option value="2">222</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">文件路径</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">文件说明</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCance3_1" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-change31"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">TA代码</div>
+                        <div class="dialog-right">
+                            001
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">文件路径</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">文件说明</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCance3_2" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="dialog-item-wrap edit-wrap edit-add71"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">产品类型</div>
+                        <div class="dialog-right">
+                            <select name="" id="select73" class="diy-select" >
+                                <option selected="">11</option>
+                                <option value="2">222</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">模板名称</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">模板内容</div>
+                        <div class="dialog-right">
+                            <label style="display: block;"><input type="checkbox">《招募书》</label>
+                            <label style="display: block;"><input type="checkbox">《合同》</label>
+                            <label style="display: block;"><input type="checkbox">《托管协议》</label>
+                            <label style="display: block;"><input type="checkbox">《批复》</label>
+                            <label style="display: block;"><input type="checkbox">《参数文件》</label>
+                            <label style="display: block;"><input type="checkbox">《销售合同》</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCance7_1" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dialog-item-wrap edit-wrap edit-change71"  style="display: none">
+    <a class="view-back"> &lt;&lt; 返回</a>
+    <div class="dialog-item-box-body">
+        <div class="tabs-body">
+            <div class="tabs-content on">
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">产品类型</div>
+                        <div class="dialog-right">
+                            <select name="" id="select74" class="diy-select" >
+                                <option selected="">11</option>
+                                <option value="2">222</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">模板名称</div>
+                        <div class="dialog-right">
+                            <input class="dialog-input" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="w50p">
+                        <div class="dialog-left">模板内容</div>
+                        <div class="dialog-right">
+                            <label style="display: block;"><input type="checkbox">《招募书》</label>
+                            <label style="display: block;"><input type="checkbox">《合同》</label>
+                            <label style="display: block;"><input type="checkbox">《托管协议》</label>
+                            <label style="display: block;"><input type="checkbox">《批复》</label>
+                            <label style="display: block;"><input type="checkbox">《参数文件》</label>
+                            <label style="display: block;"><input type="checkbox">《销售合同》</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-content page-footer-button-container" style="margin-left: 15%">
+                    <button class="btn btn-fill" style="margin: 0">确定</button>
+                    <button class="btn btn-gray" id="detailsBtnCance7_2" >取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="dialog-item-wrap edit-wrap edit-add51"  style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
-    <div class="dialog-item-border" style="position: relative">
+    <div class="dialog-item-border" style="position: relative;margin-top: 20px">
         <div class="dialog-item-box-body">
             <div class="tabs-body">
                 <div class="tabs-content on">
@@ -1155,7 +1268,7 @@ class: setting-param-set
 </div>
 <div class="dialog-item-wrap edit-wrap edit-add52"  style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
-    <div class="dialog-item-border" style="position: relative">
+    <div class="dialog-item-border" style="position: relative;margin-top: 20px">
         <div class="dialog-item-box-body">
             <div class="tabs-body">
                 <div class="tabs-content on">
@@ -1200,7 +1313,7 @@ class: setting-param-set
 </div>
 <div class="dialog-item-wrap edit-wrap edit-change52"  style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
-    <div class="dialog-item-border" style="position: relative">
+    <div class="dialog-item-border" style="position: relative;margin-top: 20px">
         <div class="dialog-item-box-body">
             <div class="tabs-body">
                 <div class="tabs-content on">
@@ -1251,7 +1364,7 @@ class: setting-param-set
 </div>
 <div class="dialog-item-wrap edit-wrap edit-Change52"  style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
-    <div class="simple-content-table">
+    <div class="simple-content-table" style="margin-top: 20px">
         <div class="title">
             <button class="btn" id="btnAdd">新增</button>
             <button class="btn" id="btnEdit">修改</button>
@@ -1286,7 +1399,7 @@ class: setting-param-set
 </div>
 <div class="dialog-item-wrap edit-wrap edit-change53"  style="display: none">
     <a class="view-back"> &lt;&lt; 返回</a>
-    <div class="dialog-item-border" style="position: relative">
+    <div class="dialog-item-border" style="position: relative;margin-top: 20px">
         <div class="dialog-item-box-body">
             <div class="tabs-body">
                 <div class="tabs-content on">

@@ -57,3 +57,18 @@ span.js-select {
     }
   }
 }
+
+.icon-tria{
+    position: relative;
+    display: inline-block;
+    i{
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        display: inline-block;
+        width: 9px;
+        height: 5px;
+        vertical-align: middle;
+        background: url(../images/icolist.png) -60px -50px no-repeat;
+    }
+}

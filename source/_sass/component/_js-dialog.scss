@@ -37,6 +37,10 @@
     .btn-wrap {
       padding: 15px 0 0;
       text-align: center;
+        &.btn-wrap-change{
+            padding: 0 0 0 90px;
+            text-align: left;
+        }
     }
     .btn-dialog {
       width: 115px;
