@@ -22,6 +22,28 @@ layout: default-iframe
         });
 
 
+        $('.begin-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.end-time').datepicker( "option", "minDate", selectedDate);
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange:'1990:2017'
+        });
+        $('.end-time').datepicker({
+            onClose: function( selectedDate ) {
+                $('.begin-time').datepicker( "option", "maxDate", selectedDate );
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange:'1990:2017'
+        });
+
+
 
         $('#select1').diySelect();
         $('#select2').diySelect();
@@ -801,8 +823,9 @@ layout: default-iframe
                 <div class="dialog-item-wrap">
                     <div class="dialog-item-border" style="position: relative">
                         <div class="dialog-item-box-title tabs-items" style="background: transparent;padding-left:0;">
-                            <span class="tab-option on">基本信息</span>
-                            <span class="tab-option tab-option-change">终止信息</span>
+                            <span class="tab-option on">账户开立情况</span>
+                            <span class="tab-option tab-option-change">登记托管模式</span>
+                            <span class="tab-option tab-option-change">结算业务规模</span>
                         </div>
                         <div class="dialog-item-box-body" >
                             <div class="tabs-body">
@@ -823,28 +846,18 @@ layout: default-iframe
                                         </dl>
                                         <dl class="search-dl">
                                             <dd>
-          <span>
-            <select id="select13" class="diy-select">
-                <option selected>管理人</option>
-                <option value="1">XX1</option>
-                <option value="2">XX2</option>
-            </select>
-          </span>
+                                                <span class="pre"></span>
+                                                <label class="icon-tria">
+                                                    <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+                                                    <i></i>
+                                                </label>
+                                                <span class="pre">至</span>
+                                                <label class="icon-tria">
+                                                    <input class="txt end-time" type="text" placeholder="结束时间" readonly />
+                                                    <i></i>
+                                                </label>
                                             </dd>
                                         </dl>
-                                        <dl class="search-dl">
-                                            <dd>
-          <span>
-            <select id="select14" class="diy-select">
-                <option selected>产品类型</option>
-                <option value="1">XX1</option>
-                <option value="2">XX2</option>
-            </select>
-          </span>
-                                            </dd>
-                                        </dl>
-                                        <input type="text" class="aql-input small-input" placeholder="产品代码">
-                                        <input type="text" class="aql-input small-input" placeholder="产品名称">
 
                                     </div>
                                     <div class="main-table clearfix">
@@ -852,168 +865,119 @@ layout: default-iframe
                                             <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
                                                 <thead>
                                                 <tr>
-                                                    <th width="10%">序号</th>
-                                                    <th width="20%">报送类型</th>
-                                                    <th width="10%">证券公司名称</th>
-                                                    <th width="10%">证券公司代码</th>
-                                                    <th width="20%">产品代码</th>
-                                                    <th width="15%">母产品代码</th>
-                                                    <th width="15%">产品简介</th>
-                                                    <th width="15%">产品全称</th>
-                                                    <th width="10%">产品发行人<br/>或管理人类型</th>
-                                                    <th width="20%">产品发行人<br/>或管理人名称</th>
-                                                    <th width="20%">产品发行人或管理<br/>人组织机构代码</th>
-                                                    <th width="20%">产品承销商<br/>类型</th>
-                                                    <th width="20%">产品承销商<br/>名称</th>
-                                                    <th width="20%">产品份额承销商<br/>组织机构代码</th>
-                                                    <th width="20%">承销方式</th>
-                                                    <th width="20%">产品份额<br/>登记人类型</th>
-                                                    <th width="20%">产品份额<br/>登记人名称</th>
-                                                    <th width="20%">产品份额登记人<br/>组织机构代码</th>
-                                                    <th width="20%">产品资产<br/>托管人类型</th>
-                                                    <th width="20%">产品资产<br/>托管人名称</th>
-                                                    <th width="20%">报备状态</th>
+                                                    <th width="10%" >序号</th>
+                                                    <th width="15%" style="text-align: left">月初账户数（个）<br/>机构账户</th>
+                                                    <th width="15%" style="text-align: left">月初账户数（个）<br/>个人账户</th>
+                                                    <th width="15%" style="text-align: left">月初账户数（个）<br/>合计</th>
+                                                    <th width="15%" style="text-align: left">当月开户数（个）<br/>机构账户</th>
+                                                    <th width="15%" style="text-align: left">当月开户数（个）<br/>个人账户</th>
+                                                    <th width="15%" style="text-align: left">当月开户数（个）<br/>合计</th>
+                                                    <th width="15%" style="text-align: left">当月销户数（个）<br/>机构账户</th>
+                                                    <th width="15%" style="text-align: left">当月销户数（个）<br/>个人账户</th>
+                                                    <th width="15%" style="text-align: left">当月销户数（个）<br/>合计</th>
+                                                    <th width="15%" style="text-align: left">月终账户数（个）<br/>机构账户</th>
+                                                    <th width="15%" style="text-align: left">月终账户数（个）<br/>个人账户</th>
+                                                    <th width="15%" style="text-align: left">月终账户数（个）<br/>合计</th>
+                                                    <th width="15%">报备状态</th>
 
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td>001</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>名称</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>方式</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
+                                                    <td>1000</td>
+                                                    <td>100</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
 
                                                 </tr>
                                                 <tr class="even">
                                                     <td>001</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>名称</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>方式</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
+                                                    <td>1000</td>
+                                                    <td>100</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr>
                                                     <td>001</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>名称</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>方式</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
+                                                    <td>1000</td>
+                                                    <td>100</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr class="even">
                                                     <td>001</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>名称</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>方式</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
+                                                    <td>1000</td>
+                                                    <td>100</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr>
                                                     <td>001</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>名称</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>方式</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
+                                                    <td>1000</td>
+                                                    <td>100</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr class="even">
                                                     <td>001</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>名称</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>方式</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
-                                                    <td>代码</td>
-                                                    <td>类型</td>
-                                                    <td>名称</td>
+                                                    <td>1000</td>
+                                                    <td>100</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>已报备</td>
                                                 </tr>
                                                 </tbody>
@@ -1070,7 +1034,7 @@ layout: default-iframe
                                         <dl class="search-dl">
                                             <dd>
           <span>
-            <select id="select15" class="diy-select">
+            <select id="select13" class="diy-select">
                 <option selected>报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
@@ -1080,28 +1044,18 @@ layout: default-iframe
                                         </dl>
                                         <dl class="search-dl">
                                             <dd>
-          <span>
-            <select id="select16" class="diy-select">
-                <option selected>管理人</option>
-                <option value="1">XX1</option>
-                <option value="2">XX2</option>
-            </select>
-          </span>
+                                                <span class="pre"></span>
+                                                <label class="icon-tria">
+                                                    <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+                                                    <i></i>
+                                                </label>
+                                                <span class="pre">至</span>
+                                                <label class="icon-tria">
+                                                    <input class="txt end-time" type="text" placeholder="结束时间" readonly />
+                                                    <i></i>
+                                                </label>
                                             </dd>
                                         </dl>
-                                        <dl class="search-dl">
-                                            <dd>
-          <span>
-            <select id="select17" class="diy-select">
-                <option selected>产品类型</option>
-                <option value="1">XX1</option>
-                <option value="2">XX2</option>
-            </select>
-          </span>
-                                            </dd>
-                                        </dl>
-                                        <input type="text" class="aql-input small-input" placeholder="产品代码">
-                                        <input type="text" class="aql-input small-input" placeholder="产品名称">
 
                                     </div>
                                     <div class="main-table clearfix">
@@ -1110,21 +1064,21 @@ layout: default-iframe
                                                 <thead>
                                                 <tr>
                                                     <th width="10%">序号</th>
-                                                    <th width="10%">证券公司名称</th>
-                                                    <th width="10%">证券公司代码</th>
-                                                    <th width="20%">产品代码</th>
-                                                    <th width="15%">产品简称</th>
-                                                    <th width="15%">产品到期日</th>
-                                                    <th width="10%">终止类型</th>
-                                                    <th width="10%">交割方式</th>
-                                                    <th width="10%">兑付币种</th>
-                                                    <th width="20%">累计现金<br/>兑付金额</th>
-                                                    <th width="15%">兑付资产<br/>实施构成</th>
-                                                    <th width="15%">实物交割累计<br/>公允价值</th>
-                                                    <th width="20%">和解说明</th>
-                                                    <th width="15%">交割或兑付,<br/>和解日期</th>
-                                                    <th width="15%">产品实际年化<br/>收益率（%）</th>
-                                                    <th width="20%">报备状态</th>
+                                                    <th width="10%">产品名称名称</th>
+                                                    <th width="10%">产品代码</th>
+                                                    <th width="20%">产品状态</th>
+                                                    <th width="15%">服务类型</th>
+                                                    <th width="15%">产品类型</th>
+                                                    <th width="10%">业务类型</th>
+                                                    <th width="10%" style="text-align: left">等级托管产品份额（万份）<br/>月初</th>
+                                                    <th width="10%" style="text-align: left">等级托管产品份额（万份）<br/>本月增加</th>
+                                                    <th width="20%" style="text-align: left">登记托管产品份额（万份）<br/>本月减少</th>
+                                                    <th width="15%" style="text-align: left">登记托管产品份额（万份）<br/>月末</th>
+                                                    <th width="10%" style="text-align: left">等级托管产品规模（万份）<br/>月初</th>
+                                                    <th width="10%" style="text-align: left">等级托管产品规模（万份）<br/>本月增加</th>
+                                                    <th width="20%" style="text-align: left">登记托管产品规模（万份）<br/>本月减少</th>
+                                                    <th width="15%" style="text-align: left">登记托管产品规模（万份）<br/>月末</th>
+                                                    <th width="20%" style="text-align: left">报备状态</th>
 
                                                 </tr>
                                                 </thead>
@@ -1133,18 +1087,18 @@ layout: default-iframe
                                                     <td>001</td>
                                                     <td>名称</td>
                                                     <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>到期日</td>
+                                                    <td>状态</td>
                                                     <td>类型</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>总额</td>
-                                                    <td>构成</td>
-                                                    <td>价值</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
 
                                                 </tr>
@@ -1152,90 +1106,90 @@ layout: default-iframe
                                                     <td>001</td>
                                                     <td>名称</td>
                                                     <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>到期日</td>
+                                                    <td>状态</td>
                                                     <td>类型</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>总额</td>
-                                                    <td>构成</td>
-                                                    <td>价值</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr>
                                                     <td>001</td>
                                                     <td>名称</td>
                                                     <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>到期日</td>
+                                                    <td>状态</td>
                                                     <td>类型</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>总额</td>
-                                                    <td>构成</td>
-                                                    <td>价值</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr class="even">
                                                     <td>001</td>
                                                     <td>名称</td>
                                                     <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>到期日</td>
+                                                    <td>状态</td>
                                                     <td>类型</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>总额</td>
-                                                    <td>构成</td>
-                                                    <td>价值</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr>
                                                     <td>001</td>
                                                     <td>名称</td>
                                                     <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>到期日</td>
+                                                    <td>状态</td>
                                                     <td>类型</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>总额</td>
-                                                    <td>构成</td>
-                                                    <td>价值</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>未报</td>
                                                 </tr>
                                                 <tr class="even">
                                                     <td>001</td>
                                                     <td>名称</td>
                                                     <td>代码</td>
-                                                    <td>代码</td>
-                                                    <td>名称</td>
-                                                    <td>到期日</td>
+                                                    <td>状态</td>
                                                     <td>类型</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>总额</td>
-                                                    <td>构成</td>
-                                                    <td>价值</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
                                                     <td>已报备</td>
                                                 </tr>
                                                 </tbody>
@@ -1282,6 +1236,140 @@ layout: default-iframe
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                    {% include component/pagenav-cf.html %}
+
+                                </div>
+                                <div class="tabs-content ">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-primary btn-simple btn-float-right "  >导出</button>
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+                                        <dl class="search-dl">
+                                            <dd>
+          <span>
+            <select id="select14" class="diy-select">
+                <option selected>报备状态</option>
+                <option value="1">已报备</option>
+                <option value="2">未报备</option>
+            </select>
+          </span>
+                                            </dd>
+                                        </dl>
+                                        <dl class="search-dl">
+                                            <dd>
+                                                <span class="pre"></span>
+                                                <label class="icon-tria">
+                                                    <input class="txt begin-time" type="text" placeholder="开始时间" readonly />
+                                                    <i></i>
+                                                </label>
+                                                <span class="pre">至</span>
+                                                <label class="icon-tria">
+                                                    <input class="txt end-time" type="text" placeholder="结束时间" readonly />
+                                                    <i></i>
+                                                </label>
+                                            </dd>
+                                        </dl>
+
+                                    </div>
+                                    <div class="main-table clearfix">
+                                        <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                                <thead>
+                                                <tr>
+                                                    <th width="7%">序号</th>
+                                                    <th width="10%">服务类型</th>
+                                                    <th width="10%">产品类型</th>
+                                                    <th width="10">业务类型</th>
+                                                    <th width="15%" style="text-align: left">结算业务对应产品数量<br/>(或交易笔数)</th>
+                                                    <th width="15%" style="text-align: left">本月产品结算份额<br/>(万份)</th>
+                                                    <th width="15%" style="text-align: left">本月资金结算金额<br/>(万份)</th>
+                                                    <th width="10">报备状态</th>
+                                                    <th width="8%">操作</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>未报</td>
+                                                    <td class="text-c">
+                                                        <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                                    </td>
+
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>未报</td>
+                                                    <td class="text-c">
+                                                        <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>未报</td>
+                                                    <td class="text-c">
+                                                        <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>未报</td>
+                                                    <td class="text-c">
+                                                        <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>未报</td>
+                                                    <td class="text-c">
+                                                        <a href="#" class="btn btn-small btn-primary btn-checked">报备</a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>类型</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>已报备</td>
+                                                    <td class="text-c">
+                                                        <a href="#" class="btn btn-small btn-primary btn-no-checked">报备</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
                                     </div>
                                     {% include component/pagenav-cf.html %}
 
