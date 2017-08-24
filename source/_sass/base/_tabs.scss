@@ -634,6 +634,11 @@
 
 
 .dialog-right{
+    .col-grey{
+        height: 28px;
+        line-height: 28px;
+        color: #999999;
+    }
     &.dialog-right-more-hidden{
         max-height: 30px;
         position: relative;

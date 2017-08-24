@@ -3,6 +3,7 @@ title: 销售管理-产品预约
 layout: default-iframe
 ---
 <script src="../../javascript/select2.full.min.js"></script>
+<script src="../javascript/jquery.ztree.all-3.5.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         // tab切换
@@ -153,6 +154,102 @@ layout: default-iframe
             $(this).css({'color':'#333'})
         });
 
+
+        var setting1 = {
+            view: {
+                addDiyDom: addDiyDom,
+                showLine: false
+
+            }
+        };
+        var setting2 = {
+            view: {
+                showLine: false
+
+            }
+        };
+        var zNodes2 = [
+            {
+                name: "全部"
+            },
+            {
+                name: "中心营业部", open: true,
+                children: [
+                    {name: "杭州湖墅南路证券营业部 150万元"},
+                    {name: "杭州庆春路证券营业部 150万元"}
+
+                ]
+            },
+            {
+                name: "A类营业部", open: true,
+                children: [
+                    {name: "杭州西大街证券营业部 100万元"},
+                    {name: "杭州环城西路证券营业部 100万元"}
+
+                ]
+            }
+        ];
+        var zNodes1 = [
+            {
+                name: "总金额", open: true,
+                children: [
+                    {name: "直销部门1",class:"span_1"},
+                    {name: "直销部门2"},
+                    {name: "中心营业部", open: true,
+                        children: [
+                            {name: "宁波金融中心营业部"},
+                            {name: "慈溪开发大道营业部"},
+                            {name: "宁波范江岸路营业部"},
+                            {name: "宁波镇海营业部"},
+                            {name: "余姚四明西路营业部"}
+                        ]
+                    },
+                    {name: "A级营业部", open: true,
+                        children: [
+                            {name: "B级营业部1"},
+                            {name: "B级营业部2"}
+                        ]
+                    },
+                    {name: "分公司", open: true,
+                        children: [
+                            {name: "湖州红旗路营业部"},
+                            {name: "安吉体育场营业部"},
+                            {name: "长兴金陵北路营业部"},
+                            {name: "德清中兴南路营业部"},
+                            {name: "湖州织里商城西路营业部"}
+                        ]
+                    },
+                    {name: "B级营业部", open: true,
+                        children: [
+                            {name: "台州解放南路营业部"},
+                            {name: "温岭东辉北路营业部"},
+                            {name: "玉环广陵路营业部"},
+                            {name: "黄岩天长南路营业部"},
+                            {name: "临海靖江中路营业部"}
+                        ]
+                    }
+
+                ]
+            }
+        ];
+        function addDiyDom(treeId, treeNode) {
+            var aObj = $("#" + treeNode.tId + "_a");
+            if ($("#diyBtn_"+treeNode.tId).length>0) return;
+            var editStr = "<span id='diyBtn_space_" +treeNode.tId+ "' > </span>"
+                + "<input type='button' class='diyBtn1' id='diyBtn_" + treeNode.tId
+                + "' title='"+treeNode.name+"' value='1000' /><span class='txt-centers'>万元</span>" ;
+            aObj.append(editStr);
+
+        };
+        $.fn.zTree.init($("#ztree-change"), setting1, zNodes1);
+        $.fn.zTree.init($("#ztree-change-short"), setting2, zNodes2);
+
+        $("#ztree-change-short ul li a span").on('mouseover',function(){
+            $(this).css({'background':"#ccc"})
+        }).on('mouseout',function(){
+            $(this).css({'background':"transparent"})
+        })
+
     });
 
 </script>
@@ -274,153 +371,8 @@ layout: default-iframe
                                     <button class="btn">下移</button>
                                     <button class="btn">启用</button>
                                 </div>
-                                <div class="separate-content">
-                                     <div class="content-inner">
-                                         <div class="content-inner-top">
-                                             <i class="arrow-show1 arrow-first"></i>
-                                             <span class="txt-w1">总金额</span>
-                                             <input class="dialog-input" placeholder="" value="1000">
-                                             <span class="tips">万元</span>
-                                         </div>
-                                         <div class="content-list-wrap content-list-wrap-show">
-                                             <div class="content-lists">
-                                                 <span class="txt-w2">直销部门1</span>
-                                                 <input class="dialog-input" placeholder="" value="1000">
-                                                 <span class="tips">万元</span>
-                                             </div>
-                                             <div class="content-lists">
-                                                 <span class="txt-w2">直销部门2</span>
-                                                 <input class="dialog-input" placeholder="" value="1000">
-                                                 <span class="tips">万元</span>
-                                             </div>
-                                             <div class="content-list-change">
-                                                 <div class="content-list-change-top">
-                                                     <i class="arrow-show1"></i>
-                                                     <span class="txt-w2">中心营业部</span>
-                                                     <input class="dialog-input" placeholder="" value="1000">
-                                                     <span class="tips">万元</span>
-                                                 </div>
-                                                 <div class="content-list-change-content content-list-change-content-show">
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">宁海金融中心营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">慈溪开发大道营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">宁波范江岸路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">宁波镇海营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">余姚四明西路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                             <div class="content-list-change">
-                                                 <div class="content-list-change-top">
-                                                     <i class="arrow-show1"></i>
-                                                     <span class="txt-w2">A级营业厅</span>
-                                                     <input class="dialog-input" placeholder="" value="150">
-                                                     <span class="tips">万元</span>
-                                                 </div>
-                                                 <div class="content-list-change-content content-list-change-content-show">
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">A级营业厅1</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">A级营业厅2</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-
-                                                 </div>
-                                             </div>
-                                             <div class="content-list-change">
-                                                 <div class="content-list-change-top">
-                                                     <i class="arrow-show1"></i>
-                                                     <span class="txt-w2">分公司</span>
-                                                     <input class="dialog-input" placeholder="" value="1000">
-                                                     <span class="tips">万元</span>
-                                                 </div>
-                                                 <div class="content-list-change-content content-list-change-content-show">
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">潮州红旗路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">安吉体育场营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">长兴金陵北路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">德清中兴南路营业厅</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">湖州织里商城西路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                             <div class="content-list-change">
-                                                 <div class="content-list-change-top">
-                                                     <i class="arrow-show1"></i>
-                                                     <span class="txt-w2">B及营业部</span>
-                                                     <input class="dialog-input" placeholder="" value="1000">
-                                                     <span class="tips">万元</span>
-                                                 </div>
-                                                 <div class="content-list-change-content content-list-change-content-show">
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">台州解放南路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">温岭东辉北路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">玉环广陵北路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">黄岩天长南路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                     <div class="content-list-change-list">
-                                                         <span class="txt-w3">临海靖江中路营业部</span>
-                                                         <input class="dialog-input" placeholder="" value="150">
-                                                         <span class="tips">万元</span>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
+                                <div class="content">
+                                    <div id="ztree-change" class="ztree"></div>
                                 </div>
 
                         </div>
@@ -572,7 +524,7 @@ layout: default-iframe
                                             </script>
                                         </div>
                                         <div class="header-contents">
-                                            <p class="header-contents-title">全部</p>
+                                            <!--<p class="header-contents-title">全部</p>
                                             <div class="header-content-list">
                                                 <div class="header-list-top"><i class="arrow-show"></i>中心营业部<i class="icon-add"></i></div>
                                                 <ul class="list-title list-title-show">
@@ -586,7 +538,8 @@ layout: default-iframe
                                                     <li>杭州西大街证券营业部 100万元 <i class="icon-add"></i></li>
                                                     <li>杭州环城西路证券营业部 100万元 <i class="icon-add"></i></li>
                                                 </ul>
-                                            </div>
+                                            </div>-->
+                                            <div id="ztree-change-short" class="ztree"></div>
                                         </div>
                                     </div>
                                     <div class="center-contents">

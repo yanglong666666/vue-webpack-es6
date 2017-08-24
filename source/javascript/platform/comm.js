@@ -15,6 +15,7 @@ var DiySelect = function (select, options) {
     this.hasInit = false;
 
     this.init(select);
+    //this.changeOption();
 };
 
 DiySelect.prototype = {
@@ -278,7 +279,27 @@ DiySelect.prototype = {
     revert: function () {
         this.selectSpan.remove();
         this.optionDiv.remove();
-    }
+    },
+   /* changeOption:function(){
+        var title = $('.js-select');
+        title.bind('DOMNodeInserted', function(e) {
+            var len=$(this).parent().find('.diy-select').find('option').length;
+            for(i=0;i<len;i++){
+                var titles=$(this).parent().find('.diy-select').find('option').eq(i).attr("value");
+                console.log(titles.length);
+                var vals=$(this).parent().find('.diy-select').find('option').eq(i).text();
+                var txts=$(this).text();
+                if( vals == txts ){
+                    if(titles != ''&& titles.length>0){
+                        $(this).css({color:'red'})
+                    }else{
+                        $(this).css({color:'blue'})
+                    }
+
+                }
+            }
+        });
+    }*/
 };
 
 // 注册插件
