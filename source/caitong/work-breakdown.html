@@ -236,13 +236,19 @@ layout: default-iframe
             var aObj = $("#" + treeNode.tId + "_a");
             if ($("#diyBtn_"+treeNode.tId).length>0) return;
             var editStr = "<span id='diyBtn_space_" +treeNode.tId+ "' > </span>"
-                + "<input type='button' class='diyBtn1' id='diyBtn_" + treeNode.tId
-                + "' title='"+treeNode.name+"' value='1000' /><span class='txt-centers'>万元</span>" ;
+                + "<input type='text' class='diyBtn1' id='diyBtn_" + treeNode.tId
+                + "' title='"+treeNode.name+"' value='1000' /><span class='txt-centers'>万元</span> <button class='btn  btn-true'   id='diyBtn2_" + treeNode.tId
+                + "' style='margin-left: -99px;margin-top: 4px;display: none'>确定</button>" ;
             aObj.append(editStr);
 
         };
         $.fn.zTree.init($("#ztree-change"), setting1, zNodes1);
         $.fn.zTree.init($("#ztree-change-short"), setting2, zNodes2);
+
+        var title1 = $('.diyBtn1');
+        title1.bind('input propertychange', function() {
+            $(this).siblings(".btn-true").show()
+        });
 
         $("#ztree-change-short ul li a span").on('mouseover',function(){
             $(this).css({'background':"#ccc"})
@@ -542,18 +548,21 @@ layout: default-iframe
                                             <div id="ztree-change-short" class="ztree"></div>
                                         </div>
                                     </div>
-                                    <div class="center-contents">
+                                    <div class="center-contents" style="height: 338px">
                                         <div class="center-content-img">
                                             <img src="../../images/caitong/right-grey.png" class="right-blue">
                                         </div>
                                     </div>
                                     <div class="right-contents">
                                          <div class="right-content-top">已选营业部  <span class="list-num">2</span>家</div>
-                                        <div class="right-list-wrap">
+                                         <div class="right-list-wrap">
                                             <ul class="right-list">
                                                 <li>杭州湖墅南路证券营业部 150万元 <i class="icon-delect"></i></li>
                                                 <li>杭州庆春路证券营业部 150万元 <i class="icon-delect"></i></li>
                                             </ul>
+                                        </div>
+                                        <div class="right-content-botton">
+                                            <p>已选金额：<span class="tips-total">1000</span>万元</p>
                                         </div>
                                     </div>
                                 </div>

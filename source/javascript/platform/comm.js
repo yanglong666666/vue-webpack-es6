@@ -280,7 +280,7 @@ DiySelect.prototype = {
         this.selectSpan.remove();
         this.optionDiv.remove();
     },
-   /* changeOption:function(){
+  /* changeOption:function(){
         var title = $('.js-select');
         title.bind('DOMNodeInserted', function(e) {
             var len=$(this).parent().find('.diy-select').find('option').length;

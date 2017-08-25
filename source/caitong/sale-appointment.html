@@ -838,10 +838,103 @@ layout: default-iframe
                                                     <ul class="list-add">
                                                         <li class="col-blocks">
                                                             <span class="ul-list" >01</span>
-                                                            <select name="" id="select25" class="diy-select" style="display: none;">
-                                                                <option selected="">选择客户 看资金账号+名字是否能一起选择</option>
-                                                                <option value="1">111</option>
-                                                            </select>
+                                                            <div class="search-box">
+                                                                <input id="search-input"  class="fill-input small" placeholder="输入查找">
+                                                                <div class="search-list" style="display: none;">
+                                                                    <ul class="sug-ul">
+                                                                        <li value=" 1 ">热门业务1</li>
+                                                                        <li value=" 2 ">热门业务2</li>
+                                                                        <li value=" 3 ">热门业务3</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <script>
+                                                                $(function () {
+                                                                    var $searchListWrap = $('.search-list');
+                                                                    var $searchInput = $('#search-input');
+                                                                    var data = {
+                                                                        allSug: ""
+                                                                    }
+                                                                    var Func = {};
+
+                                                                    $.fn.extend({
+                                                                        setData: function (array) {
+                                                                            var $self = $(this);
+                                                                            $(this).html('');
+                                                                            if (array.length > 0) {
+                                                                                array.forEach(function (item) {
+                                                                                    $self.append('<li value=" ' + item.value + ' "><span>1</span>' + item.name + '</li>');
+                                                                                });
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                    Func.getAllSug = function (callback) {
+                                                                        //模拟ajax 热门推荐
+                                                                        setTimeout(function () {
+                                                                            var sugArray = [
+                                                                                {value: "1", name: "热门业务1"},
+                                                                                {value: "2", name: "热门业务2"},
+                                                                                {value: "3", name: "热门业务3"}
+                                                                            ];
+                                                                            data.allSug = sugArray;
+                                                                            callback();
+                                                                        }, 1000);
+                                                                    };
+                                                                    Func.renderList = function () {
+                                                                        var value = $searchInput.val();
+                                                                        if (value) {
+                                                                            //show筛选
+                                                                            Func.filterSug();
+                                                                            $searchListWrap.find('ul.sug-ul').setData(Func.filterSug(value));
+                                                                        } else {
+                                                                            //showAll
+                                                                            $searchListWrap.find('ul.sug-ul').setData(data.allSug);
+                                                                        }
+                                                                    };
+                                                                    Func.filterSug = function (val) {
+                                                                        //筛选
+                                                                        var returnDataArray = [
+                                                                            {value: "1", name: "筛选热门业务1"},
+                                                                            {value: "2", name: "筛选热门业务2"},
+                                                                            {value: "3", name: "筛选热门业务3"}
+                                                                        ];
+                                                                        return returnDataArray;
+                                                                    };
+                                                                    Func.searchResult = function () {
+                                                                        //ajax
+                                                                        var dataArray = [
+                                                                            {value: "1", name: "查询业务1"},
+                                                                            {value: "2", name: "查询业务2"},
+                                                                            {value: "3", name: "查询业务3"}
+                                                                        ];
+                                                                        var $searchResult = $('.search-result');
+                                                                        $searchResult.find('p span').eq(0).text(val);
+                                                                        $searchResult.find('p span').eq(1).text(dataArray.length);
+                                                                        //show
+                                                                        $searchResult.find('ul').html('');
+                                                                        dataArray.forEach(function (item) {
+                                                                            $searchResult.find('ul').append('<li><img src="../images/icon/platform.png" class="icon-arrow">创业板开通</li>');
+                                                                        })
+                                                                    };
+                                                                    //-------------------------------以上为定义一些数据及方法-------------------------------
+
+                                                                    //设置历史数据模拟
+                                                                    Func.getAllSug(Func.renderList);
+
+                                                                    //输入框交互
+                                                                    $searchInput.on('focus', function () {
+                                                                        Func.renderList();
+                                                                        $searchListWrap.show();
+                                                                    }).on('blur', function () {
+                                                                        $searchListWrap.hide();
+                                                                    }).on('keyup', function () {
+                                                                        Func.renderList();
+                                                                        $searchListWrap.show();
+                                                                    });
+
+                                                                });
+
+                                                            </script>
                                                             <input class="dialog-input dialog-input-height" placeholder="输入金额" value="">
                                                             <span class="ul-money">万元</span>
                                                             <div class="btn-declare" style="width: inherit;">

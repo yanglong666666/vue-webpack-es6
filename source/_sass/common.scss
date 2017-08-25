@@ -372,6 +372,21 @@ input[type="text"] {
         padding: 10px 0px;
         border-bottom: 1px solid #e5e5e5;
         margin-bottom: 20px;
+        &.main-content-wrap-top-change{
+            padding: 0;
+            line-height: 34px;
+            .tab-options{
+                padding: 0 10px;
+                margin-bottom: -1px;
+                border-right: none;
+                &.on{
+                    color: $theme-color;
+                    font-weight: bold;
+                    background: #fff;
+                    border-bottom: 2px solid $theme-color ;
+                }
+            }
+        }
         .tab-options {
             display: inline-block;
             font-size: 14px;

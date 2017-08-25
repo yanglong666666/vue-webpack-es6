@@ -397,6 +397,7 @@
                 &.dialog-input-height{
                     height: 30px;
                     line-height: 30px;
+                    margin-left: 10px;
                 }
                 &:disabled {
                     color: #a6a6a6;
@@ -640,7 +641,7 @@ select.js-example-basic-multiple,select.select2 {
         outline: none;
         .select2-selection__rendered {
             line-height: 28px;
-            color: #e4e4e4;
+            color: #999;
         }
         .select2-selection__arrow {
             right: 6px;
