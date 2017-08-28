@@ -6,12 +6,8 @@ layout: default-iframe
 <script type="text/javascript">
   $(function () {
     $('#dialogSelect1').diySelect({width:222});
-      var title = $('.js-select');//the element I want to monitor
       var title1 = $('.select2-selection__rendered');
-      title.bind('DOMNodeInserted', function(e) {
-          $(this).css({'color':'#333'})
-      });
-      title1.bind('DOMNodeInserted', function(e) {
+      title1.bind('DOMNodeInserted', function() {
           $(this).css({'color':'#333'})
       });
   });
@@ -30,8 +26,8 @@ layout: default-iframe
 	      <div class="dialog-left">发行人</div>
 	      <div class="dialog-right">
 		      <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
-		        <option selected="">请选择</option>
-		        <option selected="" value="1">财通资管</option>
+		        <option value="">请选择</option>
+		        <option  value="1">财通资管</option>
 		      </select>
 	    	</div>
 	  	</div>

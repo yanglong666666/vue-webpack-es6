@@ -207,12 +207,8 @@ class: sales-preview
 
 
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
     });
@@ -239,7 +235,7 @@ class: sales-preview
                 <dd>
                   <span>
                     <select id="select3" class="diy-select">
-                        <option selected>发布到日历状态</option>
+                        <option value="">发布到日历状态</option>
                         <option value="1">111</option>
                         <option value="2">222</option>
                     </select>
@@ -250,7 +246,7 @@ class: sales-preview
                 <dd>
                   <span>
                     <select id="select2" class="diy-select">
-                        <option selected>产品类型</option>
+                        <option value="">产品类型</option>
                         <option value="1">基金类</option>
                         <option value="2">股票类</option>
                     </select>
@@ -276,7 +272,7 @@ class: sales-preview
                 <dd>
                   <span>
                     <select id="select5" class="diy-select">
-                        <option selected>时间段选择</option>
+                        <option value="">时间段选择</option>
                         <option value="1">111</option>
                         <option value="2">222</option>
                     </select>
@@ -287,7 +283,7 @@ class: sales-preview
                 <dd>
                   <span>
                     <select id="select4" class="diy-select">
-                        <option selected>开放</option>
+                        <option value="">开放</option>
                         <option value="1">111</option>
                         <option value="2">222</option>
                     </select>
@@ -470,7 +466,7 @@ class: sales-preview
                     <div class="dialog-left">选择产品</div>
                     <div class="dialog-right">
                         <select id="select00" class="diy-select">
-                            <option value="" selected>选择产品</option>
+                            <option value="" >选择产品</option>
                             <option value="1">111</option>
                             <option value="2">222</option>
                             <option value="3">333</option>
@@ -481,7 +477,7 @@ class: sales-preview
                     <div class="dialog-left">按产品发行方或产品管理人分</div>
                     <div class="dialog-right">
                         <select id="select01" class="diy-select">
-                            <option value="" selected>请选择</option>
+                            <option value="" >请选择</option>
                             <option value="1">收益凭证</option>
                             <option value="2">信托产品</option>
                             <option value="3">信托产品</option>
@@ -492,7 +488,7 @@ class: sales-preview
                     <div class="dialog-left">按产品风险等级分</div>
                     <div class="dialog-right">
                         <select id="select02" class="diy-select">
-                            <option value="" selected>请选择</option>
+                            <option value="" >请选择</option>
                             <option value="1">高风险</option>
                             <option value="2">中高风险</option>
                             <option value="3">中风险</option>
@@ -503,7 +499,7 @@ class: sales-preview
                     <div class="dialog-left">按产品类型分</div>
                     <div class="dialog-right">
                         <select id="select03" class="diy-select">
-                            <option value="" selected>请选择</option>
+                            <option value="" >请选择</option>
                             <option value="1">货币类</option>
                             <option value="2">权益基金类</option>
                         </select>
@@ -513,7 +509,7 @@ class: sales-preview
                     <div class="dialog-left">按产品系列分</div>
                     <div class="dialog-right">
                         <select id="select04" class="diy-select">
-                            <option value="" selected>请选择</option>
+                            <option value="" >请选择</option>
                             <option value="1">创新</option>
                             <option value="2">定增</option>
                         </select>
@@ -523,7 +519,7 @@ class: sales-preview
                     <div class="dialog-left">按产品来源分</div>
                     <div class="dialog-right">
                         <select id="select05" class="diy-select">
-                            <option value="" selected>请选择</option>
+                            <option value="" >请选择</option>
                             <option value="1">内部1</option>
                             <option value="2">内部2</option>
                             <option value="3">财通资管公募</option>
@@ -534,7 +530,7 @@ class: sales-preview
                     <div class="dialog-left">按投资方向分</div>
                     <div class="dialog-right">
                         <select id="select06" class="diy-select">
-                            <option value="" selected>请选择</option>
+                            <option value="" >请选择</option>
                             <option value="1">债券</option>
                             <option value="2">货币</option>
                             <option value="3">财指数</option>
@@ -624,7 +620,7 @@ class: sales-preview
                                 <div class="dialog-left">日期类型</div>
                                 <div class="dialog-right">
                                     <select name="" id="select23" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">111</option>
                                     </select>
                                 </div>
@@ -661,7 +657,7 @@ class: sales-preview
                                 <div class="dialog-left">管理人</div>
                                 <div class="dialog-right">
                                     <select name="" id="select21" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">111</option>
                                     </select>
                                     <a class="tips">没有？新增</a>
@@ -747,7 +743,7 @@ class: sales-preview
                                 <div class="dialog-left">日期类型</div>
                                 <div class="dialog-right">
                                     <select name="" id="select24" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">111</option>
                                     </select>
                                 </div>
@@ -784,7 +780,7 @@ class: sales-preview
                                 <div class="dialog-left">管理人</div>
                                 <div class="dialog-right">
                                     <select name="" id="select22" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">111</option>
                                     </select>
                                     <a class="tips">没有？新增</a>
@@ -961,7 +957,7 @@ class: sales-preview
                             <div class="dialog-left">按产品发行</div>
                             <div class="dialog-right">
                                 <select id="select1_1" class="diy-select" style="display: none;">
-                                    <option value="" selected>私募基金产品</option>
+                                    <option value="" >私募基金产品</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
@@ -971,7 +967,7 @@ class: sales-preview
                             <div class="dialog-left">选择二级</div>
                             <div class="dialog-right">
                                 <select id="select1_2" class="diy-select" style="display: none;">
-                                    <option value="" selected>基金专户</option>
+                                    <option value="" >基金专户</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
@@ -981,7 +977,7 @@ class: sales-preview
                             <div class="dialog-left">按产品系列</div>
                             <div class="dialog-right">
                                 <select id="select1_3" class="diy-select" style="display: none;">
-                                    <option value="" selected>私募基金产品</option>
+                                    <option value="" >私募基金产品</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
@@ -991,7 +987,7 @@ class: sales-preview
                             <div class="dialog-left">风险等级</div>
                             <div class="dialog-right">
                                 <select id="select1_4" class="diy-select" style="display: none;">
-                                    <option value="" selected>风险等级1</option>
+                                    <option value="" >风险等级1</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
@@ -1001,7 +997,7 @@ class: sales-preview
                             <div class="dialog-left">产品来源</div>
                             <div class="dialog-right">
                                 <select id="select1_6" class="diy-select" style="display: none;">
-                                    <option value="" selected>私募基金产品</option>
+                                    <option value="" >私募基金产品</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>

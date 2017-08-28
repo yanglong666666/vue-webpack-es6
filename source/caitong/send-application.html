@@ -47,12 +47,8 @@ layout: default-iframe
         // page
         $('.diy-select').diySelect();
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
 
@@ -91,7 +87,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select2" class="diy-select">
-                <option selected>申请类型</option>
+                <option value="">申请类型</option>
                 <option value="1">基金类</option>
                 <option value="2">股票类</option>
             </select>
@@ -102,7 +98,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select3" class="diy-select">
-                <option selected>申请状态</option>
+                <option value="">申请状态</option>
                 <option value="1">已申请</option>
                 <option value="2">未申请</option>
             </select>
@@ -210,7 +206,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select5" class="diy-select">
-                <option selected>申请类型</option>
+                <option value="">申请类型</option>
                 <option value="1">基金类</option>
                 <option value="2">股票类</option>
             </select>
@@ -221,7 +217,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select4" class="diy-select">
-                <option selected>申请状态</option>
+                <option value="">申请状态</option>
                 <option value="1">已申请</option>
                 <option value="2">未申请</option>
             </select>

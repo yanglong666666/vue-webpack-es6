@@ -163,12 +163,8 @@ layout: default-iframe
             });
         });
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
 
@@ -193,7 +189,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select2" class="diy-select">
-                <option selected>报备状态</option>
+                <option value="">报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
             </select>
@@ -205,7 +201,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select1" class="diy-select">
-                <option selected>管理人</option>
+                <option value="">管理人</option>
                 <option value="1">张三</option>
                 <option value="2">李四</option>
             </select>
@@ -380,7 +376,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select5" class="diy-select">
-                <option selected>报备状态</option>
+                <option value="">报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
             </select>
@@ -392,7 +388,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select6" class="diy-select">
-                <option selected>销售方式</option>
+                <option value="">销售方式</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
             </select>
@@ -403,7 +399,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select7" class="diy-select">
-                <option selected>产品状态</option>
+                <option value="">产品状态</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
             </select>
@@ -414,7 +410,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select8" class="diy-select">
-                <option selected>产品类型</option>
+                <option value="">产品类型</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
             </select>
@@ -600,7 +596,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select9" class="diy-select">
-                <option selected>报备状态</option>
+                <option value="">报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
             </select>
@@ -612,7 +608,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select40" class="diy-select">
-                <option selected>销售方式</option>
+                <option value="">销售方式</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
             </select>
@@ -623,7 +619,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select10" class="diy-select">
-                <option selected>产品状态</option>
+                <option value="">产品状态</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
             </select>
@@ -634,7 +630,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select11" class="diy-select">
-                <option selected>产品类型</option>
+                <option value="">产品类型</option>
                 <option value="1">XX1</option>
                 <option value="2">XX2</option>
             </select>
@@ -837,7 +833,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select12" class="diy-select">
-                <option selected>报备状态</option>
+                <option value="">报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
             </select>
@@ -1035,7 +1031,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select13" class="diy-select">
-                <option selected>报备状态</option>
+                <option value="">报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
             </select>
@@ -1248,7 +1244,7 @@ layout: default-iframe
                                             <dd>
           <span>
             <select id="select14" class="diy-select">
-                <option selected>报备状态</option>
+                <option value="">报备状态</option>
                 <option value="1">已报备</option>
                 <option value="2">未报备</option>
             </select>

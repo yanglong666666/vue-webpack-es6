@@ -40,12 +40,8 @@ class: sale-template-manage
         $('#select2_1,#select2_2,#select2_3,#select2_4').diySelect();
         $(".js-select").css({'border':'none','width':'100%','textAlign':'left'})
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
     });
@@ -66,7 +62,7 @@ class: sale-template-manage
                         <dd>
                       <span>
                         <select id="select1_2" class="diy-select" style="display: none;">
-                            <option value="" selected>模板类型</option>
+                            <option value="" >模板类型</option>
                             <option value="1">1111</option>
                             <option value="2">2222</option>
                         </select>
@@ -170,28 +166,28 @@ class: sale-template-manage
                             <td class="borderRight bgGrey" rowspan="2">模板类型</td>
                             <td class="borderRight" style="padding: 0">
                                 <select id="select2_1" class="diy-select diy-select-border">
-                                    <option value="" selected>找客户</option>
+                                    <option value="" >找客户</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
                             </td>
                             <td class="borderRight" style="padding: 0">
                                 <select id="select2_2" class="diy-select diy-select-border">
-                                    <option value="" selected>选择方案</option>
+                                    <option value="" >选择方案</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
                             </td>
                             <td class="borderRight" style="padding: 0">
                                 <select id="select2_3" class="diy-select diy-select-border" >
-                                    <option value="" selected>选择模板</option>
+                                    <option value="" >选择模板</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>
                             </td>
                             <td style="padding: 0">
                                 <select id="select2_4" class="diy-select diy-select-border">
-                                    <option value="" selected>选择模板</option>
+                                    <option value="" >选择模板</option>
                                     <option value="1">1111</option>
                                     <option value="2">2222</option>
                                 </select>

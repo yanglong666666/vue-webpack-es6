@@ -77,12 +77,8 @@ class: product-details
             }]
         });
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
     });
@@ -328,7 +324,7 @@ class: product-details
                         </div>
                         <div>
                             <select class="diy-select" id="select2" style="display: none;">
-                                <option selected="">选择日期</option>
+                                <option value="">选择日期</option>
                                 <option value="1">最近一周</option>
                                 <option value="2">最近一月</option>
                             </select>
@@ -440,7 +436,7 @@ class: product-details
                     <div class="tabs-content" style="overflow: hidden;">
                         <div style="margin-bottom:  10px;">
                             <select class="diy-select" id="select1" style="display: none;">
-                                <option selected="">选择日期</option>
+                                <option value="">选择日期</option>
                                 <option value="1">最近一周</option>
                                 <option value="2">最近一月</option>
                             </select>

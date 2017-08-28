@@ -680,7 +680,7 @@ select.js-example-basic-multiple,select.select2 {
            width: 140px;
            &:nth-child(2){
                display: inline-block;
-               width: 80px;
+               width: 140px;
            }
            &:nth-child(3){
                display: inline-block;
@@ -693,7 +693,7 @@ select.js-example-basic-multiple,select.select2 {
        }
        &.level2, &.level3, &.level4{
            span:nth-child(2){
-               width: 140px;
+               width: 180px;
            }
        }
    }

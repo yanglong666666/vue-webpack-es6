@@ -8,11 +8,7 @@ layout: default-iframe
     $('#select2').diySelect();
     $('#select3').diySelect();
     $('#select4').diySelect();
-      var title = $('.js-select');//the element I want to monitor
       var title1 = $('.select2-selection__rendered');
-      title.bind('DOMNodeInserted', function(e) {
-          $(this).css({'color':'#333'})
-      });
       title1.bind('DOMNodeInserted', function(e) {
           $(this).css({'color':'#333'})
       });
@@ -25,7 +21,7 @@ layout: default-iframe
       <dd>
         <span>
           <select id="select1" class="diy-select">
-            <option selected>质检状态</option>
+            <option value>质检状态</option>
             <option value="1">11111111</option>
           </select>
         </span>
@@ -35,7 +31,7 @@ layout: default-iframe
       <dd>
         <span>
           <select id="select2" class="diy-select">
-            <option selected="">业务类型</option>
+            <option value="">业务类型</option>
             <option value="1">11111111</option>
           </select>
         </span>
@@ -45,7 +41,7 @@ layout: default-iframe
       <dd>
         <span>
           <select id="select3" class="diy-select">
-            <option selected="">经办营业部</option>
+            <option value="">经办营业部</option>
             <option value="1">11111111</option>
           </select>
         </span>
@@ -55,7 +51,7 @@ layout: default-iframe
       <dd>
         <span>
           <select id="select4" class="diy-select">
-            <option selected="">任务分组</option>
+            <option value="">任务分组</option>
             <option value="1">11111111</option>
           </select>
         </span>

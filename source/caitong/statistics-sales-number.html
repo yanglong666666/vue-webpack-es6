@@ -34,12 +34,8 @@ layout: default-iframe
             $('.main-content').show();
         });
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
 
@@ -63,7 +59,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select1_1" class="diy-select" style="display: none;">
-                                <option value="" selected>选择营业部</option>
+                                <option value="" >选择营业部</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -74,7 +70,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select1_2" class="diy-select" style="display: none;">
-                                <option value="" selected>选择年份</option>
+                                <option value="" >选择年份</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -218,7 +214,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select2_1" class="diy-select" style="display: none;">
-                                <option value="" selected>选择年份</option>
+                                <option value="" >选择年份</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -229,7 +225,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select2_2" class="diy-select" style="display: none;">
-                                <option value="" selected>选择产品来源</option>
+                                <option value="" >选择产品来源</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -355,7 +351,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select3_1" class="diy-select" style="display: none;">
-                                <option value="" selected>选择营业部</option>
+                                <option value="" >选择营业部</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -366,7 +362,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select3_2" class="diy-select" style="display: none;">
-                                <option value="" selected>选择年份</option>
+                                <option value="" >选择年份</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -534,7 +530,7 @@ layout: default-iframe
             <dd>
               <span>
                 <select id="select1_3" class="diy-select" style="display: none;">
-                    <option value="" selected>选择产品代码</option>
+                    <option value="" >选择产品代码</option>
                     <option value="1">111</option>
                     <option value="2">222</option>
                 </select>
@@ -545,7 +541,7 @@ layout: default-iframe
             <dd>
               <span>
                 <select id="select1_4" class="diy-select" style="display: none;">
-                    <option value="" selected>选择产品名称</option>
+                    <option value="" >选择产品名称</option>
                     <option value="1">111</option>
                     <option value="2">222</option>
                 </select>

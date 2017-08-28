@@ -15,7 +15,22 @@ var DiySelect = function (select, options) {
     this.hasInit = false;
 
     this.init(select);
-    //this.changeOption();
+    this.changeOption();
+    var len=$('.js-select').parent().find('.diy-select').find('option').length;
+    for(i=0;i<len;i++){
+        var titles=$('.js-select').parent().find('.diy-select').find('option').eq(i).attr("value");
+        var vals=$('.js-select').parent().find('.diy-select').find('option').eq(i).text();
+        var txts=$('.js-select').text();
+        if( vals == txts ){
+            if(titles != ''&& titles.length>0){
+                $('.js-select').css({color:'#333'})
+            }else{
+                $('.js-select').css({color:'#999'})
+            }
+
+        }
+    }
+
 };
 
 DiySelect.prototype = {
@@ -76,7 +91,10 @@ DiySelect.prototype = {
         this.selectSpan.on('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-
+            // next change by wsun at 2017-02-21  主要功能 实现下拉框置灰
+            if(that.options.enabled){
+                return false;
+            }
             // 自定义事件
             if (that.options.beforeSelect) {
                 that.options.beforeSelect.apply(this);
@@ -166,9 +184,9 @@ DiySelect.prototype = {
     setupOption: function () {
         var fragment = document.createDocumentFragment();
         for (var i = 0; i < this.optionSize; i++) {
-        	if($(this.option[i]).attr("ignorePlaceholder")=="1"){
-        		continue;
-        	}
+        	//if($(this.option[i]).attr("ignorePlaceholder")=="1"){
+        	//	continue;
+        	//}
             var li = document.createElement('li');
             var value = this.option[i].value;
             var text = this.option[i].text;
@@ -280,26 +298,25 @@ DiySelect.prototype = {
         this.selectSpan.remove();
         this.optionDiv.remove();
     },
-  /* changeOption:function(){
+    changeOption:function(){
         var title = $('.js-select');
         title.bind('DOMNodeInserted', function(e) {
             var len=$(this).parent().find('.diy-select').find('option').length;
             for(i=0;i<len;i++){
                 var titles=$(this).parent().find('.diy-select').find('option').eq(i).attr("value");
-                console.log(titles.length);
                 var vals=$(this).parent().find('.diy-select').find('option').eq(i).text();
                 var txts=$(this).text();
                 if( vals == txts ){
                     if(titles != ''&& titles.length>0){
-                        $(this).css({color:'red'})
+                        $(this).css({color:'#333'})
                     }else{
-                        $(this).css({color:'blue'})
+                        $(this).css({color:'#999'})
                     }
 
                 }
             }
         });
-    }*/
+    }
 };
 
 // 注册插件
@@ -704,7 +721,7 @@ Dialog.prototype = {
       this.destroy();
     }
   },
-
+  
   hideWithoutDestroy : function () {
 	  this.options.beforeHide && this.options.beforeHide.call(this);
 
@@ -1343,129 +1360,128 @@ String.prototype.EndWith=function(s){
 	  return true;
 	 }
 
-//扩展Date的format方法
-Date.prototype.format = function (format) {
-    var o = {
-        "M+": this.getMonth() + 1,
-        "d+": this.getDate(),
-        "h+": this.getHours(),
-        "m+": this.getMinutes(),
-        "s+": this.getSeconds(),
-        "q+": Math.floor((this.getMonth() + 3) / 3),
-        "S": this.getMilliseconds()
-    }
-    if (/(y+)/.test(format)) {
-        format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-    }
-    for (var k in o) {
-        if (new RegExp("(" + k + ")").test(format)) {
-            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-        }
-    }
-    return format;
-}
-/**
-*转换日期对象为日期字符串
-* @param date 日期对象
-* @param isFull 是否为完整的日期数据,
-*               为true时, 格式如"2000-03-05 01:05:04"
-*               为false时, 格式如 "2000-03-05"
-* @return 符合要求的日期字符串
-*/
-function getSmpFormatDate(date, isFull) {
-    var pattern = "";
-    if (isFull == true || isFull == undefined) {
-        pattern = "yyyy-MM-dd hh:mm:ss";
-    } else {
-        pattern = "yyyy-MM-dd";
-    }
-    return getFormatDate(date, pattern);
-}
-/**
-*转换当前日期对象为日期字符串
-* @param date 日期对象
-* @param isFull 是否为完整的日期数据,
-*               为true时, 格式如"2000-03-05 01:05:04"
-*               为false时, 格式如 "2000-03-05"
-* @return 符合要求的日期字符串
-*/
+//扩展Date的format方法   
+Date.prototype.format = function (format) {  
+  var o = {  
+      "M+": this.getMonth() + 1,  
+      "d+": this.getDate(),  
+      "h+": this.getHours(),  
+      "m+": this.getMinutes(),  
+      "s+": this.getSeconds(),  
+      "q+": Math.floor((this.getMonth() + 3) / 3),  
+      "S": this.getMilliseconds()  
+  }  
+  if (/(y+)/.test(format)) {  
+      format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));  
+  }  
+  for (var k in o) {  
+      if (new RegExp("(" + k + ")").test(format)) {  
+          format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));  
+      }  
+  }  
+  return format;  
+}  
+/**   
+*转换日期对象为日期字符串   
+* @param date 日期对象   
+* @param isFull 是否为完整的日期数据,   
+*               为true时, 格式如"2000-03-05 01:05:04"   
+*               为false时, 格式如 "2000-03-05"   
+* @return 符合要求的日期字符串   
+*/    
+function getSmpFormatDate(date, isFull) {  
+  var pattern = "";  
+  if (isFull == true || isFull == undefined) {  
+      pattern = "yyyy-MM-dd hh:mm:ss";  
+  } else {  
+      pattern = "yyyy-MM-dd";  
+  }  
+  return getFormatDate(date, pattern);  
+}  
+/**   
+*转换当前日期对象为日期字符串   
+* @param date 日期对象   
+* @param isFull 是否为完整的日期数据,   
+*               为true时, 格式如"2000-03-05 01:05:04"   
+*               为false时, 格式如 "2000-03-05"   
+* @return 符合要求的日期字符串   
+*/    
 
-function getSmpFormatNowDate(isFull) {
-    return getSmpFormatDate(new Date(), isFull);
-}
-/**
-*转换long值为日期字符串
-* @param l long值
-* @param isFull 是否为完整的日期数据,
-*               为true时, 格式如"2000-03-05 01:05:04"
-*               为false时, 格式如 "2000-03-05"
-* @return 符合要求的日期字符串
-*/
+function getSmpFormatNowDate(isFull) {  
+  return getSmpFormatDate(new Date(), isFull);  
+}  
+/**   
+*转换long值为日期字符串   
+* @param l long值   
+* @param isFull 是否为完整的日期数据,   
+*               为true时, 格式如"2000-03-05 01:05:04"   
+*               为false时, 格式如 "2000-03-05"   
+* @return 符合要求的日期字符串   
+*/    
 
-function getSmpFormatDateByLong(l, isFull) {
-    return getSmpFormatDate(new Date(l), isFull);
-}
-/**
-*转换long值为日期字符串
-* @param l long值
-* @param pattern 格式字符串,例如：yyyy-MM-dd hh:mm:ss
-* @return 符合要求的日期字符串
-*/
+function getSmpFormatDateByLong(l, isFull) {  
+  return getSmpFormatDate(new Date(l), isFull);  
+}  
+/**   
+*转换long值为日期字符串   
+* @param l long值   
+* @param pattern 格式字符串,例如：yyyy-MM-dd hh:mm:ss   
+* @return 符合要求的日期字符串   
+*/    
 
-function getFormatDateByLong(l, pattern) {
-    return getFormatDate(new Date(l), pattern);
-}
-/**
-*转换日期对象为日期字符串
-* @param l long值
-* @param pattern 格式字符串,例如：yyyy-MM-dd hh:mm:ss
-* @return 符合要求的日期字符串
-*/
-function getFormatDate(date, pattern) {
-    if (date == undefined) {
-        date = new Date();
-    }
-    if (pattern == undefined) {
-        pattern = "yyyy-MM-dd hh:mm:ss";
-    }
-    return date.format(pattern);
-}
+function getFormatDateByLong(l, pattern) {  
+  return getFormatDate(new Date(l), pattern);  
+}  
+/**   
+*转换日期对象为日期字符串   
+* @param l long值   
+* @param pattern 格式字符串,例如：yyyy-MM-dd hh:mm:ss   
+* @return 符合要求的日期字符串   
+*/    
+function getFormatDate(date, pattern) {  
+  if (date == undefined) {  
+      date = new Date();  
+  }  
+  if (pattern == undefined) {  
+      pattern = "yyyy-MM-dd hh:mm:ss";  
+  }  
+  return date.format(pattern);  
+}  
 function dateSFormat(row, head){
-  	var _value = row[head["id"]];
-  	if(_value != undefined){
-  		return getFormatDateByLong(_value, "yyyy-MM-dd hh:mm:ss");
-  	}else{
-  		return "";
-  	}
+	var _value = row[head["id"]];
+	if(_value != undefined){
+		return getFormatDateByLong(_value, "yyyy-MM-dd hh:mm:ss");
+	}else{
+		return "";
+	}
 }
 //查询表单自适应方法，此方法调用必须在.diySelect()美化select之后调用，否则无法准确计算长度
 function adaptiveWidth(){
-    $(".main-content").find(".adaptive-query-list").each(function(){
-      var _this = $(this);
-      var total_width = _this.width();
-      var add_width =0;
-      _this.find(".aql-dl").each(function(i,e){
-        add_width += $(this).outerWidth();
-        add_width += 4;
-        if(add_width > (_this.outerWidth() - 55)){
-          $(e).addClass("aql-display");
-        }else{
-          $(e).removeClass("aql-display")
-          $(e).show();
-        }
-      });
+  $(".main-content").find(".adaptive-query-list").each(function(){
+    var _this = $(this);
+    var total_width = _this.width();
+    var add_width =0;
+    _this.find(".aql-dl").each(function(i,e){
+      add_width += $(this).outerWidth();
+      add_width += 4;
       if(add_width > (_this.outerWidth() - 55)){
-        _this.siblings(".zoom-btn").show();
-        _this.addClass("haszomm");
+        $(e).addClass("aql-display");
       }else{
-        _this.siblings(".zoom-btn").hide();
-        _this.removeClass("haszomm");
+        $(e).removeClass("aql-display")
+        $(e).show();
       }
-      if(_this.outerWidth()-55 > add_width){
-        _this.removeClass("haszomm");
-        _this.siblings(".zoom-btn").hide();
-      }
-      $(".adaptive-query-list").find(".aql-display").hide();
     });
-  }
-
+    if(add_width > (_this.outerWidth() - 55)){
+      _this.siblings(".zoom-btn").show();
+      _this.addClass("haszomm");
+    }else{
+      _this.siblings(".zoom-btn").hide();
+      _this.removeClass("haszomm");
+    }
+    if(_this.outerWidth()-55 > add_width){
+      _this.removeClass("haszomm");
+      _this.siblings(".zoom-btn").hide();
+    }
+    $(".adaptive-query-list").find(".aql-display").hide();
+  });
+}

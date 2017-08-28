@@ -357,15 +357,10 @@ class: channel-search-first
 
 
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
-        title1.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-
     });
 
 
@@ -4936,7 +4931,7 @@ class: channel-search-first
                                     <dd>
                                       <span>
                                         <select id="select2" class="diy-select">
-                                            <option selected="">审核状态</option>
+                                            <option value="">审核状态</option>
                                             <option value="1">产品资料审核中</option>
                                             <option value="2">用印审核中</option>
                                             <option value="3">营销方案审核中</option>
@@ -4950,7 +4945,7 @@ class: channel-search-first
                                     <dd>
                                       <span>
                                         <select id="select3" class="diy-select">
-                                            <option selected>发行人</option>
+                                            <option value="">发行人</option>
                                             <option value="1">发行人1</option>
                                         </select>
                                       </span>
@@ -5181,7 +5176,7 @@ class: channel-search-first
                         <dd>
           <span>
             <select id="select11" class="diy-select">
-                <option selected>产品类型</option>
+                <option value="">产品类型</option>
                 <option value="1">基金类</option>
                 <option value="2">股票类</option>
             </select>
@@ -5308,7 +5303,7 @@ class: channel-search-first
                         <dd>
           <span>
             <select id="select9" class="diy-select">
-                <option selected>专题类型</option>
+                <option value="">专题类型</option>
                 <option value="1">专题名称</option>
             </select>
           </span>
@@ -5435,7 +5430,7 @@ class: channel-search-first
                         <dd>
           <span>
             <select id="select1" class="diy-select">
-                <option selected>标签类型</option>
+                <option value="">标签类型</option>
                 <option value="1">标签名称</option>
             </select>
           </span>

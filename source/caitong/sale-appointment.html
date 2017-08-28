@@ -186,12 +186,8 @@ layout: default-iframe
             $(".input-name").val(vName);
         })
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
     });
@@ -228,7 +224,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select2" class="diy-select">
-                <option selected>正在预约中</option>
+                <option value>正在预约中</option>
                 <option value="1">已预约</option>
                 <option value="2">未预约</option>
             </select>
@@ -253,7 +249,7 @@ layout: default-iframe
                         <dd>
           <span>
             <select id="select1" class="diy-select">
-                <option selected>产品类型</option>
+                <option value="">产品类型</option>
                 <option value="1">基金类</option>
                 <option value="2">股票类</option>
             </select>
@@ -503,7 +499,7 @@ layout: default-iframe
                                             <dd>
                   <span>
                     <select id="select3" class="diy-select">
-                        <option selected>选择产品</option>
+                        <option selected="">选择产品</option>
                         <option value="1">基金类</option>
                         <option value="2">股票类</option>
                     </select>
@@ -574,7 +570,7 @@ layout: default-iframe
                                             <dd>
                   <span>
                     <select id="select4" class="diy-select">
-                        <option selected>选择营业部</option>
+                        <option value>选择营业部</option>
                         <option value="1">营业部1</option>
                         <option value="2">营业部2</option>
                     </select>
@@ -759,7 +755,7 @@ layout: default-iframe
                             <div class="dialog-left">可见营业部</div>
                             <div class="dialog-right">
                                 <select name="" id="select23" class="diy-select" style="display: none;">
-                                    <option selected="">选择营业部，可多选</option>
+                                    <option value="">选择营业部，可多选</option>
                                     <option value="1">111</option>
                                 </select>
                             </div>
@@ -945,7 +941,7 @@ layout: default-iframe
                                                                 <div class="ul-list-wrap">
                                                                     <span class="ul-list" >01</span>
                                                                     <select name="" id="select30" class="diy-select" style="display: none;">
-                                                                        <option selected="">选择客户 看资金账号+名字是否能一起选择</option>
+                                                                        <option value="">选择客户 看资金账号+名字是否能一起选择</option>
                                                                         <option value="1">111</option>
                                                                     </select>
                                                                     <input class="dialog-input dialog-input-height" placeholder="输入金额" value="">
@@ -958,7 +954,7 @@ layout: default-iframe
                                                                 <div class="ul-list-wrap">
                                                                     <span class="ul-list" >02</span>
                                                                     <select name="" id="select29" class="diy-select" style="display: none;">
-                                                                        <option selected="">选择客户 看资金账号+名字是否能一起选择</option>
+                                                                        <option value="">选择客户 看资金账号+名字是否能一起选择</option>
                                                                         <option value="1">111</option>
                                                                     </select>
                                                                     <input class="dialog-input dialog-input-height" placeholder="输入金额" value="">
@@ -973,7 +969,7 @@ layout: default-iframe
                                                         <li class="col-blocks">
                                                             <span class="ul-list" >02</span>
                                                             <select name="" id="select26" class="diy-select" style="display: none;">
-                                                                <option selected="">选择客户 看资金账号+名字是否能一起选择</option>
+                                                                <option value="">选择客户 看资金账号+名字是否能一起选择</option>
                                                                 <option value="1">111</option>
                                                             </select>
                                                             <input class="dialog-input dialog-input-height" placeholder="输入金额" value="">
@@ -992,7 +988,7 @@ layout: default-iframe
                                                         <li class="col-blocks">
                                                             <span class="ul-list" >01</span>
                                                             <select name="" id="select27" class="diy-select" style="display: none;">
-                                                                <option selected="">选择客户 看资金账号+名字是否能一起选择</option>
+                                                                <option value="">选择客户 看资金账号+名字是否能一起选择</option>
                                                                 <option value="1">111</option>
                                                             </select>
                                                             <input class="dialog-input dialog-input-height" placeholder="输入金额" value="">
@@ -1005,7 +1001,7 @@ layout: default-iframe
                                                         <li class="col-blocks">
                                                             <span class="ul-list" >01</span>
                                                             <select name="" id="select28" class="diy-select" style="display: none;">
-                                                                <option selected="">选择客户 看资金账号+名字是否能一起选择</option>
+                                                                <option value="">选择客户 看资金账号+名字是否能一起选择</option>
                                                                 <option value="1">111</option>
                                                             </select>
                                                             <input class="dialog-input dialog-input-height" placeholder="输入金额" value="">

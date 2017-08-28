@@ -59,12 +59,8 @@ layout: default-iframe
         $(".width-container-tips").html(num2 + '亿')
 
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
 
@@ -86,7 +82,7 @@ layout: default-iframe
                             <dd>
           <span>
             <select id="select1" class="diy-select">
-                <option selected>选择产品</option>
+                <option value="">选择产品</option>
                 <option value="1">产品1</option>
                 <option value="2">产品2</option>
             </select>
@@ -117,7 +113,7 @@ layout: default-iframe
                                         <th width="10%">序号</th>
                                         <th width="20%" class=" full-select">
                                             <select id="select2_0" class="diy-select" style="display: none;">
-                                                <option value="" selected>找客户</option>
+                                                <option value="" >找客户</option>
                                                 <option value="1">1111</option>
                                                 <option value="2">2222</option>
                                             </select>
@@ -257,7 +253,7 @@ layout: default-iframe
                                 <dd>
           <span>
             <select id="select2" class="diy-select">
-                <option selected>选择营业部</option>
+                <option value="">选择营业部</option>
                 <option value="1">营业部1</option>
                 <option value="2">营业部2</option>
             </select>
@@ -288,7 +284,7 @@ layout: default-iframe
                                             <th width="10%">序号</th>
                                             <th width="20%" class=" full-select">
                                                 <select id="select2_1" class="diy-select" style="display: none;">
-                                                    <option value="" selected>营业部类型</option>
+                                                    <option value="" value>营业部类型</option>
                                                     <option value="1">1111</option>
                                                     <option value="2">2222</option>
                                                 </select>
@@ -362,7 +358,7 @@ layout: default-iframe
                                             <th width="10%">序号</th>
                                             <th width="20%" class=" full-select">
                                                 <select id="select2_2" class="diy-select" style="display: none;">
-                                                    <option value="" selected>营业部类型</option>
+                                                    <option value="" >营业部类型</option>
                                                     <option value="1">1111</option>
                                                     <option value="2">2222</option>
                                                 </select>

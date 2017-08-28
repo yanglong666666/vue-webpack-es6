@@ -28,7 +28,9 @@ layout: default-iframe
             $(this).find('.sub-group').hide();
         });
 
-        $('#select1').diySelect();
+        $('#select2').diySelect(function(){
+            alert(111);
+        });
         $('#select2').diySelect();
         $('#select3').diySelect();
         $('#select4').diySelect();
@@ -238,7 +240,8 @@ layout: default-iframe
             var editStr = "<span id='diyBtn_space_" +treeNode.tId+ "' > </span>"
                 + "<input type='text' class='diyBtn1' id='diyBtn_" + treeNode.tId
                 + "' title='"+treeNode.name+"' value='1000' /><span class='txt-centers'>万元</span> <button class='btn  btn-true'   id='diyBtn2_" + treeNode.tId
-                + "' style='margin-left: -99px;margin-top: 4px;display: none'>确定</button>" ;
+                + "' style='margin-left: -99px;margin-top: 4px;display: none'>确定</button><button class='btn  btn-false'   id='diyBtn3_" + treeNode.tId
+                + "' style='margin-left: 20px;margin-top: 4px;display: none'>取消</button>" ;
             aObj.append(editStr);
 
         };
@@ -247,7 +250,7 @@ layout: default-iframe
 
         var title1 = $('.diyBtn1');
         title1.bind('input propertychange', function() {
-            $(this).siblings(".btn-true").show()
+            $(this).siblings(".btn-true,.btn-false").show()
         });
 
         $("#ztree-change-short ul li a span").on('mouseover',function(){
@@ -276,7 +279,7 @@ layout: default-iframe
                             <dd>
           <span>
             <select id="select2" class="diy-select">
-                <option selected>选择营业部</option>
+                <option value="">选择营业部</option>
                 <option value="1">营业部1</option>
                 <option value="2">营业部2</option>
             </select>

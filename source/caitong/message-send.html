@@ -26,12 +26,8 @@ layout: default-iframe
       yearRange:'1990:2017'
     });
 
-      var title = $('.js-select');//the element I want to monitor
       var title1 = $('.select2-selection__rendered');
-      title.bind('DOMNodeInserted', function(e) {
-          $(this).css({'color':'#333'})
-      });
-      title1.bind('DOMNodeInserted', function(e) {
+      title1.bind('DOMNodeInserted', function() {
           $(this).css({'color':'#333'})
       });
 
@@ -75,7 +71,7 @@ layout: default-iframe
         <dd>
           <span>
             <select id="select1" class="diy-select">
-              <option selected>产品类型</option>
+              <option value="">产品类型</option>
               <option value="1">基金类</option>
               <option value="2">股票类</option>
             </select>

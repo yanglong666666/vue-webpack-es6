@@ -132,12 +132,8 @@ layout: default-iframe
             $('.main-content').show();
         });
 
-        var title = $('.js-select');//the element I want to monitor
         var title1 = $('.select2-selection__rendered');
-        title.bind('DOMNodeInserted', function(e) {
-            $(this).css({'color':'#333'})
-        });
-        title1.bind('DOMNodeInserted', function(e) {
+        title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
 
@@ -170,7 +166,7 @@ layout: default-iframe
                                             <dd>
                                               <span>
                                                 <select id="select-1-1" class="diy-select" style="display: none;">
-                                                    <option value="" selected>选择营业部</option>
+                                                    <option value="" >选择营业部</option>
                                                     <option value="1">111</option>
                                                     <option value="2">222</option>
                                                 </select>
@@ -279,7 +275,7 @@ layout: default-iframe
                                             <dd>
                                               <span>
                                                 <select id="select-1-2" class="diy-select" style="display: none;">
-                                                    <option value="" selected>选择产品</option>
+                                                    <option value="" >选择产品</option>
                                                     <option value="1">111</option>
                                                     <option value="2">222</option>
                                                 </select>
@@ -290,7 +286,7 @@ layout: default-iframe
                                             <dd>
                                               <span>
                                                 <select id="select-1-4" class="diy-select" style="display: none;">
-                                                    <option value="" selected>选择营业部</option>
+                                                    <option value="" >选择营业部</option>
                                                     <option value="1">111</option>
                                                     <option value="2">222</option>
                                                 </select>
@@ -417,7 +413,7 @@ layout: default-iframe
                         <dd>
                           <span>
                             <select id="select-2-1" class="diy-select" style="display: none;">
-                                <option value="" selected>选择营业部</option>
+                                <option value="" >选择营业部</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -530,7 +526,7 @@ layout: default-iframe
             <dd>
                           <span>
                             <select id="select-2-3" class="diy-select" style="display: none;">
-                                <option value="" selected>选择产品</option>
+                                <option value="" >选择产品</option>
                                 <option value="1">111</option>
                                 <option value="2">222</option>
                             </select>
@@ -626,7 +622,7 @@ layout: default-iframe
             <dd>
               <span>
                 <select id="select-1-3" class="diy-select" style="display: none;">
-                    <option value="" selected>选择产品</option>
+                    <option value="" >选择产品</option>
                     <option value="1">111</option>
                     <option value="2">222</option>
                 </select>
@@ -857,7 +853,7 @@ layout: default-iframe
             <dd>
               <span>
                 <select id="select-1-5" class="diy-select" style="display: none;">
-                    <option value="" selected>选择产品</option>
+                    <option value="" >选择产品</option>
                     <option value="1">111</option>
                     <option value="2">222</option>
                 </select>
@@ -1088,7 +1084,7 @@ layout: default-iframe
             <dd>
               <span>
                 <select id="select-2-2" class="diy-select" style="display: none;">
-                    <option value="" selected>选择营业部</option>
+                    <option value="" >选择营业部</option>
                     <option value="1">111</option>
                     <option value="2">222</option>
                 </select>

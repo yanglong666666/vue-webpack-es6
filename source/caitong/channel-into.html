@@ -2,6 +2,7 @@
 title: 信息发布-产品引入
 layout: default-iframe
 ---
+
 <script type="text/javascript">
   $(function () {
     $('.diy-select').diySelect();
@@ -10,12 +11,8 @@ layout: default-iframe
     let dates = ''+'<i class="arrow"></i>';
     $('#dialogSelect3-select').html(dates);
 
-      var title = $('.js-select');//the element I want to monitor
       var title1 = $('.select2-selection__rendered');
-      title.bind('DOMNodeInserted', function(e) {
-          $(this).css({'color':'#333'})
-      });
-      title1.bind('DOMNodeInserted', function(e) {
+      title1.bind('DOMNodeInserted', function() {
           $(this).css({'color':'#333'})
       });
 
@@ -129,7 +126,7 @@ layout: default-iframe
           <dd>
           <span>
             <select id="select1" class="select2">
-                <option selected>产品类型</option>
+                <option value="">产品类型</option>
                 <option value="1">基金类</option>
                 <option value="2">股票类2</option>
                 <option value="3">股票类3</option>
@@ -305,8 +302,8 @@ layout: default-iframe
                 <div class="dialog-left">管理人</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect3" class="diy-select" style="display: none;">
-                        <option selected="">请选择</option>
-                        <option selected="" value="1">财通资管</option>
+                        <option value="">请选择</option>
+                        <option  value="1">财通资管</option>
                     </select>
                 </div>
             </div>
@@ -392,8 +389,8 @@ layout: default-iframe
                 <div class="dialog-left">管理人</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
-                        <option selected="">华夏基金</option>
-                        <option selected="" value="1">财通资管</option>
+                        <option value="">华夏基金</option>
+                        <option  value="1">财通资管</option>
                     </select>
                 </div>
             </div>
@@ -431,8 +428,8 @@ layout: default-iframe
                 <div class="dialog-left">产品状态</div>
                 <div class="dialog-right">
                     <select name="" id="dialogSelect2" class="diy-select" style="display: none;">
-                        <option selected="">用印审核中</option>
-                        <option selected="" value="1">上架</option>
+                        <option value="">用印审核中</option>
+                        <option  value="1">上架</option>
                     </select>
                 </div>
             </div>

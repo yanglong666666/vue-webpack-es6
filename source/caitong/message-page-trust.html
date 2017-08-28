@@ -22,12 +22,8 @@ layout: default-iframe
                 tabs_body.find(".tabs-content").eq(index).find('.js-select').html(dates);
             }
 
-            var title = $('.js-select');//the element I want to monitor
             var title1 = $('.select2-selection__rendered');
-            title.bind('DOMNodeInserted', function(e) {
-                $(this).css({'color':'#333'})
-            });
-            title1.bind('DOMNodeInserted', function(e) {
+            title1.bind('DOMNodeInserted', function() {
                 $(this).css({'color':'#333'})
             });
 
@@ -160,7 +156,7 @@ layout: default-iframe
                                 <div class="dialog-left">产品TA编号</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_ta" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">已结束</option>
                                     </select>
                                 </div>
@@ -197,7 +193,7 @@ layout: default-iframe
                                 <div class="dialog-left">货币类型</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_zt1" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">基金</option>
                                     </select>
                                 </div>
@@ -209,7 +205,7 @@ layout: default-iframe
                                 <div class="dialog-left">产品类别</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_zt" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">股票</option>
                                     </select>
                                 </div>
@@ -230,7 +226,7 @@ layout: default-iframe
                                 <div class="dialog-left">风险等级</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_hb" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">一级</option>
                                         <option value="1">二级</option>
 
@@ -243,7 +239,7 @@ layout: default-iframe
                                 <div class="dialog-left">允许客户风险等级</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_yxkufxdj" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">一级</option>
                                     </select>
                                 </div>
@@ -268,7 +264,7 @@ layout: default-iframe
                                 <div class="dialog-left">投资类别</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_tzlb" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">XX类</option>
                                     </select>
                                 </div>
@@ -277,7 +273,7 @@ layout: default-iframe
                                 <div class="dialog-left">收益类型</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_sylx" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">XX类</option>
                                     </select>
                                 </div>
@@ -447,7 +443,7 @@ layout: default-iframe
                                 <div class="dialog-left">允许委托方式</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_yxwt" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">基金公司</option>
                                         <option value="1">银行</option>
                                     </select>
@@ -457,7 +453,7 @@ layout: default-iframe
                                 <div class="dialog-left">允许支付方式</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_yxzf" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">支付宝</option>
                                         <option value="1">银行卡</option>
                                     </select>
@@ -496,7 +492,7 @@ layout: default-iframe
                                 <div class="dialog-left">允许转换代码</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_yxzh" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">允许</option>
                                         <option value="1">不允许</option>
                                     </select>
@@ -506,7 +502,7 @@ layout: default-iframe
                                 <div class="dialog-left">允许分成的代码</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_yxfc" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">XX码</option>
                                         <option value="1">XXX码</option>
                                     </select>
@@ -580,7 +576,7 @@ layout: default-iframe
                                 <div class="dialog-left">评估等级</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_pgdj" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">一级</option>
                                     </select>
                                 </div>
@@ -589,7 +585,7 @@ layout: default-iframe
                                 <div class="dialog-left">允许委托方式</div>
                                 <div class="dialog-right">
                                     <select name="" id="sel_yxwtfs" class="diy-select" style="display: none;">
-                                        <option selected="">请选择</option>
+                                        <option value="">请选择</option>
                                         <option value="1">基金</option>
                                         <option value="1">股票</option>
 

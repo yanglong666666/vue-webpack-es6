@@ -12,12 +12,8 @@ layout: default-iframe
     $('#dialogSelect3').diySelect({width:222});
     $('#dialogSelect4').diySelect({width:222});
 
-      var title = $('.js-select');//the element I want to monitor
       var title1 = $('.select2-selection__rendered');
-      title.bind('DOMNodeInserted', function(e) {
-          $(this).css({'color':'#333'})
-      });
-      title1.bind('DOMNodeInserted', function(e) {
+      title1.bind('DOMNodeInserted', function() {
           $(this).css({'color':'#333'})
       });
 
@@ -36,8 +32,8 @@ layout: default-iframe
 		      <div class="dialog-left">选择产品</div>
 		      <div class="dialog-right">
 			      <select name="" id="dialogSelect0" class="diy-select" style="display: none;">
-			        <option selected="">选择产品</option>
-			        <option selected="" value="1">11111</option>
+			        <option value="">选择产品</option>
+			        <option  value="1">11111</option>
 			      </select>
 		    	</div>
 		  	</div>
@@ -45,8 +41,8 @@ layout: default-iframe
 		      <div class="dialog-left">按产品发行方或产品管理人分</div>
 		      <div class="dialog-right">
 			      <select name="" id="dialogSelect1" class="diy-select" style="display: none;">
-			        <option selected="">请选择</option>
-			        <option selected="" value="1">收益凭证</option>
+			        <option value="">请选择</option>
+			        <option  value="1">收益凭证</option>
 			      </select>
 		    	</div>
 		  	</div>
@@ -54,8 +50,8 @@ layout: default-iframe
 		      <div class="dialog-left">按产品类型分</div>
 		      <div class="dialog-right">
 			      <select name="" id="dialogSelect2" class="diy-select" style="display: none;">
-			        <option selected="">请选择</option>
-			        <option selected="" value="1">权益基金类</option>
+			        <option value="">请选择</option>
+			        <option value="1">权益基金类</option>
 			      </select>
 		    	</div>
 		  	</div>
@@ -63,8 +59,8 @@ layout: default-iframe
 		      <div class="dialog-left">按产品系统分</div>
 		      <div class="dialog-right">
 			      <select name="" id="dialogSelect3" class="diy-select" style="display: none;">
-			        <option selected="">请选择</option>
-			        <option selected="" value="1">聚富季季鑫系列优先级</option>
+			        <option value="">请选择</option>
+			        <option  value="1">聚富季季鑫系列优先级</option>
 			      </select>
 		    	</div>
 		  	</div>
@@ -72,8 +68,8 @@ layout: default-iframe
 		      <div class="dialog-left">按产品来源分</div>
 		      <div class="dialog-right">
 			      <select name="" id="dialogSelect4" class="diy-select" style="display: none;">
-			        <option selected="">请选择</option>
-			        <option selected="" value="1">财通资管公募</option>
+			        <option value="">请选择</option>
+			        <option  value="1">财通资管公募</option>
 			      </select>
 		    	</div>
 		  	</div>

@@ -22,12 +22,8 @@ layout: default-iframe
       yearRange:'1900:2016'
     });
 
-      var title = $('.js-select');//the element I want to monitor
       var title1 = $('.select2-selection__rendered');
-      title.bind('DOMNodeInserted', function(e) {
-          $(this).css({'color':'#333'})
-      });
-      title1.bind('DOMNodeInserted', function(e) {
+      title1.bind('DOMNodeInserted', function() {
           $(this).css({'color':'#333'})
       });
 
@@ -68,7 +64,7 @@ layout: default-iframe
         <dd>
           <span>
             <select id="select2" class="diy-select">
-              <option selected="">审核状态</option>
+              <option value="">审核状态</option>
               <option value="1">产品资料审核中</option>
               <option value="2">用印审核中</option>
               <option value="3">营销方案审核中</option>
@@ -82,7 +78,7 @@ layout: default-iframe
         <dd>
           <span>
             <select id="select1" class="diy-select">
-              <option selected>发行人</option>
+              <option value="">发行人</option>
               <option value="1">发行人1</option>
             </select>
           </span>
