@@ -16,16 +16,16 @@ var DiySelect = function (select, options) {
 
     this.init(select);
     this.changeOption();
-    var len=$('.js-select').parent().find('.diy-select').find('option').length;
+    var len=$('.task-search .js-select').parent().find('.diy-select').find('option').length;
     for(i=0;i<len;i++){
-        var titles=$('.js-select').parent().find('.diy-select').find('option').eq(i).attr("value");
-        var vals=$('.js-select').parent().find('.diy-select').find('option').eq(i).text();
-        var txts=$('.js-select').text();
+        var titles=$('.task-search .js-select').parent().find('.diy-select').find('option').eq(i).attr("value");
+        var vals=$('.task-search .js-select').parent().find('.diy-select').find('option').eq(i).text();
+        var txts=$('.task-search .js-select').text();
         if( vals == txts ){
             if(titles != ''&& titles.length>0){
-                $('.js-select').css({color:'#333'})
+                $('.task-search .js-select').css({color:'#333'})
             }else{
-                $('.js-select').css({color:'#999'})
+                $('.task-search .js-select').css({color:'#999'})
             }
 
         }
@@ -299,7 +299,7 @@ DiySelect.prototype = {
         this.optionDiv.remove();
     },
     changeOption:function(){
-        var title = $('.js-select');
+        var title = $('.task-search .js-select');
         title.bind('DOMNodeInserted', function(e) {
             var len=$(this).parent().find('.diy-select').find('option').length;
             for(i=0;i<len;i++){

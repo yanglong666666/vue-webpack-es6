@@ -1,6 +1,10 @@
-
+.task-search{
+    span.js-select{
+        color: #999;
+    }
+}
 span.js-select {
-  color: #999;
+  color: #333;
   cursor: pointer;
   display: inline-block;
   font-size: 13px;
