@@ -100,20 +100,7 @@
                     }
                 }
                 &.td-ellipsis {
-                    .txt-ellipsis {
-                        width: 240px;
-                        word-break: break-all;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        &:hover {
-                            display: block;
-                            overflow: visible;
-                            white-spacing: pre-line;
-                        }
-                    }
-
+                    position: relative;
                 }
                 &.col-red {
                     color: $color-red;
