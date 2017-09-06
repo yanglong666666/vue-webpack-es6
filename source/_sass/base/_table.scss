@@ -60,6 +60,25 @@
                     }
                 }
 
+                .icon-high-dis {
+                    cursor: pointer;
+                    position: relative;
+                    &:after{
+                        content: "";
+                        background: none;
+                    }
+                    &:before{
+                        content: "";
+                        display: inline-block;
+                        height:2px;
+                        width: 11px;
+                        background: #707a86;
+                        position: absolute;
+                        top:8px;
+
+                    }
+                }
+
                 &.full-select {
                     padding: 0;
                     vertical-align: top;
