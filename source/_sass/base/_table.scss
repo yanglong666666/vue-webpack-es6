@@ -370,6 +370,25 @@
         width: 90%;
         overflow-y: hidden;
         overflow-x: auto;
+        &.scroll-table-x{
+            height: 250px;
+            overflow-y: auto;
+            .th-width{
+                width: 200px;
+            }
+            .data-table{
+                border: none;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                th,td{
+                    border-left: 1px solid #ccc;
+                    border-top: 1px solid #ccc;
+                    border-bottom: none !important;
+                }
+
+            }
+
+        }
         .data-table {
             th,
             td {

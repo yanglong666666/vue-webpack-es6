@@ -9,6 +9,7 @@ class: sales-preview
         $('#select3').diySelect({width: 150});
         $('#select4').diySelect({width: 120});
         $('#select5').diySelect({width: 120});
+        $('#select6').diySelect({width: 120});
         $('#select00').diySelect({width: 222});
         $('#select01').diySelect({width: 222});
         $('#select02').diySelect({width: 222});
@@ -49,6 +50,16 @@ class: sales-preview
             dateFormat: "yy-mm-dd",
             yearRange: '1990:2017'
         });
+        $('.begin-time1').datepicker({
+            onClose: function (selectedDate) {
+
+            },
+            changeYear: true,
+            changeMonth: true,
+            showMonthAfterYear: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: '1990:2017'
+        });
         $('.btn-group').on('mouseover', function() {
             $(this).find('.sub-group').show();
         }).on('mouseout', function() {
@@ -74,22 +85,56 @@ class: sales-preview
 
 
 
-        $('.btn-dates').on('click', function () {
-            var btnImportDialog = new Dialog(null, {
-                content: '<div style="padding: 20px 0;text-align: center;" class="next-center">共发布‘重点’'+'<span class="channel-import">10</span>个、‘开放’'+ '<span class="channel-open">5</span>个、“到期”'+'<span class="channel-times">5</span>个'+'</div>',
-                title: '温馨提示',
-                width: '360',
+
+        $('#detailsBtnTrue-1').on('click', function () {
+            var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left " style="width: 122px">选择发布版本</div>' +
+                '   <div class="dialog-right" style="width: 240px"><span class="col-grey">' +
+                '   <select id="select40" class="diy-select" style="display: none;">' +
+                '       <option selected="">新版本</option>' +
+                '       <option value="1">11111</option>' +
+                '       <option value="2">22222</option>' +
+                '   </select>' +
+                '</div>' +
+                '</div>' +
+                '</div></div>';
+            var dialog = new Dialog(null, {
+                title: '标题',
+                content: content,
+                width: '450',
                 needDestroy: true,
                 hasBtn: true,
-                btnText: ["取消", "确认"],
-                btnRole: ['cancel', 'confirm'],
-                btnCls: ['cancel cancel-change', 'confirm'],
-                cancel: function () {
-                    btnImportDialog.destroy();
+                btnText: ["确认"],
+                btnRole: [ 'confirm'],
+                btnCls: [ 'confirm confirmNext'],
+                confirm: function () {
+
                 },
                 afterShow: function () {
-                    //确定按钮事件
-                   // btnImportDialog.destroy();
+                    $('#select40').diySelect({width: 240});
+                    $('.confirmNext').on('click', function () {
+                        $(this).parent().parent().parent('.js-dialog').hide();
+                        var btnImportDialog = new Dialog(null, {
+                            content: '<div style="padding: 20px 0;text-align: center;" class="next-center">成功发布到日历</div>',
+                            title: '提示',
+                            width: '360',
+                            needDestroy: true,
+                            hasBtn: true,
+                            btnText: [ "确认"],
+                            btnRole: [ 'confirm'],
+                            btnCls: [ 'confirm'],
+                            confirm: function () {
+                                btnImportDialog.destroy();
+                            },
+                            afterShow: function () {
+                                //确定按钮事件
+                                // btnImportDialog.destroy();
+                            }
+                        });
+                    });
+
+
                 }
             });
         });
@@ -97,11 +142,11 @@ class: sales-preview
         $('.btn-date-change').on('click', function () {
             var content = '<div class="addDialog"><div class="dialog-item-wrap">' +
                 '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon">文件路径</div>' +
-                '   <div class="dialog-right" style="width: 240px">风禾财通创新1号私募证券投资基金</div>' +
+                '   <div class="dialog-left " style="width: 122px">产品名称</div>' +
+                '   <div class="dialog-right" style="width: 240px"><span class="col-grey">风禾财通创新1号私募证券投资基金</span></div>' +
                 '</div>' +
                 '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon" style="width: 122px">日期类型</div>' +
+                '   <div class="dialog-left " style="width: 122px">日期类型</div>' +
                 '   <div class="dialog-right">' +
                 '   <select id="select31" class="diy-select" style="display: none;">' +
                 '       <option selected="">1-开放日期</option>' +
@@ -111,20 +156,24 @@ class: sales-preview
                 '   </div>' +
                 '</div>' +
                 '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon" style="width: 122px">开放开始日期</div>' +
+                '   <div class="dialog-left " style="width: 122px">开始开始日期</div>' +
                 '   <div class="dialog-right" style="width: 240px">' +
                 '        <label> <input class="txt begin-time-1" type="text" placeholder="2017-07-25" readonly="" style="width: 240px;height: 30px"> <i></i> </label>' +
                 '   </div>' +
                 '</div>' +
                 '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon" style="width: 122px">开放结束日期</div>' +
+                '   <div class="dialog-left " style="width: 122px">开放结束日期</div>' +
                 '   <div class="dialog-right" style="width: 240px">' +
                 '        <label> <input class="txt end-time-1" type="text" placeholder="2017-07-29" readonly="" style="width: 240px;height: 30px"> <i></i> </label>' +
                 '   </div>' +
                 '</div>' +
                 '<div class="dialog-item">' +
-                '   <div class="dialog-left must-icon" style="width: 122px">上一次开放日期</div>' +
+                '   <div class="dialog-left " style="width: 122px">上一次开放日期</div>' +
                 '   <div class="dialog-right" style="width: 240px">--</div>' +
+                '</div>' +
+                '<div class="dialog-item">' +
+                '   <div class="dialog-left " style="width: 122px;vertical-align: top;margin-top: 2px">上一次开放日期</div>' +
+                '   <div class="dialog-right" style="width: 240px"><span class="col-grey" style="line-height: 18px;display: inline-block">无固定期限 此处展示的是产品里面的期限内容，会是一段文字</span></div>' +
                 '</div>' +
                 '</div></div>';
             var dialog = new Dialog(null, {
@@ -164,48 +213,56 @@ class: sales-preview
                 }
             });
         });
-        $('#btnImport').on('click',function(){
-            $('.edit-add-date').show();
-            $('.main-content').hide();
-        });
 
-        $('.edit-add-date .view-back').on('click',function(){
-            $('.edit-add-date').hide();
-            $('.main-content').show();
-        });
 
         $('#btnAdd').on('click',function(){
-            $('.edit-add-new').show();
+            $('.add-wrap').show();
             $('.main-content').hide();
         });
-        $('#btnNext').on('click',function(){
-            $('.add-wrap').hide();
-            $('.details-wrap').show();
-        });
-        $('#addBtnCancel').on('click',function(){
+        $(".add-wrap .view-back,#addBtnCancel").on('click',function(){
             $('.add-wrap').hide();
             $('.main-content').show();
         });
 
-        $('.tableBtnCheck').on('click',function(){
+        $('.btn-change-1').on('click',function(){
             $('.details-wrap').show();
             $('.main-content').hide();
         });
-        $('.details-wrap .view-back,#detailsBtnCancel').on('click',function(){
+        $(".details-wrap .view-back,#addBtnCancel-2").on('click',function(){
             $('.details-wrap').hide();
             $('.main-content').show();
         });
 
-        $('.tableBtnEdit').on('click',function(){
-            $('.edit-wrap').show();
+        $('.btn-show-1').on('click',function(){
+            $('.edit-show-1').show();
             $('.main-content').hide();
         });
-        $('.edit-add-new .view-back').on('click',function(){
-            $('.edit-add-new').hide();
+        $(".edit-show-1 .view-back,#detailsBtnCancel-3").on('click',function(){
+            $('.edit-show-1').hide();
             $('.main-content').show();
         });
 
 
+        $('.btn-see').on('click',function(){
+            $('.edit-show-2').show();
+            $('.main-content').hide();
+        });
+        $(".edit-show-2 .view-back").on('click',function(){
+            $('.edit-show-2').hide();
+            $('.main-content').show();
+        });
+
+
+
+
+        $(".tab-wrap").on("click", ".tab-red", function () {
+            var _this = $(this);
+            var tabs_head = _this.parent();
+            var tabs_body = tabs_head.siblings(".tab-list");
+            _this.addClass("on").siblings(".tab-red").removeClass("on");
+            var index = tabs_head.find(".tab-red").index(_this);
+            tabs_body.find(".tab-list-content").eq(index).addClass("on").siblings(".tab-list-content").removeClass("on");
+        });
 
         var title1 = $('.select2-selection__rendered');
         title1.bind('DOMNodeInserted', function() {
@@ -215,21 +272,787 @@ class: sales-preview
 </script>
 <div class="page-sales-preview">
     <div class="main-content">
-        <div class="block-container">
-            <ul class="block-items block-items-33">
-                <li><span class="item-name">近两周开放:</span><span class="item-val">22</span></li>
-                <li><a class="btn btn-primary btn-simple">查看明细</a></li>
-            </ul>
-            <ul class="block-items block-items-33">
-                <li><span class="item-name">近两周销售:</span><span class="item-val">20</span></li>
-                <li><a class="btn btn-primary btn-simple">查看明细</a></li>
-            </ul>
-            <ul class="block-items block-items-33">
-                <li><span class="item-name">近两周到期:</span><span class="item-val">20</span></li>
-                <li><a class="btn btn-primary btn-simple">查看明细</a></li>
-            </ul>
+        <div class="clearfix">
+            <div class="left-table" style="width: 58%;float: left">
+                <div class="dialog-item-wrap">
+                    <div class="dialog-item-border" style="border: 0">
+                        <div class="dialog-item-box-title" style="border: 1px solid #e8e8e8;background: #e8e9ed">
+                            待发布预告（<span class="list-total">4</span>)
+                        </div>
+                        <div class="dialog-item-box-body" style="margin: 0">
+                            <div class="main-table clearfix">
+                                <div class="scroll-table" style="width: 100%;height: 236px;overflow: auto;">
+                                    <table cellpadding="0" cellspacing="0" class="data-table table-padding7 table-choice" style="border-width: 0px 1px 0px 1px" >
+                                        <thead style="background: #f9f9f9">
+                                        <tr>
+                                            <th width="20%">产品名称</th>
+                                            <th width="15%">产品代码</th>
+                                            <th width="20%">产品管理人</th>
+                                            <th width="25%">产品引入状态</th>
+                                            <th width="20%">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>资管集合计划1</td>
+                                            <td>产品代码2</td>
+                                            <td>管理人</td>
+                                            <td>引入完成状态</td>
+                                            <td class="text-c">
+                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                            </td>
+
+                                        </tr>
+                                        <tr class="even">
+                                            <td>资管集合计划1</td>
+                                            <td>产品代码2</td>
+                                            <td>管理人</td>
+                                            <td>引入完成状态</td>
+                                            <td class="text-c">
+                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>资管集合计划1</td>
+                                            <td>产品代码2</td>
+                                            <td>管理人</td>
+                                            <td>引入完成状态</td>
+                                            <td class="text-c">
+                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>资管集合计划1</td>
+                                            <td>产品代码2</td>
+                                            <td>管理人</td>
+                                            <td>引入完成状态</td>
+                                            <td class="text-c">
+                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="right-table" style="width: 40%;float: right;margin-top: 10px;height: 272px;border: 1px solid #e8e8e8">
+                <div class="top-title">
+                    <h2>数据统计</h2>
+                    <span class="time-end">时间截止2017年8月29日</span>
+                    <span class="times">08:00</span>
+                    <i class="icon-refresh"></i>
+                </div>
+                <div class="right-list-content">
+                    <dl>
+                        <dt>
+                            <span class="right-channel-list channel-now">34</span>
+                        </dt>
+                        <dd>
+                            <span>在售产品（近两周）</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <span class="right-channel-list channel-now">3</span>
+                        </dt>
+                        <dd>
+                            <span>即将开放（两周）</span>
+                        </dd>
+                    </dl>
+                    <dl class="no-border-bottom">
+                        <dt>
+                            <span class="right-channel-list channel-now">4</span>
+                        </dt>
+                        <dd>
+                            <span>即将到期（近两周）</span>
+                        </dd>
+                    </dl>
+                    <dl class="no-border-bottom">
+                        <dt>
+                            <span class="right-channel-list channel-now">41</span>
+                        </dt>
+                        <dd>
+                            <span>待发布到日历</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
         </div>
-        <div class="task-search clearfix">
+        <div class="main-content-wrap">
+            <div class="main-content-wrap-list">
+                <div class="search-content on">
+                    <div class="search-content-wrap">
+                        <div class="tab-wrap tab-wrap-left" >
+                            <span class="tab-red on">全部</span>
+                            <span class="tab-red">待发布</span>
+                            <span class="tab-red">发布历史</span>
+                        </div>
+                        <div class="tab-list">
+                            <div class="tab-list-content on">
+                                    <div class="task-search clearfix">
+                                        <button class="btn btn-primary btn-simple btn-float-right" id="btnExport" href="#">导出</button>
+                                        <button class="btn btn-primary btn-simple btn-float-right" id="btnAdd" href="#">新增</button>
+                                        <button class="btn btn-float-right" href="#">搜索</button>
+
+                                        <dl class="search-dl">
+                                            <dd>
+                  <span>
+                    <select id="select6" class="diy-select">
+                        <option value="">产品类型</option>
+                        <option value="1">基金类</option>
+                        <option value="2">股票类</option>
+                    </select>
+                  </span>
+                                            </dd>
+                                        </dl>
+                                        <input type="text" class="aql-input small-input" placeholder="产品代码" style="width: 120px;">
+                                        <input type="text" class="aql-input small-input" placeholder="产品名称" style="width: 120px;">
+                                        <dl class="search-dl">
+                                            <dd>
+                                                <label class="icon-tria">
+                                                    <input class="txt begin-time" type="text" placeholder="开始时间" readonly style="width: 120px;"/>
+                                                    <i></i>
+                                                </label>
+                                                <span class="pre">至</span>
+                                                <label class="icon-tria">
+                                                    <input class="txt end-time" type="text" placeholder="结束时间" readonly style="width: 120px;"/>
+                                                    <i></i>
+                                                </label>
+                                            </dd>
+                                        </dl>
+                                        <dl class="search-dl">
+                                            <dd>
+                  <span>
+                    <select id="select5" class="diy-select">
+                        <option value="">时间段选择</option>
+                        <option value="1">111</option>
+                        <option value="2">222</option>
+                    </select>
+                  </span>
+                                            </dd>
+                                        </dl>
+                                        <dl class="search-dl">
+                                            <dd>
+                  <span>
+                    <select id="select4" class="diy-select">
+                        <option value="">开放</option>
+                        <option value="1">111</option>
+                        <option value="2">222</option>
+                    </select>
+                  </span>
+                                            </dd>
+                                        </dl>
+
+
+
+
+                                    </div>
+                                    <div class="main-table clearfix">
+                                        <div class="scroll-table">
+                                            <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">序号</th>
+                                                    <th width="10%">产品类型</th>
+                                                    <th width="10%">产品名称</th>
+                                                    <th width="10%">产品风险等级</th>
+                                                    <th width="10%">日期类型</th>
+                                                    <th width="20%">销售开始日期</th>
+                                                    <th width="20%">销售结束日期</th>
+                                                    <th width="20%">开放开始日期</th>
+                                                    <th width="20%">开放结束日期</th>
+                                                    <th width="20%">产品到期日期</th>
+                                                    <th width="10%">业绩提成基准（年化）</th>
+                                                    <th width="10%">期限</th>
+                                                    <th width="10%">最新净值</th>
+                                                    <th width="10%">管理人</th>
+                                                    <th width="10%">发布状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="red">
+                                                    <td>001</td>
+                                                    <td>货币型</td>
+                                                    <td>银华货币</td>
+                                                    <td>中低</td>
+                                                    <td>最近开放</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>4.7</td>
+                                                    <td>一段话</td>
+                                                    <td>1.0323</td>
+                                                    <td>张德华</td>
+                                                    <td>未发布</td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>货币型</td>
+                                                    <td>银华货币</td>
+                                                    <td>中低</td>
+                                                    <td>最近开放</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>4.7</td>
+                                                    <td>一段话</td>
+                                                    <td>1.0323</td>
+                                                    <td>张德华</td>
+                                                    <td>未发布</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>货币型</td>
+                                                    <td>银华货币</td>
+                                                    <td>中低</td>
+                                                    <td>最近开放</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>4.7</td>
+                                                    <td>一段话</td>
+                                                    <td>1.0323</td>
+                                                    <td>张德华</td>
+                                                    <td>未发布</td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>货币型</td>
+                                                    <td>银华货币</td>
+                                                    <td>中低</td>
+                                                    <td>最近开放</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>4.7</td>
+                                                    <td>一段话</td>
+                                                    <td>1.0323</td>
+                                                    <td>张德华</td>
+                                                    <td>未发布</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>货币型</td>
+                                                    <td>银华货币</td>
+                                                    <td>中低</td>
+                                                    <td>最近开放</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>4.7</td>
+                                                    <td>一段话</td>
+                                                    <td>1.0323</td>
+                                                    <td>张德华</td>
+                                                    <td>未发布</td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td>001</td>
+                                                    <td>货币型</td>
+                                                    <td>银华货币</td>
+                                                    <td>中低</td>
+                                                    <td>最近开放</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-24</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>2017-03-25</td>
+                                                    <td>4.7</td>
+                                                    <td>一段话</td>
+                                                    <td>1.0323</td>
+                                                    <td>张德华</td>
+                                                    <td>未发布</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="fixed-table">
+                                            <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="text-c">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-small btn-change-1">信息修改</a>
+                                                            <ul class="sub-group" style="display: none;">
+                                                                <li><a >日期修改</a></li>
+                                                                <li><a class="btn-date-change">查看</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td class="text-c">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-small btn-change-1">信息修改</a>
+                                                            <ul class="sub-group" style="display: none;">
+                                                                <li><a >日期修改</a></li>
+                                                                <li><a class="btn-date-change">查看</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-c">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-small btn-change-1">信息修改</a>
+                                                            <ul class="sub-group" style="display: none;">
+                                                                <li><a >日期修改</a></li>
+                                                                <li><a class="btn-date-change">查看</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td class="text-c">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-small btn-change-1">信息修改</a>
+                                                            <ul class="sub-group" style="display: none;">
+                                                                <li><a >日期修改</a></li>
+                                                                <li><a class="btn-date-change">查看</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-c">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-small btn-change-1">信息修改</a>
+                                                            <ul class="sub-group" style="display: none;">
+                                                                <li><a >日期修改</a></li>
+                                                                <li><a class="btn-date-change">查看</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even">
+                                                    <td class="text-c">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-small btn-change-1">信息修改</a>
+                                                            <ul class="sub-group" style="display: none;">
+                                                                <li><a >日期修改</a></li>
+                                                                <li><a class="btn-date-change">查看</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                {% include component/pagenav-cf.html %}
+                            </div>
+                            <div class="tab-list-content">
+                                <div class="main-table clearfix">
+                                    <div class="fixed-table" style="margin-right: -1px">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>重点标识</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="even">
+                                                <td style="line-height: 30px">
+                                                    <i class=" icon-star icon-show "></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="line-height: 30px">
+                                                    <i class=" icon-star "></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td style="line-height: 30px">
+                                                    <i class=" icon-star icon-show "></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="line-height: 30px">
+                                                    <i class=" icon-star  "></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td style="line-height: 30px">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="line-height: 30px">
+                                                    <i class=" icon-star icon-show "></i>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="scroll-table" style="width: 80%;margin-left: -1px" >
+                                        <table cellpadding="0" cellspacing="0" class="data-table table-padding7 " >
+                                            <thead>
+                                            <tr>
+                                                <th width="10%">序号</th>
+                                                <th width="20%">产品类型</th>
+                                                <th width="10%">产品名称</th>
+                                                <th width="10%">产品代码</th>
+                                                <th width="20%">产品风险等级</th>
+                                                <th width="20%">销售开始日期</th>
+                                                <th width="20%">销售结束日期</th>
+                                                <th width="20%">开放开始日期</th>
+                                                <th width="20%">开放结束日期</th>
+                                                <th width="20%">产品到期日期</th>
+                                                <th width="20%">业绩提成基准（年化）</th>
+                                                <th width="10%">期限</th>
+                                                <th width="10%">1.0323</th>
+                                                <th width="10%">张德华</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td >货币型</td>
+                                                <td>银华货币</td>
+                                                <td>180008</td>
+                                                <td>中低</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-19</td>
+                                                <td>4.7</td>
+                                                <td>一段话</td>
+                                                <td>1.0323</td>
+                                                <td>张德华</td>
+
+
+                                            </tr>
+                                            <tr class="even">
+                                                <td>001</td>
+                                                <td >货币型</td>
+                                                <td>银华货币</td>
+                                                <td>180008</td>
+                                                <td>中低</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-19</td>
+                                                <td>4.7</td>
+                                                <td>一段话</td>
+                                                <td>1.0323</td>
+                                                <td>张德华</td>
+                                            </tr>
+                                            <tr>
+                                                <td>001</td>
+                                                <td >货币型</td>
+                                                <td>银华货币</td>
+                                                <td>180008</td>
+                                                <td>中低</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-19</td>
+                                                <td>4.7</td>
+                                                <td>一段话</td>
+                                                <td>1.0323</td>
+                                                <td>张德华</td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>001</td>
+                                                <td >货币型</td>
+                                                <td>银华货币</td>
+                                                <td>180008</td>
+                                                <td>中低</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-19</td>
+                                                <td>4.7</td>
+                                                <td>一段话</td>
+                                                <td>1.0323</td>
+                                                <td>张德华</td>
+                                            </tr>
+                                            <tr>
+                                                <td>001</td>
+                                                <td >货币型</td>
+                                                <td>银华货币</td>
+                                                <td>180008</td>
+                                                <td>中低</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-19</td>
+                                                <td>4.7</td>
+                                                <td>一段话</td>
+                                                <td>1.0323</td>
+                                                <td>张德华</td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>001</td>
+                                                <td >货币型</td>
+                                                <td>银华货币</td>
+                                                <td>180008</td>
+                                                <td>中低</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-12</td>
+                                                <td>2014-7-19</td>
+                                                <td>2014-7-19</td>
+                                                <td>4.7</td>
+                                                <td>一段话</td>
+                                                <td>1.0323</td>
+                                                <td>张德华</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="fixed-table">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+                                            <thead>
+                                            <tr>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-c">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-primary btn-small">剔除</a>
+                                                        <ul class="sub-group" style="display: none;">
+                                                            <li><a class="btn-date-change">查看</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td class="text-c">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-primary btn-small">剔除</a>
+                                                        <ul class="sub-group" style="display: none;">
+                                                            <li><a class="btn-date-change">查看</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-c">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-primary btn-small">剔除</a>
+                                                        <ul class="sub-group" style="display: none;">
+                                                            <li><a class="btn-date-change">查看</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td class="text-c">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-primary btn-small">剔除</a>
+                                                        <ul class="sub-group" style="display: none;">
+                                                            <li><a class="btn-date-change">查看</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-c">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-primary btn-small">剔除</a>
+                                                        <ul class="sub-group" style="display: none;">
+                                                            <li><a class="btn-date-change">查看</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td class="text-c">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-primary btn-small">剔除</a>
+                                                        <ul class="sub-group" style="display: none;">
+                                                            <li><a class="btn-date-change">查看</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="ui-pagenav">
+                                    <div class="page">
+                                        <ul class="clearfix">
+                                            <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
+                                            <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
+                                            <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
+                                            <li class="page-num"><a href="javascript:void(0)">3</a></li>
+                                            <li>...</li>
+                                            <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
+                                            <li>...</li>
+                                            <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
+                                            <li class="page-num"><a href="javascript:void(0)">19998</a></li>
+                                            <li class="page-num "><a href="javascript:void(0)">19999</a></li>
+                                            <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
+                                            <li>共20页，到第</li>
+                                            <li><input class="page-go" type="text"></li>
+                                            <li>页</li>
+                                            <li class="page-go-sure"><a href="">确定</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="button-content">
+                                    <button class="btn btn-fill btn-show-1">发布预览</button>
+                                </div>
+                            </div>
+                            <div class="tab-list-content">
+                                <div class="task-search clearfix">
+                                    <button class="btn btn-float-right" href="#">搜索</button>
+                                    <dl class="search-dl">
+                                        <dd>
+                                            <label class="icon-tria">
+                                                <input class="txt begin-time1" type="text" placeholder="选择发布日期" readonly style="width: 120px;"/>
+                                                <i></i>
+                                            </label>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="main-table">
+                                    <table width="100%" cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                                        <thead>
+                                        <tr>
+                                            <th width="10%">序号</th>
+                                            <th width="30%">发布日期</th>
+                                            <th width="15%">重点金融产品（个）</th>
+                                            <th width="15%">近期开放产品（个）</th>
+                                            <th width="15%" >近期到期产品（个）</th>
+                                            <th width="15%">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>重点金融产品信息表2017年8月29日</td>
+                                            <td>16个</td>
+                                            <td>3个</td>
+                                            <td>4个</td>
+                                            <td class="text-c">
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-primary btn-small btn-see">查看</a>
+                                                    <ul class="sub-group" style="display: none;">
+                                                        <li><a class="btn-date-change">导出</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>001</td>
+                                            <td>重点金融产品信息表2017年8月29日</td>
+                                            <td>16个</td>
+                                            <td>3个</td>
+                                            <td>4个</td>
+                                            <td class="text-c">
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-primary btn-small btn-see">查看</a>
+                                                    <ul class="sub-group" style="display: none;">
+                                                        <li><a class="btn-date-change">导出</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>重点金融产品信息表2017年8月29日</td>
+                                            <td>16个</td>
+                                            <td>3个</td>
+                                            <td>4个</td>
+                                            <td class="text-c">
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-primary btn-small btn-see">查看</a>
+                                                    <ul class="sub-group" style="display: none;">
+                                                        <li><a class="btn-date-change">导出</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>001</td>
+                                            <td>重点金融产品信息表2017年8月29日</td>
+                                            <td>16个</td>
+                                            <td>3个</td>
+                                            <td>4个</td>
+                                            <td class="text-c">
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-primary btn-small btn-see">查看</a>
+                                                    <ul class="sub-group" style="display: none;">
+                                                        <li><a class="btn-date-change">导出</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>重点金融产品信息表2017年8月29日</td>
+                                            <td>16个</td>
+                                            <td>3个</td>
+                                            <td>4个</td>
+                                            <td class="text-c">
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-primary btn-small btn-see">查看</a>
+                                                    <ul class="sub-group" style="display: none;">
+                                                        <li><a class="btn-date-change">导出</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td>001</td>
+                                            <td>重点金融产品信息表2017年8月29日</td>
+                                            <td>16个</td>
+                                            <td>3个</td>
+                                            <td>4个</td>
+                                            <td class="text-c">
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-primary btn-small btn-see">查看</a>
+                                                    <ul class="sub-group" style="display: none;">
+                                                        <li><a class="btn-date-change">导出</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="task-search clearfix">
 
             <dl class="search-dl">
                 <dd>
@@ -453,20 +1276,24 @@ class: sales-preview
                     </tbody>
                 </table>
             </div>
-        </div>
-        {% include component/pagenav-cf.html %}
+        </div>-->
+
     </div>
     <div class="dialog-item-wrap add-wrap" style="display: none;">
+        <a class="view-back"> &lt;&lt; 返回</a>
         <div class="dialog-item-border">
-            <div class="dialog-item-box-title">
-                选择登记的产品类型
-            </div>
             <div class="dialog-item-box-body">
                 <div class="dialog-item">
-                    <div class="dialog-left">选择产品</div>
+                    <div class="dialog-left">产品名称</div>
+                    <div class="dialog-right">
+                        <input class="dialog-input" placeholder="">
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="dialog-left">按产品发行</div>
                     <div class="dialog-right">
                         <select id="select00" class="diy-select">
-                            <option value="" >选择产品</option>
+                            <option value="" >按产品发行</option>
                             <option value="1">111</option>
                             <option value="2">222</option>
                             <option value="3">333</option>
@@ -474,10 +1301,20 @@ class: sales-preview
                     </div>
                 </div>
                 <div class="dialog-item">
-                    <div class="dialog-left">按产品发行方或产品管理人分</div>
+                    <div class="dialog-left">选择二级</div>
+                    <div class="dialog-right">
+                        <select id="select04" class="diy-select">
+                            <option value="" >基金专户</option>
+                            <option value="1">创新</option>
+                            <option value="2">定增</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dialog-item">
+                    <div class="dialog-left">按产品系列</div>
                     <div class="dialog-right">
                         <select id="select01" class="diy-select">
-                            <option value="" >请选择</option>
+                            <option value="" >系列1</option>
                             <option value="1">收益凭证</option>
                             <option value="2">信托产品</option>
                             <option value="3">信托产品</option>
@@ -485,41 +1322,10 @@ class: sales-preview
                     </div>
                 </div>
                 <div class="dialog-item">
-                    <div class="dialog-left">按产品风险等级分</div>
-                    <div class="dialog-right">
-                        <select id="select02" class="diy-select">
-                            <option value="" >请选择</option>
-                            <option value="1">高风险</option>
-                            <option value="2">中高风险</option>
-                            <option value="3">中风险</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="dialog-left">按产品类型分</div>
-                    <div class="dialog-right">
-                        <select id="select03" class="diy-select">
-                            <option value="" >请选择</option>
-                            <option value="1">货币类</option>
-                            <option value="2">权益基金类</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="dialog-left">按产品系列分</div>
-                    <div class="dialog-right">
-                        <select id="select04" class="diy-select">
-                            <option value="" >请选择</option>
-                            <option value="1">创新</option>
-                            <option value="2">定增</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="dialog-left">按产品来源分</div>
+                    <div class="dialog-left">风险等级</div>
                     <div class="dialog-right">
                         <select id="select05" class="diy-select">
-                            <option value="" >请选择</option>
+                            <option value="" ></option>
                             <option value="1">内部1</option>
                             <option value="2">内部2</option>
                             <option value="3">财通资管公募</option>
@@ -527,40 +1333,14 @@ class: sales-preview
                     </div>
                 </div>
                 <div class="dialog-item">
-                    <div class="dialog-left">按投资方向分</div>
+                    <div class="dialog-left">产品来源</div>
                     <div class="dialog-right">
                         <select id="select06" class="diy-select">
-                            <option value="" >请选择</option>
+                            <option value="" ></option>
                             <option value="1">债券</option>
                             <option value="2">货币</option>
                             <option value="3">财指数</option>
                         </select>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="dialog-left">评审通过日期</div>
-                    <div class="dialog-right">
-                        <input class="dialog-input" placeholder="评审通过日期">
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="w50p">
-                        <div class="dialog-left">产品特点</div>
-                        <div class="dialog-right">
-                            <textarea class="dialog-textarea" placeholder="111">我是文本域</textarea>
-                        </div>
-                    </div>
-                    <div class="w50p">
-                        <div class="dialog-left">发行规模</div>
-                        <div class="dialog-right">
-                            <textarea class="dialog-textarea" placeholder="111">我是文本域</textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="dialog-item">
-                    <div class="dialog-left">备注</div>
-                    <div class="dialog-right">
-                        <textarea class="dialog-textarea no-resize" placeholder="111"></textarea>
                     </div>
                 </div>
             </div>
@@ -588,18 +1368,24 @@ class: sales-preview
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">最新净值</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                            <div class="w50p">
                                 <div class="dialog-left">业绩提成基准(年化)</div>
                                 <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
                             </div>
+                            <div class="w50p">
+                                <div class="dialog-left">日期类型</div>
+                                <div class="dialog-right">
+                                    <select name="" id="select25" class="diy-select" style="display: none;">
+                                        <option value="">销售日期</option>
+                                        <option value="1">111</option>
+                                    </select>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
                                 <div class="dialog-left">期限</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value="一段话"></div>
                             </div>
                             <div class="w50p">
                                 <div class="dialog-left">成立日</div>
@@ -610,26 +1396,37 @@ class: sales-preview
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">销售日期</div>
+                                <div class="dialog-left">评审通过日期</div>
                                 <div class="dialog-right">
                                     <input class="dialog-input" placeholder="" value="">
-                                    <a>等待计算</a>
                                 </div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">日期类型</div>
+                                <div class="dialog-left">最新净值</div>
                                 <div class="dialog-right">
-                                    <select name="" id="select23" class="diy-select" style="display: none;">
-                                        <option value="">请选择</option>
-                                        <option value="1">111</option>
-                                    </select>
+                                    <input class="dialog-input" placeholder="" value="">
                                 </div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">评审通过日期</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="评审通过日期" value=""></div>
+                                <div class="dialog-left">销售日期</div>
+                                <div class="dialog-right">
+                                    <label class="icon-tria">
+                                        <input class="txt begin-time2" type="text" placeholder="选择日期" readonly style="width: 120px;"/>
+                                        <i></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left">产品最高募集金额（万元）</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left">人数控制</div>
+                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
                             </div>
                         </div>
                         <div class="dialog-item">
@@ -657,10 +1454,9 @@ class: sales-preview
                                 <div class="dialog-left">管理人</div>
                                 <div class="dialog-right">
                                     <select name="" id="select21" class="diy-select" style="display: none;">
-                                        <option value="">请选择</option>
+                                        <option value=""></option>
                                         <option value="1">111</option>
                                     </select>
-                                    <a class="tips">没有？新增</a>
                                 </div>
                             </div>
                             <div class="w50p">
@@ -670,18 +1466,38 @@ class: sales-preview
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">产品特点</div>
-                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
+                                <div class="dialog-left dialog-left-top">产品特点</div>
+                                <div class="dialog-right">
+                                    <textarea class="dialog-textarea no-resize" placeholder="" name="textarea2" required="" aria-required="true"></textarea>
+                                </div>
                             </div>
                             <div class="w50p">
-                                <div class="dialog-left">发行规模</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
+                                <div class="dialog-left dialog-left-top">发行规模</div>
+                                <div class="dialog-right">
+                                    <textarea class="dialog-textarea no-resize" placeholder="" name="textarea2" required="" aria-required="true"></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="dialog-item">
                             <div class="w50p">
-                                <div class="dialog-left">人数控制</div>
-                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
+                                <div class="dialog-left dialog-left-top">推荐理由</div>
+                                <div class="dialog-right">
+                                    <textarea class="dialog-textarea no-resize" placeholder="" name="textarea2" required="" aria-required="true"></textarea>
+                                </div>
+                            </div>
+                            <div class="w50p">
+                                <div class="dialog-left dialog-left-top">销售奖励</div>
+                                <div class="dialog-right">
+                                    <textarea class="dialog-textarea no-resize" placeholder="" name="textarea2" required="" aria-required="true"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-item">
+                            <div class="w50p">
+                                <div class="dialog-left dialog-left-top">备注</div>
+                                <div class="dialog-right">
+                                    <textarea class="dialog-textarea no-resize" placeholder="" name="textarea2" required="" aria-required="true"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -690,525 +1506,225 @@ class: sales-preview
         </div>
         <div class="button-content page-footer-button-container">
             <button class="btn btn-fill">确定</button>
-            <button class="btn btn-gray" id="detailsBtnCancel">取消</button>
+            <button class="btn btn-gray" id="detailsBtnCancel-2">取消</button>
         </div>
     </div>
-    <div class="dialog-item-wrap edit-wrap" style="display: none;">
+    <div class="dialog-item-wrap edit-show-1"  style="display: none;" >
         <a class="view-back"> &lt;&lt; 返回</a>
-        <div class="dialog-item-border" style="position: relative">
-            <div class="dialog-item-box-body">
-                <div class="tabs-body">
-                    <div class="tabs-content on">
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">产品代码</div>
-                                <div class="dialog-right">001</div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">产品名称</div>
-                                <div class="dialog-right">产品名称</div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">最新净值</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">业绩提成基准(年化)</div>
-                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">期限</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">成立日</div>
-                                <div class="dialog-right">
-                                    <input class="dialog-input" type="text" placeholder="" value="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">销售日期</div>
-                                <div class="dialog-right">
-                                    <input class="dialog-input" placeholder="" value="">
-                                    <a>等待计算</a>
-                                </div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">日期类型</div>
-                                <div class="dialog-right">
-                                    <select name="" id="select24" class="diy-select" style="display: none;">
-                                        <option value="">请选择</option>
-                                        <option value="1">111</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">评审通过日期</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="评审通过日期" value=""></div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">个人认购起点</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">个人申购起点</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">机构认购起点</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">机构申购起点</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">管理人</div>
-                                <div class="dialog-right">
-                                    <select name="" id="select22" class="diy-select" style="display: none;">
-                                        <option value="">请选择</option>
-                                        <option value="1">111</option>
-                                    </select>
-                                    <a class="tips">没有？新增</a>
-                                </div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">投资经理</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">产品特点</div>
-                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
-                            </div>
-                            <div class="w50p">
-                                <div class="dialog-left">发行规模</div>
-                                <div class="dialog-right"><input class="dialog-input" placeholder="" value=""></div>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="w50p">
-                                <div class="dialog-left">人数控制</div>
-                                <div class="dialog-right"><input class="dialog-input" type="text" placeholder="" value=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="button-content page-footer-button-container">
-            <button class="btn btn-fill">确定</button>
-            <button class="btn btn-gray" id="editBtnCancel">取消</button>
-        </div>
-    </div>
-    <div class="dialog-item-wrap edit-wrap edit-add-new"  style="display: none" >
-        <a class="view-back" > &lt;&lt; 返回</a>
-        <div class="task-search clearfix" style="margin-top: 20px">
-            <button class="btn btn-float-right" href="#">搜索</button>
-            <input type="text" class="aql-input small-input" placeholder="产品名称">
-        </div>
-        <div class="channel-add-new" >
-            <div class="left-new">
-                <div class="main-table clearfix">
-                    <div class="scroll-table" style="width: 100%;height: 327px;overflow: auto">
-                        <table cellpadding="0" cellspacing="0" class="data-table table-padding7 table-choice" style="border-width:1px 0px 0px 0px">
-                            <thead>
-                            <tr>
-                                <th width="10%">序号</th>
-                                <th width="20%">登记日期</th>
-                                <th width="10%">产品代码</th>
-                                <th width="20%">产品名称</th>
-                                <th width="10%">管理人</th>
-                                <th width="10%">操作员</th>
-                                <th width="10%">审核状态</th>
-                                <th width="10%">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>2017-03-06 10:01</td>
-                                <td class="channel-code">无</td>
-                                <td class="channel-name">资管集合计划1</td>
-                                <td>财通资管</td>
-                                <td>大康</td>
-                                <td>用印审核中</td>
-                                <td class="text-c">
-                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                </td>
-
-                            </tr>
-                            <tr class="even">
-                                <td>001</td>
-                                <td>2017-03-06 10:01</td>
-                                <td class="channel-code">无</td>
-                                <td class="channel-name">资管集合计划1</td>
-                                <td>财通资管</td>
-                                <td>大康</td>
-                                <td>用印审核中</td>
-                                <td class="text-c">
-                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>001</td>
-                                <td>2017-03-06 10:01</td>
-                                <td class="channel-code">无</td>
-                                <td class="channel-name">资管集合计划1</td>
-                                <td>财通资管</td>
-                                <td>大康</td>
-                                <td>用印审核中</td>
-                                <td class="text-c">
-                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <td>001</td>
-                                <td>2017-03-06 10:01</td>
-                                <td class="channel-code">无</td>
-                                <td class="channel-name">资管集合计划1</td>
-                                <td>财通资管</td>
-                                <td>大康</td>
-                                <td>用印审核中</td>
-                                <td class="text-c">
-                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>001</td>
-                                <td>2017-03-06 10:01</td>
-                                <td class="channel-code">无</td>
-                                <td class="channel-name">资管集合计划1</td>
-                                <td>财通资管</td>
-                                <td>大康</td>
-                                <td>用印审核中</td>
-                                <td class="text-c">
-                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <td>001</td>
-                                <td>2017-03-06 10:01</td>
-                                <td class="channel-code">无</td>
-                                <td class="channel-name">资管集合计划1</td>
-                                <td>财通资管</td>
-                                <td>大康</td>
-                                <td>用印审核中</td>
-                                <td class="text-c">
-                                    <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-                <div class="ui-pagenav">
-                    <div class="page">
-                        <ul class="clearfix">
-                            <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
-                            <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
-                            <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
-                            <li class="page-num"><a href="javascript:void(0)">3</a></li>
-                            <li>...</li>
-                            <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
-                            <li>...</li>
-                            <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
-                            <li class="page-num"><a href="javascript:void(0)">19998</a></li>
-                            <li class="page-num "><a href="javascript:void(0)">19999</a></li>
-                            <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
-                            <li>共20页，到第</li>
-                            <li><input class="page-go" type="text"></li>
-                            <li>页</li>
-                            <li class="page-go-sure"><a href="">确定</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="center-new">
-                <img src="../images/caitong/btn-jt.png" class="icon-jt">
-            </div>
-            <div class="right-new">
-                <div class="dialog-item-wrap">
-                    <div class="dialog-item-border" >
-                        <div class="dialog-item-box-title" >选择产品信息</div>
-                        <div class="dialog-item">
-                            <div class="dialog-left">产品代码</div>
-                            <div class="dialog-right">
-                                <input class="dialog-input input-code" placeholder="" value="" style="width: 150px">
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="dialog-left">按产品发行</div>
-                            <div class="dialog-right">
-                                <select id="select1_1" class="diy-select" style="display: none;">
-                                    <option value="" >私募基金产品</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="dialog-left">选择二级</div>
-                            <div class="dialog-right">
-                                <select id="select1_2" class="diy-select" style="display: none;">
-                                    <option value="" >基金专户</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="dialog-left">按产品系列</div>
-                            <div class="dialog-right">
-                                <select id="select1_3" class="diy-select" style="display: none;">
-                                    <option value="" >私募基金产品</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="dialog-left">风险等级</div>
-                            <div class="dialog-right">
-                                <select id="select1_4" class="diy-select" style="display: none;">
-                                    <option value="" >风险等级1</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="dialog-item">
-                            <div class="dialog-left">产品来源</div>
-                            <div class="dialog-right">
-                                <select id="select1_6" class="diy-select" style="display: none;">
-                                    <option value="" >私募基金产品</option>
-                                    <option value="1">1111</option>
-                                    <option value="2">2222</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="button-content" style="text-align: center;margin-top: 30px;float: left;width: 100%">
-                <button class="btn btn-fill btn-next" style="margin-right: 10px;">下一步</button>
-                <button class="btn btn-gray btnCancel">取消</button>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="dialog-item-wrap edit-wrap edit-add-date"  style="display: none;" >
-        <a class="view-back"> &lt;&lt; 返回</a>
-
-        <div class="task-search clearfix" style="margin-top: 10px">
-            <button class="btn btn-float-right btn-dates" href="#">发布到日历</button>
-            <button class="btn btn-float-right btn-no-import" href="#">取消重点</button>
-            <button class="btn btn-float-right btn-import" href="#">设置为重点</button>
-
-
-
-        </div>
-
+        <h2 class="h-center">重点金融产品信息表2017年8月22日</h2>
         <div class="main-table clearfix">
-            <div class="fixed-table" style="margin-right: -1px">
-                <table width="100%" cellpadding="0" cellspacing="0" class="data-table">
+            <div class="scroll-table scroll-table-x" style="width: 100%">
+                <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
                     <thead>
                     <tr>
-                        <th><span class="param-checkbox checkAll"></span>全选</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="even">
-                        <td style="line-height: 30px"><span class="param-checkbox checkbox-checked" style="margin-top: 6px;margin-right: 8px"></span>001</td>
-                    </tr>
-                    <tr>
-                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
-                    </tr>
-                    <tr class="even">
-                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
-                    </tr>
-                    <tr>
-                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
-                    </tr>
-                    <tr class="even">
-                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
-                    </tr>
-                    <tr>
-                        <td style="line-height: 30px"><span class="param-checkbox" style="margin-top: 6px;margin-right: 8px"></span>001</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="scroll-table" style="width: 90%;">
-                <table cellpadding="0" cellspacing="0" class="data-table table-padding7 " >
-                    <thead>
-                    <tr>
-                        <th width="20%">重点标识</th>
-                        <th width="10%">日期类型</th>
-                        <th width="20%">产品类型</th>
+                        <th width="10%">产品类型</th>
                         <th width="10%">产品名称</th>
                         <th width="10%">产品代码</th>
-                        <th width="20%">产品风险等级</th>
-                        <th width="20%">销售开始日期</th>
-                        <th width="20%">销售结束日期</th>
-                        <th width="20%">开放开始日期</th>
-                        <th width="20%">开放结束日期</th>
-                        <th width="20%">产品到期日期</th>
+                        <th width="10%">产品风险等级</th>
+                        <th width="20%">最近开放日期</th>
                         <th width="20%">业绩提成基准（年化）</th>
-                        <th width="10%">最新净值</th>
-                        <th width="10%">管理人</th>
-                        <th width="10%">发布状态</th>
+                        <th width="20%">期限</th>
+                        <th width="20%">产品特点</th>
+                        <th width="20%">最新净值（截止至3.10）</th>
+                        <th width="20%">最新净值（截止到3.17）</th>
+                        <th><div class="th-width"></div></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><i class=" icon-star icon-show "></i></td>
-                        <td class="channel-code">销售</td>
-                        <td class="channel-name">货币型</td>
-                        <td>银华货币</td>
-                        <td>180008</td>
+                    <tr >
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
                         <td>中低</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-19</td>
+                        <td>3.14-3.24</td>
                         <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
                         <td>1.0323</td>
-                        <td>张德华</td>
-                        <td>未发布</td>
-
-
-                    </tr>
-                    <tr class="even">
-                        <td><i class="icon-star  "></i></td>
-                        <td class="channel-code">销售</td>
-                        <td class="channel-name">货币型</td>
-                        <td>银华货币</td>
-                        <td>180008</td>
-                        <td>中低</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-19</td>
-                        <td>4.7</td>
                         <td>1.0323</td>
-                        <td>张德华</td>
-                        <td>未发布</td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td><i class="icon-star  "></i></td>
-                        <td class="channel-code">销售</td>
-                        <td class="channel-name">货币型</td>
-                        <td>银华货币</td>
-                        <td>180008</td>
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
                         <td>中低</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-19</td>
+                        <td>3.14-3.24</td>
                         <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
                         <td>1.0323</td>
-                        <td>张德华</td>
-                        <td>未发布</td>
-                    </tr>
-                    <tr class="even">
-                        <td><i class="icon-star  "></i></td>
-                        <td class="channel-code">销售</td>
-                        <td class="channel-name">货币型</td>
-                        <td>银华货币</td>
-                        <td>180008</td>
-                        <td>中低</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-19</td>
-                        <td>4.7</td>
                         <td>1.0323</td>
-                        <td>张德华</td>
-                        <td>未发布</td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td><i class="icon-star  "></i></td>
-                        <td class="channel-code">销售</td>
-                        <td class="channel-name">货币型</td>
-                        <td>银华货币</td>
-                        <td>180008</td>
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
                         <td>中低</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-19</td>
+                        <td>3.14-3.24</td>
                         <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
                         <td>1.0323</td>
-                        <td>张德华</td>
-                        <td>未发布</td>
+                        <td>1.0323</td>
+                        <td></td>
                     </tr>
-                    <tr class="even">
-                        <td><i class="icon-star "></i></td>
-                        <td class="channel-code">销售</td>
-                        <td class="channel-name">货币型</td>
-                        <td>银华货币</td>
-                        <td>180008</td>
+                    <tr >
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
                         <td>中低</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-12</td>
-                        <td>2014-7-19</td>
-                        <td>2014-7-19</td>
+                        <td>3.14-3.24</td>
                         <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
                         <td>1.0323</td>
-                        <td>张德华</td>
-                        <td>未发布</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
-        <div class="ui-pagenav">
-            <div class="page">
-                <ul class="clearfix">
-                    <li class="page-up"><a href="javascript:void(0)"> &lt; 上一页</a></li>
-                    <li class="page-num first-num"><a href="javascript:void(0)">1</a></li>
-                    <li class="page-num thisPage"><a href="javascript:void(0)">2</a></li>
-                    <li class="page-num"><a href="javascript:void(0)">3</a></li>
-                    <li>...</li>
-                    <li class="page-num page-right"><a href="javascript:void(0)">1900</a></li>
-                    <li>...</li>
-                    <li class="page-num page-right"><a href="javascript:void(0)">19997</a></li>
-                    <li class="page-num"><a href="javascript:void(0)">19998</a></li>
-                    <li class="page-num "><a href="javascript:void(0)">19999</a></li>
-                    <li class="page-down"><a href="javascript:void(0)">下一页&gt; </a></li>
-                    <li>共20页，到第</li>
-                    <li><input class="page-go" type="text"></li>
-                    <li>页</li>
-                    <li class="page-go-sure"><a href="">确定</a></li>
-                </ul>
+        <div class="button-content">
+            <button class="btn btn-fill" id="detailsBtnTrue-1">确定发布</button>
+            <button class="btn btn-gray" id="detailsBtnCancel-3">返回修改</button>
+        </div>
+
+    </div>
+    <div class="dialog-item-wrap edit-show-2"  style="display: none;" >
+        <a class="view-back"> &lt;&lt; 返回</a>
+        <h2 class="h-center">重点金融产品信息表2017年8月22日</h2>
+        <div class="main-table clearfix">
+            <div class="scroll-table scroll-table-x" style="width: 100%">
+                <table cellpadding="0" cellspacing="0" class="data-table table-padding7">
+                    <thead>
+                    <tr>
+                        <th width="10%">产品类型</th>
+                        <th width="10%">产品名称</th>
+                        <th width="10%">产品代码</th>
+                        <th width="10%">产品风险等级</th>
+                        <th width="20%">最近开放日期</th>
+                        <th width="20%">业绩提成基准（年化）</th>
+                        <th width="20%">期限</th>
+                        <th width="20%">产品特点</th>
+                        <th width="20%">最新净值（截止至3.10）</th>
+                        <th width="20%">最新净值（截止到3.17）</th>
+                        <th><div class="th-width"></div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>近期到期产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>近期开放产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr >
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>近期重点产品</td>
+                        <td>财通基金-新三板机遇3号</td>
+                        <td>722270</td>
+                        <td>中低</td>
+                        <td>3.14-3.24</td>
+                        <td>4.7</td>
+                        <td>2+1+1+1年</td>
+                        <td>一段话</td>
+                        <td>1.0323</td>
+                        <td>1.0323</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
+
     </div>
 
 
