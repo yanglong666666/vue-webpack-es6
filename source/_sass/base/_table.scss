@@ -110,6 +110,7 @@
                     height: 20px;
                     background: url(../images/caitong/icon-hidden.png);
                     vertical-align: middle;
+                    cursor: pointer;
                     &.icon-show{
                         display: inline-block;
                         width: 21px;
@@ -272,7 +273,7 @@
             display: inline-block;
             .btn {
                 position: relative;
-                padding-right: 30px;
+                padding: 0 20px 0 8px;
                 background-image: url(../images/caitong/icon-blue-more.png);
                 background-repeat: no-repeat;
                 background-position: 90% 50%;

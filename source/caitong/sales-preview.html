@@ -268,6 +268,10 @@ class: sales-preview
         title1.bind('DOMNodeInserted', function() {
             $(this).css({'color':'#333'})
         });
+
+        $('.icon-star').on('click',function(){
+           $(this).toggleClass('icon-show');
+        });
     });
 </script>
 <div class="page-sales-preview">
