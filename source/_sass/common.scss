@@ -887,9 +887,36 @@ input[type="text"] {
 .wrap-404 {
     width: 644px;
     height: 242px;
-    margin: 120px auto 0px;
+    margin: 120px auto 0;
 }
-
+.wrap-unlogin {
+    text-align: center;
+    margin-top: 8%;
+    .unlogin-img {
+        margin: 0 auto;
+    }
+    p {
+        font-size: 16px;
+        color: #7d7d7d;
+        margin: 30px 0;
+    }
+    .tips {
+        height: 16px;
+        line-height: 16px;
+        position: relative;
+        color: #7d7d7d;
+        margin: 15px 0;
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: top;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            background: url(../images/caitong/loading.png) no-repeat 0 50%;
+        }
+    }
+}
 .channel-add-new{
     height: auto;
     overflow: hidden;

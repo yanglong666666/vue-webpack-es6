@@ -1,0 +1,25 @@
+---
+title: 未登录
+layout: default-iframe
+---
+
+<div class="main-content">
+    <div class="wrap-unlogin">
+        <img src="../images/caitong/unlogin.png" class="unlogin-img"  />
+        <p>用户未登录或已超时</p>
+        <button class="btn btn-primary">点此重新登录</button>
+        <div class="tips"><span>5</span>秒后系统会自动跳转到登录页</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var interval = setInterval(function(){
+            $('.tips span').text($('.tips span').text() - 1);
+            if($('.tips span').text() <= 0){
+                clearInterval(interval);
+                parent.window.location.href = 'login.html';
+            }
+        },1000);
+    });
+</script>
