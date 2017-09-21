@@ -273,77 +273,77 @@ class: sales-preview
 <div class="page-sales-preview">
     <div class="main-content">
         <div class="clearfix">
-            <div class="left-table" style="width: 58%;float: left">
+            <div class="left-table" style="width: calc(100% - 630px);float: left">
                 <div class="dialog-item-wrap">
-                    <div class="dialog-item-border" style="border: 0">
-                        <div class="dialog-item-box-title" style="border: 1px solid #e8e8e8;background: #e8e9ed">
+                    <div class="dialog-item-border" style="border-radius: 0;">
+                        <div class="dialog-item-box-title" style="background: #e8e9ed;border-radius: 0;">
                             待发布预告（<span class="list-total">4</span>)
                         </div>
                         <div class="dialog-item-box-body" style="margin: 0">
-                            <div class="main-table clearfix">
-                                <div class="scroll-table" style="width: 100%;height: 236px;overflow: auto;">
-                                    <table cellpadding="0" cellspacing="0"
-                                           class="data-table table-choice"
-                                           style="border-width: 0px 1px 0px 1px">
-                                        <thead style="background: #f9f9f9">
-                                        <tr>
-                                            <th width="20%">产品名称</th>
-                                            <th width="15%">产品代码</th>
-                                            <th width="20%">产品管理人</th>
-                                            <th width="25%">产品引入状态</th>
-                                            <th width="20%">操作</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>资管集合计划1</td>
-                                            <td>产品代码2</td>
-                                            <td>管理人</td>
-                                            <td>引入完成状态</td>
-                                            <td class="text-c">
-                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                            </td>
+                            <div class="task-search clearfix" style="margin: 10px 10px 6px;">
+                                <button class="btn btn-float-right" href="#">搜索</button>
+                                <input type="text" class="aql-input small-input" placeholder="产品代码">
+                                <input type="text" class="aql-input small-input" placeholder="产品类型">
+                            </div>
+                            <div class="main-table clearfix" style="overflow: hidden;overflow-y: auto;margin: 0;height: 183px;">
+                                <table cellpadding="0" cellspacing="0"
+                                       class="data-table table-choice"
+                                       style="border-width: 1px 0 0 0">
+                                    <thead>
+                                    <tr>
+                                        <th width="20%">产品名称</th>
+                                        <th width="15%">产品代码</th>
+                                        <th width="20%">产品管理人</th>
+                                        <th width="25%">产品引入状态</th>
+                                        <th width="20%">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>资管集合计划1</td>
+                                        <td>产品代码2</td>
+                                        <td>管理人</td>
+                                        <td>引入完成状态</td>
+                                        <td class="text-c">
+                                            <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                        </td>
 
-                                        </tr>
-                                        <tr class="even">
-                                            <td>资管集合计划1</td>
-                                            <td>产品代码2</td>
-                                            <td>管理人</td>
-                                            <td>引入完成状态</td>
-                                            <td class="text-c">
-                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>资管集合计划1</td>
-                                            <td>产品代码2</td>
-                                            <td>管理人</td>
-                                            <td>引入完成状态</td>
-                                            <td class="text-c">
-                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                            </td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td>资管集合计划1</td>
-                                            <td>产品代码2</td>
-                                            <td>管理人</td>
-                                            <td>引入完成状态</td>
-                                            <td class="text-c">
-                                                <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                                    </tr>
+                                    <tr class="even">
+                                        <td>资管集合计划1</td>
+                                        <td>产品代码2</td>
+                                        <td>管理人</td>
+                                        <td>引入完成状态</td>
+                                        <td class="text-c">
+                                            <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>资管集合计划1</td>
+                                        <td>产品代码2</td>
+                                        <td>管理人</td>
+                                        <td>引入完成状态</td>
+                                        <td class="text-c">
+                                            <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td>资管集合计划1</td>
+                                        <td>产品代码2</td>
+                                        <td>管理人</td>
+                                        <td>引入完成状态</td>
+                                        <td class="text-c">
+                                            <a href="#" class="btn btn-primary btn-small btn-change">选择</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-            <div class="right-table" style="width: 40%;float: right;height: 272px;border: 1px solid #e8e8e8">
+            <div class="right-table" style="width: 600px;float: right;height: 272px;border: 1px solid #e8e8e8">
                 <div class="top-title">
                     <h2>数据统计</h2>
                     <span class="time-end">时间截止2017年8月29日</span>
@@ -719,32 +719,32 @@ class: sales-preview
                                             </thead>
                                             <tbody>
                                             <tr class="even">
-                                                <td style="line-height: 30px">
+                                                <td>
                                                     <i class=" icon-star icon-show "></i>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="line-height: 30px">
+                                                <td>
                                                     <i class=" icon-star "></i>
                                                 </td>
                                             </tr>
                                             <tr class="even">
-                                                <td style="line-height: 30px">
+                                                <td>
                                                     <i class=" icon-star icon-show "></i>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="line-height: 30px">
+                                                <td>
                                                     <i class=" icon-star  "></i>
                                                 </td>
                                             </tr>
                                             <tr class="even">
-                                                <td style="line-height: 30px">
+                                                <td>
                                                     <i class="icon-star"></i>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="line-height: 30px">
+                                                <td>
                                                     <i class=" icon-star icon-show "></i>
                                                 </td>
                                             </tr>
