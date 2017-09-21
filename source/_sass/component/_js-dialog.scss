@@ -9,6 +9,7 @@
     width: 128px;
     border: 1px solid $border-color;
     padding: 9px 10px;
+      line-height: 1;
   }
   .js-dialog-hd {
     height: 36px;
@@ -28,8 +29,6 @@
   }
   .js-dialog-bd {
     //background-color: #fff;
-    word-wrap: break-word;
-    word-break: break-all;
     //border-radius: 0 0 10px 10px;
     .icon {
       margin-right: 5px;

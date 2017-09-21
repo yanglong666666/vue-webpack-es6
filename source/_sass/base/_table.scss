@@ -278,9 +278,10 @@
                 background-repeat: no-repeat;
                 background-position: 90% 50%;
                 background-size: 10px 6px;
-                line-height: 28px;
+                line-height: 26px;
+                vertical-align: top;
                 &.btn-change-big {
-                    line-height: 28px;
+                    line-height: 26px;
                 }
 
             }
@@ -288,7 +289,7 @@
                 display: none;
                 position: absolute;
                 left: 0;
-                top: 30px;
+                top: 28px;
                 z-index: 10;
                 border: 1px solid #3f88cc;
                 border-top: 0;
@@ -366,6 +367,15 @@
     }
     .scroll-table, .fixed-table {
         float: left;
+        .data-table {
+            td {
+                line-height: 28px;
+                .btn {
+                    line-height: 26px;
+                    vertical-align: top;
+                }
+            }
+        }
     }
     .scroll-table {
         width: 90%;
@@ -398,9 +408,6 @@
                 white-space: nowrap;
                 min-width: 50px;
             }
-            td {
-                line-height: 28px;
-            }
         }
 
     }
@@ -408,7 +415,7 @@
         width: 10%;
         .data-table {
             tbody td {
-                padding: 9px 7px;
+                padding: 10px;
             }
         }
     }
