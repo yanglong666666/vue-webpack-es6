@@ -30,51 +30,51 @@
                         color: #e4788c;
                     }
                 }
-                .icon-tab {
+                &.tableSort {
                     cursor: pointer;
-                    &:after {
-                        content: "";
+                    i {
+                        width: 8px;
+                        height: 10px;
+                        position: relative;
                         display: inline-block;
-                        width: 9px;
-                        height: 7px;
-                        background: url(../images/icolist.png) -60px -50px no-repeat;
-                        margin: 0 0 0 2px;
+                        &:before {
+                            content: "";
+                            display: inline-block;
+                            width: 0;
+                            height: 0;
+                            border: solid 4px;
+                            border-color: transparent transparent #707a86 transparent;
+                            position: absolute;
+                            top: -4px;
+                            left: 0;
+                        }
+                        &:after {
+                            content: "";
+                            display: inline-block;
+                            width: 0;
+                            height: 0;
+                            border: solid 4px;
+                            border-color: #707a86 transparent transparent transparent;
+                            position: absolute;
+                            top: 6px;
+                            left: 0;
+                        }
                     }
-                }
-
-                .icon-high {
-                    cursor: pointer;
-                    &:after {
-                        content: "";
-                        display: inline-block;
-                        width: 9px;
-                        height: 7px;
-                        background: url(../images/icolist.png) -60px -50px no-repeat;
-                        margin: 0 0 2px 2px;
-                        transform:rotate(180deg);
-                        -ms-transform:rotate(180deg);
-                        -moz-transform:rotate(180deg);
-                        -webkit-transform:rotate(180deg);
-                        -o-transform:rotate(180deg);
+                    &.up {
+                        color: red;
+                        i {
+                            &:before {
+                                border-color: transparent transparent red transparent;
+                            }
+                        }
                     }
-                }
-
-                .icon-high-dis {
-                    cursor: pointer;
-                    position: relative;
-                    &:after{
-                        content: "";
-                        background: none;
-                    }
-                    &:before{
-                        content: "";
-                        display: inline-block;
-                        height:2px;
-                        width: 11px;
-                        background: #707a86;
-                        position: absolute;
-                        top:8px;
-
+                    &.down {
+                        color: red;
+                        i {
+                            &:after {
+                                border-color: red transparent transparent transparent;
+                            }
+                        }
                     }
                 }
 
